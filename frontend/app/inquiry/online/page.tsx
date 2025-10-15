@@ -5,7 +5,9 @@ import { Footer } from "@/components/footer"
 import { Card, CardContent } from "@/components/ui/data-display/card"
 import { Badge } from "@/components/ui/data-display/badge"
 import { InquiryFormDialog } from "@/components/inquiry-form-dialog"
-import { MessageSquare, Calendar, User, Eye } from "lucide-react"
+import { CheckCircle2, Clock, Send, AlertTriangle } from "lucide-react"
+import { inquiryConfig } from "../config"
+import { InquiryList } from "../components/InquiryList"
 
 const inquiries = [
   {
@@ -91,74 +93,58 @@ const inquiries = [
 ]
 
 export default function OnlineInquiryPage() {
+  const StatusBadge = ({ status }: { status: string }) => {
+    const style =
+      status === "확정"
+        ? "bg-green-100 text-green-700"
+        : status === "완료"
+        ? "bg-emerald-100 text-emerald-700"
+        : status === "견적발송"
+        ? "bg-blue-100 text-blue-700"
+        : status === "검토중"
+        ? "bg-orange-100 text-orange-700"
+        : "bg-gray-100 text-gray-700"
+    const Icon =
+      status === "확정" || status === "완료"
+        ? CheckCircle2
+        : status === "견적발송"
+        ? Send
+        : status === "검토중"
+        ? AlertTriangle
+        : Clock
+    return (
+      <span className={`inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-medium ${style}`}>
+        <Icon className="h-3.5 w-3.5" />
+        {status}
+      </span>
+    )
+  }
   return (
     <div className="flex min-h-screen flex-col">
       <Header />
 
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="bg-gradient-to-r from-blue-600 to-purple-600 py-16 text-white">
-          <div className="container mx-auto px-4">
+        <section className="relative overflow-hidden bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 py-12">
+          <div className="absolute inset-0 bg-[url('/home/abstract-tech-pattern.png')] opacity-5" />
+          <div className="container relative mx-auto px-4">
             <div className="mx-auto max-w-3xl text-center">
-              <h1 className="mb-4 text-4xl font-bold">출강 수업 문의</h1>
-              <p className="mb-6 text-xl text-blue-100">학교, 기업, 기관 등 어디든 찾아가는 맞춤형 AI 교육 서비스</p>
-              <InquiryFormDialog />
+              <div className="mb-6 inline-flex rounded-full bg-blue-100 px-4 py-2 text-sm font-semibold text-blue-700">
+                📝 새로운 출강 교육 문의
+              </div>
+              <h1 className="mb-4 text-4xl font-bold text-gray-900 md:text-5xl">출강 수업 문의</h1>
+              <p className="mb-8 text-lg text-gray-600 md:text-xl">학교, 기업, 기관 등 어디든 찾아가는 맞춤형 AI 교육 서비스</p>              
             </div>
           </div>
         </section>
 
-        <section className="py-12">
+        <section className="bg-white py-16">
           <div className="container mx-auto px-4">
-            <div className="mx-auto max-w-4xl">
-              <div className="mb-8">
-                <h2 className="mb-2 text-2xl font-bold">출강 수업 문의 게시판</h2>
-                <p className="text-gray-600">다른 기관들의 문의 사례를 참고하세요</p>
-              </div>
+            <div className="mx-auto max-w-5xl">
 
-              <div className="space-y-3">
-                {inquiries.map((inquiry) => (
-                  <Card key={inquiry.id} className="transition-shadow hover:shadow-md">
-                    <CardContent className="p-4">
-                      <div className="flex items-start gap-4">
-                        <div className="flex-1">
-                          <div className="mb-2 flex items-center gap-2">
-                            <Badge variant="outline" className="text-xs">
-                              {inquiry.category}
-                            </Badge>
-                            <Badge
-                              variant={inquiry.status === "답변완료" ? "default" : "secondary"}
-                              className="text-xs"
-                            >
-                              {inquiry.status}
-                            </Badge>
-                          </div>
-                          <h3 className="mb-2 text-lg font-semibold text-gray-900 hover:text-blue-600">
-                            {inquiry.title}
-                          </h3>
-                          <p className="mb-3 text-sm text-gray-600 line-clamp-1">{inquiry.preview}</p>
-                          <div className="flex items-center gap-4 text-xs text-gray-500">
-                            <div className="flex items-center gap-1">
-                              <User className="h-3 w-3" />
-                              <span>{inquiry.author}</span>
-                            </div>
-                            <div className="flex items-center gap-1">
-                              <Calendar className="h-3 w-3" />
-                              <span>{inquiry.date}</span>
-                            </div>
-                            <div className="flex items-center gap-1">
-                              <Eye className="h-3 w-3" />
-                              <span>{inquiry.views}</span>
-                            </div>
-                          </div>
-                        </div>
-                        <MessageSquare className="h-5 w-5 flex-shrink-0 text-gray-400" />
-                      </div>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
+              <InquiryList initialItems={inquiryConfig.items} />
 
-              <div className="mt-8 text-center">
+              <div className="mt-2 text-right">
                 <InquiryFormDialog />
               </div>
             </div>
@@ -166,45 +152,53 @@ export default function OnlineInquiryPage() {
         </section>
 
         {/* Info Section */}
-        <section className="bg-gray-50 py-12">
+        <section className="bg-gradient-to-br from-blue-50/50 to-purple-50/50 py-16">
           <div className="container mx-auto px-4">
-            <div className="mx-auto max-w-4xl">
-              <h2 className="mb-6 text-2xl font-bold">출강 수업 안내</h2>
+            <div className="mx-auto max-w-5xl">
+              <h2 className="mb-10 text-center text-3xl font-bold text-gray-900">출강 수업 안내</h2>
               <div className="grid gap-6 md:grid-cols-2">
-                <Card>
+                <Card className="border-blue-100 bg-white/80 shadow-sm transition-shadow hover:shadow-md">
                   <CardContent className="p-6">
-                    <h3 className="mb-3 text-lg font-semibold text-gray-900">출강 가능 지역</h3>
-                    <p className="text-sm leading-relaxed text-gray-600">
+                    <h3 className="mb-3 flex items-center gap-2 text-lg font-semibold text-blue-700">
+                      📍 출강 가능 지역
+                    </h3>
+                    <p className="leading-relaxed text-gray-700">
                       서울, 경기 지역은 기본 출강이 가능하며, 그 외 지역은 별도 협의를 통해 진행 가능합니다. 최소 인원
                       10명 이상부터 출강이 가능합니다.
                     </p>
                   </CardContent>
                 </Card>
 
-                <Card>
+                <Card className="border-purple-100 bg-white/80 shadow-sm transition-shadow hover:shadow-md">
                   <CardContent className="p-6">
-                    <h3 className="mb-3 text-lg font-semibold text-gray-900">교육 과정</h3>
-                    <p className="text-sm leading-relaxed text-gray-600">
+                    <h3 className="mb-3 flex items-center gap-2 text-lg font-semibold text-purple-700">
+                      📚 교육 과정
+                    </h3>
+                    <p className="leading-relaxed text-gray-700">
                       앱 인벤터, 아두이노, AI/머신러닝, 라즈베리파이, 로봇 코딩 등 다양한 과정을 제공합니다. 기관의
                       요구사항에 맞춰 커리큘럼 커스터마이징이 가능합니다.
                     </p>
                   </CardContent>
                 </Card>
 
-                <Card>
+                <Card className="border-green-100 bg-white/80 shadow-sm transition-shadow hover:shadow-md">
                   <CardContent className="p-6">
-                    <h3 className="mb-3 text-lg font-semibold text-gray-900">수업 시간</h3>
-                    <p className="text-sm leading-relaxed text-gray-600">
+                    <h3 className="mb-3 flex items-center gap-2 text-lg font-semibold text-green-700">
+                      ⏰ 수업 시간
+                    </h3>
+                    <p className="leading-relaxed text-gray-700">
                       1회 수업은 기본 2시간으로 진행되며, 기관의 일정에 맞춰 조정 가능합니다. 단기 특강부터 정규
                       과정까지 다양한 형태로 운영됩니다.
                     </p>
                   </CardContent>
                 </Card>
 
-                <Card>
+                <Card className="border-pink-100 bg-white/80 shadow-sm transition-shadow hover:shadow-md">
                   <CardContent className="p-6">
-                    <h3 className="mb-3 text-lg font-semibold text-gray-900">문의 및 상담</h3>
-                    <p className="text-sm leading-relaxed text-gray-600">
+                    <h3 className="mb-3 flex items-center gap-2 text-lg font-semibold text-pink-700">
+                      💬 문의 및 상담
+                    </h3>
+                    <p className="leading-relaxed text-gray-700">
                       전화: 02-1234-5678
                       <br />
                       이메일: outreach@aimakelab.com

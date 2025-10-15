@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { Phone, Clock, MessageCircle } from "lucide-react"
+import { themeText, themeColors } from "@/theme"
 import {
   companyInfoItems,
   customerCenterItems,
@@ -16,8 +17,8 @@ export function Footer() {
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
           {/* Company Info */}
           <div>
-            <h3 className="mb-4 text-lg font-bold text-gray-900">비피랩코딩교육연구 | AI Make Lab</h3>
-            <div className="space-y-2 text-sm text-gray-600">
+            <h3 className={`mb-4 ${themeText.h4} ${themeColors.heading}`}>만랩 회사 | AI Maker Lab</h3>
+            <div className={`space-y-2 ${themeText.small} ${themeColors.muted}`}>
               {companyInfoItems.map((item) => (
                 <p key={item.label}>
                   <span className="font-semibold">{item.label}:</span>{" "}
@@ -35,8 +36,8 @@ export function Footer() {
 
           {/* Customer Center */}
           <div>
-            <h3 className="mb-4 text-lg font-bold text-gray-900">고객센터</h3>
-            <div className="space-y-3 text-sm">
+            <h3 className={`mb-4 ${themeText.h4} ${themeColors.heading}`}>고객센터</h3>
+            <div className={`space-y-3 ${themeText.small}`}>
               {customerCenterItems.map((item) => (
                 <div key={item.title} className="flex items-start gap-2">
                   {item.icon === "clock" ? (
@@ -45,9 +46,9 @@ export function Footer() {
                     <Phone className="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-600" />
                   )}
                   <div>
-                    <p className="font-semibold text-gray-900">{item.title}</p>
+                    <p className={`font-semibold ${themeColors.heading}`}>{item.title}</p>
                     {item.lines.map((line, idx) => (
-                      <p key={idx} className="text-gray-600">
+                      <p key={idx} className={`${themeColors.muted}`}>
                         {line}
                       </p>
                     ))}
@@ -71,13 +72,13 @@ export function Footer() {
 
           {/* Community */}
           <div>
-            <h3 className="mb-4 text-lg font-bold text-gray-900">커뮤니티</h3>
+            <h3 className={`mb-4 ${themeText.h4} ${themeColors.heading}`}>커뮤니티</h3>
             <div className="space-y-2">
               {communityLinks.map((link) => (
                 <Link
                   key={link.label}
                   href={link.href}
-                  className="flex items-center gap-3 rounded-lg border border-gray-200 bg-white p-3 text-sm font-medium text-gray-700 transition-all hover:border-blue-300 hover:bg-blue-50"
+                  className={`flex items-center gap-3 rounded-lg border border-gray-200 bg-white p-3 ${themeText.small} font-medium text-gray-700 transition-all hover:border-blue-300 hover:bg-blue-50`}
                 >
                   <div className={`flex h-8 w-8 items-center justify-center rounded-full ${link.badgeBg}`}>
                     <span className={`text-xs font-bold ${link.badgeText}`}>{link.badge}</span>
@@ -90,7 +91,7 @@ export function Footer() {
         </div>
 
         <div className="mt-8 border-t pt-6">
-          <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-600">
+          <div className={`flex flex-wrap justify-center gap-4 ${themeText.small} ${themeColors.muted}`}>
             {policyLinks.map((link, idx) => (
               <span key={link.label} className="inline-flex items-center gap-4">
                 <Link
@@ -107,7 +108,7 @@ export function Footer() {
         </div>
 
         {/* Copyright */}
-        <div className="mt-6 text-center text-sm text-gray-600">
+        <div className={`mt-6 text-center ${themeText.small} ${themeColors.muted}`}>
           <p>{copyrightText}</p>
         </div>
       </div>

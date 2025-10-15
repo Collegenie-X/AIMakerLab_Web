@@ -16,6 +16,7 @@ import type { HeaderNavItem, HeaderNavSection } from "@/components/header/config
 import { useEffect, useState } from "react"
 import { ArrowUp } from "lucide-react"
 import { Button } from "@/components/ui/buttons/button"
+import { themeText, themeColors } from "@/theme"
 
 export function Header() {
   const [showTop, setShowTop] = useState(false)
@@ -39,16 +40,16 @@ export function Header() {
         <div className="flex items-center gap-4">
           <MobileDrawer />
           <Link href="/" className="flex items-center space-x-2">
-            <span className="text-2xl font-bold text-red-600">{headerBrand.primary}</span>
-            <span className="text-2xl font-bold text-gray-900">{headerBrand.secondary}</span>
+            <span className={`${themeText.brandTitle} ${themeColors.brandPrimary}`}>{headerBrand.primary}</span>
+            <span className={`${themeText.brandTitle} ${themeColors.brandSecondary}`}>{headerBrand.secondary}</span>
           </Link>
         </div>
 
         <NavigationMenu className="hidden md:flex" viewport={false}>
           <NavigationMenuList className="flex gap-6">
             {headerNavSections.map((section: HeaderNavSection) => (
-              <NavigationMenuItem key={section.title}>
-                <NavigationMenuTrigger className="text-base font-medium">
+            <NavigationMenuItem key={section.title}>
+                <NavigationMenuTrigger className={`text-base font-medium ${themeColors.body}`}>
                   {section.title}
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
@@ -58,9 +59,9 @@ export function Header() {
                         <NavigationMenuLink asChild>
                           <Link
                             href={item.href}
-                            className="block select-none rounded-md px-3 py-2 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                            className={`block select-none rounded-md px-3 py-2 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground ${themeColors.body}`}
                           >
-                            <div className="text-sm font-medium leading-none">{item.label}</div>
+                            <div className={`text-sm font-medium leading-none ${themeColors.body}`}>{item.label}</div>
                           </Link>
                         </NavigationMenuLink>
                       </li>

@@ -32,11 +32,11 @@ interface GalleryItem {
 
 const getDefaultImage = (category: string) => {
   const defaultImages: Record<string, string> = {
-    "앱 인벤터": "/app-inventor-coding-blocks.jpg",
-    아두이노: "/arduino-electronics-circuit.jpg",
-    라즈베리파이: "/raspberry-pi-computer-iot.jpg",
-    "AI 교육": "/ai-neural-network.png",
-    종합: "/student-robot-project.jpg",
+    "앱 인벤터": "/gallery/app-inventor-coding-blocks.jpg",
+    아두이노: "/gallery/arduino-electronics-circuit.jpg",
+    라즈베리파이: "/gallery/raspberry-pi-computer-iot.jpg",
+    "AI 교육": "/gallery/ai-neural-network.png",
+    종합: "/gallery/student-robot-project.jpg",
   }
   return defaultImages[category] || "/coding-class.png"
 }
@@ -47,7 +47,7 @@ const reviews: GalleryItem[] = [
     title: "아이가 코딩에 흥미를 갖게 되었어요!",
     description: "앱 인벤터 수업 후기",
     category: "앱 인벤터",
-    image: "/app-inventor-coding-blocks.jpg",
+    image: "/gallery/app-inventor-coding-blocks.jpg",
     emoji: "😊",
     author: "김OO 학부모",
     date: "2025.02.18",
@@ -56,7 +56,7 @@ const reviews: GalleryItem[] = [
     rating: 5,
     details:
       "처음에는 코딩이 어려울까 걱정했는데, 선생님께서 블록 코딩으로 쉽게 설명해주셔서 아이가 금방 이해하고 재미있어했습니다. 3개월 만에 자기만의 앱을 만들어서 친구들에게 자랑하더라고요. 자신감도 많이 생긴 것 같아요. 정말 감사합니다!",
-    images: ["/app-inventor-coding-blocks.jpg", "/mobile-app-interface.png"],
+    images: ["/gallery/app-inventor-coding-blocks.jpg", "/gallery/mobile-app-interface.png"],
     tags: ["앱인벤터", "초등학생", "만족"],
   },
   {
@@ -64,7 +64,7 @@ const reviews: GalleryItem[] = [
     title: "체계적인 커리큘럼이 인상적이었습니다",
     description: "아두이노 수업 후기",
     category: "아두이노",
-    image: "/arduino-electronics-circuit.jpg",
+    image: "/gallery/arduino-electronics-circuit.jpg",
     emoji: "👍",
     author: "이OO 학부모",
     date: "2025.02.12",
@@ -73,7 +73,7 @@ const reviews: GalleryItem[] = [
     rating: 5,
     details:
       "아두이노 수업을 들으면서 하드웨어와 소프트웨어를 함께 배울 수 있어서 좋았습니다. 단순히 코딩만 배우는 것이 아니라 전자회로의 원리도 이해하게 되어 과학 공부에도 도움이 되었어요. 선생님들도 정말 친절하시고 전문적이십니다.",
-    images: ["/arduino-electronics-circuit.jpg", "/student-robot-project.jpg"],
+    images: ["/gallery/arduino-electronics-circuit.jpg", "/gallery/student-robot-project.jpg"],
     tags: ["아두이노", "중학생", "추천"],
   },
   {
@@ -81,7 +81,7 @@ const reviews: GalleryItem[] = [
     title: "AI 교육의 새로운 기준을 보았습니다",
     description: "AI 교육 프로그램 후기",
     category: "AI 교육",
-    image: "/ai-neural-network.png",
+    image: "/gallery/ai-neural-network.png",
     emoji: "🌟",
     author: "박OO 학부모",
     date: "2025.02.08",
@@ -90,7 +90,7 @@ const reviews: GalleryItem[] = [
     rating: 5,
     details:
       "고등학생 아이가 AI에 관심이 많아서 수업을 신청했는데, 기대 이상이었습니다. 이론뿐만 아니라 실제로 AI 모델을 만들어보고 프로젝트를 완성하는 과정이 정말 유익했어요. 대학 진로 선택에도 큰 도움이 될 것 같습니다.",
-    images: ["/ai-neural-network.png"],
+    images: ["/gallery/ai-neural-network.png"],
     tags: ["AI", "고등학생", "진로"],
   },
   {
@@ -98,7 +98,7 @@ const reviews: GalleryItem[] = [
     title: "소규모 수업이라 집중도가 높아요",
     description: "라즈베리파이 수업 후기",
     category: "라즈베리파이",
-    image: "/raspberry-pi-computer-iot.jpg",
+    image: "/gallery/raspberry-pi-computer-iot.jpg",
     emoji: "💯",
     author: "최OO 학부모",
     date: "2025.02.01",
@@ -107,7 +107,7 @@ const reviews: GalleryItem[] = [
     rating: 5,
     details:
       "6명 정원의 소규모 수업이라 선생님께서 아이 한 명 한 명을 세심하게 봐주십니다. IoT 프로젝트를 하면서 실생활에 적용할 수 있는 기술을 배워서 아이가 정말 뿌듯해했어요. 다음 학기에도 꼭 등록하려고 합니다.",
-    images: ["/raspberry-pi-computer-iot.jpg", "/smart-home-iot-device.jpg"],
+    images: ["/gallery/raspberry-pi-computer-iot.jpg", "/gallery/smart-home-iot-device.jpg"],
     tags: ["라즈베리파이", "IoT", "소규모"],
   },
   {
@@ -115,7 +115,7 @@ const reviews: GalleryItem[] = [
     title: "창의력이 쑥쑥 자라는 수업",
     description: "종합 코딩 수업 후기",
     category: "종합",
-    image: "/student-robot-project.jpg",
+    image: "/gallery/student-robot-project.jpg",
     emoji: "🎨",
     author: "정OO 학부모",
     date: "2025.01.25",
@@ -124,7 +124,7 @@ const reviews: GalleryItem[] = [
     rating: 5,
     details:
       "단순히 코드를 따라 치는 것이 아니라, 아이가 직접 문제를 정의하고 해결 방법을 찾아가는 과정이 정말 좋았습니다. 창의력과 논리적 사고력이 함께 발달하는 것이 눈에 보여요. AI Make Lab을 선택하길 정말 잘했습니다!",
-    images: ["/student-robot-project.jpg"],
+    images: ["/gallery/student-robot-project.jpg"],
     tags: ["창의력", "문제해결", "추천"],
   },
   {
@@ -132,7 +132,7 @@ const reviews: GalleryItem[] = [
     title: "선생님들의 열정이 느껴집니다",
     description: "전체 수업 후기",
     category: "종합",
-    image: "/mobile-app-interface.png",
+    image: "/gallery/mobile-app-interface.png",
     emoji: "❤️",
     author: "강OO 학부모",
     date: "2025.01.18",
@@ -141,7 +141,7 @@ const reviews: GalleryItem[] = [
     rating: 5,
     details:
       "선생님들께서 정말 열정적으로 가르쳐주십니다. 수업 시간 외에도 질문하면 친절하게 답변해주시고, 아이의 진도에 맞춰 개별 지도도 해주세요. 교육에 대한 진심이 느껴지는 곳입니다. 주변 학부모님들께 적극 추천하고 있어요!",
-    images: ["/mobile-app-interface.png"],
+    images: ["/gallery/mobile-app-interface.png"],
     tags: ["선생님", "열정", "만족"],
   },
 ]

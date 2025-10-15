@@ -31,10 +31,10 @@ interface GalleryItem {
 
 const getDefaultImage = (category: string) => {
   const defaultImages: Record<string, string> = {
-    IoT: "/smart-home-iot-device.jpg",
-    "앱 개발": "/mobile-app-interface.png",
-    로보틱스: "/student-robot-project.jpg",
-    AI: "/ai-neural-network.png",
+    IoT: "/gallery/smart-home-iot-device.jpg",
+    "앱 개발": "/gallery/mobile-app-interface.png",
+    로보틱스: "/gallery/student-robot-project.jpg",
+    AI: "/gallery/ai-neural-network.png",
   }
   return defaultImages[category] || "/coding-project.png"
 }
@@ -45,7 +45,7 @@ const works: GalleryItem[] = [
     title: "스마트 홈 IoT 시스템",
     description: "라즈베리파이로 만든 음성 인식 스마트 홈 제어 시스템",
     category: "IoT",
-    image: "/smart-home-iot-device.jpg",
+    image: "/gallery/smart-home-iot-device.jpg",
     emoji: "🏠",
     author: "김민준 (고1)",
     date: "2025.02.15",
@@ -53,7 +53,7 @@ const works: GalleryItem[] = [
     likes: 45,
     details:
       "라즈베리파이와 다양한 센서를 활용하여 음성으로 집안의 조명, 온도, 습도를 제어할 수 있는 스마트 홈 시스템을 구현했습니다. Google Assistant API를 연동하여 자연어 처리가 가능하며, 모바일 앱으로도 원격 제어가 가능합니다.",
-    images: ["/smart-home-iot-device.jpg", "/raspberry-pi-computer-iot.jpg"],
+    images: ["/gallery/smart-home-iot-device.jpg", "/gallery/raspberry-pi-computer-iot.jpg"],
     tags: ["라즈베리파이", "IoT", "음성인식", "스마트홈"],
   },
   {
@@ -61,7 +61,7 @@ const works: GalleryItem[] = [
     title: "환경 보호 캠페인 앱",
     description: "쓰레기 분리수거를 도와주는 AI 이미지 인식 앱",
     category: "앱 개발",
-    image: "/mobile-app-interface.png",
+    image: "/gallery/mobile-app-interface.png",
     emoji: "♻️",
     author: "이서연 (초6)",
     date: "2025.02.10",
@@ -69,7 +69,7 @@ const works: GalleryItem[] = [
     likes: 38,
     details:
       "앱 인벤터로 제작한 환경 보호 앱입니다. 카메라로 쓰레기를 촬영하면 AI가 자동으로 분류하여 어떤 쓰레기통에 버려야 하는지 알려줍니다. 또한 분리수거를 할 때마다 포인트가 쌓여 환경 보호 활동을 게임처럼 즐길 수 있습니다.",
-    images: ["/mobile-app-interface.png", "/app-inventor-coding-blocks.jpg"],
+    images: ["/gallery/mobile-app-interface.png", "/gallery/app-inventor-coding-blocks.jpg"],
     tags: ["앱인벤터", "AI", "환경보호", "이미지인식"],
   },
   {
@@ -77,7 +77,7 @@ const works: GalleryItem[] = [
     title: "자율주행 장애물 회피 로봇",
     description: "초음파 센서를 활용한 자율주행 로봇 자동차",
     category: "로보틱스",
-    image: "/student-robot-project.jpg",
+    image: "/gallery/student-robot-project.jpg",
     emoji: "🤖",
     author: "박지훈 (중2)",
     date: "2025.02.05",
@@ -85,7 +85,7 @@ const works: GalleryItem[] = [
     likes: 67,
     details:
       "아두이노와 초음파 센서, 모터 드라이버를 활용하여 장애물을 자동으로 감지하고 회피하는 자율주행 로봇을 만들었습니다. 블루투스 모듈을 추가하여 스마트폰으로도 제어할 수 있으며, 라인 트레이싱 기능도 구현했습니다.",
-    images: ["/student-robot-project.jpg", "/arduino-electronics-circuit.jpg"],
+    images: ["/gallery/student-robot-project.jpg", "/gallery/arduino-electronics-circuit.jpg"],
     tags: ["아두이노", "로보틱스", "자율주행", "센서"],
   },
   {
@@ -93,7 +93,7 @@ const works: GalleryItem[] = [
     title: "AI 감정 인식 챗봇",
     description: "사용자의 감정을 분석하여 공감하는 대화형 AI",
     category: "AI",
-    image: "/ai-neural-network.png",
+    image: "/gallery/ai-neural-network.png",
     emoji: "🧠",
     author: "최유진 (고2)",
     date: "2025.01.28",
@@ -101,7 +101,7 @@ const works: GalleryItem[] = [
     likes: 52,
     details:
       "Python과 TensorFlow를 활용하여 텍스트에서 감정을 분석하는 AI 챗봇을 개발했습니다. 사용자의 감정 상태를 파악하여 적절한 공감과 조언을 제공하며, 대화 내용을 학습하여 점점 더 자연스러운 대화가 가능합니다.",
-    images: ["/ai-neural-network.png"],
+    images: ["/gallery/ai-neural-network.png"],
     tags: ["Python", "AI", "감정인식", "챗봇"],
   },
   {
@@ -109,7 +109,7 @@ const works: GalleryItem[] = [
     title: "스마트 식물 재배 시스템",
     description: "자동으로 물을 주고 빛을 조절하는 스마트팜",
     category: "IoT",
-    image: "/raspberry-pi-computer-iot.jpg",
+    image: "/gallery/raspberry-pi-computer-iot.jpg",
     emoji: "🌱",
     author: "정민서 (중3)",
     date: "2025.01.20",
@@ -117,7 +117,7 @@ const works: GalleryItem[] = [
     likes: 41,
     details:
       "토양 습도 센서와 조도 센서를 활용하여 식물의 상태를 실시간으로 모니터링하고, 자동으로 물을 공급하며 LED 조명을 제어하는 스마트팜 시스템입니다. 웹 대시보드를 통해 원격으로 식물의 상태를 확인할 수 있습니다.",
-    images: ["/raspberry-pi-computer-iot.jpg", "/arduino-electronics-circuit.jpg"],
+    images: ["/gallery/raspberry-pi-computer-iot.jpg", "/gallery/arduino-electronics-circuit.jpg"],
     tags: ["아두이노", "IoT", "스마트팜", "센서"],
   },
   {
@@ -125,7 +125,7 @@ const works: GalleryItem[] = [
     title: "음악 작곡 AI 프로그램",
     description: "머신러닝으로 자동으로 멜로디를 생성하는 프로그램",
     category: "AI",
-    image: "/app-inventor-coding-blocks.jpg",
+    image: "/gallery/app-inventor-coding-blocks.jpg",
     emoji: "🎵",
     author: "강태양 (고1)",
     date: "2025.01.15",

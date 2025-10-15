@@ -25,7 +25,7 @@ export type PolicyLink = {
 }
 
 export const companyInfoItems: CompanyInfoItem[] = [
-  { label: '회사명', value: '만랩'},
+  // { label: '회사명', value: '만랩'},
   { label: '대표자', value: '김종필'},
   { label: '사업자번호', value: '549-88-00707' },
   // { label: '통신판매업', value: '2020-대구동구-0894' },
@@ -47,7 +47,7 @@ export const kakaoButton = {
 
 export const communityLinks: CommunityLink[] = [
   { label: '네이버 블로그 바로가기', href: '#', badge: 'N', badgeBg: 'bg-green-100', badgeText: 'text-green-700' },
-  { label: '네이버 카페 바로가기', href: '#', badge: 'C', badgeBg: 'bg-green-100', badgeText: 'text-green-700' },
+  { label: '네이버 카페 바로가기', href: '#', badge: 'I', badgeBg: 'bg-red-100', badgeText: 'text-red-700' },
   // { label: 'S2B 학교장터 바로가기', href: '#', badge: 'S2B', badgeBg: 'bg-blue-100', badgeText: 'text-blue-700' },
   { label: '스마트스토어 바로가기', href: '#', badge: 'S', badgeBg: 'bg-green-100', badgeText: 'text-green-700' },
   // { label: '리얼클 패션몰 바로가기', href: '#', badge: 'R', badgeBg: 'bg-purple-100', badgeText: 'text-purple-700' },
