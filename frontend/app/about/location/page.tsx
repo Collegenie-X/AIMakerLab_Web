@@ -1,6 +1,6 @@
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
-import { Card, CardContent } from "@/components/ui/card"
+import { Card, CardContent } from "@/components/ui/data-display/card"
 import { MapPin, Phone, Mail, Clock, Bus, Train } from "lucide-react"
 
 export default function LocationPage() {

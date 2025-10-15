@@ -2,11 +2,11 @@
 
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/data-display/card"
+import { Badge } from "@/components/ui/data-display/badge"
+import { Button } from "@/components/ui/buttons/button"
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/overlays/dialog"
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/navigation/tabs"
 import { Calendar, Clock, MapPin, Users, Star, CheckCircle2 } from "lucide-react"
 import { useState } from "react"
 

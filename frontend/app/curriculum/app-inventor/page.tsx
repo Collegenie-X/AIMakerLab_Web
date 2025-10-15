@@ -1,8 +1,8 @@
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
-import { Card, CardContent } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
+import { Card, CardContent } from "@/components/ui/data-display/card"
+import { Button } from "@/components/ui/buttons/button"
+import { Badge } from "@/components/ui/data-display/badge"
 import { CheckCircle2, Clock, Users, BookOpen } from "lucide-react"
 import Link from "next/link"
 

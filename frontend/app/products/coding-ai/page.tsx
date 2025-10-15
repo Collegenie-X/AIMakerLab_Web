@@ -1,8 +1,8 @@
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/buttons/button"
+import { Card, CardContent } from "@/components/ui/data-display/card"
+import { Badge } from "@/components/ui/data-display/badge"
 import { Phone, Mail, Download, Star, Users, Clock, BookOpen, GraduationCap } from "lucide-react"
 import Link from "next/link"
 

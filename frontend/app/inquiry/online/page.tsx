@@ -2,8 +2,8 @@
 
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
-import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
+import { Card, CardContent } from "@/components/ui/data-display/card"
+import { Badge } from "@/components/ui/data-display/badge"
 import { InquiryFormDialog } from "@/components/inquiry-form-dialog"
 import { MessageSquare, Calendar, User, Eye } from "lucide-react"
 

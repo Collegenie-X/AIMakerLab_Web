@@ -3,11 +3,11 @@
 import type React from "react"
 
 import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Separator } from "@/components/ui/separator"
+import { Button } from "@/components/ui/buttons/button"
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/overlays/dialog"
+import { Input } from "@/components/ui/forms/input"
+import { Label } from "@/components/ui/forms/label"
+import { Separator } from "@/components/ui/layout/separator"
 
 export function LoginDialog() {
   const [open, setOpen] = useState(false)
@@ -125,11 +125,6 @@ export function LoginDialog() {
           </Button>
         </div>
 
-        <div className="text-center pt-2">
-          <button type="button" onClick={() => setOpen(false)} className="text-sm text-blue-600 hover:underline">
-            취소
-          </button>
-        </div>
       </DialogContent>
     </Dialog>
   )

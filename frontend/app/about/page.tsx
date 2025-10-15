@@ -1,6 +1,6 @@
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
-import { Card } from "@/components/ui/card"
+import { Card } from "@/components/ui/data-display/card"
 import {
   Lightbulb,
   Users,
