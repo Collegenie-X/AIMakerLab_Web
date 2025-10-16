@@ -49,10 +49,8 @@ export function InquiryFormDialog() {
       </DialogTrigger>
       <DialogContent className="max-h-[90vh] overflow-y-auto sm:max-w-[600px] z-[200]">
         <DialogHeader>
-          <DialogTitle className="text-xl">프로그램 문의</DialogTitle>
-          <DialogDescription>
-            기관이나 단체로 출강 수업을 원하시면 아래 양식을 작성해주세요. 담당자가 빠르게 연락드리겠습니다.
-          </DialogDescription>
+          <DialogTitle className="text-xl text-center mb-2">출강 수업 문의하기</DialogTitle>
+
         </DialogHeader>
 
         <form onSubmit={handleSubmit} className="space-y-6">
@@ -64,7 +62,7 @@ export function InquiryFormDialog() {
           
             <div className="space-y-3">
               <div>
-                <Input id="title" placeholder="중학교 자유학기제 프로그램 문의" required />
+                <Input id="title" placeholder="ex> 중학교 자유학기제 프로그램 문의" required />
               </div>
               {/* 신규 작성 시에는 교육과정과 상태를 표시하지 않음 */}
             </div>
@@ -373,6 +371,10 @@ export function InquiryFormDialog() {
             />
           </section>
 
+          <DialogDescription className="text-left">
+            * 담당자가 최대한 빠르게 연락드리겠습니다.
+          </DialogDescription>
+
           <div className="flex gap-2 pt-4">
             <Button type="button" variant="outline" className="flex-1 bg-transparent" onClick={() => setOpen(false)}>
               취소
@@ -382,6 +384,8 @@ export function InquiryFormDialog() {
             </Button>
           </div>
         </form>
+
+
       </DialogContent>
     </Dialog>
   )

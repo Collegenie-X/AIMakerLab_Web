@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/navigation/navigation-menu"
 import { MobileDrawer } from "@/components/mobile-drawer"
 import { LoginDialog } from "@/components/login-dialog"
-import { headerBrand, headerNavSections } from "@/components/header/config"
+import { headerBrand, headerNavSections, headerUIConfig } from "@/components/header/config"
 import type { HeaderNavItem, HeaderNavSection } from "@/components/header/config"
 import { useEffect, useState } from "react"
 import { ArrowUp } from "lucide-react"
@@ -35,8 +35,8 @@ export function Header() {
   }
 
   return (
-    <header className="sticky top-0 z-[100] w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
-      <div className="container mx-auto flex h-16 items-center justify-between px-4">
+    <header className="sticky top-0 z-[10] w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
+      <div className="mx-auto max-w-7xl flex h-16 items-center justify-between px-4">
         <div className="flex items-center gap-4">
           <MobileDrawer />
           <Link href="/" className="flex items-center space-x-2">
@@ -53,7 +53,14 @@ export function Header() {
                   {section.title}
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <ul className="grid w-[180px] gap-1 p-2">
+                  <ul
+                    className={`grid ${headerUIConfig.submenuWidthClass || "w-[180px]"} gap-1 p-2`}
+                    style={
+                      section.width
+                        ? { width: typeof section.width === "number" ? `${section.width}px` : `${section.width}px` }
+                        : undefined
+                    }
+                  >
                     {section.items.map((item: HeaderNavItem) => (
                       <li key={item.href}>
                         <NavigationMenuLink asChild>
