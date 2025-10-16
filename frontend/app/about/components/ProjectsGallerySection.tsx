@@ -53,11 +53,11 @@ const themeClass = {
 
 export function ProjectsGallerySection() {
   return (
-    <section className="bg-gradient-to-br from-cyan-50 to-blue-50 py-24">
-      <div className="container mx-auto px-4">
+    <section className="bg-gradient-to-br from-cyan-50 to-blue-10 py-24">
+      <div className="container mx-auto px-2">
         <div className="mx-auto max-w-6xl">
           <h2 className={`mb-4 text-center ${themeText.h2} ${themeColors.heading}`}>{projectsSectionContent.heading}</h2>
-          <div className="mb-8 mx-auto h-1 w-24 bg-gradient-to-r from-cyan-400 to-blue-400"></div>
+          <div className="mb-4 mx-auto h-1 w-24 bg-gradient-to-r from-cyan-400 to-blue-400"></div>
           <p className={`mb-16 text-center ${themeText.body} ${themeColors.muted}`}>{projectsSectionContent.subtitle}</p>
 
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
@@ -72,7 +72,7 @@ export function ProjectsGallerySection() {
                   <div className={`flex aspect-video items-center justify-center bg-gradient-to-br ${theme.bg}`}>
                     <Icon className={`h-32 w-32 ${theme.icon}`} />
                   </div>
-                  <div className="p-6">
+                  <div className="px-6 py-3">
                     <div className={`mb-3 inline-block rounded-full px-3 py-1 text-sm font-semibold ${theme.badge}`}>
                       {proj.categoryBadge}
                     </div>

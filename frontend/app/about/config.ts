@@ -136,13 +136,13 @@ export const methodologySectionContent: MethodologySectionContent = {
 
 export const comparisonSectionContent: ComparisonSectionContent = {
   heading: '일반 학원 vs AI Maker Lab',
-  columns: { base: '구분', typical: '일반 코딩 학원', lab: 'AI Make Lab' },
+  columns: { base: '구분', typical: '일반 코딩 학원', lab: 'AI Maker Lab' },
   rows: [
     { label: '수업 방식', typical: '이론 중심, 강의식', aimakeLab: '실습 중심, 프로젝트 기반' },
     { label: '학습 목표', typical: '자격증 취득, 시험 대비', aimakeLab: '창의력, 문제해결력 향상' },
     { label: '교육 자료', typical: '교재 중심', aimakeLab: '자체 개발 키트 + 교재' },
     { label: '강사진', typical: '일반 강사', aimakeLab: '현업 개발자 출신 전문가' },
-    { label: '수업 인원', typical: '15-20명 대규모', aimakeLab: '6-12명 소규모 맞춤형' },
+    { label: '수업 인원', typical: '15-20명 대규모', aimakeLab: '4-8명 소규모 맞춤형' },
     { label: '사후 관리', typical: '수업 종료 후 없음', aimakeLab: '지속적인 멘토링 제공' },
   ],
 }
@@ -229,14 +229,14 @@ export const facilitySectionContent: FacilitySectionContent = {
   ],
   stats: [
     { value: '1대', label: '레이저 커팅기', theme: 'blue' },
-    { value: '10+', label: '교육용 키트 종류', theme: 'purple' },
-    { value: '12명', label: '최대 수업 인원', theme: 'green' },
+    { value: '10+', label: '교육용 키트 종류', theme: 'green' },
+    { value: '8명', label: '최대 수업 인원', theme: 'purple' },
     { value: '3,000+', label: '누적 교육 학생수', theme: 'pink' },
   ],
 }
 
 export const historySectionContent: HistorySectionContent = {
-  heading: 'HISTORY',
+  heading: '만랩 HISTORY',
   items: [
     {
       year: 2025,

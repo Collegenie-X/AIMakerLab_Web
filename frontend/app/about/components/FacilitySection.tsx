@@ -16,7 +16,7 @@ export function FacilitySection() {
       <div className="container mx-auto px-4">
         <div className="mx-auto max-w-6xl">
           <h2 className={`mb-4 text-center ${themeText.h2} ${themeColors.heading}`}>{facilitySectionContent.heading}</h2>
-          <div className="mb-16 mx-auto h-1 w-60 bg-gradient-to-r from-green-400 to-cyan-400"></div>
+          <div className="mb-16 mx-auto h-1 w-30 bg-gradient-to-r from-green-400 to-cyan-400"></div>
 
           <div className="mb-12 grid gap-8 md:grid-cols-2 md:items-center">
             <div className="flex aspect-video items-center justify-center rounded-lg border-4 border-cyan-200 bg-gradient-to-br from-cyan-100 to-blue-100 shadow-xl">
@@ -62,8 +62,8 @@ export function FacilitySection() {
                   : { card: 'border-pink-200 from-pink-100 to-pink-50', icon: 'text-pink-500', value: 'text-pink-700', label: 'text-pink-600' }
               return (
                 <Card key={s.label} className={`border-2 bg-gradient-to-br p-4 text-center shadow-lg ${color.card}`}>
-                  <Icon className={`mx-auto mb-1 h-12 w-12 ${color.icon}`} />
-                  <div className={`text-3xl font-bold ${color.value}`}>{s.value}</div>
+                  <Icon className={`mx-auto my-2 h-12 w-12 ${color.icon}`} />
+                  <div className={`text-3xl mb-[-20px] font-bold ${color.value}`}>{s.value}</div>
                   <div className={`mb-1 text-lg ${color.label}`}>{s.label}</div>
                 </Card>
               )
