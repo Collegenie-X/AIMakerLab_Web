@@ -1,0 +1,43 @@
+[
+  {
+    "id": "class-001",
+    "title": "스마트팜 IoT 방문 수업",
+    "type": "방문 수업",
+    "category": "아두이노",
+    "image": "/products/classroom-photos/smart-farm-1.jpg",
+    "description": "아두이노를 활용한 스마트팜 제작 수업입니다. 센서로 식물 환경을 측정하고 자동화하는 방법을 배웁니다.",
+    "duration": "3차시 (차시당 80분)",
+    "targetGrade": "초등 고학년, 중학생",
+    "classSize": "20-30명",
+    "includedKit": "스마트팜 키트 대여 포함",
+    "link": "/inquiry/method"
+  },
+  {
+    "id": "class-002",
+    "title": "아두이노 기초 블록코딩",
+    "type": "방문 수업",
+    "category": "블록코딩",
+    "image": "/products/classroom-photos/smart-farm-2.jpg",
+    "description": "처음 시작하는 학생들을 위한 블록코딩 입문 수업입니다. 엔트리와 스크래치로 쉽게 시작합니다.",
+    "duration": "4차시 (차시당 40분)",
+    "targetGrade": "초등 저학년",
+    "classSize": "20-30명",
+    "includedKit": "교구 대여 포함",
+    "link": "/inquiry/method"
+  },
+  {
+    "id": "class-003",
+    "title": "온라인 IoT 프로젝트 수업",
+    "type": "온라인 수업",
+    "category": "아두이노",
+    "image": "/products/classroom-photos/smart-farm-3.jpg",
+    "description": "Zoom으로 진행되는 실시간 온라인 수업입니다. 키트는 사전에 배송되며, 강사가 실시간으로 지도합니다.",
+    "duration": "3차시 (차시당 60분)",
+    "targetGrade": "중학생, 고등학생",
+    "classSize": "10-15명",
+    "includedKit": "키트 택배 발송",
+    "link": "/inquiry/online"
+  }
+  
+]
+

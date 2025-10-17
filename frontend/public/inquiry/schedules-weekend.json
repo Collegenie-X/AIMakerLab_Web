@@ -1,0 +1,195 @@
+[
+  {
+    "id": 101,
+    "title": "앱 인벤터 초급 코딩 주말반",
+    "instructor": "김지훈 강사",
+    "date": "2025-03-08",
+    "time": "토요일 10:00 - 13:00",
+    "location": "AI Maker Lab 본관",
+    "capacity": 15,
+    "enrolled": 12,
+    "level": "초급",
+    "duration": "8주 과정 (8회)",
+    "month": "2025-03",
+    "rating": 4.9,
+    "reviews": 32,
+    "videoId": "X4cGXFJnAeY",
+    "description": "주말을 활용하여 앱 인벤터를 배우는 과정입니다. 블록 코딩을 통해 안드로이드 앱을 만들면서 프로그래밍의 기초를 학습합니다. 주말반은 3시간씩 집중 학습합니다.",
+    "curriculum": [
+      "1-2주차: 앱 인벤터 기본 인터페이스 및 첫 번째 앱 만들기",
+      "3-4주차: 버튼, 텍스트, 이미지 등 기본 컴포넌트 활용",
+      "5-6주차: 조건문과 반복문을 활용한 간단한 게임 제작",
+      "7-8주차: 데이터 저장 및 최종 프로젝트 완성"
+    ],
+    "requirements": [
+      "노트북 지참 (Windows 또는 Mac)",
+      "안드로이드 스마트폰 또는 태블릿 (테스트용)",
+      "구글 계정 필요"
+    ],
+    "price": "520,000원",
+    "gallery": [
+      {
+        "type": "image",
+        "src": "/home/app-inventor-coding-blocks.jpg",
+        "alt": "앱 인벤터 코딩 블록"
+      },
+      {
+        "type": "image",
+        "src": "/home/mobile-app-interface.png",
+        "alt": "모바일 앱 인터페이스"
+      }
+    ]
+  },
+  {
+    "id": 102,
+    "title": "라즈벨리파이 로봇 팔 주말반",
+    "instructor": "박민수 강사",
+    "date": "2025-03-09",
+    "time": "일요일 14:00 - 17:00",
+    "location": "AI Maker Lab 본관",
+    "capacity": 12,
+    "enrolled": 9,
+    "level": "초급",
+    "duration": "6주 과정 (6회)",
+    "month": "2025-03",
+    "rating": 4.8,
+    "reviews": 28,
+    "videoId": "CXzdz-x5mwI",
+    "description": "주말 오후 시간을 활용하여 아두이노와 전자회로를 학습합니다. LED, 센서, 모터 등을 활용한 다양한 프로젝트를 3시간씩 집중적으로 진행합니다.",
+    "curriculum": [
+      "1주차: 아두이노 개요 및 개발환경 설정, LED 제어",
+      "2주차: 디지털 입출력 - 버튼과 스위치 활용",
+      "3주차: 아날로그 입출력 및 센서 활용",
+      "4주차: 온도센서, 조도센서 프로젝트",
+      "5주차: 모터 제어 - DC모터, 서보모터",
+      "6주차: 종합 프로젝트 - 스마트 홈 시스템 만들기"
+    ],
+    "requirements": [
+      "노트북 지참 (Windows 또는 Mac)",
+      "아두이노 키트 (수업 첫날 구매 가능, 별도 65,000원)"
+    ],
+    "price": "450,000원",
+    "gallery": [
+      {
+        "type": "image",
+        "src": "/home/arduino-electronics-circuit.jpg",
+        "alt": "아두이노 전자회로"
+      }
+    ]
+  },
+  {
+    "id": 103,
+    "title": "주말 집중 파이썬 AI 기초반",
+    "instructor": "이서연 강사",
+    "date": "2025-04-05",
+    "time": "토요일 10:00 - 14:00 (4시간)",
+    "location": "AI Maker Lab 본관",
+    "capacity": 18,
+    "enrolled": 7,
+    "level": "중급",
+    "duration": "10주 과정 (10회)",
+    "month": "2025-04",
+    "rating": 4.7,
+    "reviews": 22,
+    "videoId": "7EK_U3-b5AM",
+    "description": "주말을 활용한 파이썬 AI 집중 과정입니다. 4시간씩 체계적으로 학습하며 인공지능의 기초부터 실전 프로젝트까지 경험할 수 있습니다.",
+    "curriculum": [
+      "1-2주차: 파이썬 기초 문법 및 라이브러리 활용",
+      "3-4주차: 데이터 분석 기초 (Numpy, Pandas)",
+      "5-6주차: 데이터 시각화 (Matplotlib, Seaborn)",
+      "7-8주차: 머신러닝 기초 (Scikit-learn)",
+      "9-10주차: 딥러닝 입문 및 최종 프로젝트"
+    ],
+    "requirements": [
+      "노트북 지참 (Windows 또는 Mac)",
+      "기본적인 프로그래밍 경험 권장",
+      "Python 3.8 이상 설치"
+    ],
+    "price": "720,000원",
+    "gallery": [
+      {
+        "type": "image",
+        "src": "/home/ai-neural-network.png",
+        "alt": "AI 신경망"
+      }
+    ]
+  },
+  {
+    "id": 104,
+    "title": "주말 라즈베리파이 IoT 프로젝트",
+    "instructor": "최준호 강사",
+    "date": "2025-04-06",
+    "time": "일요일 10:00 - 14:00 (4시간)",
+    "location": "AI Maker Lab 본관",
+    "capacity": 12,
+    "enrolled": 4,
+    "level": "중급",
+    "duration": "8주 과정 (8회)",
+    "month": "2025-04",
+    "rating": 4.6,
+    "reviews": 19,
+    "videoId": "BpJCAafw2qE",
+    "description": "주말 집중 과정으로 라즈베리파이를 활용한 IoT 프로젝트를 진행합니다. 센서와 네트워크를 연결하여 실제로 작동하는 스마트 디바이스를 만들어봅니다.",
+    "curriculum": [
+      "1-2주차: 라즈베리파이 설정 및 리눅스 기초",
+      "3-4주차: GPIO 프로그래밍 및 센서 제어",
+      "5-6주차: 네트워크 프로그래밍 및 웹 서버 구축",
+      "7-8주차: IoT 프로토콜 (MQTT) 및 최종 프로젝트"
+    ],
+    "requirements": [
+      "노트북 지참 (Windows 또는 Mac)",
+      "라즈베리파이 키트 (수업 첫날 구매 가능, 별도 95,000원)",
+      "기본적인 프로그래밍 경험 필수"
+    ],
+    "price": "620,000원",
+    "gallery": [
+      {
+        "type": "image",
+        "src": "/home/raspberry-pi-computer-iot.jpg",
+        "alt": "라즈베리파이 IoT"
+      },
+      {
+        "type": "image",
+        "src": "/home/smart-home-iot-device.jpg",
+        "alt": "스마트 홈 IoT 디바이스"
+      }
+    ]
+  },
+  {
+    "id": 105,
+    "title": "주말 학생 로봇 프로젝트반",
+    "instructor": "정하늘 강사",
+    "date": "2025-03-15",
+    "time": "토요일 14:00 - 17:00",
+    "location": "AI Maker Lab 본관",
+    "capacity": 10,
+    "enrolled": 6,
+    "level": "중급",
+    "duration": "12주 과정 (12회)",
+    "month": "2025-03",
+    "rating": 4.9,
+    "reviews": 27,
+    "videoId": "trD33kohPLM",
+    "description": "학생들을 위한 로봇 제작 프로젝트 과정입니다. 아두이노와 센서를 활용하여 자율주행 로봇을 만들고 프로그래밍합니다.",
+    "curriculum": [
+      "1-3주차: 로봇 기초 이론 및 아두이노 프로그래밍",
+      "4-6주차: 모터 제어 및 센서 활용",
+      "7-9주차: 자율주행 알고리즘 구현",
+      "10-12주차: 최종 로봇 프로젝트 및 경진대회"
+    ],
+    "requirements": [
+      "노트북 지참 (Windows 또는 Mac)",
+      "로봇 키트 (수업 첫날 구매 가능, 별도 120,000원)",
+      "기본적인 프로그래밍 지식 권장"
+    ],
+    "price": "780,000원",
+    "gallery": [
+      {
+        "type": "image",
+        "src": "/home/student-robot-project.jpg",
+        "alt": "학생 로봇 프로젝트"
+      }
+    ]
+  }
+]
+

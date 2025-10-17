@@ -1,0 +1,159 @@
+[
+  {
+    "id": 1,
+    "title": "앱 인벤터 초급 코딩 주중반",
+    "instructor": "김지훈 강사",
+    "date": "2025-03-03",
+    "time": "화/목 19:00 - 21:00",
+    "location": "AI Maker Lab 본관",
+    "capacity": 12,
+    "enrolled": 8,
+    "level": "초급",
+    "duration": "8주 과정 (16회)",
+    "month": "2025-03",
+    "rating": 4.8,
+    "reviews": 24,
+    "videoId": "kmB_sRaeOVE",
+    "description": "앱 인벤터를 처음 접하는 학생들을 위한 기초 과정입니다. 블록 코딩을 통해 간단한 안드로이드 앱을 만들면서 프로그래밍의 기초 개념을 학습합니다.",
+    "curriculum": [
+      "1-2주차: 앱 인벤터 기본 인터페이스 및 첫 번째 앱 만들기",
+      "3-4주차: 버튼, 텍스트, 이미지 등 기본 컴포넌트 활용",
+      "5-6주차: 조건문과 반복문을 활용한 간단한 게임 제작",
+      "7-8주차: 데이터 저장 및 최종 프로젝트 완성"
+    ],
+    "requirements": [
+      "노트북 지참 (Windows 또는 Mac)",
+      "안드로이드 스마트폰 또는 태블릿 (테스트용)",
+      "구글 계정 필요"
+    ],
+    "price": "480,000원",
+    "gallery": [
+      {
+        "type": "image",
+        "src": "/home/app-inventor-coding-blocks.jpg",
+        "alt": "앱 인벤터 코딩 블록"
+      },
+      {
+        "type": "image",
+        "src": "/home/mobile-app-interface.png",
+        "alt": "모바일 앱 인터페이스"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "아두이노 기초 전자회로 주중반",
+    "instructor": "박민수 강사",
+    "date": "2025-03-05",
+    "time": "수/금 19:30 - 21:30",
+    "location": "AI Maker Lab 본관",
+    "capacity": 10,
+    "enrolled": 10,
+    "level": "초급",
+    "duration": "6주 과정 (12회)",
+    "month": "2025-03",
+    "rating": 4.9,
+    "reviews": 31,
+    "videoId": "09zEkWd-3_8",
+    "description": "아두이노 보드와 센서를 활용하여 기초 전자회로를 학습하는 과정입니다. LED, 버튼, 센서 등을 사용한 다양한 프로젝트를 진행합니다.",
+    "curriculum": [
+      "1주차: 아두이노 개요 및 개발환경 설정, LED 제어",
+      "2주차: 디지털 입출력 - 버튼과 스위치 활용",
+      "3주차: 아날로그 입출력 - 가변저항, PWM",
+      "4주차: 센서 활용 - 온도센서, 조도센서",
+      "5주차: 모터 제어 - DC모터, 서보모터",
+      "6주차: 종합 프로젝트 - 스마트 홈 시스템 만들기"
+    ],
+    "requirements": [
+      "노트북 지참 (Windows 또는 Mac)",
+      "아두이노 키트 (수업 첫날 구매 가능, 별도 65,000원)"
+    ],
+    "price": "420,000원",
+    "gallery": [
+      {
+        "type": "image",
+        "src": "/home/arduino-electronics-circuit.jpg",
+        "alt": "아두이노 전자회로"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "파이썬 AI 기초 주중반",
+    "instructor": "이서연 강사",
+    "date": "2025-04-01",
+    "time": "월/수 19:00 - 21:00",
+    "location": "AI Maker Lab 본관",
+    "capacity": 15,
+    "enrolled": 5,
+    "level": "중급",
+    "duration": "10주 과정 (20회)",
+    "month": "2025-04",
+    "rating": 4.7,
+    "reviews": 18,
+    "videoId": "7EK_U3-b5AM",
+    "description": "파이썬 프로그래밍을 기반으로 인공지능의 기초 개념을 학습하고, 머신러닝 라이브러리를 활용한 간단한 AI 모델을 만들어봅니다.",
+    "curriculum": [
+      "1-2주차: 파이썬 기초 문법 및 라이브러리 활용",
+      "3-4주차: 데이터 분석 기초 (Numpy, Pandas)",
+      "5-6주차: 데이터 시각화 (Matplotlib, Seaborn)",
+      "7-8주차: 머신러닝 기초 (Scikit-learn)",
+      "9-10주차: 딥러닝 입문 및 최종 프로젝트"
+    ],
+    "requirements": [
+      "노트북 지참 (Windows 또는 Mac)",
+      "기본적인 프로그래밍 경험 권장",
+      "Python 3.8 이상 설치"
+    ],
+    "price": "650,000원",
+    "gallery": [
+      {
+        "type": "image",
+        "src": "/home/ai-neural-network.png",
+        "alt": "AI 신경망"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "title": "라즈베리파이 IoT 프로젝트 주중반",
+    "instructor": "최준호 강사",
+    "date": "2025-04-08",
+    "time": "화/목 19:30 - 21:30",
+    "location": "AI Maker Lab 본관",
+    "capacity": 12,
+    "enrolled": 3,
+    "level": "중급",
+    "duration": "8주 과정 (16회)",
+    "month": "2025-04",
+    "rating": 4.6,
+    "reviews": 15,
+    "videoId": "BpJCAafw2qE",
+    "description": "라즈베리파이를 활용한 IoT 프로젝트 과정입니다. 센서와 액추에이터를 연결하고 인터넷을 통해 제어하는 스마트 디바이스를 만들어봅니다.",
+    "curriculum": [
+      "1-2주차: 라즈베리파이 설정 및 리눅스 기초",
+      "3-4주차: GPIO 프로그래밍 및 센서 제어",
+      "5-6주차: 네트워크 프로그래밍 및 웹 서버 구축",
+      "7-8주차: IoT 프로토콜 (MQTT) 및 최종 프로젝트"
+    ],
+    "requirements": [
+      "노트북 지참 (Windows 또는 Mac)",
+      "라즈베리파이 키트 (수업 첫날 구매 가능, 별도 95,000원)",
+      "기본적인 프로그래밍 경험 필수"
+    ],
+    "price": "560,000원",
+    "gallery": [
+      {
+        "type": "image",
+        "src": "/home/raspberry-pi-computer-iot.jpg",
+        "alt": "라즈베리파이 IoT"
+      },
+      {
+        "type": "image",
+        "src": "/home/smart-home-iot-device.jpg",
+        "alt": "스마트 홈 IoT 디바이스"
+      }
+    ]
+  }
+]
+

@@ -3,20 +3,21 @@
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { useState, useMemo, useEffect } from "react"
-import { HeroScheduleSection } from "./components/HeroScheduleSection"
-import { MonthTabs } from "./components/MonthTabs"
-import { ScheduleList } from "./components/ScheduleList"
-import { InfoSection } from "./components/InfoSection"
-import { useSchedules } from "./hooks/useSchedules"
-import { getScheduleTexts, getScheduleDataUrl } from "./config"
+import { HeroScheduleSection } from "../schedule/components/HeroScheduleSection"
+import { MonthTabs } from "../schedule/components/MonthTabs"
+import { ScheduleList } from "../schedule/components/ScheduleList"
+import { InfoSection } from "../schedule/components/InfoSection"
+import { useSchedules } from "../schedule/hooks/useSchedules"
+import { getScheduleTexts, getScheduleDataUrl } from "../schedule/config"
 
 /**
- * 주중 오프라인 수업 일정 페이지
+ * 주말 오프라인 수업 일정 페이지
+ * 주중 수업과 동일한 레이아웃을 사용하며 데이터만 다름
  */
-export default function WeekdaySchedulePage() {
-  // 주중 수업 텍스트 및 데이터 설정
-  const texts = getScheduleTexts("weekday")
-  const dataUrl = getScheduleDataUrl("weekday")
+export default function WeekendSchedulePage() {
+  // 주말 수업 텍스트 및 데이터 설정
+  const texts = getScheduleTexts("weekend")
+  const dataUrl = getScheduleDataUrl("weekend")
   
   const { items, months, loading, error } = useSchedules({ sourceUrl: dataUrl })
   const [selectedMonth, setSelectedMonth] = useState(months[0] ?? "")
@@ -74,3 +75,4 @@ export default function WeekdaySchedulePage() {
     </div>
   )
 }
+

@@ -5,7 +5,7 @@ import { themeText, themeColors } from "@/theme"
 export function HeroAboutSection() {
   return (
     <section className="relative bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100 py-32">
-      <div className="container relative z-10 mx-auto px-4">
+      <div className="container relative z-5 mx-auto px-4">
         <div className="mx-auto max-w-4xl text-center">
           <div className="mb-8 flex justify-center gap-6">
             <div className="animate-bounce">

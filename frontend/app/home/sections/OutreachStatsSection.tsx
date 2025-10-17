@@ -29,8 +29,8 @@ export function OutreachStatsSection({ text }: OutreachProps) {
 
             <div className="mb-6 flex flex-wrap gap-6 text-gray-700 mt-5">
               {text.grades.map((g) => (
-                <div key={g} className="inline-flex items-center gap-2">
-                  <Check className="h-10 w-10 text-blue-300" />
+                <div key={g} className="inline-flex items-center gap-1">
+                  <Check className="h-6 w-6 text-blue-300" />
                   <span>{g}</span>
                 </div>
               ))}
@@ -41,10 +41,10 @@ export function OutreachStatsSection({ text }: OutreachProps) {
                 const Icon = iconMap[m.icon as keyof typeof iconMap] || Users;
                 return (
                   <div key={idx} className="flex flex-col items-center justify-center rounded-xl bg-white p-4">
-                    <div className="mb-3 flex h-20 w-20 items-center justify-center rounded-full bg-blue-500">
-                      <Icon className="h-10 w-10 text-blue-100" />
+                    <div className="mb-3 flex h-16 w-16 items-center justify-center rounded-full bg-blue-500">
+                      <Icon className="h-8 w-8 text-blue-100" />
                     </div>
-                    <div className="text-2xl font-extrabold text-gray-900">{m.value}</div>
+                    <div className="text-xl font-extrabold text-gray-900">{m.value}</div>
                     <div className="text-sm text-gray-500">{m.caption}</div>
                   </div>
                 );

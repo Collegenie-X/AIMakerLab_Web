@@ -1,0 +1,77 @@
+[
+  {
+    "id": "review-001",
+    "productId": "smart-farm-kit",
+    "authorName": "김선생",
+    "authorRole": "초등학교 교사",
+    "authorSchool": "서울 OO초등학교",
+    "rating": 5,
+    "date": "2024-11-15",
+    "content": "6학년 실과 수업에 활용했습니다. 학생들이 센서로 식물 환경을 측정하고 자동화하는 과정에서 정말 즐거워했어요. 특히 교사용 지도서가 상세해서 수업 준비가 수월했습니다.",
+    "photos": [
+      "/products/classroom-photos/smart-farm-1.jpg",
+      "/products/classroom-photos/smart-farm-2.jpg"
+    ],
+    "likes": 24,
+    "helpful": 18
+  },
+  {
+    "id": "review-002",
+    "productId": "smart-farm-kit",
+    "authorName": "박학부모",
+    "authorRole": "학부모",
+    "authorSchool": "방과후 수업",
+    "rating": 5,
+    "date": "2024-11-10",
+    "content": "아이가 방과후 수업에서 이 키트로 수업을 들었는데, 집에 와서도 계속 이야기할 정도로 재미있어했습니다. 식물 키우기와 코딩을 동시에 배워서 정말 좋았다고 하네요!",
+    "photos": [],
+    "likes": 15,
+    "helpful": 12
+  },
+  {
+    "id": "review-003",
+    "productId": "smart-farm-kit",
+    "authorName": "이교사",
+    "authorRole": "중학교 정보 교사",
+    "authorSchool": "경기 △△중학교",
+    "rating": 4,
+    "date": "2024-11-05",
+    "content": "정보 교과 IoT 단원에 활용했습니다. 센서 연결부터 코딩까지 단계별로 잘 구성되어 있어요. 다만 학생 수가 많으면 키트가 더 필요할 수 있습니다. 전반적으로 만족스럽습니다.",
+    "photos": [
+      "/products/classroom-photos/smart-farm-3.jpg"
+    ],
+    "likes": 19,
+    "helpful": 14
+  },
+  {
+    "id": "review-004",
+    "productId": "smart-farm-kit",
+    "authorName": "최선생",
+    "authorRole": "초등학교 교사",
+    "authorSchool": "부산 ◇◇초등학교",
+    "rating": 5,
+    "date": "2024-10-28",
+    "content": "STEAM 수업에 최적화된 교구입니다. 과학(식물), 기술(센서), 공학(회로), 수학(데이터) 개념을 통합적으로 가르칠 수 있어 좋았습니다. 학생들의 창의력과 문제해결력이 눈에 띄게 향상되었어요.",
+    "photos": [
+      "/products/classroom-photos/smart-farm-4.jpg",
+      "/products/classroom-photos/smart-farm-5.jpg",
+      "/products/classroom-photos/smart-farm-6.jpg"
+    ],
+    "likes": 31,
+    "helpful": 25
+  },
+  {
+    "id": "review-005",
+    "productId": "smart-farm-kit",
+    "authorName": "정교사",
+    "authorRole": "초등학교 교사",
+    "authorSchool": "대구 ☆☆초등학교",
+    "rating": 5,
+    "date": "2024-10-20",
+    "content": "학교에서 10세트 구매해서 5학년 전체 수업에 활용 중입니다. 교사 연수도 제공해주셔서 수업 준비가 수월했고, 학생들 반응이 아주 좋습니다. 추천합니다!",
+    "photos": [],
+    "likes": 22,
+    "helpful": 19
+  }
+]
+

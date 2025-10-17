@@ -4,16 +4,22 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import { useCallback, useState } from "react"
 import { Button } from "@/components/ui/buttons/button"
 import { Calendar, CheckCircle2, Clock, Star, Users } from "lucide-react"
-import type { ScheduleItem } from "../config"
-import { scheduleTexts } from "../config"
+import type { ScheduleItem, ScheduleTexts } from "../config"
 import { ScheduleMediaGallery } from "./ScheduleMediaGallery"
 
 type Props = {
   item: ScheduleItem
   trigger: React.ReactNode
+  texts: ScheduleTexts
 }
 
-export function ScheduleDetailDialog({ item, trigger }: Props) {
+/**
+ * 수업 상세 정보 다이얼로그 컴포넌트
+ * @param item - 수업 정보
+ * @param trigger - 다이얼로그를 여는 트리거 요소
+ * @param texts - 표시할 텍스트 설정
+ */
+export function ScheduleDetailDialog({ item, trigger, texts }: Props) {
   const isClosed = item.enrolled >= item.capacity
   const [open, setOpen] = useState(false)
 
@@ -53,12 +59,12 @@ export function ScheduleDetailDialog({ item, trigger }: Props) {
             </div>
 
             <div>
-              <h3 className="mb-2 text-lg font-semibold">{scheduleTexts.labels.intro}</h3>
+              <h3 className="mb-2 text-lg font-semibold">{texts.labels.intro}</h3>
               <p className="text-gray-600">{item.description}</p>
             </div>
 
             <div>
-              <h3 className="mb-2 text-lg font-semibold">{scheduleTexts.labels.curriculum}</h3>
+              <h3 className="mb-2 text-lg font-semibold">{texts.labels.curriculum}</h3>
               <div className="space-y-1.5">
                 {item.curriculum.map((c, i) => (
                   <div key={i} className="flex gap-3 rounded-lg border p-2.5">
@@ -71,7 +77,7 @@ export function ScheduleDetailDialog({ item, trigger }: Props) {
 
             {item.gallery && item.gallery.length > 0 ? (
               <div>
-                <h3 className="mb-3 text-lg font-semibold">{scheduleTexts.labels.mediaGallery}</h3>
+                <h3 className="mb-3 text-lg font-semibold">{texts.labels.mediaGallery}</h3>
                 <ScheduleMediaGallery items={item.gallery} />
               </div>
             ) : null}
@@ -80,13 +86,13 @@ export function ScheduleDetailDialog({ item, trigger }: Props) {
           <aside className="space-y-3 lg:pl-2">
             <div className="flex items-center justify-between rounded-lg bg-gray-50 p-3">
               <div>
-                <div className="text-sm text-gray-500">{scheduleTexts.labels.instructor}</div>
+                <div className="text-sm text-gray-500">{texts.labels.instructor}</div>
                 <div className="font-semibold">{item.instructor}</div>
               </div>
               <div className="flex items-center gap-2">
                 <Star className="h-5 w-5 fill-yellow-400 text-yellow-400" />
                 <span className="text-lg font-bold">{item.rating}</span>
-                <span className="text-gray-500">({item.reviews}{scheduleTexts.labels.reviews})</span>
+                <span className="text-gray-500">({item.reviews}{texts.labels.reviews})</span>
               </div>
             </div>
 
@@ -94,14 +100,14 @@ export function ScheduleDetailDialog({ item, trigger }: Props) {
               <div className="flex items-center gap-3 rounded-lg border p-2.5">
                 <Calendar className="h-5 w-5 text-blue-600" />
                 <div>
-                  <div className="text-xs text-gray-500">{scheduleTexts.labels.openingDate}</div>
+                  <div className="text-xs text-gray-500">{texts.labels.openingDate}</div>
                   <div className="font-semibold">{item.date}</div>
                 </div>
               </div>
               <div className="flex items-center gap-3 rounded-lg border p-2.5">
                 <Clock className="h-5 w-5 text-blue-600" />
                 <div>
-                  <div className="text-xs text-gray-500">{scheduleTexts.labels.classTime}</div>
+                  <div className="text-xs text-gray-500">{texts.labels.classTime}</div>
                   <div className="font-semibold">{item.time}</div>
                 </div>
               </div>
@@ -112,8 +118,8 @@ export function ScheduleDetailDialog({ item, trigger }: Props) {
                     수강 인원
                   </div>
                   <span className="text-xs text-gray-600">
-                    {item.capacity - item.enrolled > 0 ? `${item.capacity - item.enrolled}${scheduleTexts.labels.remain}` :
-                      scheduleTexts.labels.closed}
+                    {item.capacity - item.enrolled > 0 ? `${item.capacity - item.enrolled}${texts.labels.remain}` :
+                      texts.labels.closed}
                   </span>
                 </div>
                 <div className="mt-1 flex items-center gap-3">
@@ -131,12 +137,12 @@ export function ScheduleDetailDialog({ item, trigger }: Props) {
 
             <div className="flex items-center justify-between rounded-lg bg-blue-50 p-3">
               <div>
-                <div className="text-sm text-gray-600">{scheduleTexts.labels.price}</div>
+                <div className="text-sm text-gray-600">{texts.labels.price}</div>
                 <div className="text-2xl font-bold text-blue-600">{item.price}</div>
                 <div className="text-xs text-gray-500">{item.duration}</div>
               </div>
               <Button size="lg" disabled={isClosed}>
-                {isClosed ? scheduleTexts.labels.closedFull : scheduleTexts.labels.apply}
+                {isClosed ? texts.labels.closedFull : texts.labels.apply}
               </Button>
             </div>
           </aside>

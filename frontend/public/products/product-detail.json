@@ -1,0 +1,91 @@
+{
+  "smart-farm-kit": {
+    "components": [
+      {
+        "title": "조도센서와 식물생장 LED",
+        "description": "빛의 양을 측정하고 부족할 때 자동으로 LED를 켜는 시스템",
+        "educationalPoint": "센서 데이터 읽기, 조건문 활용, 자동화 개념 학습",
+        "image": "/products/arduino-electronics-circuit.jpg"
+      },
+      {
+        "title": "토양습도센서와 물 공급 시스템",
+        "description": "토양의 습도를 측정하고 건조할 때 자동으로 물을 공급하는 시스템",
+        "educationalPoint": "아날로그 센서 활용, 임계값 설정, 액추에이터 제어",
+        "image": "/products/smart-home-iot-device.jpg"
+      },
+      {
+        "title": "온습도센서와 환경 모니터링",
+        "description": "온도와 습도를 실시간으로 측정하고 LCD에 표시하는 시스템",
+        "educationalPoint": "디지털 센서 통신, 데이터 시각화, 환경 분석",
+        "image": "/products/student-robot-project.jpg"
+      }
+    ],
+    "curriculum": [
+      {
+        "week": 1,
+        "title": "스마트팜이란? IoT 기술 이해하기",
+        "content": "스마트팜의 개념과 실생활 활용 사례를 알아보고, 아두이노 기초를 학습합니다",
+        "activities": ["스마트팜 사례 조사", "아두이노 IDE 설치", "LED 깜빡이기 실습"]
+      },
+      {
+        "week": 2,
+        "title": "조도센서로 빛 측정하기",
+        "content": "조도센서의 원리를 이해하고 빛의 양을 측정하는 프로그램을 만듭니다",
+        "activities": ["센서 연결하기", "시리얼 모니터로 데이터 확인", "조건문으로 LED 제어"]
+      },
+      {
+        "week": 3,
+        "title": "자동 조명 시스템 만들기",
+        "content": "빛이 부족할 때 자동으로 LED가 켜지는 시스템을 구현합니다",
+        "activities": ["임계값 설정", "자동화 프로그래밍", "낮/밤 시뮬레이션"]
+      },
+      {
+        "week": 4,
+        "title": "토양습도센서와 물 공급 시스템",
+        "content": "토양의 습도를 측정하고 자동으로 물을 공급하는 시스템을 만듭니다",
+        "activities": ["토양습도 측정", "워터펌프 제어", "자동 급수 프로그래밍"]
+      },
+      {
+        "week": 5,
+        "title": "온습도 모니터링 시스템",
+        "content": "온도와 습도를 실시간으로 측정하고 LCD에 표시합니다",
+        "activities": ["DHT11 센서 활용", "LCD 연결 및 제어", "데이터 시각화"]
+      },
+      {
+        "week": 6,
+        "title": "통합 스마트팜 시스템 완성 및 발표",
+        "content": "모든 기능을 통합하여 완전한 스마트팜을 만들고 팀별로 발표합니다",
+        "activities": ["시스템 통합", "최적화 실험", "발표 및 피드백"]
+      }
+    ],
+    "included": [
+      "아두이노 UNO 호환보드 × 1",
+      "조도센서 (CdS) × 1",
+      "토양습도센서 × 1",
+      "DHT11 온습도센서 × 1",
+      "식물생장 LED (적색+청색) × 1",
+      "미니 워터펌프 × 1",
+      "LCD 디스플레이 (16×2) × 1",
+      "브레드보드 × 1",
+      "점퍼선 세트",
+      "USB 케이블 × 1",
+      "교사용 지도서 (PDF)",
+      "학생용 워크북 (PDF)"
+    ],
+    "teacherResources": [
+      {
+        "title": "교사용 지도서",
+        "description": "6차시 수업 계획, 학습 목표, 평가 기준, 예상 질문 및 답변 포함"
+      },
+      {
+        "title": "학생용 워크북",
+        "description": "활동지, 관찰 일지, 실험 기록지, 자기평가지 제공"
+      },
+      {
+        "title": "수업 PPT",
+        "description": "차시별 수업용 프레젠테이션 자료 (6개 파일)"
+      }
+    ]
+  }
+}
+

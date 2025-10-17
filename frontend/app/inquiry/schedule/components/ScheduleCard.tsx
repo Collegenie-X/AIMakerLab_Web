@@ -4,14 +4,19 @@ import { Badge } from "@/components/ui/data-display/badge"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/data-display/card"
 import { Button } from "@/components/ui/buttons/button"
 import { Calendar, Clock, Star, Users } from "lucide-react"
-import type { ScheduleItem } from "../config"
-import { scheduleTexts } from "../config"
+import type { ScheduleItem, ScheduleTexts } from "../config"
 
 type Props = {
   item: ScheduleItem
+  texts: ScheduleTexts
 }
 
-export function ScheduleCard({ item }: Props) {
+/**
+ * 수업 카드 컴포넌트
+ * @param item - 수업 정보
+ * @param texts - 표시할 텍스트 설정
+ */
+export function ScheduleCard({ item, texts }: Props) {
   const isClosed = item.enrolled >= item.capacity
 
   return (
@@ -30,7 +35,7 @@ export function ScheduleCard({ item }: Props) {
         )}
         <div className="absolute right-2 top-2">
           <Badge variant={isClosed ? "destructive" : "default"}>
-            {isClosed ? scheduleTexts.labels.closed : scheduleTexts.labels.recruiting}
+            {isClosed ? texts.labels.closed : texts.labels.recruiting}
           </Badge>
         </div>
       </div>
@@ -71,8 +76,8 @@ export function ScheduleCard({ item }: Props) {
               수강 인원
             </div>
             <span className="text-xs text-gray-600">
-              {item.capacity - item.enrolled > 0 ? `${item.capacity - item.enrolled}${scheduleTexts.labels.remain}` :
-                scheduleTexts.labels.closed}
+              {item.capacity - item.enrolled > 0 ? `${item.capacity - item.enrolled}${texts.labels.remain}` :
+                texts.labels.closed}
             </span>
           </div>
           {/* 좌: 현재 인원, 가운데: 진행바, 우: 총 정원 */}
@@ -90,7 +95,7 @@ export function ScheduleCard({ item }: Props) {
 
         <div className="flex items-center justify-between border-t pt-2">
           <div className="text-xl font-bold text-blue-600">{item.price}</div>
-          <Button variant="outline" size="sm">{scheduleTexts.labels.seeDetail}</Button>
+          <Button variant="outline" size="sm">{texts.labels.seeDetail}</Button>
         </div>
       </CardContent>
     </Card>

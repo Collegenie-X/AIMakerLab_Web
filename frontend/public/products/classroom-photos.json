@@ -1,0 +1,83 @@
+[
+  {
+    "id": "photo-001",
+    "productId": "smart-farm-kit",
+    "title": "6학년 실과 수업 - 스마트팜 프로젝트",
+    "description": "학생들이 조도센서를 연결하고 식물 생장 LED를 제어하는 코드를 작성하고 있습니다.",
+    "image": "/products/classroom-photos/smart-farm-1.jpg",
+    "school": "서울 OO초등학교",
+    "grade": "6학년",
+    "subject": "실과"
+  },
+  {
+    "id": "photo-002",
+    "productId": "smart-farm-kit",
+    "title": "팀별 협업 활동",
+    "description": "4명씩 팀을 이루어 역할을 나누고 스마트팜을 완성하는 모습입니다.",
+    "image": "/products/classroom-photos/smart-farm-2.jpg",
+    "school": "서울 OO초등학교",
+    "grade": "6학년",
+    "subject": "실과"
+  },
+  {
+    "id": "photo-003",
+    "productId": "smart-farm-kit",
+    "title": "중학교 정보 수업 - IoT 실습",
+    "description": "토양습도센서로 데이터를 수집하고 자동 급수 시스템을 구현했습니다.",
+    "image": "/products/classroom-photos/smart-farm-3.jpg",
+    "school": "경기 △△중학교",
+    "grade": "중1",
+    "subject": "정보"
+  },
+  {
+    "id": "photo-004",
+    "productId": "smart-farm-kit",
+    "title": "STEAM 융합수업",
+    "description": "온습도 센서로 측정한 데이터를 LCD에 표시하고 그래프로 분석하는 활동입니다.",
+    "image": "/products/classroom-photos/smart-farm-4.jpg",
+    "school": "부산 ◇◇초등학교",
+    "grade": "5학년",
+    "subject": "STEAM"
+  },
+  {
+    "id": "photo-005",
+    "productId": "smart-farm-kit",
+    "title": "완성된 스마트팜 시스템",
+    "description": "모든 센서가 통합된 완전한 스마트팜 시스템입니다. 자동 조명, 급수, 모니터링이 가능합니다.",
+    "image": "/products/classroom-photos/smart-farm-5.jpg",
+    "school": "부산 ◇◇초등학교",
+    "grade": "5학년",
+    "subject": "STEAM"
+  },
+  {
+    "id": "photo-006",
+    "productId": "smart-farm-kit",
+    "title": "팀별 발표 시간",
+    "description": "완성한 스마트팜을 발표하고 다른 팀과 아이디어를 공유하는 시간입니다.",
+    "image": "/products/classroom-photos/smart-farm-6.jpg",
+    "school": "부산 ◇◇초등학교",
+    "grade": "5학년",
+    "subject": "STEAM"
+  },
+  {
+    "id": "photo-007",
+    "productId": "smart-farm-kit",
+    "title": "5학년 전체 수업 활용",
+    "description": "학년 전체가 스마트팜 프로젝트를 진행했습니다. 교실이 과학실로 변했어요!",
+    "image": "/products/classroom-photos/smart-farm-7.jpg",
+    "school": "대구 ☆☆초등학교",
+    "grade": "5학년",
+    "subject": "실과"
+  },
+  {
+    "id": "photo-008",
+    "productId": "smart-farm-kit",
+    "title": "방과후 수업",
+    "description": "방과후 코딩 수업에서 저학년 학생들도 즐겁게 참여했습니다.",
+    "image": "/products/classroom-photos/smart-farm-8.jpg",
+    "school": "서울 XX초등학교",
+    "grade": "3-4학년",
+    "subject": "방과후"
+  }
+]
+

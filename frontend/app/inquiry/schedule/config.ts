@@ -1,3 +1,4 @@
+// ScheduleItem 타입 정의
 export type ScheduleItem = {
   id: number
   title: string
@@ -21,6 +22,7 @@ export type ScheduleItem = {
   gallery?: { type: "image" | "video"; src: string; alt?: string }[]
 }
 
+// ScheduleTexts 타입 정의
 export type ScheduleTexts = {
   heroTitle: string
   heroSubtitle: string
@@ -61,24 +63,16 @@ export type ScheduleTexts = {
   }
 }
 
-export const scheduleTexts: ScheduleTexts = {
-  heroTitle: "오프라인 수업 일정",
-  heroSubtitle:
-    "전문 강사와 함께하는 실습 중심 교육! 소규모 정예 수업으로 확실한 학습 효과를 경험하세요.",
-  monthPrefix: "",
-  monthSuffix: " 개강 수업",
-  listEmpty: "해당 월에 예정된 수업이 없습니다.",
-  info: {
-    title: "수강 신청 안내",
-    refundTitle: "환불 정책",
-    refundDesc: "개강 7일 전까지 전액 환불, 개강 3일 전까지 50% 환불, 개강 후에는 환불이 불가능합니다.",
-    capacityTitle: "수강 인원",
-    capacityDesc:
-      "최소 인원 미달 시 개강이 연기되거나 취소될 수 있으며, 이 경우 전액 환불됩니다.",
-    contactTitle: "문의",
-    contactDesc: "수업 관련 문의사항은 010-2708-0051 또는 info@aimakerlab.com으로 연락주세요.",
-  },
-  labels: {
+// 수업 타입 정의
+export type ScheduleType = "weekday" | "weekend"
+
+/**
+ * 수업 타입에 따라 텍스트 설정 반환
+ * @param type - 수업 타입 (주중/주말)
+ * @returns 해당 타입에 맞는 텍스트 설정
+ */
+export function getScheduleTexts(type: ScheduleType): ScheduleTexts {
+  const baseLabels = {
     openingDate: "개강일",
     classTime: "수업 시간",
     place: "장소",
@@ -100,9 +94,56 @@ export const scheduleTexts: ScheduleTexts = {
     curriculum: "커리큘럼",
     requirements: "준비사항",
     mediaGallery: "미디어 갤러리",
-  },
+  }
+
+  const baseInfo = {
+    title: "수강 신청 안내",
+    refundTitle: "환불 정책",
+    refundDesc: "개강 7일 전까지 전액 환불, 개강 3일 전까지 50% 환불, 개강 후에는 환불이 불가능합니다.",
+    capacityTitle: "수강 인원",
+    capacityDesc: "최소 인원 미달 시 개강이 연기되거나 취소될 수 있으며, 이 경우 전액 환불됩니다.",
+    contactTitle: "문의",
+    contactDesc: "수업 관련 문의사항은 010-2708-0051 또는 info@aimakerlab.com으로 연락주세요.",
+  }
+
+  // 주중 수업 텍스트
+  if (type === "weekday") {
+    return {
+      heroTitle: "주중 오프라인 수업 일정",
+      heroSubtitle:
+        "전문 강사와 함께하는 실습 중심 교육! 주중 저녁 시간에 소규모 정예 수업으로 확실한 학습 효과를 경험하세요.",
+      monthPrefix: "",
+      monthSuffix: " 개강 수업",
+      listEmpty: "해당 월에 예정된 주중 수업이 없습니다.",
+      info: baseInfo,
+      labels: baseLabels,
+    }
+  }
+
+  // 주말 수업 텍스트
+  return {
+    heroTitle: "주말 오프라인 수업 일정",
+    heroSubtitle:
+      "전문 강사와 함께하는 실습 중심 교육! 주말에 여유롭게 소규모 정예 수업으로 확실한 학습 효과를 경험하세요.",
+    monthPrefix: "",
+    monthSuffix: " 개강 수업",
+    listEmpty: "해당 월에 예정된 주말 수업이 없습니다.",
+    info: baseInfo,
+    labels: baseLabels,
+  }
 }
 
-export const scheduleDataUrl = "/inquiry/schedules.json"
+/**
+ * 수업 타입에 따라 데이터 URL 반환
+ * @param type - 수업 타입 (주중/주말)
+ * @returns 해당 타입의 JSON 데이터 URL
+ */
+export function getScheduleDataUrl(type: ScheduleType): string {
+  return type === "weekday" ? "/inquiry/schedules-weekday.json" : "/inquiry/schedules-weekend.json"
+}
+
+// 하위 호환성을 위한 기본 export (주중 수업)
+export const scheduleTexts = getScheduleTexts("weekday")
+export const scheduleDataUrl = getScheduleDataUrl("weekday")
 
 
