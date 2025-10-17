@@ -1,0 +1,658 @@
+{
+  "hero": {
+    "badge": "초급 과정",
+    "title": "앱 인벤터 코딩",
+    "description": "블록 코딩으로 나만의 안드로이드 앱을 만들어보세요",
+    "imageUrl": "/home/app-inventor-coding-blocks.jpg"
+  },
+  "courseInfo": [
+    {
+      "id": "duration",
+      "icon": "Clock",
+      "iconColor": "blue",
+      "label": "수업 기간",
+      "value": "8주 과정"
+    },
+    {
+      "id": "capacity",
+      "icon": "Users",
+      "iconColor": "purple",
+      "label": "수강 인원",
+      "value": "최대 12명"
+    },
+    {
+      "id": "method",
+      "icon": "BookOpen",
+      "iconColor": "green",
+      "label": "수업 방식",
+      "value": "실습 중심"
+    }
+  ],
+  "description": {
+    "title": "과정 소개",
+    "paragraphs": [
+      "앱 인벤터는 MIT에서 개발한 블록 기반 프로그래밍 도구로, 복잡한 코드 없이도 실제로 작동하는 안드로이드 앱을 만들 수 있습니다.",
+      "이 과정에서는 드래그 앤 드롭 방식의 직관적인 인터페이스를 통해 프로그래밍의 기본 개념을 배우고, 게임, 유틸리티, 소셜 앱 등 다양한 종류의 앱을 직접 제작합니다.",
+      "프로그래밍 경험이 전혀 없어도 괜찮습니다. 기초부터 차근차근 배워나가며, 최종적으로는 자신만의 창의적인 앱을 완성하게 됩니다."
+    ]
+  },
+  "educationRequirements": {
+    "title": "교육 조건",
+    "items": [
+      {
+        "id": "optimal-capacity",
+        "icon": "Users",
+        "iconColor": "blue",
+        "title": "적정 인원",
+        "description": "학급당 12~20명",
+        "details": [
+          "1:1 밀착 지도를 위한 소규모 수업",
+          "학생 개별 진도에 맞춘 맞춤형 교육",
+          "팀 프로젝트 진행 시 3~4명 팀 구성"
+        ]
+      },
+      {
+        "id": "materials",
+        "icon": "Package",
+        "iconColor": "purple",
+        "title": "필요 교구재",
+        "description": "개인 노트북/태블릿 + 안드로이드 기기",
+        "details": [
+          "인터넷 연결 가능한 PC 또는 태블릿 (1인 1대)",
+          "앱 테스트용 안드로이드 스마트폰/태블릿 (선택사항)",
+          "교재 및 활동지 제공 (PDF 또는 인쇄물)",
+          "USB 케이블 (기기 연결용)"
+        ]
+      },
+      {
+        "id": "environment",
+        "icon": "Monitor",
+        "iconColor": "green",
+        "title": "개발 환경",
+        "description": "웹 브라우저 기반 (크롬 권장)",
+        "details": [
+          "MIT App Inventor 2 (ai2.appinventor.mit.edu)",
+          "구글 계정 필요 (Gmail)",
+          "웹 브라우저: Chrome, Firefox, Safari 최신 버전",
+          "안드로이드 에뮬레이터 또는 실제 기기",
+          "별도 프로그램 설치 불필요 (웹 기반)"
+        ]
+      },
+      {
+        "id": "prerequisites",
+        "icon": "GraduationCap",
+        "iconColor": "orange",
+        "title": "사전 지식",
+        "description": "컴퓨터 기본 사용법만 있으면 충분",
+        "details": [
+          "마우스 드래그 앤 드롭 가능",
+          "웹 브라우저 사용 경험",
+          "파일 저장 및 불러오기 이해",
+          "코딩 경험 불필요"
+        ]
+      }
+    ]
+  },
+  "learningGoals": {
+    "title": "학습 목표 및 기대 효과",
+    "description": "앱 인벤터 과정을 통해 학생들이 얻을 수 있는 구체적인 목표와 역량",
+    "goals": [
+      {
+        "id": "goal-1",
+        "category": "프로그래밍 사고력",
+        "title": "컴퓨팅 사고력 향상",
+        "description": "문제를 논리적으로 분석하고 해결하는 능력을 키웁니다",
+        "skills": [
+          "문제 분해 및 패턴 인식",
+          "알고리즘적 사고",
+          "추상화 능력",
+          "디버깅 및 문제 해결"
+        ]
+      },
+      {
+        "id": "goal-2",
+        "category": "앱 개발 능력",
+        "title": "실용적인 앱 제작 능력",
+        "description": "실제로 작동하는 안드로이드 앱을 직접 만들 수 있습니다",
+        "skills": [
+          "UI/UX 디자인 기초",
+          "이벤트 기반 프로그래밍",
+          "데이터 저장 및 관리",
+          "센서 및 멀티미디어 활용"
+        ]
+      },
+      {
+        "id": "goal-3",
+        "category": "창의력",
+        "title": "창의적 문제 해결",
+        "description": "자신의 아이디어를 앱으로 구현하는 창의력을 발휘합니다",
+        "skills": [
+          "아이디어 발상 및 기획",
+          "프로토타입 제작",
+          "사용자 중심 설계",
+          "반복적 개선 프로세스"
+        ]
+      },
+      {
+        "id": "goal-4",
+        "category": "협업 능력",
+        "title": "팀워크 및 의사소통",
+        "description": "팀 프로젝트를 통해 협업하고 발표하는 능력을 기릅니다",
+        "skills": [
+          "팀 프로젝트 협업",
+          "아이디어 공유 및 토론",
+          "프레젠테이션 능력",
+          "피드백 수용 및 개선"
+        ]
+      }
+    ],
+    "achievements": [
+      "나만의 안드로이드 앱 3~5개 완성",
+      "앱 스토어 출시 수준의 최종 프로젝트",
+      "포트폴리오 제작 (학생부 기록 가능)",
+      "MIT App Inventor 수료증 발급"
+    ]
+  },
+  "gradeRecommendation": {
+    "title": "학년별 추천 커리큘럼",
+    "description": "학생의 학년과 수준에 맞는 최적의 과정을 선택하세요",
+    "programName": "앱 인벤터",
+    "headers": ["추천시기", "초1-2", "초3-4", "초5-6", "중등", "고등"],
+    "courses": [
+      {
+        "id": "basic-experience",
+        "courseName": "앱 인벤터 체험",
+        "duration": "3시간",
+        "difficulty": "입문",
+        "recommendedGrades": {
+          "elementary-low": null,
+          "elementary-mid": "권장",
+          "elementary-high": "권장",
+          "middle": "선택",
+          "high": null
+        },
+        "description": "블록 코딩으로 첫 앱 만들기"
+      },
+      {
+        "id": "basic-course",
+        "courseName": "앱 인벤터 기본",
+        "duration": "6시간",
+        "difficulty": "기초",
+        "recommendedGrades": {
+          "elementary-low": null,
+          "elementary-mid": null,
+          "elementary-high": "권장",
+          "middle": "권장",
+          "high": "선택"
+        },
+        "description": "이벤트와 조건문으로 앱 만들기"
+      },
+      {
+        "id": "advanced-course",
+        "courseName": "앱 인벤터 심화",
+        "duration": "12시간",
+        "difficulty": "심화",
+        "recommendedGrades": {
+          "elementary-low": null,
+          "elementary-mid": null,
+          "elementary-high": "도전",
+          "middle": "권장",
+          "high": "권장"
+        },
+        "description": "데이터베이스와 센서를 활용한 실전 앱"
+      }
+    ],
+    "legend": {
+      "recommended": "권장: 해당 학년에 가장 적합한 난이도",
+      "optional": "선택: 관심 있으면 도전 가능",
+      "challenge": "도전: 프로그래밍 경험이 있다면 가능"
+    }
+  },
+  "curriculum": {
+    "title": "커리큘럼",
+    "tabs": [
+      {
+        "id": "3hours",
+        "label": "3시간",
+        "duration": "3시간",
+        "description": "앱 인벤터 기초 체험 과정",
+        "modules": [
+          {
+            "id": "3h-module-1",
+            "title": "앱 인벤터 시작하기",
+            "duration": "1시간",
+            "topics": [
+              "앱 인벤터 소개 및 계정 생성",
+              "디자이너 화면과 블록 편집기 이해",
+              "첫 번째 'Hello World' 앱 만들기",
+              "에뮬레이터로 앱 테스트하기"
+            ],
+            "detailDescription": "앱 인벤터의 기본 환경을 익히고 간단한 화면을 구성하는 방법을 배웁니다."
+          },
+          {
+            "id": "3h-module-2",
+            "title": "간단한 앱 제작",
+            "duration": "1.5시간",
+            "topics": [
+              "버튼과 레이블 컴포넌트 활용",
+              "버튼 클릭 이벤트 처리",
+              "텍스트 입력 및 표시",
+              "간단한 인사말 앱 완성"
+            ],
+            "detailDescription": "기본 컴포넌트를 활용하여 사용자 입력을 받고 처리하는 인터랙티브한 앱을 만듭니다."
+          },
+          {
+            "id": "3h-module-3",
+            "title": "실습 및 마무리",
+            "duration": "30분",
+            "topics": [
+              "나만의 간단한 앱 기획하기",
+              "배운 내용을 활용한 앱 제작",
+              "앱 테스트 및 공유",
+              "질의응답 및 피드백"
+            ],
+            "detailDescription": "학습한 내용을 바탕으로 자신만의 창의적인 앱을 기획하고 구현합니다."
+          }
+        ]
+      },
+      {
+        "id": "6hours",
+        "label": "6시간",
+        "duration": "6시간",
+        "description": "앱 인벤터 기본 과정",
+        "modules": [
+          {
+            "id": "6h-module-1",
+            "title": "앱 인벤터 시작하기",
+            "duration": "1.5시간",
+            "topics": [
+              "앱 인벤터 소개 및 환경 설정",
+              "디자이너와 블록 편집기 심화",
+              "다양한 컴포넌트 탐색 (버튼, 이미지, 사운드)",
+              "첫 번째 앱 만들기 및 테스트",
+              "에뮬레이터와 실제 기기 연동"
+            ],
+            "detailDescription": "앱 인벤터의 전체 개발 환경을 이해하고 다양한 컴포넌트를 활용하는 방법을 익힙니다."
+          },
+          {
+            "id": "6h-module-2",
+            "title": "이벤트와 조건문",
+            "duration": "2시간",
+            "topics": [
+              "이벤트 기반 프로그래밍 개념",
+              "다양한 이벤트 핸들러 활용",
+              "조건문(if-else) 블록 사용",
+              "변수 선언 및 활용",
+              "사칙연산 계산기 앱 제작",
+              "디버깅 기초"
+            ],
+            "detailDescription": "프로그래밍의 핵심 개념인 조건문과 변수를 배우고 실용적인 계산기 앱을 완성합니다."
+          },
+          {
+            "id": "6h-module-3",
+            "title": "미니 프로젝트",
+            "duration": "2.5시간",
+            "topics": [
+              "프로젝트 주제 선정 및 기획",
+              "화면 레이아웃 디자인",
+              "기능 구현 (이벤트, 조건문 활용)",
+              "멀티미디어 요소 추가 (이미지, 사운드)",
+              "앱 테스트 및 디버깅",
+              "팀별 발표 및 상호 피드백"
+            ],
+            "detailDescription": "배운 내용을 종합하여 자신만의 창의적인 앱을 기획부터 완성까지 진행합니다."
+          }
+        ]
+      },
+      {
+        "id": "12hours",
+        "label": "12시간",
+        "duration": "12시간",
+        "description": "앱 인벤터 심화 과정",
+        "modules": [
+          {
+            "id": "12h-module-1",
+            "title": "앱 인벤터 기초",
+            "duration": "3시간",
+            "topics": [
+              "앱 인벤터 소개 및 개발 환경 구축",
+              "디자이너와 블록 편집기 완벽 이해",
+              "기본 UI 컴포넌트 (버튼, 레이블, 텍스트박스)",
+              "레이아웃 관리 (수평/수직 배치)",
+              "첫 번째 인터랙티브 앱 제작",
+              "에뮬레이터 및 실제 디바이스 연동",
+              "앱 저장 및 불러오기"
+            ],
+            "detailDescription": "앱 인벤터의 모든 개발 환경을 체계적으로 학습하고 기본 앱 제작 역량을 갖춥니다."
+          },
+          {
+            "id": "12h-module-2",
+            "title": "이벤트와 조건문",
+            "duration": "3시간",
+            "topics": [
+              "이벤트 기반 프로그래밍의 이해",
+              "다양한 이벤트 핸들러 활용",
+              "조건문 (if-then-else) 심화",
+              "논리 연산자 (and, or, not)",
+              "변수 선언 및 스코프",
+              "프로시저(함수) 생성 및 활용",
+              "고급 계산기 앱 제작",
+              "디버깅 및 오류 처리"
+            ],
+            "detailDescription": "프로그래밍의 핵심 논리 구조를 완벽하게 이해하고 복잡한 조건 처리가 가능한 앱을 만듭니다."
+          },
+          {
+            "id": "12h-module-3",
+            "title": "데이터와 리스트",
+            "duration": "3시간",
+            "topics": [
+              "TinyDB를 활용한 데이터 저장",
+              "리스트 자료구조 이해",
+              "리스트 추가, 삭제, 수정 작업",
+              "ListView 컴포넌트 활용",
+              "데이터 검색 및 필터링",
+              "센서 데이터 활용 (GPS, 가속도계)",
+              "실전 메모장 앱 제작",
+              "앱 데이터 관리 베스트 프랙티스"
+            ],
+            "detailDescription": "데이터 저장과 리스트 관리를 마스터하여 실용적인 데이터 기반 앱을 개발합니다."
+          },
+          {
+            "id": "12h-module-4",
+            "title": "최종 프로젝트",
+            "duration": "3시간",
+            "topics": [
+              "프로젝트 주제 선정 및 요구사항 분석",
+              "와이어프레임 및 UI/UX 설계",
+              "데이터 구조 설계",
+              "기능별 모듈 구현",
+              "멀티미디어 통합 (이미지, 사운드, 비디오)",
+              "API 연동 (선택 사항)",
+              "종합 테스트 및 디버깅",
+              "최종 발표 및 포트폴리오 제작"
+            ],
+            "detailDescription": "12시간 동안 학습한 모든 내용을 종합하여 완성도 높은 앱을 기획부터 발표까지 완성합니다."
+          }
+        ]
+      }
+    ]
+  },
+  "gallery": {
+    "title": "수업 현장 및 학생 작품",
+    "description": "실제 수업 모습과 학생들이 만든 창의적인 앱들을 확인해보세요",
+    "tabs": [
+      {
+        "id": "class-photos",
+        "label": "수업 현장",
+        "items": [
+          {
+            "id": "class-1",
+            "imageUrl": "/home/app-inventor-coding-blocks.jpg",
+            "title": "앱 인벤터 블록 코딩 수업",
+            "description": "학생들이 블록을 조립하며 앱의 기능을 구현하고 있습니다",
+            "date": "2024년 3월",
+            "tags": ["블록코딩", "실습"]
+          },
+          {
+            "id": "class-2",
+            "imageUrl": "/home/mobile-app-interface.png",
+            "title": "앱 디자인 실습",
+            "description": "UI 디자인을 배우며 사용자 친화적인 화면을 만드는 모습",
+            "date": "2024년 4월",
+            "tags": ["UI디자인", "실습"]
+          },
+          {
+            "id": "class-3",
+            "imageUrl": "/modern-coding-education-classroom-with-computers.jpg",
+            "title": "팀 프로젝트 협업",
+            "description": "팀원들과 함께 아이디어를 나누고 앱을 기획하는 시간",
+            "date": "2024년 5월",
+            "tags": ["팀프로젝트", "협업"]
+          }
+        ]
+      },
+      {
+        "id": "student-works",
+        "label": "학생 작품",
+        "items": [
+          {
+            "id": "work-1",
+            "imageUrl": "/home/app-inventor-coding-blocks.jpg",
+            "title": "날씨 알림 앱",
+            "description": "현재 위치의 날씨 정보를 실시간으로 확인하고 알림을 받을 수 있는 앱",
+            "student": "김○○ 학생 (중학교 1학년)",
+            "features": ["GPS 위치 추적", "날씨 API 연동", "알림 기능"],
+            "tags": ["위치기반", "API연동"]
+          },
+          {
+            "id": "work-2",
+            "imageUrl": "/home/mobile-app-interface.png",
+            "title": "단어 암기 게임",
+            "description": "영어 단어를 재미있게 암기할 수 있는 퀴즈 형식의 학습 앱",
+            "student": "이○○ 학생 (초등학교 6학년)",
+            "features": ["단어 데이터베이스", "퀴즈 게임", "점수 기록"],
+            "tags": ["교육", "게임"]
+          },
+          {
+            "id": "work-3",
+            "imageUrl": "/home/smart-home-iot-device.jpg",
+            "title": "가족 일정 관리 앱",
+            "description": "가족 구성원의 일정을 공유하고 관리하는 실용적인 앱",
+            "student": "박○○ 학생 (중학교 2학년)",
+            "features": ["일정 등록", "알림 설정", "가족 공유"],
+            "tags": ["일정관리", "실용앱"]
+          },
+          {
+            "id": "work-4",
+            "imageUrl": "/home/student-robot-project.jpg",
+            "title": "블루투스 RC카 제어 앱",
+            "description": "아두이노로 만든 RC카를 스마트폰으로 조종하는 IoT 앱",
+            "student": "최○○ 학생 (중학교 3학년)",
+            "features": ["블루투스 연결", "방향 제어", "속도 조절"],
+            "tags": ["IoT", "하드웨어연동"]
+          }
+        ]
+      },
+      {
+        "id": "reviews",
+        "label": "수업 후기",
+        "items": [
+          {
+            "id": "review-1",
+            "imageUrl": "/home/app-inventor-coding-blocks.jpg",
+            "title": "중학생 정규반 수업 후기",
+            "description": "12시간 과정을 마친 학생들의 발표회 모습",
+            "content": "처음에는 코딩이 어려울 줄 알았는데, 블록으로 하니까 게임하듯이 재미있게 배웠어요. 제가 만든 앱이 실제로 폰에서 작동하는 게 신기하고 뿌듯했습니다!",
+            "author": "김민준 (중2)",
+            "rating": 5,
+            "date": "2024년 6월",
+            "tags": ["정규반", "12시간"]
+          },
+          {
+            "id": "review-2",
+            "imageUrl": "/modern-coding-education-classroom-with-computers.jpg",
+            "title": "초등학생 방학특강 후기",
+            "description": "여름방학 6시간 특강 후 학생들의 만족스러운 표정",
+            "content": "친구들이랑 같이 앱을 만들어서 더 재미있었어요. 선생님이 친절하게 알려주셔서 어려운 부분도 쉽게 이해할 수 있었습니다. 다음에 또 배우고 싶어요!",
+            "author": "이서연 (초6)",
+            "rating": 5,
+            "date": "2024년 7월",
+            "tags": ["방학특강", "6시간"]
+          },
+          {
+            "id": "review-3",
+            "imageUrl": "/home/mobile-app-interface.png",
+            "title": "학교 선생님 추천",
+            "description": "방과후 수업으로 진행한 앱 인벤터 교육",
+            "content": "학생들이 자신의 아이디어를 직접 앱으로 구현하면서 창의력과 문제해결력이 크게 향상되었습니다. 특히 코딩에 자신감을 얻게 된 점이 가장 큰 성과입니다.",
+            "author": "박민수 선생님 (○○중학교)",
+            "rating": 5,
+            "date": "2024년 9월",
+            "tags": ["방과후수업", "학교"]
+          }
+        ]
+      }
+    ]
+  },
+  "materials": {
+    "title": "수업 자료 다운로드",
+    "description": "앱 인벤터 교육에 필요한 다양한 자료를 무료로 다운받으세요",
+    "categories": [
+      {
+        "id": "teaching-materials",
+        "title": "교사용 지도안",
+        "description": "수업 진행을 위한 상세한 티칭 가이드",
+        "items": [
+          {
+            "id": "guide-3h",
+            "title": "3시간 과정 교사용 지도안",
+            "description": "체험 과정을 위한 간략한 수업 가이드",
+            "format": "PDF",
+            "size": "2.5MB",
+            "pages": "12페이지",
+            "downloadUrl": "/materials/app-inventor-3h-guide.pdf",
+            "icon": "FileText"
+          },
+          {
+            "id": "guide-6h",
+            "title": "6시간 과정 교사용 지도안",
+            "description": "기본 과정의 상세한 수업 계획서",
+            "format": "PDF",
+            "size": "4.8MB",
+            "pages": "24페이지",
+            "downloadUrl": "/materials/app-inventor-6h-guide.pdf",
+            "icon": "FileText"
+          },
+          {
+            "id": "guide-12h",
+            "title": "12시간 과정 교사용 지도안",
+            "description": "심화 과정의 완벽한 커리큘럼 가이드",
+            "format": "PDF",
+            "size": "8.2MB",
+            "pages": "48페이지",
+            "downloadUrl": "/materials/app-inventor-12h-guide.pdf",
+            "icon": "FileText"
+          }
+        ]
+      },
+      {
+        "id": "student-workbook",
+        "title": "학생용 워크북",
+        "description": "학생들이 직접 작성하며 학습하는 활동지",
+        "items": [
+          {
+            "id": "workbook-basic",
+            "title": "앱 인벤터 기초 워크북",
+            "description": "블록 코딩 기초를 배우는 실습 활동지",
+            "format": "PDF",
+            "size": "3.2MB",
+            "pages": "20페이지",
+            "downloadUrl": "/materials/app-inventor-workbook-basic.pdf",
+            "icon": "BookOpen"
+          },
+          {
+            "id": "workbook-project",
+            "title": "프로젝트 기획서 템플릿",
+            "description": "앱 아이디어를 체계적으로 정리하는 양식",
+            "format": "PDF",
+            "size": "1.5MB",
+            "pages": "8페이지",
+            "downloadUrl": "/materials/app-inventor-project-template.pdf",
+            "icon": "ClipboardList"
+          },
+          {
+            "id": "workbook-practice",
+            "title": "코딩 실습 문제집",
+            "description": "단계별 난이도의 연습 문제 모음",
+            "format": "PDF",
+            "size": "2.8MB",
+            "pages": "16페이지",
+            "downloadUrl": "/materials/app-inventor-practice.pdf",
+            "icon": "PenTool"
+          }
+        ]
+      },
+      {
+        "id": "reference",
+        "title": "참고 자료",
+        "description": "수업 준비 및 심화 학습을 위한 자료",
+        "items": [
+          {
+            "id": "component-guide",
+            "title": "앱 인벤터 컴포넌트 가이드",
+            "description": "모든 컴포넌트의 사용법을 정리한 참고서",
+            "format": "PDF",
+            "size": "5.5MB",
+            "pages": "32페이지",
+            "downloadUrl": "/materials/app-inventor-components.pdf",
+            "icon": "Book"
+          },
+          {
+            "id": "block-reference",
+            "title": "블록 코딩 레퍼런스",
+            "description": "자주 사용하는 블록의 기능과 예제",
+            "format": "PDF",
+            "size": "3.8MB",
+            "pages": "24페이지",
+            "downloadUrl": "/materials/app-inventor-blocks.pdf",
+            "icon": "Grid"
+          },
+          {
+            "id": "troubleshooting",
+            "title": "문제 해결 가이드",
+            "description": "자주 발생하는 오류와 해결 방법",
+            "format": "PDF",
+            "size": "2.2MB",
+            "pages": "12페이지",
+            "downloadUrl": "/materials/app-inventor-troubleshooting.pdf",
+            "icon": "AlertCircle"
+          }
+        ]
+      },
+      {
+        "id": "example-projects",
+        "title": "예제 프로젝트",
+        "description": "완성된 앱 예제와 소스 파일",
+        "items": [
+          {
+            "id": "example-basic",
+            "title": "기초 앱 예제 모음",
+            "description": "인사말, 계산기 등 5개 기본 앱",
+            "format": "ZIP",
+            "size": "4.2MB",
+            "pages": "5개 프로젝트",
+            "downloadUrl": "/materials/app-inventor-basic-examples.zip",
+            "icon": "Package"
+          },
+          {
+            "id": "example-game",
+            "title": "게임 앱 예제",
+            "description": "퀴즈게임, 두더지게임 등 3개 게임",
+            "format": "ZIP",
+            "size": "6.8MB",
+            "pages": "3개 프로젝트",
+            "downloadUrl": "/materials/app-inventor-game-examples.zip",
+            "icon": "Gamepad2"
+          },
+          {
+            "id": "example-utility",
+            "title": "실용 앱 예제",
+            "description": "메모장, 타이머, 날씨 앱 등",
+            "format": "ZIP",
+            "size": "5.5MB",
+            "pages": "4개 프로젝트",
+            "downloadUrl": "/materials/app-inventor-utility-examples.zip",
+            "icon": "Smartphone"
+          }
+        ]
+      }
+    ]
+  },
+  "cta": {
+    "title": "지금 바로 시작하세요",
+    "description": "무료 상담을 통해 자세한 정보를 확인하세요",
+    "buttonText": "수업 일정 보기",
+    "buttonLink": "/inquiry/schedule"
+  }
+}
+

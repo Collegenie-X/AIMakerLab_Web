@@ -9,7 +9,7 @@ import { LABELS, CONTACT_INFO } from '../config'
  */
 export function ContactInfoSection() {
   return (
-    <section className="bg-gray-50 py-6">
+    <section className="bg-purple-50 pt-[20px] pb-[80px]">
       <div className="container mx-auto px-4">
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           {/* 견적 문의 */}

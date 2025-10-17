@@ -84,8 +84,7 @@ export default function CodingAIProductsPage() {
         onGradeChange={setSelectedGrade}
       />
 
-      {/* Contact Information */}
-      <ContactInfoSection />
+
 
       {/* Products List */}
       <section className="py-8">
@@ -114,6 +113,9 @@ export default function CodingAIProductsPage() {
           )}
         </div>
       </section>
+
+            {/* Contact Information */}
+            <ContactInfoSection />
 
       <Footer />
     </div>
