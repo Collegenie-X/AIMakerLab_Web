@@ -2,26 +2,28 @@
 
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
-import { useAppInventorCurriculumData } from "./hooks/useAppInventorCurriculumData";
+import { useArduinoCurriculumData } from "./hooks/useArduinoCurriculumData";
 import {
-  AppInventorHeroSection,
+  ArduinoHeroSection,
   CourseInfoSection,
   CourseDescriptionSection,
+  LearningPathSection,
   EducationRequirementsSection,
   LearningGoalsSection,
-  GradeRecommendationTable,
-  CurriculumSection,
+  ProjectsSection,
+  ProjectGradeRecommendationSection,
+  ProjectCurriculumSection,
   ClassGallerySection,
   MaterialsDownloadSection,
   CtaSection,
 } from "./components";
 
 /**
- * 앱 인벤터 과정 페이지
+ * 아두이노 AI 코딩 과정 페이지
  * JSON 데이터 기반으로 구성된 모듈형 페이지입니다.
  */
-export default function AppInventorPage() {
-  const { data, isLoading, error } = useAppInventorCurriculumData();
+export default function ArduinoPage() {
+  const { data, isLoading, error } = useArduinoCurriculumData();
 
   // 로딩 상태 처리
   if (isLoading) {
@@ -89,23 +91,23 @@ export default function AppInventorPage() {
       <Header />
 
       <main className="flex-1">
-
-         {/* 히어로 섹션 */}
-         <AppInventorHeroSection data={data.hero} />
-
-       
+        {/* 히어로 섹션 */}
+        <ArduinoHeroSection data={data.hero} />
 
         {/* 과정 정보 섹션 */}
         <CourseInfoSection data={data.courseInfo} />
 
-        {/* 학년별 추천 커리큘럼 테이블 */}
-        <GradeRecommendationTable data={data.gradeRecommendation} />    
-
         {/* 과정 소개 섹션 */}
         <CourseDescriptionSection data={data.description} />
 
+        {/* 학습 단계 구조도 */}
+        <LearningPathSection data={data.learningPath} />
 
-      
+        {/* 6대 프로젝트 섹션 */}
+        <ProjectsSection data={data.projects} />
+
+        {/* 프로젝트별 학년 추천 테이블 */}
+        <ProjectGradeRecommendationSection data={data.projects} />
 
         {/* 교육 조건 섹션 */}
         <EducationRequirementsSection data={data.educationRequirements} />
@@ -113,11 +115,8 @@ export default function AppInventorPage() {
         {/* 학습 목표 및 기대 효과 섹션 */}
         <LearningGoalsSection data={data.learningGoals} />
 
-
-        {/* 커리큘럼 상세 섹션 */}
-        <CurriculumSection data={data.curriculum} />
-
-     
+        {/* 프로젝트별 커리큘럼 상세 섹션 */}
+        <ProjectCurriculumSection data={data.curriculum} />
 
         {/* 수업 현장 및 학생 작품 갤러리 */}
         <ClassGallerySection data={data.gallery} />
@@ -126,10 +125,11 @@ export default function AppInventorPage() {
         <MaterialsDownloadSection data={data.materials} />
 
         {/* CTA 섹션 */}
-        {/* <CtaSection data={data.cta} /> */}
+        <CtaSection data={data.cta} />
       </main>
 
       <Footer />
     </div>
   );
 }
+

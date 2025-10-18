@@ -1,6 +1,6 @@
 import { Clock, TrendingUp, Info } from "lucide-react";
 import { Badge } from "@/components/ui/data-display/badge";
-import type { GradeRecommendationData } from "../hooks/useAppInventorCurriculumData";
+import type { GradeRecommendationData } from "../hooks/useArduinoCurriculumData";
 
 /**
  * 학년별 추천 커리큘럼 테이블 컴포넌트
@@ -21,7 +21,6 @@ export function GradeRecommendationTable({ data }: GradeRecommendationTableProps
     return null;
   }
 
-  // 초1-2(초저) 컬럼 제거: JSON 정의와 일치하도록 키 배열 정리
   const gradeKeys: Array<keyof typeof data.courses[0]["recommendedGrades"]> = [
     "elementary-mid",
     "elementary-high",
@@ -30,7 +29,7 @@ export function GradeRecommendationTable({ data }: GradeRecommendationTableProps
     "high",
   ];
 
-  // 헤더 배경 색상 매핑 (남은 4개 학년 컬럼용)
+  // 헤더 배경 색상 매핑
   const headerBgClasses = [
     "bg-yellow-400 text-gray-800", // 초3-4
     "bg-cyan-400",                // 초5-6
@@ -88,7 +87,7 @@ export function GradeRecommendationTable({ data }: GradeRecommendationTableProps
                 <thead>
                   <tr className="bg-gradient-to-r from-orange-400 to-orange-500">
                     <th className="px-6 py-4 text-left text-white font-bold text-lg border-r border-orange-600">
-                      <div className="flex items-center gㅁap-2">
+                      <div className="flex items-center gap-2">
                         <span>{data.programName}</span>
                       </div>
                     </th>

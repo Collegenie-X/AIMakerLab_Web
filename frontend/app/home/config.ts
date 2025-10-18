@@ -6,12 +6,13 @@ export const homeTextConfig = {
 
     slides: [
       {
-        img: "/home/ai-neural-network.png",
-        title: "메이커 / AI 제품",
-        description: "프로젝트 기반 메이커 교육 및 AI 학습용 제품",
-        ctaLabel: "자세히 보기",
-        ctaHref: "/products/coding-ai",
+        img: "/home/raspberry-pi-computer-iot.jpg",
+        title: "라즈베리파이 IoT",
+        description: "임베디드와 IoT로 만드는 실전 프로젝트",
+        ctaLabel: "과정 보기",
+        ctaHref: "/curriculum/raspberry-pi",
       },
+
       {
         img: "/home/app-inventor-coding-blocks.jpg",
         title: "앱 인벤터 코딩",
@@ -19,13 +20,7 @@ export const homeTextConfig = {
         ctaLabel: "커리큘럼 보기",
         ctaHref: "/curriculum/app-inventor",
       },
-      {
-        img: "/home/raspberry-pi-computer-iot.jpg",
-        title: "라즈베리파이 IoT",
-        description: "임베디드와 IoT로 만드는 실전 프로젝트",
-        ctaLabel: "과정 보기",
-        ctaHref: "/curriculum/raspberry-pi",
-      },
+
       {
         img: "/home/raspberry-pi-computer-iot.jpg",
         title: "라즈베리파이 IoT",

@@ -1,0 +1,1592 @@
+{
+  "hero": {
+    "badge": "중급 과정",
+    "title": "아두이노 AI 코딩",
+    "description": "ESP32 + 카메라로 AI 연계 IoT 프로젝트를 만들어보세요",
+    "imageUrl": "/home/arduino-electronics-circuit.jpg"
+  },
+  "courseInfo": [
+    {
+      "id": "duration",
+      "icon": "Clock",
+      "iconColor": "blue",
+      "label": "수업 기간",
+      "value": "프로젝트별 선택"
+    },
+    {
+      "id": "capacity",
+      "icon": "Users",
+      "iconColor": "purple",
+      "label": "수강 인원",
+      "value": "최대 12명"
+    },
+    {
+      "id": "method",
+      "icon": "BookOpen",
+      "iconColor": "green",
+      "label": "수업 방식",
+      "value": "메이커 교육 방식 (프로젝트 기반)"
+    }
+  ],
+  "description": {
+    "title": "과정 소개",
+    "paragraphs": [
+      "아두이노 AI 코딩 과정은 ESP32 마이크로컨트롤러와 카메라 모듈을 활용하여 실제 작동하는 AI 연계 IoT 시스템을 구축하는 메이커 교육입니다.",
+      "IoT 기초부터 시작하여 원격 제어(앱), AI(CV2), 간단한 서버 구축까지 단계적으로 학습하며, 6가지 실전 프로젝트 중 원하는 주제를 선택하여 집중적으로 완성합니다.",
+      "각 프로젝트는 3시간(체험), 6시간(기본), 12시간(심화) 과정으로 구성되어 있으며, 학생의 수준과 관심사에 맞춰 선택할 수 있습니다."
+    ]
+  },
+  "learningPath": {
+    "title": "학습 단계 구조도",
+    "description": "IoT 기초부터 AI 연계까지 체계적인 학습 경로",
+    "stages": [
+      {
+        "id": "stage-1",
+        "order": 1,
+        "title": "IoT 기초",
+        "subtitle": "하드웨어 제어",
+        "description": "ESP32와 센서를 활용한 기본 IoT 시스템 구축",
+        "skills": ["ESP32 프로그래밍", "센서 데이터 수집", "액추에이터 제어"],
+        "color": "blue"
+      },
+      {
+        "id": "stage-2",
+        "order": 2,
+        "title": "원격 제어",
+        "subtitle": "앱 연동",
+        "description": "Wi-Fi/Bluetooth를 통한 스마트폰 앱 제어",
+        "skills": ["무선 통신", "웹서버 구축", "앱 인터페이스 연동"],
+        "color": "purple"
+      },
+      {
+        "id": "stage-3",
+        "order": 3,
+        "title": "AI 연계",
+        "subtitle": "CV2 이미지 분석",
+        "description": "OpenCV를 활용한 지능형 시스템 구현",
+        "skills": ["이미지 처리", "객체 인식", "AI 모델 통합"],
+        "color": "orange"
+      },
+      {
+        "id": "stage-4",
+        "order": 4,
+        "title": "서버 구축",
+        "subtitle": "데이터 관리",
+        "description": "간단한 서버를 통한 데이터 저장 및 분석",
+        "skills": ["서버 구축", "데이터베이스", "API 설계"],
+        "color": "green"
+      }
+    ]
+  },
+  "educationRequirements": {
+    "title": "교육 조건",
+    "items": [
+      {
+        "id": "optimal-capacity",
+        "icon": "Users",
+        "iconColor": "blue",
+        "title": "적정 인원",
+        "description": "학급당 10~16명",
+        "details": [
+          "1:1 하드웨어 실습 지도를 위한 소규모 수업",
+          "학생 개별 프로젝트 진행 및 멘토링",
+          "팀 프로젝트 진행 시 2~3명 팀 구성"
+        ]
+      },
+      {
+        "id": "materials",
+        "icon": "Package",
+        "iconColor": "purple",
+        "title": "필요 교구재",
+        "description": "ESP32 + 카메라 모듈 + 센서 키트",
+        "details": [
+          "ESP32-CAM 또는 ESP32 + OV2640 카메라 모듈",
+          "브레드보드, 점퍼선, 센서 키트 (온습도, 모터, LED 등)",
+          "USB 케이블 및 전원 어댑터",
+          "개인 노트북 (1인 1대)",
+          "교재 및 프로젝트 가이드 제공"
+        ]
+      },
+      {
+        "id": "environment",
+        "icon": "Monitor",
+        "iconColor": "green",
+        "title": "개발 환경",
+        "description": "Arduino IDE + Python + OpenCV",
+        "details": [
+          "Arduino IDE (ESP32 보드 지원)",
+          "Python 3.8 이상 + OpenCV 라이브러리",
+          "Visual Studio Code (권장)",
+          "ESP32 드라이버 설치",
+          "Wi-Fi 네트워크 환경 필요"
+        ]
+      },
+      {
+        "id": "prerequisites",
+        "icon": "GraduationCap",
+        "iconColor": "orange",
+        "title": "사전 지식",
+        "description": "기초 프로그래밍 경험 권장",
+        "details": [
+          "블록 코딩 또는 Python 기초 경험",
+          "간단한 회로 구성 이해",
+          "컴퓨터 기본 사용 능력",
+          "논리적 사고력"
+        ]
+      }
+    ]
+  },
+  "learningGoals": {
+    "title": "학습 목표 및 기대 효과",
+    "description": "아두이노 AI 코딩 과정을 통해 학생들이 얻을 수 있는 구체적인 목표와 역량",
+    "goals": [
+      {
+        "id": "goal-1",
+        "category": "하드웨어 제어",
+        "title": "IoT 하드웨어 제어 능력",
+        "description": "마이크로컨트롤러와 센서를 활용한 물리적 시스템 제어",
+        "skills": [
+          "ESP32 프로그래밍",
+          "센서 데이터 수집 및 처리",
+          "모터 및 액추에이터 제어",
+          "무선 통신 (Wi-Fi, Bluetooth)"
+        ]
+      },
+      {
+        "id": "goal-2",
+        "category": "AI 연계",
+        "title": "AI 기술 통합 능력",
+        "description": "OpenCV와 AI 모델을 활용한 지능형 시스템 구축",
+        "skills": [
+          "OpenCV 이미지 처리 및 분석",
+          "객체 인식 및 추적",
+          "음성 인식(STT) 및 합성(TTS)",
+          "AI 모델 통합 및 활용"
+        ]
+      },
+      {
+        "id": "goal-3",
+        "category": "시스템 설계",
+        "title": "통합 시스템 설계 능력",
+        "description": "하드웨어-소프트웨어-AI를 통합한 완전한 시스템 구축",
+        "skills": [
+          "서버-클라이언트 아키텍처 설계",
+          "실시간 데이터 통신",
+          "앱/웹 인터페이스 연동",
+          "시스템 최적화 및 디버깅"
+        ]
+      },
+      {
+        "id": "goal-4",
+        "category": "문제 해결",
+        "title": "실전 프로젝트 완성 능력",
+        "description": "실생활 문제를 해결하는 실용적인 프로젝트 완성",
+        "skills": [
+          "문제 정의 및 요구사항 분석",
+          "프로토타입 제작 및 테스트",
+          "반복적 개선 및 최적화",
+          "프로젝트 발표 및 문서화"
+        ]
+      }
+    ],
+    "achievements": [
+      "선택한 프로젝트 완성 및 실물 제작",
+      "개인 포트폴리오 프로젝트 제작",
+      "하드웨어-소프트웨어 통합 역량 습득",
+      "수료증 및 프로젝트 결과물"
+    ]
+  },
+  "projects": {
+    "title": "6대 프로젝트 주제",
+    "description": "난이도별로 선택 가능한 메이커 프로젝트",
+    "categories": [
+      {
+        "id": "beginner",
+        "title": "입문 프로젝트",
+        "difficulty": "쉬움",
+        "description": "IoT 기초와 원격 제어를 중심으로 학습",
+        "recommendedGrades": ["초5-6", "중1-2"],
+        "projects": [
+          {
+            "id": "smart-home",
+            "title": "Smart Home",
+            "subtitle": "AI 보안 카메라 시스템",
+            "icon": "Home",
+            "iconColor": "blue",
+            "description": "얼굴 인식 기반 스마트홈 보안 시스템",
+            "technologies": ["ESP32-CAM", "OpenCV", "얼굴인식", "모션감지"],
+            "features": [
+              "실시간 영상 스트리밍",
+              "얼굴 인식 및 등록",
+              "침입자 감지 알림",
+              "스마트폰 원격 모니터링"
+            ],
+            "difficulty": "입문",
+            "imageUrl": "/home/smart-home-iot-device.jpg",
+            "gradeRecommendation": {
+              "elementary-mid": null,
+              "elementary-high": "권장",
+              "middle-low": "권장",
+              "middle-high": "선택",
+              "high": "선택"
+            }
+          },
+          {
+            "id": "smart-car",
+            "title": "Smart Car",
+            "subtitle": "자율 주행 RC카",
+            "icon": "Car",
+            "iconColor": "orange",
+            "description": "차선 인식 및 장애물 회피 자율주행",
+            "technologies": ["ESP32-CAM", "OpenCV", "차선인식", "DC모터"],
+            "features": [
+              "실시간 차선 인식",
+              "장애물 감지 및 회피",
+              "자동 속도 제어",
+              "주행 경로 기록"
+            ],
+            "difficulty": "입문",
+            "imageUrl": "/home/student-robot-project.jpg",
+            "gradeRecommendation": {
+              "elementary-mid": null,
+              "elementary-high": "선택",
+              "middle-low": "권장",
+              "middle-high": "권장",
+              "high": "선택"
+            }
+          },
+          {
+            "id": "smart-gate",
+            "title": "Smart Gate",
+            "subtitle": "무인 출입 관리 시스템",
+            "icon": "DoorOpen",
+            "iconColor": "green",
+            "description": "번호판/QR 인식 자동 게이트",
+            "technologies": ["ESP32-CAM", "OCR", "QR인식", "서보모터"],
+            "features": [
+              "차량 번호판 인식",
+              "QR코드 출입 인증",
+              "자동 게이트 개폐",
+              "출입 기록 관리"
+            ],
+            "difficulty": "입문",
+            "imageUrl": "/home/raspberry-pi-computer-iot.jpg",
+            "gradeRecommendation": {
+              "elementary-mid": null,
+              "elementary-high": "도전",
+              "middle-low": "권장",
+              "middle-high": "권장",
+              "high": "선택"
+            }
+          }
+        ]
+      },
+      {
+        "id": "advanced",
+        "title": "심화 프로젝트",
+        "difficulty": "어려움",
+        "description": "AI 연계와 서버 구축까지 포함한 고급 과정",
+        "recommendedGrades": ["중3", "고등"],
+        "projects": [
+          {
+            "id": "robot-arm",
+            "title": "Robot Arm",
+            "subtitle": "자동 물류 적재 로봇",
+            "icon": "Cpu",
+            "iconColor": "purple",
+            "description": "CV2 객체 인식 기반 자동 분류 로봇팔",
+            "technologies": ["ESP32", "서보모터", "OpenCV", "객체인식"],
+            "features": [
+              "색상/형태 기반 객체 분류",
+              "자동 그립 및 이동",
+              "정밀 위치 제어",
+              "작업 로그 기록"
+            ],
+            "difficulty": "심화",
+            "imageUrl": "/home/student-robot-project.jpg",
+            "gradeRecommendation": {
+              "elementary-mid": null,
+              "elementary-high": null,
+              "middle-low": "도전",
+              "middle-high": "권장",
+              "high": "권장"
+            }
+          },
+          {
+            "id": "smart-farm",
+            "title": "Smart Farm",
+            "subtitle": "AI 스마트 농장 관리",
+            "icon": "Sprout",
+            "iconColor": "emerald",
+            "description": "식물 상태 분석 및 자동 관리 시스템",
+            "technologies": ["ESP32-CAM", "OpenCV", "온습도센서", "워터펌프"],
+            "features": [
+              "식물 건강 상태 분석",
+              "자동 물주기 시스템",
+              "환경 데이터 모니터링",
+              "생장 기록 및 분석"
+            ],
+            "difficulty": "심화",
+            "imageUrl": "/home/raspberry-pi-computer-iot.jpg",
+            "gradeRecommendation": {
+              "elementary-mid": null,
+              "elementary-high": null,
+              "middle-low": "도전",
+              "middle-high": "권장",
+              "high": "권장"
+            }
+          },
+          {
+            "id": "smart-dust",
+            "title": "Smart Dust",
+            "subtitle": "음성 제어 청소 로봇",
+            "icon": "Wind",
+            "iconColor": "cyan",
+            "description": "STT/TTS 기반 음성 명령 청소 로봇",
+            "technologies": ["ESP32", "STT", "TTS", "초음파센서"],
+            "features": [
+              "음성 명령 인식",
+              "음성 피드백 응답",
+              "자동 장애물 회피",
+              "청소 구역 설정"
+            ],
+            "difficulty": "심화",
+            "imageUrl": "/home/ai-neural-network.png",
+            "gradeRecommendation": {
+              "elementary-mid": null,
+              "elementary-high": null,
+              "middle-low": null,
+              "middle-high": "권장",
+              "high": "권장"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "curriculum": {
+    "title": "프로젝트별 커리큘럼",
+    "description": "각 프로젝트마다 3시간/6시간/12시간 과정을 선택할 수 있습니다",
+    "projects": [
+      {
+        "id": "smart-home",
+        "title": "Smart Home - AI 보안 카메라",
+        "difficulty": "입문",
+        "tabs": [
+          {
+            "id": "3hours",
+            "label": "3시간",
+            "duration": "3시간",
+            "description": "IoT 기초 - 센서로 집 지키기",
+            "modules": [
+              {
+                "id": "sh-3h-1",
+                "title": "IoT 기초: 센서 제어",
+                "duration": "1시간",
+                "topics": [
+                  "ESP32 기본 설정",
+                  "모션 센서로 움직임 감지",
+                  "LED와 부저로 알림 만들기",
+                  "간단한 보안 시스템 구축"
+                ],
+                "detailDescription": "모션 센서를 활용하여 움직임을 감지하고 LED와 부저로 알림을 주는 기본 보안 시스템을 만듭니다."
+              },
+              {
+                "id": "sh-3h-2",
+                "title": "원격 제어: 스마트폰 연동",
+                "duration": "1.5시간",
+                "topics": [
+                  "Wi-Fi 연결 설정",
+                  "웹서버 구축 기초",
+                  "스마트폰으로 센서 상태 확인",
+                  "원격으로 알림 받기"
+                ],
+                "detailDescription": "Wi-Fi를 통해 스마트폰에서 센서 상태를 확인하고 알림을 받을 수 있는 시스템을 구축합니다."
+              },
+              {
+                "id": "sh-3h-3",
+                "title": "프로젝트 완성",
+                "duration": "30분",
+                "topics": [
+                  "시스템 테스트",
+                  "문제 해결",
+                  "개선 아이디어 토론",
+                  "발표 및 시연"
+                ],
+                "detailDescription": "완성된 보안 시스템을 테스트하고 개선점을 찾아 발표합니다."
+              }
+            ]
+          },
+          {
+            "id": "6hours",
+            "label": "6시간",
+            "duration": "6시간",
+            "description": "IoT + 원격제어 + AI 기초",
+            "modules": [
+              {
+                "id": "sh-6h-1",
+                "title": "IoT 시스템 구축",
+                "duration": "2시간",
+                "topics": [
+                  "ESP32-CAM 하드웨어 구성",
+                  "카메라 모듈 연결 및 테스트",
+                  "실시간 영상 스트리밍",
+                  "모션 감지 센서 통합",
+                  "알림 시스템 구축"
+                ],
+                "detailDescription": "ESP32-CAM을 활용하여 실시간 영상을 스트리밍하고 모션을 감지하는 IoT 시스템을 구축합니다."
+              },
+              {
+                "id": "sh-6h-2",
+                "title": "원격 제어 앱 연동",
+                "duration": "2시간",
+                "topics": [
+                  "웹서버 API 설계",
+                  "스마트폰 앱 인터페이스 구축",
+                  "실시간 영상 모니터링",
+                  "원격 알림 및 제어",
+                  "데이터 로그 저장"
+                ],
+                "detailDescription": "스마트폰 앱을 통해 실시간으로 영상을 확인하고 시스템을 제어할 수 있도록 연동합니다."
+              },
+              {
+                "id": "sh-6h-3",
+                "title": "AI 기초: 얼굴 인식",
+                "duration": "2시간",
+                "topics": [
+                  "OpenCV 설치 및 기본 사용법",
+                  "얼굴 감지 알고리즘 적용",
+                  "가족 얼굴 등록하기",
+                  "침입자 구분 및 알림",
+                  "시스템 통합 테스트"
+                ],
+                "detailDescription": "OpenCV를 활용하여 얼굴을 인식하고 가족과 침입자를 구분하는 AI 기능을 추가합니다."
+              }
+            ]
+          },
+          {
+            "id": "12hours",
+            "label": "12시간",
+            "duration": "12시간",
+            "description": "IoT + 원격제어 + AI + 서버 구축",
+            "modules": [
+              {
+                "id": "sh-12h-1",
+                "title": "IoT 하드웨어 완성",
+                "duration": "3시간",
+                "topics": [
+                  "ESP32-CAM 고급 설정",
+                  "다중 센서 통합 (모션, 온습도, 도어)",
+                  "액추에이터 제어 (도어락, 조명)",
+                  "전원 관리 및 최적화",
+                  "하드웨어 케이스 제작",
+                  "배선 정리 및 안정화"
+                ],
+                "detailDescription": "여러 센서와 액추에이터를 통합하여 완전한 스마트홈 보안 하드웨어 시스템을 구축합니다."
+              },
+              {
+                "id": "sh-12h-2",
+                "title": "원격 제어 시스템",
+                "duration": "3시간",
+                "topics": [
+                  "RESTful API 서버 구축",
+                  "실시간 통신 (WebSocket)",
+                  "모바일 앱 UI/UX 설계",
+                  "푸시 알림 시스템",
+                  "다중 사용자 관리",
+                  "권한 및 보안 설정"
+                ],
+                "detailDescription": "전문적인 API 서버와 모바일 앱을 구축하여 완벽한 원격 제어 시스템을 완성합니다."
+              },
+              {
+                "id": "sh-12h-3",
+                "title": "AI 고급: 얼굴 인식 및 행동 분석",
+                "duration": "3시간",
+                "topics": [
+                  "고급 얼굴 인식 모델 적용",
+                  "다중 얼굴 동시 인식",
+                  "행동 패턴 분석 (배회, 침입)",
+                  "이상 행동 감지 알고리즘",
+                  "AI 모델 최적화",
+                  "실시간 분석 성능 향상"
+                ],
+                "detailDescription": "고급 AI 모델을 적용하여 얼굴 인식뿐만 아니라 행동 패턴까지 분석하는 지능형 시스템을 구현합니다."
+              },
+              {
+                "id": "sh-12h-4",
+                "title": "서버 구축 및 데이터 관리",
+                "duration": "3시간",
+                "topics": [
+                  "클라우드 서버 구축 (AWS/Firebase)",
+                  "데이터베이스 설계 및 구축",
+                  "영상 및 로그 데이터 저장",
+                  "데이터 분석 대시보드",
+                  "통계 및 리포트 생성",
+                  "최종 시연 및 발표"
+                ],
+                "detailDescription": "클라우드 서버와 데이터베이스를 구축하여 모든 데이터를 저장하고 분석할 수 있는 완전한 시스템을 완성합니다."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "smart-car",
+        "title": "Smart Car - 자율주행 RC카",
+        "difficulty": "입문",
+        "tabs": [
+          {
+            "id": "3hours",
+            "label": "3시간",
+            "duration": "3시간",
+            "description": "IoT 기초 - RC카 조종하기",
+            "modules": [
+              {
+                "id": "sc-3h-1",
+                "title": "IoT 기초: 모터 제어",
+                "duration": "1시간",
+                "topics": [
+                  "ESP32와 모터 드라이버 연결",
+                  "DC 모터 속도 제어",
+                  "방향 전환 프로그래밍",
+                  "간단한 RC카 조립"
+                ],
+                "detailDescription": "모터를 제어하여 RC카를 움직이는 기본 원리를 배우고 조립합니다."
+              },
+              {
+                "id": "sc-3h-2",
+                "title": "원격 제어: 스마트폰으로 조종",
+                "duration": "1.5시간",
+                "topics": [
+                  "Bluetooth 연결 설정",
+                  "스마트폰 조종 앱 사용",
+                  "전진/후진/좌회전/우회전 제어",
+                  "속도 조절 기능"
+                ],
+                "detailDescription": "스마트폰을 통해 RC카를 무선으로 조종하는 시스템을 구축합니다."
+              },
+              {
+                "id": "sc-3h-3",
+                "title": "미니 레이싱",
+                "duration": "30분",
+                "topics": [
+                  "장애물 코스 주행",
+                  "팀별 레이싱 대회",
+                  "개선 아이디어 토론",
+                  "시연 및 발표"
+                ],
+                "detailDescription": "완성된 RC카로 장애물 코스를 주행하며 레이싱 대회를 진행합니다."
+              }
+            ]
+          },
+          {
+            "id": "6hours",
+            "label": "6시간",
+            "duration": "6시간",
+            "description": "IoT + 원격제어 + AI 기초",
+            "modules": [
+              {
+                "id": "sc-6h-1",
+                "title": "IoT 시스템 구축",
+                "duration": "2시간",
+                "topics": [
+                  "ESP32-CAM RC카 하드웨어 구성",
+                  "카메라 모듈 장착",
+                  "초음파 센서로 장애물 감지",
+                  "실시간 영상 전송",
+                  "센서 데이터 통합"
+                ],
+                "detailDescription": "카메라와 센서를 장착하여 주변 환경을 인식할 수 있는 RC카를 만듭니다."
+              },
+              {
+                "id": "sc-6h-2",
+                "title": "원격 제어 시스템",
+                "duration": "2시간",
+                "topics": [
+                  "Wi-Fi 기반 원격 조종",
+                  "실시간 영상 모니터링",
+                  "FPV(1인칭 시점) 주행",
+                  "자동 장애물 회피",
+                  "주행 경로 기록"
+                ],
+                "detailDescription": "Wi-Fi를 통해 실시간 영상을 보며 RC카를 조종하고 자동 장애물 회피 기능을 추가합니다."
+              },
+              {
+                "id": "sc-6h-3",
+                "title": "AI 기초: 차선 인식",
+                "duration": "2시간",
+                "topics": [
+                  "OpenCV 색상 필터링",
+                  "차선 검출 알고리즘",
+                  "차선 중앙 유지 제어",
+                  "자동 주행 테스트",
+                  "성능 최적화"
+                ],
+                "detailDescription": "OpenCV를 활용하여 차선을 인식하고 자동으로 따라가는 자율주행 기능을 구현합니다."
+              }
+            ]
+          },
+          {
+            "id": "12hours",
+            "label": "12시간",
+            "duration": "12시간",
+            "description": "IoT + 원격제어 + AI + 서버 구축",
+            "modules": [
+              {
+                "id": "sc-12h-1",
+                "title": "IoT 하드웨어 완성",
+                "duration": "3시간",
+                "topics": [
+                  "고급 RC카 섀시 제작",
+                  "다중 센서 통합 (카메라, 초음파, 라이다)",
+                  "정밀 모터 제어 시스템",
+                  "배터리 관리 및 전원 최적화",
+                  "내구성 있는 케이스 제작",
+                  "하드웨어 안정화 테스트"
+                ],
+                "detailDescription": "전문적인 자율주행 RC카 하드웨어를 완성하고 모든 센서를 통합합니다."
+              },
+              {
+                "id": "sc-12h-2",
+                "title": "원격 제어 및 모니터링",
+                "duration": "3시간",
+                "topics": [
+                  "고급 원격 조종 시스템",
+                  "실시간 텔레메트리 데이터",
+                  "다중 카메라 뷰",
+                  "자동/수동 모드 전환",
+                  "긴급 정지 시스템",
+                  "주행 데이터 로깅"
+                ],
+                "detailDescription": "전문적인 원격 제어 시스템과 실시간 모니터링 대시보드를 구축합니다."
+              },
+              {
+                "id": "sc-12h-3",
+                "title": "AI 고급: 완전 자율주행",
+                "duration": "3시간",
+                "topics": [
+                  "고급 차선 인식 알고리즘",
+                  "교통 표지판 인식",
+                  "다중 객체 추적 및 회피",
+                  "경로 계획 알고리즘",
+                  "딥러닝 모델 적용",
+                  "실시간 의사결정 시스템"
+                ],
+                "detailDescription": "딥러닝 모델을 적용하여 차선, 표지판, 장애물을 모두 인식하는 완전 자율주행 시스템을 구현합니다."
+              },
+              {
+                "id": "sc-12h-4",
+                "title": "서버 구축 및 데이터 분석",
+                "duration": "3시간",
+                "topics": [
+                  "클라우드 서버 구축",
+                  "주행 데이터 수집 및 저장",
+                  "주행 경로 시각화",
+                  "성능 분석 대시보드",
+                  "머신러닝 모델 학습",
+                  "최종 자율주행 시연"
+                ],
+                "detailDescription": "모든 주행 데이터를 서버에 저장하고 분석하여 자율주행 성능을 개선하는 완전한 시스템을 완성합니다."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "smart-gate",
+        "title": "Smart Gate - 무인 출입 관리",
+        "difficulty": "입문",
+        "tabs": [
+          {
+            "id": "3hours",
+            "label": "3시간",
+            "duration": "3시간",
+            "description": "IoT 기초 - 자동 문 만들기",
+            "modules": [
+              {
+                "id": "sg-3h-1",
+                "title": "IoT 기초: 서보모터 제어",
+                "duration": "1시간",
+                "topics": [
+                  "ESP32와 서보모터 연결",
+                  "서보모터 각도 제어",
+                  "자동 문 메커니즘 제작",
+                  "버튼으로 문 열고 닫기"
+                ],
+                "detailDescription": "서보모터를 제어하여 자동으로 열리고 닫히는 문을 만듭니다."
+              },
+              {
+                "id": "sg-3h-2",
+                "title": "원격 제어: QR코드 인증",
+                "duration": "1.5시간",
+                "topics": [
+                  "QR코드 스캐너 모듈 연결",
+                  "QR코드 생성 및 등록",
+                  "인증 성공 시 문 열기",
+                  "출입 기록 저장"
+                ],
+                "detailDescription": "QR코드를 스캔하여 인증하고 자동으로 문이 열리는 시스템을 구축합니다."
+              },
+              {
+                "id": "sg-3h-3",
+                "title": "시스템 테스트",
+                "duration": "30분",
+                "topics": [
+                  "출입 시뮬레이션",
+                  "보안 테스트",
+                  "개선 아이디어 토론",
+                  "시연 및 발표"
+                ],
+                "detailDescription": "완성된 출입 시스템을 테스트하고 보안성을 점검합니다."
+              }
+            ]
+          },
+          {
+            "id": "6hours",
+            "label": "6시간",
+            "duration": "6시간",
+            "description": "IoT + 원격제어 + AI 기초",
+            "modules": [
+              {
+                "id": "sg-6h-1",
+                "title": "IoT 시스템 구축",
+                "duration": "2시간",
+                "topics": [
+                  "ESP32-CAM 게이트 시스템 구성",
+                  "카메라 모듈 장착",
+                  "서보모터 게이트 제작",
+                  "센서 통합 (근접, 무게)",
+                  "안전 시스템 구축"
+                ],
+                "detailDescription": "카메라와 센서를 통합하여 안전한 자동 게이트 시스템을 구축합니다."
+              },
+              {
+                "id": "sg-6h-2",
+                "title": "원격 제어 및 모니터링",
+                "duration": "2시간",
+                "topics": [
+                  "웹 기반 관리 시스템",
+                  "실시간 영상 모니터링",
+                  "원격 게이트 제어",
+                  "출입 기록 조회",
+                  "알림 시스템"
+                ],
+                "detailDescription": "웹을 통해 게이트를 원격으로 제어하고 출입 기록을 관리하는 시스템을 만듭니다."
+              },
+              {
+                "id": "sg-6h-3",
+                "title": "AI 기초: 번호판 인식",
+                "duration": "2시간",
+                "topics": [
+                  "OpenCV OCR 기초",
+                  "번호판 영역 검출",
+                  "문자 인식 알고리즘",
+                  "등록된 차량 자동 통과",
+                  "미등록 차량 알림"
+                ],
+                "detailDescription": "OpenCV OCR을 활용하여 차량 번호판을 인식하고 자동으로 게이트를 제어합니다."
+              }
+            ]
+          },
+          {
+            "id": "12hours",
+            "label": "12시간",
+            "duration": "12시간",
+            "description": "IoT + 원격제어 + AI + 서버 구축",
+            "modules": [
+              {
+                "id": "sg-12h-1",
+                "title": "IoT 하드웨어 완성",
+                "duration": "3시간",
+                "topics": [
+                  "전문 게이트 하드웨어 제작",
+                  "다중 센서 통합 (카메라, 레이더, 루프)",
+                  "안전 센서 시스템",
+                  "비상 정지 장치",
+                  "내구성 있는 외부 케이스",
+                  "전원 백업 시스템"
+                ],
+                "detailDescription": "실제 사용 가능한 전문적인 무인 게이트 하드웨어를 완성합니다."
+              },
+              {
+                "id": "sg-12h-2",
+                "title": "원격 관리 시스템",
+                "duration": "3시간",
+                "topics": [
+                  "관리자 웹 대시보드",
+                  "다중 게이트 통합 관리",
+                  "실시간 모니터링",
+                  "출입 권한 관리",
+                  "방문자 사전 등록",
+                  "긴급 상황 대응"
+                ],
+                "detailDescription": "여러 게이트를 통합 관리하고 출입 권한을 세밀하게 제어하는 시스템을 구축합니다."
+              },
+              {
+                "id": "sg-12h-3",
+                "title": "AI 고급: 다중 인식 시스템",
+                "duration": "3시간",
+                "topics": [
+                  "고급 번호판 인식 (다양한 형식)",
+                  "얼굴 인식 통합",
+                  "QR/바코드 다중 인증",
+                  "차량 종류 분류",
+                  "이상 행동 감지",
+                  "AI 모델 최적화"
+                ],
+                "detailDescription": "번호판, 얼굴, QR코드 등 다양한 방식을 통합한 고급 인증 시스템을 구현합니다."
+              },
+              {
+                "id": "sg-12h-4",
+                "title": "서버 구축 및 데이터 관리",
+                "duration": "3시간",
+                "topics": [
+                  "클라우드 서버 구축",
+                  "출입 데이터베이스 설계",
+                  "영상 및 로그 저장",
+                  "통계 및 리포트",
+                  "보안 감사 시스템",
+                  "최종 시연 및 발표"
+                ],
+                "detailDescription": "모든 출입 데이터를 안전하게 저장하고 분석하는 완전한 관리 시스템을 완성합니다."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "robot-arm",
+        "title": "Robot Arm - 자동 물류 적재",
+        "difficulty": "심화",
+        "tabs": [
+          {
+            "id": "3hours",
+            "label": "3시간",
+            "duration": "3시간",
+            "description": "IoT 기초 - 로봇팔 움직이기",
+            "modules": [
+              {
+                "id": "ra-3h-1",
+                "title": "IoT 기초: 서보모터 다축 제어",
+                "duration": "1시간",
+                "topics": [
+                  "ESP32와 다중 서보모터 연결",
+                  "각 관절 개별 제어",
+                  "로봇팔 기본 동작 (집기, 놓기)",
+                  "간단한 로봇팔 조립"
+                ],
+                "detailDescription": "여러 개의 서보모터를 제어하여 로봇팔의 기본 동작을 구현합니다."
+              },
+              {
+                "id": "ra-3h-2",
+                "title": "원격 제어: 조이스틱 조종",
+                "duration": "1.5시간",
+                "topics": [
+                  "조이스틱 모듈 연결",
+                  "각 축 매핑 및 제어",
+                  "물건 집어 옮기기",
+                  "정밀 제어 연습"
+                ],
+                "detailDescription": "조이스틱을 사용하여 로봇팔을 정밀하게 제어하고 물건을 옮기는 연습을 합니다."
+              },
+              {
+                "id": "ra-3h-3",
+                "title": "미니 챌린지",
+                "duration": "30분",
+                "topics": [
+                  "물건 옮기기 챌린지",
+                  "정확도 테스트",
+                  "개선 아이디어 토론",
+                  "시연 및 발표"
+                ],
+                "detailDescription": "로봇팔로 물건을 정확하게 옮기는 챌린지를 진행합니다."
+              }
+            ]
+          },
+          {
+            "id": "6hours",
+            "label": "6시간",
+            "duration": "6시간",
+            "description": "IoT + 원격제어 + AI 기초",
+            "modules": [
+              {
+                "id": "ra-6h-1",
+                "title": "IoT 시스템 구축",
+                "duration": "2시간",
+                "topics": [
+                  "ESP32 기반 로봇팔 하드웨어",
+                  "카메라 모듈 장착",
+                  "정밀 서보모터 제어",
+                  "그리퍼(집게) 센서 통합",
+                  "위치 피드백 시스템"
+                ],
+                "detailDescription": "카메라와 센서를 통합하여 정밀한 로봇팔 시스템을 구축합니다."
+              },
+              {
+                "id": "ra-6h-2",
+                "title": "원격 제어 시스템",
+                "duration": "2시간",
+                "topics": [
+                  "웹 기반 제어 인터페이스",
+                  "실시간 영상 피드",
+                  "좌표 기반 제어",
+                  "동작 시퀀스 프로그래밍",
+                  "자동 반복 작업"
+                ],
+                "detailDescription": "웹 인터페이스를 통해 로봇팔을 제어하고 반복 작업을 프로그래밍합니다."
+              },
+              {
+                "id": "ra-6h-3",
+                "title": "AI 기초: 색상 인식 분류",
+                "duration": "2시간",
+                "topics": [
+                  "OpenCV 색상 감지",
+                  "물체 위치 계산",
+                  "색상별 자동 분류",
+                  "정확도 향상 기법",
+                  "자동 적재 시스템"
+                ],
+                "detailDescription": "OpenCV를 활용하여 물체의 색상을 인식하고 자동으로 분류하는 시스템을 구현합니다."
+              }
+            ]
+          },
+          {
+            "id": "12hours",
+            "label": "12시간",
+            "duration": "12시간",
+            "description": "IoT + 원격제어 + AI + 서버 구축",
+            "modules": [
+              {
+                "id": "ra-12h-1",
+                "title": "IoT 하드웨어 완성",
+                "duration": "3시간",
+                "topics": [
+                  "산업용 로봇팔 제작",
+                  "6축 서보모터 시스템",
+                  "정밀 그리퍼 및 센서",
+                  "역기구학 계산",
+                  "안전 시스템 구축",
+                  "하드웨어 캘리브레이션"
+                ],
+                "detailDescription": "산업용 수준의 정밀한 6축 로봇팔 하드웨어를 완성합니다."
+              },
+              {
+                "id": "ra-12h-2",
+                "title": "원격 제어 및 자동화",
+                "duration": "3시간",
+                "topics": [
+                  "고급 제어 알고리즘",
+                  "경로 계획 시스템",
+                  "작업 스케줄링",
+                  "다중 로봇팔 협업",
+                  "실시간 모니터링",
+                  "성능 최적화"
+                ],
+                "detailDescription": "고급 제어 알고리즘을 적용하여 효율적인 자동화 시스템을 구축합니다."
+              },
+              {
+                "id": "ra-12h-3",
+                "title": "AI 고급: 객체 인식 및 분류",
+                "duration": "3시간",
+                "topics": [
+                  "딥러닝 객체 인식 모델",
+                  "다양한 물체 분류",
+                  "3D 위치 추정",
+                  "그립 포인트 계산",
+                  "품질 검사 시스템",
+                  "AI 모델 최적화"
+                ],
+                "detailDescription": "딥러닝 모델을 적용하여 다양한 물체를 인식하고 최적의 그립 방법을 계산합니다."
+              },
+              {
+                "id": "ra-12h-4",
+                "title": "서버 구축 및 생산 관리",
+                "duration": "3시간",
+                "topics": [
+                  "MES 시스템 구축",
+                  "작업 데이터베이스",
+                  "생산 통계 및 분석",
+                  "품질 관리 시스템",
+                  "예측 유지보수",
+                  "최종 시연 및 발표"
+                ],
+                "detailDescription": "생산 관리 시스템(MES)을 구축하여 모든 작업을 관리하고 분석하는 완전한 시스템을 완성합니다."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "smart-farm",
+        "title": "Smart Farm - AI 스마트 농장",
+        "difficulty": "심화",
+        "tabs": [
+          {
+            "id": "3hours",
+            "label": "3시간",
+            "duration": "3시간",
+            "description": "IoT 기초 - 자동 물주기",
+            "modules": [
+              {
+                "id": "sf-3h-1",
+                "title": "IoT 기초: 센서와 펌프 제어",
+                "duration": "1시간",
+                "topics": [
+                  "ESP32와 토양 습도 센서 연결",
+                  "워터펌프 제어",
+                  "습도에 따른 자동 물주기",
+                  "간단한 화분 시스템 제작"
+                ],
+                "detailDescription": "토양 습도를 측정하여 자동으로 물을 주는 시스템을 만듭니다."
+              },
+              {
+                "id": "sf-3h-2",
+                "title": "원격 제어: 스마트폰 모니터링",
+                "duration": "1.5시간",
+                "topics": [
+                  "Wi-Fi 연결 설정",
+                  "센서 데이터 실시간 확인",
+                  "원격 물주기 제어",
+                  "알림 설정"
+                ],
+                "detailDescription": "스마트폰으로 식물 상태를 확인하고 원격으로 물을 줄 수 있는 시스템을 구축합니다."
+              },
+              {
+                "id": "sf-3h-3",
+                "title": "시스템 테스트",
+                "duration": "30분",
+                "topics": [
+                  "자동화 테스트",
+                  "식물 관리 팁 공유",
+                  "개선 아이디어 토론",
+                  "시연 및 발표"
+                ],
+                "detailDescription": "완성된 자동 물주기 시스템을 테스트하고 식물 관리 방법을 공유합니다."
+              }
+            ]
+          },
+          {
+            "id": "6hours",
+            "label": "6시간",
+            "duration": "6시간",
+            "description": "IoT + 원격제어 + AI 기초",
+            "modules": [
+              {
+                "id": "sf-6h-1",
+                "title": "IoT 시스템 구축",
+                "duration": "2시간",
+                "topics": [
+                  "ESP32-CAM 스마트팜 구성",
+                  "다중 센서 통합 (온습도, 조도, pH)",
+                  "자동 물주기 및 LED 조명",
+                  "환경 제어 시스템",
+                  "데이터 로깅"
+                ],
+                "detailDescription": "다양한 센서와 액추에이터를 통합하여 완전한 스마트팜 IoT 시스템을 구축합니다."
+              },
+              {
+                "id": "sf-6h-2",
+                "title": "원격 모니터링 및 제어",
+                "duration": "2시간",
+                "topics": [
+                  "웹 대시보드 구축",
+                  "실시간 환경 데이터 시각화",
+                  "원격 환경 제어",
+                  "자동화 스케줄 설정",
+                  "알림 및 리포트"
+                ],
+                "detailDescription": "웹 대시보드를 통해 식물의 환경을 실시간으로 모니터링하고 제어합니다."
+              },
+              {
+                "id": "sf-6h-3",
+                "title": "AI 기초: 식물 건강 분석",
+                "duration": "2시간",
+                "topics": [
+                  "OpenCV 이미지 분석",
+                  "식물 잎 색상 분석",
+                  "건강 상태 판단",
+                  "병충해 초기 감지",
+                  "성장 추적"
+                ],
+                "detailDescription": "OpenCV를 활용하여 식물의 잎 색상을 분석하고 건강 상태를 판단합니다."
+              }
+            ]
+          },
+          {
+            "id": "12hours",
+            "label": "12시간",
+            "duration": "12시간",
+            "description": "IoT + 원격제어 + AI + 서버 구축",
+            "modules": [
+              {
+                "id": "sf-12h-1",
+                "title": "IoT 하드웨어 완성",
+                "duration": "3시간",
+                "topics": [
+                  "전문 스마트팜 하드웨어",
+                  "다층 재배 시스템",
+                  "정밀 환경 제어",
+                  "자동 영양 공급",
+                  "에너지 효율 최적화",
+                  "확장 가능한 모듈 설계"
+                ],
+                "detailDescription": "다층 재배가 가능한 전문적인 스마트팜 하드웨어 시스템을 완성합니다."
+              },
+              {
+                "id": "sf-12h-2",
+                "title": "원격 관리 시스템",
+                "duration": "3시간",
+                "topics": [
+                  "통합 관리 플랫폼",
+                  "다중 구역 관리",
+                  "자동화 레시피",
+                  "최적 환경 알고리즘",
+                  "에너지 관리",
+                  "예측 제어"
+                ],
+                "detailDescription": "여러 재배 구역을 통합 관리하고 최적의 환경을 자동으로 유지하는 시스템을 구축합니다."
+              },
+              {
+                "id": "sf-12h-3",
+                "title": "AI 고급: 생장 예측 및 최적화",
+                "duration": "3시간",
+                "topics": [
+                  "딥러닝 식물 분석",
+                  "병충해 정밀 진단",
+                  "생장 단계 예측",
+                  "수확 시기 예측",
+                  "최적 환경 학습",
+                  "AI 모델 지속 학습"
+                ],
+                "detailDescription": "딥러닝 모델을 활용하여 식물의 생장을 예측하고 최적의 환경을 학습합니다."
+              },
+              {
+                "id": "sf-12h-4",
+                "title": "서버 구축 및 데이터 분석",
+                "duration": "3시간",
+                "topics": [
+                  "클라우드 농장 관리 시스템",
+                  "생장 데이터베이스",
+                  "빅데이터 분석",
+                  "수확량 예측",
+                  "경영 분석 리포트",
+                  "최종 시연 및 발표"
+                ],
+                "detailDescription": "모든 재배 데이터를 수집하고 분석하여 최적의 재배 방법을 찾는 완전한 시스템을 완성합니다."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "smart-dust",
+        "title": "Smart Dust - 음성 제어 청소 로봇",
+        "difficulty": "심화",
+        "tabs": [
+          {
+            "id": "3hours",
+            "label": "3시간",
+            "duration": "3시간",
+            "description": "IoT 기초 - 장애물 회피 로봇",
+            "modules": [
+              {
+                "id": "sd-3h-1",
+                "title": "IoT 기초: 센서와 모터 제어",
+                "duration": "1시간",
+                "topics": [
+                  "ESP32와 초음파 센서 연결",
+                  "DC 모터 제어",
+                  "장애물 감지 및 회피",
+                  "간단한 청소 로봇 조립"
+                ],
+                "detailDescription": "초음파 센서로 장애물을 감지하고 회피하는 기본 로봇을 만듭니다."
+              },
+              {
+                "id": "sd-3h-2",
+                "title": "원격 제어: 스마트폰 조종",
+                "duration": "1.5시간",
+                "topics": [
+                  "Bluetooth 연결",
+                  "스마트폰 조종 앱",
+                  "청소 경로 제어",
+                  "자동 모드 전환"
+                ],
+                "detailDescription": "스마트폰으로 청소 로봇을 조종하고 자동 모드로 전환할 수 있게 합니다."
+              },
+              {
+                "id": "sd-3h-3",
+                "title": "청소 챌린지",
+                "duration": "30분",
+                "topics": [
+                  "구역 청소 테스트",
+                  "효율성 비교",
+                  "개선 아이디어 토론",
+                  "시연 및 발표"
+                ],
+                "detailDescription": "정해진 구역을 효율적으로 청소하는 챌린지를 진행합니다."
+              }
+            ]
+          },
+          {
+            "id": "6hours",
+            "label": "6시간",
+            "duration": "6시간",
+            "description": "IoT + 원격제어 + AI 기초",
+            "modules": [
+              {
+                "id": "sd-6h-1",
+                "title": "IoT 시스템 구축",
+                "duration": "2시간",
+                "topics": [
+                  "ESP32 청소 로봇 하드웨어",
+                  "다중 센서 통합 (초음파, 적외선)",
+                  "브러시 및 흡입 모터",
+                  "배터리 관리 시스템",
+                  "충전 도킹 스테이션"
+                ],
+                "detailDescription": "실제 청소 기능을 가진 완전한 로봇 하드웨어를 구축합니다."
+              },
+              {
+                "id": "sd-6h-2",
+                "title": "원격 제어 및 모니터링",
+                "duration": "2시간",
+                "topics": [
+                  "Wi-Fi 기반 제어",
+                  "청소 맵 생성",
+                  "구역 설정 및 스케줄",
+                  "실시간 상태 모니터링",
+                  "자동 충전 복귀"
+                ],
+                "detailDescription": "Wi-Fi를 통해 청소 구역을 설정하고 스케줄에 따라 자동으로 청소하는 시스템을 구축합니다."
+              },
+              {
+                "id": "sd-6h-3",
+                "title": "AI 기초: 음성 명령",
+                "duration": "2시간",
+                "topics": [
+                  "음성 인식(STT) 모듈 연동",
+                  "기본 명령어 학습",
+                  "음성 피드백(TTS)",
+                  "명령 실행 시스템",
+                  "음성 제어 테스트"
+                ],
+                "detailDescription": "음성 인식을 통해 로봇에게 명령을 내리고 음성으로 응답받는 시스템을 구현합니다."
+              }
+            ]
+          },
+          {
+            "id": "12hours",
+            "label": "12시간",
+            "duration": "12시간",
+            "description": "IoT + 원격제어 + AI + 서버 구축",
+            "modules": [
+              {
+                "id": "sd-12h-1",
+                "title": "IoT 하드웨어 완성",
+                "duration": "3시간",
+                "topics": [
+                  "전문 청소 로봇 제작",
+                  "고급 센서 시스템 (라이다, 카메라)",
+                  "강력한 청소 메커니즘",
+                  "정밀 주행 시스템",
+                  "장시간 배터리",
+                  "내구성 있는 케이스"
+                ],
+                "detailDescription": "시판 제품 수준의 전문적인 청소 로봇 하드웨어를 완성합니다."
+              },
+              {
+                "id": "sd-12h-2",
+                "title": "원격 제어 및 자동화",
+                "duration": "3시간",
+                "topics": [
+                  "SLAM 기반 맵핑",
+                  "최적 경로 계획",
+                  "다층 맵 관리",
+                  "가상 벽 설정",
+                  "스마트 스케줄링",
+                  "다중 로봇 협업"
+                ],
+                "detailDescription": "SLAM 기술을 활용하여 정밀한 맵을 생성하고 최적의 청소 경로를 계획합니다."
+              },
+              {
+                "id": "sd-12h-3",
+                "title": "AI 고급: 지능형 음성 비서",
+                "duration": "3시간",
+                "topics": [
+                  "자연어 처리(NLP)",
+                  "대화형 AI 통합",
+                  "상황 인식 응답",
+                  "학습형 명령 시스템",
+                  "다국어 지원",
+                  "개인화 설정"
+                ],
+                "detailDescription": "자연어 처리를 통해 복잡한 명령을 이해하고 상황에 맞게 응답하는 지능형 음성 비서를 구현합니다."
+              },
+              {
+                "id": "sd-12h-4",
+                "title": "서버 구축 및 데이터 분석",
+                "duration": "3시간",
+                "topics": [
+                  "클라우드 관리 시스템",
+                  "청소 데이터 수집",
+                  "사용 패턴 분석",
+                  "효율성 최적화",
+                  "예측 유지보수",
+                  "최종 시연 및 발표"
+                ],
+                "detailDescription": "모든 청소 데이터를 분석하여 사용 패턴을 파악하고 효율성을 최적화하는 완전한 시스템을 완성합니다."
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "gallery": {
+    "title": "수업 현장 및 학생 작품",
+    "description": "실제 수업 모습과 학생들이 만든 창의적인 프로젝트를 확인해보세요",
+    "tabs": [
+      {
+        "id": "class-photos",
+        "label": "수업 현장",
+        "items": [
+          {
+            "id": "class-1",
+            "imageUrl": "/home/arduino-electronics-circuit.jpg",
+            "title": "ESP32 하드웨어 실습",
+            "description": "학생들이 ESP32와 센서를 연결하며 회로를 구성하고 있습니다",
+            "date": "2024년 3월",
+            "tags": ["하드웨어", "실습"]
+          },
+          {
+            "id": "class-2",
+            "imageUrl": "/home/ai-neural-network.png",
+            "title": "AI 모델 통합 수업",
+            "description": "OpenCV를 활용하여 이미지 인식 프로그램을 작성하는 모습",
+            "date": "2024년 4월",
+            "tags": ["AI", "코딩"]
+          },
+          {
+            "id": "class-3",
+            "imageUrl": "/modern-coding-education-classroom-with-computers.jpg",
+            "title": "팀 프로젝트 제작",
+            "description": "팀원들과 협업하여 스마트카 프로젝트를 완성하는 시간",
+            "date": "2024년 5월",
+            "tags": ["팀프로젝트", "협업"]
+          }
+        ]
+      },
+      {
+        "id": "student-works",
+        "label": "학생 작품",
+        "items": [
+          {
+            "id": "work-1",
+            "imageUrl": "/home/smart-home-iot-device.jpg",
+            "title": "AI 보안 카메라 시스템",
+            "description": "얼굴 인식으로 가족과 침입자를 구분하는 스마트홈 보안 시스템",
+            "student": "김○○ 학생 (중학교 3학년)",
+            "features": ["얼굴인식", "실시간알림", "원격모니터링"],
+            "tags": ["SmartHome", "AI"]
+          },
+          {
+            "id": "work-2",
+            "imageUrl": "/home/student-robot-project.jpg",
+            "title": "자율주행 RC카",
+            "description": "차선을 인식하고 장애물을 회피하며 자동으로 주행하는 RC카",
+            "student": "이○○ 학생 (고등학교 1학년)",
+            "features": ["차선인식", "장애물회피", "자동주행"],
+            "tags": ["SmartCar", "자율주행"]
+          },
+          {
+            "id": "work-3",
+            "imageUrl": "/home/raspberry-pi-computer-iot.jpg",
+            "title": "스마트 농장 시스템",
+            "description": "식물 상태를 분석하고 자동으로 물을 주는 AI 농장 관리 시스템",
+            "student": "박○○ 학생 (중학교 2학년)",
+            "features": ["식물분석", "자동급수", "환경모니터링"],
+            "tags": ["SmartFarm", "IoT"]
+          },
+          {
+            "id": "work-4",
+            "imageUrl": "/home/ai-neural-network.png",
+            "title": "음성 제어 로봇팔",
+            "description": "음성 명령으로 물건을 집고 분류하는 지능형 로봇팔",
+            "student": "최○○ 학생 (고등학교 2학년)",
+            "features": ["음성인식", "객체분류", "자동제어"],
+            "tags": ["RobotArm", "STT"]
+          }
+        ]
+      },
+      {
+        "id": "reviews",
+        "label": "수업 후기",
+        "items": [
+          {
+            "id": "review-1",
+            "imageUrl": "/home/arduino-electronics-circuit.jpg",
+            "title": "중학생 심화반 수업 후기",
+            "description": "12시간 과정을 마친 학생들의 프로젝트 시연회",
+            "content": "처음에는 하드웨어가 어려웠는데, 선생님이 차근차근 알려주셔서 제 손으로 직접 로봇을 만들 수 있었어요. AI가 실제로 작동하는 걸 보니 정말 신기했습니다!",
+            "author": "김준호 (중3)",
+            "rating": 5,
+            "date": "2024년 6월",
+            "tags": ["심화반", "12시간"]
+          },
+          {
+            "id": "review-2",
+            "imageUrl": "/modern-coding-education-classroom-with-computers.jpg",
+            "title": "고등학생 방학특강 후기",
+            "description": "여름방학 집중 프로젝트 과정 완료",
+            "content": "코딩만 하다가 하드웨어를 직접 만져보니 훨씬 재미있었어요. 특히 제가 만든 자율주행 RC카가 실제로 움직이는 걸 보고 감동했습니다. 대학 진학에도 큰 도움이 될 것 같아요!",
+            "author": "이서진 (고1)",
+            "rating": 5,
+            "date": "2024년 7월",
+            "tags": ["방학특강", "고등"]
+          },
+          {
+            "id": "review-3",
+            "imageUrl": "/home/ai-neural-network.png",
+            "title": "학교 선생님 추천",
+            "description": "정보과학 동아리 활동으로 진행한 아두이노 교육",
+            "content": "학생들이 이론으로만 배우던 AI를 실제 하드웨어와 결합하면서 훨씬 깊이 있게 이해하게 되었습니다. 특히 문제 해결 능력과 창의력이 크게 향상되었고, 여러 대회에서 좋은 성적을 거두었습니다.",
+            "author": "정민수 선생님 (○○고등학교)",
+            "rating": 5,
+            "date": "2024년 9월",
+            "tags": ["동아리", "학교"]
+          }
+        ]
+      }
+    ]
+  },
+  "materials": {
+    "title": "수업 자료 다운로드",
+    "description": "아두이노 AI 코딩 교육에 필요한 다양한 자료를 무료로 다운받으세요",
+    "categories": [
+      {
+        "id": "teaching-materials",
+        "title": "교사용 지도안",
+        "description": "프로젝트별 상세한 티칭 가이드",
+        "items": [
+          {
+            "id": "guide-structure",
+            "title": "학습 단계 구조도",
+            "description": "IoT → 원격제어 → AI → 서버 학습 경로",
+            "format": "PDF",
+            "size": "2.8MB",
+            "pages": "8페이지",
+            "downloadUrl": "/materials/arduino-structure.pdf",
+            "icon": "FileText"
+          },
+          {
+            "id": "guide-projects",
+            "title": "6대 프로젝트 완벽 가이드",
+            "description": "각 프로젝트별 3/6/12시간 교안",
+            "format": "PDF",
+            "size": "15.5MB",
+            "pages": "120페이지",
+            "downloadUrl": "/materials/arduino-projects-guide.pdf",
+            "icon": "FileText"
+          }
+        ]
+      },
+      {
+        "id": "student-workbook",
+        "title": "학생용 워크북",
+        "description": "프로젝트별 실습 가이드",
+        "items": [
+          {
+            "id": "workbook-beginner",
+            "title": "입문 프로젝트 워크북",
+            "description": "Home/Car/Gate 프로젝트 실습서",
+            "format": "PDF",
+            "size": "8.2MB",
+            "pages": "60페이지",
+            "downloadUrl": "/materials/arduino-beginner-workbook.pdf",
+            "icon": "BookOpen"
+          },
+          {
+            "id": "workbook-advanced",
+            "title": "심화 프로젝트 워크북",
+            "description": "Arm/Farm/Dust 프로젝트 실습서",
+            "format": "PDF",
+            "size": "9.5MB",
+            "pages": "72페이지",
+            "downloadUrl": "/materials/arduino-advanced-workbook.pdf",
+            "icon": "BookOpen"
+          }
+        ]
+      },
+      {
+        "id": "reference",
+        "title": "참고 자료",
+        "description": "기술 레퍼런스 및 회로도",
+        "items": [
+          {
+            "id": "esp32-reference",
+            "title": "ESP32 완벽 가이드",
+            "description": "ESP32 핀맵, 사양, 활용법 총정리",
+            "format": "PDF",
+            "size": "7.2MB",
+            "pages": "48페이지",
+            "downloadUrl": "/materials/esp32-reference.pdf",
+            "icon": "Cpu"
+          },
+          {
+            "id": "opencv-reference",
+            "title": "OpenCV 함수 레퍼런스",
+            "description": "자주 사용하는 OpenCV 함수 모음",
+            "format": "PDF",
+            "size": "5.8MB",
+            "pages": "36페이지",
+            "downloadUrl": "/materials/opencv-reference.pdf",
+            "icon": "Book"
+          },
+          {
+            "id": "circuit-diagrams",
+            "title": "프로젝트별 회로도",
+            "description": "6대 프로젝트 회로도 및 배선도",
+            "format": "PDF",
+            "size": "12.5MB",
+            "pages": "72페이지",
+            "downloadUrl": "/materials/arduino-circuits.pdf",
+            "icon": "Zap"
+          }
+        ]
+      },
+      {
+        "id": "example-projects",
+        "title": "예제 프로젝트",
+        "description": "완성된 프로젝트 소스코드",
+        "items": [
+          {
+            "id": "example-beginner",
+            "title": "입문 프로젝트 소스코드",
+            "description": "Home/Car/Gate 완성 코드",
+            "format": "ZIP",
+            "size": "12.5MB",
+            "pages": "3개 프로젝트",
+            "downloadUrl": "/materials/arduino-beginner-code.zip",
+            "icon": "Package"
+          },
+          {
+            "id": "example-advanced",
+            "title": "심화 프로젝트 소스코드",
+            "description": "Arm/Farm/Dust 완성 코드",
+            "format": "ZIP",
+            "size": "15.8MB",
+            "pages": "3개 프로젝트",
+            "downloadUrl": "/materials/arduino-advanced-code.zip",
+            "icon": "Package"
+          }
+        ]
+      }
+    ]
+  },
+  "cta": {
+    "title": "지금 바로 시작하세요",
+    "description": "원하는 프로젝트를 선택하고 무료 상담을 받아보세요",
+    "buttonText": "수업 일정 보기",
+    "buttonLink": "/inquiry/schedule"
+  }
+}

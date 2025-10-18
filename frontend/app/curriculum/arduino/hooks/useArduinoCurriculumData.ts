@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 
 /**
- * 앱 인벤터 커리큘럼 데이터 타입 정의
+ * 아두이노 커리큘럼 데이터 타입 정의
  */
-export interface AppInventorHeroData {
+export interface ArduinoHeroData {
   badge: string;
   title: string;
   description: string;
@@ -39,9 +39,33 @@ export interface CurriculumTab {
   modules: CurriculumModule[];
 }
 
+export interface ProjectCurriculum {
+  id: string;
+  title: string;
+  difficulty: string;
+  tabs: CurriculumTab[];
+}
+
 export interface CurriculumData {
   title: string;
-  tabs: CurriculumTab[];
+  description: string;
+  projects: ProjectCurriculum[];
+}
+
+export interface LearningStage {
+  id: string;
+  order: number;
+  title: string;
+  subtitle: string;
+  description: string;
+  skills: string[];
+  color: string;
+}
+
+export interface LearningPathData {
+  title: string;
+  description: string;
+  stages: LearningStage[];
 }
 
 export interface EducationRequirementItem {
@@ -133,8 +157,8 @@ export interface MaterialsData {
 export interface GradeRecommendation {
   "elementary-mid": string | null;
   "elementary-high": string | null;
-  "middle-low": string | null; // 중1-2
-  "middle-high": string | null; // 중3
+  "middle-low": string | null;
+  "middle-high": string | null;
   "high": string | null;
 }
 
@@ -160,13 +184,43 @@ export interface GradeRecommendationData {
   };
 }
 
-export interface AppInventorCurriculumData {
-  hero: AppInventorHeroData;
+export interface ProjectItem {
+  id: string;
+  title: string;
+  subtitle: string;
+  icon: string;
+  iconColor: string;
+  description: string;
+  technologies: string[];
+  features: string[];
+  difficulty: string;
+  imageUrl: string;
+  gradeRecommendation: GradeRecommendation;
+}
+
+export interface ProjectCategory {
+  id: string;
+  title: string;
+  difficulty: string;
+  description: string;
+  recommendedGrades: string[];
+  projects: ProjectItem[];
+}
+
+export interface ProjectsData {
+  title: string;
+  description: string;
+  categories: ProjectCategory[];
+}
+
+export interface ArduinoCurriculumData {
+  hero: ArduinoHeroData;
   courseInfo: CourseInfoItem[];
   description: CourseDescriptionData;
+  learningPath: LearningPathData;
   educationRequirements: EducationRequirementsData;
   learningGoals: LearningGoalsData;
-  gradeRecommendation: GradeRecommendationData;
+  projects: ProjectsData;
   curriculum: CurriculumData;
   gallery: GalleryData;
   materials: MaterialsData;
@@ -174,11 +228,11 @@ export interface AppInventorCurriculumData {
 }
 
 /**
- * 앱 인벤터 커리큘럼 데이터를 가져오는 커스텀 훅
+ * 아두이노 커리큘럼 데이터를 가져오는 커스텀 훅
  * JSON 파일에서 데이터를 로드하고 상태로 관리합니다.
  */
-export function useAppInventorCurriculumData() {
-  const [data, setData] = useState<AppInventorCurriculumData | null>(null);
+export function useArduinoCurriculumData() {
+  const [data, setData] = useState<ArduinoCurriculumData | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
 
@@ -187,7 +241,7 @@ export function useAppInventorCurriculumData() {
     const fetchData = async () => {
       try {
         setIsLoading(true);
-        const response = await fetch("/curriculum/app-inventor.json");
+        const response = await fetch("/curriculum/arduino.json");
         
         if (!response.ok) {
           throw new Error(`데이터를 불러오는데 실패했습니다: ${response.status}`);
@@ -199,7 +253,7 @@ export function useAppInventorCurriculumData() {
       } catch (err) {
         const errorMessage = err instanceof Error ? err : new Error("알 수 없는 오류가 발생했습니다");
         setError(errorMessage);
-        console.error("앱 인벤터 데이터 로드 실패:", errorMessage);
+        console.error("아두이노 데이터 로드 실패:", errorMessage);
       } finally {
         setIsLoading(false);
       }

@@ -25,7 +25,7 @@
       "icon": "BookOpen",
       "iconColor": "green",
       "label": "수업 방식",
-      "value": "실습 중심"
+      "value": "메이커 교육 방식 (프로젝트 기반)"
     }
   ],
   "description": {
@@ -157,18 +157,18 @@
     "title": "학년별 추천 커리큘럼",
     "description": "학생의 학년과 수준에 맞는 최적의 과정을 선택하세요",
     "programName": "앱 인벤터",
-    "headers": ["추천시기", "초1-2", "초3-4", "초5-6", "중등", "고등"],
+    "headers": ["추천시기", "초3-4", "초5-6", "중1-2", "중3", "고등"],
     "courses": [
       {
         "id": "basic-experience",
         "courseName": "앱 인벤터 체험",
         "duration": "3시간",
         "difficulty": "입문",
-        "recommendedGrades": {
-          "elementary-low": null,
+        "recommendedGrades": {          
           "elementary-mid": "권장",
           "elementary-high": "권장",
-          "middle": "선택",
+          "middle-low": "선택",
+          "middle-high": "선택",
           "high": null
         },
         "description": "블록 코딩으로 첫 앱 만들기"
@@ -178,11 +178,11 @@
         "courseName": "앱 인벤터 기본",
         "duration": "6시간",
         "difficulty": "기초",
-        "recommendedGrades": {
-          "elementary-low": null,
+        "recommendedGrades": {          
           "elementary-mid": null,
           "elementary-high": "권장",
-          "middle": "권장",
+          "middle-low": "권장",
+          "middle-high": "권장",
           "high": "선택"
         },
         "description": "이벤트와 조건문으로 앱 만들기"
@@ -192,11 +192,11 @@
         "courseName": "앱 인벤터 심화",
         "duration": "12시간",
         "difficulty": "심화",
-        "recommendedGrades": {
-          "elementary-low": null,
+        "recommendedGrades": {          
           "elementary-mid": null,
           "elementary-high": "도전",
-          "middle": "권장",
+          "middle-low": "권장",
+          "middle-high": "권장",
           "high": "권장"
         },
         "description": "데이터베이스와 센서를 활용한 실전 앱"

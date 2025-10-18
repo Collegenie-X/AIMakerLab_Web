@@ -1,4 +1,4 @@
-import type { CourseDescriptionData } from "../hooks/useAppInventorCurriculumData";
+import type { CourseDescriptionData } from "../hooks/useArduinoCurriculumData";
 
 /**
  * 과정 소개 섹션 컴포넌트
@@ -24,7 +24,7 @@ export function CourseDescriptionSection({ data }: CourseDescriptionSectionProps
   return (
     <section className="bg-gray-50 py-12">
       <div className="container mx-auto px-4">
-        <div className="mx-auto max-w-4xl">
+        <div className="mx-auto max-w-5xl">
           <h2 className="mb-6 text-3xl font-bold">{title}</h2>
           <div className="space-y-4 text-gray-600 leading-relaxed mb-8">
             {paragraphs.map((paragraph, index) => (
@@ -36,22 +36,22 @@ export function CourseDescriptionSection({ data }: CourseDescriptionSectionProps
           <div className="grid grid-cols-3 gap-4 mt-8">
             <div className="aspect-video rounded-lg overflow-hidden bg-white shadow-sm">
               <img 
-                src="/home/app-inventor-coding-blocks.jpg" 
-                alt="블록 코딩 화면" 
+                src="/home/arduino-electronics-circuit.jpg" 
+                alt="아두이노 하드웨어 실습" 
                 className="w-full h-full object-cover"
               />
             </div>
             <div className="aspect-video rounded-lg overflow-hidden bg-white shadow-sm">
               <img 
-                src="/home/mobile-app-interface.png" 
-                alt="모바일 앱 인터페이스" 
+                src="/home/ai-neural-network.png" 
+                alt="AI 연계 시스템" 
                 className="w-full h-full object-cover"
               />
             </div>
             <div className="aspect-video rounded-lg overflow-hidden bg-white shadow-sm">
               <img 
-                src="/home/student-robot-project.jpg" 
-                alt="학생 작품" 
+                src="/home/smart-home-iot-device.jpg" 
+                alt="IoT 프로젝트 완성" 
                 className="w-full h-full object-cover"
               />
             </div>
