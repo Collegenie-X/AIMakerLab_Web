@@ -7,6 +7,8 @@ import { Card, CardContent } from "@/components/ui/data-display/card";
 import { Badge } from "@/components/ui/data-display/badge";
 import type { GalleryData } from "../hooks/useArduinoCurriculumData";
 
+import { ARDUINO_CONFIG } from "../config";
+
 /**
  * 수업 현장 및 학생 작품 갤러리 섹션 컴포넌트
  * 수업 사진, 학생 작품, 후기를 탭으로 표시합니다.
@@ -36,10 +38,12 @@ export function ClassGallerySection({ data }: ClassGallerySectionProps) {
     return null;
   }
 
+  const { layout } = ARDUINO_CONFIG;
+
   return (
     <section className="py-16 bg-gradient-to-br from-purple-50 to-blue-50">
-      <div className="container mx-auto px-4">
-        <div className="mx-auto max-w-6xl">
+      <div>
+        <div className={layout.containerClass}>
           {/* 제목 및 설명 */}
           <div className="text-center mb-12">
             <h2 className="mb-4 text-3xl font-bold">{data.title}</h2>

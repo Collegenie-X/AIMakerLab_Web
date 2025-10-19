@@ -1,0 +1,186 @@
+[
+  {
+    "id": "vid-smart-farm",
+    "title": "스마트 팜 키트 제작하기",
+    "description": "토양 습도 센서와 자동 급수 시스템을 활용한 스마트 팜을 만들어봅니다. 아두이노 기반으로 센서 연결부터 프로그래밍까지 단계별로 학습합니다.",
+    "thumbnail": "/home/ai-neural-network.png",
+    "src": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "duration": "8:45",
+    "difficulty": "중급",
+    "steps": [
+      {
+        "stepNumber": 1,
+        "stepTitle": "부품 준비 및 확인",
+        "stepDescription": "아두이노 보드, 토양 습도 센서, 워터 펌프, 릴레이 모듈, 점퍼선을 준비하고 정상 작동 여부를 확인합니다.",
+        "youtubeTimestamp": "0m15s"
+      },
+      {
+        "stepNumber": 2,
+        "stepTitle": "센서 연결하기",
+        "stepDescription": "토양 습도 센서를 아두이노의 A0 핀에 연결합니다. VCC는 5V, GND는 GND에 연결합니다.",
+        "youtubeTimestamp": "1m30s"
+      },
+      {
+        "stepNumber": 3,
+        "stepTitle": "워터 펌프 회로 구성",
+        "stepDescription": "릴레이 모듈을 디지털 7번 핀에 연결하고, 워터 펌프를 릴레이에 연결합니다. 전원 공급에 주의하세요.",
+        "youtubeTimestamp": "3m20s"
+      },
+      {
+        "stepNumber": 4,
+        "stepTitle": "코드 작성 및 업로드",
+        "stepDescription": "아두이노 IDE에서 센서 값을 읽고 임계값 이하일 때 펌프를 작동시키는 코드를 작성합니다.",
+        "youtubeTimestamp": "5m10s"
+      },
+      {
+        "stepNumber": 5,
+        "stepTitle": "테스트 및 조정",
+        "stepDescription": "토양 습도 센서를 건조한 흙에 넣어 펌프가 작동하는지 확인하고, 임계값을 조정합니다.",
+        "youtubeTimestamp": "7m00s"
+      }
+    ]
+  },
+  {
+    "id": "vid-smart-home",
+    "title": "스마트 홈 IoT 시스템 구축",
+    "description": "조명, 온습도 센서, 모션 감지 센서를 통합한 스마트 홈 시스템을 만듭니다. WiFi 모듈을 활용하여 스마트폰으로 제어할 수 있습니다.",
+    "thumbnail": "/home/smart-home-iot-device.jpg",
+    "src": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "duration": "12:30",
+    "difficulty": "고급",
+    "steps": [
+      {
+        "stepNumber": 1,
+        "stepTitle": "시스템 설계하기",
+        "stepDescription": "스마트 홈에 필요한 기능을 정의하고, 사용할 센서와 액추에이터를 결정합니다. 회로도를 그려봅니다.",
+        "youtubeTimestamp": "0m20s"
+      },
+      {
+        "stepNumber": 2,
+        "stepTitle": "ESP8266 WiFi 모듈 설정",
+        "stepDescription": "ESP8266 모듈을 아두이노에 연결하고, WiFi 네트워크에 연결하는 코드를 작성합니다.",
+        "youtubeTimestamp": "2m00s"
+      },
+      {
+        "stepNumber": 3,
+        "stepTitle": "온습도 센서(DHT11) 연결",
+        "stepDescription": "DHT11 센서를 디지털 2번 핀에 연결하고, 라이브러리를 사용하여 데이터를 읽습니다.",
+        "youtubeTimestamp": "4m15s"
+      },
+      {
+        "stepNumber": 4,
+        "stepTitle": "LED 조명 제어 시스템",
+        "stepDescription": "릴레이 모듈을 사용하여 LED 조명을 ON/OFF 제어합니다. PWM을 활용한 밝기 조절도 구현합니다.",
+        "youtubeTimestamp": "6m30s"
+      },
+      {
+        "stepNumber": 5,
+        "stepTitle": "모션 감지 센서 추가",
+        "stepDescription": "PIR 센서를 연결하여 사람의 움직임을 감지하고, 자동으로 조명을 켜는 기능을 추가합니다.",
+        "youtubeTimestamp": "8m45s"
+      },
+      {
+        "stepNumber": 6,
+        "stepTitle": "웹 서버 구축 및 테스트",
+        "stepDescription": "ESP8266으로 간단한 웹 서버를 만들어 스마트폰 브라우저에서 제어할 수 있도록 합니다.",
+        "youtubeTimestamp": "10m20s"
+      }
+    ]
+  },
+  {
+    "id": "vid-robot-arm",
+    "title": "로봇 팔 제작 및 제어",
+    "description": "서보모터를 사용한 3축 로봇 팔을 만들고, 조이스틱으로 제어하는 방법을 배웁니다. 물체를 집고 옮기는 동작을 프로그래밍합니다.",
+    "thumbnail": "/home/student-robot-project.jpg",
+    "src": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "duration": "15:20",
+    "difficulty": "고급",
+    "steps": [
+      {
+        "stepNumber": 1,
+        "stepTitle": "로봇 팔 프레임 조립",
+        "stepDescription": "3D 프린팅 또는 아크릴 부품을 사용하여 로봇 팔의 기본 프레임을 조립합니다. 각 관절 부분을 정확히 연결합니다.",
+        "youtubeTimestamp": "0m30s"
+      },
+      {
+        "stepNumber": 2,
+        "stepTitle": "서보모터 장착하기",
+        "stepDescription": "베이스, 어깨, 팔꿈치, 그리퍼 부분에 총 4개의 서보모터를 장착합니다. 나사로 견고하게 고정합니다.",
+        "youtubeTimestamp": "3m00s"
+      },
+      {
+        "stepNumber": 3,
+        "stepTitle": "전원 공급 회로 구성",
+        "stepDescription": "서보모터는 전류를 많이 소비하므로 별도의 5V 전원 공급 장치를 사용합니다. 아두이노와 GND를 공유합니다.",
+        "youtubeTimestamp": "6m15s"
+      },
+      {
+        "stepNumber": 4,
+        "stepTitle": "서보모터 제어 코드 작성",
+        "stepDescription": "각 서보모터를 PWM 핀에 연결하고, Servo 라이브러리를 사용하여 각도를 제어하는 코드를 작성합니다.",
+        "youtubeTimestamp": "8m30s"
+      },
+      {
+        "stepNumber": 5,
+        "stepTitle": "조이스틱 연결 및 매핑",
+        "stepDescription": "아날로그 조이스틱 2개를 연결하여 X, Y축 값을 읽고, 서보모터 각도로 변환하는 로직을 구현합니다.",
+        "youtubeTimestamp": "11m00s"
+      },
+      {
+        "stepNumber": 6,
+        "stepTitle": "동작 시퀀스 프로그래밍",
+        "stepDescription": "물체를 집고, 옮기고, 놓는 일련의 동작을 배열로 저장하고 순차적으로 실행하는 함수를 만듭니다.",
+        "youtubeTimestamp": "13m20s"
+      }
+    ]
+  },
+  {
+    "id": "vid-app-inventor-game",
+    "title": "앱 인벤터로 게임 만들기",
+    "description": "MIT 앱 인벤터를 사용하여 간단한 공 튕기기 게임을 만듭니다. 블록 코딩으로 충돌 감지, 점수 시스템, 사운드 효과를 구현합니다.",
+    "thumbnail": "/home/app-inventor-coding-blocks.jpg",
+    "src": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "duration": "10:15",
+    "difficulty": "초급",
+    "steps": [
+      {
+        "stepNumber": 1,
+        "stepTitle": "프로젝트 생성 및 화면 구성",
+        "stepDescription": "앱 인벤터에 로그인하고 새 프로젝트를 만듭니다. Canvas 컴포넌트를 추가하여 게임 화면을 구성합니다.",
+        "youtubeTimestamp": "0m25s"
+      },
+      {
+        "stepNumber": 2,
+        "stepTitle": "게임 오브젝트 추가",
+        "stepDescription": "ImageSprite로 공과 패들을 추가합니다. 각 스프라이트의 초기 위치와 크기를 설정합니다.",
+        "youtubeTimestamp": "2m10s"
+      },
+      {
+        "stepNumber": 3,
+        "stepTitle": "공 움직임 구현",
+        "stepDescription": "Clock 컴포넌트와 블록 코딩으로 공이 일정 속도로 움직이고 벽에 부딪히면 튕겨나가도록 만듭니다.",
+        "youtubeTimestamp": "4m30s"
+      },
+      {
+        "stepNumber": 4,
+        "stepTitle": "패들 제어 추가",
+        "stepDescription": "Canvas의 Touched 이벤트를 사용하여 화면을 터치하면 패들이 좌우로 움직이도록 합니다.",
+        "youtubeTimestamp": "6m45s"
+      },
+      {
+        "stepNumber": 5,
+        "stepTitle": "충돌 감지 및 점수",
+        "stepDescription": "공과 패들의 충돌을 감지하고, 충돌할 때마다 점수를 증가시킵니다. Label로 점수를 표시합니다.",
+        "youtubeTimestamp": "8m20s"
+      },
+      {
+        "stepNumber": 6,
+        "stepTitle": "사운드 효과 및 게임오버",
+        "stepDescription": "충돌 시 사운드를 재생하고, 공이 바닥에 떨어지면 게임오버 메시지를 표시합니다.",
+        "youtubeTimestamp": "9m30s"
+      }
+    ]
+  }
+]
+
+

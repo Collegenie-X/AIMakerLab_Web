@@ -2,6 +2,8 @@ import { Clock, TrendingUp, Info } from "lucide-react";
 import { Badge } from "@/components/ui/data-display/badge";
 import type { GradeRecommendationData } from "../hooks/useAppInventorCurriculumData";
 
+import { APP_INVENTOR_CONFIG } from "../config";
+
 /**
  * 학년별 추천 커리큘럼 테이블 컴포넌트
  * 학년에 따른 과정 추천을 표 형태로 표시합니다.
@@ -67,10 +69,12 @@ export function GradeRecommendationTable({ data }: GradeRecommendationTableProps
     return colors[difficulty as keyof typeof colors] || "bg-gray-100 text-gray-700";
   };
 
+  const { layout } = APP_INVENTOR_CONFIG;
+
   return (
     <section className="py-12 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50">
-      <div className="container mx-auto px-4">
-        <div className="mx-auto max-w-5xl md:max-w-6xl">
+      <div>
+        <div className={layout.containerClass}>
           {/* 제목 및 설명 */}
           <div className="text-center mb-12">
             <div className="inline-flex items-center gap-2 mb-4">

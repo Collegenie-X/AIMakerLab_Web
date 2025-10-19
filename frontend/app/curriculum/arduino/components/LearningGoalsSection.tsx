@@ -3,6 +3,8 @@ import { Card, CardContent } from "@/components/ui/data-display/card";
 import { Badge } from "@/components/ui/data-display/badge";
 import type { LearningGoalsData } from "../hooks/useArduinoCurriculumData";
 
+import { ARDUINO_CONFIG } from "../config";
+
 /**
  * 학습 목표 및 기대 효과 섹션 컴포넌트
  * 과정을 통해 얻을 수 있는 목표와 역량을 표시합니다.
@@ -22,10 +24,12 @@ export function LearningGoalsSection({ data }: LearningGoalsSectionProps) {
     return null;
   }
 
+  const { layout } = ARDUINO_CONFIG;
+
   return (
     <section className="py-16 bg-white">
-      <div className="container mx-auto px-4">
-        <div className="mx-auto max-w-6xl">
+      <div>
+        <div className={layout.containerClass}>
           {/* 제목 및 설명 */}
           <div className="text-center mb-12">
             <div className="inline-flex items-center gap-2 mb-4">

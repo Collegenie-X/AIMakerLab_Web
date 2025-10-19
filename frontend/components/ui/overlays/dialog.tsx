@@ -129,6 +129,21 @@ function DialogDescription({
   )
 }
 
+/**
+ * 스크린 리더에서만 보이는 컴포넌트 (시각적으로 숨김)
+ */
+function VisuallyHidden({ className, ...props }: React.ComponentProps<'span'>) {
+  return (
+    <span
+      className={cn(
+        'absolute w-[1px] h-[1px] p-0 -m-[1px] overflow-hidden whitespace-nowrap border-0',
+        className
+      )}
+      {...props}
+    />
+  )
+}
+
 export {
   Dialog,
   DialogClose,
@@ -140,4 +155,5 @@ export {
   DialogPortal,
   DialogTitle,
   DialogTrigger,
+  VisuallyHidden,
 }

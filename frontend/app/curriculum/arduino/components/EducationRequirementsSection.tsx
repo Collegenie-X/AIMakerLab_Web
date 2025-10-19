@@ -49,12 +49,12 @@ export function EducationRequirementsSection({ data }: EducationRequirementsSect
     return null;
   }
 
-  const { iconColors } = ARDUINO_CONFIG;
+  const { iconColors, layout } = ARDUINO_CONFIG;
 
   return (
     <section className="py-16 bg-gradient-to-br from-gray-50 to-blue-50">
-      <div className="container mx-auto px-4">
-        <div className="mx-auto max-w-6xl">
+      <div>
+        <div className={layout.containerClass}>
           <h2 className="mb-4 text-3xl font-bold text-center">{data.title}</h2>
           <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
             효과적인 앱 인벤터 교육을 위한 필수 조건들을 확인하세요

@@ -6,6 +6,8 @@ import { Card, CardContent } from "@/components/ui/data-display/card";
 import { Badge } from "@/components/ui/data-display/badge";
 import type { CurriculumData } from "../hooks/useArduinoCurriculumData";
 
+import { ARDUINO_CONFIG } from "../config";
+
 /**
  * 커리큘럼 섹션 컴포넌트
  * 3시간, 6시간, 12시간 탭으로 학습 내용을 표시합니다.
@@ -36,10 +38,12 @@ export function CurriculumSection({ data }: CurriculumSectionProps) {
     return null;
   }
 
+  const { layout } = ARDUINO_CONFIG;
+
   return (
     <section className="py-12 bg-white">
-      <div className="container mx-auto px-4">
-        <div className="mx-auto max-w-4xl">
+      <div>
+        <div className={layout.containerClass}>
           <h2 className="mb-8 text-3xl font-bold text-center">{title}</h2>
 
           {/* 탭 버튼 영역 */}

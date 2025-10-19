@@ -1,0 +1,1197 @@
+{
+  "hero": {
+    "badge": "AI 교육 프로그램",
+    "title": "인공지능과 함께하는 미래 교육",
+    "description": "DancingwithAI, TeachableMachine, ChatGPT로 창의적인 AI 프로젝트를 만들어보세요"
+  },
+  "courseInfo": [
+    {
+      "id": "duration",
+      "icon": "Clock",
+      "iconColor": "purple",
+      "label": "수업 기간",
+      "value": "학년별 맞춤 과정"
+    },
+    {
+      "id": "capacity",
+      "icon": "Users",
+      "iconColor": "indigo",
+      "label": "수강 인원",
+      "value": "최대 12명"
+    },
+    {
+      "id": "method",
+      "icon": "BookOpen",
+      "iconColor": "violet",
+      "label": "수업 방식",
+      "value": "프로젝트 기반 학습 (PBL)"
+    }
+  ],
+  "courseDescription": {
+    "title": "AI 교육 프로그램이란?",
+    "paragraphs": [
+      "AI 교육 프로그램은 학생들이 인공지능을 단순히 사용하는 것을 넘어, 직접 만들고 창의적으로 활용하는 능력을 키우는 과정입니다.",
+      "초등학생은 DancingwithAI와 TeachableMachine으로 컴퓨터 비전을 체험하고, 중학생은 ChatGPT로 다양한 컨텐츠를 기획하고 제작합니다. 고등학생은 AI 에이전트를 활용한 실제 서비스를 개발합니다.",
+      "학년별 수준에 맞는 맞춤형 커리큘럼으로 AI 시대를 이끌어갈 인재를 양성합니다."
+    ],
+    "images": [
+      {
+        "src": "/home/ai-neural-network.png",
+        "alt": "AI 머신러닝 개념"
+      },
+      {
+        "src": "/home/student-coding-laptop.jpg",
+        "alt": "학생들의 AI 프로젝트 실습"
+      },
+      {
+        "src": "/home/ai-robot-interaction.jpg",
+        "alt": "AI와 상호작용하는 프로젝트"
+      }
+    ]
+  },
+  "learningPath": {
+    "elementary": {
+      "title": "초등 4-6학년 학습 단계 (컴퓨터 비전 게임)",
+      "description": "DancingwithAI와 TeachableMachine으로 AI 게임을 만듭니다",
+      "steps": [
+        {
+          "id": "step1",
+          "title": "AI와 컴퓨터 비전 이해",
+          "description": "사진으로 학습하는 인공지능의 원리 배우기",
+          "duration": "30분"
+        },
+        {
+          "id": "step2",
+          "title": "데이터 수집",
+          "description": "카메라로 학습 이미지 촬영 및 분류",
+          "duration": "1시간",
+          "emphasis": true
+        },
+        {
+          "id": "step3",
+          "title": "모델 학습",
+          "description": "TeachableMachine으로 AI 모델 훈련",
+          "duration": "30분",
+          "emphasis": true
+        },
+        {
+          "id": "step4",
+          "title": "게임 제작",
+          "description": "학습된 모델을 DancingwithAI에 적용",
+          "duration": "1.5시간"
+        },
+        {
+          "id": "step5",
+          "title": "테스트 및 개선",
+          "description": "게임 플레이 후 모델 정확도 향상",
+          "duration": "30분"
+        },
+        {
+          "id": "step6",
+          "title": "발표 및 공유",
+          "description": "완성된 게임 시연 및 발표",
+          "duration": "30분"
+        }
+      ]
+    },
+    "middleSchool": {
+      "title": "중학교 1-2학년 학습 단계 (ChatGPT 컨텐츠 제작)",
+      "description": "프롬프트로 다양한 창작물을 기획하고 제작합니다",
+      "steps": [
+        {
+          "id": "step1",
+          "title": "프롬프트 기초",
+          "description": "효과적인 프롬프트 작성 원리 학습",
+          "duration": "1시간",
+          "emphasis": true
+        },
+        {
+          "id": "step2",
+          "title": "컨텐츠 구조 분석",
+          "description": "동화책, 유튜브, 게임 등의 구조 이해",
+          "duration": "1시간"
+        },
+        {
+          "id": "step3",
+          "title": "아이디어 기획",
+          "description": "만들고 싶은 컨텐츠 주제 및 기획",
+          "duration": "1.5시간",
+          "emphasis": true
+        },
+        {
+          "id": "step4",
+          "title": "ChatGPT 제작",
+          "description": "프롬프트로 스토리, 대사, 시나리오 생성",
+          "duration": "2시간",
+          "emphasis": true
+        },
+        {
+          "id": "step5",
+          "title": "검토 및 개선",
+          "description": "생성된 결과물 평가 및 수정",
+          "duration": "1시간"
+        },
+        {
+          "id": "step6",
+          "title": "최종 발표",
+          "description": "완성된 컨텐츠 발표 및 피드백",
+          "duration": "30분"
+        }
+      ]
+    },
+    "highSchool": {
+      "title": "중3, 고1-2학년 학습 단계 (AI 서비스 개발)",
+      "description": "ChatGPT API를 활용한 실전 웹 서비스를 만듭니다",
+      "steps": [
+        {
+          "id": "step1",
+          "title": "서비스 기획",
+          "description": "해결할 문제 정의 및 서비스 구상",
+          "duration": "1.5시간",
+          "emphasis": true
+        },
+        {
+          "id": "step2",
+          "title": "AI 에이전트 설계",
+          "description": "ChatGPT API 역할 및 프롬프트 설계",
+          "duration": "1.5시간",
+          "emphasis": true
+        },
+        {
+          "id": "step3",
+          "title": "프론트엔드 개발",
+          "description": "Vibe Coding + Next.js로 UI 구현",
+          "duration": "3시간",
+          "emphasis": true
+        },
+        {
+          "id": "step4",
+          "title": "API 연동",
+          "description": "ChatGPT API를 백엔드에 연결",
+          "duration": "2시간"
+        },
+        {
+          "id": "step5",
+          "title": "디버깅 및 최적화",
+          "description": "AI Studio로 문제 해결 및 성능 개선",
+          "duration": "1.5시간"
+        },
+        {
+          "id": "step6",
+          "title": "배포 및 런칭",
+          "description": "실제 서비스로 배포 및 공유",
+          "duration": "1.5시간"
+        }
+      ]
+    }
+  },
+  "learningGoals": {
+    "title": "학습 목표 및 기대 효과",
+    "description": "학년별 수준에 맞는 AI 교육으로 미래 역량을 키웁니다",
+    "goals": [
+      {
+        "id": "elementary",
+        "category": "초등 4-6학년",
+        "title": "컴퓨터 비전 게임 제작",
+        "description": "DancingwithAI와 TeachableMachine으로 AI의 원리를 체험합니다",
+        "skills": [
+          "컴퓨터 비전의 개념 이해",
+          "이미지 학습 데이터 수집 및 분류",
+          "TeachableMachine으로 모델 학습",
+          "학습된 모델을 게임에 적용",
+          "창의적인 인터랙티브 프로젝트 완성"
+        ]
+      },
+      {
+        "id": "middle-low",
+        "category": "중1-2학년",
+        "title": "ChatGPT 컨텐츠 제작",
+        "description": "프롬프트 엔지니어링으로 다양한 창작물을 기획하고 제작합니다",
+        "skills": [
+          "효과적인 프롬프트 작성법",
+          "컨텐츠 구조 설계 및 기획",
+          "그림 동화책 스토리 및 일러스트 제작",
+          "유튜브 영상 시나리오 작성",
+          "방탈출 게임 유저 시나리오 기획"
+        ]
+      },
+      {
+        "id": "high",
+        "category": "중3-고1-2학년",
+        "title": "AI 에이전트 서비스 개발",
+        "description": "ChatGPT API를 활용하여 실제 웹 서비스를 만듭니다",
+        "skills": [
+          "ChatGPT API 연동 및 활용",
+          "바이브 코딩으로 웹 개발",
+          "프로토타입 설계 및 제작",
+          "AI 에이전트 서비스 기획",
+          "실전 프로젝트 포트폴리오 구축"
+        ]
+      }
+    ],
+    "achievements": [
+      "학년별 맞춤 AI 교육 경험",
+      "AI 원리 이해 및 실전 활용 능력",
+      "창의적 문제 해결 능력",
+      "프롬프트 엔지니어링 역량",
+      "실제 서비스 개발 경험",
+      "미래 직업 탐색 및 진로 설계"
+    ]
+  },
+  "curriculum": {
+    "title": "학년별 맞춤 커리큘럼",
+    "description": "각 과정은 3시간, 6시간, 12시간으로 구성됩니다",
+    "projects": [
+      {
+        "id": "elementary-ai",
+        "title": "초등 4-6학년: 컴퓨터 비전 게임",
+        "description": "DancingwithAI와 TeachableMachine을 사용하여 카메라로 학습하는 AI 게임을 만듭니다. 직접 사진을 찍어 데이터를 모으고, AI 모델을 학습시켜 나만의 인터랙티브 게임을 완성합니다.",
+        "image": "/home/ai-robot-interaction.jpg",
+        "difficulty": "입문",
+        "university": "",
+        "tabs": [
+          {
+            "id": "3hours",
+            "label": "3시간",
+            "duration": "3시간",
+            "description": "TeachableMachine 기초 - 이미지 인식 체험",
+            "modules": [
+              {
+                "id": "module1",
+                "title": "AI와 머신러닝 이해하기",
+                "duration": "1시간",
+                "detailDescription": "인공지능이 무엇인지, 어떻게 학습하는지 쉽게 배웁니다",
+                "topics": [
+                  "AI의 개념과 활용 사례",
+                  "머신러닝의 원리 (학습, 예측)",
+                  "컴퓨터 비전이란?",
+                  "실생활 속 AI 찾아보기"
+                ]
+              },
+              {
+                "id": "module2",
+                "title": "TeachableMachine으로 모델 학습",
+                "duration": "1.5시간",
+                "detailDescription": "웹캠으로 이미지를 수집하고 AI 모델을 직접 학습시킵니다",
+                "topics": [
+                  "TeachableMachine 사용법",
+                  "웹캠으로 이미지 데이터 수집",
+                  "3가지 포즈 학습시키기",
+                  "모델 학습 및 테스트"
+                ]
+              },
+              {
+                "id": "module3",
+                "title": "간단한 게임 만들기",
+                "duration": "0.5시간",
+                "detailDescription": "학습한 모델로 간단한 인터랙티브 게임을 만듭니다",
+                "topics": [
+                  "모델을 게임에 연결",
+                  "포즈로 캐릭터 조종하기",
+                  "친구들과 함께 테스트"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "6hours",
+            "label": "6시간",
+            "duration": "6시간",
+            "description": "DancingwithAI 프로젝트 - 창의적인 게임 완성",
+            "modules": [
+              {
+                "id": "module1",
+                "title": "고급 이미지 학습",
+                "duration": "1.5시간",
+                "detailDescription": "더 많은 클래스와 다양한 데이터로 정확한 모델을 만듭니다",
+                "topics": [
+                  "다양한 각도에서 데이터 수집",
+                  "5가지 이상의 동작 학습",
+                  "모델 정확도 높이기",
+                  "잘못된 예측 수정하기"
+                ]
+              },
+              {
+                "id": "module2",
+                "title": "DancingwithAI 게임 설계",
+                "duration": "2시간",
+                "detailDescription": "게임 아이디어를 구상하고 스토리를 만듭니다",
+                "topics": [
+                  "게임 아이디어 브레인스토밍",
+                  "게임 규칙 정하기",
+                  "캐릭터와 배경 디자인",
+                  "점수 시스템 설계"
+                ]
+              },
+              {
+                "id": "module3",
+                "title": "게임 개발 및 완성",
+                "duration": "2시간",
+                "detailDescription": "Scratch 또는 간단한 도구로 게임을 완성합니다",
+                "topics": [
+                  "게임 화면 구성",
+                  "AI 모델과 게임 연동",
+                  "효과음 및 애니메이션 추가",
+                  "친구들과 게임 테스트"
+                ]
+              },
+              {
+                "id": "module4",
+                "title": "발표 및 피드백",
+                "duration": "0.5시간",
+                "detailDescription": "완성한 게임을 발표하고 개선점을 논의합니다",
+                "topics": [
+                  "게임 시연 및 발표",
+                  "친구들 게임 체험",
+                  "피드백 공유"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "12hours",
+            "label": "12시간",
+            "duration": "12시간",
+            "description": "고급 컴퓨터 비전 프로젝트 - 창의적 인터랙티브 작품",
+            "modules": [
+              {
+                "id": "module1",
+                "title": "다양한 AI 모델 탐구",
+                "duration": "2시간",
+                "detailDescription": "이미지뿐만 아니라 소리, 포즈 인식 등을 학습합니다",
+                "topics": [
+                  "이미지 분류 모델",
+                  "소리 인식 모델",
+                  "포즈 인식 모델",
+                  "각 모델의 활용 사례"
+                ]
+              },
+              {
+                "id": "module2",
+                "title": "창의적 프로젝트 기획",
+                "duration": "2.5시간",
+                "detailDescription": "팀별로 독창적인 AI 프로젝트를 기획합니다",
+                "topics": [
+                  "문제 정의 및 아이디어 발상",
+                  "팀별 프로젝트 주제 선정",
+                  "프로젝트 계획서 작성",
+                  "필요한 데이터 및 도구 파악"
+                ]
+              },
+              {
+                "id": "module3",
+                "title": "AI 모델 개발",
+                "duration": "3시간",
+                "detailDescription": "프로젝트에 필요한 AI 모델을 직접 학습시킵니다",
+                "topics": [
+                  "맞춤형 데이터 수집",
+                  "모델 학습 및 최적화",
+                  "여러 모델 조합하기",
+                  "모델 성능 테스트"
+                ]
+              },
+              {
+                "id": "module4",
+                "title": "프로젝트 구현",
+                "duration": "3시간",
+                "detailDescription": "AI 모델을 활용한 인터랙티브 작품을 완성합니다",
+                "topics": [
+                  "인터페이스 디자인",
+                  "AI 모델 통합",
+                  "사용자 경험(UX) 개선",
+                  "버그 수정 및 최적화"
+                ]
+              },
+              {
+                "id": "module5",
+                "title": "발표 및 전시",
+                "duration": "1.5시간",
+                "detailDescription": "완성한 작품을 발표하고 전시합니다",
+                "topics": [
+                  "프로젝트 발표 자료 준비",
+                  "작품 시연 및 설명",
+                  "질의응답 및 피드백",
+                  "개선 방향 논의"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "middle-chatgpt",
+        "title": "중1-2학년: ChatGPT 컨텐츠 제작",
+        "description": "ChatGPT로 창의적인 컨텐츠를 기획하고 제작합니다. 효과적인 프롬프트 작성법을 배우고, 그림 동화책, 유튜브 영상 시나리오, 방탈출 게임 스토리 등 다양한 작품을 만듭니다. 실제 개발 전 기획과 테스트 단계를 집중적으로 학습합니다.",
+        "image": "/home/student-coding-laptop.jpg",
+        "difficulty": "기초",
+        "university": "",
+        "tabs": [
+          {
+            "id": "3hours",
+            "label": "3시간",
+            "duration": "3시간",
+            "description": "ChatGPT 기초 - 프롬프트 작성법",
+            "modules": [
+              {
+                "id": "module1",
+                "title": "ChatGPT 이해하기",
+                "duration": "1시간",
+                "detailDescription": "ChatGPT의 원리와 활용법을 배웁니다",
+                "topics": [
+                  "대화형 AI의 개념",
+                  "ChatGPT 사용 방법",
+                  "효과적인 질문하기",
+                  "AI 윤리와 한계 이해"
+                ]
+              },
+              {
+                "id": "module2",
+                "title": "프롬프트 엔지니어링 기초",
+                "duration": "1.5시간",
+                "detailDescription": "원하는 답변을 얻기 위한 프롬프트 작성법을 익힙니다",
+                "topics": [
+                  "명확한 프롬프트 작성",
+                  "역할 부여하기 (Role Prompting)",
+                  "예시 제공하기 (Few-shot)",
+                  "단계별 지시하기"
+                ]
+              },
+              {
+                "id": "module3",
+                "title": "간단한 컨텐츠 제작",
+                "duration": "0.5시간",
+                "detailDescription": "ChatGPT로 짧은 이야기를 만들어봅니다",
+                "topics": [
+                  "스토리 아이디어 발상",
+                  "캐릭터 설정 생성",
+                  "짧은 동화 완성"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "6hours",
+            "label": "6시간",
+            "duration": "6시간",
+            "description": "그림 동화책 & 유튜브 컨텐츠 제작",
+            "modules": [
+              {
+                "id": "module1",
+                "title": "컨텐츠 구조 설계",
+                "duration": "1.5시간",
+                "detailDescription": "동화책과 유튜브 영상의 구조를 이해하고 기획합니다",
+                "topics": [
+                  "스토리텔링의 3막 구조",
+                  "캐릭터 아크 설계",
+                  "장면 구성 및 전개",
+                  "대상 독자/시청자 분석"
+                ]
+              },
+              {
+                "id": "module2",
+                "title": "그림 동화책 제작",
+                "duration": "2시간",
+                "detailDescription": "ChatGPT와 이미지 생성 AI로 동화책을 만듭니다",
+                "topics": [
+                  "스토리 작성 (ChatGPT)",
+                  "일러스트 프롬프트 작성",
+                  "이미지 생성 AI 활용",
+                  "동화책 편집 및 완성"
+                ]
+              },
+              {
+                "id": "module3",
+                "title": "유튜브 영상 기획",
+                "duration": "2시간",
+                "detailDescription": "유튜브 영상 시나리오를 작성하고 기획합니다",
+                "topics": [
+                  "영상 콘셉트 정하기",
+                  "대본 작성 (ChatGPT)",
+                  "장면별 스토리보드",
+                  "썸네일 및 제목 기획"
+                ]
+              },
+              {
+                "id": "module4",
+                "title": "발표 및 공유",
+                "duration": "0.5시간",
+                "detailDescription": "완성한 작품을 발표하고 피드백을 나눕니다",
+                "topics": [
+                  "작품 발표",
+                  "제작 과정 공유",
+                  "피드백 및 개선"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "12hours",
+            "label": "12시간",
+            "duration": "12시간",
+            "description": "방탈출 게임 기획 - 개발 직전 단계",
+            "modules": [
+              {
+                "id": "module1",
+                "title": "게임 기획 이론",
+                "duration": "2시간",
+                "detailDescription": "게임 디자인의 기본 원리를 배웁니다",
+                "topics": [
+                  "게임 메카닉스와 다이나믹스",
+                  "사용자 경험(UX) 설계",
+                  "난이도 곡선 조정",
+                  "방탈출 게임 분석"
+                ]
+              },
+              {
+                "id": "module2",
+                "title": "방탈출 게임 시나리오 작성",
+                "duration": "3시간",
+                "detailDescription": "ChatGPT로 창의적인 방탈출 시나리오를 만듭니다",
+                "topics": [
+                  "테마 및 배경 스토리 설정",
+                  "퍼즐 및 미션 디자인",
+                  "힌트 시스템 구상",
+                  "엔딩 시나리오 작성"
+                ]
+              },
+              {
+                "id": "module3",
+                "title": "유저 플로우 설계",
+                "duration": "2.5시간",
+                "detailDescription": "사용자가 게임을 어떻게 플레이할지 구체적으로 설계합니다",
+                "topics": [
+                  "유저 여정 맵(User Journey Map)",
+                  "인터랙션 디자인",
+                  "UI/UX 와이어프레임",
+                  "플레이 테스트 시나리오"
+                ]
+              },
+              {
+                "id": "module4",
+                "title": "프로토타입 기획",
+                "duration": "3시간",
+                "detailDescription": "개발 직전 단계의 상세 기획서를 작성합니다",
+                "topics": [
+                  "기능 명세서 작성",
+                  "필요한 리소스 정리",
+                  "개발 우선순위 설정",
+                  "프로토타입 테스트 계획"
+                ]
+              },
+              {
+                "id": "module5",
+                "title": "발표 및 피드백",
+                "duration": "1.5시간",
+                "detailDescription": "기획서를 발표하고 전문가 피드백을 받습니다",
+                "topics": [
+                  "기획서 프레젠테이션",
+                  "프로토타입 시연",
+                  "개선 사항 논의",
+                  "다음 단계 로드맵"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "high-agent",
+        "title": "중3-고1-2학년: AI 에이전트 서비스",
+        "description": "바이브 코딩으로 ChatGPT API를 활용한 실제 웹 서비스를 개발합니다. Next.js와 Flask를 사용하여 프로토타입을 만들고, Figma, v0, AI Studio, Cursor 등 최신 AI 도구로 빠르게 개발합니다. 코딩보다는 실행력, 디버깅, 기획력, AI 리터러시를 키우는 과정입니다.",
+        "image": "/home/ai-neural-network.png",
+        "difficulty": "심화",
+        "university": "",
+        "tabs": [
+          {
+            "id": "3hours",
+            "label": "3시간",
+            "duration": "3시간",
+            "description": "ChatGPT API 기초 - 첫 에이전트 만들기",
+            "modules": [
+              {
+                "id": "module1",
+                "title": "API 개념 이해",
+                "duration": "1시간",
+                "detailDescription": "API가 무엇인지, ChatGPT API를 어떻게 사용하는지 배웁니다",
+                "topics": [
+                  "API의 개념과 역할",
+                  "ChatGPT API 소개",
+                  "API 키 발급 및 설정",
+                  "간단한 API 호출 실습"
+                ]
+              },
+              {
+                "id": "module2",
+                "title": "바이브 코딩 입문",
+                "duration": "1.5시간",
+                "detailDescription": "노코드/로우코드 도구로 간단한 웹 앱을 만듭니다",
+                "topics": [
+                  "바이브 코딩 도구 소개",
+                  "간단한 UI 디자인",
+                  "ChatGPT API 연결",
+                  "챗봇 인터페이스 구현"
+                ]
+              },
+              {
+                "id": "module3",
+                "title": "첫 에이전트 완성",
+                "duration": "0.5시간",
+                "detailDescription": "간단한 대화형 AI 에이전트를 완성합니다",
+                "topics": [
+                  "기본 대화 기능 구현",
+                  "테스트 및 디버깅",
+                  "작품 공유"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "6hours",
+            "label": "6시간",
+            "duration": "6시간",
+            "description": "웹 프로토타입 제작 - 실전 프로젝트",
+            "modules": [
+              {
+                "id": "module1",
+                "title": "서비스 기획",
+                "duration": "1.5시간",
+                "detailDescription": "만들고 싶은 AI 서비스를 구체적으로 기획합니다",
+                "topics": [
+                  "문제 정의 및 타겟 사용자",
+                  "핵심 기능 선정",
+                  "서비스 플로우 설계",
+                  "와이어프레임 작성"
+                ]
+              },
+              {
+                "id": "module2",
+                "title": "AI 에이전트 설계",
+                "duration": "2시간",
+                "detailDescription": "ChatGPT를 활용한 맞춤형 에이전트를 설계합니다",
+                "topics": [
+                  "시스템 프롬프트 작성",
+                  "대화 흐름 설계",
+                  "메모리 및 컨텍스트 관리",
+                  "API 파라미터 최적화"
+                ]
+              },
+              {
+                "id": "module3",
+                "title": "웹 프로토타입 개발",
+                "duration": "2시간",
+                "detailDescription": "바이브 코딩으로 작동하는 프로토타입을 만듭니다",
+                "topics": [
+                  "UI 컴포넌트 구성",
+                  "API 통합 및 연결",
+                  "데이터 흐름 구현",
+                  "기본 기능 테스트"
+                ]
+              },
+              {
+                "id": "module4",
+                "title": "테스트 및 발표",
+                "duration": "0.5시간",
+                "detailDescription": "프로토타입을 테스트하고 발표합니다",
+                "topics": [
+                  "사용자 테스트",
+                  "버그 수정",
+                  "작품 발표"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "12hours",
+            "label": "12시간",
+            "duration": "12시간",
+            "description": "완성형 AI 서비스 개발 - 포트폴리오 프로젝트",
+            "modules": [
+              {
+                "id": "module1",
+                "title": "전문 서비스 기획",
+                "duration": "2.5시간",
+                "detailDescription": "실제 배포 가능한 수준의 서비스를 기획합니다",
+                "topics": [
+                  "시장 조사 및 경쟁 분석",
+                  "비즈니스 모델 설계",
+                  "상세 기능 명세서",
+                  "기술 스택 선정"
+                ]
+              },
+              {
+                "id": "module2",
+                "title": "고급 AI 에이전트 구현",
+                "duration": "3시간",
+                "detailDescription": "여러 기능을 가진 복잡한 AI 에이전트를 만듭니다",
+                "topics": [
+                  "Function Calling 활용",
+                  "외부 API 통합",
+                  "대화 기록 관리",
+                  "개인화 및 학습 기능"
+                ]
+              },
+              {
+                "id": "module3",
+                "title": "풀스택 웹 개발",
+                "duration": "4시간",
+                "detailDescription": "프론트엔드부터 백엔드까지 완성합니다",
+                "topics": [
+                  "반응형 UI 디자인",
+                  "사용자 인증 시스템",
+                  "데이터베이스 연동",
+                  "배포 준비 (Vercel/Netlify)"
+                ]
+              },
+              {
+                "id": "module4",
+                "title": "테스트 및 최적화",
+                "duration": "1.5시간",
+                "detailDescription": "서비스를 테스트하고 개선합니다",
+                "topics": [
+                  "사용자 경험 테스트",
+                  "성능 최적화",
+                  "보안 점검",
+                  "버그 수정"
+                ]
+              },
+              {
+                "id": "module5",
+                "title": "배포 및 포트폴리오 정리",
+                "duration": "1시간",
+                "detailDescription": "서비스를 배포하고 포트폴리오로 정리합니다",
+                "topics": [
+                  "실제 배포 (도메인 연결)",
+                  "README 및 문서 작성",
+                  "발표 자료 준비",
+                  "포트폴리오 사이트 등록"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "gradeRecommendation": {
+    "title": "학년별 추천 커리큘럼",
+    "description": "학생의 학년과 수준에 맞는 최적의 AI 교육 과정을 선택하세요",
+    "programName": "AI 교육 과정",
+    "headers": [
+      "과정",
+      "초3-4",
+      "초5-6",
+      "중1-2",
+      "중3",
+      "고등"
+    ],
+    "courses": [
+      {
+        "id": "course-3h-elementary",
+        "courseName": "컴퓨터 비전 3시간",
+        "description": "TeachableMachine 기초",
+        "difficulty": "입문",
+        "duration": "3시간",
+        "recommendedGrades": {
+          "elementary-mid": null,
+          "elementary-high": "권장",
+          "middle-low": "선택",
+          "middle-high": null,
+          "high": null
+        }
+      },
+      {
+        "id": "course-6h-elementary",
+        "courseName": "컴퓨터 비전 6시간",
+        "description": "DancingwithAI 게임",
+        "difficulty": "기초",
+        "duration": "6시간",
+        "recommendedGrades": {
+          "elementary-mid": null,
+          "elementary-high": "권장",
+          "middle-low": "권장",
+          "middle-high": "선택",
+          "high": null
+        }
+      },
+      {
+        "id": "course-12h-elementary",
+        "courseName": "컴퓨터 비전 12시간",
+        "description": "고급 인터랙티브 작품",
+        "difficulty": "심화",
+        "duration": "12시간",
+        "recommendedGrades": {
+          "elementary-mid": null,
+          "elementary-high": "도전",
+          "middle-low": "권장",
+          "middle-high": "선택",
+          "high": null
+        }
+      },
+      {
+        "id": "course-3h-chatgpt",
+        "courseName": "ChatGPT 기초 3시간",
+        "description": "프롬프트 작성법",
+        "difficulty": "입문",
+        "duration": "3시간",
+        "recommendedGrades": {
+          "elementary-mid": null,
+          "elementary-high": "선택",
+          "middle-low": "권장",
+          "middle-high": "권장",
+          "high": "선택"
+        }
+      },
+      {
+        "id": "course-6h-chatgpt",
+        "courseName": "ChatGPT 컨텐츠 6시간",
+        "description": "동화책 & 유튜브",
+        "difficulty": "기초",
+        "duration": "6시간",
+        "recommendedGrades": {
+          "elementary-mid": null,
+          "elementary-high": null,
+          "middle-low": "권장",
+          "middle-high": "권장",
+          "high": "선택"
+        }
+      },
+      {
+        "id": "course-12h-chatgpt",
+        "courseName": "ChatGPT 기획 12시간",
+        "description": "방탈출 게임 기획",
+        "difficulty": "심화",
+        "duration": "12시간",
+        "recommendedGrades": {
+          "elementary-mid": null,
+          "elementary-high": null,
+          "middle-low": "도전",
+          "middle-high": "권장",
+          "high": "선택"
+        }
+      },
+      {
+        "id": "course-3h-agent",
+        "courseName": "AI 에이전트 3시간",
+        "description": "ChatGPT API 기초",
+        "difficulty": "입문",
+        "duration": "3시간",
+        "recommendedGrades": {
+          "elementary-mid": null,
+          "elementary-high": null,
+          "middle-low": null,
+          "middle-high": "선택",
+          "high": "권장"
+        }
+      },
+      {
+        "id": "course-6h-agent",
+        "courseName": "AI 서비스 6시간",
+        "description": "웹 프로토타입",
+        "difficulty": "기초",
+        "duration": "6시간",
+        "recommendedGrades": {
+          "elementary-mid": null,
+          "elementary-high": null,
+          "middle-low": null,
+          "middle-high": "도전",
+          "high": "권장"
+        }
+      },
+      {
+        "id": "course-12h-agent",
+        "courseName": "AI 서비스 12시간",
+        "description": "완성형 서비스 개발",
+        "difficulty": "심화",
+        "duration": "12시간",
+        "recommendedGrades": {
+          "elementary-mid": null,
+          "elementary-high": null,
+          "middle-low": null,
+          "middle-high": "도전",
+          "high": "권장"
+        }
+      }
+    ],
+    "legend": {
+      "recommended": "해당 학년에 가장 적합한 난이도",
+      "optional": "관심 있으면 도전 가능",
+      "challenge": "프로그래밍 경험이 있다면 가능"
+    }
+  },
+  "educationRequirements": {
+    "title": "교육 조건",
+    "items": [
+      {
+        "id": "class-size",
+        "icon": "Users",
+        "iconColor": "purple",
+        "title": "적정 인원",
+        "description": "1:6 ~ 1:12 비율",
+        "details": [
+          "강사 1명당 6~12명 권장",
+          "학년별 그룹 수업",
+          "1:1 맞춤 지도 가능",
+          "소규모 프로젝트 팀 구성"
+        ]
+      },
+      {
+        "id": "equipment",
+        "icon": "Monitor",
+        "iconColor": "indigo",
+        "title": "교구재",
+        "description": "노트북 & 웹캠",
+        "details": [
+          "개인 노트북 (권장)",
+          "웹캠 (컴퓨터 비전 과정)",
+          "안정적인 인터넷 연결",
+          "헤드셋 (선택사항)"
+        ]
+      },
+      {
+        "id": "software",
+        "icon": "Package",
+        "iconColor": "violet",
+        "title": "필요 도구",
+        "description": "웹 브라우저 기반",
+        "details": [
+          "최신 웹 브라우저 (Chrome 권장)",
+          "Google 계정",
+          "ChatGPT 계정 (중학생 이상)",
+          "바이브 코딩 플랫폼 (고등)"
+        ]
+      },
+      {
+        "id": "prerequisites",
+        "icon": "GraduationCap",
+        "iconColor": "purple",
+        "title": "사전 지식",
+        "description": "학년별 맞춤",
+        "details": [
+          "초등: 컴퓨터 기본 조작 가능",
+          "중학생: 타이핑 가능, 논리적 사고",
+          "고등학생: 기본 코딩 개념 이해 (권장)",
+          "창의적 사고와 호기심"
+        ]
+      },
+      {
+        "id": "tools",
+        "icon": "Award",
+        "iconColor": "indigo",
+        "title": "사용 플랫폼",
+        "description": "최신 AI 도구",
+        "details": [
+          "TeachableMachine (Google)",
+          "DancingwithAI",
+          "ChatGPT (OpenAI)",
+          "바이브 코딩 플랫폼"
+        ]
+      },
+      {
+        "id": "output",
+        "icon": "ClipboardCheck",
+        "iconColor": "violet",
+        "title": "결과물",
+        "description": "포트폴리오 작품",
+        "details": [
+          "AI 게임 프로젝트",
+          "창작 컨텐츠 (동화책, 시나리오)",
+          "웹 서비스 프로토타입",
+          "발표 자료 및 문서"
+        ]
+      }
+    ]
+  },
+  "classGallery": {
+    "title": "수업 현장 및 학생 작품",
+    "description": "AI로 만든 창의적인 프로젝트들을 확인해보세요",
+    "tabs": [
+      {
+        "id": "class-scene",
+        "label": "수업 현장",
+        "items": [
+          {
+            "src": "/gallery/ai-class-teachable-machine.jpg",
+            "alt": "TeachableMachine 실습",
+            "description": "웹캠으로 포즈를 학습시키고 있는 초등학생들의 모습입니다"
+          },
+          {
+            "src": "/gallery/ai-class-chatgpt.jpg",
+            "alt": "ChatGPT 프롬프트 작성 수업",
+            "description": "효과적인 프롬프트 작성법을 배우는 중학생들입니다"
+          },
+          {
+            "src": "/gallery/ai-class-coding.jpg",
+            "alt": "AI 에이전트 개발 수업",
+            "description": "바이브 코딩으로 AI 서비스를 만드는 고등학생들입니다"
+          }
+        ]
+      },
+      {
+        "id": "student-works",
+        "label": "학생 작품",
+        "items": [
+          {
+            "src": "/gallery/ai-work-dancing-game.jpg",
+            "alt": "DancingwithAI 게임",
+            "description": "포즈 인식으로 캐릭터를 조종하는 창의적인 게임입니다"
+          },
+          {
+            "src": "/gallery/ai-work-storybook.jpg",
+            "alt": "AI 그림 동화책",
+            "description": "ChatGPT와 이미지 생성 AI로 만든 그림 동화책입니다"
+          },
+          {
+            "src": "/gallery/ai-work-chatbot.jpg",
+            "alt": "맞춤형 AI 챗봇",
+            "description": "학생이 직접 개발한 진로 상담 AI 에이전트입니다"
+          }
+        ]
+      },
+      {
+        "id": "class-reviews",
+        "label": "수업 후기",
+        "items": [
+          {
+            "src": "/gallery/ai-review-presentation.jpg",
+            "alt": "프로젝트 발표회",
+            "description": "완성한 AI 프로젝트를 자신감 있게 발표하는 모습입니다"
+          },
+          {
+            "src": "/gallery/ai-review-teamwork.jpg",
+            "alt": "팀 프로젝트 협업",
+            "description": "함께 아이디어를 나누며 협업하는 학생들입니다"
+          },
+          {
+            "src": "/gallery/ai-review-certificate.jpg",
+            "alt": "수료식",
+            "description": "AI 교육 과정을 모두 수료한 학생들의 기념 사진입니다"
+          }
+        ]
+      }
+    ]
+  },
+  "materials": {
+    "title": "수업 자료 다운로드",
+    "description": "AI 교육 과정에 필요한 교육 자료를 다운로드하세요",
+    "categories": [
+      {
+        "id": "teaching-guides",
+        "title": "교사용 지도안",
+        "description": "학년별 상세 교수 학습 지도안",
+        "items": [
+          {
+            "id": "elementary-guide",
+            "title": "컴퓨터 비전 교사용 지도안",
+            "description": "TeachableMachine 활용 수업 가이드",
+            "icon": "FileText",
+            "format": "PDF",
+            "pages": "28페이지",
+            "size": "4.2MB",
+            "downloadUrl": "/downloads/ai/elementary-guide.pdf"
+          },
+          {
+            "id": "middle-guide",
+            "title": "ChatGPT 교사용 지도안",
+            "description": "프롬프트 엔지니어링 수업 가이드",
+            "icon": "FileText",
+            "format": "PDF",
+            "pages": "35페이지",
+            "size": "5.8MB",
+            "downloadUrl": "/downloads/ai/middle-guide.pdf"
+          },
+          {
+            "id": "high-guide",
+            "title": "AI 에이전트 교사용 지도안",
+            "description": "ChatGPT API 활용 수업 가이드",
+            "icon": "FileText",
+            "format": "PDF",
+            "pages": "42페이지",
+            "size": "6.5MB",
+            "downloadUrl": "/downloads/ai/high-guide.pdf"
+          }
+        ]
+      },
+      {
+        "id": "workbooks",
+        "title": "학생용 워크북",
+        "description": "학년별 실습 워크북",
+        "items": [
+          {
+            "id": "elementary-workbook",
+            "title": "컴퓨터 비전 워크북",
+            "description": "AI 게임 제작 실습 가이드",
+            "icon": "BookOpen",
+            "format": "PDF",
+            "pages": "24페이지",
+            "size": "3.8MB",
+            "downloadUrl": "/downloads/ai/elementary-workbook.pdf"
+          },
+          {
+            "id": "middle-workbook",
+            "title": "ChatGPT 워크북",
+            "description": "컨텐츠 제작 실습 가이드",
+            "icon": "BookOpen",
+            "format": "PDF",
+            "pages": "30페이지",
+            "size": "4.5MB",
+            "downloadUrl": "/downloads/ai/middle-workbook.pdf"
+          },
+          {
+            "id": "high-workbook",
+            "title": "AI 에이전트 워크북",
+            "description": "웹 서비스 개발 실습 가이드",
+            "icon": "BookOpen",
+            "format": "PDF",
+            "pages": "38페이지",
+            "size": "5.2MB",
+            "downloadUrl": "/downloads/ai/high-workbook.pdf"
+          }
+        ]
+      },
+      {
+        "id": "templates",
+        "title": "프로젝트 템플릿",
+        "description": "바로 사용 가능한 템플릿",
+        "items": [
+          {
+            "id": "game-template",
+            "title": "AI 게임 템플릿",
+            "description": "DancingwithAI 기본 템플릿",
+            "icon": "Package",
+            "format": "ZIP",
+            "pages": "5개 파일",
+            "size": "1.8MB",
+            "downloadUrl": "/downloads/ai/game-template.zip"
+          },
+          {
+            "id": "prompt-template",
+            "title": "프롬프트 템플릿 모음",
+            "description": "효과적인 프롬프트 예시 100개",
+            "icon": "Package",
+            "format": "PDF",
+            "pages": "15페이지",
+            "size": "1.2MB",
+            "downloadUrl": "/downloads/ai/prompt-templates.pdf"
+          },
+          {
+            "id": "chatbot-template",
+            "title": "챗봇 코드 템플릿",
+            "description": "ChatGPT API 연동 예제",
+            "icon": "Package",
+            "format": "ZIP",
+            "pages": "8개 파일",
+            "size": "2.5MB",
+            "downloadUrl": "/downloads/ai/chatbot-template.zip"
+          }
+        ]
+      }
+    ]
+  },
+  "cta": {
+    "title": "AI와 함께 미래를 만들어보세요",
+    "description": "학년별 맞춤 AI 교육으로 창의력과 문제해결 능력을 키우세요",
+    "buttonText": "수업 일정 확인하기",
+    "buttonLink": "/inquiry/schedule"
+  }
+}
+

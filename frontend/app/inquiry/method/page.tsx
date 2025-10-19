@@ -3,6 +3,8 @@
 import type React from "react"
 
 import { useState } from "react"
+import { Header } from "@/components/header"
+import { Footer } from "@/components/footer"
 import { Button } from "@/components/ui/buttons/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/data-display/card"
 import { Input } from "@/components/ui/forms/input"
@@ -47,31 +49,28 @@ export default function MethodPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50">
-      {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 py-20">
-        <div className="container mx-auto px-4">
-          <div className="mx-auto max-w-3xl text-center text-white">
-            <div className="mb-6 flex justify-center">
-              <div className="rounded-full bg-white/20 p-4 backdrop-blur-sm">
-                <Bell className="h-12 w-12" />
+    <div className="flex min-h-screen flex-col">
+      <Header />
+      
+      <main className="flex-1 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50">
+        {/* Hero Section */}
+        <section className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 py-20">
+          <div className="container mx-auto px-4">
+            <div className="mx-auto max-w-3xl text-center">
+              <div className="mb-6 flex justify-center">
+                <div className="rounded-full bg-white/30 p-4 backdrop-blur-sm shadow-xl">
+                  <Bell className="h-12 w-12 text-white" />
+                </div>
               </div>
+              <h1 className="mb-4 text-4xl font-bold text-white md:text-5xl" style={{ textShadow: '0 4px 12px rgba(0, 0, 0, 0.4)' }}>
+                교육 소식 받기
+              </h1>
+              <p className="text-lg text-white md:text-xl" style={{ textShadow: '0 2px 8px rgba(0, 0, 0, 0.3)' }}>
+                AI Make Lab의 최신 교육 프로그램, 수업 일정, 특별 이벤트 소식을 가장 먼저 받아보세요!
+              </p>
             </div>
-            <h1 className="mb-4 text-4xl font-bold md:text-5xl">교육 소식 받기</h1>
-            <p className="text-lg text-white/90 md:text-xl">
-              AI Make Lab의 최신 교육 프로그램, 수업 일정, 특별 이벤트 소식을 가장 먼저 받아보세요!
-            </p>
           </div>
-        </div>
-        <div className="absolute -bottom-1 left-0 right-0">
-          <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M0 120L60 105C120 90 240 60 360 45C480 30 600 30 720 37.5C840 45 960 60 1080 67.5C1200 75 1320 75 1380 75L1440 75V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z"
-              fill="rgb(239 246 255)"
-            />
-          </svg>
-        </div>
-      </section>
+        </section>
 
       {/* Benefits Section */}
       <section className="py-16">
@@ -307,6 +306,9 @@ export default function MethodPage() {
           </div>
         </div>
       </section>
+      </main>
+
+      <Footer />
     </div>
   )
 }

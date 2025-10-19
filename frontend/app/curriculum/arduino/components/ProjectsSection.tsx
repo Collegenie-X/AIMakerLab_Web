@@ -3,6 +3,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/data-display/badge";
 import type { ProjectsData } from "../hooks/useArduinoCurriculumData";
 
+import { ARDUINO_CONFIG } from "../config";
+
 /**
  * 6대 프로젝트 섹션 컴포넌트
  * ESP32 + 카메라 + AI 기반 프로젝트 소개
@@ -45,10 +47,12 @@ export function ProjectsSection({ data }: ProjectsSectionProps) {
     return null;
   }
 
+  const { layout } = ARDUINO_CONFIG;
+
   return (
     <section className="py-16 bg-gradient-to-br from-slate-50 to-blue-50">
-      <div className="container mx-auto px-4">
-        <div className="mx-auto max-w-7xl">
+      <div>
+        <div className={layout.containerClass}>
           {/* 제목 및 설명 */}
           <div className="text-center mb-12">
             <div className="inline-flex items-center gap-2 mb-4">

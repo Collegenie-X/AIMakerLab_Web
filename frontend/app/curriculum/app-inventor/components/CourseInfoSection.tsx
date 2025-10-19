@@ -1,6 +1,7 @@
 import { Clock, Users, BookOpen, LucideIcon } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/data-display/card";
 import { APP_INVENTOR_CONFIG } from "../config";
+import { CurriculumSectionContainer } from "../../components";
 import type { CourseInfoItem } from "../hooks/useAppInventorCurriculumData";
 
 /**
@@ -26,12 +27,11 @@ export function CourseInfoSection({ data }: CourseInfoSectionProps) {
     return null;
   }
 
-  const { iconColors } = APP_INVENTOR_CONFIG;
+  const { iconColors, layout } = APP_INVENTOR_CONFIG;
 
   return (
-    <section className="py-12">
-      <div className="container mx-auto px-4">
-        <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-3">
+    <CurriculumSectionContainer className="py-12" containerClass={layout.containerClass}>
+      <div className="grid gap-6 md:grid-cols-3">
           {data.map((item) => {
             const IconComponent = iconMap[item.icon];
             const colorConfig = iconColors[item.iconColor as keyof typeof iconColors];
@@ -55,9 +55,8 @@ export function CourseInfoSection({ data }: CourseInfoSectionProps) {
               </Card>
             );
           })}
-        </div>
       </div>
-    </section>
+    </CurriculumSectionContainer>
   );
 }
 

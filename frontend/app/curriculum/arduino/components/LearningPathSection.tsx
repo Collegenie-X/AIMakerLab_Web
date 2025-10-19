@@ -1,6 +1,8 @@
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import type { LearningPathData } from "../hooks/useArduinoCurriculumData";
 
+import { ARDUINO_CONFIG } from "../config";
+
 /**
  * 학습 단계 구조도 컴포넌트
  * IoT → 원격제어 → AI → 서버 구축 학습 경로를 시각화합니다.
@@ -47,10 +49,12 @@ export function LearningPathSection({ data }: LearningPathSectionProps) {
     return null;
   }
 
+  const { layout } = ARDUINO_CONFIG;
+
   return (
     <section className="py-16 bg-gradient-to-br from-gray-50 to-blue-50">
-      <div className="container mx-auto px-4">
-        <div className="mx-auto max-w-7xl">
+      <div>
+        <div className={layout.containerClass}>
           {/* 제목 및 설명 */}
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">{data.title}</h2>

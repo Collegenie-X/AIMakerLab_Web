@@ -1,0 +1,1034 @@
+{
+  "hero": {
+    "badge": "심화 교육 프로그램",
+    "title": "기획부터 실행까지, 실전 프로젝트",
+    "description": "IoT 제작과 AI 서비스 개발 - 아이디어를 현실로 만드는 과정"
+  },
+  "courseInfo": [
+    {
+      "id": "duration",
+      "icon": "Clock",
+      "iconColor": "orange",
+      "label": "수업 기간",
+      "value": "프로젝트별 맞춤"
+    },
+    {
+      "id": "capacity",
+      "icon": "Users",
+      "iconColor": "red",
+      "label": "수강 인원",
+      "value": "최대 8명 (소규모)"
+    },
+    {
+      "id": "method",
+      "icon": "BookOpen",
+      "iconColor": "amber",
+      "label": "수업 방식",
+      "value": "프로젝트 기획 & 실행"
+    }
+  ],
+  "courseDescription": {
+    "title": "심화 교육 프로그램이란?",
+    "paragraphs": [
+      "심화 교육 프로그램은 단순히 코딩을 배우는 것이 아니라, 아이디어를 기획하고 실제로 작동하는 제품과 서비스를 만드는 과정입니다.",
+      "IoT 제작 트랙에서는 아두이노와 라즈베리파이를 결합하고 레이저 커팅기로 외형을 디자인하여 완성도 높은 제품을 만듭니다. 바이브 코딩 트랙에서는 Figma, v0, Cursor 등 최신 AI 도구를 활용해 실제 배포 가능한 웹 서비스를 개발합니다.",
+      "코딩을 직접 작성하기보다는 AI를 실행자로 활용하고, 디버깅 방법을 배우며, 무엇보다 기획 능력과 AI 리터러시를 키우는 것이 목표입니다."
+    ],
+    "images": [
+      {
+        "src": "/home/arduino-electronics-circuit.jpg",
+        "alt": "IoT 하드웨어 제작"
+      },
+      {
+        "src": "/home/smart-home-iot-device.jpg",
+        "alt": "완성된 IoT 프로젝트"
+      },
+      {
+        "src": "/home/student-coding-laptop.jpg",
+        "alt": "AI 도구를 활용한 서비스 개발"
+      }
+    ]
+  },
+  "learningPath": {
+    "iot": {
+      "title": "IoT 컴퓨터 비전 프로젝트 학습 단계",
+      "description": "카메라 기반 분석 시스템을 단계별로 구축합니다",
+      "steps": [
+        {
+          "id": "step1",
+          "title": "문제 정의",
+          "description": "컴퓨터 비전으로 해결할 실생활 문제 발견",
+          "duration": "1시간"
+        },
+        {
+          "id": "step2",
+          "title": "하드웨어 설계",
+          "description": "카메라, 센서, 라즈베리파이 구성",
+          "duration": "2시간",
+          "emphasis": true
+        },
+        {
+          "id": "step3",
+          "title": "비전 모델 학습",
+          "description": "이미지 데이터 수집 및 AI 모델 학습",
+          "duration": "3시간",
+          "emphasis": true
+        },
+        {
+          "id": "step4",
+          "title": "시스템 통합",
+          "description": "비전 분석 결과로 액추에이터 제어",
+          "duration": "2시간"
+        },
+        {
+          "id": "step5",
+          "title": "외형 제작",
+          "description": "레이저 커팅으로 전문적인 케이스 제작",
+          "duration": "2시간"
+        },
+        {
+          "id": "step6",
+          "title": "완성 및 발표",
+          "description": "최종 테스트 및 데모",
+          "duration": "2시간"
+        }
+      ]
+    },
+    "vibe": {
+      "title": "바이브 코딩 서비스 개발 학습 단계",
+      "description": "AI 도구로 웹 서비스를 빠르게 구축합니다",
+      "steps": [
+        {
+          "id": "step1",
+          "title": "서비스 기획",
+          "description": "문제 정의 및 사용자 정의",
+          "duration": "1.5시간",
+          "emphasis": true
+        },
+        {
+          "id": "step2",
+          "title": "UI/UX 디자인",
+          "description": "Figma로 인터페이스 설계",
+          "duration": "2시간"
+        },
+        {
+          "id": "step3",
+          "title": "프론트엔드 개발",
+          "description": "v0, Cursor로 Next.js 구현",
+          "duration": "3시간",
+          "emphasis": true
+        },
+        {
+          "id": "step4",
+          "title": "백엔드 & AI",
+          "description": "Flask + ChatGPT API 연동",
+          "duration": "3시간",
+          "emphasis": true
+        },
+        {
+          "id": "step5",
+          "title": "통합 & 디버깅",
+          "description": "AI Studio로 문제 해결",
+          "duration": "1.5시간"
+        },
+        {
+          "id": "step6",
+          "title": "배포 & 런칭",
+          "description": "실제 서비스 배포 및 공유",
+          "duration": "1시간"
+        }
+      ]
+    }
+  },
+  "learningGoals": {
+    "title": "학습 목표 및 기대 효과",
+    "description": "기획부터 실행까지, 실전 프로젝트 개발 역량을 키웁니다",
+    "goals": [
+      {
+        "id": "iot-maker",
+        "category": "IoT 컴퓨터 비전",
+        "title": "카메라 기반 지능형 시스템",
+        "description": "컴퓨터 비전으로 분석하고 제어하는 IoT 제품을 완성합니다",
+        "skills": [
+          "컴퓨터 비전 기반 문제 정의",
+          "라즈베리파이 + 카메라 모듈 연동",
+          "OpenCV를 활용한 이미지 분석",
+          "AI 모델 학습 및 최적화",
+          "분석 결과 기반 액추에이터 제어",
+          "레이저 커팅으로 외형 제작"
+        ]
+      },
+      {
+        "id": "vibe-coding",
+        "category": "바이브 코딩",
+        "title": "AI 도구 기반 서비스 개발",
+        "description": "최신 AI 도구로 실제 배포 가능한 웹 서비스를 만듭니다",
+        "skills": [
+          "서비스 기획 및 사용자 정의",
+          "Figma로 UI/UX 디자인",
+          "v0, Cursor로 프론트엔드 개발",
+          "ChatGPT API 연동 (Next.js)",
+          "Flask로 백엔드 API 구현",
+          "배포 및 유지보수"
+        ]
+      }
+    ],
+    "achievements": [
+      "실전 프로젝트 포트폴리오",
+      "기획 능력 및 문제 해결 역량",
+      "AI 리터러시 및 활용 능력",
+      "하드웨어/소프트웨어 통합 경험",
+      "디버깅 및 최적화 능력",
+      "팀 협업 및 커뮤니케이션",
+      "실제 배포 가능한 제품/서비스"
+    ]
+  },
+  "curriculum": {
+    "title": "트랙별 커리큘럼",
+    "description": "IoT 제작과 바이브 코딩 두 트랙으로 구성됩니다",
+    "projects": [
+      {
+        "id": "iot-maker",
+        "title": "IoT 컴퓨터 비전 트랙",
+        "description": "라즈베리파이와 카메라 모듈을 활용하여 이미지 분석 기반의 지능형 IoT 제품을 개발합니다. OpenCV와 딥러닝 모델을 사용해 실시간 비전 시스템을 구축하고, 레이저 커팅으로 전문적인 외형을 제작합니다.",
+        "image": "/home/ai-neural-network.png",
+        "difficulty": "심화",
+        "university": "",
+        "tabs": [
+          {
+            "id": "6hours",
+            "label": "6시간",
+            "duration": "6시간",
+            "description": "컴퓨터 비전 IoT 프로젝트 기획",
+            "modules": [
+              {
+                "id": "module1",
+                "title": "비전 기반 문제 정의",
+                "duration": "1.5시간",
+                "detailDescription": "카메라로 해결할 수 있는 실생활 문제를 발견합니다",
+                "topics": [
+                  "컴퓨터 비전 활용 사례 분석",
+                  "이미지 분석이 필요한 문제 발견",
+                  "프로젝트 아이디어 구체화",
+                  "필요한 데이터 종류 정의",
+                  "성공 기준 설정"
+                ]
+              },
+              {
+                "id": "module2",
+                "title": "비전 시스템 설계",
+                "duration": "2시간",
+                "detailDescription": "카메라와 센서를 조합한 지능형 시스템을 설계합니다",
+                "topics": [
+                  "카메라 모듈 선정 (Pi Camera, USB Cam)",
+                  "라즈베리파이 + 아두이노 역할 분담",
+                  "추가 센서 선정 (거리, 조도 등)",
+                  "액추에이터 설계 (서보, 릴레이)",
+                  "시스템 블록 다이어그램"
+                ]
+              },
+              {
+                "id": "module3",
+                "title": "컴퓨터 비전 알고리즘 선정",
+                "duration": "1.5시간",
+                "detailDescription": "프로젝트에 적합한 이미지 분석 방법을 선택합니다",
+                "topics": [
+                  "OpenCV 기초 기능 (색상, 윤곽선 검출)",
+                  "객체 인식 vs 분류 vs 검출",
+                  "사전 학습 모델 활용 (YOLO, MobileNet)",
+                  "커스텀 모델 학습 계획",
+                  "처리 속도 vs 정확도 고려"
+                ]
+              },
+              {
+                "id": "module4",
+                "title": "프로토타입 제작 계획",
+                "duration": "1시간",
+                "detailDescription": "비전 시스템 구현 및 테스트 계획을 수립합니다",
+                "topics": [
+                  "데이터 수집 계획",
+                  "모델 학습 환경 준비",
+                  "하드웨어 조립 순서",
+                  "레이저 커팅 외형 디자인",
+                  "통합 테스트 시나리오"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "12hours",
+            "label": "12시간",
+            "duration": "12시간",
+            "description": "컴퓨터 비전 IoT 프로젝트 제작 완성",
+            "modules": [
+              {
+                "id": "module1",
+                "title": "카메라 & 센서 시스템 구축",
+                "duration": "3시간",
+                "detailDescription": "카메라 모듈과 센서를 라즈베리파이에 연결하고 테스트합니다",
+                "topics": [
+                  "Pi Camera 또는 USB 웹캠 설정",
+                  "OpenCV 설치 및 카메라 연동",
+                  "기본 이미지 캡처 테스트",
+                  "추가 센서 연결 (거리, 조도 등)",
+                  "하드웨어 초기 디버깅"
+                ]
+              },
+              {
+                "id": "module2",
+                "title": "컴퓨터 비전 모델 개발",
+                "duration": "4시간",
+                "detailDescription": "이미지 분석 알고리즘과 AI 모델을 구현합니다",
+                "topics": [
+                  "학습 데이터 이미지 수집 및 라벨링",
+                  "OpenCV로 전처리 (색상 검출, 윤곽선)",
+                  "사전 학습 모델 테스트 (YOLO, MobileNet)",
+                  "커스텀 모델 학습 (TensorFlow Lite)",
+                  "모델 정확도 테스트 및 최적화"
+                ]
+              },
+              {
+                "id": "module3",
+                "title": "비전 기반 제어 시스템 통합",
+                "duration": "2.5시간",
+                "detailDescription": "비전 분석 결과로 액추에이터를 제어하는 시스템을 완성합니다",
+                "topics": [
+                  "이미지 분석 결과를 신호로 변환",
+                  "아두이노로 서보/모터 제어 명령 전송",
+                  "실시간 분석 및 반응 구현",
+                  "시스템 통합 테스트",
+                  "지연 시간 최적화"
+                ]
+              },
+              {
+                "id": "module4",
+                "title": "외형 제작 및 조립",
+                "duration": "1.5시간",
+                "detailDescription": "레이저 커팅으로 전문적인 케이스를 제작합니다",
+                "topics": [
+                  "2D CAD 설계 (카메라 위치 고려)",
+                  "레이저 커팅 실행",
+                  "하드웨어 내장 및 고정",
+                  "케이블 정리 및 마감"
+                ]
+              },
+              {
+                "id": "module5",
+                "title": "최종 테스트 및 발표",
+                "duration": "1시간",
+                "detailDescription": "완성한 컴퓨터 비전 IoT 시스템을 시연하고 발표합니다",
+                "topics": [
+                  "다양한 환경에서 테스트",
+                  "발표 자료 및 시연 영상 준비",
+                  "라이브 데모 및 설명",
+                  "피드백 및 개선안 논의"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "24hours",
+            "label": "24시간",
+            "duration": "24시간",
+            "description": "상용화 수준의 컴퓨터 비전 IoT 제품 개발",
+            "modules": [
+              {
+                "id": "module1",
+                "title": "비전 시스템 고급 기획",
+                "duration": "3시간",
+                "detailDescription": "실제 문제를 해결하는 비전 시스템을 기획합니다",
+                "topics": [
+                  "타겟 사용자 및 시장 분석",
+                  "비전 기반 경쟁 제품 조사",
+                  "차별화된 알고리즘 전략",
+                  "요구 성능 지표 정의 (FPS, 정확도)",
+                  "비즈니스 모델 설계"
+                ]
+              },
+              {
+                "id": "module2",
+                "title": "고급 비전 시스템 설계",
+                "duration": "4시간",
+                "detailDescription": "전문적인 카메라 시스템과 하드웨어를 설계합니다",
+                "topics": [
+                  "고성능 카메라 선정 (해상도, FPS)",
+                  "조명 시스템 설계 (실내/실외)",
+                  "PCB 설계 및 전원 관리",
+                  "3D 케이스 설계 (Fusion 360)",
+                  "열 관리 및 내구성 검토"
+                ]
+              },
+              {
+                "id": "module3",
+                "title": "AI 비전 모델 고도화",
+                "duration": "6시간",
+                "detailDescription": "상용화 수준의 AI 비전 모델을 개발하고 최적화합니다",
+                "topics": [
+                  "대량 학습 데이터 수집 및 증강",
+                  "커스텀 딥러닝 모델 학습",
+                  "모델 경량화 (TensorFlow Lite, ONNX)",
+                  "엣지 디바이스 최적화",
+                  "실시간 추론 성능 튜닝",
+                  "클라우드 연동 (AWS/GCP AI 서비스)"
+                ]
+              },
+              {
+                "id": "module4",
+                "title": "통합 시스템 개발",
+                "duration": "5시간",
+                "detailDescription": "비전 분석, 제어, 모니터링을 통합한 완전한 시스템을 구축합니다",
+                "topics": [
+                  "실시간 이미지 처리 파이프라인",
+                  "비전 결과 기반 정밀 제어",
+                  "모바일 앱 또는 웹 대시보드",
+                  "데이터 로깅 및 분석",
+                  "알림 및 보안 시스템"
+                ]
+              },
+              {
+                "id": "module5",
+                "title": "제품 제작 및 테스트",
+                "duration": "4시간",
+                "detailDescription": "상용화 수준의 제품을 제작하고 철저히 테스트합니다",
+                "topics": [
+                  "레이저 커팅 + 3D 프린팅 조합",
+                  "PCB 제작 및 전문 조립",
+                  "다양한 환경 조건 테스트",
+                  "엣지 케이스 및 오류 처리",
+                  "성능 벤치마크 (정확도, 속도)"
+                ]
+              },
+              {
+                "id": "module6",
+                "title": "데모데이 및 문서화",
+                "duration": "2시간",
+                "detailDescription": "완성된 비전 시스템을 발표하고 포트폴리오로 정리합니다",
+                "topics": [
+                  "제품 시연 영상 제작",
+                  "데모데이 발표 및 라이브 시연",
+                  "기술 문서 및 GitHub 정리",
+                  "포트폴리오 웹사이트 제작",
+                  "크라우드펀딩 또는 특허 출원 검토"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "vibe-coding",
+        "title": "바이브 코딩 트랙",
+        "description": "ChatGPT API와 최신 AI 도구들을 활용하여 실제 배포 가능한 웹 서비스를 개발합니다. Figma로 디자인하고, v0와 Cursor로 빠르게 개발하며, Next.js + Flask로 프로토타입을 완성합니다. 코딩보다는 AI 리터러시와 실행력을 키우는 과정입니다.",
+        "image": "/home/student-coding-laptop.jpg",
+        "difficulty": "심화",
+        "university": "",
+        "tabs": [
+          {
+            "id": "6hours",
+            "label": "6시간",
+            "duration": "6시간",
+            "description": "AI 도구로 프로토타입 제작",
+            "modules": [
+              {
+                "id": "module1",
+                "title": "서비스 기획 및 사용자 정의",
+                "duration": "1.5시간",
+                "detailDescription": "해결하고자 하는 문제와 타겟 사용자를 명확히 정의합니다",
+                "topics": [
+                  "문제 정의 및 솔루션 구상",
+                  "타겟 사용자 페르소나",
+                  "핵심 기능 정의 (MVP)",
+                  "서비스 플로우 설계",
+                  "경쟁 서비스 분석"
+                ]
+              },
+              {
+                "id": "module2",
+                "title": "Figma로 UI/UX 디자인",
+                "duration": "2시간",
+                "detailDescription": "사용자 친화적인 인터페이스를 디자인합니다",
+                "topics": [
+                  "와이어프레임 작성",
+                  "디자인 시스템 구축",
+                  "프로토타입 제작",
+                  "사용자 테스트",
+                  "디자인 피드백 반영"
+                ]
+              },
+              {
+                "id": "module3",
+                "title": "v0와 Cursor로 빠른 개발",
+                "duration": "2시간",
+                "detailDescription": "AI 도구를 활용해 프론트엔드를 빠르게 구현합니다",
+                "topics": [
+                  "v0로 컴포넌트 생성",
+                  "Cursor로 코드 작성 및 수정",
+                  "ChatGPT API 간단 연동",
+                  "기본 기능 구현",
+                  "로컬 테스트"
+                ]
+              },
+              {
+                "id": "module4",
+                "title": "프로토타입 발표",
+                "duration": "0.5시간",
+                "detailDescription": "작동하는 프로토타입을 시연하고 피드백을 받습니다",
+                "topics": [
+                  "프로토타입 시연",
+                  "주요 기능 설명",
+                  "피드백 수렴"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "12hours",
+            "label": "12시간",
+            "duration": "12시간",
+            "description": "Next.js + Flask로 풀스택 개발",
+            "modules": [
+              {
+                "id": "module1",
+                "title": "전문 서비스 기획",
+                "duration": "2시간",
+                "detailDescription": "실제 배포 가능한 수준의 서비스를 상세하게 기획합니다",
+                "topics": [
+                  "사용자 스토리 작성",
+                  "기능 명세서 작성",
+                  "API 설계",
+                  "데이터베이스 스키마 설계",
+                  "기술 스택 최종 결정"
+                ]
+              },
+              {
+                "id": "module2",
+                "title": "Next.js 프론트엔드 개발",
+                "duration": "3.5시간",
+                "detailDescription": "v0와 Cursor를 활용해 React 기반 프론트엔드를 개발합니다",
+                "topics": [
+                  "프로젝트 초기 설정 (Next.js 15)",
+                  "v0로 페이지 컴포넌트 생성",
+                  "Cursor로 기능 구현 및 디버깅",
+                  "반응형 디자인",
+                  "상태 관리 (React Hooks)"
+                ]
+              },
+              {
+                "id": "module3",
+                "title": "Flask 백엔드 & ChatGPT API",
+                "duration": "3시간",
+                "detailDescription": "Flask로 RESTful API를 만들고 ChatGPT를 연동합니다",
+                "topics": [
+                  "Flask 프로젝트 설정",
+                  "RESTful API 엔드포인트 작성",
+                  "ChatGPT API 연동",
+                  "데이터베이스 연결 (SQLite/PostgreSQL)",
+                  "에러 처리 및 로깅"
+                ]
+              },
+              {
+                "id": "module4",
+                "title": "프론트-백 통합 및 디버깅",
+                "duration": "2시간",
+                "detailDescription": "프론트엔드와 백엔드를 연결하고 디버깅합니다",
+                "topics": [
+                  "CORS 설정",
+                  "API 호출 및 테스트",
+                  "AI Studio로 디버깅",
+                  "성능 최적화",
+                  "보안 점검"
+                ]
+              },
+              {
+                "id": "module5",
+                "title": "배포 및 발표",
+                "duration": "1.5시간",
+                "detailDescription": "서비스를 배포하고 발표합니다",
+                "topics": [
+                  "Vercel 배포 (Next.js)",
+                  "Railway/Render 배포 (Flask)",
+                  "도메인 연결 (선택)",
+                  "서비스 시연 및 발표"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "24hours",
+            "label": "24시간",
+            "duration": "24시간",
+            "description": "완성형 AI 서비스 - 상용화 수준",
+            "modules": [
+              {
+                "id": "module1",
+                "title": "비즈니스 모델 및 전략 수립",
+                "duration": "3시간",
+                "detailDescription": "수익 모델과 성장 전략을 구체화합니다",
+                "topics": [
+                  "비즈니스 모델 캔버스",
+                  "수익화 전략 (구독, 광고, 프리미엄)",
+                  "성장 전략 및 KPI 설정",
+                  "고객 획득 전략",
+                  "경쟁 우위 분석"
+                ]
+              },
+              {
+                "id": "module2",
+                "title": "고급 UI/UX 디자인",
+                "duration": "4시간",
+                "detailDescription": "전문적인 디자인 시스템과 인터랙션을 구현합니다",
+                "topics": [
+                  "디자인 시스템 구축 (Figma)",
+                  "애니메이션 및 인터랙션",
+                  "다크모드 지원",
+                  "접근성 (A11y) 준수",
+                  "사용자 테스트 및 개선"
+                ]
+              },
+              {
+                "id": "module3",
+                "title": "풀스택 개발 - 프론트엔드",
+                "duration": "5시간",
+                "detailDescription": "Next.js로 프로덕션 레벨의 프론트엔드를 개발합니다",
+                "topics": [
+                  "App Router 활용 (Next.js 15)",
+                  "서버 컴포넌트 vs 클라이언트 컴포넌트",
+                  "v0, Cursor로 효율적 개발",
+                  "SEO 최적화",
+                  "성능 최적화 (이미지, 코드 스플리팅)"
+                ]
+              },
+              {
+                "id": "module4",
+                "title": "풀스택 개발 - 백엔드",
+                "duration": "5시간",
+                "detailDescription": "Flask로 확장 가능한 백엔드 API를 구축합니다",
+                "topics": [
+                  "RESTful API 설계 및 구현",
+                  "ChatGPT API 고급 활용 (Function Calling)",
+                  "데이터베이스 설계 및 최적화",
+                  "사용자 인증 (JWT)",
+                  "결제 시스템 연동 (Stripe)",
+                  "캐싱 및 성능 최적화"
+                ]
+              },
+              {
+                "id": "module5",
+                "title": "테스트 및 CI/CD",
+                "duration": "3시간",
+                "detailDescription": "자동화된 테스트와 배포 파이프라인을 구축합니다",
+                "topics": [
+                  "단위 테스트 작성",
+                  "통합 테스트",
+                  "E2E 테스트 (Playwright)",
+                  "GitHub Actions CI/CD",
+                  "자동 배포 설정"
+                ]
+              },
+              {
+                "id": "module6",
+                "title": "모니터링 및 분석",
+                "duration": "2시간",
+                "detailDescription": "서비스 모니터링과 사용자 분석을 설정합니다",
+                "topics": [
+                  "Vercel Analytics",
+                  "Sentry 에러 추적",
+                  "Google Analytics",
+                  "성능 모니터링",
+                  "사용자 피드백 수집"
+                ]
+              },
+              {
+                "id": "module7",
+                "title": "런칭 및 마케팅",
+                "duration": "2시간",
+                "detailDescription": "서비스를 정식 출시하고 마케팅합니다",
+                "topics": [
+                  "프로덕트 헌트 런칭",
+                  "소셜 미디어 마케팅",
+                  "프레스 릴리스 작성",
+                  "커뮤니티 빌딩",
+                  "초기 사용자 확보"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "gradeRecommendation": {
+    "title": "학년별 추천 커리큘럼",
+    "description": "심화 프로젝트는 중학생 이상 추천",
+    "programName": "심화 교육 과정",
+    "headers": [
+      "과정",
+      "초3-4",
+      "초5-6",
+      "중1-2",
+      "중3",
+      "고등"
+    ],
+    "courses": [
+      {
+        "id": "course-6h-iot",
+        "courseName": "IoT 제작 6시간",
+        "description": "기획 및 프로토타입",
+        "difficulty": "심화",
+        "duration": "6시간",
+        "recommendedGrades": {
+          "elementary-mid": null,
+          "elementary-high": null,
+          "middle-low": "선택",
+          "middle-high": "권장",
+          "high": "권장"
+        }
+      },
+      {
+        "id": "course-12h-iot",
+        "courseName": "IoT 제작 12시간",
+        "description": "제작 및 완성",
+        "difficulty": "심화",
+        "duration": "12시간",
+        "recommendedGrades": {
+          "elementary-mid": null,
+          "elementary-high": null,
+          "middle-low": null,
+          "middle-high": "권장",
+          "high": "권장"
+        }
+      },
+      {
+        "id": "course-24h-iot",
+        "courseName": "IoT 제작 24시간",
+        "description": "완성도 높은 제품 개발",
+        "difficulty": "최고급",
+        "duration": "24시간",
+        "recommendedGrades": {
+          "elementary-mid": null,
+          "elementary-high": null,
+          "middle-low": null,
+          "middle-high": "도전",
+          "high": "권장"
+        }
+      },
+      {
+        "id": "course-6h-vibe",
+        "courseName": "바이브 코딩 6시간",
+        "description": "AI 도구 프로토타입",
+        "difficulty": "심화",
+        "duration": "6시간",
+        "recommendedGrades": {
+          "elementary-mid": null,
+          "elementary-high": null,
+          "middle-low": "선택",
+          "middle-high": "권장",
+          "high": "권장"
+        }
+      },
+      {
+        "id": "course-12h-vibe",
+        "courseName": "바이브 코딩 12시간",
+        "description": "Next.js + Flask",
+        "difficulty": "심화",
+        "duration": "12시간",
+        "recommendedGrades": {
+          "elementary-mid": null,
+          "elementary-high": null,
+          "middle-low": null,
+          "middle-high": "권장",
+          "high": "권장"
+        }
+      },
+      {
+        "id": "course-24h-vibe",
+        "courseName": "바이브 코딩 24시간",
+        "description": "상용화 수준 서비스",
+        "difficulty": "최고급",
+        "duration": "24시간",
+        "recommendedGrades": {
+          "elementary-mid": null,
+          "elementary-high": null,
+          "middle-low": null,
+          "middle-high": "도전",
+          "high": "권장"
+        }
+      }
+    ],
+    "legend": {
+      "recommended": "해당 학년에 가장 적합한 난이도",
+      "optional": "관심 있으면 도전 가능",
+      "challenge": "프로그래밍 경험이 있다면 가능"
+    }
+  },
+  "educationRequirements": {
+    "title": "교육 조건",
+    "items": [
+      {
+        "id": "class-size",
+        "icon": "Users",
+        "iconColor": "orange",
+        "title": "적정 인원",
+        "description": "1:4 ~ 1:8 소규모",
+        "details": [
+          "강사 1명당 4~8명 권장",
+          "프로젝트 집중 관리",
+          "1:1 멘토링 중심",
+          "팀 프로젝트 (2~4명)"
+        ]
+      },
+      {
+        "id": "iot-equipment",
+        "icon": "Package",
+        "iconColor": "red",
+        "title": "IoT 교구재",
+        "description": "아두이노 + 라즈베리파이",
+        "details": [
+          "아두이노 우노/메가",
+          "Raspberry Pi 4",
+          "센서 키트 (온도, 습도, 모터 등)",
+          "레이저 커팅기 이용권",
+          "3D 프린터 (선택)"
+        ]
+      },
+      {
+        "id": "vibe-tools",
+        "icon": "Monitor",
+        "iconColor": "amber",
+        "title": "바이브 코딩 도구",
+        "description": "최신 AI 개발 도구",
+        "details": [
+          "Figma (무료 계정)",
+          "v0.dev 계정",
+          "Cursor 에디터",
+          "ChatGPT API 키",
+          "AI Studio 접근"
+        ]
+      },
+      {
+        "id": "development",
+        "icon": "Award",
+        "iconColor": "orange",
+        "title": "개발 환경",
+        "description": "프로페셔널 도구",
+        "details": [
+          "노트북 (8GB RAM 이상)",
+          "안정적인 인터넷",
+          "GitHub 계정",
+          "Vercel/Railway 계정",
+          "결제 수단 (배포 시, 선택)"
+        ]
+      },
+      {
+        "id": "prerequisites",
+        "icon": "GraduationCap",
+        "iconColor": "red",
+        "title": "사전 지식",
+        "description": "기초 코딩 경험 권장",
+        "details": [
+          "Python 또는 JavaScript 기초",
+          "아두이노 또는 라즈베리파이 경험",
+          "웹 개발 기초 이해 (HTML/CSS)",
+          "논리적 사고 및 문제 해결 능력"
+        ]
+      },
+      {
+        "id": "mindset",
+        "icon": "ClipboardCheck",
+        "iconColor": "amber",
+        "title": "학습 태도",
+        "description": "실행자 마인드셋",
+        "details": [
+          "AI를 도구로 활용하는 자세",
+          "디버깅 및 문제 해결 의지",
+          "끈기와 인내심",
+          "창의적 사고",
+          "팀 협업 능력"
+        ]
+      }
+    ]
+  },
+  "classGallery": {
+    "title": "수업 현장 및 학생 작품",
+    "description": "실전 프로젝트로 만든 제품과 서비스를 확인해보세요",
+    "tabs": [
+      {
+        "id": "class-scene",
+        "label": "수업 현장",
+        "items": [
+          {
+            "src": "/gallery/science-iot-making.jpg",
+            "alt": "IoT 제작 수업",
+            "description": "레이저 커팅기로 외형을 제작하는 학생들의 모습입니다"
+          },
+          {
+            "src": "/gallery/science-vibe-coding.jpg",
+            "alt": "바이브 코딩 실습",
+            "description": "Cursor와 v0를 활용해 웹 서비스를 개발하고 있습니다"
+          },
+          {
+            "src": "/gallery/science-teamwork.jpg",
+            "alt": "팀 프로젝트 협업",
+            "description": "팀원들과 함께 아이디어를 구체화하는 브레인스토밍 시간입니다"
+          }
+        ]
+      },
+      {
+        "id": "student-works",
+        "label": "학생 작품",
+        "items": [
+          {
+            "src": "/gallery/science-iot-project.jpg",
+            "alt": "스마트 홈 IoT 시스템",
+            "description": "아두이노와 라즈베리파이를 결합한 스마트 홈 제어 시스템입니다"
+          },
+          {
+            "src": "/gallery/science-web-service.jpg",
+            "alt": "AI 학습 도우미 서비스",
+            "description": "ChatGPT API를 활용한 개인 맞춤형 학습 도우미 웹 서비스입니다"
+          },
+          {
+            "src": "/gallery/science-laser-cut.jpg",
+            "alt": "레이저 커팅 케이스",
+            "description": "전문적으로 디자인하고 레이저 커팅으로 제작한 케이스입니다"
+          }
+        ]
+      },
+      {
+        "id": "class-reviews",
+        "label": "수업 후기",
+        "items": [
+          {
+            "src": "/gallery/science-demo-day.jpg",
+            "alt": "데모데이 발표",
+            "description": "완성한 프로젝트를 투자자와 학부모 앞에서 발표합니다"
+          },
+          {
+            "src": "/gallery/science-deployment.jpg",
+            "alt": "서비스 배포 성공",
+            "description": "실제로 배포된 웹 서비스를 스마트폰으로 확인하는 순간입니다"
+          },
+          {
+            "src": "/gallery/science-certificate.jpg",
+            "alt": "프로젝트 완성 축하",
+            "description": "24시간 과정을 완주하고 완성도 높은 작품을 만든 학생들입니다"
+          }
+        ]
+      }
+    ]
+  },
+  "materials": {
+    "title": "수업 자료 다운로드",
+    "description": "심화 프로젝트에 필요한 가이드와 템플릿을 다운로드하세요",
+    "categories": [
+      {
+        "id": "project-guides",
+        "title": "프로젝트 가이드",
+        "description": "트랙별 프로젝트 진행 가이드",
+        "items": [
+          {
+            "id": "iot-guide",
+            "title": "IoT 제작 프로젝트 가이드",
+            "description": "하드웨어 설계부터 완성까지",
+            "icon": "FileText",
+            "format": "PDF",
+            "pages": "48페이지",
+            "size": "7.5MB",
+            "downloadUrl": "/downloads/science/iot-guide.pdf"
+          },
+          {
+            "id": "vibe-guide",
+            "title": "바이브 코딩 프로젝트 가이드",
+            "description": "AI 도구 활용 웹 개발 가이드",
+            "icon": "FileText",
+            "format": "PDF",
+            "pages": "52페이지",
+            "size": "8.2MB",
+            "downloadUrl": "/downloads/science/vibe-guide.pdf"
+          }
+        ]
+      },
+      {
+        "id": "templates",
+        "title": "프로젝트 템플릿",
+        "description": "바로 사용 가능한 템플릿",
+        "items": [
+          {
+            "id": "planning-template",
+            "title": "프로젝트 기획서 템플릿",
+            "description": "문제 정의부터 실행 계획까지",
+            "icon": "BookOpen",
+            "format": "PDF",
+            "pages": "18페이지",
+            "size": "2.8MB",
+            "downloadUrl": "/downloads/science/planning-template.pdf"
+          },
+          {
+            "id": "laser-cut-files",
+            "title": "레이저 커팅 파일 샘플",
+            "description": "케이스 디자인 예제 파일",
+            "icon": "Package",
+            "format": "ZIP",
+            "pages": "12개 파일",
+            "size": "5.5MB",
+            "downloadUrl": "/downloads/science/laser-cut-samples.zip"
+          },
+          {
+            "id": "nextjs-template",
+            "title": "Next.js + Flask 템플릿",
+            "description": "ChatGPT API 연동 프로젝트",
+            "icon": "Package",
+            "format": "ZIP",
+            "pages": "프로젝트 전체",
+            "size": "12.5MB",
+            "downloadUrl": "/downloads/science/nextjs-flask-template.zip"
+          }
+        ]
+      },
+      {
+        "id": "tool-guides",
+        "title": "도구 사용 가이드",
+        "description": "AI 도구 활용법",
+        "items": [
+          {
+            "id": "figma-guide",
+            "title": "Figma 디자인 가이드",
+            "description": "UI/UX 디자인 기초부터 고급까지",
+            "icon": "FileText",
+            "format": "PDF",
+            "pages": "32페이지",
+            "size": "6.8MB",
+            "downloadUrl": "/downloads/science/figma-guide.pdf"
+          },
+          {
+            "id": "cursor-guide",
+            "title": "Cursor AI 코딩 가이드",
+            "description": "AI 페어 프로그래밍 활용법",
+            "icon": "FileText",
+            "format": "PDF",
+            "pages": "28페이지",
+            "size": "4.5MB",
+            "downloadUrl": "/downloads/science/cursor-guide.pdf"
+          },
+          {
+            "id": "debugging-guide",
+            "title": "디버깅 완벽 가이드",
+            "description": "AI로 효율적으로 디버깅하기",
+            "icon": "FileText",
+            "format": "PDF",
+            "pages": "24페이지",
+            "size": "3.2MB",
+            "downloadUrl": "/downloads/science/debugging-guide.pdf"
+          }
+        ]
+      }
+    ]
+  },
+  "cta": {
+    "title": "아이디어를 현실로 만들어보세요",
+    "description": "기획부터 실행까지, 실전 프로젝트로 포트폴리오를 완성하세요",
+    "buttonText": "수업 일정 확인하기",
+    "buttonLink": "/inquiry/schedule"
+  }
+}
+

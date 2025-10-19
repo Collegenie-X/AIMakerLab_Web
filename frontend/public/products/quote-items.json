@@ -1,0 +1,9 @@
+[
+  { "id": "smart-farm", "name": "스마트 팜", "unitPrice": 57000 },
+  { "id": "smart-home", "name": "스마트 홈", "unitPrice": 52000 },
+  { "id": "robot-arm", "name": "로봇 팔", "unitPrice": 77000 },
+  { "id": "smart-car", "name": "스마트 자동차", "unitPrice": 66000 },
+  { "id": "smart-gate", "name": "스마트 게이트", "unitPrice": 55000 }
+]
+
+

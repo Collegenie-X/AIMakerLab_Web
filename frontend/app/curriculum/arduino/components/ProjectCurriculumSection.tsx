@@ -27,10 +27,12 @@ export function ProjectCurriculumSection({ data }: ProjectCurriculumSectionProps
 
   const { tabs: tabConfig } = ARDUINO_CONFIG;
 
+  const { layout } = ARDUINO_CONFIG;
+
   return (
     <section className="py-16 bg-white">
-      <div className="container mx-auto px-4">
-        <div className="mx-auto max-w-7xl">
+      <div>
+        <div className={layout.containerClass}>
           {/* 제목 및 설명 */}
           <div className="text-center mb-12">
             <div className="inline-flex items-center gap-2 mb-4">
@@ -42,7 +44,7 @@ export function ProjectCurriculumSection({ data }: ProjectCurriculumSectionProps
 
           {/* 프로젝트 선택 탭 - 반응형 Grid (1열/2열/3열) */}
           <div className="mb-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 max-w-6xl mx-auto">
+            <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 ${layout.containerClass}`}>
               {data.projects.map((project) => (
                 <button
                   key={project.id}
@@ -65,7 +67,7 @@ export function ProjectCurriculumSection({ data }: ProjectCurriculumSectionProps
           {selectedProject && (
             <>
               {/* 프로젝트 정보 및 대표 이미지 */}
-              <div className="max-w-6xl mx-auto mb-8 p-6 bg-gradient-to-r from-orange-50 to-red-50 rounded-xl border-2 border-orange-200">
+              <div className={`${layout.containerClass} mb-8 p-6 bg-gradient-to-r from-orange-50 to-red-50 rounded-xl border-2 border-orange-200`}>
                 <div className="mb-4">
                   <h3 className="text-2xl font-bold text-gray-900 mb-2">
                     {selectedProject.title}
@@ -127,7 +129,7 @@ export function ProjectCurriculumSection({ data }: ProjectCurriculumSectionProps
               {selectedTab && (
                 <div>
                   {/* 탭 설명 */}
-                  <div className="max-w-6xl mx-auto mb-8 p-6 bg-blue-50 rounded-xl border border-blue-200">
+                  <div className={`${layout.containerClass} mb-8 p-6 bg-blue-50 rounded-xl border border-blue-200`}>
                     <div className="flex items-start gap-3">
                       <Clock className="h-6 w-6 text-blue-600 mt-1 flex-shrink-0" />
                       <div>
@@ -142,7 +144,7 @@ export function ProjectCurriculumSection({ data }: ProjectCurriculumSectionProps
                   {/* 모듈 목록 - 좌우 분할 레이아웃 */}
                   <div className="space-y-6">
                     {selectedTab.modules.map((module, index) => (
-                      <Card key={module.id} className="max-w-6xl mx-auto border-2 hover:shadow-lg transition-shadow">
+                      <Card key={module.id} className={`${layout.containerClass} border-2 hover:shadow-lg transition-shadow`}>
                         <CardContent className="p-6">
                           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                             {/* 좌측: 설명 영역 */}
@@ -207,7 +209,7 @@ export function ProjectCurriculumSection({ data }: ProjectCurriculumSectionProps
           )}
 
           {/* 안내 문구 */}
-          <div className="max-w-6xl mx-auto mt-12 p-6 bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl border-2 border-blue-200">
+          <div className={`${layout.containerClass} mt-12 p-6 bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl border-2 border-blue-200`}>
             <div className="text-center">
               <h3 className="text-lg font-bold text-gray-900 mb-2">
                 메이커 프로젝트 기반 학습

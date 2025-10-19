@@ -1,4 +1,6 @@
 import type { CourseDescriptionData } from "../hooks/useAppInventorCurriculumData";
+import { APP_INVENTOR_CONFIG } from "../config";
+import { CurriculumSectionContainer } from "../../components";
 
 /**
  * 과정 소개 섹션 컴포넌트
@@ -20,45 +22,42 @@ export function CourseDescriptionSection({ data }: CourseDescriptionSectionProps
   }
 
   const { title, paragraphs } = data;
+  const { layout } = APP_INVENTOR_CONFIG;
 
   return (
-    <section className="bg-gray-50 py-12">
-      <div className="container mx-auto px-4">
-        <div className="mx-auto max-w-4xl">
-          <h2 className="mb-6 text-3xl font-bold">{title}</h2>
-          <div className="space-y-4 text-gray-600 leading-relaxed mb-8">
-            {paragraphs.map((paragraph, index) => (
-              <span className="text-lg" key={index} style={{ lineHeight: '1.92em' , wordSpacing: "0.18em" }}> {paragraph}</span>
-            ))}
-          </div>
-          
-          {/* 대표 이미지 3장 */}
-          <div className="grid grid-cols-3 gap-4 mt-8">
-            <div className="aspect-video rounded-lg overflow-hidden bg-white shadow-sm">
-              <img 
-                src="/home/app-inventor-coding-blocks.jpg" 
-                alt="블록 코딩 화면" 
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div className="aspect-video rounded-lg overflow-hidden bg-white shadow-sm">
-              <img 
-                src="/home/mobile-app-interface.png" 
-                alt="모바일 앱 인터페이스" 
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div className="aspect-video rounded-lg overflow-hidden bg-white shadow-sm">
-              <img 
-                src="/home/student-robot-project.jpg" 
-                alt="학생 작품" 
-                className="w-full h-full object-cover"
-              />
-            </div>
-          </div>
+    <CurriculumSectionContainer className="bg-gray-50 py-12" containerClass={layout.containerClass}>
+      <h2 className="mb-6 text-3xl font-bold">{title}</h2>
+      <div className="space-y-4 text-gray-600 leading-relaxed mb-8">
+        {paragraphs.map((paragraph, index) => (
+          <span className="text-lg" key={index} style={{ lineHeight: '1.92em' , wordSpacing: "0.18em" }}> {paragraph}</span>
+        ))}
+      </div>
+      
+      {/* 대표 이미지 3장 */}
+      <div className="grid grid-cols-3 gap-4 mt-8">
+        <div className="aspect-video rounded-lg overflow-hidden bg-white shadow-sm">
+          <img 
+            src="/home/app-inventor-coding-blocks.jpg" 
+            alt="블록 코딩 화면" 
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div className="aspect-video rounded-lg overflow-hidden bg-white shadow-sm">
+          <img 
+            src="/home/mobile-app-interface.png" 
+            alt="모바일 앱 인터페이스" 
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div className="aspect-video rounded-lg overflow-hidden bg-white shadow-sm">
+          <img 
+            src="/home/student-robot-project.jpg" 
+            alt="학생 작품" 
+            className="w-full h-full object-cover"
+          />
         </div>
       </div>
-    </section>
+    </CurriculumSectionContainer>
   );
 }
 

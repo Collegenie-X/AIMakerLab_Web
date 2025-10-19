@@ -2,6 +2,8 @@ import { TrendingUp, Info } from "lucide-react";
 import { Badge } from "@/components/ui/data-display/badge";
 import type { ProjectsData } from "../hooks/useArduinoCurriculumData";
 
+import { ARDUINO_CONFIG } from "../config";
+
 /**
  * 프로젝트별 학년 추천 섹션 컴포넌트
  * 각 프로젝트에 대한 학년별 추천을 표시합니다.
@@ -50,10 +52,12 @@ export function ProjectGradeRecommendationSection({ data }: ProjectGradeRecommen
     return styles[level as keyof typeof styles] || "bg-gray-200 text-gray-700";
   };
 
+  const { layout } = ARDUINO_CONFIG;
+
   return (
     <section className="py-16 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50">
-      <div className="container mx-auto px-4">
-        <div className="mx-auto max-w-7xl">
+      <div>
+        <div className={layout.containerClass}>
           {/* 제목 및 설명 */}
           <div className="text-center mb-12">
             <div className="inline-flex items-center gap-2 mb-4">

@@ -85,6 +85,12 @@ export const APP_INVENTOR_CONFIG = {
     activeTabClass: "bg-blue-600 text-white shadow-sm",
     inactiveTabClass: "text-gray-600 hover:text-gray-900 hover:bg-white",
   },
+
+  // 레이아웃 설정
+  layout: {
+    // 섹션별 컨테이너 클래스 (globals.css에 정의됨)
+    containerClass: "curriculum-container-6xl", // curriculum-container (5xl) | curriculum-container-6xl | curriculum-container-7xl
+  },
 } as const;
 
 export type AppInventorConfig = typeof APP_INVENTOR_CONFIG;

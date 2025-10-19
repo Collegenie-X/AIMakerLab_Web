@@ -20,6 +20,8 @@ const iconMap: Record<string, LucideIcon> = {
   Smartphone,
 };
 
+import { APP_INVENTOR_CONFIG } from "../config";
+
 /**
  * 수업 자료 다운로드 섹션 컴포넌트
  * 교사용 지도안, 학생용 워크북, 참고 자료, 예제 프로젝트 등을 다운로드할 수 있습니다.
@@ -52,10 +54,12 @@ export function MaterialsDownloadSection({ data }: MaterialsDownloadSectionProps
     alert(`"${title}" 다운로드가 준비 중입니다.\n실제 서비스에서는 파일이 다운로드됩니다.`);
   };
 
+  const { layout } = APP_INVENTOR_CONFIG;
+
   return (
     <section className="py-16 bg-white">
-      <div className="container mx-auto px-4">
-        <div className="mx-auto max-w-6xl">
+      <div>
+        <div className={layout.containerClass}>
           {/* 제목 및 설명 */}
           <div className="text-center mb-12">
             <div className="inline-flex items-center gap-2 mb-4">
