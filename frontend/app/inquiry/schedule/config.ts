@@ -1,8 +1,66 @@
+// 강사 정보 타입
+export type InstructorInfo = {
+  name: string
+  title: string
+  experience: string
+  specialization: string
+  education: string
+  introduction: string
+}
+
+// 커리큘럼 모듈 타입
+export type CurriculumModule = {
+  week: string
+  title: string
+  topics: string[]
+  duration: string
+}
+
+// 학생 프로젝트 타입
+export type StudentProject = {
+  title: string
+  description: string
+  image: string
+}
+
+// FAQ 타입
+export type FAQ = {
+  question: string
+  answer: string
+}
+
+// 리뷰 타입
+export type Review = {
+  id: number
+  studentName: string
+  rating: number
+  date: string
+  comment: string
+  course?: string
+}
+
+// 댓글/질문 타입
+export type Comment = {
+  id: number
+  userName: string
+  userType?: "student" | "instructor" | "admin"
+  date: string
+  question: string
+  likes?: number
+  answer?: {
+    userName: string
+    userType?: "instructor" | "admin"
+    date: string
+    content: string
+  }
+}
+
 // ScheduleItem 타입 정의
 export type ScheduleItem = {
   id: number
   title: string
   instructor: string
+  instructorInfo?: InstructorInfo
   date: string
   time: string
   location: string
@@ -16,8 +74,14 @@ export type ScheduleItem = {
   videoUrl?: string
   videoId?: string
   description: string
-  curriculum: string[]
+  learningObjectives?: string[]
+  expectedOutcomes?: string[]
+  curriculum: string[] | CurriculumModule[]
+  studentProjects?: StudentProject[]
   requirements: string[]
+  faqs?: FAQ[]
+  reviewList?: Review[]
+  commentList?: Comment[]
   price: string
   gallery?: { type: "image" | "video"; src: string; alt?: string }[]
 }
@@ -49,6 +113,7 @@ export type ScheduleTexts = {
     recruiting: string
     level: string
     instructor: string
+    instructorInfo: string
     rating: string
     reviews: string
     price: string
@@ -57,9 +122,28 @@ export type ScheduleTexts = {
     apply: string
     closedFull: string
     intro: string
+    learningObjectives: string
+    expectedOutcomes: string
     curriculum: string
+    curriculumDetail: string
+    studentProjects: string
     requirements: string
+    faqs: string
+    reviewsTab: string
+    qnaTab: string
     mediaGallery: string
+    overview: string
+    instructorTab: string
+    week: string
+    noReviews: string
+    helpfulReview: string
+    noComments: string
+    writeComment: string
+    commentPlaceholder: string
+    submitComment: string
+    reply: string
+    answered: string
+    unanswered: string
   }
 }
 
@@ -83,17 +167,37 @@ export function getScheduleTexts(type: ScheduleType): ScheduleTexts {
     recruiting: "모집중",
     level: "레벨",
     instructor: "강사",
+    instructorInfo: "강사 소개",
     rating: "평점",
     reviews: "개 리뷰",
     price: "수강료",
     duration: "과정 기간",
     seeDetail: "자세히 보기",
-    apply: "수강 신청하기",
+    apply: "수강 신청",
     closedFull: "마감되었습니다",
     intro: "수업 소개",
+    learningObjectives: "학습 목표",
+    expectedOutcomes: "기대 효과",
     curriculum: "커리큘럼",
+    curriculumDetail: "상세 커리큘럼",
+    studentProjects: "학생 작품",
     requirements: "준비사항",
+    faqs: "자주 묻는 질문",
+    reviewsTab: "수강평",
+    qnaTab: "질문/댓글",
     mediaGallery: "미디어 갤러리",
+    overview: "개요",
+    instructorTab: "강사",
+    week: "주차",
+    noReviews: "아직 수강평이 없습니다.",
+    helpfulReview: "이 수강평이 도움이 되었나요?",
+    noComments: "아직 질문이 없습니다. 첫 번째 질문을 남겨보세요!",
+    writeComment: "질문 작성하기",
+    commentPlaceholder: "커리큘럼에 대해 궁금한 점을 자유롭게 질문해주세요...",
+    submitComment: "질문 등록",
+    reply: "답변",
+    answered: "답변 완료",
+    unanswered: "답변 대기",
   }
 
   const baseInfo = {

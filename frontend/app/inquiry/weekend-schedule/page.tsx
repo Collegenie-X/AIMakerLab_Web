@@ -38,7 +38,8 @@ export default function WeekendSchedulePage() {
     <div className="flex min-h-screen flex-col">
       <Header />
       <main className="flex-1">
-        <HeroScheduleSection texts={texts} />
+        {/* 주말: 초록 계열 적용 */}
+        <HeroScheduleSection texts={texts} gradientClass="from-green-600 via-emerald-600 to-teal-600" />
 
         <section className="w-full py-8">
           <div className="mx-auto max-w-7xl px-4">

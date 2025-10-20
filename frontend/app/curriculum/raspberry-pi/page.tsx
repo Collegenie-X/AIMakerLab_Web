@@ -16,6 +16,7 @@ import {
   MaterialsDownloadSection,
   CtaSection,
 } from "../components";
+import { Server, Sprout, Car, Wifi } from "lucide-react";
 
 /**
  * Raspberry Pi 코딩 과정 메인 페이지
@@ -68,10 +69,17 @@ export default function RaspberryPiCurriculumPage() {
       {/* 히어로 섹션 */}
       <HeroSection
         badge={data.hero.badge}
+        badgeIcon={Server}
         title={data.hero.title}
         description={data.hero.description}
         gradientClass={gradients.hero}
         containerClass={layout.containerClass}
+        features={[
+          { icon: Server, label: "라즈베리파이" },
+          { icon: Sprout, label: "스마트 팜" },
+          { icon: Car, label: "자율주행차" },
+          { icon: Wifi, label: "IoT 제어" },
+        ]}
       />
 
       {/* 과정 정보 */}

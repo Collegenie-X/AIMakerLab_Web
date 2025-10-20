@@ -41,12 +41,12 @@ export function VideoGrid({ items }: Props) {
   const currentStep = current?.steps[currentStepIndex]
 
   // YouTube URL에 타임스탬프 추가 및 자동 재생
-  const getVideoSrcWithTimestamp = () => {
-    if (!current) return current?.src
-    
+  const getVideoSrcWithTimestamp = (): string => {
+    if (!current) return ""
+
     // 기본 URL (autoplay 추가)
-    let videoUrl = `${current.src}${current.src.includes('?') ? '&' : '?'}autoplay=1`
-    
+    let videoUrl = `${current.src}${current.src.includes("?") ? "&" : "?"}autoplay=1`
+
     // 타임스탬프가 있으면 해당 시간부터 재생
     if (currentStep?.youtubeTimestamp) {
       const timestamp = currentStep.youtubeTimestamp
@@ -57,7 +57,7 @@ export function VideoGrid({ items }: Props) {
         videoUrl += `&start=${totalSeconds}`
       }
     }
-    
+
     return videoUrl
   }
 

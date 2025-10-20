@@ -75,14 +75,14 @@ export const APP_INVENTOR_CONFIG = {
 
   // 그라데이션 스타일
   gradients: {
-    hero: "from-blue-500 to-blue-700",
-    cta: "bg-blue-600",
+    hero: "from-purple-500 via-violet-600 to-indigo-700", // AMETHYST - 앱 인벤터
+    cta: "bg-purple-600",
   },
 
   // 탭 관련 설정
   tabs: {
     defaultTabId: "3hours",
-    activeTabClass: "bg-blue-600 text-white shadow-sm",
+    activeTabClass: "bg-purple-600 text-white shadow-sm",
     inactiveTabClass: "text-gray-600 hover:text-gray-900 hover:bg-white",
   },
 

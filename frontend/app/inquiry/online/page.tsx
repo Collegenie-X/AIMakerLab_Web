@@ -124,16 +124,16 @@ export default function OnlineInquiryPage() {
       <Header />
 
       <main className="flex-1">
-        {/* Hero Section */}
-        <section className="relative overflow-hidden bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 py-12">
-          <div className="absolute inset-0 bg-[url('/home/abstract-tech-pattern.png')] opacity-5" />
+        {/* Hero Section - 보라색 계열 */}
+        <section className="relative overflow-hidden bg-gradient-to-br from-purple-600 via-violet-600 to-indigo-700 py-12 text-white">
+          <div className="absolute inset-0 bg-[url('/home/abstract-tech-pattern.png')] opacity-10" />
           <div className="container relative mx-auto px-4">
-            <div className="mx-auto max-w-3xl text-center">
-              <div className="mb-6 inline-flex rounded-full bg-blue-100 px-4 py-2 text-sm font-semibold text-blue-700">
+            <div className="mx-auto max-w-4xl text-center">
+              <div className="mb-4 inline-flex rounded-full bg-white/20 px-4 py-2 text-sm font-semibold">
                 📝 새로운 출강 교육 문의
               </div>
-              <h1 className="mb-4 text-4xl font-bold text-gray-900 md:text-5xl">출강 수업 문의</h1>
-              <p className="mb-8 text-lg text-gray-600 md:text-xl">학교, 기업, 기관 등 어디든 찾아가는 맞춤형 AI 교육 서비스</p>              
+              <h1 className="mb-4 text-4xl font-bold md:text-5xl" style={{ textShadow: '0 4px 12px rgba(0, 0, 0, 0.3)' }}>출강 수업 문의</h1>
+              <p className="text-xl text-white/95">학교, 기업, 기관 등 어디든 찾아가는 맞춤형 AI 교육 서비스</p>
             </div>
           </div>
         </section>

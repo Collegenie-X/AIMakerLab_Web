@@ -37,7 +37,8 @@ export default function WeekdaySchedulePage() {
     <div className="flex min-h-screen flex-col">
       <Header />
       <main className="flex-1">
-        <HeroScheduleSection texts={texts} />
+        {/* 주중: 파란색 계열 적용 */}
+        <HeroScheduleSection texts={texts} gradientClass="from-sky-500 via-blue-600 to-indigo-700" />
 
         <section className="w-full py-8">
           <div className="mx-auto max-w-7xl px-4">

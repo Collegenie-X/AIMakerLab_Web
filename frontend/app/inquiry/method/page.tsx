@@ -54,20 +54,40 @@ export default function MethodPage() {
       
       <main className="flex-1 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50">
         {/* Hero Section */}
-        <section className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 py-20">
-          <div className="container mx-auto px-4">
-            <div className="mx-auto max-w-3xl text-center">
-              <div className="mb-6 flex justify-center">
-                <div className="rounded-full bg-white/30 p-4 backdrop-blur-sm shadow-xl">
-                  <Bell className="h-12 w-12 text-white" />
-                </div>
+        <section className="relative overflow-hidden bg-gradient-to-br from-[#f39c12] via-orange-500 to-rose-500 py-12 text-white">
+          <div className="absolute inset-0 bg-[url('/home/abstract-tech-pattern.png')] opacity-10" />
+          <div className="container relative mx-auto px-4">
+            <div className="mx-auto max-w-4xl text-center">
+              <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-white/20 backdrop-blur-sm px-4 py-2 text-sm font-semibold">
+                <Bell className="w-4 h-4" />
+                최신 교육 소식
               </div>
-              <h1 className="mb-4 text-4xl font-bold text-white md:text-5xl" style={{ textShadow: '0 4px 12px rgba(0, 0, 0, 0.4)' }}>
+              <h1 className="mb-4 text-4xl font-bold md:text-5xl" style={{ textShadow: '0 4px 12px rgba(0, 0, 0, 0.3)' }}>
                 교육 소식 받기
               </h1>
-              <p className="text-lg text-white md:text-xl" style={{ textShadow: '0 2px 8px rgba(0, 0, 0, 0.3)' }}>
+              <p className="text-xl text-white/95 mb-8 max-w-3xl mx-auto" style={{ textShadow: '0 2px 8px rgba(0, 0, 0, 0.2)' }}>
                 AI Make Lab의 최신 교육 프로그램, 수업 일정, 특별 이벤트 소식을 가장 먼저 받아보세요!
               </p>
+              
+              {/* 주요 특징 */}
+              <div className="flex flex-wrap justify-center gap-4 mt-6">
+                <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2">
+                  <Calendar className="w-5 h-5" />
+                  <span className="text-sm font-medium">수업 일정 안내</span>
+                </div>
+                <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2">
+                  <BookOpen className="w-5 h-5" />
+                  <span className="text-sm font-medium">교육 자료</span>
+                </div>
+                <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2">
+                  <Sparkles className="w-5 h-5" />
+                  <span className="text-sm font-medium">특별 할인</span>
+                </div>
+                <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2">
+                  <Mail className="w-5 h-5" />
+                  <span className="text-sm font-medium">맞춤 정보</span>
+                </div>
+              </div>
             </div>
           </div>
         </section>

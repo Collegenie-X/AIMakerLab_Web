@@ -79,8 +79,8 @@ export const ARDUINO_CONFIG = {
 
   // 그라데이션 스타일
   gradients: {
-    hero: "from-orange-500 to-red-600",
-    cta: "bg-orange-600",
+    hero: "from-blue-500 via-sky-600 to-blue-700", // PETER RIVER - 아두이노
+    cta: "bg-blue-600",
   },
 
   // 탭 관련 설정

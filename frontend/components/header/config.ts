@@ -37,7 +37,7 @@ export const headerNavSections: HeaderNavSection[] = [
     title: "수업 문의",
     width: 100, 
     items: [
-      { label: "출장 수업", href: "/inquiry/online" },
+      { label: "출강 수업", href: "/inquiry/online" },
       { label: "주중 수업", href: "/inquiry/schedule" },
       { label: "주말 수업", href: "/inquiry/weekend-schedule" },
       { label: "교육 소식", href: "/inquiry/method" },

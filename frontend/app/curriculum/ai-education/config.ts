@@ -91,8 +91,8 @@ export const AI_EDUCATION_CONFIG = {
 
   // 그라데이션 스타일
   gradients: {
-    hero: "from-purple-500 to-indigo-600",
-    cta: "bg-purple-600",
+    hero: "from-red-500 via-rose-600 to-pink-700", // ALIZARIN - AI 교육
+    cta: "bg-red-600",
   },
 
   // 탭 관련 설정

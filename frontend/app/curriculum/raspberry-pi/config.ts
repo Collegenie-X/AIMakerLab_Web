@@ -84,7 +84,7 @@ export const RASPBERRY_PI_CONFIG = {
 
   // 그라데이션 스타일
   gradients: {
-    hero: "from-green-500 to-emerald-600",
+    hero: "from-green-600 via-emerald-600 to-teal-600", // NEPHRITIS - 라즈베리파이
     cta: "bg-green-600",
   },
 

@@ -17,6 +17,7 @@ import {
   MaterialsDownloadSection,
   CtaSection,
 } from "../components";
+import { Rocket, Cog, Code2, Award } from "lucide-react";
 
 /**
  * 심화 교육 프로그램 메인 페이지
@@ -69,10 +70,17 @@ export default function ScienceCurriculumPage() {
         {/* 히어로 섹션 */}
         <HeroSection
           badge={data.hero.badge}
+          badgeIcon={Rocket}
           title={data.hero.title}
           description={data.hero.description}
           gradientClass={gradients.hero}
           containerClass={layout.containerClass}
+          features={[
+            { icon: Rocket, label: "기획부터 실행" },
+            { icon: Cog, label: "IoT 제작" },
+            { icon: Code2, label: "AI 서비스" },
+            { icon: Award, label: "포트폴리오" },
+          ]}
         />
 
         {/* 과정 정보 */}

@@ -13,6 +13,7 @@ import { ItemsTableSection } from "./components/ItemsTableSection"
 import { DeliveryAndAgreementSection } from "./components/DeliveryAndAgreementSection"
 import { quoteFormInitialData, quoteFormOptions, quoteText, calculateTotals, validateQuoteForm } from "./config"
 import type { QuoteFormData } from "./config"
+import { FileText, ShoppingCart, Sparkles } from "lucide-react"
 
 export default function ProductsInquiryPage() {
   const [data, setData] = useState<QuoteFormData>(quoteFormInitialData)
@@ -43,10 +44,43 @@ export default function ProductsInquiryPage() {
     <div className="flex min-h-screen flex-col">
       <Header />
       <main className="flex-1">
-        <section className="mx-auto max-w-5xl px-4 py-10">
-          <h1 className="text-2xl font-bold mb-2">{quoteText.pageTitle}</h1>
-          <p className="text-muted-foreground mb-6">{quoteText.pageDescription}</p>
+        {/* Hero Section */}
+        <section className="relative overflow-hidden bg-gradient-to-br from-green-500 via-emerald-600 to-teal-600 py-12 text-white">
+          <div className="absolute inset-0 bg-[url('/home/abstract-tech-pattern.png')] opacity-10" />
+          <div className="container relative mx-auto px-4">
+            <div className="mx-auto max-w-3xl text-center">
+              <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-white/20 backdrop-blur-sm px-4 py-2 text-sm font-semibold">
+                <FileText className="w-4 h-4" />
+                대량 구매 견적
+              </div>
+              <h1 className="mb-4 text-4xl font-bold md:text-5xl" style={{ textShadow: '0 4px 12px rgba(0, 0, 0, 0.3)' }}>
+                {quoteText.pageTitle}
+              </h1>
+              <p className="text-lg text-white/90 md:text-xl mb-6" style={{ textShadow: '0 2px 8px rgba(0, 0, 0, 0.2)' }}>
+                {quoteText.pageDescription}
+              </p>
+              
+              {/* 특징 아이콘 */}
+              <div className="flex flex-wrap justify-center gap-4 mt-6">
+                <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2">
+                  <ShoppingCart className="w-5 h-5" />
+                  <span className="text-sm font-medium">10개 이상 할인</span>
+                </div>
+                <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2">
+                  <FileText className="w-5 h-5" />
+                  <span className="text-sm font-medium">세금계산서 발행</span>
+                </div>
+                <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2">
+                  <Sparkles className="w-5 h-5" />
+                  <span className="text-sm font-medium">교육 자료 제공</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
 
+        {/* Form Section */}
+        <section className="mx-auto max-w-5xl px-4 py-10">
           <form onSubmit={handleSubmit} className="space-y-8">
             <Card>
               <CardHeader>

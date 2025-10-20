@@ -1,51 +1,59 @@
 "use client"
 
-import { Calendar } from "lucide-react"
+import { Calendar, Users, Clock, MapPin } from "lucide-react"
 import type { ScheduleTexts } from "../config"
 
 type HeroScheduleSectionProps = {
   texts: ScheduleTexts
+  /**
+   * Tailwind 그라데이션 클래스 (예: "from-green-600 via-emerald-600 to-teal-600")
+   * 전달되지 않으면 기본 파랑 계열이 적용됩니다.
+   */
+  gradientClass?: string
 }
 
 /**
  * 수업 일정 히어로 섹션 컴포넌트
  * @param texts - 표시할 텍스트 설정
  */
-export function HeroScheduleSection({ texts }: HeroScheduleSectionProps) {
+export function HeroScheduleSection({ texts, gradientClass }: HeroScheduleSectionProps) {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100 py-20">
-      {/* 배경 패턴 */}
-      <div className="absolute inset-0 opacity-40">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-purple-400 to-pink-400 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-blue-400 to-purple-400 rounded-full blur-3xl" />
-      </div>
-
-      <div className="relative mx-auto max-w-7xl px-4">
-        <div className="mx-auto max-w-3xl text-center">
-          {/* 상단 배지 */}
-          <div className="mb-6 flex justify-center">
-            <div className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 px-4 py-2 text-sm font-medium text-white shadow-lg">
-              <Calendar className="h-4 w-4" />
-              <span>📚 오프라인 정규 수업</span>
-            </div>
+    <section className={`relative overflow-hidden bg-gradient-to-br ${
+      gradientClass ?? 'from-cyan-500 via-blue-600 to-indigo-700'
+    } py-12 text-white`}>
+      <div className="absolute inset-0 bg-[url('/home/abstract-tech-pattern.png')] opacity-10" />
+      <div className="container relative mx-auto px-4">
+        <div className="mx-auto max-w-6xl text-center">
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-white/20 backdrop-blur-sm px-4 py-2 text-sm font-semibold">
+            <Calendar className="w-4 h-4" />
+            오프라인 정규 수업
           </div>
-
-          {/* 아이콘 */}
-          <div className="mb-6 flex justify-center">
-            <div className="rounded-full bg-gradient-to-br from-purple-500 to-pink-500 p-4 shadow-xl">
-              <Calendar className="h-12 w-12 text-white" />
-            </div>
-          </div>
-
-          {/* 제목 */}
-          <h1 className="mb-4 text-4xl font-bold text-gray-900 md:text-5xl" style={{ textShadow: '0 2px 8px rgba(0, 0, 0, 0.1)' }}>
+          <h1 className="mb-4 text-4xl font-bold md:text-5xl" style={{ textShadow: '0 4px 12px rgba(0, 0, 0, 0.3)' }}>
             {texts.heroTitle}
           </h1>
-
-          {/* 부제목 */}
-          <p className="text-lg text-gray-700 md:text-xl" style={{ textShadow: '0 1px 4px rgba(0, 0, 0, 0.05)' }}>
+          <p className="text-xl text-white/95 mb-8 mx-auto" style={{ textShadow: '0 2px 8px rgba(0, 0, 0, 0.2)' }}>
             {texts.heroSubtitle}
           </p>
+          
+          {/* 주요 특징 */}
+          <div className="flex flex-wrap justify-center gap-4 mt-6">
+            <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2">
+              <Calendar className="w-5 h-5" />
+              <span className="text-sm font-medium">월별 일정</span>
+            </div>
+            <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2">
+              <Users className="w-5 h-5" />
+              <span className="text-sm font-medium">소수 정예</span>
+            </div>
+            <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2">
+              <Clock className="w-5 h-5" />
+              <span className="text-sm font-medium">정규 수업</span>
+            </div>
+            <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2">
+              <MapPin className="w-5 h-5" />
+              <span className="text-sm font-medium">오프라인</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>

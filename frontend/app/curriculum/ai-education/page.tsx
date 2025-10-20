@@ -17,6 +17,7 @@ import {
   MaterialsDownloadSection,
   CtaSection,
 } from "../components";
+import { Brain, Sparkles, MessageSquare, GraduationCap } from "lucide-react";
 
 /**
  * AI 교육 프로그램 메인 페이지
@@ -69,10 +70,17 @@ export default function AIEducationCurriculumPage() {
         {/* 히어로 섹션 */}
         <HeroSection
           badge={data.hero.badge}
+          badgeIcon={Brain}
           title={data.hero.title}
           description={data.hero.description}
           gradientClass={gradients.hero}
           containerClass={layout.containerClass}
+          features={[
+            { icon: Brain, label: "AI 도구 활용" },
+            { icon: Sparkles, label: "TeachableMachine" },
+            { icon: MessageSquare, label: "ChatGPT API" },
+            { icon: GraduationCap, label: "창의적 학습" },
+          ]}
         />
 
         {/* 과정 정보 */}
