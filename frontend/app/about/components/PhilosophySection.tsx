@@ -1,5 +1,5 @@
 import { Lightbulb, Target, Heart } from "lucide-react"
-import { philosophySectionContent } from "../config"
+import { useAboutSectionContent } from "../hooks/useAboutContent"
 import { themeText, themeColors } from "@/theme"
 
 const iconById = {
@@ -8,16 +8,27 @@ const iconById = {
   confidence: Heart,
 }
 
+/**
+ * 교육 철학 섹션
+ * JSON 파일에서 컨텐츠를 불러옵니다.
+ */
 export function PhilosophySection() {
+  const { content, isLoading, error } = useAboutSectionContent('philosophy')
+
+  if (isLoading || !content) return null
+  if (error) {
+    console.error('Philosophy 섹션 컨텐츠 로딩 실패:', error)
+    return null
+  }
   return (
     <section className="bg-gradient-to-br from-pink-50 to-purple-50 py-24">
       <div className="container mx-auto px-4">
         <div className="mx-auto max-w-6xl">
-          <h2 className={`mb-4 text-center ${themeText.h2} ${themeColors.heading}`}>{philosophySectionContent.heading}</h2>
+          <h2 className={`mb-4 text-center ${themeText.h2} ${themeColors.heading}`}>{content.heading}</h2>
           <div className="mb-16 mx-auto h-1 w-24 bg-gradient-to-r from-pink-400 to-purple-400"></div>
 
           <div className="grid gap-12 md:grid-cols-3">
-            {philosophySectionContent.items.map((item) => {
+            {content.items.map((item) => {
               const Icon = iconById[item.id]
               const colorRing = item.color === 'blue' ? 'border-blue-300 from-blue-100 to-blue-50' : item.color === 'green' ? 'border-green-300 from-green-100 to-green-50' : item.color === 'pink' ? 'border-pink-300 from-pink-100 to-pink-50' : 'border-purple-300 from-purple-100 to-purple-50'
               const colorIcon = item.color === 'blue' ? 'text-blue-500' : item.color === 'green' ? 'text-green-500' : item.color === 'pink' ? 'text-pink-500' : 'text-purple-500'

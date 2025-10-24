@@ -1,5 +1,5 @@
 import { Card, CardContent } from "@/components/ui/data-display/card";
-import type { HomeTextConfig } from "../config";
+import type { HomeTextConfig } from "../types";
 import { BookOpen, Code, Cpu, Lightbulb, Users, Award } from "lucide-react";
 
 const iconMap = {

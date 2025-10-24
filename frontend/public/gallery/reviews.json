@@ -4,7 +4,7 @@
     "title": "아이가 코딩에 푹 빠졌어요!",
     "description": "6개월 만에 앱을 직접 만들 수 있게 되었습니다",
     "category": "주중 강의",
-    "image": "/gallery/app-inventor-coding-blocks.jpg",
+    "image": "/gallery/images/app-inventor-coding-blocks.jpg",
     "emoji": "🎯",
     "author": "박OO 학부모",
     "date": "2025.02.18",
@@ -12,7 +12,7 @@
     "likes": 32,
     "rating": 5,
     "details": "처음에는 코딩이 어렵지 않을까 걱정했는데, 선생님께서 아이 눈높이에 맞춰 차근차근 가르쳐 주셔서 이제는 스스로 앱을 기획하고 만들어요. 특히 프로젝트 중심 수업이라 재미있게 배우는 것 같습니다. 주중 강의라 학원 스케줄과 겹치지 않아 좋아요.",
-    "images": ["/gallery/app-inventor-coding-blocks.jpg", "/gallery/mobile-app-interface.png"],
+    "images": ["/gallery/images/app-inventor-coding-blocks.jpg", "/gallery/images/mobile-app-interface.png"],
     "tags": ["앱인벤터", "초등학생", "만족", "추천"]
   },
   {
@@ -20,7 +20,7 @@
     "title": "최고의 선택이었습니다",
     "description": "로봇 대회에서 상까지 받았어요!",
     "category": "주말 강의",
-    "image": "/gallery/student-robot-project.jpg",
+    "image": "/gallery/images/student-robot-project.jpg",
     "emoji": "🏆",
     "author": "김OO 학부모",
     "date": "2025.02.12",
@@ -28,7 +28,7 @@
     "likes": 45,
     "rating": 5,
     "details": "주말 강의로 아두이노 수업을 듣고 학교 로봇 동아리에서 대회에 나가 상을 받았습니다. 선생님께서 기초부터 탄탄하게 가르쳐 주셔서 혼자서도 문제를 해결할 수 있는 능력이 생겼어요. 주말 3시간 집중 수업이라 효율적입니다!",
-    "images": ["/gallery/student-robot-project.jpg", "/gallery/arduino-electronics-circuit.jpg"],
+    "images": ["/gallery/images/student-robot-project.jpg", "/gallery/images/arduino-electronics-circuit.jpg"],
     "tags": ["아두이노", "중학생", "대회", "수상"]
   },
   {
@@ -36,7 +36,7 @@
     "title": "학교 전체가 만족한 출장 수업",
     "description": "전교생 대상 AI 특강, 대성공!",
     "category": "출장 강의",
-    "image": "/gallery/ai-neural-network.png",
+    "image": "/gallery/images/ai-neural-network.png",
     "emoji": "🏫",
     "author": "이OO 교사",
     "date": "2025.02.05",
@@ -44,7 +44,7 @@
     "likes": 58,
     "rating": 5,
     "details": "중학교 자유학기제 프로그램으로 출장 강의를 진행했는데, 학생들 반응이 정말 좋았습니다. 강사님께서 수준별로 세심하게 준비해 오셔서 모든 학생이 AI를 이해하고 직접 체험할 수 있었어요. 학교 측에서도 매우 만족했습니다.",
-    "images": ["/gallery/ai-neural-network.png", "/coding-class.png"],
+    "images": ["/gallery/images/ai-neural-network.png", "/coding-class.png"],
     "tags": ["AI", "출장수업", "자유학기제", "만족"]
   },
   {
@@ -52,7 +52,7 @@
     "title": "선생님의 열정이 느껴져요",
     "description": "1:1 맞춤 지도로 실력이 쑥쑥",
     "category": "주중 강의",
-    "image": "/gallery/raspberry-pi-computer-iot.jpg",
+    "image": "/gallery/images/raspberry-pi-computer-iot.jpg",
     "emoji": "👨‍🏫",
     "author": "최OO 학부모",
     "date": "2025.01.28",
@@ -60,7 +60,7 @@
     "likes": 29,
     "rating": 5,
     "details": "평일 오후 시간대 소규모 클래스라서 선생님께서 아이 한 명 한 명 세심하게 봐주십니다. 막히는 부분이 있으면 바로 질문할 수 있고, 프로젝트도 개인별로 맞춤 지도를 해주셔서 정말 좋습니다. 진도도 아이 수준에 맞춰 조절해 주세요.",
-    "images": ["/gallery/raspberry-pi-computer-iot.jpg", "/gallery/smart-home-iot-device.jpg"],
+    "images": ["/gallery/images/raspberry-pi-computer-iot.jpg", "/gallery/images/smart-home-iot-device.jpg"],
     "tags": ["라즈베리파이", "소규모", "열정", "친절"]
   },
   {
@@ -68,7 +68,7 @@
     "title": "기업 출강 최고의 선택",
     "description": "임직원 자녀 대상 코딩 캠프 대만족",
     "category": "출장 강의",
-    "image": "/gallery/mobile-app-interface.png",
+    "image": "/gallery/images/mobile-app-interface.png",
     "emoji": "🏢",
     "author": "정OO 인사팀장",
     "date": "2025.01.20",
@@ -76,7 +76,7 @@
     "likes": 42,
     "rating": 5,
     "details": "회사 복지 프로그램으로 임직원 자녀 대상 코딩 캠프를 진행했습니다. 강사진의 전문성이 뛰어나고, 다양한 연령대를 한 번에 교육하는 노하우가 있으셔서 부모님들 만족도가 매우 높았습니다. 내년에도 꼭 다시 진행하고 싶습니다.",
-    "images": ["/gallery/mobile-app-interface.png", "/gallery/app-inventor-coding-blocks.jpg"],
+    "images": ["/gallery/images/mobile-app-interface.png", "/gallery/images/app-inventor-coding-blocks.jpg"],
     "tags": ["기업출강", "코딩캠프", "만족", "추천"]
   },
   {
@@ -84,7 +84,7 @@
     "title": "주말에 배우는 즐거움",
     "description": "게임만 하던 아이가 게임을 만들어요",
     "category": "주말 강의",
-    "image": "/gallery/app-inventor-coding-blocks.jpg",
+    "image": "/gallery/images/app-inventor-coding-blocks.jpg",
     "emoji": "🎮",
     "author": "한OO 학부모",
     "date": "2025.01.15",
@@ -92,7 +92,7 @@
     "likes": 35,
     "rating": 5,
     "details": "평일엔 학원이 많아서 주말 강의를 선택했는데 정말 잘한 것 같아요. 토요일 오전에 3시간씩 수업하는데 아이가 지루해하지 않고 집중합니다. 게임만 하던 아이가 이제는 직접 게임을 만들고 친구들에게 자랑해요!",
-    "images": ["/gallery/app-inventor-coding-blocks.jpg", "/gallery/mobile-app-interface.png"],
+    "images": ["/gallery/images/app-inventor-coding-blocks.jpg", "/gallery/images/mobile-app-interface.png"],
     "tags": ["게임개발", "주말수업", "창의력", "만족"]
   },
   {
@@ -100,7 +100,7 @@
     "title": "방과후 수업 최고예요",
     "description": "학교 방과후 프로그램으로 안성맞춤",
     "category": "출장 강의",
-    "image": "/gallery/student-robot-project.jpg",
+    "image": "/gallery/images/student-robot-project.jpg",
     "emoji": "📚",
     "author": "박OO 학부모회장",
     "date": "2025.01.10",
@@ -108,7 +108,7 @@
     "likes": 39,
     "rating": 5,
     "details": "초등학교 방과후 수업으로 AI Maker Lab 선생님이 오셨는데, 학부모들 사이에서 입소문이 났어요. 다른 방과후 수업은 신청 미달이 나는데 이 수업만 매번 대기자가 생길 정도입니다. 커리큘럼이 체계적이고 아이들이 정말 좋아합니다.",
-    "images": ["/gallery/student-robot-project.jpg", "/gallery/arduino-electronics-circuit.jpg"],
+    "images": ["/gallery/images/student-robot-project.jpg", "/gallery/images/arduino-electronics-circuit.jpg"],
     "tags": ["방과후", "출장수업", "초등", "인기"]
   },
   {
@@ -116,7 +116,7 @@
     "title": "평일 저녁반 강력 추천",
     "description": "중학생도 부담 없이 들을 수 있어요",
     "category": "주중 강의",
-    "image": "/gallery/raspberry-pi-computer-iot.jpg",
+    "image": "/gallery/images/raspberry-pi-computer-iot.jpg",
     "emoji": "🌙",
     "author": "김OO 학부모",
     "date": "2025.01.05",
@@ -124,7 +124,7 @@
     "likes": 31,
     "rating": 5,
     "details": "중학생이라 학교 수업 끝나고 저녁 7시부터 수업을 듣는데, 피곤해할까 걱정했지만 오히려 집중을 더 잘해요. 수업 시간이 2시간으로 적당하고, 프로젝트 중심이라 지루하지 않습니다. 내신 준비도 중요하지만 미래를 위한 투자라 생각합니다.",
-    "images": ["/gallery/raspberry-pi-computer-iot.jpg", "/gallery/smart-home-iot-device.jpg"],
+    "images": ["/gallery/images/raspberry-pi-computer-iot.jpg", "/gallery/images/smart-home-iot-device.jpg"],
     "tags": ["중학생", "평일저녁", "IoT", "추천"]
   },
   {
@@ -132,7 +132,7 @@
     "title": "주말 집중반 효과 최고",
     "description": "한 달에 완성하는 프로젝트",
     "category": "주말 강의",
-    "image": "/gallery/ai-neural-network.png",
+    "image": "/gallery/images/ai-neural-network.png",
     "emoji": "⚡",
     "author": "이OO 학부모",
     "date": "2024.12.28",
@@ -140,7 +140,7 @@
     "likes": 36,
     "rating": 5,
     "details": "주말 집중반으로 한 달에 하나씩 프로젝트를 완성하는 커리큘럼이 너무 좋아요. 아이가 매주 주말을 기다릴 정도로 수업에 흥미를 느끼고 있습니다. 무엇보다 자신이 만든 작품을 완성했을 때의 성취감이 대단해요!",
-    "images": ["/gallery/ai-neural-network.png"],
+    "images": ["/gallery/images/ai-neural-network.png"],
     "tags": ["AI", "주말집중", "프로젝트", "성취감"]
   },
   {
@@ -148,7 +148,7 @@
     "title": "도서관 특강 대성공",
     "description": "지역 주민 누구나 참여 가능한 무료 강의",
     "category": "출장 강의",
-    "image": "/gallery/app-inventor-coding-blocks.jpg",
+    "image": "/gallery/images/app-inventor-coding-blocks.jpg",
     "emoji": "📖",
     "author": "구립도서관 담당자",
     "date": "2024.12.20",
@@ -156,7 +156,7 @@
     "likes": 51,
     "rating": 5,
     "details": "구립도서관 주말 특강으로 AI Maker Lab 강사님을 모셨는데, 초등부터 고등학생까지 다양한 연령대가 참여했어요. 수준별 맞춤 지도로 모두가 만족했고, 주민들 요청으로 정규 프로그램으로 편성하기로 했습니다. 감사합니다!",
-    "images": ["/gallery/app-inventor-coding-blocks.jpg", "/coding-class.png"],
+    "images": ["/gallery/images/app-inventor-coding-blocks.jpg", "/coding-class.png"],
     "tags": ["도서관", "무료강의", "지역사회", "만족"]
   },
   {
@@ -164,7 +164,7 @@
     "title": "평일 오후반 최고예요",
     "description": "초등 저학년도 쉽게 따라가요",
     "category": "주중 강의",
-    "image": "/gallery/mobile-app-interface.png",
+    "image": "/gallery/images/mobile-app-interface.png",
     "emoji": "🌈",
     "author": "최OO 학부모",
     "date": "2024.12.15",
@@ -172,7 +172,7 @@
     "likes": 27,
     "rating": 5,
     "details": "초등 3학년인데도 수업을 잘 따라갑니다. 평일 오후 4시 수업이라 학교 끝나고 바로 올 수 있어 편하고, 놀이처럼 코딩을 배워서 아이가 숙제하듯 억지로 하는 게 아니라 진짜 재밌어해요. 논리적 사고력도 많이 좋아진 것 같습니다.",
-    "images": ["/gallery/mobile-app-interface.png"],
+    "images": ["/gallery/images/mobile-app-interface.png"],
     "tags": ["초등저학년", "평일오후", "놀이학습", "사고력"]
   },
   {
@@ -180,7 +180,7 @@
     "title": "주말 가족 특강 추천",
     "description": "부모와 아이가 함께 배워요",
     "category": "주말 강의",
-    "image": "/gallery/raspberry-pi-computer-iot.jpg",
+    "image": "/gallery/images/raspberry-pi-computer-iot.jpg",
     "emoji": "👨‍👩‍👧‍👦",
     "author": "정OO 학부모",
     "date": "2024.12.10",
@@ -188,7 +188,7 @@
     "likes": 38,
     "rating": 5,
     "details": "주말 가족 특강 프로그램으로 부모인 저도 아이와 함께 수업을 들었어요. 아이가 무엇을 배우는지 직접 체험할 수 있어서 좋았고, 집에서도 함께 프로젝트를 진행하며 대화 주제가 생겼습니다. 가족 간 유대감도 높아지는 일석이조 수업입니다!",
-    "images": ["/gallery/raspberry-pi-computer-iot.jpg", "/gallery/smart-home-iot-device.jpg"],
+    "images": ["/gallery/images/raspberry-pi-computer-iot.jpg", "/gallery/images/smart-home-iot-device.jpg"],
     "tags": ["가족수업", "주말특강", "체험", "유대감"]
   }
 ]

@@ -1,4 +1,4 @@
-import type { HomeTextConfig } from "../config";
+import type { HomeTextConfig } from "../types";
 
 type IntroVideoSectionProps = {
   text: HomeTextConfig["introVideo"];

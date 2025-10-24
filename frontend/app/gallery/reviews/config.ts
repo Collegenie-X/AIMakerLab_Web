@@ -1,4 +1,15 @@
-// 후기 갤러리 전용 폼 설정
+/**
+ * 후기 갤러리 전용 폼 설정
+ * 
+ * @deprecated 이 설정 파일은 더 이상 사용되지 않습니다.
+ * 폼 텍스트는 /public/gallery/reviews-config.json 파일로 이동되었습니다.
+ * 데이터를 불러오려면 useGalleryConfig('reviews') hook을 사용하세요.
+ * 
+ * @see /app/gallery/hooks/useGalleryConfig.ts
+ * @see /public/gallery/reviews-config.json
+ * 
+ * 이 파일은 타입 정의 참조용으로만 유지됩니다.
+ */
 
 export type ReviewsFormTexts = {
   title: string

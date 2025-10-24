@@ -1,6 +1,6 @@
 import { Card } from "@/components/ui/data-display/card"
 import { Cpu, Zap, Users, Award, Sparkles, CheckCircle2 } from "lucide-react"
-import { facilitySectionContent } from "../config"
+import { useAboutSectionContent } from "../hooks/useAboutContent"
 import { themeText, themeColors } from "@/theme"
 
 const StatIcon = {
@@ -10,12 +10,23 @@ const StatIcon = {
   pink: Award,
 }
 
+/**
+ * 교육 시설 섹션
+ * JSON 파일에서 컨텐츠를 불러옵니다.
+ */
 export function FacilitySection() {
+  const { content, isLoading, error } = useAboutSectionContent('facility')
+
+  if (isLoading || !content) return null
+  if (error) {
+    console.error('Facility 섹션 컨텐츠 로딩 실패:', error)
+    return null
+  }
   return (
     <section className="bg-gradient-to-br from-green-50 to-cyan-50 py-24">
       <div className="container mx-auto px-4">
         <div className="mx-auto max-w-6xl">
-          <h2 className={`mb-4 text-center ${themeText.h2} ${themeColors.heading}`}>{facilitySectionContent.heading}</h2>
+          <h2 className={`mb-4 text-center ${themeText.h2} ${themeColors.heading}`}>{content.heading}</h2>
           <div className="mb-16 mx-auto h-1 w-30 bg-gradient-to-r from-green-400 to-cyan-400"></div>
 
           <div className="mb-12 grid gap-8 md:grid-cols-2 md:items-center">
@@ -26,17 +37,17 @@ export function FacilitySection() {
             </div>
             <div>
               <h3 className="mb-6 text-3xl font-bold text-gray-800">
-                {facilitySectionContent.subheading.split('\n').map((line, i) => (
+                {content.subheading.split('\n').map((line, i) => (
                   <span key={i}>
                     {line}
                     {i === 0 && <br />}
                   </span>
                 ))}
               </h3>
-              <p className={`mb-6 leading-relaxed ${themeText.body} ${themeColors.body}`}>{facilitySectionContent.description}</p>
+              <p className={`mb-6 leading-relaxed ${themeText.body} ${themeColors.body}`}>{content.description}</p>
 
               <div className="space-y-4">
-                {facilitySectionContent.features.map((f) => (
+                {content.features.map((f) => (
                   <div key={f.title} className="flex items-start gap-3">
                     <CheckCircle2 className="mt-1 h-6 w-6 flex-shrink-0 text-green-500" />
                     <div>
@@ -50,7 +61,7 @@ export function FacilitySection() {
           </div>
 
           <div className="grid gap-6 md:grid-cols-4">
-            {facilitySectionContent.stats.map((s) => {
+            {content.stats.map((s) => {
               const Icon = StatIcon[s.theme]
               const color =
                 s.theme === 'blue'

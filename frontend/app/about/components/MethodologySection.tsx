@@ -1,6 +1,6 @@
 import { Card } from "@/components/ui/data-display/card"
 import { BookOpen, Code, Rocket, ArrowRight } from "lucide-react"
-import { methodologySectionContent } from "../config"
+import { useAboutSectionContent } from "../hooks/useAboutContent"
 import { themeText, themeColors } from "@/theme"
 
 const iconByOrder = {
@@ -9,16 +9,27 @@ const iconByOrder = {
   3: Rocket,
 }
 
+/**
+ * 교육 방법론 섹션
+ * JSON 파일에서 컨텐츠를 불러옵니다.
+ */
 export function MethodologySection() {
+  const { content, isLoading, error } = useAboutSectionContent('methodology')
+
+  if (isLoading || !content) return null
+  if (error) {
+    console.error('Methodology 섹션 컨텐츠 로딩 실패:', error)
+    return null
+  }
   return (
     <section className="bg-gradient-to-br from-gray-50 to-orange-50 py-24">
       <div className="container mx-auto px-4">
         <div className="mx-auto max-w-6xl">
-          <h2 className={`mb-4 text-center ${themeText.h2} ${themeColors.heading}`}>{methodologySectionContent.heading}</h2>
+          <h2 className={`mb-4 text-center ${themeText.h2} ${themeColors.heading}`}>{content.heading}</h2>
           <div className="mb-16 mx-auto h-1 w-24 bg-gradient-to-r from-yellow-400 to-orange-400"></div>
 
           <div className="mb-12 grid gap-6 md:grid-cols-5">
-            {methodologySectionContent.steps.map((step, idx) => {
+            {content.steps.map((step, idx) => {
               const Icon = iconByOrder[step.order as 1 | 2 | 3]
               const color = step.color ?? (step.order === 1 ? 'blue' : step.order === 2 ? 'purple' : 'green')
               const cardColors =
@@ -54,7 +65,7 @@ export function MethodologySection() {
                       {step.subtitle}
                     </p>
                   </Card>
-                  {idx < methodologySectionContent.steps.length - 1 && (
+                  {idx < content.steps.length - 1 && (
                     <div className="flex items-center justify-center">
                       <ArrowRight className="h-10 w-10 text-purple-400" />
                     </div>

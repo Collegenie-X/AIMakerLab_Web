@@ -1,0 +1,38 @@
+# Django 핵심 프레임워크
+Django==5.0.1
+djangorestframework==3.14.0
+
+# 인증 및 JWT
+djangorestframework-simplejwt==5.3.1
+PyJWT==2.8.0
+
+# 이메일 인증
+django-allauth==0.61.1
+dj-rest-auth==5.0.2
+
+# 소셜 로그인
+django-allauth[socialaccount]==0.61.1
+
+# CORS 처리
+django-cors-headers==4.3.1
+
+# 필터링
+django-filter==24.1
+
+# 환경 변수 관리
+python-decouple==3.8
+python-dotenv==1.0.0
+
+# 이미지 처리
+Pillow>=10.4.0
+
+# API 문서화
+drf-yasg==1.21.7
+
+# 유틸리티
+python-dateutil==2.8.2
+
+# 개발 도구
+black==24.1.1
+flake8==7.0.0
+

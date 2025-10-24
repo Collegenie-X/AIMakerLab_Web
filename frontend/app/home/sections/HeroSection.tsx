@@ -2,7 +2,7 @@
 import { Button } from "@/components/ui/buttons/button";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import type { HomeTextConfig } from "../config";
+import type { HomeTextConfig } from "../types";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, type CarouselApi } from "@/components/ui/data-display/carousel";
 import { useEffect, useState } from "react";
 

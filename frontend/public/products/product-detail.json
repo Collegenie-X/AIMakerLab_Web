@@ -5,19 +5,19 @@
         "title": "조도센서와 식물생장 LED",
         "description": "빛의 양을 측정하고 부족할 때 자동으로 LED를 켜는 시스템",
         "educationalPoint": "센서 데이터 읽기, 조건문 활용, 자동화 개념 학습",
-        "image": "/products/arduino-electronics-circuit.jpg"
+        "image": "/products/images/arduino-electronics-circuit.jpg"
       },
       {
         "title": "토양습도센서와 물 공급 시스템",
         "description": "토양의 습도를 측정하고 건조할 때 자동으로 물을 공급하는 시스템",
         "educationalPoint": "아날로그 센서 활용, 임계값 설정, 액추에이터 제어",
-        "image": "/products/smart-home-iot-device.jpg"
+        "image": "/products/images/smart-home-iot-device.jpg"
       },
       {
         "title": "온습도센서와 환경 모니터링",
         "description": "온도와 습도를 실시간으로 측정하고 LCD에 표시하는 시스템",
         "educationalPoint": "디지털 센서 통신, 데이터 시각화, 환경 분석",
-        "image": "/products/student-robot-project.jpg"
+        "image": "/products/images/student-robot-project.jpg"
       }
     ],
     "curriculum": [

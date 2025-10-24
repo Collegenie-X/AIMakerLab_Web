@@ -1,6 +1,6 @@
 import { Card } from "@/components/ui/data-display/card";
 import { GraduationCap, Clock, Users, Package, Building2, PlayCircle, Check } from "lucide-react";
-import type { HomeTextConfig } from "../config";
+import type { HomeTextConfig } from "../types";
 
 const iconMap = {
   GraduationCap,

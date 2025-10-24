@@ -6,8 +6,8 @@ import { Footer } from "@/components/footer"
 import { Button } from "@/components/ui/buttons/button"
 import { Plus } from "lucide-react"
 import { useGalleryItems } from "../hooks/useGalleryItems"
-import { galleryDataUrls, reviewsTexts } from "../config"
-import { reviewsFormTexts } from "./config"
+import { useGalleryConfig } from "../hooks/useGalleryConfig"
+import { galleryDataUrls } from "../config"
 import { GalleryHeroSection } from "../components/GalleryHeroSection"
 import { GalleryCategoryFilter } from "../components/GalleryCategoryFilter"
 import { GalleryFormDialog } from "../components/GalleryFormDialog"
@@ -16,24 +16,43 @@ import { ReviewListItem } from "./components/ReviewListItem"
 import { ReviewDetailDialog } from "./components/ReviewDetailDialog"
 import type { GalleryItem } from "../config"
 
+/**
+ * 수업 후기 페이지
+ * JSON 파일에서 데이터와 설정을 불러옵니다.
+ */
 export default function ReviewsPage() {
   const { items, loading, error, categories } = useGalleryItems({ sourceUrl: galleryDataUrls.reviews })
+  const { config, isLoading: configLoading, error: configError } = useGalleryConfig('reviews')
   const [selectedItem, setSelectedItem] = useState<GalleryItem | null>(null)
   const [showCreateDialog, setShowCreateDialog] = useState(false)
-  const [selectedCategory, setSelectedCategory] = useState<string>(reviewsTexts.categoryAll)
+  const [selectedCategory, setSelectedCategory] = useState<string>("전체")
 
   const filteredReviews = useMemo(
     () =>
-      selectedCategory === reviewsTexts.categoryAll ? items : items.filter((item) => item.category === selectedCategory),
-    [items, selectedCategory],
+      selectedCategory === (config?.categoryAll || "전체") ? items : items.filter((item) => item.category === selectedCategory),
+    [items, selectedCategory, config],
   )
 
-  if (error) {
+  // 로딩 상태
+  if (loading || configLoading) {
     return (
       <div className="flex min-h-screen flex-col">
         <Header />
         <div className="flex-1 flex items-center justify-center">
-          <p className="text-red-500">오류: {error}</p>
+          <p className="text-gray-500">로딩 중...</p>
+        </div>
+        <Footer />
+      </div>
+    )
+  }
+
+  // 에러 상태
+  if (error || configError || !config) {
+    return (
+      <div className="flex min-h-screen flex-col">
+        <Header />
+        <div className="flex-1 flex items-center justify-center">
+          <p className="text-red-500">오류: {error || configError?.message || '설정을 불러올 수 없습니다'}</p>
         </div>
         <Footer />
       </div>
@@ -45,26 +64,24 @@ export default function ReviewsPage() {
       <Header />
 
       <GalleryHeroSection
-        emoji={reviewsTexts.hero.emoji}
-        title={reviewsTexts.hero.title}
-        subtitle={reviewsTexts.hero.subtitle}
+        emoji={config.hero.emoji}
+        title={config.hero.title}
+        subtitle={config.hero.subtitle}
       />
 
       <GalleryCategoryFilter
         categories={categories}
         selected={selectedCategory}
         onChange={setSelectedCategory}
-        allLabel={reviewsTexts.categoryAll}
+        allLabel={config.categoryAll}
         totalCount={filteredReviews.length}
-        countSuffix={reviewsTexts.itemCountSuffix}
+        countSuffix={config.itemCountSuffix}
       />
 
       {/* 후기 리스트 */}
       <section className="py-16 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 min-h-[60vh]">
         <div className="container mx-auto px-4 max-w-5xl">
-          {loading ? (
-            <div className="text-center py-16 text-gray-500">로딩 중...</div>
-          ) : filteredReviews.length > 0 ? (
+          {filteredReviews.length > 0 ? (
             <div className="space-y-4">
               {filteredReviews.map((item) => (
                 <ReviewListItem key={item.id} item={item} onClick={() => setSelectedItem(item)} />
@@ -72,9 +89,9 @@ export default function ReviewsPage() {
             </div>
           ) : (
             <GalleryEmptyState
-              emoji={reviewsTexts.emptyState.emoji}
-              title={reviewsTexts.emptyState.title}
-              message={reviewsTexts.emptyState.message}
+              emoji={config.emptyState.emoji}
+              title={config.emptyState.title}
+              message={config.emptyState.message}
             />
           )}
         </div>
@@ -93,7 +110,7 @@ export default function ReviewsPage() {
         item={selectedItem}
         open={!!selectedItem}
         onOpenChange={() => setSelectedItem(null)}
-        likeLabel={reviewsTexts.actions.like}
+        likeLabel={config.actions.like}
       />
 
       {/* 등록 폼 다이얼로그 */}
@@ -102,9 +119,11 @@ export default function ReviewsPage() {
         onOpenChange={setShowCreateDialog}
         showRating
         config={{
-          ...reviewsFormTexts,
-          submitLabel: reviewsTexts.actions.submit,
-          cancelLabel: reviewsTexts.actions.cancel,
+          title: config.form.title,
+          emoji: config.form.emoji,
+          fields: config.form.fields,
+          submitLabel: config.actions.submit,
+          cancelLabel: config.actions.cancel,
         }}
       />
 

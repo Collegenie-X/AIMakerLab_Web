@@ -1,4 +1,16 @@
-// 갤러리 공통 타입 및 텍스트 설정
+/**
+ * 갤러리 공통 타입 및 텍스트 설정
+ * 
+ * @deprecated 텍스트 설정(worksTexts, reviewsTexts)은 더 이상 사용되지 않습니다.
+ * 설정은 /public/gallery/works-config.json 및 reviews-config.json 파일로 이동되었습니다.
+ * 데이터를 불러오려면 useGalleryConfig hooks를 사용하세요.
+ * 
+ * @see /app/gallery/hooks/useGalleryConfig.ts
+ * @see /public/gallery/works-config.json
+ * @see /public/gallery/reviews-config.json
+ * 
+ * 타입 정의(GalleryItem 등)는 계속 사용됩니다.
+ */
 
 export type GalleryItem = {
   id: number

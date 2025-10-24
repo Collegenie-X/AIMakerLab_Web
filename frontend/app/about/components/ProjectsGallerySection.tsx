@@ -1,5 +1,5 @@
 import { Card } from "@/components/ui/data-display/card"
-import { projectsSectionContent } from "../config"
+import { useAboutSectionContent } from "../hooks/useAboutContent"
 import { Bot, Smartphone, Home, Music, Brain, Gamepad2, Star } from "lucide-react"
 import { themeText, themeColors } from "@/theme"
 
@@ -51,17 +51,28 @@ const themeClass = {
   },
 }
 
+/**
+ * 학생 작품 갤러리 섹션
+ * JSON 파일에서 컨텐츠를 불러옵니다.
+ */
 export function ProjectsGallerySection() {
+  const { content, isLoading, error } = useAboutSectionContent('projects')
+
+  if (isLoading || !content) return null
+  if (error) {
+    console.error('Projects 섹션 컨텐츠 로딩 실패:', error)
+    return null
+  }
   return (
     <section className="bg-gradient-to-br from-cyan-50 to-blue-10 py-24">
       <div className="container mx-auto px-2">
         <div className="mx-auto max-w-6xl">
-          <h2 className={`mb-4 text-center ${themeText.h2} ${themeColors.heading}`}>{projectsSectionContent.heading}</h2>
+          <h2 className={`mb-4 text-center ${themeText.h2} ${themeColors.heading}`}>{content.heading}</h2>
           <div className="mb-4 mx-auto h-1 w-24 bg-gradient-to-r from-cyan-400 to-blue-400"></div>
-          <p className={`mb-16 text-center ${themeText.body} ${themeColors.muted}`}>{projectsSectionContent.subtitle}</p>
+          <p className={`mb-16 text-center ${themeText.body} ${themeColors.muted}`}>{content.subtitle}</p>
 
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {projectsSectionContent.items.map((proj) => {
+            {content.items.map((proj) => {
               const Icon = iconMap[proj.icon]
               const theme = themeClass[proj.theme]
               return (

@@ -3,7 +3,7 @@ import { Badge } from "@/components/ui/data-display/badge";
 import { Card, CardContent } from "@/components/ui/data-display/card";
 import { Button } from "@/components/ui/buttons/button";
 import { BookOpen, Clock, Users, ArrowRight } from "lucide-react";
-import type { HomeTextConfig } from "../config";
+import type { HomeTextConfig } from "../types";
 
 type CurriculumSectionProps = {
   text: HomeTextConfig["curriculum"];
