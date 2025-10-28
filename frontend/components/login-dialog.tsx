@@ -8,128 +8,259 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { Input } from "@/components/ui/forms/input"
 import { Label } from "@/components/ui/forms/label"
 import { Separator } from "@/components/ui/layout/separator"
+import { Checkbox } from "@/components/ui/forms/checkbox"
+import { signUp, generateVerification, loginWithPassword } from "@/lib/auth/email-verification"
+import { Eye, EyeOff } from "lucide-react"
+import Link from "next/link"
+import { PasswordResetDialog } from "./password-reset-dialog"
 
 export function LoginDialog() {
   const [open, setOpen] = useState(false)
+  const [mode, setMode] = useState<'login' | 'signup'>("login")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+  const [message, setMessage] = useState<string>("")
+  const [showPassword, setShowPassword] = useState(false)
+  const [resetDialogOpen, setResetDialogOpen] = useState(false)
+
+  // 약관 동의 상태 (회원가입 모드 전용)
+  const [agreeAll, setAgreeAll] = useState(false)
+  const [agreeTerms, setAgreeTerms] = useState(false)
+  const [agreePrivacy, setAgreePrivacy] = useState(false)
+  const [agreeMarketing, setAgreeMarketing] = useState(false)
+
+  const handleToggleAll = (checked: boolean) => {
+    setAgreeAll(checked)
+    setAgreeTerms(checked)
+    setAgreePrivacy(checked)
+    setAgreeMarketing(checked)
+  }
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault()
-    console.log("[v0] Login attempt:", { email, password })
-    // 로그인 로직 구현
+    setMessage("")
+    const result = loginWithPassword(email, password)
+    if (!result.ok) {
+      setMessage(result.error)
+      return
+    }
+    setOpen(false)
   }
 
-  const handleGoogleLogin = () => {
-    console.log("[v0] Google login clicked")
-    // Google 로그인 로직 구현
-  }
-
-  const handleKakaoLogin = () => {
-    console.log("[v0] Kakao login clicked")
-    // 카카오 로그인 로직 구현
+  const handleSignup = (e: React.FormEvent) => {
+    e.preventDefault()
+    setMessage("")
+    if (!agreeTerms || !agreePrivacy) {
+      setMessage("필수 약관에 동의해 주세요.")
+      return
+    }
+    const res = signUp(email, password)
+    if (!res.ok) {
+      setMessage(res.error)
+      return
+    }
+    const v = generateVerification(email)
+    if (v.ok) {
+      setMessage(`이메일 인증 링크를 발송했습니다. 메일함을 확인해 주세요. (데모: ${v.url})`)
+      setMode('login')
+    } else {
+      setMessage(v.error)
+    }
   }
 
   return (
-    <Dialog open={open} onOpenChange={setOpen}>
-      <DialogTrigger asChild>
-        <Button variant="outline">로그인</Button>
-      </DialogTrigger>
-      <DialogContent className="sm:max-w-[400px]">
-        <DialogHeader>
-          <DialogTitle className="text-center text-xl font-semibold">로그인</DialogTitle>
-        </DialogHeader>
-        <form onSubmit={handleLogin} className="space-y-4 py-4">
-          <div className="space-y-2">
-            <Label htmlFor="email" className="text-sm text-gray-600">
-              이메일
-            </Label>
-            <Input
-              id="email"
-              type="email"
-              placeholder="admin@abc.com"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="h-12 bg-blue-50/50 border-blue-200 focus:border-blue-400"
-              required
-            />
+    <>
+      <Dialog
+        open={open}
+        onOpenChange={(v) => {
+          setOpen(v)
+          if (!v) {
+            setMode("login")
+            setEmail("")
+            setPassword("")
+            setMessage("")
+            setShowPassword(false)
+            setAgreeAll(false)
+            setAgreeTerms(false)
+            setAgreePrivacy(false)
+            setAgreeMarketing(false)
+          }
+        }}
+      >
+        <DialogTrigger asChild>
+          <Button variant="outline">로그인</Button>
+        </DialogTrigger>
+        <DialogContent className="sm:max-w-[420px]">
+          <DialogHeader>
+            <DialogTitle className="text-center text-xl font-semibold">{mode === 'login' ? '로그인' : '회원가입'}</DialogTitle>
+          </DialogHeader>
+
+          {message && (
+            <div className="rounded-md bg-blue-50 border border-blue-200 px-3 py-2 text-sm text-blue-700 break-all">
+              {message}
+            </div>
+          )}
+
+          <form onSubmit={mode === 'login' ? handleLogin : handleSignup} className="space-y-4 py-4">
+            <div className="space-y-2">
+              <Label htmlFor="email" className="text-sm text-gray-600">
+                이메일
+              </Label>
+              <Input
+                id="email"
+                type="email"
+                placeholder="name@example.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="h-12 bg-blue-50/50 border-blue-200 focus:border-blue-400"
+                required
+              />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="password" className="text-sm text-gray-600">
+                비밀번호
+              </Label>
+              <div className="relative">
+                <Input
+                  id="password"
+                  type={showPassword ? "text" : "password"}
+                  placeholder="••••"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  className="h-12 bg-blue-50/50 border-blue-200 focus:border-blue-400 pr-10"
+                  required
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute right-3 top-3 text-gray-400 hover:text-gray-600"
+                >
+                  {showPassword ? (
+                    <EyeOff className="h-5 w-5" />
+                  ) : (
+                    <Eye className="h-5 w-5" />
+                  )}
+                </button>
+              </div>
+            </div>
+
+            {mode === 'signup' && (
+              <div className="mt-2 rounded-lg border bg-white">
+                <div className="flex items-center justify-between px-4 py-3">
+                  <label className="flex items-center gap-3 text-base font-semibold text-gray-800">
+                    <Checkbox checked={agreeAll} onCheckedChange={(v) => handleToggleAll(Boolean(v))} />
+                    전체 동의
+                  </label>
+                </div>
+                <Separator />
+                <div className="space-y-1 px-4 py-3 text-sm">
+                  <div className="flex items-center justify-between py-1.5">
+                    <label className="flex items-center gap-3">
+                      <Checkbox checked={agreeTerms} onCheckedChange={(v) => setAgreeTerms(Boolean(v))} />
+                      이용약관 동의 <span className="text-red-500">(필수)</span>
+                    </label>
+                    <Link href="/terms" className="text-blue-600 hover:underline">보기</Link>
+                  </div>
+                  <div className="flex items-center justify-between py-1.5">
+                    <label className="flex items-center gap-3">
+                      <Checkbox checked={agreePrivacy} onCheckedChange={(v) => setAgreePrivacy(Boolean(v))} />
+                      개인정보취급방침 동의 <span className="text-red-500">(필수)</span>
+                    </label>
+                    <Link href="/privacy" className="text-blue-600 hover:underline">보기</Link>
+                  </div>
+                  <div className="flex items-center justify-between py-1.5">
+                    <label className="flex items-center gap-3">
+                      <Checkbox checked={agreeMarketing} onCheckedChange={(v) => setAgreeMarketing(Boolean(v))} />
+                      마케팅 정보 수신 동의 <span className="text-gray-400">(선택)</span>
+                    </label>
+                    <button type="button" className="text-blue-600 opacity-0 cursor-default">보기</button>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {mode === 'login' && (
+              <div className="flex justify-end">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setResetDialogOpen(true)
+                    setOpen(false)
+                  }}
+                  className="text-sm text-blue-600 hover:underline"
+                >
+                  비밀번호를 잊으셨나요?
+                </button>
+              </div>
+            )}
+
+            <Button type="submit" className="w-full h-12 bg-blue-600 hover:bg-blue-700 text-white font-medium">
+              {mode === 'login' ? '로그인' : '회원가입'}
+            </Button>
+
+            <div className="text-center text-sm">
+              {mode === 'login' ? (
+                <span className="text-gray-600">
+                  아직도 가입하지 않으셨나요?{' '}
+                  <button
+                    type="button"
+                    onClick={() => { setMode('signup'); setMessage('') }}
+                    className="text-blue-600 hover:underline font-medium"
+                  >
+                    회원가입
+                  </button>
+                </span>
+              ) : (
+                <span className="text-gray-600">
+                  이미 계정이 있으신가요?{' '}
+                  <button type="button" onClick={() => { setMode('login'); setMessage('') }} className="text-blue-600 hover:underline font-medium">
+                    로그인
+                  </button>
+                </span>
+              )}
+            </div>
+          </form>
+
+          {/* 소셜 로그인/회원가입 섹션 */}
+          <div className="relative">
+            <Separator className="my-4" />
+            <div className="absolute inset-0 flex items-center justify-center">
+              <span className="bg-white px-4 text-sm text-gray-500">{mode === 'login' ? '소셜 로그인' : '소셜 회원가입'}</span>
+            </div>
           </div>
-          <div className="space-y-2">
-            <Label htmlFor="password" className="text-sm text-gray-600">
-              비밀번호
-            </Label>
-            <Input
-              id="password"
-              type="password"
-              placeholder="••••"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className="h-12 bg-blue-50/50 border-blue-200 focus:border-blue-400"
-              required
-            />
-          </div>
-          <Button type="submit" className="w-full h-12 bg-blue-600 hover:bg-blue-700 text-white font-medium">
-            로그인
-          </Button>
-          <div className="text-center text-sm">
-            <span className="text-gray-600">계정이 없으신가요? </span>
-            <button 
-              type="button" 
-              onClick={() => setOpen(false)}
-              className="text-blue-600 hover:underline font-medium"
+          <div className="space-y-3 pt-2">
+            <Button
+              type="button"
+              variant="outline"
+              className="w-full h-12 border-gray-300 hover:bg-gray-50 bg-transparent"
+              onClick={() => console.log(mode === 'login' ? 'Google login' : 'Google signup')}
             >
-              회원가입
-            </button>
+              <svg className="mr-2 h-5 w-5" viewBox="0 0 24 24">
+                <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
+                <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+                <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
+                <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
+              </svg>
+              {mode === 'login' ? 'GOOGLE로 로그인' : 'GOOGLE로 회원가입'}
+            </Button>
+            <Button
+              type="button"
+              className="w-full h-12 bg-[#FEE500] hover:bg-[#FDD835] text-gray-900 font-medium"
+              onClick={() => console.log(mode === 'login' ? 'Kakao login' : 'Kakao signup')}
+            >
+              <svg className="mr-2 h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 3C6.477 3 2 6.477 2 10.75c0 2.764 1.828 5.192 4.56 6.56l-1.172 4.297a.5.5 0 00.748.56l5.047-3.364c.272.02.547.03.817.03 5.523 0 10-3.477 10-7.75S17.523 3 12 3z" />
+              </svg>
+              {mode === 'login' ? '카카오톡으로 로그인' : '카카오톡으로 회원가입'}
+            </Button>
           </div>
-        </form>
+        </DialogContent>
+      </Dialog>
 
-        <div className="relative">
-          <Separator className="my-4" />
-          <div className="absolute inset-0 flex items-center justify-center">
-            <span className="bg-white px-4 text-sm text-gray-500">소셜 로그인</span>
-          </div>
-        </div>
-
-        <div className="space-y-3 pt-2">
-          <Button
-            type="button"
-            variant="outline"
-            className="w-full h-12 border-gray-300 hover:bg-gray-50 bg-transparent"
-            onClick={handleGoogleLogin}
-          >
-            <svg className="mr-2 h-5 w-5" viewBox="0 0 24 24">
-              <path
-                fill="#4285F4"
-                d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
-              />
-              <path
-                fill="#34A853"
-                d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
-              />
-              <path
-                fill="#FBBC05"
-                d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"
-              />
-              <path
-                fill="#EA4335"
-                d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
-              />
-            </svg>
-            GOOGLE로 로그인
-          </Button>
-          <Button
-            type="button"
-            className="w-full h-12 bg-[#FEE500] hover:bg-[#FDD835] text-gray-900 font-medium"
-            onClick={handleKakaoLogin}
-          >
-            <svg className="mr-2 h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 3C6.477 3 2 6.477 2 10.75c0 2.764 1.828 5.192 4.56 6.56l-1.172 4.297a.5.5 0 00.748.56l5.047-3.364c.272.02.547.03.817.03 5.523 0 10-3.477 10-7.75S17.523 3 12 3z" />
-            </svg>
-            카카오톡으로 로그인
-          </Button>
-        </div>
-
-      </DialogContent>
-    </Dialog>
+      <PasswordResetDialog
+        open={resetDialogOpen}
+        onOpenChange={setResetDialogOpen}
+      />
+    </>
   )
 }

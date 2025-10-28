@@ -23,14 +23,15 @@ export const headerBrand = {
 
 export const headerNavSections: HeaderNavSection[] = [
   {
-    title: "교육 커리큘럼",
-    width: 160, 
+    title: "AI 교육 커리큘럼",
+    width: 170, 
     items: [
-      { label: "앱 인벤터 코딩", href: "/curriculum/app-inventor" },
-      { label: "아두이노 코딩", href: "/curriculum/arduino" },
-      { label: "Raspberry Pi 코딩", href: "/curriculum/raspberry-pi" },
-      { label: "AI 교육 프로그램", href: "/curriculum/ai-education" },
-      { label: "심화 교육 프로그램", href: "/curriculum/science" },
+      
+      { label: "AI 바이브 코딩", href: "/curriculum/ai-education" },
+      { label: "AI 아두이노 코딩", href: "/curriculum/arduino" },
+      { label: "AI 라즈베리파이 코딩", href: "/curriculum/raspberry-pi" },      
+      { label: "AI 앱 인벤터 코딩", href: "/curriculum/app-inventor" },
+      { label: "AI 심화 제작 코딩", href: "/curriculum/science" },
     ],
   },
   {
@@ -47,10 +48,10 @@ export const headerNavSections: HeaderNavSection[] = [
     title: "교육 제품(KIT)",
     width: 150, 
     items: [
-      { label: "코딩 /AI 제품", href: "/products/coding-ai" },
-      { label: "AI교육 프로그램", href: "/products/ai-program" },
+      { label: "코딩 /AI 제품", href: "/products/coding-ai" },      
+      { label: "교구 제작 영상", href: "/products/videos" },
       { label: "견적 문의", href: "/products/inquiry" },
-      { label: "교구 사용 영상", href: "/products/videos" },
+      
     ],
   },
   {

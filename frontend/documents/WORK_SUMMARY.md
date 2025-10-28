@@ -107,6 +107,8 @@
   - ✅ 헤더 (Header)
   - ✅ 푸터 (Footer)
   - ✅ 로그인 다이얼로그
+  - ✅ 회원가입 다이얼로그
+  - ✅ 비밀번호 재설정 다이얼로그
   - ✅ 문의 폼 다이얼로그
   - ✅ 모바일 드로어
   - ✅ 테마 프로바이더
@@ -122,27 +124,47 @@
 - **상태**: ✅ 완료
 - **비고**: Shadcn/ui 기반 디자인 시스템 완료
 
+#### 8. 법적 페이지 (Legal)
+- **위치**: `app/terms/`, `app/privacy/`, `app/email-policy/`
+- **완료 항목**:
+  - ✅ 이용약관 (`terms/page.tsx`)
+  - ✅ 개인정보취급방침 (`privacy/page.tsx`)
+  - ✅ 이메일무단수집거부 (`email-policy/page.tsx`)
+- **상태**: ✅ 완료
+- **비고**: JSON 데이터 기반 정책 페이지 완료
+
+#### 9. 사용자 프로필 및 인증
+- **위치**: `app/profile/`, `app/reset-password/`, `app/verify-email/`
+- **완료 항목**:
+  - ✅ 프로필 페이지 (`profile/page.tsx`)
+  - ✅ 비밀번호 재설정 페이지 (`reset-password/page.tsx`)
+  - ✅ 이메일 인증 페이지 (`verify-email/page.tsx`)
+- **상태**: ✅ 완료
+- **비고**: 클라이언트 측 데모 인증 시스템 완료
+
 ---
 
 ## 🚧 진행 중인 작업
 
-### 1. 회원가입 다이얼로그
-- **파일**: `components/register-dialog.tsx` (작성 필요)
+### 1. 백엔드 연동
+- **파일**: `lib/api/client.ts` (작성 필요)
 - **상태**: 🚧 진행 중
 - **작업 내용**:
-  - 회원가입 폼 컴포넌트 작성
-  - 이메일/비밀번호 유효성 검증
-  - 소셜 회원가입 (Google, Kakao)
-  - 이용약관 동의 체크박스
-  - 개인정보 처리방침 동의 체크박스
+  - Django REST API 클라이언트 설정
+  - 인증 API 연동
+  - 문의 API 연동
+  - 갤러리 API 연동
+  - 제품 API 연동
 
-### 2. 법적 페이지
-- **위치**: `app/legal/` (폴더 생성 필요)
+### 2. 관리자 대시보드
+- **위치**: `app/admin/` (폴더 생성 필요)
 - **상태**: 🚧 진행 중
 - **작업 내용**:
-  - ✅ 이용약관 (`terms-of-service/page.tsx`)
-  - ✅ 개인정보취급방침 (`privacy-policy/page.tsx`)
-  - ✅ 이메일무단수집거부 (`email-collection-refusal/page.tsx`)
+  - 관리자 레이아웃 작성
+  - 대시보드 메인 페이지
+  - 문의 관리 페이지
+  - 제품 관리 페이지
+  - 사용자 관리 페이지
 
 ---
 
@@ -164,8 +186,8 @@
   - [ ] JWT 토큰 관리
   - [ ] 로그인 상태 관리 (Context API or Zustand)
   - [ ] 보호된 라우트 (Protected Routes)
-  - [ ] 사용자 프로필 페이지
-  - [ ] 비밀번호 찾기/재설정
+  - [ ] 자동 로그인 (Remember Me)
+  - [ ] 소셜 로그인 연동 (Google, Kakao)
 
 ### 3. 관리자 대시보드
 - **우선순위**: 중간
@@ -212,29 +234,6 @@
   - [ ] 번들 크기 최적화
   - [ ] 캐싱 전략
 
-### 8. 접근성 개선
-- **우선순위**: 낮음
-- **작업 내용**:
-  - [ ] ARIA 레이블 추가
-  - [ ] 키보드 네비게이션 개선
-  - [ ] 스크린 리더 지원
-  - [ ] 색상 대비 개선
-
-### 9. 테스트
-- **우선순위**: 중간
-- **작업 내용**:
-  - [ ] 단위 테스트 (Jest)
-  - [ ] 통합 테스트
-  - [ ] E2E 테스트 (Cypress or Playwright)
-  - [ ] 접근성 테스트
-
-### 10. 다국어 지원
-- **우선순위**: 낮음
-- **작업 내용**:
-  - [ ] i18n 설정
-  - [ ] 영어 번역
-  - [ ] 언어 전환 기능
-
 ---
 
 ## 📁 프로젝트 구조 요약
@@ -263,10 +262,12 @@ frontend/
 │   │   ├── coding-ai/            # ✅ 코딩/AI 제품
 │   │   ├── inquiry/              # ✅ 견적 문의
 │   │   └── videos/               # ✅ 교구 사용 영상
-│   ├── legal/                    # 🚧 법적 페이지 (작성 중)
-│   │   ├── terms-of-service/     # 🚧 이용약관
-│   │   ├── privacy-policy/       # 🚧 개인정보취급방침
-│   │   └── email-collection-refusal/  # 🚧 이메일무단수집거부
+│   ├── terms/                    # ✅ 이용약관
+│   ├── privacy/                  # ✅ 개인정보취급방침
+│   ├── email-policy/             # ✅ 이메일무단수집거부
+│   ├── profile/                  # ✅ 사용자 프로필
+│   ├── reset-password/           # ✅ 비밀번호 재설정
+│   ├── verify-email/             # ✅ 이메일 인증
 │   ├── layout.tsx                # ✅ 루트 레이아웃
 │   ├── loading.tsx               # ✅ 로딩 상태
 │   └── page.tsx                  # ✅ 홈페이지
@@ -276,16 +277,22 @@ frontend/
 │   ├── footer/                   # ✅ 푸터
 │   ├── ui/                       # ✅ UI 컴포넌트 (67개)
 │   ├── login-dialog.tsx          # ✅ 로그인 다이얼로그
-│   ├── register-dialog.tsx       # 🚧 회원가입 다이얼로그 (작성 중)
+│   ├── password-reset-dialog.tsx # ✅ 비밀번호 재설정 다이얼로그
 │   ├── inquiry-form-dialog.tsx   # ✅ 문의 폼 다이얼로그
 │   ├── mobile-drawer.tsx         # ✅ 모바일 드로어
 │   └── theme-provider.tsx        # ✅ 테마 프로바이더
 │
 ├── hooks/                        # ✅ 전역 커스텀 훅
 ├── lib/                          # ✅ 유틸리티 라이브러리
+│   └── auth/                     # ✅ 인증 관련 유틸리티
+│       └── email-verification.ts # ✅ 이메일 인증 데모 유틸리티
 ├── theme/                        # ✅ 테마 설정
 ├── public/                       # ✅ 정적 파일 & JSON 데이터
-└── documents/                    # 📁 프로젝트 문서 (신규)
+│   └── policies/                 # ✅ 정책 관련 JSON 데이터
+│       ├── terms.json            # ✅ 이용약관 데이터
+│       ├── privacy.json          # ✅ 개인정보취급방침 데이터
+│       └── email-policy.json     # ✅ 이메일무단수집거부 데이터
+└── documents/                    # 📁 프로젝트 문서
     ├── WORK_SUMMARY.md           # 작업 현황 요약
     ├── TODO.md                   # 할 일 목록
     ├── ARCHITECTURE.md           # 아키텍처 문서
@@ -296,13 +303,14 @@ frontend/
 
 ## 📊 통계
 
-- **총 페이지 수**: 20개 이상
-- **총 컴포넌트 수**: 150개 이상
+- **총 페이지 수**: 23개 이상
+- **총 컴포넌트 수**: 155개 이상
 - **UI 컴포넌트**: 67개
 - **커리큘럼 공통 컴포넌트**: 15개
 - **제품 컴포넌트**: 23개
 - **갤러리 컴포넌트**: 6개
 - **문의 컴포넌트**: 10개
+- **인증 관련 페이지**: 3개
 
 ---
 
@@ -314,6 +322,7 @@ frontend/
 4. **클린 코드**: Early return, 한글 주석, 타입 안정성
 5. **반응형 디자인**: 모바일/태블릿/데스크톱 대응
 6. **접근성**: Radix UI 기반 접근성 높은 컴포넌트
+7. **사용자 인증**: 클라이언트 측 데모 인증 시스템 구현
 
 ---
 
@@ -323,9 +332,10 @@ frontend/
 - [커리큘럼 컴포넌트 가이드](../app/curriculum/components/README.md)
 - [제품 페이지 가이드](../app/products/videos/README.md)
 - [갤러리 가이드](../app/gallery/README.md)
+- [UI 컴포넌트 가이드](../components/ui/README.md)
+- [인증 시스템 가이드](../lib/auth/AUTH.md)
 
 ---
 
 **최종 업데이트**: 2025-10-28
 **작성자**: AI Maker Lab 개발팀
-
