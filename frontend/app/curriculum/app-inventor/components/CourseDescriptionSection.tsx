@@ -29,7 +29,7 @@ export function CourseDescriptionSection({ data }: CourseDescriptionSectionProps
       <h2 className="mb-6 text-3xl font-bold">{title}</h2>
       <div className="space-y-4 text-gray-600 leading-relaxed mb-8">
         {paragraphs.map((paragraph, index) => (
-          <span className="text-lg" key={index} style={{ lineHeight: '1.92em' , wordSpacing: "0.18em" }}> {paragraph}</span>
+          <span className="text-lg" key={index}> {paragraph}</span>
         ))}
       </div>
       

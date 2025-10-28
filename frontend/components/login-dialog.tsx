@@ -73,7 +73,11 @@ export function LoginDialog() {
           </Button>
           <div className="text-center text-sm">
             <span className="text-gray-600">계정이 없으신가요? </span>
-            <button type="button" className="text-blue-600 hover:underline font-medium">
+            <button 
+              type="button" 
+              onClick={() => setOpen(false)}
+              className="text-blue-600 hover:underline font-medium"
+            >
               회원가입
             </button>
           </div>

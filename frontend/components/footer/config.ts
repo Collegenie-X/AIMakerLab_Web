@@ -55,9 +55,9 @@ export const communityLinks: CommunityLink[] = [
 
 export const policyLinks: PolicyLink[] = [
   { label: '회사소개', href: '/about' },
-  { label: '이용약관', href: '/terms' },
-  { label: '개인정보취급방침', href: '/privacy' },
-  { label: '이메일무단수집거부', href: '/email-policy' },
+  { label: '이용약관', href: '/legal/terms-of-service' },
+  { label: '개인정보취급방침', href: '/legal/privacy-policy' },
+  { label: '이메일무단수집거부', href: '/legal/email-collection-refusal' },
   { label: '네이버 쇼핑몰', href: 'https://smartstore.naver.com', external: true },
 ]
 

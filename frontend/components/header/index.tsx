@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/navigation/navigation-menu"
 import { MobileDrawer } from "@/components/mobile-drawer"
 import { LoginDialog } from "@/components/login-dialog"
+import { RegisterDialog } from "@/components/register-dialog"
 import { headerBrand, headerNavSections, headerUIConfig } from "@/components/header/config"
 import type { HeaderNavItem, HeaderNavSection } from "@/components/header/config"
 import { useEffect, useState } from "react"
@@ -80,7 +81,10 @@ export function Header() {
           </NavigationMenuList>
         </NavigationMenu>
 
-        <LoginDialog />
+        <div className="flex items-center gap-2">
+          <LoginDialog />
+          <RegisterDialog />
+        </div>
       </div>
 
       {showTop && (
