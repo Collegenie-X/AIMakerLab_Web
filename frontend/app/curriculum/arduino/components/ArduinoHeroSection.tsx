@@ -18,8 +18,27 @@ export function ArduinoHeroSection({ data }: ArduinoHeroSectionProps) {
     return null;
   }
 
-  const { badge, title, description } = data;
+  const { badge, title, description, features } = data;
   const { gradients, layout } = ARDUINO_CONFIG;
+
+  // 아이콘 문자열을 실제 아이콘 컴포넌트로 매핑
+  const iconMap: Record<string, any> = {
+    Cpu,
+    Camera,
+    Wifi,
+    Lightbulb,
+  };
+
+  // JSON 데이터의 features를 실제 아이콘 컴포넌트와 매핑
+  const heroFeatures = features?.map((feature) => ({
+    icon: iconMap[feature.icon] || Cpu,
+    label: feature.label,
+  })) || [
+    { icon: Cpu, label: "ESP32" },
+    { icon: Camera, label: "AI 카메라" },
+    { icon: Wifi, label: "IoT 연결" },
+    { icon: Lightbulb, label: "실전 프로젝트" },
+  ];
 
   return (
     <section className={`relative overflow-hidden bg-gradient-to-br ${gradients.hero} py-12 text-white`}>
@@ -39,22 +58,15 @@ export function ArduinoHeroSection({ data }: ArduinoHeroSectionProps) {
           
           {/* 주요 특징 */}
           <div className="flex flex-wrap justify-center gap-4 mt-6">
-            <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2">
-              <Cpu className="w-5 h-5" />
-              <span className="text-sm font-medium">ESP32</span>
-            </div>
-            <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2">
-              <Camera className="w-5 h-5" />
-              <span className="text-sm font-medium">AI 카메라</span>
-            </div>
-            <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2">
-              <Wifi className="w-5 h-5" />
-              <span className="text-sm font-medium">IoT 연결</span>
-            </div>
-            <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2">
-              <Lightbulb className="w-5 h-5" />
-              <span className="text-sm font-medium">실전 프로젝트</span>
-            </div>
+            {heroFeatures.map((feature, index) => {
+              const Icon = feature.icon;
+              return (
+                <div key={index} className="flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2">
+                  <Icon className="w-5 h-5" />
+                  <span className="text-sm font-medium">{feature.label}</span>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>

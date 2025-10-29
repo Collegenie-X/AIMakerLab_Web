@@ -1,9 +1,27 @@
 {
   "hero": {
-    "badge": "초급 과정",
-    "title": "앱 인벤터 코딩",
+    "badge": "AI 활용한 앱 제작 교육",
+    "title": "AI 앱 인벤터 코딩",
     "description": "블록 코딩으로 나만의 안드로이드 앱을 만들어보세요",
-    "imageUrl": "/home/app-inventor-coding-blocks.jpg"
+    "imageUrl": "/home/app-inventor-coding-blocks.jpg",
+    "features": [
+      {
+        "icon": "Blocks",
+        "label": "블록 코딩"
+      },
+      {
+        "icon": "Smartphone",
+        "label": "안드로이드 앱"
+      },
+      {
+        "icon": "MessageSquare",
+        "label": "AI 연계한 코딩"
+      },
+      {
+        "icon": "Zap",
+        "label": "즉시 실행"
+      }
+    ]
   },
   "courseInfo": [
     {

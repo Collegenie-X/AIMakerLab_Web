@@ -1,8 +1,26 @@
 {
   "hero": {
-    "badge": "초급 과정",
-    "title": "Raspberry Pi 코딩",
-    "description": "Raspberry Pi로 스마트 팜과 자율 주행차를 만들어보세요"
+    "badge": "AI 모델을 연게된 자율주행",
+    "title": "AI 라즈베리파이 코딩",
+    "description": "Raspberry Pi로 스마트 팜과 자율 주행차를 만들어보세요",
+    "features": [
+      {
+        "icon": "Server",
+        "label": "라즈베리파이"
+      },
+      {
+        "icon": "Sprout",
+        "label": "스마트 팜"
+      },
+      {
+        "icon": "Car",
+        "label": "자율주행차"
+      },
+      {
+        "icon": "Wifi",
+        "label": "IoT 제어"
+      }
+    ]
   },
   "courseInfo": [
     {

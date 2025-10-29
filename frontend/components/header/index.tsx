@@ -88,7 +88,7 @@ export function Header() {
       </div>
 
       {showTop && (
-        <div className="fixed bottom-6 right-6 z-[150]">
+        <div className="hidden md:block fixed bottom-6 right-6 z-[150]">
           <Button size="icon" variant="secondary" onClick={handleScrollTop} aria-label="맨 위로">
             <ArrowUp className="h-4 w-4" />
           </Button>

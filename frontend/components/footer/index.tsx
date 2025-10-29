@@ -17,7 +17,7 @@ export function Footer() {
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
           {/* Company Info */}
           <div>
-            <h3 className="mb-4 text-lg font-bold text-gray-900">만랩 회사 | AI Make Lab</h3>
+            <h3 className="mb-4 text-lg font-bold text-gray-900">만랩 회사 | AI Maker Lab</h3>
             <div className="space-y-2 text-sm text-gray-600">
               {companyInfoItems.map((item: CompanyInfoItem) => (
                 <p key={item.label}>

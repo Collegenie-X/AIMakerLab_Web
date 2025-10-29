@@ -62,6 +62,20 @@ export default function RaspberryPiCurriculumPage() {
 
   const { gradients, layout, iconColors, tabs } = RASPBERRY_PI_CONFIG;
 
+  // 아이콘 문자열을 실제 아이콘 컴포넌트로 매핑
+  const iconMap: Record<string, any> = {
+    Server,
+    Sprout,
+    Car,
+    Wifi,
+  };
+
+  // JSON 데이터의 features를 실제 아이콘 컴포넌트와 매핑
+  const heroFeatures = data.hero.features?.map((feature) => ({
+    icon: iconMap[feature.icon] || Server,
+    label: feature.label,
+  })) || [];
+
   return (
     <div className="flex min-h-screen flex-col">
       <Header />
@@ -74,12 +88,7 @@ export default function RaspberryPiCurriculumPage() {
         description={data.hero.description}
         gradientClass={gradients.hero}
         containerClass={layout.containerClass}
-        features={[
-          { icon: Server, label: "라즈베리파이" },
-          { icon: Sprout, label: "스마트 팜" },
-          { icon: Car, label: "자율주행차" },
-          { icon: Wifi, label: "IoT 제어" },
-        ]}
+        features={heroFeatures}
       />
 
       {/* 과정 정보 */}

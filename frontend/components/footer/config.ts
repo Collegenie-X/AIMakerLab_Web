@@ -60,4 +60,4 @@ export const policyLinks: PolicyLink[] = [
   { label: '네이버 쇼핑몰', href: 'https://smartstore.naver.com', external: true },
 ]
 
-export const copyrightText = 'COPYRIGHT © 2019 BPLAB ALL RIGHTS RESERVED.'
+export const copyrightText = 'COPYRIGHT © 2019 AI Maker LAB ALL RIGHTS RESERVED.'

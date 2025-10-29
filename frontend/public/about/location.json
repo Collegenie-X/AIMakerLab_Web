@@ -1,7 +1,7 @@
 {
   "hero": {
     "title": "문의 및 오시는 길",
-    "description": "AI Maker (만랩 회사)를 방문하시거나 문의사항이 있으시면 언제든지 연락주세요."
+    "description": "AI Maker Lab (만랩 회사)를 방문하시거나 문의사항이 있으시면 언제든지 연락주세요."
   },
   "contact": [
     {
@@ -28,7 +28,7 @@
   ],
   "map": {
     "heading": "찾아오시는 길",
-    "embedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d546.9045329451898!2d127.18374422922838!3d37.55160959407108!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357cb1a6b15778ab%3A0x5a99e6b3dcafb16e!2z6rK96riw64-EIO2VmOuCqOyLnCDrr7jsgqzqsJXrs4DshJzroZwgMTY!5e0!3m2!1sko!2skr!4v1761634175513!5m2!1sko!2skr"
+    "embedUrl": "https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d788.2968653345289!2d127.18445833449148!3d37.551817808613826!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sko!2skr!4v1761689271639!5m2!1sko!2skr"
   },
   "address": {
     "mainAddress": "경기도 하남시 풍산동 미사강변서로 16",

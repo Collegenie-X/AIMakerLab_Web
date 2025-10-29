@@ -1,9 +1,27 @@
 {
   "hero": {
-    "badge": "중급 과정",
-    "title": "아두이노 AI 코딩",
+    "badge": "AI 연계된 IOT 프로젝트 교육",
+    "title": "AI 아두이노 코딩",
     "description": "ESP32 + 카메라로 AI 연계 IoT 프로젝트를 만들어보세요",
-    "imageUrl": "/home/arduino-electronics-circuit.jpg"
+    "imageUrl": "/home/arduino-electronics-circuit.jpg",
+    "features": [
+      {
+        "icon": "Cpu",
+        "label": "ESP32"
+      },
+      {
+        "icon": "Camera",
+        "label": "카메라"
+      },
+      {
+        "icon": "Wifi",
+        "label": "IoT 연결"
+      },
+      {
+        "icon": "Lightbulb",
+        "label": "AI 실전 프로젝트"
+      }
+    ]
   },
   "courseInfo": [
     {

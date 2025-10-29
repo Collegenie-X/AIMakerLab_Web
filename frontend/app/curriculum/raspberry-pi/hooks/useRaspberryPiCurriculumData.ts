@@ -4,11 +4,18 @@ import { useState, useEffect } from "react";
  * Raspberry Pi 커리큘럼 데이터 타입 정의
  */
 
+// 히어로 섹션 Feature 아이템
+export interface HeroFeatureItem {
+  icon: string; // 아이콘 이름 (예: "Server", "Sprout")
+  label: string; // 라벨 텍스트
+}
+
 // 히어로 섹션
 export interface RaspberryPiHeroData {
   badge: string;
   title: string;
   description: string;
+  features?: HeroFeatureItem[]; // 선택적 features 배열
 }
 
 // 과정 정보 카드

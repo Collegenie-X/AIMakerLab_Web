@@ -24,11 +24,18 @@ import type {
  * AI 교육 커리큘럼 데이터 타입 정의
  */
 
+// 히어로 섹션 Feature 아이템
+export interface HeroFeatureItem {
+  icon: string; // 아이콘 이름 (예: "Brain", "Sparkles")
+  label: string; // 라벨 텍스트
+}
+
 // 히어로 섹션
 export interface AIEducationHeroData {
   badge: string;
   title: string;
   description: string;
+  features?: HeroFeatureItem[]; // 선택적 features 배열
 }
 
 // AI 교육 학습 경로 (학년별 트랙)

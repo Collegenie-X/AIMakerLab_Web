@@ -18,8 +18,27 @@ export function AppInventorHeroSection({ data }: AppInventorHeroSectionProps) {
     return null;
   }
 
-  const { badge, title, description } = data;
+  const { badge, title, description, features } = data;
   const { gradients, layout } = APP_INVENTOR_CONFIG;
+
+  // 아이콘 문자열을 실제 아이콘 컴포넌트로 매핑
+  const iconMap: Record<string, any> = {
+    Blocks,
+    Smartphone,
+    Code,
+    Zap,
+  };
+
+  // JSON 데이터의 features를 실제 아이콘 컴포넌트와 매핑
+  const heroFeatures = features?.map((feature) => ({
+    icon: iconMap[feature.icon] || Blocks,
+    label: feature.label,
+  })) || [
+    { icon: Blocks, label: "블록 코딩" },
+    { icon: Smartphone, label: "안드로이드 앱" },
+    { icon: Code, label: "MIT 개발" },
+    { icon: Zap, label: "즉시 실행" },
+  ];
 
   return (
     <section className={`relative overflow-hidden bg-gradient-to-br ${gradients.hero} py-12 text-white`}>
@@ -39,22 +58,15 @@ export function AppInventorHeroSection({ data }: AppInventorHeroSectionProps) {
           
           {/* 주요 특징 */}
           <div className="flex flex-wrap justify-center gap-4 mt-6">
-            <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2">
-              <Blocks className="w-5 h-5" />
-              <span className="text-sm font-medium">블록 코딩</span>
-            </div>
-            <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2">
-              <Smartphone className="w-5 h-5" />
-              <span className="text-sm font-medium">안드로이드 앱</span>
-            </div>
-            <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2">
-              <Code className="w-5 h-5" />
-              <span className="text-sm font-medium">MIT 개발</span>
-            </div>
-            <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2">
-              <Zap className="w-5 h-5" />
-              <span className="text-sm font-medium">즉시 실행</span>
-            </div>
+            {heroFeatures.map((feature, index) => {
+              const Icon = feature.icon;
+              return (
+                <div key={index} className="flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2">
+                  <Icon className="w-5 h-5" />
+                  <span className="text-sm font-medium">{feature.label}</span>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>

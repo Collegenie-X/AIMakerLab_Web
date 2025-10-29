@@ -63,6 +63,20 @@ export default function ScienceCurriculumPage() {
 
   const { gradients, layout, iconColors, tabs } = SCIENCE_CONFIG;
 
+  // 아이콘 문자열을 실제 아이콘 컴포넌트로 매핑
+  const iconMap: Record<string, any> = {
+    Rocket,
+    Cog,
+    Code2,
+    Award,
+  };
+
+  // JSON 데이터의 features를 실제 아이콘 컴포넌트와 매핑
+  const heroFeatures = data.hero.features?.map((feature) => ({
+    icon: iconMap[feature.icon] || Rocket,
+    label: feature.label,
+  })) || [];
+
   return (
     <div className="flex min-h-screen flex-col">
       <Header />
@@ -75,12 +89,7 @@ export default function ScienceCurriculumPage() {
           description={data.hero.description}
           gradientClass={gradients.hero}
           containerClass={layout.containerClass}
-          features={[
-            { icon: Rocket, label: "기획부터 실행" },
-            { icon: Cog, label: "IoT 제작" },
-            { icon: Code2, label: "AI 서비스" },
-            { icon: Award, label: "포트폴리오" },
-          ]}
+          features={heroFeatures}
         />
 
         {/* 과정 정보 */}

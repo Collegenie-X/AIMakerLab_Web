@@ -1,8 +1,26 @@
 {
   "hero": {
-    "badge": "심화 교육 프로그램",
-    "title": "기획부터 실행까지, 실전 프로젝트",
-    "description": "IoT 제작과 AI 서비스 개발 - 아이디어를 현실로 만드는 과정"
+    "badge": "기획부터 실행까지, 실전 프로젝트",
+    "title": "AI 심화 제작 코딩",
+    "description": "IoT 제작과 AI 서비스 개발 - 아이디어를 현실로 만드는 과정",
+    "features": [
+      {
+        "icon": "Rocket",
+        "label": "기획부터 실행"
+      },
+      {
+        "icon": "Cog",
+        "label": "IoT 제작"
+      },
+      {
+        "icon": "Code2",
+        "label": "AI 서비스"
+      },
+      {
+        "icon": "Award",
+        "label": "포트폴리오"
+      }
+    ]
   },
   "courseInfo": [
     {

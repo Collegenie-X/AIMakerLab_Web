@@ -63,6 +63,20 @@ export default function AIEducationCurriculumPage() {
 
   const { gradients, layout, iconColors, tabs } = AI_EDUCATION_CONFIG;
 
+  // 아이콘 문자열을 실제 아이콘 컴포넌트로 매핑
+  const iconMap: Record<string, any> = {
+    Brain,
+    Sparkles,
+    MessageSquare,
+    GraduationCap,
+  };
+
+  // JSON 데이터의 features를 실제 아이콘 컴포넌트와 매핑
+  const heroFeatures = data.hero.features?.map((feature) => ({
+    icon: iconMap[feature.icon] || Brain,
+    label: feature.label,
+  })) || [];
+
   return (
     <div className="flex min-h-screen flex-col">
       <Header />
@@ -75,12 +89,7 @@ export default function AIEducationCurriculumPage() {
           description={data.hero.description}
           gradientClass={gradients.hero}
           containerClass={layout.containerClass}
-          features={[
-            { icon: Brain, label: "AI 도구 활용" },
-            { icon: Sparkles, label: "TeachableMachine" },
-            { icon: MessageSquare, label: "ChatGPT API" },
-            { icon: GraduationCap, label: "창의적 학습" },
-          ]}
+          features={heroFeatures}
         />
 
         {/* 과정 정보 */}
