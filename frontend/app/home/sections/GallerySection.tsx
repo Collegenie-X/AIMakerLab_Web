@@ -13,7 +13,7 @@ export function GallerySection() {
         <div className="grid gap-6 md:grid-cols-3">
           <div className="group overflow-hidden rounded-xl bg-white shadow-lg transition-all hover:shadow-2xl">
             <div className="aspect-video overflow-hidden">
-              <img src="/home/student-robot-project.jpg" alt="로봇 프로젝트" className="h-full w-full object-cover transition-transform group-hover:scale-110" />
+              <img src="/home/images/student-robot-project.jpg" alt="로봇 프로젝트" className="h-full w-full object-cover transition-transform group-hover:scale-110" />
             </div>
             <div className="p-4">
               <h3 className="mb-1 font-semibold">자율주행 로봇</h3>
@@ -23,7 +23,7 @@ export function GallerySection() {
 
           <div className="group overflow-hidden rounded-xl bg-white shadow-lg transition-all hover:shadow-2xl">
             <div className="aspect-video overflow-hidden">
-              <img src="/home/mobile-app-interface.png" alt="앱 프로젝트" className="h-full w-full object-cover transition-transform group-hover:scale-110" />
+              <img src="/home/images/mobile-app-interface.png" alt="앱 프로젝트" className="h-full w-full object-cover transition-transform group-hover:scale-110" />
             </div>
             <div className="p-4">
               <h3 className="mb-1 font-semibold">환경 보호 앱</h3>
@@ -33,7 +33,7 @@ export function GallerySection() {
 
           <div className="group overflow-hidden rounded-xl bg-white shadow-lg transition-all hover:shadow-2xl">
             <div className="aspect-video overflow-hidden">
-              <img src="/home/smart-home-iot-device.jpg" alt="IoT 프로젝트" className="h-full w-full object-cover transition-transform group-hover:scale-110" />
+              <img src="/home/images/smart-home-iot-device.jpg" alt="IoT 프로젝트" className="h-full w-full object-cover transition-transform group-hover:scale-110" />
             </div>
             <div className="p-4">
               <h3 className="mb-1 font-semibold">스마트 홈 시스템</h3>

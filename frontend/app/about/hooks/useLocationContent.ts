@@ -18,6 +18,7 @@ export type ContactInfo = {
 export type MapInfo = {
   heading: string
   embedUrl: string
+  roadViewUrl: string
 }
 
 export type AddressInfo = {

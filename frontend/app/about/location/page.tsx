@@ -3,7 +3,8 @@
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { Card, CardContent } from "@/components/ui/data-display/card"
-import { MapPin, Phone, Mail, Clock, Bus, Train } from "lucide-react"
+import { Button } from "@/components/ui/buttons/button"
+import { MapPin, Phone, Mail, Clock, Bus, Train, ExternalLink } from "lucide-react"
 import { useLocationContent } from "../hooks/useLocationContent"
 
 /**
@@ -103,7 +104,18 @@ export default function LocationPage() {
 
               {/* Map Section */}
               <div className="mb-12">
-                <h2 className="mb-6 text-2xl font-bold">{content.map.heading}</h2>
+                <div className="flex items-center justify-between mb-6">
+                  <h2 className="text-2xl font-bold">{content.map.heading}</h2>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => window.open(content.map.roadViewUrl, '_blank')}
+                    className="gap-2"
+                  >
+                    <ExternalLink className="h-4 w-4" />
+                    네이버 지도에서 보기
+                  </Button>
+                </div>
                 <div className="overflow-hidden rounded-lg border">
                   <div className="aspect-video w-full bg-gray-200">
                     <iframe
@@ -114,6 +126,7 @@ export default function LocationPage() {
                       allowFullScreen
                       loading="lazy"
                       referrerPolicy="no-referrer-when-downgrade"
+                      title="Location Map"
                     ></iframe>
                   </div>
                 </div>

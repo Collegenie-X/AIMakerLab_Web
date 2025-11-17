@@ -24,7 +24,7 @@ export function RecommendedKitsSection() {
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           <Card className="group overflow-hidden transition-all hover:shadow-xl">
             <div className="aspect-square overflow-hidden bg-white p-4">
-              <img src="/home/arduino-electronics-circuit.jpg" alt="엔트리 전자피아노" className="h-full w-full object-contain transition-transform group-hover:scale-110" />
+              <img src="/home/images/arduino-electronics-circuit.jpg" alt="엔트리 전자피아노" className="h-full w-full object-contain transition-transform group-hover:scale-110" />
             </div>
             <CardContent className="pt-4">
               <Badge className="mb-3 bg-blue-100 text-blue-700 hover:bg-blue-100">초등학생추천</Badge>
@@ -44,7 +44,7 @@ export function RecommendedKitsSection() {
 
           <Card className="group overflow-hidden transition-all hover:shadow-xl">
             <div className="aspect-square overflow-hidden bg-white p-4">
-              <img src="/home/student-robot-project.jpg" alt="아두이노 악어로봇" className="h-full w-full object-contain transition-transform group-hover:scale-110" />
+              <img src="/home/images/student-robot-project.jpg" alt="아두이노 악어로봇" className="h-full w-full object-contain transition-transform group-hover:scale-110" />
             </div>
             <CardContent className="pt-4">
               <Badge className="mb-3 bg-green-100 text-green-700 hover:bg-green-100">초등고학년·중학생 추천</Badge>
@@ -67,7 +67,7 @@ export function RecommendedKitsSection() {
 
           <Card className="group overflow-hidden transition-all hover:shadow-xl">
             <div className="aspect-square overflow-hidden bg-white p-4">
-              <img src="/home/raspberry-pi-computer-iot.jpg" alt="스마트팜" className="h-full w-full object-contain transition-transform group-hover:scale-110" />
+              <img src="/home/images/raspberry-pi-computer-iot.jpg" alt="스마트팜" className="h-full w-full object-contain transition-transform group-hover:scale-110" />
             </div>
             <CardContent className="pt-4">
               <Badge className="mb-3 bg-purple-100 text-purple-700 hover:bg-purple-100">중·고등학생 추천</Badge>
@@ -87,7 +87,7 @@ export function RecommendedKitsSection() {
 
           <Card className="group overflow-hidden transition-all hover:shadow-xl">
             <div className="aspect-square overflow-hidden bg-white p-4">
-              <img src="/home/mobile-app-interface.png" alt="언플러그드 DIY 컴퓨터" className="h-full w-full object-contain transition-transform group-hover:scale-110" />
+              <img src="/home/images/mobile-app-interface.png" alt="언플러그드 DIY 컴퓨터" className="h-full w-full object-contain transition-transform group-hover:scale-110" />
             </div>
             <CardContent className="pt-4">
               <Badge className="mb-3 bg-blue-100 text-blue-700 hover:bg-blue-100">초등학생추천</Badge>
