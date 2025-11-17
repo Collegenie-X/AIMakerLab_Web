@@ -1,11 +1,14 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Link from "next/link"
-import { Menu, ChevronDown, ChevronRight } from "lucide-react"
+import { Menu, ChevronDown, ChevronRight, User, LogOut } from "lucide-react"
 import { Button } from "@/components/ui/buttons/button"
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/overlays/sheet"
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/layout/collapsible"
+import { Separator } from "@/components/ui/layout/separator"
+import { getCurrentUser, logout } from "@/lib/auth/email-verification"
+import { LoginDialog } from "@/components/login-dialog"
 
 interface MenuItem {
   title: string
@@ -58,6 +61,29 @@ const menuItems: MenuItem[] = [
 
 export function MobileDrawer() {
   const [open, setOpen] = useState(false)
+  const [userEmail, setUserEmail] = useState<string | null>(null)
+
+  useEffect(() => {
+    // 로그인 상태 확인
+    setUserEmail(getCurrentUser())
+  }, [])
+
+  const handleLogout = () => {
+    logout()
+    setOpen(false)
+    window.location.reload()
+  }
+
+  // 내 학습 메뉴 (로그인한 사용자용)
+  const myLearningMenu: MenuItem = {
+    title: "내 학습",
+    items: [
+      { label: "나의 강의", href: "/my-courses" },
+      { label: "나의 문의", href: "/my-inquiries" },
+      { label: "나의 갤러리", href: "/my-gallery" },
+      { label: "프로필 설정", href: "/my-profile" },
+    ],
+  }
 
   return (
     <Sheet open={open} onOpenChange={setOpen}>
@@ -71,12 +97,67 @@ export function MobileDrawer() {
         <SheetHeader>
           <SheetTitle className="text-left">
             <Link href="/" onClick={() => setOpen(false)} className="flex items-center space-x-2">
-              <span className="text-xl font-bold text-red-600">AI Make</span>
+              <span className="text-xl font-bold text-red-600">AI Maker</span>
               <span className="text-xl font-bold text-gray-900">Lab</span>
             </Link>
           </SheetTitle>
         </SheetHeader>
-        <nav className="mt-8 flex flex-col space-y-2">
+
+        {/* 로그인 상태 표시 */}
+        {userEmail ? (
+          <div className="mt-4 p-4 bg-blue-50 rounded-lg">
+            <div className="flex items-center gap-2 mb-2">
+              <User className="h-4 w-4 text-blue-600" />
+              <span className="text-sm font-medium text-blue-900 truncate">
+                {userEmail}
+              </span>
+            </div>
+            <Button
+              variant="outline"
+              size="sm"
+              className="w-full"
+              onClick={handleLogout}
+            >
+              <LogOut className="mr-2 h-4 w-4" />
+              로그아웃
+            </Button>
+          </div>
+        ) : (
+          <div className="mt-4">
+            <LoginDialog />
+          </div>
+        )}
+
+        <Separator className="my-4" />
+
+        <nav className="flex flex-col space-y-2">
+          {/* 로그인한 사용자는 내 학습 메뉴 먼저 표시 */}
+          {userEmail && (
+            <>
+              <Collapsible>
+                <CollapsibleTrigger className="flex w-full items-center justify-between rounded-lg px-4 py-3 text-left font-semibold text-blue-600 bg-blue-50 hover:bg-blue-100 transition-colors">
+                  {myLearningMenu.title}
+                  <ChevronDown className="h-4 w-4 transition-transform duration-200 group-data-[state=open]:rotate-180" />
+                </CollapsibleTrigger>
+                <CollapsibleContent className="mt-1 space-y-1 pl-4">
+                  {myLearningMenu.items.map((item, itemIndex) => (
+                    <Link
+                      key={itemIndex}
+                      href={item.href}
+                      onClick={() => setOpen(false)}
+                      className="flex items-center gap-2 rounded-lg px-4 py-2.5 text-sm text-gray-600 hover:bg-gray-50 hover:text-gray-900 transition-colors"
+                    >
+                      <ChevronRight className="h-3 w-3" />
+                      {item.label}
+                    </Link>
+                  ))}
+                </CollapsibleContent>
+              </Collapsible>
+              <Separator className="my-2" />
+            </>
+          )}
+
+          {/* 일반 메뉴 */}
           {menuItems.map((menu, index) => (
             <Collapsible key={index}>
               <CollapsibleTrigger className="flex w-full items-center justify-between rounded-lg px-4 py-3 text-left font-semibold text-gray-900 hover:bg-gray-100 transition-colors">

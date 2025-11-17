@@ -29,7 +29,7 @@ function generateToken(): string {
   return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)
 }
 
-export function signUp(email: string, password: string): { ok: boolean; error?: string } {
+export function signUp(email: string, password: string, autoVerify = true): { ok: boolean; error?: string } {
   const users = getUsers()
   if (users.some((user) => user.email === email)) {
     return { ok: false, error: "이미 가입된 이메일입니다." }
@@ -41,7 +41,7 @@ export function signUp(email: string, password: string): { ok: boolean; error?: 
   const newUser: User = {
     email,
     passwordHash: password, // 데모용으로 평문 저장, 실제로는 해싱 필요
-    isVerified: false,
+    isVerified: autoVerify, // 데모 환경에서는 자동 인증
     verificationToken,
     tokenExpiry,
   }
@@ -109,7 +109,10 @@ export function loginWithPassword(email: string, password: string): { ok: boolea
   }
 
   if (!user.isVerified) {
-    return { ok: false, error: "이메일 인증이 필요합니다." }
+    return { 
+      ok: false, 
+      error: "이메일 인증이 필요합니다. 데모 환경에서는 회원가입을 다시 해주세요." 
+    }
   }
 
   if (user.passwordHash !== password) { // 데모용, 실제로는 해싱된 비밀번호 비교
@@ -199,4 +202,54 @@ export function updatePassword(email: string, currentPassword: string, newPasswo
   saveUsers(users)
 
   return { ok: true }
+}
+
+// 현재 로그인 세션 관리
+const CURRENT_USER_KEY = "current_user_email"
+
+/**
+ * 현재 로그인한 사용자 이메일을 세션에 저장
+ */
+export function setCurrentUser(email: string): void {
+  if (typeof window === "undefined") return
+  localStorage.setItem(CURRENT_USER_KEY, email)
+}
+
+/**
+ * 현재 로그인한 사용자 이메일 가져오기
+ */
+export function getCurrentUser(): string | null {
+  if (typeof window === "undefined") return null
+  return localStorage.getItem(CURRENT_USER_KEY)
+}
+
+/**
+ * 로그아웃 (세션 삭제)
+ */
+export function logout(): void {
+  if (typeof window === "undefined") return
+  localStorage.removeItem(CURRENT_USER_KEY)
+}
+
+/**
+ * 현재 로그인 여부 확인
+ */
+export function isLoggedIn(): boolean {
+  return getCurrentUser() !== null
+}
+
+/**
+ * 개발자 도구용: 모든 사용자 데이터 초기화
+ * 브라우저 콘솔에서 사용 가능
+ */
+export function clearAllUsers(): void {
+  if (typeof window === "undefined") return
+  localStorage.removeItem(USERS_STORAGE_KEY)
+  localStorage.removeItem(CURRENT_USER_KEY)
+  console.log("✅ 모든 사용자 데이터가 초기화되었습니다.")
+}
+
+// 개발 환경에서 브라우저 콘솔에서 접근 가능하도록 window 객체에 추가
+if (typeof window !== "undefined") {
+  ;(window as any).clearAllUsers = clearAllUsers
 }

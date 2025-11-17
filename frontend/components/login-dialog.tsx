@@ -9,7 +9,7 @@ import { Input } from "@/components/ui/forms/input"
 import { Label } from "@/components/ui/forms/label"
 import { Separator } from "@/components/ui/layout/separator"
 import { Checkbox } from "@/components/ui/forms/checkbox"
-import { signUp, generateVerification, loginWithPassword } from "@/lib/auth/email-verification"
+import { signUp, generateVerification, loginWithPassword, setCurrentUser } from "@/lib/auth/email-verification"
 import { Eye, EyeOff } from "lucide-react"
 import Link from "next/link"
 import { PasswordResetDialog } from "./password-reset-dialog"
@@ -44,7 +44,10 @@ export function LoginDialog() {
       setMessage(result.error)
       return
     }
+    // 로그인 성공: 세션 저장 및 페이지 새로고침
+    setCurrentUser(email)
     setOpen(false)
+    window.location.reload()
   }
 
   const handleSignup = (e: React.FormEvent) => {
@@ -54,18 +57,17 @@ export function LoginDialog() {
       setMessage("필수 약관에 동의해 주세요.")
       return
     }
-    const res = signUp(email, password)
+    // 데모 환경: 자동 이메일 인증
+    const res = signUp(email, password, true)
     if (!res.ok) {
       setMessage(res.error)
       return
     }
-    const v = generateVerification(email)
-    if (v.ok) {
-      setMessage(`이메일 인증 링크를 발송했습니다. 메일함을 확인해 주세요. (데모: ${v.url})`)
-      setMode('login')
-    } else {
-      setMessage(v.error)
-    }
+    // 회원가입 성공
+    setMessage("회원가입이 완료되었습니다! 이제 로그인해주세요.")
+    setMode('login')
+    // 입력 필드 초기화
+    setPassword("")
   }
 
   return (

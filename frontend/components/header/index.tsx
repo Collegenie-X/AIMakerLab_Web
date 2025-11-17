@@ -12,6 +12,8 @@ import {
 import { MobileDrawer } from "@/components/mobile-drawer"
 import { LoginDialog } from "@/components/login-dialog"
 import { RegisterDialog } from "@/components/register-dialog"
+import { UserMenuDropdown } from "@/components/user-menu-dropdown"
+import { getCurrentUser } from "@/lib/auth/email-verification"
 import { headerBrand, headerNavSections, headerUIConfig } from "@/components/header/config"
 import type { HeaderNavItem, HeaderNavSection } from "@/components/header/config"
 import { useEffect, useState } from "react"
@@ -21,6 +23,7 @@ import { themeText, themeColors } from "@/theme"
 
 export function Header() {
   const [showTop, setShowTop] = useState(false)
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
 
   useEffect(() => {
     const onScroll = () => {
@@ -29,6 +32,11 @@ export function Header() {
     window.addEventListener("scroll", onScroll)
     onScroll()
     return () => window.removeEventListener("scroll", onScroll)
+  }, [])
+
+  useEffect(() => {
+    // 로그인 상태 확인
+    setIsLoggedIn(getCurrentUser() !== null)
   }, [])
 
   const handleScrollTop = () => {
@@ -82,8 +90,7 @@ export function Header() {
         </NavigationMenu>
 
         <div className="flex items-center gap-2">
-          <LoginDialog />
-          {/* <RegisterDialog /> */}
+          {isLoggedIn ? <UserMenuDropdown /> : <LoginDialog />}
         </div>
       </div>
 

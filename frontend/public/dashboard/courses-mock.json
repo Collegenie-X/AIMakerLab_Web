@@ -1,0 +1,33 @@
+[
+  {
+    "id": "1",
+    "title": "AI 바이브 코딩 기초",
+    "instructor": "김선생님",
+    "startDate": "2024-01-15",
+    "endDate": "2024-03-15",
+    "status": "진행중",
+    "progress": 65,
+    "category": "AI 교육"
+  },
+  {
+    "id": "2",
+    "title": "AI 아두이노 코딩",
+    "instructor": "이선생님",
+    "startDate": "2024-02-01",
+    "endDate": "2024-04-01",
+    "status": "진행중",
+    "progress": 40,
+    "category": "아두이노"
+  },
+  {
+    "id": "3",
+    "title": "AI 라즈베리파이 코딩",
+    "instructor": "박선생님",
+    "startDate": "2024-03-01",
+    "endDate": "2024-05-01",
+    "status": "예정",
+    "progress": 0,
+    "category": "라즈베리파이"
+  }
+]
+

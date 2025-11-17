@@ -7,6 +7,7 @@
  * - Breadcrumb: 브레드크럼 네비게이션
  * - Pagination: 페이지네이션
  * - Tabs: 탭 컴포넌트
+ * - DropdownMenu: 드롭다운 메뉴
  */
 
 export * from './navigation-menu'
@@ -14,4 +15,5 @@ export * from './menubar'
 export * from './breadcrumb'
 export * from './pagination'
 export * from './tabs'
+export * from './dropdown-menu'
 
