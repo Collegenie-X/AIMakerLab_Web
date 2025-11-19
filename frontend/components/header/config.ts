@@ -1,12 +1,15 @@
 export type HeaderNavItem = {
   label: string
   href: string
+  icon?: string // 아이콘 이름 (lucide-react 아이콘)
+  description?: string // 메뉴 항목 설명
 }
 
 export type HeaderNavSection = {
   title: string
   // 서브메뉴 너비(px). 설정 시 해당 섹션 드롭다운 너비로 적용됨
   width?: number | string
+  icon?: string // 메인 메뉴 아이콘
   items: HeaderNavItem[]
 }
 
@@ -24,50 +27,133 @@ export const headerBrand = {
 export const headerNavSections: HeaderNavSection[] = [
   {
     title: "AI 교육 커리큘럼",
-    width: 170, 
+    width: 220,
+    icon: "BookOpen",
     items: [
-      
-      { label: "AI 바이브 코딩", href: "/curriculum/ai-education" },
-      { label: "AI 아두이노 코딩", href: "/curriculum/arduino" },
-      { label: "AI 라즈베리파이 코딩", href: "/curriculum/raspberry-pi" },      
-      { label: "AI 앱 인벤터 코딩", href: "/curriculum/app-inventor" },
-      { label: "AI 심화 제작 코딩", href: "/curriculum/science" },
+      { 
+        label: "바이브 코딩 AI", 
+        href: "/curriculum/ai-education", 
+        icon: "Briefcase", 
+        description: "AI를 활용한 웹 서비스 제작"
+      },
+      { 
+        label: "아두이노 AI", 
+        href: "/curriculum/arduino", 
+        icon: "Scale", 
+        description: "피지컬 컴퓨팅 & 컴퓨터 비전"
+      },
+      { 
+        label: "라즈베리파이 AI", 
+        href: "/curriculum/raspberry-pi", 
+        icon: "GraduationCap", 
+        description: "자율 주행 차량 프로젝트"
+      },
+      { 
+        label: "앱 인벤터 AI", 
+        href: "/curriculum/app-inventor", 
+        icon: "FileSearch", 
+        description: "AI 비서 및 에이전트 서비스"
+      },
+      { 
+        label: "심화 교육 프로그램", 
+        href: "/curriculum/science", 
+        icon: "GraduationCap", 
+        description: "AI 활용한 실전 프로젝트"
+      },
     ],
   },
   {
     title: "수업 문의",
-    width: 100, 
+    width: 200,
+    icon: "HelpCircle",
     items: [
-      { label: "출강 수업", href: "/inquiry/online" },
-      { label: "주중 수업", href: "/inquiry/schedule" },
-      { label: "주말 수업", href: "/inquiry/weekend-schedule" },
-      { label: "교육 소식", href: "/inquiry/method" },
+      { 
+        label: "출강 수업", 
+        href: "/inquiry/online", 
+        icon: "School",
+        description: "학교 및 기관 방문 교육"
+      },
+      { 
+        label: "주중 수업", 
+        href: "/inquiry/schedule", 
+        icon: "CalendarDays",
+        description: "평일 정규 교육 프로그램"
+      },
+      { 
+        label: "주말 수업", 
+        href: "/inquiry/weekend-schedule", 
+        icon: "Calendar",
+        description: "주말 특별 교육 과정"
+      },
+      { 
+        label: "교육 소식", 
+        href: "/inquiry/method", 
+        icon: "Bell",
+        description: "최신 교육 정보 및 공지사항"
+      },
     ],
   },
   {
     title: "교육 제품(KIT)",
-    width: 150, 
+    width: 240,
+    icon: "Package",
     items: [
-      { label: "코딩 /AI 제품", href: "/products/coding-ai" },      
-      { label: "교구 제작 영상", href: "/products/videos" },
-      { label: "견적 문의", href: "/products/inquiry" },
-      
+      { 
+        label: "코딩/AI 제품", 
+        href: "/products/coding-ai", 
+        icon: "Box",
+        description: "교육용 하드웨어 및 소프트웨어"
+      },      
+      { 
+        label: "교구 제작 영상", 
+        href: "/products/videos", 
+        icon: "Video",
+        description: "제품 사용법 및 활용 가이드"
+      },
+      { 
+        label: "견적 문의", 
+        href: "/products/inquiry", 
+        icon: "Calculator",
+        description: "맞춤형 교육 솔루션 상담"
+      },
     ],
   },
   {
     title: "갤러리",
-    width: 100, 
+    width: 220,
+    icon: "Images",
     items: [
-      { label: "작품", href: "/gallery/works" },
-      { label: "수업 후기", href: "/gallery/reviews" },
+      { 
+        label: "작품", 
+        href: "/gallery/works", 
+        icon: "Image",
+        description: "학생들의 창의적인 프로젝트"
+      },
+      { 
+        label: "수업 후기", 
+        href: "/gallery/reviews", 
+        icon: "MessageSquare",
+        description: "교육 참가자들의 생생한 후기"
+      },
     ],
   },
   {
     title: "AI Maker 소개",
-    width: 150, 
+    width: 220,
+    icon: "Building",
     items: [
-      { label: "AI Maker 소개", href: "/about" },
-      { label: "오시는 길", href: "/about/location" },
+      { 
+        label: "AI Maker 소개", 
+        href: "/about", 
+        icon: "Info",
+        description: "기관 소개 및 교육 철학"
+      },
+      { 
+        label: "오시는 길", 
+        href: "/about/location", 
+        icon: "MapPin",
+        description: "위치 안내 및 찾아오는 방법"
+      },
     ],
   },
 ] as const
