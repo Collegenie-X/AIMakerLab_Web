@@ -2,11 +2,113 @@
 
 ## 📋 개요
 
-이 문서는 AIMakerLab Web 프론트엔드와 Django REST API를 연동하는 방법을 설명합니다.
+이 문서는 AIMakerLab Web 프론트엔드와 Django REST API 연동 방법을 설명합니다.
+
+### 현재 상태 (2025-12-27)
+
+**⚠️ 현재 프로젝트는 JSON Mock Data 기반으로 개발되었습니다.**
+
+- ✅ **프론트엔드**: Next.js 15 + React 19 완성
+- ✅ **UI 컴포넌트**: 60+ Shadcn/ui 기반 컴포넌트
+- ✅ **페이지**: 30+ 페이지 구현
+- ✅ **데이터**: `public/` 폴더의 JSON 파일
+- ⏳ **백엔드 연동**: 향후 Django REST API 연동 예정
+
+### 연동 준비 상태
+
+프로젝트는 API 연동을 위해 다음과 같이 준비되어 있습니다:
+1. **커스텀 훅 패턴**: 데이터 로딩 로직이 훅으로 분리됨
+2. **타입 정의**: TypeScript 타입 완비
+3. **에러 처리**: 로딩/에러 상태 관리 구조
+4. **설정 분리**: config.ts로 엔드포인트 관리 가능
 
 ---
 
-## 🔗 API 엔드포인트
+## 📂 현재 데이터 구조 (JSON Mock Data)
+
+### 데이터 위치
+
+모든 데이터는 `public/` 폴더의 JSON 파일로 관리됩니다.
+
+```
+public/
+├── curriculum/              # 커리큘럼 데이터
+│   ├── ai-education.json
+│   ├── arduino.json
+│   ├── app-inventor.json
+│   ├── raspberry-pi.json
+│   └── science.json
+├── products/                # 제품 데이터
+│   ├── products.json
+│   ├── product-detail.json
+│   ├── quote-items.json
+│   ├── videos.json
+│   └── ...
+├── gallery/                 # 갤러리 데이터
+│   ├── reviews.json
+│   └── works.json
+├── inquiry/                 # 문의 데이터
+│   ├── inquiries.json
+│   ├── schedules-weekday.json
+│   └── schedules-weekend.json
+├── home/                    # 홈 데이터
+│   └── home-content.json
+├── about/                   # 소개 데이터
+│   ├── about-content.json
+│   └── location.json
+├── dashboard/               # 대시보드 Mock 데이터
+│   ├── comments-mock.json
+│   ├── courses-mock.json
+│   ├── gallery-mock.json
+│   ├── inquiries-mock.json
+│   └── stats-mock.json
+└── policies/                # 정책 문서
+    ├── email-policy.json
+    ├── privacy.json
+    └── terms.json
+```
+
+### 데이터 로딩 패턴
+
+#### 현재: fetch() + JSON
+```typescript
+// hooks/useAIEducationCurriculumData.ts
+export function useAIEducationCurriculumData() {
+  const [data, setData] = useState<AIEducationCurriculumData | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<Error | null>(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setLoading(true);
+        // 현재: public 폴더의 JSON 파일 로딩
+        const response = await fetch("/curriculum/ai-education.json");
+        
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
+        const jsonData = await response.json();
+        setData(jsonData);
+      } catch (err) {
+        console.error("데이터 로딩 실패:", err);
+        setError(err instanceof Error ? err : new Error("Unknown error"));
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  return { data, loading, error };
+}
+```
+
+---
+
+## 🔗 향후 API 엔드포인트
 
 ### 백엔드 서버 URL
 
@@ -88,17 +190,98 @@ GET    /api/products/videos/             # 교구 사용 영상
 
 ---
 
-## 🛠️ API 클라이언트 설정
+## 🔄 API 연동 전환 가이드
 
-### 1. 환경 변수 설정
+### JSON → API 전환 단계
+
+#### 1단계: 환경 변수 설정
 
 ```bash
-# .env.local
+# .env.local (프로젝트 루트에 생성)
 NEXT_PUBLIC_API_URL=http://localhost:8000/api
 NEXT_PUBLIC_SITE_URL=http://localhost:3000
 ```
 
-### 2. API 클라이언트 생성
+#### 2단계: API 클라이언트 생성
+
+```bash
+# lib/api 폴더 구조 생성
+mkdir -p lib/api
+touch lib/api/client.ts
+touch lib/api/curriculum.ts
+touch lib/api/products.ts
+touch lib/api/gallery.ts
+touch lib/api/inquiry.ts
+```
+
+#### 3단계: 커스텀 훅 전환
+
+**Before (현재 - JSON):**
+```typescript
+// hooks/useAIEducationCurriculumData.ts
+export function useAIEducationCurriculumData() {
+  const [data, setData] = useState<AIEducationCurriculumData | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<Error | null>(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setLoading(true);
+        // JSON 파일에서 로딩
+        const response = await fetch("/curriculum/ai-education.json");
+        const jsonData = await response.json();
+        setData(jsonData);
+      } catch (err) {
+        setError(err instanceof Error ? err : new Error("Unknown error"));
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  return { data, loading, error };
+}
+```
+
+**After (향후 - API):**
+```typescript
+// hooks/useAIEducationCurriculumData.ts
+import { getCurriculumProject } from '@/lib/api/curriculum';
+
+export function useAIEducationCurriculumData() {
+  const [data, setData] = useState<AIEducationCurriculumData | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<Error | null>(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setLoading(true);
+        // API에서 로딩
+        const response = await getCurriculumProject('ai-education');
+        setData(response.data);
+      } catch (err) {
+        setError(err instanceof Error ? err : new Error("Unknown error"));
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  return { data, loading, error };
+}
+```
+
+---
+
+## 🛠️ API 클라이언트 설정 (향후)
+
+### 1. API 클라이언트 생성
 
 ```typescript
 // lib/api/client.ts
@@ -851,6 +1034,68 @@ export function ProductSkeleton() {
 
 ---
 
-**최종 업데이트**: 2025-10-28
+## 📋 API 연동 체크리스트
+
+### 준비 사항
+- [ ] Django REST API 서버 구축
+- [ ] CORS 설정 (프론트엔드 도메인 허용)
+- [ ] JWT 인증 구현
+- [ ] API 문서화 (Swagger/Postman)
+
+### 프론트엔드 작업
+- [ ] 환경 변수 설정 (.env.local)
+- [ ] API 클라이언트 구현 (lib/api/)
+- [ ] 커스텀 훅 전환 (fetch → API 클라이언트)
+- [ ] 에러 처리 개선
+- [ ] 로딩 상태 UI 개선
+- [ ] 인증 토큰 관리
+
+### 테스트
+- [ ] API 엔드포인트 테스트
+- [ ] 에러 케이스 테스트
+- [ ] 인증 플로우 테스트
+- [ ] 성능 테스트
+
+---
+
+## 🎯 현재 프로젝트 상태 요약
+
+### ✅ 완료된 부분
+1. **프론트엔드 UI**: 완성 (30+ 페이지, 60+ 컴포넌트)
+2. **데이터 구조**: JSON Mock Data로 완벽히 구현
+3. **커스텀 훅**: 데이터 로딩 로직 분리
+4. **타입 정의**: TypeScript 타입 완비
+5. **인증 시스템**: 이메일 인증 기본 구현
+
+### ⏳ 향후 작업
+1. **Django REST API 연동**: 백엔드 API 개발 및 연동
+2. **JWT 인증**: 토큰 기반 인증 시스템
+3. **이미지 업로드**: 갤러리/프로필 이미지 업로드
+4. **실시간 알림**: WebSocket 연동
+5. **소셜 로그인**: Google, Kakao OAuth
+
+### 📊 전환 용이성
+현재 프로젝트는 다음과 같은 이유로 API 전환이 쉽게 가능합니다:
+- **훅 패턴**: 데이터 로딩 로직이 훅으로 분리됨
+- **타입 안전성**: TypeScript로 데이터 구조 명확히 정의
+- **에러 처리**: 로딩/에러 상태 관리 구조 완비
+- **설정 분리**: config.ts로 엔드포인트 관리 준비
+
+단순히 `fetch("/data.json")`을 `apiClient.get("/api/data")`로 변경하면 됩니다.
+
+---
+
+## 📚 참고 자료
+
+- [Next.js Data Fetching](https://nextjs.org/docs/app/building-your-application/data-fetching)
+- [Django REST Framework](https://www.django-rest-framework.org/)
+- [Axios Documentation](https://axios-http.com/docs/intro)
+- [React Query](https://tanstack.com/query/latest)
+- [SWR](https://swr.vercel.app/)
+
+---
+
+**최종 업데이트**: 2025-12-27
 **작성자**: AI Maker Lab 개발팀
+**프로젝트 상태**: Mock Data 기반 프론트엔드 완성, API 연동 준비 완료
 
