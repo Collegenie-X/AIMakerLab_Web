@@ -1541,7 +1541,7 @@ export default function MyCoursesPage() {
   const { userEmail, isLoading } = useAuthGuard();
   
   if (isLoading) return <LoadingState />;
-  
+
   // userEmail이 있으면 인증된 사용자
   return <div>...</div>;
 }
@@ -2042,7 +2042,7 @@ gantt
 ---
 
 **최종 업데이트**: 2025-12-27  
-**작성자**: AI Maker Lab 개발팀  
+**작성자**: AI Maker Lab 개발팀
 **프로젝트 버전**: 0.1.0  
 **문서 버전**: 2.0 (Mermaid 다이어그램 추가)
 

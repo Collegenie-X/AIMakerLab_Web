@@ -47,25 +47,24 @@ export function InquiryFormDialog() {
           출강 수업 문의하기
         </Button>
       </DialogTrigger>
-      <DialogContent className="max-h-[90vh] overflow-y-auto sm:max-w-[600px] z-[200]">
+      <DialogContent className="max-h-[90vh] overflow-y-auto sm:max-w-[600px] z-[200] rounded border-2">
         <DialogHeader>
-          <DialogTitle className="text-xl text-center mb-2">출강 수업 문의하기</DialogTitle>
+          <DialogTitle className="text-xl font-bold text-center mb-2">출강 수업 문의하기</DialogTitle>
 
         </DialogHeader>
 
         <form onSubmit={handleSubmit} className="space-y-6">
           {/* 기본 정보 */}
-          <h4 className="mb-3 flex items-center gap-2 text-sm font-semibold text-gray-900">
-              <MessageSquare className="h-4 w-4" />
-              제목 
-            </h4>
-          
-            <div className="space-y-3">
+          <section>
+            <h4 className="mb-3 flex items-center gap-2 text-sm font-semibold text-gray-900">
+                <MessageSquare className="h-4 w-4" />
+                제목 
+              </h4>
+            
               <div>
-                <Input id="title" placeholder="ex> 중학교 자유학기제 프로그램 문의" required />
+                <Input id="title" placeholder="ex> 중학교 자유학기제 프로그램 문의" className="rounded border-2 border-gray-300 focus:border-blue-500 bg-white" required />
               </div>
-              {/* 신규 작성 시에는 교육과정과 상태를 표시하지 않음 */}
-            </div>
+          </section>
           
 
           {/* 연락처 정보 */}
@@ -73,20 +72,20 @@ export function InquiryFormDialog() {
               <User className="h-4 w-4" />
               연락처 정보
             </h4>
-          <section className="rounded-lg border p-4">
+          <section className="rounded border-2 border-gray-300 bg-gray-50/50 p-5">
       
-            <div className="grid gap-3 md:grid-cols-3">
+            <div className="grid gap-4 md:grid-cols-3">
               <div>
-                <Label htmlFor="name" className="mb-1 block">요청자명 *</Label>
-                <Input id="name" placeholder="요청자명" required />
+                <Label htmlFor="name" className="mb-2 ml-2 block text-sm font-medium text-gray-900">요청자명 *</Label>
+                <Input id="name" placeholder="이름 (직함, 직책 등)" className="rounded border-2 border-gray-300 bg-white focus:border-blue-500" required />
               </div>
               <div>
-                <Label htmlFor="contact" className="mb-1 block">연락처 *</Label>
-                <Input id="contact" type="tel" placeholder="연락처" required />
+                <Label htmlFor="contact" className="mb-2 ml-2 block text-sm font-medium text-gray-900">연락처 *</Label>
+                <Input id="contact" type="tel" placeholder="연락처" className="rounded border-2 border-gray-300 bg-white focus:border-blue-500" required />
               </div>
               <div>
-                <Label htmlFor="email" className="mb-1 block">이메일 *</Label>
-                <Input id="email" type="email" placeholder="이메일" required />
+                <Label htmlFor="email" className="mb-2 ml-2 block text-sm font-medium text-gray-900">이메일 *</Label>
+                <Input id="email" type="email" placeholder="이메일" className="rounded border-2 border-gray-300 bg-white focus:border-blue-500" required />
               </div>
             </div>
           </section>
@@ -96,12 +95,12 @@ export function InquiryFormDialog() {
               <GraduationCap className="h-4 w-4" />
               교육 설정
             </h4>
-          <section className="rounded-lg border p-4">
+          <section className="rounded border-2 border-gray-300 bg-gray-50/50 p-5">
   
-            <div className="grid gap-3 md:grid-cols-2">
+            <div className="grid gap-4 md:grid-cols-2">
               {/* 희망 과목 */}
-              <div>
-                <Label htmlFor="course" className="mb-1 block">희망 과목 *</Label>
+              <div className="flex items-center">
+                <Label htmlFor="course" className="block text-sm font-medium text-gray-900 w-20">희망 과목 *</Label>
                 {courseMode === "input" ? (
                   <div className="space-y-2">
                     <Input
@@ -109,6 +108,7 @@ export function InquiryFormDialog() {
                       placeholder="희망 교육 과정을 입력하세요"
                       value={courseValue}
                       onChange={(e) => setCourseValue(e.target.value)}
+                      className="rounded border-2 border-gray-300 focus:border-blue-500"
                       required
                     />
                     <Button
@@ -119,7 +119,7 @@ export function InquiryFormDialog() {
                         setCourseMode("select")
                         setCourseValue("")
                       }}
-                      className="w-full text-xs"
+                      className="w-full text-xs rounded border-2"
                     >
                       목록에서 선택하기
                     </Button>
@@ -137,10 +137,10 @@ export function InquiryFormDialog() {
                     }}
                     required
                   >
-                    <SelectTrigger id="course">
+                    <SelectTrigger id="course" className="rounded border-2 border-gray-300 bg-white">
                       <SelectValue placeholder="희망 과목 *" />
                     </SelectTrigger>
-                    <SelectContent className="z-[210]">
+                    <SelectContent className="z-[210] rounded border-2">
                       {inquiryConfig.formOptions.courses.map((course) => (
                         <SelectItem key={course} value={course}>
                           {course}
@@ -153,8 +153,8 @@ export function InquiryFormDialog() {
               </div>
 
               {/* 학년 */}
-              <div>
-                <Label htmlFor="grade" className="mb-1 block">학년 *</Label>
+              <div className="flex items-center">
+                <Label htmlFor="grade" className="block text-sm font-medium text-gray-900 w-20">학년 *</Label>
                 {gradeMode === "input" ? (
                   <div className="space-y-2">
                     <Input
@@ -162,6 +162,7 @@ export function InquiryFormDialog() {
                       placeholder="학년을 입력하세요"
                       value={gradeValue}
                       onChange={(e) => setGradeValue(e.target.value)}
+                      className="rounded border-2 border-gray-300 focus:border-blue-500"
                       required
                     />
                     <Button
@@ -172,7 +173,7 @@ export function InquiryFormDialog() {
                         setGradeMode("select")
                         setGradeValue("")
                       }}
-                      className="w-full text-xs"
+                      className="w-full text-xs rounded border-2"
                     >
                       목록에서 선택하기
                     </Button>
@@ -190,10 +191,10 @@ export function InquiryFormDialog() {
                     }}
                     required
                   >
-                    <SelectTrigger id="grade">
+                    <SelectTrigger id="grade" className="rounded border-2 border-gray-300 bg-white">
                       <SelectValue placeholder="학년 *" />
                     </SelectTrigger>
-                    <SelectContent className="z-[210]">
+                    <SelectContent className="z-[210] rounded border-2">
                       {inquiryConfig.formOptions.grades.map((grade) => (
                         <SelectItem key={grade} value={grade}>
                           {grade}
@@ -205,26 +206,11 @@ export function InquiryFormDialog() {
                 )}
               </div>
 
-              {/* 카테고리 */}
-              <div>
-                <Label htmlFor="category" className="mb-1 block">카테고리</Label>
-                <Select value={categoryValue} onValueChange={setCategoryValue}>
-                  <SelectTrigger id="category">
-                    <SelectValue placeholder="카테고리" />
-                  </SelectTrigger>
-                  <SelectContent className="z-[210]">
-                    {inquiryConfig.formOptions.categories.map((c) => (
-                      <SelectItem key={c} value={c}>
-                        {c}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-              </div>
+    
 
               {/* 참여 인원 */}
-              <div>
-                <Label htmlFor="participants" className="mb-1 block">참여 인원 *</Label>
+              <div className="flex items-center">
+                <Label htmlFor="participants" className="block text-sm font-medium text-gray-900 w-20">참여 인원 *</Label>
                 {participantMode === "input" ? (
                   <div className="space-y-2">
                     <Input
@@ -232,6 +218,7 @@ export function InquiryFormDialog() {
                       placeholder="예상 인원을 입력하세요 (예: 25명)"
                       value={participantValue}
                       onChange={(e) => setParticipantValue(e.target.value)}
+                      className="rounded border-2 border-gray-300 focus:border-blue-500"
                       required
                     />
                     <Button
@@ -242,7 +229,7 @@ export function InquiryFormDialog() {
                         setParticipantMode("select")
                         setParticipantValue("")
                       }}
-                      className="w-full text-xs"
+                      className="w-full text-xs rounded border-2"
                     >
                       목록에서 선택하기
                     </Button>
@@ -260,10 +247,10 @@ export function InquiryFormDialog() {
                     }}
                     required
                   >
-                    <SelectTrigger id="participants">
+                    <SelectTrigger id="participants" className="rounded border-2 border-gray-300 bg-white">
                       <SelectValue placeholder="참여 인원 *" />
                     </SelectTrigger>
-                    <SelectContent className="z-[210]">
+                    <SelectContent className="z-[210] rounded border-2">
                       {inquiryConfig.formOptions.participantCounts.map((count) => (
                         <SelectItem key={count} value={count}>
                           {count}
@@ -276,15 +263,15 @@ export function InquiryFormDialog() {
               </div>
 
               {/* 교육 장소 */}
-              <div>
-                <Label htmlFor="location" className="mb-1 block">교육 장소 *</Label>
-                <Input id="location" placeholder="교육 장소" />
+              <div className="flex items-center">
+                <Label htmlFor="location" className="block text-sm font-medium text-gray-900 w-30">교육 장소 *</Label>
+                <Input id="location" placeholder="교육 장소" className="rounded border-2 border-gray-300 focus:border-blue-500 bg-white" />
               </div>
 
               {/* 예산 */}
-              <div>
-                <Label htmlFor="budget" className="mb-1 block">예산 (선택사항)</Label>
-                <Input id="budget" placeholder="예산 (선택사항)" />
+              <div className="flex items-center">
+                <Label htmlFor="budget" className="block text-sm font-medium text-gray-900 w-40">예산 (선택사항)</Label>
+                <Input id="budget" placeholder="예산 (선택사항)" className="rounded border-2 border-gray-300 focus:border-blue-500 bg-white w-[200px]" />
               </div>
             </div>
           </section>
@@ -294,19 +281,19 @@ export function InquiryFormDialog() {
               <Calendar className="h-4 w-4" />
               일정 설정
             </h4>
-          <section className="rounded-lg border p-4">
+          <section className="rounded border-2 border-gray-300 bg-gray-50/50 p-5">
       
-            <div className="grid gap-3 md:grid-cols-3">
+            <div className="grid gap-4 md:grid-cols-3">
               <div>
-                <Label htmlFor="preferred-date" className="mb-1 block">희망 날짜 *</Label>
-                <Input id="preferred-date" type="date" placeholder="mm/dd/yyyy" />
+                <Label htmlFor="preferred-date" className="mb-2 block text-sm font-medium text-gray-900">희망 날짜 *</Label>
+                <Input id="preferred-date" type="date" placeholder="mm/dd/yyyy" className="rounded border-2 border-gray-300 focus:border-blue-500 bg-white" />
               </div>
               <div>
-                <Label htmlFor="preferred-time" className="mb-1 block">희망 시간 *</Label>
-                <Input id="preferred-time" type="time" placeholder="--:-- --" />
+                <Label htmlFor="preferred-time" className="mb-2 block text-sm font-medium text-gray-900">희망 시간 *</Label>
+                <Input id="preferred-time" type="time" placeholder="--:-- --" className="rounded border-2 border-gray-300 focus:border-blue-500 bg-white" />
               </div>
               <div>
-                <Label htmlFor="duration" className="mb-1 block">교육 시간 *</Label>
+                <Label htmlFor="duration" className="mb-2 block text-sm font-medium text-gray-900">교육 시간 *</Label>
                 {durationMode === "input" ? (
                   <div className="space-y-2">
                     <Input
@@ -314,6 +301,7 @@ export function InquiryFormDialog() {
                       placeholder="교육 시간을 입력하세요"
                       value={durationValue}
                       onChange={(e) => setDurationValue(e.target.value)}
+                      className="rounded border-2 border-gray-300 focus:border-blue-500"
                       required
                     />
                     <Button
@@ -324,7 +312,7 @@ export function InquiryFormDialog() {
                         setDurationMode("select")
                         setDurationValue("")
                       }}
-                      className="w-full text-xs"
+                      className="w-full text-xs rounded border-2"
                     >
                       목록에서 선택하기
                     </Button>
@@ -342,10 +330,10 @@ export function InquiryFormDialog() {
                     }}
                     required
                   >
-                    <SelectTrigger id="duration">
+                    <SelectTrigger id="duration" className="rounded border-2 border-gray-300 bg-white">
                       <SelectValue placeholder="교육 시간 *" />
                     </SelectTrigger>
-                    <SelectContent>
+                    <SelectContent className="rounded border-2 z-[200]">
                       {inquiryConfig.formOptions.durations.map((duration) => (
                         <SelectItem key={duration} value={duration}>
                           {duration}
@@ -361,13 +349,13 @@ export function InquiryFormDialog() {
 
           {/* 교육 요청사항 */}
           <section>
-            <Label htmlFor="message" className="mb-2 block">
+            <Label htmlFor="message" className="mb-2 block text-sm font-medium text-gray-900">
               교육 요청사항
             </Label>
             <Textarea
               id="message"
               placeholder="기타 요청사항을 입력해주세요"
-              className="min-h-[120px]"
+              className="min-h-[120px] rounded border-2 border-gray-300 focus:border-blue-500 bg-white"
             />
           </section>
 
@@ -375,11 +363,11 @@ export function InquiryFormDialog() {
             * 담당자가 최대한 빠르게 연락드리겠습니다.
           </DialogDescription>
 
-          <div className="flex gap-2 pt-4">
-            <Button type="button" variant="outline" className="flex-1 bg-transparent" onClick={() => setOpen(false)}>
+          <div className="flex gap-3 pt-4">
+            <Button type="button" variant="outline" className="flex-1 bg-transparent rounded border-2 border-gray-300 hover:bg-gray-100" onClick={() => setOpen(false)}>
               취소
             </Button>
-            <Button type="submit" className="flex-1">
+            <Button type="submit" className="flex-1 rounded border-2 border-blue-600 bg-blue-600 hover:bg-blue-700">
               문의 접수
             </Button>
           </div>
