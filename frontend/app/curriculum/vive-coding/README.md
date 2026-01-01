@@ -1,4 +1,4 @@
-# 심화 교육 프로그램
+# 바이브 코딩 프로그램
 
 기획부터 실행까지, IoT 제작과 AI 서비스 개발 실전 프로젝트입니다.
 
@@ -38,12 +38,12 @@
 ## 파일 구조
 
 ```
-science/
-├── config.ts                          # 설정 파일
+vive-coding/
+├── config.ts                            # 설정 파일
 ├── hooks/
-│   └── useScienceCurriculumData.ts   # 데이터 로딩 Hook
-├── page.tsx                           # 메인 페이지
-└── README.md                          # 이 파일
+│   └── useAICodingCurriculumData.ts    # 데이터 로딩 Hook
+├── page.tsx                             # 메인 페이지
+└── README.md                            # 이 파일
 ```
 
 ## 커리큘럼
@@ -169,5 +169,5 @@ AI 도구를 효과적으로 활용하는 능력을 습득합니다.
 
 ## 문의
 
-심화 교육 과정 관련 문의: [수업 일정 보기](/inquiry/schedule)
+바이브 코딩 과정 관련 문의: [수업 일정 보기](/inquiry/schedule)
 

@@ -27,14 +27,15 @@ export const headerBrand = {
 export const headerNavSections: HeaderNavSection[] = [
   {
     title: "AI 교육 커리큘럼",
-    width: 220,
+    width: 240,
     icon: "BookOpen",
     items: [
+
       { 
-        label: "바이브 코딩 AI", 
-        href: "/curriculum/ai-education", 
+        label: "블록코딩 AI", 
+        href: "/curriculum/block-coding", 
         icon: "Briefcase", 
-        description: "AI를 활용한 웹 서비스 제작"
+        description: "블록코딩 AI 게임 (DWAI)"
       },
       { 
         label: "아두이노 AI", 
@@ -55,8 +56,14 @@ export const headerNavSections: HeaderNavSection[] = [
         description: "AI 비서 및 에이전트 서비스"
       },
       { 
+        label: "바이브 AI 코딩", 
+        href: "/curriculum/vive-coding", 
+        icon: "MessageSquare", 
+        description: "AI 협업 콘텐츠 제작 & 웹 개발"
+      },
+      { 
         label: "심화 교육 프로그램", 
-        href: "/curriculum/science", 
+        href: "/curriculum/ai-coding", 
         icon: "GraduationCap", 
         description: "AI 활용한 실전 프로젝트"
       },

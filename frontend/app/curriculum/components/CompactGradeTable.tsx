@@ -141,7 +141,7 @@ export function CompactGradeTable({
             <tbody>
               {courses.map((course, rowIndex) => (
                 <tr
-                  key={course.id}
+                  key={'course_'+course.id}
                   className={`border-b border-gray-200 hover:bg-gray-50 transition-colors ${
                     rowIndex % 2 === 0 ? "bg-white" : "bg-gray-50/50"
                   }`}

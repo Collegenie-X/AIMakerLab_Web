@@ -45,7 +45,7 @@ export function LearningPathSection({
         {/* 모바일: 세로 레이아웃 */}
         <div className="md:hidden space-y-4">
           {steps.map((step, index) => (
-            <div key={step.id}>
+            <div key={`step-${step.id}`}>
               <div className={`
                 relative p-6 rounded-xl border-2 transition-all
                 ${step.emphasis 

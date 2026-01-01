@@ -1,18 +1,19 @@
 /**
- * 심화 교육 프로그램 페이지 설정 파일
+ * AI 심화 제작 코딩 프로그램 페이지 설정 파일
  * 텍스트, 라벨, 버튼 텍스트 등을 관리합니다.
  */
 
-export const SCIENCE_CONFIG = {
+export const AI_CODING_CONFIG = {
   // 메타 정보
   meta: {
-    title: "심화 교육 프로그램 | AI메이커랩",
-    description: "IoT 제작과 AI 서비스 개발 - 기획부터 실행까지",
+    title: "AI 심화 제작 코딩 | AI메이커랩",
+    description: "IoT 제작과 AI 서비스 개발 - 기획부터 실행까지 실전 프로젝트로 포트폴리오 완성",
   },
 
   // 버튼 텍스트
   buttons: {
     viewSchedule: "수업 일정 보기",
+    inquiry: "수업 신청하기",
   },
 
   // 라벨
@@ -27,9 +28,10 @@ export const SCIENCE_CONFIG = {
   // 링크
   links: {
     schedule: "/inquiry/schedule",
+    inquiry: "/inquiry",
   },
 
-  // 색상 매핑
+  // 색상 매핑 (아이콘 배경 및 텍스트 색상)
   iconColors: {
     blue: {
       bg: "bg-blue-100",
@@ -63,6 +65,10 @@ export const SCIENCE_CONFIG = {
       bg: "bg-yellow-100",
       text: "text-yellow-600",
     },
+    amber: {
+      bg: "bg-amber-100",
+      text: "text-amber-600",
+    },
     rose: {
       bg: "bg-rose-100",
       text: "text-rose-600",
@@ -87,26 +93,18 @@ export const SCIENCE_CONFIG = {
       bg: "bg-fuchsia-100",
       text: "text-fuchsia-600",
     },
-    amber: {
-      bg: "bg-amber-100",
-      text: "text-amber-600",
-    },
-    lime: {
-      bg: "bg-lime-100",
-      text: "text-lime-600",
-    },
   },
 
-  // 그라데이션 스타일
+  // 그라데이션 스타일 (Flat UI Colors - NEPHRITIS)
   gradients: {
-    hero: "from-orange-500 to-red-600",
-    cta: "bg-orange-600",
+    hero: "from-emerald-500 via-teal-600 to-cyan-700", // AI 코딩 - 창의적이고 미래지향적
+    cta: "bg-emerald-600",
   },
 
   // 탭 관련 설정
   tabs: {
-    defaultTabId: "3hours",
-    activeTabClass: "bg-orange-600 text-white shadow-sm",
+    defaultTabId: "class-photos",
+    activeTabClass: "bg-emerald-600 text-white shadow-sm",
     inactiveTabClass: "text-gray-600 hover:text-gray-900 hover:bg-white",
   },
 
@@ -115,7 +113,31 @@ export const SCIENCE_CONFIG = {
     // 섹션별 컨테이너 클래스 (globals.css에 정의됨)
     containerClass: "curriculum-container-6xl", // curriculum-container (5xl) | curriculum-container-6xl | curriculum-container-7xl
   },
+
+  // 주요 특징 (히어로 섹션에서 사용)
+  features: [
+    {
+      key: "planning-to-execution",
+      label: "기획부터 실행",
+      description: "문제 정의부터 프로젝트 완성까지",
+    },
+    {
+      key: "iot-making",
+      label: "IoT 제작",
+      description: "하드웨어와 AI를 결합한 제품 개발",
+    },
+    {
+      key: "ai-service",
+      label: "AI 서비스",
+      description: "최신 AI 도구로 웹 서비스 구축",
+    },
+    {
+      key: "portfolio",
+      label: "포트폴리오",
+      description: "실전 프로젝트로 포트폴리오 완성",
+    },
+  ],
 } as const;
 
-export type ScienceConfig = typeof SCIENCE_CONFIG;
+export type AICodingConfig = typeof AI_CODING_CONFIG;
 
