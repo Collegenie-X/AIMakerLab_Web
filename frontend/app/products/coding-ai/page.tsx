@@ -15,8 +15,8 @@ import { LABELS, CATEGORY_MAP, GRADE_MAP } from './config'
  * 코딩(SW.AI) 교육제품 목록 페이지
  */
 export default function CodingAIProductsPage() {
-  // 제품 데이터 로드
-  const { products, isLoading, error } = useProducts()
+  // 제품 데이터 로드 (ReactQuery 기반)
+  const { data: products = [], isLoading, error } = useProducts()
 
   // 필터 상태 관리
   const [selectedCategory, setSelectedCategory] = useState<string>('all')

@@ -1,0 +1,95 @@
+{
+  "kitImages": [
+    {
+      "type": "package",
+      "image": "/products/kit-images/music-kit-package.jpg",
+      "title": "제품 패키지",
+      "description": "음악 블록과 센서가 정리되어 있습니다"
+    },
+    {
+      "type": "assembled",
+      "image": "/products/kit-images/music-kit-assembled.jpg",
+      "title": "완성된 음악 인터페이스",
+      "description": "터치 센서로 연주할 수 있는 디지털 악기"
+    }
+  ],
+  "productDemos": [
+    {
+      "type": "video",
+      "url": "https://www.youtube.com/watch?v=example-music1",
+      "thumbnail": "/products/demos/music-demo1.jpg",
+      "title": "터치 피아노 연주 영상",
+      "description": "터치 센서를 이용한 피아노 연주 시연"
+    },
+    {
+      "type": "image",
+      "url": "/products/demos/music-demo2.jpg",
+      "title": "리듬 게임 시연",
+      "description": "블록 코딩으로 만든 리듬 게임"
+    }
+  ],
+  "simpleCurriculum": [
+    {
+      "session": 1,
+      "title": "음악과 코딩의 만남",
+      "summary": "음계의 원리를 배우고 블록 코딩으로 소리를 만들어봅니다.",
+      "icon": "🎵"
+    },
+    {
+      "session": 2,
+      "title": "터치 센서 악기 만들기",
+      "summary": "터치 센서를 활용하여 연주할 수 있는 디지털 악기를 제작합니다.",
+      "icon": "🎹"
+    },
+    {
+      "session": 3,
+      "title": "음악 게임 프로젝트",
+      "summary": "리듬 게임을 만들고 친구들과 함께 플레이합니다.",
+      "icon": "🎮"
+    }
+  ],
+  "activityPhotos": [
+    {
+      "image": "/products/activities/music-class1.jpg",
+      "title": "음계 학습",
+      "description": "도레미파솔라시도 음계를 코딩으로 만들어보는 모습"
+    },
+    {
+      "image": "/products/activities/music-class2.jpg",
+      "title": "센서 연결 실습",
+      "description": "터치 센서를 연결하고 테스트하는 학생들"
+    }
+  ],
+  "componentsTable": [
+    {
+      "name": "아두이노 UNO 호환보드",
+      "quantity": 1,
+      "specification": "ATmega328P, 16MHz",
+      "purpose": "메인 컨트롤러"
+    },
+    {
+      "name": "터치 센서 모듈",
+      "quantity": 8,
+      "specification": "정전식 터치, 3.3-5V",
+      "purpose": "음계 입력"
+    },
+    {
+      "name": "스피커 모듈",
+      "quantity": 1,
+      "specification": "8Ω 0.5W",
+      "purpose": "소리 출력"
+    }
+  ],
+  "technologies": [
+    {
+      "title": "소리의 과학",
+      "description": "주파수와 음계의 관계를 이해하고, 프로그래밍으로 다양한 소리를 만듭니다.",
+      "image": "/products/tech/sound-science.jpg",
+      "keywords": ["주파수", "음계", "PWM 신호"]
+    }
+  ],
+  "components": [],
+  "curriculum": [],
+  "assemblySteps": []
+}
+

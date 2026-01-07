@@ -1,196 +1,288 @@
-# Gallery 섹션 JSON 관리 구조
+# Gallery 섹션 - React Query 리팩토링 완료
 
-Gallery 페이지(작품/후기)의 데이터와 텍스트 설정은 JSON 파일로 관리되며, React Hooks를 통해 불러옵니다.
+Gallery 페이지(작품/후기)를 React Query 기반으로 완전히 리팩토링했습니다.
 
 ## 📁 파일 구조
 
 ```
 app/gallery/
-├── hooks/
-│   ├── useGalleryItems.ts         # 갤러리 아이템 데이터 로딩
-│   └── useGalleryConfig.ts        # 텍스트 설정 로딩
-├── components/                    # 공통 컴포넌트들
-├── reviews/                       # 후기 페이지
-│   ├── page.tsx
-│   └── config.ts                  # @deprecated (타입 참조용)
-├── works/                         # 작품 페이지
-│   └── page.tsx
-├── config.ts                      # @deprecated (타입 참조용)
-└── README.md                      # 이 문서
+├── components/
+│   ├── GalleryCard.tsx                 # 갤러리 카드 컴포넌트
+│   ├── GalleryCategoryFilter.tsx       # 카테고리 필터 컴포넌트
+│   ├── GalleryDetailDialog.tsx         # 상세 다이얼로그 (CRUD 포함)
+│   ├── GalleryEmptyState.tsx           # 빈 상태 컴포넌트
+│   ├── GalleryHeroSection.tsx          # Hero 섹션
+│   └── GalleryListSection.tsx          # 리스트 섹션
+├── config.ts                           # 타입 정의 (@deprecated - lib/gallery/types.ts 사용)
+├── hooks/                              # @deprecated - lib/gallery/hooks.ts 사용
+├── page.tsx                            # 메인 페이지 (React Query 기반)
+└── README.md                           # 이 문서
+
+lib/gallery/                            # 비즈니스 로직 (새로 추가)
+├── types.ts                            # 타입 정의
+├── api.ts                              # API 함수
+├── hooks.ts                            # React Query Hooks
+├── utils.ts                            # 유틸리티 함수
+├── query-provider.tsx                  # Query Provider
+└── index.ts                            # 통합 Export
 
 public/gallery/
-├── images/                        # 갤러리 이미지 파일들
-│   ├── ai-neural-network.png
-│   ├── app-inventor-coding-blocks.jpg
-│   ├── arduino-electronics-circuit.jpg
-│   ├── mobile-app-interface.png
-│   ├── raspberry-pi-computer-iot.jpg
-│   ├── smart-home-iot-device.jpg
-│   └── student-robot-project.jpg
-├── reviews.json                   # 후기 데이터
-├── reviews-config.json            # 후기 페이지 텍스트 설정
-├── works.json                     # 작품 데이터
-└── works-config.json              # 작품 페이지 텍스트 설정
+├── images/                             # 갤러리 이미지 파일들
+├── reviews.json                        # 후기 데이터
+├── reviews-config.json                 # 후기 설정 (@deprecated)
+├── works.json                          # 작품 데이터
+└── works-config.json                   # 작품 설정 (@deprecated)
 ```
 
-## 📄 JSON 파일 구조
+## 🎯 주요 개선사항
 
-### 데이터 파일 (reviews.json / works.json)
+### 1. 비즈니스 로직과 UI 로직 분리 ✅
+- **lib/gallery**: 모든 비즈니스 로직 (API, types, hooks, utils)
+- **app/gallery/components**: UI 컴포넌트만 포함
+- 명확한 책임 분리로 유지보수성 향상
 
+### 2. React Query 도입 (1분 캐시) ✅
+```typescript
+// lib/gallery/hooks.ts
+const DEFAULT_QUERY_OPTIONS = {
+  staleTime: 1 * 60 * 1000,    // 1분 캐시
+  gcTime: 5 * 60 * 1000,        // 5분 메모리 유지
+  retry: 1,
+  refetchOnWindowFocus: false,
+}
+```
+
+### 3. CRUD 기능 구현 (즉시 반영) ✅
+- **좋아요 토글**: Optimistic Update로 즉시 UI 반영
+- **조회수 증가**: 상세 다이얼로그 열 때 자동 증가
+- **로컬 스토리지**: 좋아요/조회 이력 관리 (중복 방지)
+
+```typescript
+// 좋아요 토글 사용 예시
+const { mutate: toggleLike } = useToggleLike('works')
+
+toggleLike(itemId, {
+  onSuccess: () => {
+    // 즉시 UI 업데이트됨
+  }
+})
+```
+
+### 4. 공통 함수/컴포넌트로 유지보수 용이 ✅
+- **extractCategories**: 카테고리 목록 추출
+- **sortGalleryItems**: 정렬 (최신순, 인기순, 조회수순)
+- **filterByCategory**: 카테고리 필터링
+- **filterBySearch**: 검색 필터링
+- **formatNumber**: 숫자 포맷팅 (1K, 1M)
+- **getDefaultImage**: 카테고리별 기본 이미지
+
+## 🚀 사용 방법
+
+### 1. 갤러리 데이터 조회
+
+```typescript
+import { useGalleryItems } from '@/lib/gallery'
+
+function MyComponent() {
+  const { data: items, isLoading, error } = useGalleryItems('works')
+  
+  if (isLoading) return <div>로딩 중...</div>
+  if (error) return <div>에러: {error.message}</div>
+  
+  return <div>{items.map(item => ...)}</div>
+}
+```
+
+### 2. 좋아요/조회수 업데이트
+
+```typescript
+import { useToggleLike, useIncrementViews } from '@/lib/gallery'
+
+function MyComponent() {
+  const toggleLike = useToggleLike('works')
+  const incrementViews = useIncrementViews('works')
+  
+  const handleLike = () => {
+    toggleLike.mutate(itemId)
+  }
+  
+  const handleView = () => {
+    incrementViews.mutate(itemId)
+  }
+}
+```
+
+### 3. 검색/필터링/정렬
+
+```typescript
+import { 
+  useGalleryItems, 
+  extractCategories,
+  filterByCategory,
+  sortGalleryItems 
+} from '@/lib/gallery'
+
+function MyComponent() {
+  const { data: items = [] } = useGalleryItems('works')
+  
+  // 카테고리 추출
+  const categories = extractCategories(items)
+  
+  // 필터링
+  const filtered = filterByCategory(items, 'IoT')
+  
+  // 정렬
+  const sorted = sortGalleryItems(filtered, 'popular')
+}
+```
+
+## 📋 JSON 데이터 구조
+
+### works.json / reviews.json
 ```json
 [
   {
     "id": 1,
-    "title": "작품/후기 제목",
+    "title": "제목",
     "description": "간단한 설명",
     "category": "카테고리",
     "image": "/gallery/images/이미지.jpg",
-    "emoji": "🎯",
+    "emoji": "🎨",
     "author": "작성자",
     "date": "2025.02.18",
     "views": 145,
     "likes": 32,
     "rating": 5,
     "details": "상세 내용...",
-    "images": ["/gallery/images/이미지1.jpg", "/gallery/images/이미지2.png"],
+    "images": ["/gallery/images/1.jpg", "/gallery/images/2.jpg"],
     "tags": ["태그1", "태그2"]
   }
 ]
 ```
 
-### 설정 파일 (reviews-config.json / works-config.json)
+## 🔧 환경 설정
 
-```json
-{
-  "hero": {
-    "emoji": "💬",
-    "title": "수업 후기",
-    "subtitle": "학부모님과 학생들의 생생한 수업 후기"
-  },
-  "categoryAll": "전체",
-  "itemCountSuffix": "개의 후기",
-  "emptyState": {
-    "emoji": "🔍",
-    "title": "후기가 없습니다",
-    "message": "선택한 카테고리에 해당하는 후기가 아직 없습니다."
-  },
-  "actions": {
-    "like": "도움됨",
-    "share": "공유하기",
-    "create": "새 후기 작성하기",
-    "cancel": "취소",
-    "submit": "후기 등록하기"
-  },
-  "form": { ... }
-}
-```
-
-## 🎣 Hooks 사용법
-
-### 1. 갤러리 아이템 데이터 불러오기
-
+### Provider 설정 (이미 적용됨)
 ```typescript
-import { useGalleryItems } from '@/app/gallery/hooks/useGalleryItems'
-import { galleryDataUrls } from '@/app/gallery/config'
+// app/gallery/page.tsx
+import { GalleryQueryProvider } from '@/lib/gallery'
 
-function ReviewsPage() {
-  const { items, loading, error, categories } = useGalleryItems({ 
-    sourceUrl: galleryDataUrls.reviews 
-  })
-  
-  if (loading) return <div>로딩 중...</div>
-  if (error) return <div>오류: {error}</div>
-  
-  return <div>{items.map(item => ...)}</div>
-}
-```
-
-### 2. 텍스트 설정 불러오기
-
-```typescript
-import { useGalleryConfig } from '@/app/gallery/hooks/useGalleryConfig'
-
-function ReviewsPage() {
-  const { config, isLoading, error } = useGalleryConfig('reviews')
-  
-  if (isLoading) return <div>로딩 중...</div>
-  if (error || !config) return <div>오류 발생</div>
-  
+export default function GalleryPage() {
   return (
-    <div>
-      <h1>{config.hero.title}</h1>
-      <p>{config.hero.subtitle}</p>
-    </div>
+    <GalleryQueryProvider>
+      <GalleryPageContent />
+    </GalleryQueryProvider>
   )
 }
 ```
 
-## 📝 컨텐츠 수정 방법
+## 🎨 컴포넌트 사용 예시
 
-### 데이터 추가/수정
+### GalleryCard
+```typescript
+<GalleryCard
+  item={item}
+  onClick={() => setSelectedItem(item)}
+  showRating={type === "reviews"}
+/>
+```
 
-1. `/public/gallery/reviews.json` 또는 `works.json` 파일 열기
-2. 배열에 새 항목 추가 또는 기존 항목 수정
-3. 저장 → 자동으로 반영됨
+### GalleryDetailDialog
+```typescript
+<GalleryDetailDialog
+  item={selectedItem}
+  type="works"
+  open={!!selectedItem}
+  onClose={() => setSelectedItem(null)}
+/>
+```
 
-### 텍스트 설정 수정
+### GalleryListSection
+```typescript
+<GalleryListSection type="works" />
+```
 
-1. `/public/gallery/reviews-config.json` 또는 `works-config.json` 파일 열기
-2. 원하는 텍스트 수정
-3. 저장 → 자동으로 반영됨
+## 📊 캐시 전략
 
-### 이미지 추가/변경
+### Query 캐시
+- **staleTime**: 1분 - 데이터가 1분간 fresh 상태 유지
+- **gcTime**: 5분 - 메모리에 5분간 캐시 유지
+- **retry**: 1번 - 실패 시 1번 재시도
 
-1. 이미지를 `/public/gallery/images/` 폴더에 저장
-2. JSON 파일에서 `/gallery/images/파일명.확장자` 형식으로 참조
+### Mutation 최적화
+- **Optimistic Update**: 좋아요 토글 시 즉시 UI 반영
+- **Cache Invalidation**: 성공 시 관련 쿼리 무효화
+- **Rollback**: 실패 시 이전 상태로 롤백
 
-```json
-{
-  "image": "/gallery/images/새이미지.jpg",
-  "images": [
-    "/gallery/images/이미지1.jpg",
-    "/gallery/images/이미지2.png"
-  ]
+## 🔄 추후 백엔드 연동
+
+### API 함수만 수정
+```typescript
+// lib/gallery/api.ts
+export async function fetchGalleryItems(type: GalleryType): Promise<GalleryItem[]> {
+  // 기존: JSON 파일
+  // const response = await fetch(`/gallery/${type}.json`)
+  
+  // 변경: Backend API
+  const response = await fetch(`/api/gallery/${type}`)
+  
+  // 나머지 로직 동일
 }
 ```
 
-## 🎯 주요 기능
+### 좋아요/조회수 API 연동
+```typescript
+// lib/gallery/api.ts
+export async function toggleLike(type: GalleryType, itemId: number) {
+  // Backend API 호출
+  const response = await fetch(`/api/gallery/${type}/${itemId}/like`, {
+    method: 'POST',
+  })
+  
+  return response.json()
+}
+```
 
-### 카테고리 필터링
-- `useGalleryItems` hook이 자동으로 카테고리 목록 생성
-- 프론트엔드에서 카테고리별 필터링 가능
+## ✅ 체크리스트
 
-### 검색 기능
-- 제목, 설명, 태그 기반 검색
-- `useGalleryItems` hook에서 제공
+- [x] 비즈니스 로직과 UI 로직 분리
+- [x] React Query 도입 (1분 캐시)
+- [x] CRUD 기능 구현 (좋아요, 조회수)
+- [x] 공통 함수/컴포넌트 모듈화
+- [x] TypeScript 타입 안전성
+- [x] Optimistic Update 구현
+- [x] 에러 처리 및 로딩 상태
+- [x] 로컬 스토리지 연동
+- [ ] Backend API 연동 (추후)
 
-### 폼 설정
-- 작품/후기 등록 폼의 모든 텍스트를 JSON으로 관리
-- 라벨, placeholder, 옵션 등 모두 커스터마이징 가능
+## 📝 주요 API
 
-## ⚠️ 주의사항
+### Queries
+- `useGalleryItems(type)` - 갤러리 아이템 목록
+- `useGalleryItem(type, id)` - 특정 아이템
+- `useGalleryItemsByCategory(type, category)` - 카테고리별
+- `useGalleryConfig(type)` - 설정 (@deprecated)
+- `useGalleryPage(type)` - 통합 데이터
+- `useGallerySearch(type, query)` - 검색
 
-1. **이미지 경로**: 반드시 `/gallery/images/` 경로 사용
-2. **타입 안전성**: TypeScript 타입이 자동으로 적용됨
-3. **에러 처리**: 모든 컴포넌트에 로딩/에러 상태 처리 포함
-4. **config.ts**: 텍스트 설정은 더 이상 사용하지 않음 (타입 참조용으로만 유지)
-5. **ID 중복**: 각 아이템의 `id`는 고유해야 함
+### Mutations
+- `useToggleLike(type)` - 좋아요 토글
+- `useIncrementViews(type)` - 조회수 증가
 
-## 🔄 마이그레이션
+### Utils
+- `extractCategories(items)` - 카테고리 추출
+- `sortGalleryItems(items, sortBy)` - 정렬
+- `filterByCategory(items, category)` - 필터링
+- `filterBySearch(items, query)` - 검색
+- `getDefaultImage(category)` - 기본 이미지
+- `formatNumber(num)` - 숫자 포맷팅
+- `formatDate(dateString)` - 날짜 포맷팅
+- `isItemLiked(type, id)` - 좋아요 상태 확인
 
-기존 `config.ts`에서 JSON으로 마이그레이션 완료:
-- ✅ 데이터와 설정을 별도 JSON 파일로 분리
-- ✅ Hooks를 통한 데이터 로딩 구현
-- ✅ 이미지 파일 `/gallery/images/` 폴더로 정리
-- ✅ 타입 안전성 유지
+## 🎉 완료!
 
-## 📚 참고
-
-- 데이터 Hook: `/app/gallery/hooks/useGalleryItems.ts`
-- 설정 Hook: `/app/gallery/hooks/useGalleryConfig.ts`
-- 후기 데이터: `/public/gallery/reviews.json`
-- 후기 설정: `/public/gallery/reviews-config.json`
-- 작품 데이터: `/public/gallery/works.json`
-- 작품 설정: `/public/gallery/works-config.json`
-- 이미지: `/public/gallery/images/`
-
+Gallery 섹션이 React Query 기반으로 완전히 리팩토링되었습니다.
+- 빠른 응답 속도 (1분 캐시)
+- 즉각적인 UI 반영 (Optimistic Update)
+- 깔끔한 코드 구조 (비즈니스/UI 분리)
+- 쉬운 유지보수 (모듈화)

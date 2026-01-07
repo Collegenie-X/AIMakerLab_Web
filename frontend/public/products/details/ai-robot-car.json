@@ -1,0 +1,119 @@
+{
+  "kitImages": [
+    {
+      "type": "package",
+      "image": "/products/kit-images/robot-car-package.jpg",
+      "title": "제품 패키지",
+      "description": "로봇카 부품이 체계적으로 포장되어 있습니다"
+    },
+    {
+      "type": "assembled",
+      "image": "/products/kit-images/robot-car-assembled.jpg",
+      "title": "완성된 AI 로봇카",
+      "description": "자율주행 기능을 갖춘 로봇카"
+    }
+  ],
+  "productDemos": [
+    {
+      "type": "video",
+      "url": "https://www.youtube.com/watch?v=example-robot1",
+      "thumbnail": "/products/demos/robot-demo1.jpg",
+      "title": "장애물 회피 주행",
+      "description": "초음파 센서로 장애물을 감지하고 회피하는 모습"
+    },
+    {
+      "type": "video",
+      "url": "https://www.youtube.com/watch?v=example-robot2",
+      "thumbnail": "/products/demos/robot-demo2.jpg",
+      "title": "라인 트레이싱",
+      "description": "적외선 센서로 검은 선을 따라가는 주행"
+    }
+  ],
+  "simpleCurriculum": [
+    {
+      "session": 1,
+      "title": "로봇카 조립 및 기본 주행",
+      "summary": "로봇카를 조립하고 전진, 후진, 회전 등 기본 동작을 프로그래밍합니다.",
+      "icon": "🤖"
+    },
+    {
+      "session": 2,
+      "title": "센서 활용 자율주행",
+      "summary": "초음파 센서와 적외선 센서로 장애물을 회피하고 라인을 따라가는 주행을 구현합니다.",
+      "icon": "🚗"
+    },
+    {
+      "session": 3,
+      "title": "AI 알고리즘 적용",
+      "summary": "간단한 AI 알고리즘을 적용하여 최적 경로를 찾는 로봇카를 완성합니다.",
+      "icon": "🧠"
+    }
+  ],
+  "activityPhotos": [
+    {
+      "image": "/products/activities/robot-class1.jpg",
+      "title": "로봇카 조립",
+      "description": "학생들이 로봇카를 조립하고 있는 모습"
+    },
+    {
+      "image": "/products/activities/robot-class2.jpg",
+      "title": "센서 연결 및 테스트",
+      "description": "초음파 센서를 연결하고 거리 측정 테스트"
+    },
+    {
+      "image": "/products/activities/robot-class3.jpg",
+      "title": "자율주행 대회",
+      "description": "완성한 로봇카로 미로 찾기 대회를 하는 모습"
+    }
+  ],
+  "componentsTable": [
+    {
+      "name": "아두이노 UNO 호환보드",
+      "quantity": 1,
+      "specification": "ATmega328P, 16MHz",
+      "purpose": "메인 컨트롤러"
+    },
+    {
+      "name": "초음파 센서 (HC-SR04)",
+      "quantity": 1,
+      "specification": "2-400cm 측정",
+      "purpose": "장애물 감지"
+    },
+    {
+      "name": "적외선 센서",
+      "quantity": 2,
+      "specification": "디지털 출력",
+      "purpose": "라인 트레이싱"
+    },
+    {
+      "name": "DC 모터",
+      "quantity": 2,
+      "specification": "3-6V",
+      "purpose": "바퀴 구동"
+    },
+    {
+      "name": "모터 드라이버 (L298N)",
+      "quantity": 1,
+      "specification": "2A per channel",
+      "purpose": "모터 제어"
+    }
+  ],
+  "technologies": [
+    {
+      "title": "자율주행 기술",
+      "description": "센서로 주변 환경을 인식하고 자동으로 주행하는 기술을 배웁니다.",
+      "image": "/products/tech/autonomous-driving.jpg",
+      "keywords": ["장애물 회피", "경로 계획", "센서 융합"]
+    },
+    {
+      "title": "로봇 제어",
+      "description": "모터를 제어하여 로봇의 움직임을 정밀하게 조종하는 방법을 학습합니다.",
+      "image": "/products/tech/robot-control.jpg",
+      "keywords": ["PWM 제어", "PID 제어", "모터 드라이버"]
+    }
+  ],
+  "components": [],
+  "curriculum": [],
+  "assemblySteps": []
+}
+

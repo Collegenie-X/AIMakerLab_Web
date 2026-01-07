@@ -4,8 +4,8 @@ import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
 import { ProductBreadcrumb } from '../components/detail/ProductBreadcrumb'
 import { ProductDetailTop } from '../components/detail/ProductDetailTop'
-import { useProduct } from '../hooks/useProducts'
-import { BookOpen, GraduationCap, Users, Clock, Star, CheckCircle2 } from 'lucide-react'
+import { useProductDetailPage } from '../hooks/useProducts'
+import { BookOpen, GraduationCap, Users } from 'lucide-react'
 import { PRODUCT_DETAIL_TEXTS } from '../config'
 import { ProductVideo } from '../components/detail/ProductVideo'
 import { ClassroomPhotosGallery } from '../components/detail/ClassroomPhotosGallery'
@@ -19,7 +19,6 @@ import { KitImagesSection } from '../components/detail/KitImagesSection'
 import { ProductDemoGallery } from '../components/detail/ProductDemoGallery'
 import { SimpleCurriculumSection } from '../components/detail/SimpleCurriculumSection'
 import { ActivityPhotosGallery } from '../components/detail/ActivityPhotosGallery'
-import { useState, useEffect } from 'react'
 
 /**
  * 교육적 가치 섹션 (내부 컴포넌트)
@@ -89,41 +88,14 @@ function EducationalValueSection({
  * 제품 ID를 받아서 동적으로 데이터를 로드하고 표시합니다.
  */
 export function ProductDetailPageClient({ productId }: { productId: string }) {
-  // 제품 데이터 로드
-  const { product, isLoading, error } = useProduct(productId)
+  // 제품 상세 페이지 통합 데이터 로드 (ReactQuery 기반 - 5분 캐시)
+  const { data, isLoading, error } = useProductDetailPage(productId)
   
-  // 추가 데이터 로드
-  const [classroomPhotos, setClassroomPhotos] = useState<any[]>([])
-  const [reviews, setReviews] = useState<any[]>([])
-  const [productDetails, setProductDetails] = useState<any>(null)
-
-  useEffect(() => {
-    // 수업 활용 사진 로드
-    fetch('/products/classroom-photos.json')
-      .then((res) => res.json())
-      .then((data) => {
-        const filtered = data.filter((photo: any) => photo.productId === productId)
-        setClassroomPhotos(filtered)
-      })
-      .catch((err) => console.error('사진 로드 실패:', err))
-
-    // 리뷰 로드
-    fetch('/products/product-reviews.json')
-      .then((res) => res.json())
-      .then((data) => {
-        const filtered = data.filter((review: any) => review.productId === productId)
-        setReviews(filtered)
-      })
-      .catch((err) => console.error('리뷰 로드 실패:', err))
-
-    // 상세 정보 로드 (구성품, 커리큘럼, 기술)
-    fetch('/products/product-details.json')
-      .then((res) => res.json())
-      .then((data) => {
-        setProductDetails(data[productId] || null)
-      })
-      .catch((err) => console.error('상세 정보 로드 실패:', err))
-  }, [productId])
+  // 데이터 구조 분해 (기본값 설정)
+  const product = data?.product
+  const classroomPhotos = data?.classroomPhotos || []
+  const reviews = data?.reviews || []
+  const productDetails = data?.product || null
 
   // 로딩 상태
   if (isLoading) {

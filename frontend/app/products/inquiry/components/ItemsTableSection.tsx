@@ -1,3 +1,5 @@
+// 품목 목록 테이블 섹션 컴포넌트
+
 "use client"
 
 import { Button } from "@/components/ui/buttons/button"
@@ -7,51 +9,83 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Card, CardContent } from "@/components/ui/data-display/card"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/data-display/table"
 import { Plus, Trash2 } from "lucide-react"
-import type { QuoteItem } from "../config"
-import { quoteFormOptions } from "../config"
+import type { QuoteItem } from "../types"
+import { QUOTE_FORM_OPTIONS } from "../constants"
 import { useQuoteItems } from "../hooks/useQuoteItems"
+import { calculateLineSupplyAmount, calculateLineTaxAmount } from "../lib/calculator"
+import { updateArrayItem, addArrayItem, removeArrayItem } from "../utils/formHelpers"
 
+/**
+ * 품목 테이블 섹션 Props
+ */
 export type ItemsTableSectionProps = {
   items: QuoteItem[]
   onChange: (next: QuoteItem[]) => void
 }
 
+/**
+ * 품목 목록 테이블 섹션
+ * 견적서에 포함될 품목들을 입력하고 관리합니다
+ */
 export function ItemsTableSection({ items, onChange }: ItemsTableSectionProps) {
+  // 품목 카탈로그 로딩
   const { items: catalog } = useQuoteItems()
 
-  const update = (index: number, patch: Partial<QuoteItem>) => {
-    const next = items.map((it, i) => (i === index ? { ...it, ...patch } : it))
-    onChange(next)
+  /**
+   * 품목 업데이트 핸들러
+   */
+  const handleUpdateItem = (index: number, patch: Partial<QuoteItem>) => {
+    const updatedItems = updateArrayItem(items, index, patch)
+    onChange(updatedItems)
   }
 
-  const addRow = () => {
-    onChange([
-      ...items,
-      {
-        id: `item-${Date.now()}`,
-        name: quoteFormOptions.defaultItem.name,
-        unitPrice: 0,
-        quantity: 1,
-        taxType: "과세",
-      },
-    ])
+  /**
+   * 품목 추가 핸들러
+   */
+  const handleAddItem = () => {
+    const newItem: QuoteItem = {
+      id: `item-${Date.now()}`,
+      name: QUOTE_FORM_OPTIONS.defaultItem.name,
+      unitPrice: 0,
+      quantity: 1,
+      taxType: "과세",
+    }
+    const updatedItems = addArrayItem(items, newItem)
+    onChange(updatedItems)
   }
 
-  const removeRow = (index: number) => {
-    const next = items.filter((_, i) => i !== index)
-    onChange(next)
+  /**
+   * 품목 삭제 핸들러
+   */
+  const handleRemoveItem = (index: number) => {
+    const updatedItems = removeArrayItem(items, index)
+    onChange(updatedItems)
+  }
+
+  /**
+   * 카탈로그에서 품목 선택 핸들러
+   */
+  const handleSelectFromCatalog = (index: number, itemName: string) => {
+    const selected = catalog.find((c) => c.name === itemName)
+    const patch: Partial<QuoteItem> = {
+      name: itemName,
+      unitPrice: selected ? selected.unitPrice : items[index].unitPrice,
+    }
+    handleUpdateItem(index, patch)
   }
 
   return (
     <Card>
       <CardContent className="pt-6">
+        {/* 헤더 */}
         <div className="flex items-center justify-between mb-3">
           <Label className="text-base">품목 목록</Label>
-          <Button size="sm" variant="secondary" onClick={addRow}>
+          <Button size="sm" variant="secondary" onClick={handleAddItem}>
             <Plus className="h-4 w-4 mr-1" /> 행 추가
           </Button>
         </div>
 
+        {/* 품목 테이블 */}
         <Table>
           <TableHeader>
             <TableRow>
@@ -66,50 +100,94 @@ export function ItemsTableSection({ items, onChange }: ItemsTableSectionProps) {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {items.map((it, idx) => {
-              const supply = Math.max(0, (it.unitPrice || 0) * (it.quantity || 0))
-              const tax = it.taxType === "과세" ? Math.floor(supply * 0.1) : 0
+            {items.map((item, index) => {
+              // 품목별 계산
+              const supply = calculateLineSupplyAmount(item.unitPrice, item.quantity)
+              const tax = calculateLineTaxAmount(supply, item.taxType)
+
               return (
-                <TableRow key={it.id}>
+                <TableRow key={item.id}>
+                  {/* 품목명 (카탈로그 선택) */}
                   <TableCell>
                     <Select
-                      value={it.name}
-                      onValueChange={(v) => {
-                        const selected = catalog.find((c) => c.name === v)
-                        update(idx, { name: v, unitPrice: selected ? selected.unitPrice : it.unitPrice })
-                      }}
+                      value={item.name}
+                      onValueChange={(value) => handleSelectFromCatalog(index, value)}
                     >
-                      <SelectTrigger><SelectValue placeholder="품목 선택" /></SelectTrigger>
+                      <SelectTrigger>
+                        <SelectValue placeholder="품목 선택" />
+                      </SelectTrigger>
                       <SelectContent>
-                        {catalog.map((c) => (
-                          <SelectItem key={c.id} value={c.name}>{c.name}</SelectItem>
+                        {catalog.map((catalogItem) => (
+                          <SelectItem key={catalogItem.id} value={catalogItem.name}>
+                            {catalogItem.name}
+                          </SelectItem>
                         ))}
                       </SelectContent>
                     </Select>
                   </TableCell>
+
+                  {/* 설명 */}
                   <TableCell>
-                    <Input value={it.description || ""} onChange={(e) => update(idx, { description: e.target.value })} placeholder="옵션/설명" />
+                    <Input 
+                      value={item.description || ""} 
+                      onChange={(e) => handleUpdateItem(index, { description: e.target.value })} 
+                      placeholder="옵션/설명" 
+                    />
                   </TableCell>
+
+                  {/* 단가 */}
                   <TableCell className="text-right">
-                    <Input type="number" value={it.unitPrice} onChange={(e) => update(idx, { unitPrice: Number(e.target.value || 0) })} className="text-right" />
+                    <Input 
+                      type="number" 
+                      value={item.unitPrice} 
+                      onChange={(e) => handleUpdateItem(index, { unitPrice: Number(e.target.value || 0) })} 
+                      className="text-right" 
+                    />
                   </TableCell>
+
+                  {/* 수량 */}
                   <TableCell className="text-right">
-                    <Input type="number" value={it.quantity} onChange={(e) => update(idx, { quantity: Number(e.target.value || 0) })} className="text-right" />
+                    <Input 
+                      type="number" 
+                      value={item.quantity} 
+                      onChange={(e) => handleUpdateItem(index, { quantity: Number(e.target.value || 0) })} 
+                      className="text-right" 
+                    />
                   </TableCell>
+
+                  {/* 공급가 (계산값) */}
                   <TableCell className="text-right">{supply.toLocaleString()}</TableCell>
+
+                  {/* 세액 (계산값) */}
                   <TableCell className="text-right">{tax.toLocaleString()}</TableCell>
+
+                  {/* 과세구분 */}
                   <TableCell>
-                    <Select value={it.taxType} onValueChange={(v) => update(idx, { taxType: v as any })}>
-                      <SelectTrigger><SelectValue placeholder="구분" /></SelectTrigger>
+                    <Select 
+                      value={item.taxType} 
+                      onValueChange={(value) => handleUpdateItem(index, { taxType: value as "과세" | "면세" })}
+                    >
+                      <SelectTrigger>
+                        <SelectValue placeholder="구분" />
+                      </SelectTrigger>
                       <SelectContent>
-                        {quoteFormOptions.taxTypes.map((t) => (
-                          <SelectItem key={t} value={t as string}>{t}</SelectItem>
+                        {QUOTE_FORM_OPTIONS.taxTypes.map((type) => (
+                          <SelectItem key={type} value={type}>
+                            {type}
+                          </SelectItem>
                         ))}
                       </SelectContent>
                     </Select>
                   </TableCell>
+
+                  {/* 삭제 버튼 */}
                   <TableCell className="text-right">
-                    <Button size="icon" variant="ghost" onClick={() => removeRow(idx)} aria-label="행 삭제">
+                    <Button 
+                      size="icon" 
+                      variant="ghost" 
+                      onClick={() => handleRemoveItem(index)} 
+                      aria-label="행 삭제"
+                    >
                       <Trash2 className="h-4 w-4" />
                     </Button>
                   </TableCell>

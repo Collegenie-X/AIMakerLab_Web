@@ -78,6 +78,96 @@
     "school": "서울 XX초등학교",
     "grade": "3-4학년",
     "subject": "방과후"
+  },
+  {
+    "id": "photo-101",
+    "productId": "block-coding-music",
+    "title": "음악 블록 코딩 수업",
+    "description": "터치 센서로 음계를 연주하는 학생들의 모습",
+    "image": "/products/classroom-photos/music-1.jpg",
+    "school": "서울 ◎◎초등학교",
+    "grade": "2학년",
+    "subject": "음악/정보"
+  },
+  {
+    "id": "photo-102",
+    "productId": "block-coding-music",
+    "title": "리듬 게임 발표",
+    "description": "직접 만든 리듬 게임을 친구들에게 소개하는 시간",
+    "image": "/products/classroom-photos/music-2.jpg",
+    "school": "서울 ◎◎초등학교",
+    "grade": "3학년",
+    "subject": "정보"
+  },
+  {
+    "id": "photo-201",
+    "productId": "ai-robot-car",
+    "title": "로봇카 조립 수업",
+    "description": "팀별로 로봇카를 조립하고 프로그래밍하는 모습",
+    "image": "/products/classroom-photos/robot-1.jpg",
+    "school": "경기 ●●중학교",
+    "grade": "중2",
+    "subject": "정보"
+  },
+  {
+    "id": "photo-202",
+    "productId": "ai-robot-car",
+    "title": "자율주행 대회",
+    "description": "완성한 로봇카로 미로 찾기 대회를 진행하는 모습",
+    "image": "/products/classroom-photos/robot-2.jpg",
+    "school": "경기 ●●중학교",
+    "grade": "중2",
+    "subject": "동아리"
+  },
+  {
+    "id": "photo-301",
+    "productId": "app-inventor-basic",
+    "title": "앱 인벤터 수업",
+    "description": "블록 코딩으로 모바일 앱을 만드는 학생들",
+    "image": "/products/classroom-photos/app-1.jpg",
+    "school": "부산 ◆◆초등학교",
+    "grade": "5학년",
+    "subject": "정보"
+  },
+  {
+    "id": "photo-401",
+    "productId": "raspberry-pi-iot",
+    "title": "라즈베리파이 IoT 실습",
+    "description": "라즈베리파이로 스마트홈 시스템을 구축하는 고등학생들",
+    "image": "/products/classroom-photos/pi-1.jpg",
+    "school": "서울 ◇◇고등학교",
+    "grade": "고2",
+    "subject": "정보"
+  },
+  {
+    "id": "photo-402",
+    "productId": "raspberry-pi-iot",
+    "title": "IoT 대시보드 완성",
+    "description": "웹 대시보드로 센서 데이터를 모니터링하는 모습",
+    "image": "/products/classroom-photos/pi-2.jpg",
+    "school": "서울 ◇◇고등학교",
+    "grade": "고2",
+    "subject": "정보"
+  },
+  {
+    "id": "photo-501",
+    "productId": "entry-basic-kit",
+    "title": "엔트리 입문 수업",
+    "description": "처음 코딩을 배우는 저학년 학생들이 엔트리로 게임을 만드는 모습",
+    "image": "/products/classroom-photos/entry-1.jpg",
+    "school": "인천 ★★초등학교",
+    "grade": "1학년",
+    "subject": "창의적 체험활동"
+  },
+  {
+    "id": "photo-502",
+    "productId": "entry-basic-kit",
+    "title": "작품 발표회",
+    "description": "완성한 애니메이션과 게임을 발표하는 학생들",
+    "image": "/products/classroom-photos/entry-2.jpg",
+    "school": "인천 ★★초등학교",
+    "grade": "2학년",
+    "subject": "정보"
   }
 ]
 

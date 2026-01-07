@@ -72,6 +72,71 @@
     "photos": [],
     "likes": 22,
     "helpful": 19
+  },
+  {
+    "id": "review-101",
+    "productId": "block-coding-music",
+    "authorName": "강선생",
+    "authorRole": "초등학교 교사",
+    "authorSchool": "서울 ◎◎초등학교",
+    "rating": 5,
+    "date": "2024-11-20",
+    "content": "음악과 코딩을 함께 배울 수 있어서 학생들이 정말 좋아합니다. 터치 센서로 피아노를 연주하는 게 너무 신기해하더라고요!",
+    "photos": [],
+    "likes": 18,
+    "helpful": 15
+  },
+  {
+    "id": "review-201",
+    "productId": "ai-robot-car",
+    "authorName": "이교사",
+    "authorRole": "중학교 기술 교사",
+    "authorSchool": "경기 ●●중학교",
+    "rating": 5,
+    "date": "2024-11-18",
+    "content": "자율주행 로봇카 수업에 활용했습니다. 센서 조립부터 프로그래밍까지 체계적으로 배울 수 있어 좋았습니다. 학생들이 대회 준비하는 데도 유용합니다.",
+    "photos": [],
+    "likes": 25,
+    "helpful": 20
+  },
+  {
+    "id": "review-301",
+    "productId": "app-inventor-basic",
+    "authorName": "박선생",
+    "authorRole": "초등학교 교사",
+    "authorSchool": "부산 ◆◆초등학교",
+    "rating": 4,
+    "date": "2024-11-12",
+    "content": "블록 코딩으로 실제 앱을 만들 수 있다는 게 장점입니다. 학생들이 자기 핸드폰에서 앱이 작동하는 걸 보고 신기해합니다.",
+    "photos": [],
+    "likes": 14,
+    "helpful": 11
+  },
+  {
+    "id": "review-401",
+    "productId": "raspberry-pi-iot",
+    "authorName": "최교사",
+    "authorRole": "고등학교 정보 교사",
+    "authorSchool": "서울 ◇◇고등학교",
+    "rating": 5,
+    "date": "2024-11-08",
+    "content": "심화 과정으로 딱 좋습니다. Python으로 IoT 시스템을 만들고 웹 대시보드까지 구현할 수 있어서 대학 준비에도 도움이 됩니다.",
+    "photos": [],
+    "likes": 30,
+    "helpful": 27
+  },
+  {
+    "id": "review-501",
+    "productId": "entry-basic-kit",
+    "authorName": "김선생",
+    "authorRole": "초등학교 교사",
+    "authorSchool": "인천 ★★초등학교",
+    "rating": 5,
+    "date": "2024-11-05",
+    "content": "코딩 입문으로 최고입니다. 저학년 학생들도 쉽게 따라할 수 있고, 게임 만드는 재미로 코딩에 흥미를 갖게 됩니다.",
+    "photos": [],
+    "likes": 20,
+    "helpful": 18
   }
 ]
 

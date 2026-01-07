@@ -3,8 +3,8 @@
 import { Badge } from "@/components/ui/data-display/badge"
 import { Card, CardContent, CardHeader } from "@/components/ui/data-display/card"
 import { Calendar, Eye, Heart, Image as ImageIcon, User } from "lucide-react"
-import type { GalleryItem } from "../../config"
-import { getDefaultImage } from "../../config"
+import type { GalleryItem } from "@/lib/gallery"
+import { getDefaultImage } from "@/lib/gallery"
 
 type Props = {
   item: GalleryItem

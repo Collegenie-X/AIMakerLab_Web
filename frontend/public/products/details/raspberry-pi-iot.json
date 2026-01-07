@@ -1,0 +1,125 @@
+{
+  "kitImages": [
+    {
+      "type": "package",
+      "image": "/products/kit-images/raspberry-pi-package.jpg",
+      "title": "제품 패키지",
+      "description": "라즈베리파이와 IoT 센서 모듈이 포함되어 있습니다"
+    },
+    {
+      "type": "assembled",
+      "image": "/products/kit-images/raspberry-pi-assembled.jpg",
+      "title": "완성된 IoT 시스템",
+      "description": "스마트홈 제어 시스템"
+    }
+  ],
+  "productDemos": [
+    {
+      "type": "video",
+      "url": "https://www.youtube.com/watch?v=example-pi1",
+      "thumbnail": "/products/demos/pi-demo1.jpg",
+      "title": "스마트홈 제어",
+      "description": "웹 인터페이스로 조명과 센서를 제어하는 모습"
+    },
+    {
+      "type": "video",
+      "url": "https://www.youtube.com/watch?v=example-pi2",
+      "thumbnail": "/products/demos/pi-demo2.jpg",
+      "title": "데이터 수집 및 시각화",
+      "description": "센서 데이터를 실시간으로 그래프로 표시"
+    }
+  ],
+  "simpleCurriculum": [
+    {
+      "session": 1,
+      "title": "라즈베리파이 설정",
+      "summary": "라즈베리파이 OS를 설치하고 Python 개발 환경을 구축합니다.",
+      "icon": "🍓"
+    },
+    {
+      "session": 2,
+      "title": "센서 연동 및 데이터 수집",
+      "summary": "다양한 센서를 연결하고 Python으로 데이터를 수집합니다.",
+      "icon": "📊"
+    },
+    {
+      "session": 3,
+      "title": "웹 서버 구축",
+      "summary": "Flask로 웹 서버를 만들고 IoT 대시보드를 구현합니다.",
+      "icon": "🌐"
+    }
+  ],
+  "activityPhotos": [
+    {
+      "image": "/products/activities/pi-class1.jpg",
+      "title": "라즈베리파이 설정",
+      "description": "OS 설치 및 초기 설정하는 모습"
+    },
+    {
+      "image": "/products/activities/pi-class2.jpg",
+      "title": "센서 연결",
+      "description": "GPIO 핀에 센서 모듈 연결"
+    },
+    {
+      "image": "/products/activities/pi-class3.jpg",
+      "title": "웹 대시보드",
+      "description": "완성된 IoT 대시보드로 센서 데이터 확인"
+    }
+  ],
+  "componentsTable": [
+    {
+      "name": "라즈베리파이 4 Model B",
+      "quantity": 1,
+      "specification": "4GB RAM",
+      "purpose": "메인 컴퓨터"
+    },
+    {
+      "name": "DHT22 온습도센서",
+      "quantity": 1,
+      "specification": "-40~80℃, 0-100%RH",
+      "purpose": "환경 측정"
+    },
+    {
+      "name": "PIR 모션센서",
+      "quantity": 1,
+      "specification": "7m 감지 거리",
+      "purpose": "움직임 감지"
+    },
+    {
+      "name": "릴레이 모듈",
+      "quantity": 2,
+      "specification": "5V, 10A",
+      "purpose": "가전 제어"
+    },
+    {
+      "name": "카메라 모듈",
+      "quantity": 1,
+      "specification": "8MP, 1080p",
+      "purpose": "영상 촬영"
+    }
+  ],
+  "technologies": [
+    {
+      "title": "리눅스 시스템",
+      "description": "라즈베리파이 OS(Debian 기반)로 리눅스 명령어와 시스템 관리를 학습합니다.",
+      "image": "/products/tech/linux-system.jpg",
+      "keywords": ["리눅스", "쉘 명령어", "시스템 관리"]
+    },
+    {
+      "title": "Python 프로그래밍",
+      "description": "Python으로 GPIO 제어, 웹 서버, 데이터 처리를 배웁니다.",
+      "image": "/products/tech/python-programming.jpg",
+      "keywords": ["Python", "GPIO", "Flask"]
+    },
+    {
+      "title": "IoT 통신 프로토콜",
+      "description": "MQTT, HTTP, WebSocket 등 IoT 통신 프로토콜을 실습합니다.",
+      "image": "/products/tech/iot-protocol.jpg",
+      "keywords": ["MQTT", "HTTP API", "실시간 통신"]
+    }
+  ],
+  "components": [],
+  "curriculum": [],
+  "assemblySteps": []
+}
+

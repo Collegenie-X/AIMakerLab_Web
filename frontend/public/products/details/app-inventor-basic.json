@@ -1,0 +1,89 @@
+{
+  "kitImages": [
+    {
+      "type": "package",
+      "image": "/products/kit-images/app-inventor-package.jpg",
+      "title": "제품 패키지",
+      "description": "앱 인벤터 학습 자료와 예제 앱이 포함되어 있습니다"
+    }
+  ],
+  "productDemos": [
+    {
+      "type": "video",
+      "url": "https://www.youtube.com/watch?v=example-app1",
+      "thumbnail": "/products/demos/app-demo1.jpg",
+      "title": "첫 번째 앱 만들기",
+      "description": "간단한 버튼과 텍스트로 앱을 만드는 과정"
+    },
+    {
+      "type": "image",
+      "url": "/products/demos/app-demo2.jpg",
+      "title": "게임 앱 완성",
+      "description": "블록 코딩으로 만든 게임 앱"
+    }
+  ],
+  "simpleCurriculum": [
+    {
+      "session": 1,
+      "title": "앱 인벤터 시작하기",
+      "summary": "앱 인벤터 도구를 배우고 첫 번째 앱을 만들어봅니다.",
+      "icon": "📱"
+    },
+    {
+      "session": 2,
+      "title": "센서 활용 앱 만들기",
+      "summary": "가속도 센서와 위치 센서를 활용한 앱을 제작합니다.",
+      "icon": "🔔"
+    },
+    {
+      "session": 3,
+      "title": "나만의 앱 프로젝트",
+      "summary": "창의적인 아이디어로 나만의 앱을 완성합니다.",
+      "icon": "✨"
+    }
+  ],
+  "activityPhotos": [
+    {
+      "image": "/products/activities/app-class1.jpg",
+      "title": "앱 인벤터 기초",
+      "description": "컴포넌트 배치하고 속성 설정하는 모습"
+    },
+    {
+      "image": "/products/activities/app-class2.jpg",
+      "title": "블록 코딩",
+      "description": "이벤트와 조건문을 사용하여 앱 로직 구성"
+    }
+  ],
+  "componentsTable": [
+    {
+      "name": "앱 인벤터 온라인 계정",
+      "quantity": 1,
+      "specification": "무료 계정",
+      "purpose": "앱 개발 플랫폼"
+    },
+    {
+      "name": "안드로이드 스마트폰",
+      "quantity": 1,
+      "specification": "Android 4.4 이상",
+      "purpose": "앱 테스트"
+    }
+  ],
+  "technologies": [
+    {
+      "title": "모바일 앱 개발",
+      "description": "블록 코딩으로 실제 작동하는 안드로이드 앱을 만드는 방법을 배웁니다.",
+      "image": "/products/tech/mobile-app.jpg",
+      "keywords": ["블록 코딩", "모바일 앱", "UI 디자인"]
+    },
+    {
+      "title": "이벤트 기반 프로그래밍",
+      "description": "버튼 클릭, 센서 변화 등 이벤트에 반응하는 프로그래밍을 학습합니다.",
+      "image": "/products/tech/event-programming.jpg",
+      "keywords": ["이벤트 핸들러", "비동기 처리", "콜백"]
+    }
+  ],
+  "components": [],
+  "curriculum": [],
+  "assemblySteps": []
+}
+

@@ -1,0 +1,94 @@
+{
+  "kitImages": [
+    {
+      "type": "package",
+      "image": "/products/kit-images/entry-kit-package.jpg",
+      "title": "제품 패키지",
+      "description": "엔트리 학습 자료와 예제가 포함되어 있습니다"
+    }
+  ],
+  "productDemos": [
+    {
+      "type": "video",
+      "url": "https://www.youtube.com/watch?v=example-entry1",
+      "thumbnail": "/products/demos/entry-demo1.jpg",
+      "title": "엔트리 기초 게임 만들기",
+      "description": "캐릭터를 움직이고 점수를 얻는 간단한 게임"
+    },
+    {
+      "type": "image",
+      "url": "/products/demos/entry-demo2.jpg",
+      "title": "애니메이션 프로젝트",
+      "description": "엔트리로 만든 창의적인 애니메이션"
+    }
+  ],
+  "simpleCurriculum": [
+    {
+      "session": 1,
+      "title": "엔트리 첫걸음",
+      "summary": "엔트리 도구를 배우고 캐릭터를 움직여봅니다.",
+      "icon": "🎮"
+    },
+    {
+      "session": 2,
+      "title": "게임 만들기",
+      "summary": "조건문과 반복문을 사용하여 간단한 게임을 만듭니다.",
+      "icon": "🕹️"
+    },
+    {
+      "session": 3,
+      "title": "창작 프로젝트",
+      "summary": "나만의 이야기나 게임을 만들고 친구들과 공유합니다.",
+      "icon": "🎨"
+    }
+  ],
+  "activityPhotos": [
+    {
+      "image": "/products/activities/entry-class1.jpg",
+      "title": "엔트리 기초",
+      "description": "블록을 조합하여 캐릭터 움직이기"
+    },
+    {
+      "image": "/products/activities/entry-class2.jpg",
+      "title": "게임 제작",
+      "description": "미로 게임을 만드는 학생들"
+    },
+    {
+      "image": "/products/activities/entry-class3.jpg",
+      "title": "작품 발표",
+      "description": "완성한 프로젝트를 친구들에게 소개"
+    }
+  ],
+  "componentsTable": [
+    {
+      "name": "엔트리 온라인 계정",
+      "quantity": 1,
+      "specification": "무료 계정",
+      "purpose": "코딩 플랫폼"
+    },
+    {
+      "name": "PC 또는 태블릿",
+      "quantity": 1,
+      "specification": "인터넷 연결",
+      "purpose": "개발 환경"
+    }
+  ],
+  "technologies": [
+    {
+      "title": "블록 코딩",
+      "description": "퍼즐처럼 블록을 조합하여 프로그래밍하는 방법을 배웁니다.",
+      "image": "/products/tech/block-coding.jpg",
+      "keywords": ["비주얼 프로그래밍", "드래그 앤 드롭", "논리적 사고"]
+    },
+    {
+      "title": "게임 개발",
+      "description": "캐릭터, 배경, 사운드를 조합하여 게임을 만드는 과정을 학습합니다.",
+      "image": "/products/tech/game-dev.jpg",
+      "keywords": ["게임 로직", "스프라이트", "이벤트"]
+    }
+  ],
+  "components": [],
+  "curriculum": [],
+  "assemblySteps": []
+}
+

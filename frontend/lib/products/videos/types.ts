@@ -1,3 +1,10 @@
+/**
+ * 교구 영상 타입 정의
+ * 
+ * 비디오 데이터의 구조를 정의합니다.
+ * JSON 데이터와 API 응답에서 사용됩니다.
+ */
+
 // 비디오 단계별 학습 스텝
 export type VideoStep = {
   stepNumber: number
@@ -6,6 +13,7 @@ export type VideoStep = {
   youtubeTimestamp?: string // 예: "0m30s" 또는 "1m15s"
 }
 
+// 비디오 아이템
 export type VideoItem = {
   id: string
   title: string
@@ -17,13 +25,12 @@ export type VideoItem = {
   difficulty?: "초급" | "중급" | "고급"
 }
 
-export const videosConfig = {
-  pageTitle: "교구 사용 영상",
-  pageDescription: "교육용 키트 사용법과 시연 영상을 모아두었습니다.",
-  // 다이얼로그 사이즈 설정 (적당한 크기로)
-  dialog: {
-    contentClass: "!max-w-5xl w-[92vw]",
-  },
-}
+// API 응답 타입
+export type VideosResponse = VideoItem[]
 
+// 비디오 필터 타입
+export type VideoFilter = {
+  difficulty?: "초급" | "중급" | "고급"
+  searchQuery?: string
+}
 

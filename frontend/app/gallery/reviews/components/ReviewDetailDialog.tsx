@@ -5,8 +5,8 @@ import { Badge } from "@/components/ui/data-display/badge"
 import { Button } from "@/components/ui/buttons/button"
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/overlays/dialog"
 import { Calendar, ChevronLeft, ChevronRight, Eye, Heart, Star, User } from "lucide-react"
-import type { GalleryItem } from "../../config"
-import { getDefaultImage } from "../../config"
+import type { GalleryItem } from "@/lib/gallery"
+import { getDefaultImage } from "@/lib/gallery"
 
 type Props = {
   item: GalleryItem | null

@@ -1,54 +1,89 @@
 "use client"
 
 import { Button } from "@/components/ui/buttons/button"
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/forms/select"
+import type { GalleryType } from "@/lib/gallery"
 
 type Props = {
   categories: string[]
-  selected: string
-  onChange: (category: string) => void
-  allLabel?: string
-  totalCount: number
-  countSuffix?: string
+  selectedCategory: string
+  onCategoryChange: (category: string) => void
+  sortBy: "latest" | "popular" | "views"
+  onSortChange: (sortBy: "latest" | "popular" | "views") => void
+  itemCount: number
+  type: GalleryType
 }
 
 /**
- * 갤러리 카테고리 필터 섹션
+ * 갤러리 카테고리 필터 컴포넌트
+ * - 카테고리 선택 버튼
+ * - 정렬 옵션
  */
 export function GalleryCategoryFilter({
   categories,
-  selected,
-  onChange,
-  allLabel = "전체",
-  totalCount,
-  countSuffix = "개",
+  selectedCategory,
+  onCategoryChange,
+  sortBy,
+  onSortChange,
+  itemCount,
+  type,
 }: Props) {
-  const fullCategories = [allLabel, ...categories]
+  const itemLabel = type === "works" ? "작품" : "후기"
 
   return (
-    <section className="py-8 bg-gradient-to-br from-blue-50 via-cyan-50 to-sky-50 border-b border-blue-200">
-      <div className="container mx-auto px-4">
-        <div className="flex flex-wrap items-center justify-center gap-3">
-          {fullCategories.map((category) => (
-            <Button
-              key={category}
-              onClick={() => onChange(category)}
-              variant={selected === category ? "default" : "outline"}
-              className={
-                selected === category
-                  ? "bg-gradient-to-r from-blue-500 to-cyan-500 text-white hover:from-blue-600 hover:to-cyan-600"
-                  : "border-blue-300 text-blue-700 hover:bg-blue-50"
-              }
-            >
-              {category}
-            </Button>
-          ))}
-        </div>
-        <div className="mt-4 text-center text-sm text-gray-600">
-          총 <span className="font-bold text-blue-600">{totalCount}</span>
-          {countSuffix}
-        </div>
+    <div className="mb-8 space-y-4">
+      {/* 카테고리 버튼 */}
+      <div className="flex flex-wrap gap-2">
+        <Button
+          variant={selectedCategory === "all" ? "default" : "outline"}
+          onClick={() => onCategoryChange("all")}
+          className={
+            selectedCategory === "all"
+              ? "bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600"
+              : ""
+          }
+        >
+          전체
+        </Button>
+        {categories.map((category) => (
+          <Button
+            key={category}
+            variant={selectedCategory === category ? "default" : "outline"}
+            onClick={() => onCategoryChange(category)}
+            className={
+              selectedCategory === category
+                ? "bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600"
+                : ""
+            }
+          >
+            {category}
+          </Button>
+        ))}
       </div>
-    </section>
+
+      {/* 정렬 및 카운트 */}
+      <div className="flex items-center justify-between">
+        <p className="text-sm text-gray-600">
+          총 <span className="font-bold text-purple-600">{itemCount}</span>개의 {itemLabel}
+        </p>
+
+        <Select value={sortBy} onValueChange={(v) => onSortChange(v as typeof sortBy)}>
+          <SelectTrigger className="w-[180px]">
+            <SelectValue placeholder="정렬" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="latest">최신순</SelectItem>
+            <SelectItem value="popular">인기순 (좋아요)</SelectItem>
+            <SelectItem value="views">조회수순</SelectItem>
+          </SelectContent>
+        </Select>
+      </div>
+    </div>
   )
 }
-

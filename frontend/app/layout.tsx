@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { GeistSans } from 'geist/font/sans'
 import { GeistMono } from 'geist/font/mono'
 import { Analytics } from '@vercel/analytics/next'
+import { QueryClientProvider } from '@/lib/providers/QueryClientProvider'
 import './globals.css'
 
 import { Geist as V0_Font_Geist, Geist_Mono as V0_Font_Geist_Mono, Source_Serif_4 as V0_Font_Source_Serif_4 } from 'next/font/google'
@@ -40,8 +41,10 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable}`}>
-        {children}
-        <Analytics />
+        <QueryClientProvider>
+          {children}
+          <Analytics />
+        </QueryClientProvider>
       </body>
     </html>
   )
