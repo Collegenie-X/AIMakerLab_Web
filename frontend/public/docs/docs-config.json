@@ -1,0 +1,153 @@
+{
+  "categories": {
+    "Backend": {
+      "id": "Backend",
+      "label": "백엔드",
+      "description": "Django REST API, 데이터베이스, 인증 시스템",
+      "icon": "Database",
+      "color": "blue-600",
+      "bgColor": "bg-blue-100",
+      "textColor": "text-blue-800",
+      "borderColor": "border-blue-300"
+    },
+    "Frontend": {
+      "id": "Frontend",
+      "label": "프론트엔드",
+      "description": "Next.js, React, UI/UX 구현",
+      "icon": "Code",
+      "color": "green-600",
+      "bgColor": "bg-green-100",
+      "textColor": "text-green-800",
+      "borderColor": "border-green-300"
+    },
+    "Architecture": {
+      "id": "Architecture",
+      "label": "아키텍처",
+      "description": "시스템 설계 및 프로젝트 구조",
+      "icon": "GitBranch",
+      "color": "red-600",
+      "bgColor": "bg-red-100",
+      "textColor": "text-red-800",
+      "borderColor": "border-red-300"
+    },
+    "Legal": {
+      "id": "Legal",
+      "label": "법률/정책",
+      "description": "개인정보처리방침, 이용약관",
+      "icon": "FileText",
+      "color": "gray-600",
+      "bgColor": "bg-gray-100",
+      "textColor": "text-gray-800",
+      "borderColor": "border-gray-300"
+    },
+    "Education": {
+      "id": "Education",
+      "label": "교육 자료",
+      "description": "AI, 로봇, 코딩 교육 커리큘럼",
+      "icon": "BookOpen",
+      "color": "emerald-600",
+      "bgColor": "bg-emerald-100",
+      "textColor": "text-emerald-800",
+      "borderColor": "border-emerald-300"
+    }
+  },
+  "metadata": {
+    "API_INTEGRATION.md": {
+      "title": "API 통합 가이드",
+      "description": "Django REST API 전체 명세 및 PostgreSQL DB 스키마 설계",
+      "category": "Backend",
+      "icon": "Database",
+      "color": "blue",
+      "tags": ["Django", "REST API", "PostgreSQL", "ERD"]
+    },
+    "API_INTEGRATION_SUMMARY.md": {
+      "title": "API 통합 요약",
+      "description": "ERD, 테이블 구조, CRUD 매트릭스, Mermaid 다이어그램",
+      "category": "Backend",
+      "icon": "Layers",
+      "color": "blue",
+      "tags": ["API", "ERD", "Mermaid"]
+    },
+    "AUTH_SYSTEM.md": {
+      "title": "인증 시스템",
+      "description": "JWT 인증, 회원가입, 로그인, 이메일 인증 시스템",
+      "category": "Backend",
+      "icon": "Lock",
+      "color": "purple",
+      "tags": ["JWT", "Authentication", "Security"]
+    },
+    "GALLERY_IMPLEMENTATION.md": {
+      "title": "갤러리 구현 가이드",
+      "description": "학생 작품 & 수업 후기 갤러리 완전한 구현 가이드",
+      "category": "Frontend",
+      "icon": "Code",
+      "color": "green",
+      "tags": ["Gallery", "React", "Next.js"]
+    },
+    "USER_DASHBOARD_GUIDE.md": {
+      "title": "사용자 대시보드",
+      "description": "학생/교사/관리자 대시보드 구현 가이드",
+      "category": "Frontend",
+      "icon": "Users",
+      "color": "yellow",
+      "tags": ["Dashboard", "UI", "React"]
+    },
+    "ARCHITECTURE.md": {
+      "title": "시스템 아키텍처",
+      "description": "프로젝트 구조 및 시스템 설계 문서",
+      "category": "Architecture",
+      "icon": "GitBranch",
+      "color": "red",
+      "tags": ["Architecture", "Design", "Structure"]
+    },
+    "POLICIES.md": {
+      "title": "정책 문서",
+      "description": "개인정보처리방침, 이용약관 등 정책 관리",
+      "category": "Legal",
+      "icon": "FileText",
+      "color": "gray",
+      "tags": ["Legal", "Privacy", "Terms"]
+    },
+    "ai_education_starter_guide.md": {
+      "title": "AI 교육 시작 가이드",
+      "description": "AI 교육을 처음 시작하는 학생과 교사를 위한 완벽 가이드",
+      "category": "Education",
+      "icon": "BookOpen",
+      "color": "green",
+      "tags": ["AI", "교육", "입문"]
+    },
+    "block_coding_complete_guide.md": {
+      "title": "블록코딩 완벽 가이드",
+      "description": "초보자를 위한 블록코딩 학습 및 프로젝트 제작 가이드",
+      "category": "Education",
+      "icon": "Code",
+      "color": "green",
+      "tags": ["블록코딩", "Scratch", "초급"]
+    },
+    "python_ai_programming.md": {
+      "title": "파이썬 AI 프로그래밍",
+      "description": "파이썬으로 시작하는 인공지능 프로그래밍 완전 정복",
+      "category": "Education",
+      "icon": "Code",
+      "color": "green",
+      "tags": ["Python", "AI", "ML"]
+    },
+    "robotarm_computer_vision_curriculum.md": {
+      "title": "로봇팔 & 컴퓨터비전 융합 커리큘럼",
+      "description": "로봇팔과 컴퓨터비전을 결합한 실전 AI 융합 교육 커리큘럼",
+      "category": "Education",
+      "icon": "GitBranch",
+      "color": "green",
+      "tags": ["로봇", "Computer Vision", "융합"]
+    },
+    "global_humanoid_robot_industry_benchmark.md": {
+      "title": "글로벌 휴머노이드 로봇 산업 벤치마킹",
+      "description": "세계 최신 휴머노이드 로봇 기술 트렌드 및 산업 분석 리포트",
+      "category": "Education",
+      "icon": "BookOpen",
+      "color": "green",
+      "tags": ["휴머노이드", "로봇", "산업분석"]
+    }
+  }
+}
+

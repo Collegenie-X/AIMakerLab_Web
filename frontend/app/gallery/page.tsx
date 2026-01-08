@@ -1,9 +1,12 @@
 "use client"
 
 import { useState } from "react"
+import Link from "next/link"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/navigation/tabs"
+import { Button } from "@/components/ui/buttons/button"
+import { BookOpen } from "lucide-react"
 import { GalleryQueryProvider } from "@/lib/gallery/query-provider"
 import { GalleryListSection } from "./components/GalleryListSection"
 import { GalleryHeroSection } from "./components/GalleryHeroSection"
@@ -26,6 +29,16 @@ function GalleryPageContent() {
       {/* Gallery Content */}
       <section className="py-16 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50">
         <div className="container mx-auto px-4">
+          {/* 교육 게시판 링크 */}
+          <div className="flex justify-end mb-8">
+            <Link href="/docs">
+              <Button variant="outline" size="lg" className="gap-2 bg-white/90 backdrop-blur hover:bg-blue-50 border-blue-300">
+                <BookOpen className="w-5 h-5" />
+                <span>교육 게시판 보러가기</span>
+              </Button>
+            </Link>
+          </div>
+          
           <Tabs value={activeTab} onValueChange={(v) => setActiveTab(v as "works" | "reviews")} className="w-full">
             <TabsList className="mx-auto mb-12 grid w-full max-w-md grid-cols-2 bg-white/80 backdrop-blur">
               <TabsTrigger value="works" className="text-base data-[state=active]:bg-purple-100">

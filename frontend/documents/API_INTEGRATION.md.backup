@@ -1,0 +1,1103 @@
+# AI Maker Lab - 완전한 API 연동 가이드
+
+## 📋 개요
+
+이 문서는 AI Maker Lab 웹 서비스의 **완전한 데이터베이스 설계**, **REST API 스펙**, **프론트엔드-백엔드 연동 방법**을 설명합니다.
+
+### 현재 상태 (2026-01-08 업데이트)
+
+**⚠️ 현재 프로젝트는 JSON Mock Data 기반으로 개발되었습니다.**
+
+- ✅ **프론트엔드**: Next.js 15 + React 19 완성
+- ✅ **UI 컴포넌트**: 60+ Shadcn/ui 기반 컴포넌트
+- ✅ **페이지**: 30+ 페이지 구현
+- ✅ **Mock Data**: `public/` 폴더의 JSON 파일 완비
+- ✅ **DB 설계**: PostgreSQL 기반 완전한 ERD 완성
+- ✅ **API 스펙**: RESTful API 전체 엔드포인트 설계
+- ⏳ **백엔드 구현**: Django REST Framework + PostgreSQL 구축 예정
+
+### 연동 준비 상태
+
+프로젝트는 API 연동을 위해 다음과 같이 준비되어 있습니다:
+1. **커스텀 훅 패턴**: 데이터 로딩 로직이 훅으로 분리됨
+2. **타입 정의**: TypeScript 타입 완비
+3. **에러 처리**: 로딩/에러 상태 관리 구조
+4. **설정 분리**: config.ts로 엔드포인트 관리 가능
+
+---
+
+## 📂 현재 데이터 구조 (JSON Mock Data)
+
+### 데이터 위치
+
+모든 데이터는 `public/` 폴더의 JSON 파일로 관리됩니다.
+
+```
+public/
+├── curriculum/              # 커리큘럼 데이터
+│   ├── ai-education.json
+│   ├── arduino.json
+│   ├── app-inventor.json
+│   ├── raspberry-pi.json
+│   └── science.json
+├── products/                # 제품 데이터
+│   ├── products.json
+│   ├── product-detail.json
+│   ├── quote-items.json
+│   ├── videos.json
+│   └── ...
+├── gallery/                 # 갤러리 데이터
+│   ├── reviews.json
+│   └── works.json
+├── inquiry/                 # 문의 데이터
+│   ├── inquiries.json
+│   ├── schedules-weekday.json
+│   └── schedules-weekend.json
+├── home/                    # 홈 데이터
+│   └── home-content.json
+├── about/                   # 소개 데이터
+│   ├── about-content.json
+│   └── location.json
+├── dashboard/               # 대시보드 Mock 데이터
+│   ├── comments-mock.json
+│   ├── courses-mock.json
+│   ├── gallery-mock.json
+│   ├── inquiries-mock.json
+│   └── stats-mock.json
+└── policies/                # 정책 문서
+    ├── email-policy.json
+    ├── privacy.json
+    └── terms.json
+```
+
+### 데이터 로딩 패턴
+
+#### 현재: fetch() + JSON
+```typescript
+// hooks/useAIEducationCurriculumData.ts
+export function useAIEducationCurriculumData() {
+  const [data, setData] = useState<AIEducationCurriculumData | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<Error | null>(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setLoading(true);
+        // 현재: public 폴더의 JSON 파일 로딩
+        const response = await fetch("/curriculum/ai-education.json");
+        
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
+        const jsonData = await response.json();
+        setData(jsonData);
+      } catch (err) {
+        console.error("데이터 로딩 실패:", err);
+        setError(err instanceof Error ? err : new Error("Unknown error"));
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  return { data, loading, error };
+}
+```
+
+---
+
+## 🔗 향후 API 엔드포인트
+
+### 백엔드 서버 URL
+
+```bash
+# 개발 환경
+http://localhost:8000/api/
+
+# 프로덕션 환경
+https://api.aimakerlab.com/api/
+```
+
+---
+
+## 📁 백엔드 API 구조
+
+### Django Apps
+
+```
+backend/
+├── accounts/                   # 사용자 인증
+├── curriculum/                 # 커리큘럼
+├── gallery/                    # 갤러리
+├── home/                       # 홈페이지
+├── inquiry/                    # 문의
+└── products/                   # 제품
+```
+
+### API 엔드포인트 목록
+
+#### 1. 인증 (accounts)
+```
+POST   /api/accounts/register/           # 회원가입
+POST   /api/accounts/login/              # 로그인
+POST   /api/accounts/logout/             # 로그아웃
+POST   /api/accounts/refresh/            # 토큰 갱신
+GET    /api/accounts/profile/            # 프로필 조회
+PUT    /api/accounts/profile/            # 프로필 수정
+POST   /api/accounts/password/change/    # 비밀번호 변경
+POST   /api/accounts/password/reset/     # 비밀번호 재설정
+```
+
+#### 2. 커리큘럼 (curriculum)
+```
+GET    /api/curriculum/projects/         # 프로젝트 목록
+GET    /api/curriculum/projects/:id/     # 프로젝트 상세
+```
+
+#### 3. 갤러리 (gallery)
+```
+GET    /api/gallery/items/               # 갤러리 아이템 목록
+GET    /api/gallery/items/:id/           # 갤러리 아이템 상세
+POST   /api/gallery/items/               # 갤러리 아이템 등록
+PUT    /api/gallery/items/:id/           # 갤러리 아이템 수정
+DELETE /api/gallery/items/:id/           # 갤러리 아이템 삭제
+```
+
+#### 4. 홈페이지 (home)
+```
+GET    /api/home/hero-slides/            # 히어로 슬라이드
+GET    /api/home/curriculum-highlights/  # 커리큘럼 하이라이트
+```
+
+#### 5. 문의 (inquiry)
+```
+GET    /api/inquiry/inquiries/           # 문의 목록
+GET    /api/inquiry/inquiries/:id/       # 문의 상세
+POST   /api/inquiry/inquiries/           # 문의 등록
+PUT    /api/inquiry/inquiries/:id/       # 문의 수정
+DELETE /api/inquiry/inquiries/:id/       # 문의 삭제
+```
+
+#### 6. 제품 (products)
+```
+GET    /api/products/products/           # 제품 목록
+GET    /api/products/products/:id/       # 제품 상세
+POST   /api/products/quote/              # 견적 요청
+GET    /api/products/videos/             # 교구 사용 영상
+```
+
+---
+
+## 🔄 API 연동 전환 가이드
+
+### JSON → API 전환 단계
+
+#### 1단계: 환경 변수 설정
+
+```bash
+# .env.local (프로젝트 루트에 생성)
+NEXT_PUBLIC_API_URL=http://localhost:8000/api
+NEXT_PUBLIC_SITE_URL=http://localhost:3000
+```
+
+#### 2단계: API 클라이언트 생성
+
+```bash
+# lib/api 폴더 구조 생성
+mkdir -p lib/api
+touch lib/api/client.ts
+touch lib/api/curriculum.ts
+touch lib/api/products.ts
+touch lib/api/gallery.ts
+touch lib/api/inquiry.ts
+```
+
+#### 3단계: 커스텀 훅 전환
+
+**Before (현재 - JSON):**
+```typescript
+// hooks/useAIEducationCurriculumData.ts
+export function useAIEducationCurriculumData() {
+  const [data, setData] = useState<AIEducationCurriculumData | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<Error | null>(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setLoading(true);
+        // JSON 파일에서 로딩
+        const response = await fetch("/curriculum/ai-education.json");
+        const jsonData = await response.json();
+        setData(jsonData);
+      } catch (err) {
+        setError(err instanceof Error ? err : new Error("Unknown error"));
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  return { data, loading, error };
+}
+```
+
+**After (향후 - API):**
+```typescript
+// hooks/useAIEducationCurriculumData.ts
+import { getCurriculumProject } from '@/lib/api/curriculum';
+
+export function useAIEducationCurriculumData() {
+  const [data, setData] = useState<AIEducationCurriculumData | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<Error | null>(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setLoading(true);
+        // API에서 로딩
+        const response = await getCurriculumProject('ai-education');
+        setData(response.data);
+      } catch (err) {
+        setError(err instanceof Error ? err : new Error("Unknown error"));
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  return { data, loading, error };
+}
+```
+
+---
+
+## 🛠️ API 클라이언트 설정 (향후)
+
+### 1. API 클라이언트 생성
+
+```typescript
+// lib/api/client.ts
+import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
+
+/**
+ * API 클라이언트 인스턴스
+ */
+export const apiClient: AxiosInstance = axios.create({
+  baseURL: process.env.NEXT_PUBLIC_API_URL,
+  timeout: 10000,
+  headers: {
+    'Content-Type': 'application/json',
+  },
+});
+
+/**
+ * 요청 인터셉터: 인증 토큰 자동 추가
+ */
+apiClient.interceptors.request.use(
+  (config) => {
+    // localStorage에서 토큰 가져오기
+    const token = localStorage.getItem('access_token');
+    
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+    
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
+  }
+);
+
+/**
+ * 응답 인터셉터: 에러 처리 및 토큰 갱신
+ */
+apiClient.interceptors.response.use(
+  (response) => response,
+  async (error) => {
+    const originalRequest = error.config;
+
+    // 401 Unauthorized 에러 && 재시도하지 않은 요청
+    if (error.response?.status === 401 && !originalRequest._retry) {
+      originalRequest._retry = true;
+
+      try {
+        // Refresh Token으로 새 Access Token 발급
+        const refreshToken = localStorage.getItem('refresh_token');
+        
+        if (!refreshToken) {
+          throw new Error('No refresh token');
+        }
+
+        const response = await axios.post(
+          `${process.env.NEXT_PUBLIC_API_URL}/accounts/refresh/`,
+          { refresh: refreshToken }
+        );
+
+        const { access } = response.data;
+        
+        // 새 토큰 저장
+        localStorage.setItem('access_token', access);
+        
+        // 원래 요청 재시도
+        originalRequest.headers.Authorization = `Bearer ${access}`;
+        return apiClient(originalRequest);
+      } catch (refreshError) {
+        // Refresh Token도 만료된 경우 로그아웃
+        localStorage.removeItem('access_token');
+        localStorage.removeItem('refresh_token');
+        window.location.href = '/';
+        return Promise.reject(refreshError);
+      }
+    }
+
+    return Promise.reject(error);
+  }
+);
+
+/**
+ * API 응답 타입
+ */
+export interface ApiResponse<T> {
+  data: T;
+  message?: string;
+  status: number;
+}
+
+/**
+ * API 에러 타입
+ */
+export interface ApiError {
+  message: string;
+  errors?: Record<string, string[]>;
+  status: number;
+}
+```
+
+---
+
+## 🔐 인증 API
+
+### 1. 회원가입
+
+```typescript
+// lib/api/auth.ts
+import { apiClient, ApiResponse } from './client';
+
+export interface RegisterData {
+  email: string;
+  password: string;
+  password2: string;
+  name: string;
+  phone?: string;
+}
+
+export interface RegisterResponse {
+  user: {
+    id: number;
+    email: string;
+    name: string;
+  };
+  tokens: {
+    access: string;
+    refresh: string;
+  };
+}
+
+/**
+ * 회원가입
+ */
+export async function register(data: RegisterData): Promise<ApiResponse<RegisterResponse>> {
+  const response = await apiClient.post('/accounts/register/', data);
+  
+  // 토큰 저장
+  const { tokens } = response.data;
+  localStorage.setItem('access_token', tokens.access);
+  localStorage.setItem('refresh_token', tokens.refresh);
+  
+  return response.data;
+}
+```
+
+**사용 예시**:
+```typescript
+// components/register-dialog.tsx
+const handleRegister = async (data: RegisterData) => {
+  try {
+    const response = await register(data);
+    console.log('회원가입 성공:', response.user);
+    // 홈으로 리다이렉트
+    router.push('/');
+  } catch (error) {
+    console.error('회원가입 실패:', error);
+    // 에러 메시지 표시
+  }
+};
+```
+
+### 2. 로그인
+
+```typescript
+// lib/api/auth.ts
+export interface LoginData {
+  email: string;
+  password: string;
+}
+
+export interface LoginResponse {
+  user: {
+    id: number;
+    email: string;
+    name: string;
+  };
+  tokens: {
+    access: string;
+    refresh: string;
+  };
+}
+
+/**
+ * 로그인
+ */
+export async function login(data: LoginData): Promise<ApiResponse<LoginResponse>> {
+  const response = await apiClient.post('/accounts/login/', data);
+  
+  // 토큰 저장
+  const { tokens } = response.data;
+  localStorage.setItem('access_token', tokens.access);
+  localStorage.setItem('refresh_token', tokens.refresh);
+  
+  return response.data;
+}
+```
+
+### 3. 로그아웃
+
+```typescript
+// lib/api/auth.ts
+/**
+ * 로그아웃
+ */
+export async function logout(): Promise<void> {
+  await apiClient.post('/accounts/logout/');
+  
+  // 토큰 삭제
+  localStorage.removeItem('access_token');
+  localStorage.removeItem('refresh_token');
+}
+```
+
+---
+
+## 📝 문의 API
+
+### 1. 문의 등록
+
+```typescript
+// lib/api/inquiry.ts
+import { apiClient, ApiResponse } from './client';
+
+export interface InquiryData {
+  name: string;
+  phone: string;
+  email?: string;
+  inquiry_type: 'online' | 'weekday' | 'weekend';
+  course?: string;
+  student_grade?: string;
+  student_count?: number;
+  preferred_date?: string;
+  preferred_time?: string;
+  message?: string;
+}
+
+export interface Inquiry extends InquiryData {
+  id: number;
+  created_at: string;
+  status: 'pending' | 'processing' | 'completed' | 'cancelled';
+}
+
+/**
+ * 문의 등록
+ */
+export async function createInquiry(data: InquiryData): Promise<ApiResponse<Inquiry>> {
+  const response = await apiClient.post('/inquiry/inquiries/', data);
+  return response.data;
+}
+```
+
+**사용 예시**:
+```typescript
+// components/inquiry-form-dialog.tsx
+const handleSubmit = async (data: InquiryData) => {
+  try {
+    const response = await createInquiry(data);
+    console.log('문의 등록 성공:', response.data);
+    toast.success('문의가 성공적으로 등록되었습니다!');
+    setOpen(false);
+  } catch (error) {
+    console.error('문의 등록 실패:', error);
+    toast.error('문의 등록에 실패했습니다.');
+  }
+};
+```
+
+### 2. 문의 목록 조회
+
+```typescript
+// lib/api/inquiry.ts
+/**
+ * 문의 목록 조회
+ */
+export async function getInquiries(): Promise<ApiResponse<Inquiry[]>> {
+  const response = await apiClient.get('/inquiry/inquiries/');
+  return response.data;
+}
+```
+
+---
+
+## 🛍️ 제품 API
+
+### 1. 제품 목록 조회
+
+```typescript
+// lib/api/products.ts
+import { apiClient, ApiResponse } from './client';
+
+export interface Product {
+  id: string;
+  name: string;
+  description: string;
+  price: number;
+  images: string[];
+  category: string;
+  stock: number;
+  is_available: boolean;
+}
+
+/**
+ * 제품 목록 조회
+ */
+export async function getProducts(params?: {
+  category?: string;
+  search?: string;
+  page?: number;
+  page_size?: number;
+}): Promise<ApiResponse<{ results: Product[]; count: number }>> {
+  const response = await apiClient.get('/products/products/', { params });
+  return response.data;
+}
+```
+
+### 2. 제품 상세 조회
+
+```typescript
+// lib/api/products.ts
+/**
+ * 제품 상세 조회
+ */
+export async function getProduct(id: string): Promise<ApiResponse<Product>> {
+  const response = await apiClient.get(`/products/products/${id}/`);
+  return response.data;
+}
+```
+
+### 3. 견적 요청
+
+```typescript
+// lib/api/products.ts
+export interface QuoteData {
+  name: string;
+  phone: string;
+  email?: string;
+  organization?: string;
+  items: {
+    product_id: string;
+    quantity: number;
+  }[];
+  message?: string;
+}
+
+export interface Quote extends QuoteData {
+  id: number;
+  total_price: number;
+  created_at: string;
+  status: 'pending' | 'processing' | 'completed' | 'cancelled';
+}
+
+/**
+ * 견적 요청
+ */
+export async function createQuote(data: QuoteData): Promise<ApiResponse<Quote>> {
+  const response = await apiClient.post('/products/quote/', data);
+  return response.data;
+}
+```
+
+---
+
+## 🖼️ 갤러리 API
+
+### 1. 갤러리 목록 조회
+
+```typescript
+// lib/api/gallery.ts
+import { apiClient, ApiResponse } from './client';
+
+export interface GalleryItem {
+  id: number;
+  title: string;
+  description: string;
+  image: string;
+  category: 'work' | 'review';
+  author?: string;
+  created_at: string;
+}
+
+/**
+ * 갤러리 목록 조회
+ */
+export async function getGalleryItems(params?: {
+  category?: 'work' | 'review';
+  page?: number;
+  page_size?: number;
+}): Promise<ApiResponse<{ results: GalleryItem[]; count: number }>> {
+  const response = await apiClient.get('/gallery/items/', { params });
+  return response.data;
+}
+```
+
+### 2. 갤러리 아이템 등록 (이미지 업로드)
+
+```typescript
+// lib/api/gallery.ts
+/**
+ * 갤러리 아이템 등록 (FormData 사용)
+ */
+export async function createGalleryItem(data: {
+  title: string;
+  description: string;
+  category: 'work' | 'review';
+  image: File;
+}): Promise<ApiResponse<GalleryItem>> {
+  const formData = new FormData();
+  formData.append('title', data.title);
+  formData.append('description', data.description);
+  formData.append('category', data.category);
+  formData.append('image', data.image);
+
+  const response = await apiClient.post('/gallery/items/', formData, {
+    headers: {
+      'Content-Type': 'multipart/form-data',
+    },
+  });
+  
+  return response.data;
+}
+```
+
+---
+
+## 🔄 커스텀 훅으로 API 연동
+
+### 1. useQuery 패턴 (데이터 조회)
+
+```typescript
+// hooks/useProducts.ts
+import { useState, useEffect } from 'react';
+import { getProducts, Product } from '@/lib/api/products';
+
+export function useProducts() {
+  const [products, setProducts] = useState<Product[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<Error | null>(null);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        setLoading(true);
+        const response = await getProducts();
+        setProducts(response.data.results);
+      } catch (err) {
+        setError(err instanceof Error ? err : new Error('Unknown error'));
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProducts();
+  }, []);
+
+  return { products, loading, error };
+}
+```
+
+### 2. useMutation 패턴 (데이터 변경)
+
+```typescript
+// hooks/useCreateInquiry.ts
+import { useState } from 'react';
+import { createInquiry, InquiryData, Inquiry } from '@/lib/api/inquiry';
+
+export function useCreateInquiry() {
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<Error | null>(null);
+
+  const mutate = async (data: InquiryData): Promise<Inquiry | null> => {
+    try {
+      setLoading(true);
+      setError(null);
+      const response = await createInquiry(data);
+      return response.data;
+    } catch (err) {
+      const error = err instanceof Error ? err : new Error('Unknown error');
+      setError(error);
+      return null;
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return { mutate, loading, error };
+}
+```
+
+**사용 예시**:
+```typescript
+// components/inquiry-form-dialog.tsx
+const { mutate, loading, error } = useCreateInquiry();
+
+const handleSubmit = async (data: InquiryData) => {
+  const result = await mutate(data);
+  
+  if (result) {
+    toast.success('문의가 등록되었습니다!');
+    setOpen(false);
+  } else {
+    toast.error('문의 등록에 실패했습니다.');
+  }
+};
+```
+
+---
+
+## 🎣 React Query 사용 (권장)
+
+### 1. 설치
+
+```bash
+npm install @tanstack/react-query
+```
+
+### 2. Query Client 설정
+
+```typescript
+// app/providers.tsx
+'use client';
+
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 60 * 1000, // 1분
+      cacheTime: 5 * 60 * 1000, // 5분
+      retry: 1,
+      refetchOnWindowFocus: false,
+    },
+  },
+});
+
+export function Providers({ children }: { children: React.ReactNode }) {
+  return (
+    <QueryClientProvider client={queryClient}>
+      {children}
+      <ReactQueryDevtools initialIsOpen={false} />
+    </QueryClientProvider>
+  );
+}
+```
+
+### 3. useQuery 사용
+
+```typescript
+// hooks/useProducts.ts
+import { useQuery } from '@tanstack/react-query';
+import { getProducts } from '@/lib/api/products';
+
+export function useProducts() {
+  return useQuery({
+    queryKey: ['products'],
+    queryFn: async () => {
+      const response = await getProducts();
+      return response.data.results;
+    },
+  });
+}
+```
+
+**사용 예시**:
+```typescript
+// app/products/coding-ai/page.tsx
+const { data: products, isLoading, error } = useProducts();
+
+if (isLoading) return <LoadingState />;
+if (error) return <ErrorState error={error} />;
+```
+
+### 4. useMutation 사용
+
+```typescript
+// hooks/useCreateInquiry.ts
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { createInquiry, InquiryData } from '@/lib/api/inquiry';
+
+export function useCreateInquiry() {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: (data: InquiryData) => createInquiry(data),
+    onSuccess: () => {
+      // 문의 목록 쿼리 무효화 (자동 재조회)
+      queryClient.invalidateQueries({ queryKey: ['inquiries'] });
+    },
+  });
+}
+```
+
+**사용 예시**:
+```typescript
+// components/inquiry-form-dialog.tsx
+const { mutate, isPending, error } = useCreateInquiry();
+
+const handleSubmit = (data: InquiryData) => {
+  mutate(data, {
+    onSuccess: () => {
+      toast.success('문의가 등록되었습니다!');
+      setOpen(false);
+    },
+    onError: (error) => {
+      toast.error('문의 등록에 실패했습니다.');
+    },
+  });
+};
+```
+
+---
+
+## 🚨 에러 처리
+
+### 1. 전역 에러 처리
+
+```typescript
+// lib/api/error-handler.ts
+import { toast } from '@/hooks/use-toast';
+
+export function handleApiError(error: any) {
+  // 네트워크 에러
+  if (!error.response) {
+    toast({
+      title: '네트워크 오류',
+      description: '인터넷 연결을 확인해주세요.',
+      variant: 'destructive',
+    });
+    return;
+  }
+
+  // HTTP 상태 코드별 처리
+  switch (error.response.status) {
+    case 400:
+      toast({
+        title: '잘못된 요청',
+        description: error.response.data.message || '입력 내용을 확인해주세요.',
+        variant: 'destructive',
+      });
+      break;
+    case 401:
+      toast({
+        title: '인증 실패',
+        description: '로그인이 필요합니다.',
+        variant: 'destructive',
+      });
+      // 로그인 페이지로 리다이렉트
+      window.location.href = '/';
+      break;
+    case 403:
+      toast({
+        title: '권한 없음',
+        description: '접근 권한이 없습니다.',
+        variant: 'destructive',
+      });
+      break;
+    case 404:
+      toast({
+        title: '찾을 수 없음',
+        description: '요청한 리소스를 찾을 수 없습니다.',
+        variant: 'destructive',
+      });
+      break;
+    case 500:
+      toast({
+        title: '서버 오류',
+        description: '일시적인 오류입니다. 잠시 후 다시 시도해주세요.',
+        variant: 'destructive',
+      });
+      break;
+    default:
+      toast({
+        title: '오류 발생',
+        description: error.response.data.message || '알 수 없는 오류가 발생했습니다.',
+        variant: 'destructive',
+      });
+  }
+}
+```
+
+---
+
+## 📊 로딩 상태 처리
+
+### 1. 스켈레톤 로딩
+
+```typescript
+// components/product-skeleton.tsx
+export function ProductSkeleton() {
+  return (
+    <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {Array.from({ length: 6 }).map((_, i) => (
+        <Card key={i}>
+          <CardHeader>
+            <Skeleton className="h-48 w-full" />
+          </CardHeader>
+          <CardContent>
+            <Skeleton className="h-6 w-3/4 mb-2" />
+            <Skeleton className="h-4 w-full" />
+          </CardContent>
+        </Card>
+      ))}
+    </div>
+  );
+}
+```
+
+---
+
+## 🧪 API 테스트
+
+### Postman Collection
+
+```json
+{
+  "info": {
+    "name": "AIMakerLab API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Register",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"test@example.com\",\n  \"password\": \"password123\",\n  \"password2\": \"password123\",\n  \"name\": \"홍길동\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/accounts/register/",
+              "host": ["{{baseUrl}}"],
+              "path": ["accounts", "register", ""]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
+```
+
+---
+
+## 📋 API 연동 체크리스트
+
+### 준비 사항
+- [ ] Django REST API 서버 구축
+- [ ] CORS 설정 (프론트엔드 도메인 허용)
+- [ ] JWT 인증 구현
+- [ ] API 문서화 (Swagger/Postman)
+
+### 프론트엔드 작업
+- [ ] 환경 변수 설정 (.env.local)
+- [ ] API 클라이언트 구현 (lib/api/)
+- [ ] 커스텀 훅 전환 (fetch → API 클라이언트)
+- [ ] 에러 처리 개선
+- [ ] 로딩 상태 UI 개선
+- [ ] 인증 토큰 관리
+
+### 테스트
+- [ ] API 엔드포인트 테스트
+- [ ] 에러 케이스 테스트
+- [ ] 인증 플로우 테스트
+- [ ] 성능 테스트
+
+---
+
+## 🎯 현재 프로젝트 상태 요약
+
+### ✅ 완료된 부분
+1. **프론트엔드 UI**: 완성 (30+ 페이지, 60+ 컴포넌트)
+2. **데이터 구조**: JSON Mock Data로 완벽히 구현
+3. **커스텀 훅**: 데이터 로딩 로직 분리
+4. **타입 정의**: TypeScript 타입 완비
+5. **인증 시스템**: 이메일 인증 기본 구현
+
+### ⏳ 향후 작업
+1. **Django REST API 연동**: 백엔드 API 개발 및 연동
+2. **JWT 인증**: 토큰 기반 인증 시스템
+3. **이미지 업로드**: 갤러리/프로필 이미지 업로드
+4. **실시간 알림**: WebSocket 연동
+5. **소셜 로그인**: Google, Kakao OAuth
+
+### 📊 전환 용이성
+현재 프로젝트는 다음과 같은 이유로 API 전환이 쉽게 가능합니다:
+- **훅 패턴**: 데이터 로딩 로직이 훅으로 분리됨
+- **타입 안전성**: TypeScript로 데이터 구조 명확히 정의
+- **에러 처리**: 로딩/에러 상태 관리 구조 완비
+- **설정 분리**: config.ts로 엔드포인트 관리 준비
+
+단순히 `fetch("/data.json")`을 `apiClient.get("/api/data")`로 변경하면 됩니다.
+
+---
+
+## 📚 참고 자료
+
+- [Next.js Data Fetching](https://nextjs.org/docs/app/building-your-application/data-fetching)
+- [Django REST Framework](https://www.django-rest-framework.org/)
+- [Axios Documentation](https://axios-http.com/docs/intro)
+- [React Query](https://tanstack.com/query/latest)
+- [SWR](https://swr.vercel.app/)
+
+---
+
+**최종 업데이트**: 2025-12-27
+**작성자**: AI Maker Lab 개발팀
+**프로젝트 상태**: Mock Data 기반 프론트엔드 완성, API 연동 준비 완료
+

@@ -127,7 +127,9 @@ export function Header() {
                                 <div>
                                   <div className="text-sm font-medium text-gray-900">{item.label}</div>
                                   {item.description && (
-                                    <div className="text-xs text-gray-500">{item.description}</div>
+                                    <div className="text-gray-500" style={{ fontSize: "11px" }}>
+                                      {item.description}
+                                    </div>
                                   )}
                                 </div>
                               </div>

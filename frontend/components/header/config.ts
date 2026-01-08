@@ -27,7 +27,7 @@ export const headerBrand = {
 export const headerNavSections: HeaderNavSection[] = [
   {
     title: "AI 교육 커리큘럼",
-    width: 240,
+    width: 210,
     icon: "BookOpen",
     items: [
 
@@ -59,7 +59,7 @@ export const headerNavSections: HeaderNavSection[] = [
         label: "바이브 AI 코딩", 
         href: "/curriculum/vive-coding", 
         icon: "MessageSquare", 
-        description: "AI 협업 콘텐츠 제작 & 웹 개발"
+        description: "AI 협업 콘텐츠 & 웹 개발"
       },
       { 
         label: "심화 교육 프로그램", 
@@ -71,7 +71,7 @@ export const headerNavSections: HeaderNavSection[] = [
   },
   {
     title: "수업 문의",
-    width: 200,
+    width: 190,
     icon: "HelpCircle",
     items: [
       { 
@@ -80,18 +80,18 @@ export const headerNavSections: HeaderNavSection[] = [
         icon: "School",
         description: "학교 및 기관 방문 교육"
       },
-      { 
-        label: "주중 수업", 
-        href: "/inquiry/schedule", 
-        icon: "CalendarDays",
-        description: "평일 정규 교육 프로그램"
-      },
-      { 
-        label: "주말 수업", 
-        href: "/inquiry/weekend-schedule", 
-        icon: "Calendar",
-        description: "주말 특별 교육 과정"
-      },
+      // { 
+      //   label: "주중 수업", 
+      //   href: "/inquiry/schedule", 
+      //   icon: "CalendarDays",
+      //   description: "평일 정규 교육 프로그램"
+      // },
+      // { 
+      //   label: "주말 수업", 
+      //   href: "/inquiry/weekend-schedule", 
+      //   icon: "Calendar",
+      //   description: "주말 특별 교육 과정"
+      // },
       { 
         label: "교육 소식", 
         href: "/inquiry/method", 
@@ -102,7 +102,7 @@ export const headerNavSections: HeaderNavSection[] = [
   },
   {
     title: "교육 제품(KIT)",
-    width: 240,
+    width: 220,
     icon: "Package",
     items: [
       { 
@@ -127,7 +127,7 @@ export const headerNavSections: HeaderNavSection[] = [
   },
   {
     title: "갤러리",
-    width: 220,
+    width: 210,
     icon: "Images",
     items: [
       { 
@@ -142,11 +142,17 @@ export const headerNavSections: HeaderNavSection[] = [
         icon: "MessageSquare",
         description: "교육 참가자들의 생생한 후기"
       },
+      { 
+        label: "기술 문서", 
+        href: "/docs", 
+        icon: "BookOpen",
+        description: "API 명세 및 구현 가이드"
+      },
     ],
   },
   {
     title: "AI Maker 소개",
-    width: 220,
+    width: 190,
     icon: "Building",
     items: [
       { 
@@ -159,7 +165,7 @@ export const headerNavSections: HeaderNavSection[] = [
         label: "오시는 길", 
         href: "/about/location", 
         icon: "MapPin",
-        description: "위치 안내 및 찾아오는 방법"
+        description: "위치 안내 및 문의 "
       },
     ],
   },

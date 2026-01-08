@@ -93,44 +93,23 @@ export function MobileDrawer() {
           <span className="sr-only">메뉴 열기</span>
         </Button>
       </SheetTrigger>
-      <SheetContent side="left" className="w-[300px] overflow-y-auto">
-        <SheetHeader>
-          <SheetTitle className="text-left">
-            <Link href="/" onClick={() => setOpen(false)} className="flex items-center space-x-2">
-              <span className="text-xl font-bold text-red-600">AI Maker</span>
-              <span className="text-xl font-bold text-gray-900">Lab</span>
-            </Link>
-          </SheetTitle>
-        </SheetHeader>
+      <SheetContent side="left" className="w-[300px] flex flex-col p-0">
+        {/* 상단 헤더 */}
+        <div className="flex-shrink-0 p-6 pb-4">
+          <SheetHeader>
+            <SheetTitle className="text-left">
+              <Link href="/" onClick={() => setOpen(false)} className="flex items-center space-x-2">
+                <span className="text-xl font-bold text-red-600">AI Maker</span>
+                <span className="text-xl font-bold text-gray-900">Lab</span>
+              </Link>
+            </SheetTitle>
+          </SheetHeader>
+        </div>
 
-        {/* 로그인 상태 표시 */}
-        {userEmail ? (
-          <div className="mt-4 p-4 bg-blue-50 rounded-lg">
-            <div className="flex items-center gap-2 mb-2">
-              <User className="h-4 w-4 text-blue-600" />
-              <span className="text-sm font-medium text-blue-900 truncate">
-                {userEmail}
-              </span>
-            </div>
-            <Button
-              variant="outline"
-              size="sm"
-              className="w-full"
-              onClick={handleLogout}
-            >
-              <LogOut className="mr-2 h-4 w-4" />
-              로그아웃
-            </Button>
-          </div>
-        ) : (
-          <div className="mt-4">
-            <LoginDialog />
-          </div>
-        )}
+        <Separator />
 
-        <Separator className="my-4" />
-
-        <nav className="flex flex-col space-y-2">
+        {/* 스크롤 가능한 메뉴 영역 */}
+        <nav className="flex-1 overflow-y-auto px-6 py-4 space-y-2">
           {/* 로그인한 사용자는 내 학습 메뉴 먼저 표시 */}
           {userEmail && (
             <>
@@ -180,6 +159,33 @@ export function MobileDrawer() {
             </Collapsible>
           ))}
         </nav>
+
+        {/* 하단 고정 로그인/로그아웃 영역 */}
+        <div className="flex-shrink-0 border-t bg-blue-50">
+          <div className="p-4">
+            {userEmail ? (
+              <div className="p-4 bg-blue-50 rounded-lg">
+                <div className="flex items-center gap-2 mb-2">
+                  <User className="h-4 w-4 text-blue-600" />
+                  <span className="text-sm font-medium text-blue-900 truncate">
+                    {userEmail}
+                  </span>
+                </div>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="w-full"
+                  onClick={handleLogout}
+                >
+                  <LogOut className="mr-2 h-4 w-4" />
+                  로그아웃
+                </Button>
+              </div>
+            ) : (
+              <LoginDialog />
+            )}
+          </div>
+        </div>
       </SheetContent>
     </Sheet>
   )
