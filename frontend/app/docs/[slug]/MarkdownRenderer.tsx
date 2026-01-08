@@ -12,14 +12,21 @@ export function MarkdownRenderer({ content }: MarkdownRendererProps) {
   useEffect(() => {
     // Mermaid 다이어그램 렌더링
     const renderMermaid = async () => {
-      if (typeof window !== 'undefined') {
-        try {
-          const mermaid = (await import('mermaid')).default;
+      if (typeof window === 'undefined') return;
+      
+      try {
+        // Mermaid 동적 임포트
+        const mermaid = (await import('mermaid')).default;
+        
+        // Mermaid 초기화 (한 번만)
+        if (!(window as any).mermaidInitialized) {
           mermaid.initialize({
-            startOnLoad: true,
+            startOnLoad: false, // 수동으로 렌더링
             theme: 'default',
             securityLevel: 'loose',
             fontFamily: 'ui-sans-serif, system-ui, sans-serif',
+            suppressErrorRendering: true, // ⭐ 에러 렌더링 비활성화
+            logLevel: 'error', // ⭐ 에러 로그 레벨 설정
             themeVariables: {
               primaryColor: '#3b82f6',
               primaryTextColor: '#fff',
@@ -33,30 +40,71 @@ export function MarkdownRenderer({ content }: MarkdownRendererProps) {
               tertiaryBkg: '#f59e0b',
             },
           });
-          
-          if (containerRef.current) {
-            const mermaidDivs = containerRef.current.querySelectorAll('.language-mermaid');
-            mermaidDivs.forEach((div, index) => {
-              const code = div.textContent || '';
-              const id = `mermaid-diagram-${Date.now()}-${index}`;
-              const wrapper = document.createElement('div');
-              wrapper.className = 'mermaid-wrapper';
-              wrapper.innerHTML = `<div id="${id}" class="mermaid">${code}</div>`;
-              div.parentNode?.replaceChild(wrapper, div);
-            });
-            
-            await mermaid.run({
-              querySelector: '.mermaid',
-            });
-          }
-        } catch (error) {
-          console.error('Mermaid 렌더링 에러:', error);
-          // Mermaid가 없어도 계속 진행
+          (window as any).mermaidInitialized = true;
         }
+        
+        if (!containerRef.current) return;
+        
+        // 아직 렌더링되지 않은 Mermaid 블록 찾기
+        const mermaidDivs = containerRef.current.querySelectorAll('.language-mermaid:not(.mermaid-rendered)');
+        
+        if (mermaidDivs.length === 0) return;
+        
+        // 각 Mermaid 블록 처리
+        for (let index = 0; index < mermaidDivs.length; index++) {
+          const div = mermaidDivs[index];
+          const code = div.textContent?.trim() || '';
+          
+          if (!code) continue;
+          
+          try {
+            const id = `mermaid-diagram-${Date.now()}-${index}`;
+            const wrapper = document.createElement('div');
+            wrapper.className = 'mermaid-wrapper';
+            
+            // Mermaid 렌더링
+            const { svg } = await mermaid.render(id, code);
+            wrapper.innerHTML = svg;
+            
+            // 원본 div를 wrapper로 교체
+            div.parentNode?.replaceChild(wrapper, div);
+            wrapper.classList.add('mermaid-rendered');
+          } catch (err: any) {
+            // 콘솔에만 에러 로그 출력 (사용자에게는 표시 안 함)
+            console.warn(`Mermaid 다이어그램 ${index} 렌더링 건너뜀 (문법 오류)`);
+            
+            // 에러 발생 시 해당 블록을 완전히 제거
+            if (div.parentNode) {
+              div.parentNode.removeChild(div);
+            }
+          }
+        }
+        
+        // Mermaid가 자동으로 삽입한 에러 요소 제거 (클린업)
+        if (containerRef.current) {
+          // Mermaid 에러 메시지 요소 찾기 및 제거
+          const errorElements = containerRef.current.querySelectorAll('[id^="dmermaid-"], .mermaid-parse-error');
+          errorElements.forEach(el => {
+            if (el.textContent?.includes('Syntax error') || el.textContent?.includes('Parse error')) {
+              el.remove();
+            }
+          });
+        }
+      } catch (error: any) {
+        // Mermaid 패키지 자체를 불러오지 못한 경우
+        console.warn('Mermaid 패키지를 로드할 수 없습니다:', error?.message || String(error));
       }
     };
 
     renderMermaid();
+    
+    // 클린업: 남아있는 에러 요소 제거
+    return () => {
+      if (containerRef.current) {
+        const errors = containerRef.current.querySelectorAll('[id^="dmermaid-"]');
+        errors.forEach(el => el.remove());
+      }
+    };
   }, [content]);
 
   // 간단한 마크다운 파싱 (react-markdown 없이)
@@ -233,6 +281,13 @@ export function MarkdownRenderer({ content }: MarkdownRendererProps) {
 if (typeof document !== 'undefined') {
   const style = document.createElement('style');
   style.textContent = `
+    /* Mermaid 에러 메시지 강제 숨김 */
+    [id^="dmermaid-"],
+    .mermaid-parse-error,
+    pre[class*="mermaid"] {
+      display: none !important;
+    }
+    
     .mermaid-wrapper {
       margin: 2rem 0;
       padding: 1.5rem;

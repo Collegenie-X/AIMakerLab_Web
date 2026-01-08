@@ -706,43 +706,37 @@ erDiagram
 ### API 엔드포인트 구조
 
 ```mermaid
-graph LR
-    A[/api/v1] --> B[/auth]
-    A --> C[/users]
-    A --> D[/curriculum]
-    A --> E[/schedules]
-    A --> F[/enrollments]
-    A --> G[/products]
-    A --> H[/quotes]
-    A --> I[/gallery]
-    A --> J[/inquiries]
-    A --> K[/videos]
-    A --> L[/home]
-    A --> M[/about]
-    A --> N[/policies]
-    A --> O[/admin]
+graph TD
+    A["/api/v1<br/>Base URL"]
     
-    B --> B1[/register]
-    B --> B2[/login]
-    B --> B3[/logout]
-    B --> B4[/refresh]
+    A --> B["/auth<br/>인증"]
+    A --> C["/users<br/>사용자"]
+    A --> D["/curriculum<br/>커리큘럼"]
+    A --> E["/schedules<br/>강좌"]
+    A --> F["/enrollments<br/>수강신청"]
+    A --> G["/products<br/>제품"]
+    A --> H["/quotes<br/>견적"]
+    A --> I["/gallery<br/>갤러리"]
+    A --> J["/inquiries<br/>문의"]
+    A --> K["/videos<br/>영상"]
+    A --> L["/home<br/>홈"]
+    A --> M["/about<br/>소개"]
+    A --> N["/policies<br/>정책"]
+    A --> O["/admin<br/>관리자"]
     
-    C --> C1[/profile]
-    C --> C2[/enrollments]
-    C --> C3[/inquiries]
+    B --> B1["register<br/>회원가입"]
+    B --> B2["login<br/>로그인"]
+    B --> B3["logout<br/>로그아웃"]
     
-    D --> D1[GET 목록]
-    D --> D2[GET :slug]
+    C --> C1["profile<br/>프로필"]
+    C --> C2["enrollments<br/>내 수강"]
     
-    E --> E1[GET 목록]
-    E --> E2[GET :id]
+    D --> D1["GET 목록<br/>POST 생성"]
+    E --> E1["GET 목록<br/>POST 생성"]
+    G --> G1["GET 목록<br/>POST 생성"]
     
-    G --> G1[GET 목록]
-    G --> G2[GET :slug]
-    G --> G3[POST :id/reviews]
-    
-    style A fill:#092e20
-    style O fill:#ff6b6b
+    style A fill:#092e20,color:#fff
+    style O fill:#ff6b6b,color:#fff
 ```
 
 ---
@@ -1365,28 +1359,22 @@ stateDiagram-v2
 ### Admin이 직접 관리하는 콘텐츠 (CRUD)
 
 ```mermaid
-graph TB
-    subgraph "Admin Dashboard"
-        A[관리자 로그인]
-    end
+graph TD
+    A[관리자 로그인]
     
-    subgraph "콘텐츠 관리"
-        B[커리큘럼 관리]
-        C[강좌 관리]
-        D[제품 관리]
-        E[영상 관리]
-        F[갤러리 관리]
-        G[문의 관리]
-        H[견적 관리]
-        I[CMS 콘텐츠]
-    end
+    B[커리큘럼 관리]
+    C[강좌 관리]
+    D[제품 관리]
+    E[영상 관리]
+    F[갤러리 관리]
+    G[문의 관리]
+    H[견적 관리]
+    I[CMS 콘텐츠]
     
-    subgraph "CRUD 작업"
-        J[Create]
-        K[Read]
-        L[Update]
-        M[Delete]
-    end
+    J[Create]
+    K[Read]
+    L[Update]
+    M[Delete]
     
     A --> B
     A --> C
@@ -1417,40 +1405,40 @@ graph TB
     E --> L
     E --> M
     
-    F --> K
-    F --> L
+    F -.승인.-> K
+    F -.승인.-> L
     
-    G --> K
-    G --> L
+    G -.답변.-> K
+    G -.답변.-> L
     
-    H --> K
-    H --> L
+    H -.검토.-> K
+    H -.검토.-> L
     
     I --> K
     I --> L
     
-    style A fill:#ff6b6b
-    style F fill:#51cf66
-    style G fill:#51cf66
-    style H fill:#51cf66
+    style A fill:#ff6b6b,color:#fff
+    style F fill:#51cf66,color:#fff
+    style G fill:#51cf66,color:#fff
+    style H fill:#51cf66,color:#fff
 ```
 
 ### 사용자 vs Admin 권한
 
 ```mermaid
-graph LR
-    subgraph "사용자 권한"
+graph TD
+    subgraph user["👤 사용자 권한"]
         A[회원가입/로그인]
         B[강좌 조회]
         C[수강 신청]
         D[제품 조회]
         E[견적 요청]
         F[문의 등록]
-        G[작품 등록 승인대기]
-        H[후기 작성 승인대기]
+        G[작품 등록]
+        H[후기 작성]
     end
     
-    subgraph "Admin 권한"
+    subgraph admin["🔐 Admin 권한"]
         I[모든 콘텐츠 CRUD]
         J[승인/거절]
         K[통계 조회]
@@ -1460,16 +1448,16 @@ graph LR
     A --> C
     B --> C
     D --> E
-    G --> J
-    H --> J
-    F --> J
+    G -.승인대기.-> J
+    H -.승인대기.-> J
+    F -.답변대기.-> J
     
     I --> J
     I --> K
     I --> L
     
-    style I fill:#ff6b6b
-    style J fill:#ff6b6b
+    style I fill:#ff6b6b,color:#fff
+    style J fill:#ff6b6b,color:#fff
 ```
 
 ---

@@ -944,13 +944,13 @@ Priority k에서:
 
 ```mermaid
 flowchart TD
-    A[초기 정책 π_old] --> B[환경에서 경험 수집<br/>N=2048 스텝]
-    B --> C[보상 계산<br/>R_t = Σ γ^k·r_{t+k}]
-    C --> D[Advantage 계산<br/>A_t = R_t - V(s_t)]
-    D --> E[정책 업데이트<br/>clipped objective]
-    E --> F{수렴?<br/>평균 보상 > 목표}
+    A["초기 정책"] --> B["환경에서 경험 수집<br/>N=2048 스텝"]
+    B --> C["보상 계산<br/>누적 보상 합계"]
+    C --> D["Advantage 계산<br/>가치 평가"]
+    D --> E["정책 업데이트<br/>clipped objective"]
+    E --> F{"수렴?<br/>평균 보상 > 목표"}
     F -->|아니오| B
-    F -->|예| G[최종 정책 π*]
+    F -->|예| G["최종 정책"]
     
     style E fill:#3b82f6,color:#fff
     style G fill:#10b981,color:#fff
@@ -993,22 +993,12 @@ L^CLIP(θ) = E_t[min(
 **알고리즘 구조**
 
 ```mermaid
-flowchart LR
-    subgraph "데이터 수집"
-        D1[인간 시연<br/>1,000 에피소드]
-        D2[데이터셋<br/>(상태, 행동) 쌍]
-    end
+flowchart TD
+    D1["인간 시연<br/>1,000 에피소드"] --> D2["데이터셋<br/>상태-행동 쌍"]
     
-    subgraph "학습"
-        L1[신경망 정책<br/>π_θ(s)]
-        L2[손실 함수<br/>MSE(π(s), a_demo)]
-        L3[옵티마이저<br/>Adam]
-    end
-    
-    D1 --> D2
-    D2 --> L1
-    L1 --> L2
-    L2 --> L3
+    D2 --> L1["신경망 정책"]
+    L1 --> L2["손실 함수<br/>MSE Loss"]
+    L2 --> L3["옵티마이저<br/>Adam"]
     L3 --> L1
     
     style L2 fill:#3b82f6,color:#fff
@@ -1061,13 +1051,13 @@ graph TB
 ```mermaid
 flowchart TD
     A["예측 단계<br/>Predict"]
-    B["상태 예측<br/>x̂ = f(x, u)"]
-    C["공분산 예측<br/>P = F·P·F^T + Q"]
+    B["상태 예측<br/>모델 기반 추정"]
+    C["공분산 예측<br/>불확실성 계산"]
     D["측정 단계<br/>Update"]
-    E["센서 측정<br/>z = h(x) + noise"]
-    F["칼만 이득<br/>K = P·H^T·(H·P·H^T + R)^(-1)"]
-    G["상태 업데이트<br/>x̂ = x̂ + K·(z - h(x̂))"]
-    H["공분산 업데이트<br/>P = (I - K·H)·P"]
+    E["센서 측정<br/>실제 값 + 노이즈"]
+    F["칼만 이득<br/>가중치 계산"]
+    G["상태 업데이트<br/>예측+측정 융합"]
+    H["공분산 업데이트<br/>불확실성 감소"]
 
     A --> B
     B --> C
