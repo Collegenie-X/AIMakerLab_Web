@@ -11,10 +11,10 @@ import {
   DialogDescription,
   DialogHeader,
   DialogTitle,
-} from '@/components/ui/dialog'
-import { Badge } from '@/components/ui/badge'
-import { Separator } from '@/components/ui/separator'
-import { ScrollArea } from '@/components/ui/scroll-area'
+  Badge,
+  Separator,
+  ScrollArea,
+} from '@/components/ui'
 import { OutreachInquiryItem } from '../config'
 import {
   Building2,

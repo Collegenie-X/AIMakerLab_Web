@@ -7,9 +7,17 @@
 "use client";
 
 import React, { useState } from "react";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  Badge,
+} from "@/components/ui";
 import { Clock, CheckCircle2 } from "lucide-react";
 import type { CurriculumData } from "../types";
 import {

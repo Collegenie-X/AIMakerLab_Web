@@ -8,7 +8,7 @@
 
 import React from "react";
 import { Loader2, AlertCircle } from "lucide-react";
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui";
 import type { CurriculumCategory } from "../types";
 import { useCurriculum } from "../hooks/useCurriculum";
 

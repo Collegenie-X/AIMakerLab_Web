@@ -5,8 +5,7 @@
 "use client";
 
 import React from "react";
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+import { Card, CardContent, Button } from "@/components/ui";
 import { Download, FileText } from "lucide-react";
 import type { MaterialsData } from "../types";
 

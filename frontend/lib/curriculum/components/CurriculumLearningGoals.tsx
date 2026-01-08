@@ -5,8 +5,7 @@
 "use client";
 
 import React from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import { Card, CardContent, CardHeader, CardTitle, Badge } from "@/components/ui";
 import { CheckCircle2 } from "lucide-react";
 import type { LearningGoalsData } from "../types";
 import { sortLearningGoals } from "../utils/curriculum-helpers";

@@ -7,7 +7,7 @@
 "use client";
 
 import React from "react";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui";
 import * as Icons from "lucide-react";
 import type { CourseInfoItem, IconColorType } from "../types";
 import { sortCourseInfo } from "../utils/curriculum-helpers";

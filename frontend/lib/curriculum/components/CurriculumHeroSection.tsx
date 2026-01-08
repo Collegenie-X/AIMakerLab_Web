@@ -7,8 +7,7 @@
 "use client";
 
 import React from "react";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
+import { Button, Badge } from "@/components/ui";
 import type { HeroData } from "../types";
 import { getInquiryUrl } from "../utils/curriculum-helpers";
 

@@ -5,9 +5,15 @@
 
 'use client'
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Badge } from '@/components/ui/badge'
-import { Button } from '@/components/ui/button'
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+  Badge,
+  Button,
+} from '@/components/ui'
 import { OutreachInquiryItem } from '../config'
 import { Building2, Calendar, MapPin, Users } from 'lucide-react'
 
