@@ -17,7 +17,7 @@
 ### 교육부 정책 목표 (2025-2028)
 
 ```mermaid
-graph TB
+graph LR
     A[AI for All<br/>모두를 <br>위한 <br>AI 인재양성] --> B[AI 중점학교<br/>2,000개교 확대]
     A --> C[지능형 과학실<br/>100% 구축]
     A --> D[정보AI 수업시간<br/>확대]
