@@ -946,16 +946,16 @@ graph TB
     A --> D[고등학교<br/>전문화 중심]
     
     B --> B1[놀이형 로봇<br/>블록코딩]
-    B --> B2[센서 체험<br/>간단한 제어]
+    B --> B2[센서 체험<br/>간단한  제어]
     B --> B3[팀 프로젝트<br/>협업 중심]
     
-    C --> C1[아두이노<br/>피지컬 컴퓨팅]
-    C --> C2[IoT 시스템<br/>실생활 문제 해결]
-    C --> C3[AI+하드웨어<br/>융합 프로젝트]
+    C --> C1[아두이노<br/>피지컬 <br> 컴퓨팅]
+    C --> C2[IoT 시스템<br/>실생활 <br> 문제  해결]
+    C --> C3[AI+하드웨어<br/>융합 <br> 프로젝트]
     
     D --> D1[라즈베리파이<br/>엣지 AI]
     D --> D2[로보틱스<br/>자율주행]
-    D --> D3[연구 프로젝트<br/>포트폴리오]
+    D --> D3[연구<br> 프로젝트<br/>포트폴리오]
     
     style A fill:#8b5cf6,color:#fff
     style B fill:#3b82f6,color:#fff
@@ -1177,18 +1177,19 @@ graph TB
     style D fill:#f59e0b,color:#fff
 ```
 
-| 교구명 | 가격 | 학년 | 주요 사양 | 적용 분야 | 프로젝트 예시 | 전문성 |
-|--------|------|------|----------|----------|-------------|--------|
-| **젯슨 나노 4GB** | 25만원 | 1~2학년 | - 128 CUDA 코어<br/>- 4GB RAM<br/>- USB 3.0 | 컴퓨터 비전, 엣지 AI | - 실시간 객체 추적<br/>- 자율주행 RC카<br/>- 제스처 인식 | ★★★★☆ |
-| **젯슨 Xavier NX** | 70만원 | 2학년 | - 384 CUDA 코어<br/>- 8GB RAM<br/>- AI 가속 | 고급 비전, 로봇 | - 다중 객체 추적<br/>- SLAM<br/>- 실시간 세그멘테이션 | ★★★★★ |
-| **구글 Coral Dev Board** | 20만원 | 1~2학년 | - Edge TPU<br/>- 1GB RAM<br/>- Linux 기반 | TensorFlow Lite | - 빠른 추론<br/>- 스마트 카메라<br/>- 음성 인식 | ★★★★☆ |
-| **오픈매니퓰레이터 X** | 80만원 | 1~2학년 | - 6축 로봇팔<br/>- ROS 호환<br/>- Dynamixel 서보 | 로보틱스, 매니퓰레이션 | - 물체 집기<br/>- 분류 작업<br/>- 협업 로봇 | ★★★★★ |
-| **TurtleBot3 Burger** | 60만원 | 1~2학년 | - 라즈베리파이<br/>- 라이다 센서<br/>- ROS2 | SLAM, 자율주행 | - 실내 지도 작성<br/>- 자율 내비게이션<br/>- 다중 로봇 | ★★★★★ |
-| **DonkeyCar 키트** | 50만원 | 1~2학년 | - 라즈베리파이<br/>- 카메라<br/>- RC 섀시 | 자율주행 학습 | - 라인 트레이서<br/>- 딥러닝 주행<br/>- 강화학습 | ★★★★☆ |
-| **라이다 센서 (RPLidar A1)** | 30만원 | 2학년 | - 360도 스캔<br/>- 12m 범위<br/>- ROS 호환 | SLAM, 장애물 회피 | - 3D 매핑<br/>- 자율주행<br/>- 로봇 청소기 | ★★★★☆ |
-| **Intel RealSense D435i** | 35만원 | 2학년 | - 깊이 카메라<br/>- RGB+Depth<br/>- IMU 내장 | 3D 비전, AR/VR | - 3D 스캔<br/>- 제스처 인식<br/>- 거리 측정 | ★★★★★ |
-| **DJI Tello EDU** | 20만원 | 1학년 | - 프로그래밍 드론<br/>- Python SDK<br/>- 720p 카메라 | 드론 프로그래밍 | - 자율 비행<br/>- 군집 비행<br/>- 객체 추적 | ★★★☆☆ |
-| **myCobot 280** | 120만원 | 2학년 | - 6축 협동로봇<br/>- Python/ROS<br/>- AI 카메라 | 산업용 로봇 | - 픽앤플레이스<br/>- 비전 기반 작업<br/>- 인간-로봇 협업 | ★★★★★ |
+| 교구명 | 가격 | 학년 | 주요 사양 | 적용 분야 | 프로젝트 예시 | 전문성 | 소개 영상 |
+|--------|------|------|----------|----------|-------------|--------|----------|
+| **젯슨 나노 4GB** | 25만원 | 1~2학년 | - 128 CUDA 코어<br/>- 4GB RAM<br/>- USB 3.0 | 컴퓨터 비전, 엣지 AI | - 실시간 객체 추적<br/>- 자율주행 RC카<br/>- 제스처 인식 | ★★★★☆ | [🎥 영상보기](https://www.youtube.com/watch?v=km0yT99eVTY) |
+| **젯슨 Xavier NX** | 70만원 | 2학년 | - 384 CUDA 코어<br/>- 8GB RAM<br/>- AI 가속 | 고급 비전, 로봇 | - 다중 객체 추적<br/>- SLAM<br/>- 실시간 세그멘테이션 | ★★★★★ | [🎥 영상보기](https://www.youtube.com/watch?v=_ioRgmD7xfY) |
+| **구글 Coral Dev Board** | 20만원 | 1~2학년 | - Edge TPU<br/>- 1GB RAM<br/>- Linux 기반 | TensorFlow Lite | - 빠른 추론<br/>- 스마트 카메라<br/>- 음성 인식 | ★★★★☆ | [🎥 영상보기](https://www.youtube.com/watch?v=m3Xh0l3OLgg) |
+| **오픈매니퓰레이터 X** | 80만원 | 1~2학년 | - 6축 로봇팔<br/>- ROS 호환<br/>- Dynamixel 서보 | 로보틱스, 매니퓰레이션 | - 물체 집기<br/>- 분류 작업<br/>- 협업 로봇 | ★★★★★ | [🎥 영상보기](https://www.youtube.com/watch?v=qbHJ-8GK_r8) |
+| **TurtleBot3 Burger** | 60만원 | 1~2학년 | - 라즈베리파이<br/>- 라이다 센서<br/>- ROS2 | SLAM, 자율주행 | - 실내 지도 작성<br/>- 자율 내비게이션<br/>- 다중 로봇 | ★★★★★ | [🎥 영상보기](https://www.youtube.com/watch?v=pi8QlYRH7GI) |
+| **DonkeyCar 키트** | 50만원 | 1~2학년 | - 라즈베리파이<br/>- 카메라<br/>- RC 섀시 | 자율주행 학습 | - 라인 트레이서<br/>- 딥러닝 주행<br/>- 강화학습 | ★★★★☆ | [🎥 영상보기](https://www.youtube.com/watch?v=0zDFezKWGNM) |
+| **AWS DeepRacer** | 55만원 | 1~2학년 | - 강화학습 플랫폼<br/>- 1/18 스케일<br/>- 4MP 카메라 | 강화학습, 자율주행 | - 강화학습 모델<br/>- 레이싱 챌린지<br/>- 클라우드 훈련 | ★★★★★ | [🎥 영상보기](https://www.youtube.com/watch?v=BN0UoXJT6Ks) |
+| **라이다 센서 (RPLidar A1)** | 30만원 | 2학년 | - 360도 스캔<br/>- 12m 범위<br/>- ROS 호환 | SLAM, 장애물 회피 | - 3D 매핑<br/>- 자율주행<br/>- 로봇 청소기 | ★★★★☆ | [🎥 영상보기](https://www.youtube.com/watch?v=KaONPX4g1GM) |
+| **Intel RealSense D435i** | 35만원 | 2학년 | - 깊이 카메라<br/>- RGB+Depth<br/>- IMU 내장 | 3D 비전, AR/VR | - 3D 스캔<br/>- 제스처 인식<br/>- 거리 측정 | ★★★★★ | [🎥 영상보기](https://www.youtube.com/watch?v=3l3ZuFcTaYI) |
+| **DJI Tello EDU** | 20만원 | 1학년 | - 프로그래밍 드론<br/>- Python SDK<br/>- 720p 카메라 | 드론 프로그래밍 | - 자율 비행<br/>- 군집 비행<br/>- 객체 추적 | ★★★☆☆ | [🎥 영상보기](https://www.youtube.com/watch?v=DM2kCMKu2cI) |
+| **myCobot 280** | 120만원 | 2학년 | - 6축 협동로봇<br/>- Python/ROS<br/>- AI 카메라 | 산업용 로봇 | - 픽앤플레이스<br/>- 비전 기반 작업<br/>- 인간-로봇 협업 | ★★★★★ | [🎥 영상보기](https://www.youtube.com/watch?v=l8zWgTiFMZ0) |
 
 #### 📌 고등학교 1학년 피지컬 AI 연간 커리큘럼 예시
 
