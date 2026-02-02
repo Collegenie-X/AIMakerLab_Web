@@ -46,70 +46,67 @@
       "value": "메이커 교육 방식 (프로젝트 기반)"
     }
   ],
-  "description": {
-    "title": "과정 소개",
-    "paragraphs": [
-      "앱 인벤터는 MIT에서 개발한 블록 기반 프로그래밍 도구로, 복잡한 코드 없이도 실제로 작동하는 안드로이드 앱을 만들 수 있습니다.",
-      "이 과정에서는 드래그 앤 드롭 방식의 직관적인 인터페이스를 통해 프로그래밍의 기본 개념을 배우고, 게임, 유틸리티, 소셜 앱 등 다양한 종류의 앱을 직접 제작합니다.",
-      "프로그래밍 경험이 전혀 없어도 괜찮습니다. 기초부터 차근차근 배워나가며, 최종적으로는 자신만의 창의적인 앱을 완성하게 됩니다."
-    ]
-  },
-  "educationRequirements": {
-    "title": "교육 조건",
-    "items": [
+  "gradeRecommendation": {
+    "title": "학년별 추천 커리큘럼",
+    "description": "학생의 학년과 수준에 맞는 최적의 과정을 선택하세요",
+    "programName": "앱 인벤터",
+    "headers": [
+      "추천시기",
+      "초3-4",
+      "초5-6",
+      "중1-2",
+      "중3",
+      "고등"
+    ],
+    "courses": [
       {
-        "id": "optimal-capacity",
-        "icon": "Users",
-        "iconColor": "blue",
-        "title": "적정 인원",
-        "description": "학급당 12~20명",
-        "details": [
-          "1:1 밀착 지도를 위한 소규모 수업",
-          "학생 개별 진도에 맞춘 맞춤형 교육",
-          "팀 프로젝트 진행 시 3~4명 팀 구성"
-        ]
+        "id": "basic-experience",
+        "courseName": "앱 인벤터 체험",
+        "duration": "3시간",
+        "difficulty": "입문",
+        "recommendedGrades": {
+          "elementary-mid": "권장",
+          "elementary-high": "권장",
+          "middle-low": "선택",
+          "middle-high": "선택",
+          "high": null
+        },
+        "description": "블록 코딩으로 첫 앱 만들기"
       },
       {
-        "id": "materials",
-        "icon": "Package",
-        "iconColor": "purple",
-        "title": "필요 교구재",
-        "description": "개인 노트북/태블릿 + 안드로이드 기기",
-        "details": [
-          "인터넷 연결 가능한 PC 또는 태블릿 (1인 1대)",
-          "앱 테스트용 안드로이드 스마트폰/태블릿 (선택사항)",
-          "교재 및 활동지 제공 (PDF 또는 인쇄물)",
-          "USB 케이블 (기기 연결용)"
-        ]
+        "id": "basic-course",
+        "courseName": "앱 인벤터 기본",
+        "duration": "6시간",
+        "difficulty": "기초",
+        "recommendedGrades": {
+          "elementary-mid": null,
+          "elementary-high": "권장",
+          "middle-low": "권장",
+          "middle-high": "권장",
+          "high": "선택"
+        },
+        "description": "이벤트와 조건문으로 앱 만들기"
       },
       {
-        "id": "environment",
-        "icon": "Monitor",
-        "iconColor": "green",
-        "title": "개발 환경",
-        "description": "웹 브라우저 기반 (크롬 권장)",
-        "details": [
-          "MIT App Inventor 2 (ai2.appinventor.mit.edu)",
-          "구글 계정 필요 (Gmail)",
-          "웹 브라우저: Chrome, Firefox, Safari 최신 버전",
-          "안드로이드 에뮬레이터 또는 실제 기기",
-          "별도 프로그램 설치 불필요 (웹 기반)"
-        ]
-      },
-      {
-        "id": "prerequisites",
-        "icon": "GraduationCap",
-        "iconColor": "orange",
-        "title": "사전 지식",
-        "description": "컴퓨터 기본 사용법만 있으면 충분",
-        "details": [
-          "마우스 드래그 앤 드롭 가능",
-          "웹 브라우저 사용 경험",
-          "파일 저장 및 불러오기 이해",
-          "코딩 경험 불필요"
-        ]
+        "id": "advanced-course",
+        "courseName": "앱 인벤터 심화",
+        "duration": "12시간",
+        "difficulty": "심화",
+        "recommendedGrades": {
+          "elementary-mid": null,
+          "elementary-high": "도전",
+          "middle-low": "권장",
+          "middle-high": "권장",
+          "high": "권장"
+        },
+        "description": "데이터베이스와 센서를 활용한 실전 앱"
       }
-    ]
+    ],
+    "legend": {
+      "recommended": "권장: 해당 학년에 가장 적합한 난이도",
+      "optional": "선택: 관심 있으면 도전 가능",
+      "challenge": "도전: 프로그래밍 경험이 있다면 가능"
+    }
   },
   "learningGoals": {
     "title": "학습 목표 및 기대 효과",
@@ -170,61 +167,6 @@
       "포트폴리오 제작 (학생부 기록 가능)",
       "MIT App Inventor 수료증 발급"
     ]
-  },
-  "gradeRecommendation": {
-    "title": "학년별 추천 커리큘럼",
-    "description": "학생의 학년과 수준에 맞는 최적의 과정을 선택하세요",
-    "programName": "앱 인벤터",
-    "headers": ["추천시기", "초3-4", "초5-6", "중1-2", "중3", "고등"],
-    "courses": [
-      {
-        "id": "basic-experience",
-        "courseName": "앱 인벤터 체험",
-        "duration": "3시간",
-        "difficulty": "입문",
-        "recommendedGrades": {          
-          "elementary-mid": "권장",
-          "elementary-high": "권장",
-          "middle-low": "선택",
-          "middle-high": "선택",
-          "high": null
-        },
-        "description": "블록 코딩으로 첫 앱 만들기"
-      },
-      {
-        "id": "basic-course",
-        "courseName": "앱 인벤터 기본",
-        "duration": "6시간",
-        "difficulty": "기초",
-        "recommendedGrades": {          
-          "elementary-mid": null,
-          "elementary-high": "권장",
-          "middle-low": "권장",
-          "middle-high": "권장",
-          "high": "선택"
-        },
-        "description": "이벤트와 조건문으로 앱 만들기"
-      },
-      {
-        "id": "advanced-course",
-        "courseName": "앱 인벤터 심화",
-        "duration": "12시간",
-        "difficulty": "심화",
-        "recommendedGrades": {          
-          "elementary-mid": null,
-          "elementary-high": "도전",
-          "middle-low": "권장",
-          "middle-high": "권장",
-          "high": "권장"
-        },
-        "description": "데이터베이스와 센서를 활용한 실전 앱"
-      }
-    ],
-    "legend": {
-      "recommended": "권장: 해당 학년에 가장 적합한 난이도",
-      "optional": "선택: 관심 있으면 도전 가능",
-      "challenge": "도전: 프로그래밍 경험이 있다면 가능"
-    }
   },
   "curriculum": {
     "title": "커리큘럼",
@@ -395,119 +337,59 @@
       }
     ]
   },
-  "gallery": {
-    "title": "수업 현장 및 학생 작품",
-    "description": "실제 수업 모습과 학생들이 만든 창의적인 앱들을 확인해보세요",
-    "tabs": [
+  "educationRequirements": {
+    "title": "교육 조건",
+    "items": [
       {
-        "id": "class-photos",
-        "label": "수업 현장",
-        "items": [
-          {
-            "id": "class-1",
-            "imageUrl": "/home/app-inventor-coding-blocks.jpg",
-            "title": "앱 인벤터 블록 코딩 수업",
-            "description": "학생들이 블록을 조립하며 앱의 기능을 구현하고 있습니다",
-            "date": "2024년 3월",
-            "tags": ["블록코딩", "실습"]
-          },
-          {
-            "id": "class-2",
-            "imageUrl": "/home/mobile-app-interface.png",
-            "title": "앱 디자인 실습",
-            "description": "UI 디자인을 배우며 사용자 친화적인 화면을 만드는 모습",
-            "date": "2024년 4월",
-            "tags": ["UI디자인", "실습"]
-          },
-          {
-            "id": "class-3",
-            "imageUrl": "/modern-coding-education-classroom-with-computers.jpg",
-            "title": "팀 프로젝트 협업",
-            "description": "팀원들과 함께 아이디어를 나누고 앱을 기획하는 시간",
-            "date": "2024년 5월",
-            "tags": ["팀프로젝트", "협업"]
-          }
+        "id": "optimal-capacity",
+        "icon": "Users",
+        "iconColor": "blue",
+        "title": "적정 인원",
+        "description": "학급당 12~20명",
+        "details": [
+          "1:1 밀착 지도를 위한 소규모 수업",
+          "학생 개별 진도에 맞춘 맞춤형 교육",
+          "팀 프로젝트 진행 시 3~4명 팀 구성"
         ]
       },
       {
-        "id": "student-works",
-        "label": "학생 작품",
-        "items": [
-          {
-            "id": "work-1",
-            "imageUrl": "/home/app-inventor-coding-blocks.jpg",
-            "title": "날씨 알림 앱",
-            "description": "현재 위치의 날씨 정보를 실시간으로 확인하고 알림을 받을 수 있는 앱",
-            "student": "김○○ 학생 (중학교 1학년)",
-            "features": ["GPS 위치 추적", "날씨 API 연동", "알림 기능"],
-            "tags": ["위치기반", "API연동"]
-          },
-          {
-            "id": "work-2",
-            "imageUrl": "/home/mobile-app-interface.png",
-            "title": "단어 암기 게임",
-            "description": "영어 단어를 재미있게 암기할 수 있는 퀴즈 형식의 학습 앱",
-            "student": "이○○ 학생 (초등학교 6학년)",
-            "features": ["단어 데이터베이스", "퀴즈 게임", "점수 기록"],
-            "tags": ["교육", "게임"]
-          },
-          {
-            "id": "work-3",
-            "imageUrl": "/home/smart-home-iot-device.jpg",
-            "title": "가족 일정 관리 앱",
-            "description": "가족 구성원의 일정을 공유하고 관리하는 실용적인 앱",
-            "student": "박○○ 학생 (중학교 2학년)",
-            "features": ["일정 등록", "알림 설정", "가족 공유"],
-            "tags": ["일정관리", "실용앱"]
-          },
-          {
-            "id": "work-4",
-            "imageUrl": "/home/student-robot-project.jpg",
-            "title": "블루투스 RC카 제어 앱",
-            "description": "아두이노로 만든 RC카를 스마트폰으로 조종하는 IoT 앱",
-            "student": "최○○ 학생 (중학교 3학년)",
-            "features": ["블루투스 연결", "방향 제어", "속도 조절"],
-            "tags": ["IoT", "하드웨어연동"]
-          }
+        "id": "materials",
+        "icon": "Package",
+        "iconColor": "purple",
+        "title": "필요 교구재",
+        "description": "개인 노트북/태블릿 + 안드로이드 기기",
+        "details": [
+          "인터넷 연결 가능한 PC 또는 태블릿 (1인 1대)",
+          "앱 테스트용 안드로이드 스마트폰/태블릿 (선택사항)",
+          "교재 및 활동지 제공 (PDF 또는 인쇄물)",
+          "USB 케이블 (기기 연결용)"
         ]
       },
       {
-        "id": "reviews",
-        "label": "수업 후기",
-        "items": [
-          {
-            "id": "review-1",
-            "imageUrl": "/home/app-inventor-coding-blocks.jpg",
-            "title": "중학생 정규반 수업 후기",
-            "description": "12시간 과정을 마친 학생들의 발표회 모습",
-            "content": "처음에는 코딩이 어려울 줄 알았는데, 블록으로 하니까 게임하듯이 재미있게 배웠어요. 제가 만든 앱이 실제로 폰에서 작동하는 게 신기하고 뿌듯했습니다!",
-            "author": "김민준 (중2)",
-            "rating": 5,
-            "date": "2024년 6월",
-            "tags": ["정규반", "12시간"]
-          },
-          {
-            "id": "review-2",
-            "imageUrl": "/modern-coding-education-classroom-with-computers.jpg",
-            "title": "초등학생 방학특강 후기",
-            "description": "여름방학 6시간 특강 후 학생들의 만족스러운 표정",
-            "content": "친구들이랑 같이 앱을 만들어서 더 재미있었어요. 선생님이 친절하게 알려주셔서 어려운 부분도 쉽게 이해할 수 있었습니다. 다음에 또 배우고 싶어요!",
-            "author": "이서연 (초6)",
-            "rating": 5,
-            "date": "2024년 7월",
-            "tags": ["방학특강", "6시간"]
-          },
-          {
-            "id": "review-3",
-            "imageUrl": "/home/mobile-app-interface.png",
-            "title": "학교 선생님 추천",
-            "description": "방과후 수업으로 진행한 앱 인벤터 교육",
-            "content": "학생들이 자신의 아이디어를 직접 앱으로 구현하면서 창의력과 문제해결력이 크게 향상되었습니다. 특히 코딩에 자신감을 얻게 된 점이 가장 큰 성과입니다.",
-            "author": "박민수 선생님 (○○중학교)",
-            "rating": 5,
-            "date": "2024년 9월",
-            "tags": ["방과후수업", "학교"]
-          }
+        "id": "environment",
+        "icon": "Monitor",
+        "iconColor": "green",
+        "title": "개발 환경",
+        "description": "웹 브라우저 기반 (크롬 권장)",
+        "details": [
+          "MIT App Inventor 2 (ai2.appinventor.mit.edu)",
+          "구글 계정 필요 (Gmail)",
+          "웹 브라우저: Chrome, Firefox, Safari 최신 버전",
+          "안드로이드 에뮬레이터 또는 실제 기기",
+          "별도 프로그램 설치 불필요 (웹 기반)"
+        ]
+      },
+      {
+        "id": "prerequisites",
+        "icon": "GraduationCap",
+        "iconColor": "orange",
+        "title": "사전 지식",
+        "description": "컴퓨터 기본 사용법만 있으면 충분",
+        "details": [
+          "마우스 드래그 앤 드롭 가능",
+          "웹 브라우저 사용 경험",
+          "파일 저장 및 불러오기 이해",
+          "코딩 경험 불필요"
         ]
       }
     ]
@@ -671,6 +553,176 @@
     "description": "무료 상담을 통해 자세한 정보를 확인하세요",
     "buttonText": "수업 일정 보기",
     "buttonLink": "/inquiry/schedule"
+  },
+  "description": {
+    "title": "과정 소개",
+    "paragraphs": [
+      "앱 인벤터는 MIT에서 개발한 블록 기반 프로그래밍 도구로, 복잡한 코드 없이도 실제로 작동하는 안드로이드 앱을 만들 수 있습니다.",
+      "이 과정에서는 드래그 앤 드롭 방식의 직관적인 인터페이스를 통해 프로그래밍의 기본 개념을 배우고, 게임, 유틸리티, 소셜 앱 등 다양한 종류의 앱을 직접 제작합니다.",
+      "프로그래밍 경험이 전혀 없어도 괜찮습니다. 기초부터 차근차근 배워나가며, 최종적으로는 자신만의 창의적인 앱을 완성하게 됩니다."
+    ]
+  },
+  "gallery": {
+    "title": "수업 현장 및 학생 작품",
+    "description": "실제 수업 모습과 학생들이 만든 창의적인 앱들을 확인해보세요",
+    "tabs": [
+      {
+        "id": "class-photos",
+        "label": "수업 현장",
+        "items": [
+          {
+            "id": "class-1",
+            "imageUrl": "/home/app-inventor-coding-blocks.jpg",
+            "title": "앱 인벤터 블록 코딩 수업",
+            "description": "학생들이 블록을 조립하며 앱의 기능을 구현하고 있습니다",
+            "date": "2024년 3월",
+            "tags": [
+              "블록코딩",
+              "실습"
+            ]
+          },
+          {
+            "id": "class-2",
+            "imageUrl": "/home/mobile-app-interface.png",
+            "title": "앱 디자인 실습",
+            "description": "UI 디자인을 배우며 사용자 친화적인 화면을 만드는 모습",
+            "date": "2024년 4월",
+            "tags": [
+              "UI디자인",
+              "실습"
+            ]
+          },
+          {
+            "id": "class-3",
+            "imageUrl": "/modern-coding-education-classroom-with-computers.jpg",
+            "title": "팀 프로젝트 협업",
+            "description": "팀원들과 함께 아이디어를 나누고 앱을 기획하는 시간",
+            "date": "2024년 5월",
+            "tags": [
+              "팀프로젝트",
+              "협업"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "student-works",
+        "label": "학생 작품",
+        "items": [
+          {
+            "id": "work-1",
+            "imageUrl": "/home/app-inventor-coding-blocks.jpg",
+            "title": "날씨 알림 앱",
+            "description": "현재 위치의 날씨 정보를 실시간으로 확인하고 알림을 받을 수 있는 앱",
+            "student": "김○○ 학생 (중학교 1학년)",
+            "features": [
+              "GPS 위치 추적",
+              "날씨 API 연동",
+              "알림 기능"
+            ],
+            "tags": [
+              "위치기반",
+              "API연동"
+            ]
+          },
+          {
+            "id": "work-2",
+            "imageUrl": "/home/mobile-app-interface.png",
+            "title": "단어 암기 게임",
+            "description": "영어 단어를 재미있게 암기할 수 있는 퀴즈 형식의 학습 앱",
+            "student": "이○○ 학생 (초등학교 6학년)",
+            "features": [
+              "단어 데이터베이스",
+              "퀴즈 게임",
+              "점수 기록"
+            ],
+            "tags": [
+              "교육",
+              "게임"
+            ]
+          },
+          {
+            "id": "work-3",
+            "imageUrl": "/home/smart-home-iot-device.jpg",
+            "title": "가족 일정 관리 앱",
+            "description": "가족 구성원의 일정을 공유하고 관리하는 실용적인 앱",
+            "student": "박○○ 학생 (중학교 2학년)",
+            "features": [
+              "일정 등록",
+              "알림 설정",
+              "가족 공유"
+            ],
+            "tags": [
+              "일정관리",
+              "실용앱"
+            ]
+          },
+          {
+            "id": "work-4",
+            "imageUrl": "/home/student-robot-project.jpg",
+            "title": "블루투스 RC카 제어 앱",
+            "description": "아두이노로 만든 RC카를 스마트폰으로 조종하는 IoT 앱",
+            "student": "최○○ 학생 (중학교 3학년)",
+            "features": [
+              "블루투스 연결",
+              "방향 제어",
+              "속도 조절"
+            ],
+            "tags": [
+              "IoT",
+              "하드웨어연동"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "reviews",
+        "label": "수업 후기",
+        "items": [
+          {
+            "id": "review-1",
+            "imageUrl": "/home/app-inventor-coding-blocks.jpg",
+            "title": "중학생 정규반 수업 후기",
+            "description": "12시간 과정을 마친 학생들의 발표회 모습",
+            "content": "처음에는 코딩이 어려울 줄 알았는데, 블록으로 하니까 게임하듯이 재미있게 배웠어요. 제가 만든 앱이 실제로 폰에서 작동하는 게 신기하고 뿌듯했습니다!",
+            "author": "김민준 (중2)",
+            "rating": 5,
+            "date": "2024년 6월",
+            "tags": [
+              "정규반",
+              "12시간"
+            ]
+          },
+          {
+            "id": "review-2",
+            "imageUrl": "/modern-coding-education-classroom-with-computers.jpg",
+            "title": "초등학생 방학특강 후기",
+            "description": "여름방학 6시간 특강 후 학생들의 만족스러운 표정",
+            "content": "친구들이랑 같이 앱을 만들어서 더 재미있었어요. 선생님이 친절하게 알려주셔서 어려운 부분도 쉽게 이해할 수 있었습니다. 다음에 또 배우고 싶어요!",
+            "author": "이서연 (초6)",
+            "rating": 5,
+            "date": "2024년 7월",
+            "tags": [
+              "방학특강",
+              "6시간"
+            ]
+          },
+          {
+            "id": "review-3",
+            "imageUrl": "/home/mobile-app-interface.png",
+            "title": "학교 선생님 추천",
+            "description": "방과후 수업으로 진행한 앱 인벤터 교육",
+            "content": "학생들이 자신의 아이디어를 직접 앱으로 구현하면서 창의력과 문제해결력이 크게 향상되었습니다. 특히 코딩에 자신감을 얻게 된 점이 가장 큰 성과입니다.",
+            "author": "박민수 선생님 (○○중학교)",
+            "rating": 5,
+            "date": "2024년 9월",
+            "tags": [
+              "방과후수업",
+              "학교"
+            ]
+          }
+        ]
+      }
+    ]
   }
 }
-

@@ -67,6 +67,110 @@
       }
     ]
   },
+  "gradeRecommendation": {
+    "title": "학년별 추천 커리큘럼",
+    "description": "학생의 학년과 수준에 맞는 최적의 과정을 선택하세요",
+    "programName": "Raspberry Pi 과정",
+    "headers": [
+      "과정",
+      "초3-4",
+      "초5-6",
+      "중1-2",
+      "중3",
+      "고등"
+    ],
+    "courses": [
+      {
+        "id": "course-3h-smart-farm",
+        "courseName": "스마트 팜 3시간",
+        "description": "센서 연동 기초",
+        "difficulty": "입문",
+        "duration": "3시간",
+        "recommendedGrades": {
+          "elementary-mid": null,
+          "elementary-high": "선택",
+          "middle-low": "권장",
+          "middle-high": "권장",
+          "high": "선택"
+        }
+      },
+      {
+        "id": "course-6h-smart-farm",
+        "courseName": "스마트 팜 6시간",
+        "description": "자동화 시스템",
+        "difficulty": "기초",
+        "duration": "6시간",
+        "recommendedGrades": {
+          "elementary-mid": null,
+          "elementary-high": null,
+          "middle-low": "선택",
+          "middle-high": "권장",
+          "high": "권장"
+        }
+      },
+      {
+        "id": "course-12h-smart-farm",
+        "courseName": "스마트 팜 12시간",
+        "description": "AI 기반 작물 관리",
+        "difficulty": "심화",
+        "duration": "12시간",
+        "recommendedGrades": {
+          "elementary-mid": null,
+          "elementary-high": null,
+          "middle-low": null,
+          "middle-high": "선택",
+          "high": "권장"
+        }
+      },
+      {
+        "id": "course-3h-self-driving",
+        "courseName": "자율 주행차 3시간",
+        "description": "모터 제어 기초",
+        "difficulty": "입문",
+        "duration": "3시간",
+        "recommendedGrades": {
+          "elementary-mid": null,
+          "elementary-high": "선택",
+          "middle-low": "권장",
+          "middle-high": "권장",
+          "high": "선택"
+        }
+      },
+      {
+        "id": "course-6h-self-driving",
+        "courseName": "자율 주행차 6시간",
+        "description": "차선 인식 주행",
+        "difficulty": "기초",
+        "duration": "6시간",
+        "recommendedGrades": {
+          "elementary-mid": null,
+          "elementary-high": null,
+          "middle-low": "선택",
+          "middle-high": "권장",
+          "high": "권장"
+        }
+      },
+      {
+        "id": "course-12h-self-driving",
+        "courseName": "자율 주행차 12시간",
+        "description": "딥러닝 완전 자율",
+        "difficulty": "심화",
+        "duration": "12시간",
+        "recommendedGrades": {
+          "elementary-mid": null,
+          "elementary-high": null,
+          "middle-low": null,
+          "middle-high": "도전",
+          "high": "권장"
+        }
+      }
+    ],
+    "legend": {
+      "recommended": "해당 학년에 가장 적합한 난이도",
+      "optional": "관심 있으면 도전 가능",
+      "challenge": "프로그래밍 경험이 있다면 가능"
+    }
+  },
   "learningGoals": {
     "title": "학습 목표 및 기대 효과",
     "description": "대학 수준의 전문 커리큘럼으로 Raspberry Pi 활용 능력을 키웁니다",
@@ -102,62 +206,6 @@
       "IoT 및 AI 통합 시스템 이해",
       "문제 해결 능력 및 창의력 증진",
       "포트폴리오에 활용 가능한 실무 프로젝트"
-    ]
-  },
-  "projects": {
-    "title": "2대 프로젝트",
-    "description": "전북대학교와 가천대학교 협력 커리큘럼",
-    "items": [
-      {
-        "id": "smart-farm",
-        "title": "스마트 팜",
-        "subtitle": "IoT 기반 자동화 농업 시스템",
-        "description": "다양한 센서를 활용하여 온도, 습도, 조도, 토양 수분을 측정하고 자동으로 관리하는 스마트 팜을 만듭니다.",
-        "icon": "Sprout",
-        "iconColor": "green",
-        "difficulty": "중급",
-        "university": "전북대학교",
-        "technologies": [
-          "Raspberry Pi 4",
-          "Python",
-          "DHT22 센서",
-          "토양 수분 센서",
-          "릴레이 모듈",
-          "Flask 웹서버"
-        ],
-        "features": [
-          "실시간 환경 데이터 모니터링",
-          "자동 관수 시스템",
-          "웹 기반 원격 제어",
-          "데이터 로깅 및 분석",
-          "알림 시스템 (온도/습도 임계값)"
-        ]
-      },
-      {
-        "id": "self-driving-car",
-        "title": "자율 주행차",
-        "subtitle": "AI 카메라 기반 스마트 카",
-        "description": "카메라와 센서를 활용하여 차선을 인식하고 장애물을 피해 자율적으로 주행하는 로봇 자동차를 만듭니다.",
-        "icon": "Car",
-        "iconColor": "cyan",
-        "difficulty": "고급",
-        "university": "가천대학교",
-        "technologies": [
-          "Raspberry Pi 4",
-          "Python",
-          "Pi Camera",
-          "OpenCV",
-          "초음파 센서",
-          "DC 모터"
-        ],
-        "features": [
-          "실시간 차선 인식 (컴퓨터 비전)",
-          "장애물 감지 및 회피",
-          "자동 주행 알고리즘",
-          "PID 제어를 통한 정밀 주행",
-          "딥러닝 기반 객체 인식 (선택)"
-        ]
-      }
     ]
   },
   "curriculum": {
@@ -514,110 +562,6 @@
       }
     ]
   },
-  "gradeRecommendation": {
-    "title": "학년별 추천 커리큘럼",
-    "description": "학생의 학년과 수준에 맞는 최적의 과정을 선택하세요",
-    "programName": "Raspberry Pi 과정",
-    "headers": [
-      "과정",
-      "초3-4",
-      "초5-6",
-      "중1-2",
-      "중3",
-      "고등"
-    ],
-    "courses": [
-      {
-        "id": "course-3h-smart-farm",
-        "courseName": "스마트 팜 3시간",
-        "description": "센서 연동 기초",
-        "difficulty": "입문",
-        "duration": "3시간",
-        "recommendedGrades": {
-          "elementary-mid": null,
-          "elementary-high": "선택",
-          "middle-low": "권장",
-          "middle-high": "권장",
-          "high": "선택"
-        }
-      },
-      {
-        "id": "course-6h-smart-farm",
-        "courseName": "스마트 팜 6시간",
-        "description": "자동화 시스템",
-        "difficulty": "기초",
-        "duration": "6시간",
-        "recommendedGrades": {
-          "elementary-mid": null,
-          "elementary-high": null,
-          "middle-low": "선택",
-          "middle-high": "권장",
-          "high": "권장"
-        }
-      },
-      {
-        "id": "course-12h-smart-farm",
-        "courseName": "스마트 팜 12시간",
-        "description": "AI 기반 작물 관리",
-        "difficulty": "심화",
-        "duration": "12시간",
-        "recommendedGrades": {
-          "elementary-mid": null,
-          "elementary-high": null,
-          "middle-low": null,
-          "middle-high": "선택",
-          "high": "권장"
-        }
-      },
-      {
-        "id": "course-3h-self-driving",
-        "courseName": "자율 주행차 3시간",
-        "description": "모터 제어 기초",
-        "difficulty": "입문",
-        "duration": "3시간",
-        "recommendedGrades": {
-          "elementary-mid": null,
-          "elementary-high": "선택",
-          "middle-low": "권장",
-          "middle-high": "권장",
-          "high": "선택"
-        }
-      },
-      {
-        "id": "course-6h-self-driving",
-        "courseName": "자율 주행차 6시간",
-        "description": "차선 인식 주행",
-        "difficulty": "기초",
-        "duration": "6시간",
-        "recommendedGrades": {
-          "elementary-mid": null,
-          "elementary-high": null,
-          "middle-low": "선택",
-          "middle-high": "권장",
-          "high": "권장"
-        }
-      },
-      {
-        "id": "course-12h-self-driving",
-        "courseName": "자율 주행차 12시간",
-        "description": "딥러닝 완전 자율",
-        "difficulty": "심화",
-        "duration": "12시간",
-        "recommendedGrades": {
-          "elementary-mid": null,
-          "elementary-high": null,
-          "middle-low": null,
-          "middle-high": "도전",
-          "high": "권장"
-        }
-      }
-    ],
-    "legend": {
-      "recommended": "해당 학년에 가장 적합한 난이도",
-      "optional": "관심 있으면 도전 가능",
-      "challenge": "프로그래밍 경험이 있다면 가능"
-    }
-  },
   "educationRequirements": {
     "title": "교육 조건",
     "items": [
@@ -862,6 +806,61 @@
     "description": "대학 수준의 전문 프로젝트로 실력을 키우세요",
     "buttonText": "수업 일정 확인하기",
     "buttonLink": "/inquiry/schedule"
+  },
+  "projects": {
+    "title": "2대 프로젝트",
+    "description": "전북대학교와 가천대학교 협력 커리큘럼",
+    "items": [
+      {
+        "id": "smart-farm",
+        "title": "스마트 팜",
+        "subtitle": "IoT 기반 자동화 농업 시스템",
+        "description": "다양한 센서를 활용하여 온도, 습도, 조도, 토양 수분을 측정하고 자동으로 관리하는 스마트 팜을 만듭니다.",
+        "icon": "Sprout",
+        "iconColor": "green",
+        "difficulty": "중급",
+        "university": "전북대학교",
+        "technologies": [
+          "Raspberry Pi 4",
+          "Python",
+          "DHT22 센서",
+          "토양 수분 센서",
+          "릴레이 모듈",
+          "Flask 웹서버"
+        ],
+        "features": [
+          "실시간 환경 데이터 모니터링",
+          "자동 관수 시스템",
+          "웹 기반 원격 제어",
+          "데이터 로깅 및 분석",
+          "알림 시스템 (온도/습도 임계값)"
+        ]
+      },
+      {
+        "id": "self-driving-car",
+        "title": "자율 주행차",
+        "subtitle": "AI 카메라 기반 스마트 카",
+        "description": "카메라와 센서를 활용하여 차선을 인식하고 장애물을 피해 자율적으로 주행하는 로봇 자동차를 만듭니다.",
+        "icon": "Car",
+        "iconColor": "cyan",
+        "difficulty": "고급",
+        "university": "가천대학교",
+        "technologies": [
+          "Raspberry Pi 4",
+          "Python",
+          "Pi Camera",
+          "OpenCV",
+          "초음파 센서",
+          "DC 모터"
+        ],
+        "features": [
+          "실시간 차선 인식 (컴퓨터 비전)",
+          "장애물 감지 및 회피",
+          "자동 주행 알고리즘",
+          "PID 제어를 통한 정밀 주행",
+          "딥러닝 기반 객체 인식 (선택)"
+        ]
+      }
+    ]
   }
 }
-

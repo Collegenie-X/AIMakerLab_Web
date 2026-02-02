@@ -1,24 +1,24 @@
 {
   "hero": {
-    "badge": "블록 코딩을 통한 AI 게임 제작 교육",
-    "title": "블록 코딩 AI",
-    "description": "DancingwithAI, TeachableMachine, ChatGPT 활용한 창의적인 AI 프로젝트를 만들어보세요",
+    "badge": "3시간 모듈형 블록 코딩 AI + 피지컬 컴퓨팅",
+    "title": "선택형 AI & IoT 메이커 교육",
+    "description": "원하는 주제를 선택하여 3시간씩 프로젝트를 완성하는 역공학 기반 메이커 수업",
     "features": [
       {
+        "icon": "Target",
+        "label": "3시간 완성 프로젝트"
+      },
+      {
+        "icon": "Puzzle",
+        "label": "모듈형 선택 가능"
+      },
+      {
         "icon": "Brain",
-        "label": "AI 도구 활용"
+        "label": "역공학 학습법"
       },
       {
         "icon": "Sparkles",
-        "label": "TeachableMachine"
-      },
-      {
-        "icon": "MessageSquare",
-        "label": "ChatGPT API"
-      },
-      {
-        "icon": "GraduationCap",
-        "label": "창의적 학습"
+        "label": "기획-실행-성찰"
       }
     ]
   },
@@ -27,787 +27,163 @@
       "id": "duration",
       "icon": "Clock",
       "iconColor": "purple",
-      "label": "수업 기간",
-      "value": "학년별 맞춤 과정"
+      "label": "수업 시간",
+      "value": "3시간 단위 (선택형)"
+    },
+    {
+      "id": "target",
+      "icon": "Users",
+      "iconColor": "blue",
+      "label": "수강 대상",
+      "value": "초등 4~6학년, 중학 1~3학년"
     },
     {
       "id": "capacity",
       "icon": "Users",
       "iconColor": "indigo",
       "label": "수강 인원",
-      "value": "최대 12명"
+      "value": "최대 20명 (2인 1팀)"
     },
     {
       "id": "method",
-      "icon": "BookOpen",
-      "iconColor": "violet",
+      "icon": "Lightbulb",
+      "iconColor": "orange",
       "label": "수업 방식",
-      "value": "프로젝트 기반 학습 (PBL)"
+      "value": "역공학 + 메이커 교육"
+    },
+    {
+      "id": "structure",
+      "icon": "Route",
+      "iconColor": "green",
+      "label": "학습 단계",
+      "value": "기획자→실행자→디버거"
     }
   ],
   "courseDescription": {
-    "title": "AI 교육 프로그램이란?",
+    "title": "역공학 기반 메이커 교육이란?",
     "paragraphs": [
-      "AI 교육 프로그램은 학생들이 인공지능을 단순히 사용하는 것을 넘어, 직접 만들고 창의적으로 활용하는 능력을 키우는 과정입니다.",
-      "초등학생은 DancingwithAI와 TeachableMachine으로 컴퓨터 비전을 체험하고, 중학생은 ChatGPT로 다양한 컨텐츠를 기획하고 제작합니다. 고등학생은 AI 에이전트를 활용한 실제 서비스를 개발합니다.",
-      "학년별 수준에 맞는 맞춤형 커리큘럼으로 AI 시대를 이끌어갈 인재를 양성합니다."
+      "역공학(Reverse Engineering) 메이커 교육은 완성된 결과물을 먼저 체험한 후, 그것을 만드는 원리를 분석하고 직접 제작하는 학습법입니다. 단순히 따라 만드는 것이 아니라, 실제 사례를 벤치마킹하고 진짜 문제를 발견하여 해결하는 과정을 경험합니다.",
+      "모든 프로젝트는 3시간 안에 완성 가능하며, 벤치마킹 → 페르소나 설정 → 기획(문제 발견) → 실행(AI 학습 + 코딩) → 디버깅(성찰) 5단계로 진행됩니다. 학생들은 기획자, 실행자, 디버거 역할을 경험하며 실전 메이커 역량을 키웁니다.",
+      "초급(TM+DWAI), 중급(+마이크로비트 기초), 고급(+복합센서) 난이도별로 다양한 주제를 선택할 수 있으며, 원하는 만큼 조합하여 6시간, 9시간, 12시간 과정으로 확장 가능합니다."
     ],
     "images": [
       {
         "src": "/home/ai-neural-network.png",
-        "alt": "AI 머신러닝 개념"
+        "alt": "역공학 학습"
       },
       {
         "src": "/home/student-coding-laptop.jpg",
-        "alt": "학생들의 AI 프로젝트 실습"
+        "alt": "메이커 실습"
       },
       {
         "src": "/home/ai-robot-interaction.jpg",
-        "alt": "AI와 상호작용하는 프로젝트"
+        "alt": "프로젝트 완성"
       }
     ]
   },
   "learningPath": {
-    "elementary": {
-      "title": "초등 4-6학년 학습 단계 (컴퓨터 비전 게임)",
-      "description": "DancingwithAI와 TeachableMachine으로 AI 게임을 만듭니다",
+    "methodology": {
+      "title": "5단계 역공학 메이커 프로세스",
+      "description": "기획자 → 실행자 → 디버거 역할 경험",
       "steps": [
         {
           "id": "step1",
-          "title": "AI와 컴퓨터 비전 이해",
-          "description": "사진으로 학습하는 인공지능의 원리 배우기",
-          "duration": "30분"
+          "title": "1단계: 벤치마킹 (15분)",
+          "description": "완성된 시스템을 체험하고 실제 사례를 분석합니다",
+          "role": "관찰자",
+          "topics": [
+            "실제 작동하는 시스템 체험",
+            "어떻게 만들어졌을까? 분석",
+            "어떤 기술이 사용되었나?",
+            "우리가 만들 수 있을까?"
+          ]
         },
         {
           "id": "step2",
-          "title": "데이터 수집",
-          "description": "카메라로 학습 이미지 촬영 및 분류",
-          "duration": "1시간",
+          "title": "2단계: 페르소나 설정 (15분)",
+          "description": "사용자를 정의하고 진짜 필요를 파악합니다",
+          "role": "기획자",
+          "topics": [
+            "누가 이것을 사용하나? (연령, 상황)",
+            "왜 필요한가? (문제 상황)",
+            "어떻게 사용하나? (시나리오)",
+            "우리만의 특별한 점은?"
+          ],
           "emphasis": true
         },
         {
           "id": "step3",
-          "title": "모델 학습",
-          "description": "TeachableMachine으로 AI 모델 훈련",
-          "duration": "30분",
+          "title": "3단계: 문제 정의 (15분)",
+          "description": "해결할 진짜 문제를 명확히 정의합니다",
+          "role": "기획자",
+          "topics": [
+            "현재 문제는 무엇인가?",
+            "AI로 해결 가능한가?",
+            "필요한 데이터는?",
+            "성공 기준 설정"
+          ],
           "emphasis": true
         },
         {
           "id": "step4",
-          "title": "게임 제작",
-          "description": "학습된 모델을 DancingwithAI에 적용",
-          "duration": "1.5시간"
-        },
-        {
-          "id": "step5",
-          "title": "테스트 및 개선",
-          "description": "게임 플레이 후 모델 정확도 향상",
-          "duration": "30분"
-        },
-        {
-          "id": "step6",
-          "title": "발표 및 공유",
-          "description": "완성된 게임 시연 및 발표",
-          "duration": "30분"
-        }
-      ]
-    },
-    "middleSchool": {
-      "title": "중학교 1-2학년 학습 단계 (ChatGPT 컨텐츠 제작)",
-      "description": "프롬프트로 다양한 창작물을 기획하고 제작합니다",
-      "steps": [
-        {
-          "id": "step1",
-          "title": "프롬프트 기초",
-          "description": "효과적인 프롬프트 작성 원리 학습",
-          "duration": "1시간",
-          "emphasis": true
-        },
-        {
-          "id": "step2",
-          "title": "컨텐츠 구조 분석",
-          "description": "동화책, 유튜브, 게임 등의 구조 이해",
-          "duration": "1시간"
-        },
-        {
-          "id": "step3",
-          "title": "아이디어 기획",
-          "description": "만들고 싶은 컨텐츠 주제 및 기획",
-          "duration": "1.5시간",
-          "emphasis": true
-        },
-        {
-          "id": "step4",
-          "title": "ChatGPT 제작",
-          "description": "프롬프트로 스토리, 대사, 시나리오 생성",
-          "duration": "2시간",
+          "title": "4단계: AI 모델 제작 (45분)",
+          "description": "Teachable Machine으로 AI를 학습시킵니다",
+          "role": "실행자 - AI 엔지니어",
+          "topics": [
+            "데이터 수집 전략",
+            "3가지 클래스 학습",
+            "모델 테스트 및 개선",
+            "정확도 80% 이상 달성"
+          ],
           "emphasis": true
         },
         {
           "id": "step5",
-          "title": "검토 및 개선",
-          "description": "생성된 결과물 평가 및 수정",
-          "duration": "1시간"
+          "title": "5단계: 시스템 구현 (60분)",
+          "description": "DWAI 블록 코딩 또는 마이크로비트로 시스템을 완성합니다",
+          "role": "실행자 - 개발자",
+          "topics": [
+            "AI 모델 연동",
+            "게임 로직 또는 하드웨어 제어",
+            "UI/UX 구현",
+            "기능 통합"
+          ],
+          "emphasis": true
         },
         {
           "id": "step6",
-          "title": "최종 발표",
-          "description": "완성된 컨텐츠 발표 및 피드백",
-          "duration": "30분"
-        }
-      ]
-    },
-    "highSchool": {
-      "title": "중3, 고1-2학년 학습 단계 (AI 서비스 개발)",
-      "description": "ChatGPT API를 활용한 실전 웹 서비스를 만듭니다",
-      "steps": [
-        {
-          "id": "step1",
-          "title": "서비스 기획",
-          "description": "해결할 문제 정의 및 서비스 구상",
-          "duration": "1.5시간",
+          "title": "6단계: 디버깅 & 성찰 (30분)",
+          "description": "테스트하고 개선점을 찾아 수정합니다",
+          "role": "디버거 - 품질 관리자",
+          "topics": [
+            "기능 테스트 (정상 작동?)",
+            "오류 발견 및 수정",
+            "사용성 개선",
+            "배운 점과 아쉬운 점 성찰"
+          ],
           "emphasis": true
-        },
-        {
-          "id": "step2",
-          "title": "AI 에이전트 설계",
-          "description": "ChatGPT API 역할 및 프롬프트 설계",
-          "duration": "1.5시간",
-          "emphasis": true
-        },
-        {
-          "id": "step3",
-          "title": "프론트엔드 개발",
-          "description": "Vibe Coding + Next.js로 UI 구현",
-          "duration": "3시간",
-          "emphasis": true
-        },
-        {
-          "id": "step4",
-          "title": "API 연동",
-          "description": "ChatGPT API를 백엔드에 연결",
-          "duration": "2시간"
-        },
-        {
-          "id": "step5",
-          "title": "디버깅 및 최적화",
-          "description": "AI Studio로 문제 해결 및 성능 개선",
-          "duration": "1.5시간"
-        },
-        {
-          "id": "step6",
-          "title": "배포 및 런칭",
-          "description": "실제 서비스로 배포 및 공유",
-          "duration": "1.5시간"
         }
       ]
     }
   },
-  "learningGoals": {
-    "title": "학습 목표 및 기대 효과",
-    "description": "학년별 수준에 맞는 AI 교육으로 미래 역량을 키웁니다",
-    "goals": [
-      {
-        "id": "elementary",
-        "category": "초등 4-6학년",
-        "title": "컴퓨터 비전 게임 제작",
-        "description": "DancingwithAI와 TeachableMachine으로 AI의 원리를 체험합니다",
-        "skills": [
-          "컴퓨터 비전의 개념 이해",
-          "이미지 학습 데이터 수집 및 분류",
-          "TeachableMachine으로 모델 학습",
-          "학습된 모델을 게임에 적용",
-          "창의적인 인터랙티브 프로젝트 완성"
-        ]
-      },
-      {
-        "id": "middle-low",
-        "category": "중1-2학년",
-        "title": "ChatGPT 컨텐츠 제작",
-        "description": "프롬프트 엔지니어링으로 다양한 창작물을 기획하고 제작합니다",
-        "skills": [
-          "효과적인 프롬프트 작성법",
-          "컨텐츠 구조 설계 및 기획",
-          "그림 동화책 스토리 및 일러스트 제작",
-          "유튜브 영상 시나리오 작성",
-          "방탈출 게임 유저 시나리오 기획"
-        ]
-      },
-      {
-        "id": "high",
-        "category": "중3-고1-2학년",
-        "title": "AI 에이전트 서비스 개발",
-        "description": "ChatGPT API를 활용하여 실제 웹 서비스를 만듭니다",
-        "skills": [
-          "ChatGPT API 연동 및 활용",
-          "바이브 코딩으로 웹 개발",
-          "프로토타입 설계 및 제작",
-          "AI 에이전트 서비스 기획",
-          "실전 프로젝트 포트폴리오 구축"
-        ]
-      }
-    ],
-    "achievements": [
-      "학년별 맞춤 AI 교육 경험",
-      "AI 원리 이해 및 실전 활용 능력",
-      "창의적 문제 해결 능력",
-      "프롬프트 엔지니어링 역량",
-      "실제 서비스 개발 경험",
-      "미래 직업 탐색 및 진로 설계"
-    ]
-  },
-  "curriculum": {
-    "title": "학년별 맞춤 커리큘럼",
-    "description": "각 과정은 3시간, 6시간, 12시간으로 구성됩니다",
-    "projects": [
-      {
-        "id": "elementary-ai",
-        "title": "초등 4-6학년: 컴퓨터 비전 게임",
-        "description": "DancingwithAI와 TeachableMachine을 사용하여 카메라로 학습하는 AI 게임을 만듭니다. 직접 사진을 찍어 데이터를 모으고, AI 모델을 학습시켜 나만의 인터랙티브 게임을 완성합니다.",
-        "image": "/home/ai-robot-interaction.jpg",
-        "difficulty": "입문",
-        "university": "",
-        "tabs": [
-          {
-            "id": "3hours",
-            "label": "3시간",
-            "duration": "3시간",
-            "description": "TeachableMachine 기초 - 이미지 인식 체험",
-            "modules": [
-              {
-                "id": "module1",
-                "title": "AI와 머신러닝 이해하기",
-                "duration": "1시간",
-                "detailDescription": "인공지능이 무엇인지, 어떻게 학습하는지 쉽게 배웁니다",
-                "topics": [
-                  "AI의 개념과 활용 사례",
-                  "머신러닝의 원리 (학습, 예측)",
-                  "컴퓨터 비전이란?",
-                  "실생활 속 AI 찾아보기"
-                ]
-              },
-              {
-                "id": "module2",
-                "title": "TeachableMachine으로 모델 학습",
-                "duration": "1.5시간",
-                "detailDescription": "웹캠으로 이미지를 수집하고 AI 모델을 직접 학습시킵니다",
-                "topics": [
-                  "TeachableMachine 사용법",
-                  "웹캠으로 이미지 데이터 수집",
-                  "3가지 포즈 학습시키기",
-                  "모델 학습 및 테스트"
-                ]
-              },
-              {
-                "id": "module3",
-                "title": "간단한 게임 만들기",
-                "duration": "0.5시간",
-                "detailDescription": "학습한 모델로 간단한 인터랙티브 게임을 만듭니다",
-                "topics": [
-                  "모델을 게임에 연결",
-                  "포즈로 캐릭터 조종하기",
-                  "친구들과 함께 테스트"
-                ]
-              }
-            ]
-          },
-          {
-            "id": "6hours",
-            "label": "6시간",
-            "duration": "6시간",
-            "description": "DancingwithAI 프로젝트 - 창의적인 게임 완성",
-            "modules": [
-              {
-                "id": "module1",
-                "title": "고급 이미지 학습",
-                "duration": "1.5시간",
-                "detailDescription": "더 많은 클래스와 다양한 데이터로 정확한 모델을 만듭니다",
-                "topics": [
-                  "다양한 각도에서 데이터 수집",
-                  "5가지 이상의 동작 학습",
-                  "모델 정확도 높이기",
-                  "잘못된 예측 수정하기"
-                ]
-              },
-              {
-                "id": "module2",
-                "title": "DancingwithAI 게임 설계",
-                "duration": "2시간",
-                "detailDescription": "게임 아이디어를 구상하고 스토리를 만듭니다",
-                "topics": [
-                  "게임 아이디어 브레인스토밍",
-                  "게임 규칙 정하기",
-                  "캐릭터와 배경 디자인",
-                  "점수 시스템 설계"
-                ]
-              },
-              {
-                "id": "module3",
-                "title": "게임 개발 및 완성",
-                "duration": "2시간",
-                "detailDescription": "Scratch 또는 간단한 도구로 게임을 완성합니다",
-                "topics": [
-                  "게임 화면 구성",
-                  "AI 모델과 게임 연동",
-                  "효과음 및 애니메이션 추가",
-                  "친구들과 게임 테스트"
-                ]
-              },
-              {
-                "id": "module4",
-                "title": "발표 및 피드백",
-                "duration": "0.5시간",
-                "detailDescription": "완성한 게임을 발표하고 개선점을 논의합니다",
-                "topics": [
-                  "게임 시연 및 발표",
-                  "친구들 게임 체험",
-                  "피드백 공유"
-                ]
-              }
-            ]
-          },
-          {
-            "id": "12hours",
-            "label": "12시간",
-            "duration": "12시간",
-            "description": "고급 컴퓨터 비전 프로젝트 - 창의적 인터랙티브 작품",
-            "modules": [
-              {
-                "id": "module1",
-                "title": "다양한 AI 모델 탐구",
-                "duration": "2시간",
-                "detailDescription": "이미지뿐만 아니라 소리, 포즈 인식 등을 학습합니다",
-                "topics": [
-                  "이미지 분류 모델",
-                  "소리 인식 모델",
-                  "포즈 인식 모델",
-                  "각 모델의 활용 사례"
-                ]
-              },
-              {
-                "id": "module2",
-                "title": "창의적 프로젝트 기획",
-                "duration": "2.5시간",
-                "detailDescription": "팀별로 독창적인 AI 프로젝트를 기획합니다",
-                "topics": [
-                  "문제 정의 및 아이디어 발상",
-                  "팀별 프로젝트 주제 선정",
-                  "프로젝트 계획서 작성",
-                  "필요한 데이터 및 도구 파악"
-                ]
-              },
-              {
-                "id": "module3",
-                "title": "AI 모델 개발",
-                "duration": "3시간",
-                "detailDescription": "프로젝트에 필요한 AI 모델을 직접 학습시킵니다",
-                "topics": [
-                  "맞춤형 데이터 수집",
-                  "모델 학습 및 최적화",
-                  "여러 모델 조합하기",
-                  "모델 성능 테스트"
-                ]
-              },
-              {
-                "id": "module4",
-                "title": "프로젝트 구현",
-                "duration": "3시간",
-                "detailDescription": "AI 모델을 활용한 인터랙티브 작품을 완성합니다",
-                "topics": [
-                  "인터페이스 디자인",
-                  "AI 모델 통합",
-                  "사용자 경험(UX) 개선",
-                  "버그 수정 및 최적화"
-                ]
-              },
-              {
-                "id": "module5",
-                "title": "발표 및 전시",
-                "duration": "1.5시간",
-                "detailDescription": "완성한 작품을 발표하고 전시합니다",
-                "topics": [
-                  "프로젝트 발표 자료 준비",
-                  "작품 시연 및 설명",
-                  "질의응답 및 피드백",
-                  "개선 방향 논의"
-                ]
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "middle-chatgpt",
-        "title": "중1-2학년: ChatGPT 컨텐츠 제작",
-        "description": "ChatGPT로 창의적인 컨텐츠를 기획하고 제작합니다. 효과적인 프롬프트 작성법을 배우고, 그림 동화책, 유튜브 영상 시나리오, 방탈출 게임 스토리 등 다양한 작품을 만듭니다. 실제 개발 전 기획과 테스트 단계를 집중적으로 학습합니다.",
-        "image": "/home/student-coding-laptop.jpg",
-        "difficulty": "기초",
-        "university": "",
-        "tabs": [
-          {
-            "id": "3hours",
-            "label": "3시간",
-            "duration": "3시간",
-            "description": "ChatGPT 기초 - 프롬프트 작성법",
-            "modules": [
-              {
-                "id": "module1",
-                "title": "ChatGPT 이해하기",
-                "duration": "1시간",
-                "detailDescription": "ChatGPT의 원리와 활용법을 배웁니다",
-                "topics": [
-                  "대화형 AI의 개념",
-                  "ChatGPT 사용 방법",
-                  "효과적인 질문하기",
-                  "AI 윤리와 한계 이해"
-                ]
-              },
-              {
-                "id": "module2",
-                "title": "프롬프트 엔지니어링 기초",
-                "duration": "1.5시간",
-                "detailDescription": "원하는 답변을 얻기 위한 프롬프트 작성법을 익힙니다",
-                "topics": [
-                  "명확한 프롬프트 작성",
-                  "역할 부여하기 (Role Prompting)",
-                  "예시 제공하기 (Few-shot)",
-                  "단계별 지시하기"
-                ]
-              },
-              {
-                "id": "module3",
-                "title": "간단한 컨텐츠 제작",
-                "duration": "0.5시간",
-                "detailDescription": "ChatGPT로 짧은 이야기를 만들어봅니다",
-                "topics": [
-                  "스토리 아이디어 발상",
-                  "캐릭터 설정 생성",
-                  "짧은 동화 완성"
-                ]
-              }
-            ]
-          },
-          {
-            "id": "6hours",
-            "label": "6시간",
-            "duration": "6시간",
-            "description": "그림 동화책 & 유튜브 컨텐츠 제작",
-            "modules": [
-              {
-                "id": "module1",
-                "title": "컨텐츠 구조 설계",
-                "duration": "1.5시간",
-                "detailDescription": "동화책과 유튜브 영상의 구조를 이해하고 기획합니다",
-                "topics": [
-                  "스토리텔링의 3막 구조",
-                  "캐릭터 아크 설계",
-                  "장면 구성 및 전개",
-                  "대상 독자/시청자 분석"
-                ]
-              },
-              {
-                "id": "module2",
-                "title": "그림 동화책 제작",
-                "duration": "2시간",
-                "detailDescription": "ChatGPT와 이미지 생성 AI로 동화책을 만듭니다",
-                "topics": [
-                  "스토리 작성 (ChatGPT)",
-                  "일러스트 프롬프트 작성",
-                  "이미지 생성 AI 활용",
-                  "동화책 편집 및 완성"
-                ]
-              },
-              {
-                "id": "module3",
-                "title": "유튜브 영상 기획",
-                "duration": "2시간",
-                "detailDescription": "유튜브 영상 시나리오를 작성하고 기획합니다",
-                "topics": [
-                  "영상 콘셉트 정하기",
-                  "대본 작성 (ChatGPT)",
-                  "장면별 스토리보드",
-                  "썸네일 및 제목 기획"
-                ]
-              },
-              {
-                "id": "module4",
-                "title": "발표 및 공유",
-                "duration": "0.5시간",
-                "detailDescription": "완성한 작품을 발표하고 피드백을 나눕니다",
-                "topics": [
-                  "작품 발표",
-                  "제작 과정 공유",
-                  "피드백 및 개선"
-                ]
-              }
-            ]
-          },
-          {
-            "id": "12hours",
-            "label": "12시간",
-            "duration": "12시간",
-            "description": "방탈출 게임 기획 - 개발 직전 단계",
-            "modules": [
-              {
-                "id": "module1",
-                "title": "게임 기획 이론",
-                "duration": "2시간",
-                "detailDescription": "게임 디자인의 기본 원리를 배웁니다",
-                "topics": [
-                  "게임 메카닉스와 다이나믹스",
-                  "사용자 경험(UX) 설계",
-                  "난이도 곡선 조정",
-                  "방탈출 게임 분석"
-                ]
-              },
-              {
-                "id": "module2",
-                "title": "방탈출 게임 시나리오 작성",
-                "duration": "3시간",
-                "detailDescription": "ChatGPT로 창의적인 방탈출 시나리오를 만듭니다",
-                "topics": [
-                  "테마 및 배경 스토리 설정",
-                  "퍼즐 및 미션 디자인",
-                  "힌트 시스템 구상",
-                  "엔딩 시나리오 작성"
-                ]
-              },
-              {
-                "id": "module3",
-                "title": "유저 플로우 설계",
-                "duration": "2.5시간",
-                "detailDescription": "사용자가 게임을 어떻게 플레이할지 구체적으로 설계합니다",
-                "topics": [
-                  "유저 여정 맵(User Journey Map)",
-                  "인터랙션 디자인",
-                  "UI/UX 와이어프레임",
-                  "플레이 테스트 시나리오"
-                ]
-              },
-              {
-                "id": "module4",
-                "title": "프로토타입 기획",
-                "duration": "3시간",
-                "detailDescription": "개발 직전 단계의 상세 기획서를 작성합니다",
-                "topics": [
-                  "기능 명세서 작성",
-                  "필요한 리소스 정리",
-                  "개발 우선순위 설정",
-                  "프로토타입 테스트 계획"
-                ]
-              },
-              {
-                "id": "module5",
-                "title": "발표 및 피드백",
-                "duration": "1.5시간",
-                "detailDescription": "기획서를 발표하고 전문가 피드백을 받습니다",
-                "topics": [
-                  "기획서 프레젠테이션",
-                  "프로토타입 시연",
-                  "개선 사항 논의",
-                  "다음 단계 로드맵"
-                ]
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "high-agent",
-        "title": "중3-고1-2학년: AI 에이전트 서비스",
-        "description": "바이브 코딩으로 ChatGPT API를 활용한 실제 웹 서비스를 개발합니다. Next.js와 Flask를 사용하여 프로토타입을 만들고, Figma, v0, AI Studio, Cursor 등 최신 AI 도구로 빠르게 개발합니다. 코딩보다는 실행력, 디버깅, 기획력, AI 리터러시를 키우는 과정입니다.",
-        "image": "/home/ai-neural-network.png",
-        "difficulty": "심화",
-        "university": "",
-        "tabs": [
-          {
-            "id": "3hours",
-            "label": "3시간",
-            "duration": "3시간",
-            "description": "ChatGPT API 기초 - 첫 에이전트 만들기",
-            "modules": [
-              {
-                "id": "module1",
-                "title": "API 개념 이해",
-                "duration": "1시간",
-                "detailDescription": "API가 무엇인지, ChatGPT API를 어떻게 사용하는지 배웁니다",
-                "topics": [
-                  "API의 개념과 역할",
-                  "ChatGPT API 소개",
-                  "API 키 발급 및 설정",
-                  "간단한 API 호출 실습"
-                ]
-              },
-              {
-                "id": "module2",
-                "title": "바이브 코딩 입문",
-                "duration": "1.5시간",
-                "detailDescription": "노코드/로우코드 도구로 간단한 웹 앱을 만듭니다",
-                "topics": [
-                  "바이브 코딩 도구 소개",
-                  "간단한 UI 디자인",
-                  "ChatGPT API 연결",
-                  "챗봇 인터페이스 구현"
-                ]
-              },
-              {
-                "id": "module3",
-                "title": "첫 에이전트 완성",
-                "duration": "0.5시간",
-                "detailDescription": "간단한 대화형 AI 에이전트를 완성합니다",
-                "topics": [
-                  "기본 대화 기능 구현",
-                  "테스트 및 디버깅",
-                  "작품 공유"
-                ]
-              }
-            ]
-          },
-          {
-            "id": "6hours",
-            "label": "6시간",
-            "duration": "6시간",
-            "description": "웹 프로토타입 제작 - 실전 프로젝트",
-            "modules": [
-              {
-                "id": "module1",
-                "title": "서비스 기획",
-                "duration": "1.5시간",
-                "detailDescription": "만들고 싶은 AI 서비스를 구체적으로 기획합니다",
-                "topics": [
-                  "문제 정의 및 타겟 사용자",
-                  "핵심 기능 선정",
-                  "서비스 플로우 설계",
-                  "와이어프레임 작성"
-                ]
-              },
-              {
-                "id": "module2",
-                "title": "AI 에이전트 설계",
-                "duration": "2시간",
-                "detailDescription": "ChatGPT를 활용한 맞춤형 에이전트를 설계합니다",
-                "topics": [
-                  "시스템 프롬프트 작성",
-                  "대화 흐름 설계",
-                  "메모리 및 컨텍스트 관리",
-                  "API 파라미터 최적화"
-                ]
-              },
-              {
-                "id": "module3",
-                "title": "웹 프로토타입 개발",
-                "duration": "2시간",
-                "detailDescription": "바이브 코딩으로 작동하는 프로토타입을 만듭니다",
-                "topics": [
-                  "UI 컴포넌트 구성",
-                  "API 통합 및 연결",
-                  "데이터 흐름 구현",
-                  "기본 기능 테스트"
-                ]
-              },
-              {
-                "id": "module4",
-                "title": "테스트 및 발표",
-                "duration": "0.5시간",
-                "detailDescription": "프로토타입을 테스트하고 발표합니다",
-                "topics": [
-                  "사용자 테스트",
-                  "버그 수정",
-                  "작품 발표"
-                ]
-              }
-            ]
-          },
-          {
-            "id": "12hours",
-            "label": "12시간",
-            "duration": "12시간",
-            "description": "완성형 AI 서비스 개발 - 포트폴리오 프로젝트",
-            "modules": [
-              {
-                "id": "module1",
-                "title": "전문 서비스 기획",
-                "duration": "2.5시간",
-                "detailDescription": "실제 배포 가능한 수준의 서비스를 기획합니다",
-                "topics": [
-                  "시장 조사 및 경쟁 분석",
-                  "비즈니스 모델 설계",
-                  "상세 기능 명세서",
-                  "기술 스택 선정"
-                ]
-              },
-              {
-                "id": "module2",
-                "title": "고급 AI 에이전트 구현",
-                "duration": "3시간",
-                "detailDescription": "여러 기능을 가진 복잡한 AI 에이전트를 만듭니다",
-                "topics": [
-                  "Function Calling 활용",
-                  "외부 API 통합",
-                  "대화 기록 관리",
-                  "개인화 및 학습 기능"
-                ]
-              },
-              {
-                "id": "module3",
-                "title": "풀스택 웹 개발",
-                "duration": "4시간",
-                "detailDescription": "프론트엔드부터 백엔드까지 완성합니다",
-                "topics": [
-                  "반응형 UI 디자인",
-                  "사용자 인증 시스템",
-                  "데이터베이스 연동",
-                  "배포 준비 (Vercel/Netlify)"
-                ]
-              },
-              {
-                "id": "module4",
-                "title": "테스트 및 최적화",
-                "duration": "1.5시간",
-                "detailDescription": "서비스를 테스트하고 개선합니다",
-                "topics": [
-                  "사용자 경험 테스트",
-                  "성능 최적화",
-                  "보안 점검",
-                  "버그 수정"
-                ]
-              },
-              {
-                "id": "module5",
-                "title": "배포 및 포트폴리오 정리",
-                "duration": "1시간",
-                "detailDescription": "서비스를 배포하고 포트폴리오로 정리합니다",
-                "topics": [
-                  "실제 배포 (도메인 연결)",
-                  "README 및 문서 작성",
-                  "발표 자료 준비",
-                  "포트폴리오 사이트 등록"
-                ]
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  },
   "gradeRecommendation": {
-    "title": "학년별 추천 커리큘럼",
-    "description": "학생의 학년과 수준에 맞는 최적의 AI 교육 과정을 선택하세요",
-    "programName": "AI 교육 과정",
+    "title": "3시간 모듈 선택 가이드",
+    "description": "원하는 주제를 자유롭게 선택하여 3시간 × N개 = 맞춤형 교육 구성",
+    "programName": "모듈형 블록 코딩 AI + 피지컬 컴퓨팅",
     "headers": [
       "과정",
-      "초3-4",
-      "초5-6",
+      "초1-3",
+      "초4-6",
       "중1-2",
       "중3",
       "고등"
     ],
     "courses": [
       {
-        "id": "course-3h-elementary",
-        "courseName": "컴퓨터 비전 3시간",
-        "description": "TeachableMachine 기초",
-        "difficulty": "입문",
+        "id": "beginner-a",
+        "courseName": "초급 A: 마스크 인식 게임",
+        "description": "TM + DWAI (노트북 + 웹캠)",
+        "difficulty": "초급",
         "duration": "3시간",
         "recommendedGrades": {
           "elementary-mid": null,
@@ -818,25 +194,39 @@
         }
       },
       {
-        "id": "course-6h-elementary",
-        "courseName": "컴퓨터 비전 6시간",
-        "description": "DancingwithAI 게임",
-        "difficulty": "기초",
-        "duration": "6시간",
+        "id": "beginner-b",
+        "courseName": "초급 B: 가위바위보 게임",
+        "description": "TM + DWAI (노트북 + 웹캠)",
+        "difficulty": "초급",
+        "duration": "3시간",
         "recommendedGrades": {
           "elementary-mid": null,
           "elementary-high": "권장",
-          "middle-low": "권장",
-          "middle-high": "선택",
+          "middle-low": "선택",
+          "middle-high": null,
           "high": null
         }
       },
       {
-        "id": "course-12h-elementary",
-        "courseName": "컴퓨터 비전 12시간",
-        "description": "고급 인터랙티브 작품",
-        "difficulty": "심화",
-        "duration": "12시간",
+        "id": "beginner-c",
+        "courseName": "초급 C: 물체 분류 게임",
+        "description": "TM + DWAI + 학용품",
+        "difficulty": "초급",
+        "duration": "3시간",
+        "recommendedGrades": {
+          "elementary-mid": null,
+          "elementary-high": "권장",
+          "middle-low": "선택",
+          "middle-high": null,
+          "high": null
+        }
+      },
+      {
+        "id": "intermediate-a",
+        "courseName": "중급 A: 손 제스처 신호등",
+        "description": "+ 마이크로비트 + LED 3개",
+        "difficulty": "중급",
+        "duration": "3시간",
         "recommendedGrades": {
           "elementary-mid": null,
           "elementary-high": "도전",
@@ -846,182 +236,1252 @@
         }
       },
       {
-        "id": "course-3h-chatgpt",
-        "courseName": "ChatGPT 기초 3시간",
-        "description": "프롬프트 작성법",
-        "difficulty": "입문",
+        "id": "intermediate-b",
+        "courseName": "중급 B: 마스크 감지 경보",
+        "description": "+ 마이크로비트 + 부저 + LED",
+        "difficulty": "중급",
         "duration": "3시간",
         "recommendedGrades": {
           "elementary-mid": null,
-          "elementary-high": "선택",
+          "elementary-high": "도전",
           "middle-low": "권장",
-          "middle-high": "권장",
-          "high": "선택"
+          "middle-high": "선택",
+          "high": null
         }
       },
       {
-        "id": "course-6h-chatgpt",
-        "courseName": "ChatGPT 컨텐츠 6시간",
-        "description": "동화책 & 유튜브",
-        "difficulty": "기초",
-        "duration": "6시간",
+        "id": "intermediate-c",
+        "courseName": "중급 C: 분리수거 분류기",
+        "description": "+ 마이크로비트 + 서보 4개",
+        "difficulty": "중급",
+        "duration": "3시간",
         "recommendedGrades": {
           "elementary-mid": null,
-          "elementary-high": null,
+          "elementary-high": "도전",
           "middle-low": "권장",
-          "middle-high": "권장",
-          "high": "선택"
+          "middle-high": "선택",
+          "high": null
         }
       },
       {
-        "id": "course-12h-chatgpt",
-        "courseName": "ChatGPT 기획 12시간",
-        "description": "방탈출 게임 기획",
-        "difficulty": "심화",
-        "duration": "12시간",
+        "id": "advanced-a",
+        "courseName": "고급 A: 출입 관리 시스템",
+        "description": "+ 마이크로비트 + 서보 + 센서",
+        "difficulty": "고급",
+        "duration": "3시간",
         "recommendedGrades": {
           "elementary-mid": null,
           "elementary-high": null,
           "middle-low": "도전",
           "middle-high": "권장",
-          "high": "선택"
+          "high": null
         }
       },
       {
-        "id": "course-3h-agent",
-        "courseName": "AI 에이전트 3시간",
-        "description": "ChatGPT API 기초",
-        "difficulty": "입문",
+        "id": "advanced-b",
+        "courseName": "고급 B: 무인 편의점",
+        "description": "+ 마이크로비트 + 부저",
+        "difficulty": "고급",
         "duration": "3시간",
         "recommendedGrades": {
           "elementary-mid": null,
           "elementary-high": null,
-          "middle-low": null,
-          "middle-high": "선택",
-          "high": "권장"
+          "middle-low": "도전",
+          "middle-high": "권장",
+          "high": null
         }
       },
       {
-        "id": "course-6h-agent",
-        "courseName": "AI 서비스 6시간",
-        "description": "웹 프로토타입",
-        "difficulty": "기초",
-        "duration": "6시간",
+        "id": "advanced-c",
+        "courseName": "고급 C: 스마트 홈",
+        "description": "+ 마이크로비트 + 센서 + 릴레이",
+        "difficulty": "고급",
+        "duration": "3시간",
         "recommendedGrades": {
           "elementary-mid": null,
           "elementary-high": null,
-          "middle-low": null,
-          "middle-high": "도전",
-          "high": "권장"
-        }
-      },
-      {
-        "id": "course-12h-agent",
-        "courseName": "AI 서비스 12시간",
-        "description": "완성형 서비스 개발",
-        "difficulty": "심화",
-        "duration": "12시간",
-        "recommendedGrades": {
-          "elementary-mid": null,
-          "elementary-high": null,
-          "middle-low": null,
-          "middle-high": "도전",
-          "high": "권장"
+          "middle-low": "도전",
+          "middle-high": "권장",
+          "high": null
         }
       }
     ],
     "legend": {
       "recommended": "해당 학년에 가장 적합한 난이도",
-      "optional": "관심 있으면 도전 가능",
-      "challenge": "프로그래밍 경험이 있다면 가능"
-    }
+      "optional": "관심 있으면 선택 가능",
+      "challenge": "프로그래밍 경험이 있다면 도전 가능"
+    },
+    "examples": [
+      {
+        "title": "6시간 과정 예시",
+        "description": "초급 A + 중급 A (마스크 인식 → 신호등 제어)"
+      },
+      {
+        "title": "9시간 과정 예시",
+        "description": "초급 A + 중급 A + 고급 A (기초 → IoT → 실전)"
+      },
+      {
+        "title": "12시간 과정 예시",
+        "description": "초급 전체 (A+B+C) + 중급 1개 (다양한 AI 체험)"
+      }
+    ]
+  },
+  "learningGoals": {
+    "title": "학습 목표 및 기대 효과",
+    "description": "3시간 안에 하나의 완성된 프로젝트를 만들며 역량을 키웁니다",
+    "goals": [
+      {
+        "id": "maker-mindset",
+        "category": "메이커 마인드셋",
+        "title": "문제 해결 역량",
+        "description": "실제 문제를 발견하고 AI와 IoT로 해결하는 경험",
+        "skills": [
+          "역공학적 사고 (결과 → 원리 분석)",
+          "페르소나 기반 문제 정의",
+          "진짜 문제 vs 가짜 문제 구분",
+          "창의적 해결책 도출"
+        ]
+      },
+      {
+        "id": "3-roles",
+        "category": "3가지 역할 경험",
+        "title": "기획자-실행자-디버거",
+        "description": "프로젝트의 전 과정을 주도적으로 경험합니다",
+        "skills": [
+          "기획자: 문제 정의 및 요구사항 분석",
+          "실행자: AI 학습 및 시스템 구현",
+          "디버거: 테스트 및 개선",
+          "협업 및 커뮤니케이션"
+        ]
+      },
+      {
+        "id": "technical-skills",
+        "category": "기술 역량",
+        "title": "AI + IoT 융합 기술",
+        "description": "블록 코딩으로 AI와 하드웨어를 연결합니다",
+        "skills": [
+          "Teachable Machine AI 모델 학습",
+          "DWAI 블록 코딩",
+          "마이크로비트 피지컬 컴퓨팅 (중급 이상)",
+          "센서 및 액추에이터 제어 (고급)"
+        ]
+      }
+    ],
+    "achievements": [
+      "3시간 안에 완성된 프로젝트 1개",
+      "실생활 문제 해결 경험",
+      "기획-실행-디버깅 전 과정 경험",
+      "역공학 메이커 역량",
+      "포트폴리오 작품 (여러 개 수강 시 누적)"
+    ]
+  },
+  "curriculum": {
+    "title": "3시간 모듈형 프로젝트 선택",
+    "description": "난이도별 다양한 주제 중 원하는 것을 선택하세요 (조합 가능)",
+    "projects": [
+      {
+        "id": "beginner-mask-detection",
+        "title": "초급 A: 마스크 착용 인식 게임",
+        "description": "TM으로 마스크 착용 여부를 판정하는 AI 게임을 만듭니다. 코로나 방역 시스템을 벤치마킹하고, 학교 출입구 상황을 페르소나로 설정하여 실전 게임을 완성합니다.",
+        "image": "/home/ai-robot-interaction.jpg",
+        "difficulty": "초급",
+        "duration": "3시간",
+        "university": "",
+        "tabs": [
+          {
+            "id": "content",
+            "label": "수업 구성",
+            "duration": "3시간",
+            "description": "벤치마킹 → 기획 → 실행 → 디버깅",
+            "modules": [
+              {
+                "id": "phase1",
+                "title": "벤치마킹 & 페르소나 (30분)",
+                "duration": "0.5시간",
+                "detailDescription": "실제 방역 시스템을 체험하고 사용자를 정의합니다",
+                "topics": [
+                  "벤치마킹: 공항/병원 마스크 감지 시스템 영상",
+                  "페르소나: 초등학생(아침 등교), 선생님(확인자)",
+                  "문제 정의: 학교 출입 시 마스크 미착용 학생 발견",
+                  "성공 기준: 정확도 80% 이상, 재미있는 UI"
+                ]
+              },
+              {
+                "id": "phase2",
+                "title": "AI 모델 제작 (45분)",
+                "duration": "0.75시간",
+                "detailDescription": "Teachable Machine으로 마스크 인식 AI를 학습시킵니다",
+                "topics": [
+                  "데이터 수집 전략: 다양한 각도와 조명",
+                  "클래스 1: 마스크 정상 착용 (50장)",
+                  "클래스 2: 마스크 없음 (50장)",
+                  "클래스 3: 코 노출 (50장)",
+                  "모델 테스트 및 개선"
+                ]
+              },
+              {
+                "id": "phase3",
+                "title": "게임 구현 (60분)",
+                "duration": "1시간",
+                "detailDescription": "DWAI 블록 코딩으로 게임을 만듭니다",
+                "topics": [
+                  "TM 모델 DWAI 연동",
+                  "3가지 상태별 메시지 및 이미지",
+                  "점수 시스템: 정상 착용 시 +10점",
+                  "효과음 및 애니메이션",
+                  "게임 UI 디자인"
+                ]
+              },
+              {
+                "id": "phase4",
+                "title": "디버깅 & 성찰 (25분)",
+                "duration": "0.42시간",
+                "detailDescription": "테스트하고 개선하며 성찰합니다",
+                "topics": [
+                  "기능 테스트: 3가지 상태 정확히 인식?",
+                  "오류 수정: 잘못 인식되는 경우 개선",
+                  "사용성 개선: 더 재미있게",
+                  "성찰: 배운 점, 아쉬운 점, 다음 개선 방향"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "materials",
+            "label": "필요 교구재",
+            "duration": "3시간",
+            "description": "준비물 목록",
+            "modules": [
+              {
+                "id": "required",
+                "title": "필수 교구재",
+                "duration": "",
+                "detailDescription": "이 수업에 꼭 필요한 장비",
+                "topics": [
+                  "웹캠 내장 노트북 (학생 2명당 1대)",
+                  "Chrome 브라우저 (최신 버전)",
+                  "Google 계정 (TeachableMachine 사용)",
+                  "안정적인 WiFi 인터넷",
+                  "마스크 (실습용)"
+                ]
+              },
+              {
+                "id": "optional",
+                "title": "선택 교구재",
+                "duration": "",
+                "detailDescription": "있으면 더 좋은 장비",
+                "topics": [
+                  "조명 (데이터 품질 향상)",
+                  "외부 웹캠 (화질 개선)"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "beginner-gesture-game",
+        "title": "초급 B: 손 제스처 가위바위보 게임",
+        "description": "TM으로 손 모양을 인식하는 AI 가위바위보 게임을 만듭니다. 컴퓨터와 대결하며 AI 분류 원리를 이해하고, 승률 통계 기능을 추가합니다.",
+        "image": "/home/student-coding-laptop.jpg",
+        "difficulty": "초급",
+        "duration": "3시간",
+        "university": "",
+        "tabs": [
+          {
+            "id": "content",
+            "label": "수업 구성",
+            "duration": "3시간",
+            "description": "벤치마킹 → 기획 → 실행 → 디버깅",
+            "modules": [
+              {
+                "id": "phase1",
+                "title": "벤치마킹 & 페르소나 (30분)",
+                "duration": "0.5시간",
+                "detailDescription": "손동작 인식 게임을 분석하고 사용자를 정의합니다",
+                "topics": [
+                  "벤치마킹: 닌텐도 Wii, 키넥트 손동작 게임",
+                  "페르소나: 게임 좋아하는 초등학생",
+                  "문제 정의: 혼자서도 재미있게 가위바위보 게임",
+                  "성공 기준: 승부 공정성, 빠른 인식 속도"
+                ]
+              },
+              {
+                "id": "phase2",
+                "title": "AI 모델 제작 (45분)",
+                "duration": "0.75시간",
+                "detailDescription": "Teachable Machine으로 가위바위보를 학습시킵니다",
+                "topics": [
+                  "데이터 수집: 왼손/오른손 모두",
+                  "클래스 1: 가위 ✌️ (50장)",
+                  "클래스 2: 바위 ✊ (50장)",
+                  "클래스 3: 보 ✋ (50장)",
+                  "모델 정확도 90% 이상 달성"
+                ]
+              },
+              {
+                "id": "phase3",
+                "title": "게임 구현 (60분)",
+                "duration": "1시간",
+                "detailDescription": "DWAI 블록 코딩으로 가위바위보 게임을 만듭니다",
+                "topics": [
+                  "컴퓨터 랜덤 선택 로직",
+                  "승부 판정 알고리즘",
+                  "승/패/무 카운터",
+                  "승률 통계 표시",
+                  "효과음 및 애니메이션"
+                ]
+              },
+              {
+                "id": "phase4",
+                "title": "디버깅 & 성찰 (25분)",
+                "duration": "0.42시간",
+                "detailDescription": "공정성을 테스트하고 개선합니다",
+                "topics": [
+                  "20회 플레이 테스트",
+                  "승률 통계 확인 (공정한가?)",
+                  "인식 속도 개선",
+                  "성찰: AI의 공정성과 신뢰성"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "materials",
+            "label": "필요 교구재",
+            "duration": "3시간",
+            "description": "준비물 목록",
+            "modules": [
+              {
+                "id": "required",
+                "title": "필수 교구재",
+                "duration": "",
+                "detailDescription": "이 수업에 꼭 필요한 장비",
+                "topics": [
+                  "웹캠 내장 노트북 (학생 2명당 1대)",
+                  "Chrome 브라우저",
+                  "Google 계정",
+                  "WiFi 인터넷"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "beginner-object-sorting",
+        "title": "초급 C: 물체 분류 게임",
+        "description": "TM으로 다양한 물체를 인식하는 AI 게임을 만듭니다. 학용품, 과일, 장난감 등을 분류하며 이미지 인식 AI의 원리를 이해합니다.",
+        "image": "/home/ai-neural-network.png",
+        "difficulty": "초급",
+        "duration": "3시간",
+        "university": "",
+        "tabs": [
+          {
+            "id": "content",
+            "label": "수업 구성",
+            "duration": "3시간",
+            "description": "벤치마킹 → 기획 → 실행 → 디버깅",
+            "modules": [
+              {
+                "id": "phase1",
+                "title": "벤치마킹 & 페르소나 (30분)",
+                "duration": "0.5시간",
+                "detailDescription": "물체 인식 기술을 분석하고 사용 사례를 정의합니다",
+                "topics": [
+                  "벤치마킹: Google Lens, Amazon 상품 인식",
+                  "페르소나: 정리정돈을 배우는 초등학생",
+                  "문제 정의: 물건을 올바른 곳에 정리하기",
+                  "성공 기준: 5가지 물체 90% 이상 인식"
+                ]
+              },
+              {
+                "id": "phase2",
+                "title": "AI 모델 제작 (45분)",
+                "duration": "0.75시간",
+                "detailDescription": "5가지 물체 분류 모델을 학습시킵니다",
+                "topics": [
+                  "준비물: 학용품 5가지 (연필/지우개/자/가위/풀)",
+                  "각 물체 50장씩 촬영 (다양한 각도)",
+                  "배경 변화 주기 (일반화 성능)",
+                  "모델 학습 및 테스트"
+                ]
+              },
+              {
+                "id": "phase3",
+                "title": "게임 구현 (60분)",
+                "duration": "1시간",
+                "detailDescription": "물건을 올바른 칸에 정리하는 게임을 만듭니다",
+                "topics": [
+                  "5개 정리함 UI 구현",
+                  "물체 인식 → 해당 칸으로 이동",
+                  "올바른 곳에 넣으면 +10점",
+                  "제한 시간 60초",
+                  "최고 기록 저장"
+                ]
+              },
+              {
+                "id": "phase4",
+                "title": "디버깅 & 성찰 (25분)",
+                "duration": "0.42시간",
+                "detailDescription": "다양한 물체로 테스트하고 개선합니다",
+                "topics": [
+                  "5가지 물체 각각 10회 테스트",
+                  "잘못 인식되는 경우 분석",
+                  "추가 데이터 수집 및 재학습",
+                  "성찰: AI가 어떻게 물체를 구분할까?"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "materials",
+            "label": "필요 교구재",
+            "duration": "3시간",
+            "description": "준비물 목록",
+            "modules": [
+              {
+                "id": "required",
+                "title": "필수 교구재",
+                "duration": "",
+                "detailDescription": "이 수업에 꼭 필요한 장비",
+                "topics": [
+                  "웹캠 내장 노트북 (학생 2명당 1대)",
+                  "Chrome 브라우저",
+                  "Google 계정",
+                  "WiFi 인터넷",
+                  "학용품 5가지 (팀당 1세트)"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "intermediate-traffic-light",
+        "title": "중급 A: 손 제스처 신호등 제어",
+        "description": "TM + 마이크로비트로 손 모양으로 신호등을 제어하는 IoT 시스템을 만듭니다. 실제 교통 시스템을 벤치마킹하고 LED 3개를 무선으로 제어합니다.",
+        "image": "/home/ai-robot-interaction.jpg",
+        "difficulty": "중급",
+        "duration": "3시간",
+        "university": "",
+        "tabs": [
+          {
+            "id": "content",
+            "label": "수업 구성",
+            "duration": "3시간",
+            "description": "벤치마킹 → 기획 → 실행 → 디버깅",
+            "modules": [
+              {
+                "id": "phase1",
+                "title": "벤치마킹 & 페르소나 (30분)",
+                "duration": "0.5시간",
+                "detailDescription": "실제 교통 시스템을 분석하고 사용자를 정의합니다",
+                "topics": [
+                  "벤치마킹: 실제 교통 신호 시스템, 스마트 신호등",
+                  "페르소나: 교통 경찰, 어린이 교통 교육",
+                  "문제 정의: 손으로 신호를 조작할 수 있다면?",
+                  "성공 기준: 3가지 신호 정확히 제어"
+                ]
+              },
+              {
+                "id": "phase2",
+                "title": "AI 모델 제작 (40분)",
+                "duration": "0.67시간",
+                "detailDescription": "3가지 손 제스처를 학습시킵니다",
+                "topics": [
+                  "클래스 1: 손바닥 ✋ → 빨간불 (정지)",
+                  "클래스 2: V자 ✌️ → 노란불 (주의)",
+                  "클래스 3: 엄지 👍 → 초록불 (통과)",
+                  "각 50장씩 데이터 수집"
+                ]
+              },
+              {
+                "id": "phase3",
+                "title": "시스템 구현 (70분)",
+                "duration": "1.17시간",
+                "detailDescription": "AI와 마이크로비트를 연동합니다",
+                "topics": [
+                  "DWAI: TM 모델 연동, 손 인식 → 영문 코드 전송 (R/Y/G)",
+                  "마이크로비트: Radio 수신, LED 3개 제어",
+                  "LED 연결: Pin0(빨강)/Pin1(노랑)/Pin2(초록)",
+                  "무선 통신 테스트",
+                  "교통 시뮬레이션 게임 추가"
+                ]
+              },
+              {
+                "id": "phase4",
+                "title": "디버깅 & 성찰 (20분)",
+                "duration": "0.33시간",
+                "detailDescription": "통신 안정성을 테스트하고 개선합니다",
+                "topics": [
+                  "손 제스처 인식 정확도 테스트",
+                  "무선 통신 지연 확인",
+                  "LED 동작 확인",
+                  "성찰: AI와 하드웨어의 연결"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "materials",
+            "label": "필요 교구재",
+            "duration": "3시간",
+            "description": "준비물 목록",
+            "modules": [
+              {
+                "id": "required",
+                "title": "필수 교구재",
+                "duration": "",
+                "detailDescription": "이 수업에 꼭 필요한 장비",
+                "topics": [
+                  "웹캠 내장 노트북 (학생 2명당 1대)",
+                  "마이크로비트 V2 (팀당 1개)",
+                  "USB 케이블 (마이크로비트 연결용)",
+                  "LED 3개 (빨강/노랑/초록)",
+                  "점퍼 와이어 6개",
+                  "브레드보드 (팀당 1개)",
+                  "Chrome 브라우저, Google 계정, WiFi"
+                ]
+              },
+              {
+                "id": "optional",
+                "title": "선택 교구재",
+                "duration": "",
+                "detailDescription": "있으면 더 좋은 장비",
+                "topics": [
+                  "저항 220Ω (LED 보호용)",
+                  "신호등 모형 (시각적 효과)"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "intermediate-mask-alarm",
+        "title": "중급 B: 마스크 감지 경보 시스템",
+        "description": "TM + 마이크로비트로 마스크 착용을 확인하고 부저와 LED로 경고하는 IoT 방역 시스템을 만듭니다. 실제 출입 관리 시스템을 벤치마킹합니다.",
+        "image": "/home/student-coding-laptop.jpg",
+        "difficulty": "중급",
+        "duration": "3시간",
+        "university": "",
+        "tabs": [
+          {
+            "id": "content",
+            "label": "수업 구성",
+            "duration": "3시간",
+            "description": "벤치마킹 → 기획 → 실행 → 디버깅",
+            "modules": [
+              {
+                "id": "phase1",
+                "title": "벤치마킹 & 페르소나 (30분)",
+                "duration": "0.5시간",
+                "detailDescription": "코로나 방역 시스템을 분석합니다",
+                "topics": [
+                  "벤치마킹: 공항/병원/지하철 출입 방역",
+                  "페르소나: 건물 관리자, 출입하는 시민",
+                  "문제 정의: 자동 마스크 확인 및 경고",
+                  "성공 기준: 빠른 감지 + 명확한 경고"
+                ]
+              },
+              {
+                "id": "phase2",
+                "title": "AI 모델 제작 (40분)",
+                "duration": "0.67시간",
+                "detailDescription": "마스크 착용 상태를 학습시킵니다",
+                "topics": [
+                  "클래스 1: 정상 착용 (OK)",
+                  "클래스 2: 마스크 없음 (NO)",
+                  "클래스 3: 잘못 착용 (WR)",
+                  "각 60장씩 촬영"
+                ]
+              },
+              {
+                "id": "phase3",
+                "title": "시스템 구현 (70분)",
+                "duration": "1.17시간",
+                "detailDescription": "경보 시스템을 구축합니다",
+                "topics": [
+                  "DWAI: 마스크 인식 → 코드 전송 (OK/NO/WR)",
+                  "마이크로비트: 부저(Pin0) + LED 2개(Pin1 초록/Pin2 빨강)",
+                  "정상: 초록 LED, 부저 없음",
+                  "비정상: 빨강 LED + 부저 경고음",
+                  "출입 허가/거부 메시지"
+                ]
+              },
+              {
+                "id": "phase4",
+                "title": "디버깅 & 성찰 (20분)",
+                "duration": "0.33시간",
+                "detailDescription": "실전 상황을 시뮬레이션합니다",
+                "topics": [
+                  "다양한 사람으로 테스트",
+                  "오경보 확인 및 개선",
+                  "부저 음량 조정",
+                  "성찰: AI 방역 시스템의 한계와 가능성"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "materials",
+            "label": "필요 교구재",
+            "duration": "3시간",
+            "description": "준비물 목록",
+            "modules": [
+              {
+                "id": "required",
+                "title": "필수 교구재",
+                "duration": "",
+                "detailDescription": "이 수업에 꼭 필요한 장비",
+                "topics": [
+                  "웹캠 내장 노트북 (학생 2명당 1대)",
+                  "마이크로비트 V2 (팀당 1개)",
+                  "USB 케이블",
+                  "부저 (Piezo Buzzer) 1개",
+                  "LED 2개 (빨강/초록)",
+                  "점퍼 와이어 8개",
+                  "브레드보드",
+                  "마스크 (실습용)"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "intermediate-trash-sorter",
+        "title": "중급 C: 분리수거 자동 분류기",
+        "description": "TM + 마이크로비트 + 서보모터로 쓰레기 종류를 AI로 인식하여 자동 분류하는 스마트 쓰레기통을 만듭니다.",
+        "image": "/home/ai-neural-network.png",
+        "difficulty": "중급",
+        "duration": "3시간",
+        "university": "",
+        "tabs": [
+          {
+            "id": "content",
+            "label": "수업 구성",
+            "duration": "3시간",
+            "description": "벤치마킹 → 기획 → 실행 → 디버깅",
+            "modules": [
+              {
+                "id": "phase1",
+                "title": "벤치마킹 & 페르소나 (30분)",
+                "duration": "0.5시간",
+                "detailDescription": "스마트 재활용 시스템을 분석합니다",
+                "topics": [
+                  "벤치마킹: 스마트 쓰레기통, 재활용 센터",
+                  "페르소나: 환경을 생각하는 시민, 청소 관리자",
+                  "문제 정의: 분리수거 실수 줄이기",
+                  "성공 기준: 4가지 종류 정확히 분류"
+                ]
+              },
+              {
+                "id": "phase2",
+                "title": "AI 모델 제작 (40분)",
+                "duration": "0.67시간",
+                "detailDescription": "4가지 쓰레기 분류 모델을 학습시킵니다",
+                "topics": [
+                  "클래스 1: 플라스틱 (PET병)",
+                  "클래스 2: 종이 (박스)",
+                  "클래스 3: 일반 쓰레기",
+                  "클래스 4: 음식물",
+                  "각 60장씩 데이터 수집"
+                ]
+              },
+              {
+                "id": "phase3",
+                "title": "시스템 구현 (70분)",
+                "duration": "1.17시간",
+                "detailDescription": "자동 뚜껑 개폐 시스템을 만듭니다",
+                "topics": [
+                  "DWAI: 쓰레기 인식 → 번호 전송 (1/2/3/4)",
+                  "마이크로비트: 4개 서보모터 제어",
+                  "서보모터 연결: Pin0/Pin1/Pin2/Pin8",
+                  "해당 뚜껑만 열기 (90도 회전)",
+                  "5초 후 자동 닫기"
+                ]
+              },
+              {
+                "id": "phase4",
+                "title": "디버깅 & 성찰 (20분)",
+                "duration": "0.33시간",
+                "detailDescription": "다양한 쓰레기로 테스트합니다",
+                "topics": [
+                  "각 종류 10개씩 테스트",
+                  "오분류 확인 및 개선",
+                  "서보모터 동작 확인",
+                  "성찰: AI가 환경 문제를 어떻게 도울 수 있나?"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "materials",
+            "label": "필요 교구재",
+            "duration": "3시간",
+            "description": "준비물 목록",
+            "modules": [
+              {
+                "id": "required",
+                "title": "필수 교구재",
+                "duration": "",
+                "detailDescription": "이 수업에 꼭 필요한 장비",
+                "topics": [
+                  "웹캠 내장 노트북 (학생 2명당 1대)",
+                  "마이크로비트 V2 (팀당 1개)",
+                  "USB 케이블",
+                  "서보모터 SG90 4개",
+                  "점퍼 와이어 16개",
+                  "브레드보드",
+                  "샘플 쓰레기 (PET병/박스/일반/음식물 모형)"
+                ]
+              },
+              {
+                "id": "optional",
+                "title": "선택 교구재",
+                "duration": "",
+                "detailDescription": "있으면 더 좋은 장비",
+                "topics": [
+                  "쓰레기통 모형 4개",
+                  "골판지 (뚜껑 제작용)"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "advanced-access-control",
+        "title": "고급 A: 얼굴 인식 출입 관리 시스템",
+        "description": "TM + 마이크로비트 + 서보모터 + 센서로 얼굴을 인식하여 자동으로 문을 여는 스마트 출입 시스템을 만듭니다. 등록자/미등록자를 구분하고 출입 기록을 저장합니다.",
+        "image": "/home/ai-robot-interaction.jpg",
+        "difficulty": "고급",
+        "duration": "3시간",
+        "university": "",
+        "tabs": [
+          {
+            "id": "content",
+            "label": "수업 구성",
+            "duration": "3시간",
+            "description": "벤치마킹 → 기획 → 실행 → 디버깅",
+            "modules": [
+              {
+                "id": "phase1",
+                "title": "벤치마킹 & 페르소나 (30분)",
+                "duration": "0.5시간",
+                "detailDescription": "실제 출입 관리 시스템을 분석합니다",
+                "topics": [
+                  "벤치마킹: 공항 자동 출입국, 아파트 출입문, 사무실 보안",
+                  "페르소나: 건물 관리자, 거주자, 방문객",
+                  "문제 정의: 카드 없이 얼굴로 출입",
+                  "성공 기준: 등록자 95% 인식, 미등록자 차단"
+                ]
+              },
+              {
+                "id": "phase2",
+                "title": "AI 모델 제작 (40분)",
+                "duration": "0.67시간",
+                "detailDescription": "얼굴 인식 모델을 학습시킵니다",
+                "topics": [
+                  "클래스 1~3: 등록자 3명 (각 100장, 다양한 각도)",
+                  "클래스 4: 미등록자 (여러 사람 100장)",
+                  "조명 변화 고려",
+                  "안경/모자 착용 상태도 포함"
+                ]
+              },
+              {
+                "id": "phase3",
+                "title": "시스템 구현 (70분)",
+                "duration": "1.17시간",
+                "detailDescription": "자동문 및 기록 시스템을 구축합니다",
+                "topics": [
+                  "DWAI: 얼굴 인식 → 이름 또는 DENY 전송",
+                  "마이크로비트: 서보모터(문), LED(허가/거부), 부저",
+                  "등록자: 초록 LED + 서보 90도 회전 (문 열림)",
+                  "미등록자: 빨강 LED + 부저 경고",
+                  "출입 카운터 및 시간 기록"
+                ]
+              },
+              {
+                "id": "phase4",
+                "title": "디버깅 & 성찰 (20분)",
+                "duration": "0.33시간",
+                "detailDescription": "보안 성능을 테스트합니다",
+                "topics": [
+                  "등록자 20회 테스트 (성공률 확인)",
+                  "미등록자 침입 시도 테스트",
+                  "오인식 및 미인식 분석",
+                  "성찰: 얼굴 인식의 윤리와 프라이버시"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "materials",
+            "label": "필요 교구재",
+            "duration": "3시간",
+            "description": "준비물 목록",
+            "modules": [
+              {
+                "id": "required",
+                "title": "필수 교구재",
+                "duration": "",
+                "detailDescription": "이 수업에 꼭 필요한 장비",
+                "topics": [
+                  "웹캠 내장 노트북 (학생 2명당 1대)",
+                  "마이크로비트 V2 (팀당 1개)",
+                  "USB 케이블",
+                  "서보모터 SG90 1개 (문 역할)",
+                  "LED 2개 (빨강/초록)",
+                  "부저 1개",
+                  "점퍼 와이어 12개",
+                  "브레드보드"
+                ]
+              },
+              {
+                "id": "optional",
+                "title": "선택 교구재",
+                "duration": "",
+                "detailDescription": "있으면 더 좋은 장비",
+                "topics": [
+                  "거리 센서 (사람 접근 감지)",
+                  "OLED 디스플레이 (출입자 이름 표시)",
+                  "문 모형 (골판지 제작)"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "advanced-smart-store",
+        "title": "고급 B: 무인 편의점 계산대",
+        "description": "TM + 마이크로비트로 상품을 AI로 인식하여 자동으로 가격을 계산하는 무인 편의점 시스템을 만듭니다. 장바구니 시스템과 영수증 출력 기능을 포함합니다.",
+        "image": "/home/student-coding-laptop.jpg",
+        "difficulty": "고급",
+        "duration": "3시간",
+        "university": "",
+        "tabs": [
+          {
+            "id": "content",
+            "label": "수업 구성",
+            "duration": "3시간",
+            "description": "벤치마킹 → 기획 → 실행 → 디버깅",
+            "modules": [
+              {
+                "id": "phase1",
+                "title": "벤치마킹 & 페르소나 (30분)",
+                "duration": "0.5시간",
+                "detailDescription": "무인 편의점 시스템을 분석합니다",
+                "topics": [
+                  "벤치마킹: Amazon Go, 국내 무인 편의점",
+                  "페르소나: 바쁜 직장인, 편의점 사장님",
+                  "문제 정의: 계산 시간 단축, 인건비 절감",
+                  "성공 기준: 5가지 상품 정확히 인식 및 계산"
+                ]
+              },
+              {
+                "id": "phase2",
+                "title": "AI 모델 제작 (40분)",
+                "duration": "0.67시간",
+                "detailDescription": "5가지 상품 인식 모델을 학습시킵니다",
+                "topics": [
+                  "상품 1: 초콜릿 - 1500원 (80장)",
+                  "상품 2: 음료수 - 1200원 (80장)",
+                  "상품 3: 빵 - 2000원 (80장)",
+                  "상품 4: 과자 - 1000원 (80장)",
+                  "상품 5: 우유 - 2500원 (80장)"
+                ]
+              },
+              {
+                "id": "phase3",
+                "title": "시스템 구현 (70분)",
+                "duration": "1.17시간",
+                "detailDescription": "자동 계산 시스템을 구축합니다",
+                "topics": [
+                  "DWAI: 상품 인식 → 상품명 + 가격 전송",
+                  "마이크로비트: 장바구니 리스트 저장",
+                  "상품 추가/삭제 버튼 (A/B 버튼)",
+                  "총 금액 계산 및 LED 매트릭스 표시",
+                  "결제 완료 시 부저 + 영수증 (UART 출력)"
+                ]
+              },
+              {
+                "id": "phase4",
+                "title": "디버깅 & 성찰 (20분)",
+                "duration": "0.33시간",
+                "detailDescription": "실제 쇼핑 시나리오를 테스트합니다",
+                "topics": [
+                  "5개 상품 쇼핑 시뮬레이션",
+                  "계산 정확도 확인",
+                  "사용성 개선 (더 빠르게?)",
+                  "성찰: 무인 시스템이 사회에 미치는 영향"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "materials",
+            "label": "필요 교구재",
+            "duration": "3시간",
+            "description": "준비물 목록",
+            "modules": [
+              {
+                "id": "required",
+                "title": "필수 교구재",
+                "duration": "",
+                "detailDescription": "이 수업에 꼭 필요한 장비",
+                "topics": [
+                  "웹캠 내장 노트북 (학생 2명당 1대)",
+                  "마이크로비트 V2 (팀당 1개)",
+                  "USB 케이블",
+                  "부저 1개",
+                  "점퍼 와이어 4개",
+                  "샘플 상품 5개 (실제 또는 모형)"
+                ]
+              },
+              {
+                "id": "optional",
+                "title": "선택 교구재",
+                "duration": "",
+                "detailDescription": "있으면 더 좋은 장비",
+                "topics": [
+                  "OLED 디스플레이 (가격 표시)",
+                  "바코드 스티커 (시각적 효과)"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "advanced-smart-home",
+        "title": "고급 C: 스마트 홈 통합 제어",
+        "description": "TM + 마이크로비트 + 복합 센서로 AI와 센서 데이터를 결합하여 집안 기기를 상황에 맞게 자동 제어하는 스마트 홈 시스템을 만듭니다.",
+        "image": "/home/ai-neural-network.png",
+        "difficulty": "고급",
+        "duration": "3시간",
+        "university": "",
+        "tabs": [
+          {
+            "id": "content",
+            "label": "수업 구성",
+            "duration": "3시간",
+            "description": "벤치마킹 → 기획 → 실행 → 디버깅",
+            "modules": [
+              {
+                "id": "phase1",
+                "title": "벤치마킹 & 페르소나 (30분)",
+                "duration": "0.5시간",
+                "detailDescription": "스마트 홈 시스템을 분석합니다",
+                "topics": [
+                  "벤치마킹: Google Home, Alexa, 삼성 SmartThings",
+                  "페르소나: 1인 가구, 맞벌이 부부, 어르신",
+                  "문제 정의: 상황에 맞는 자동 제어로 편의성과 에너지 절약",
+                  "성공 기준: 4가지 상황 자동 인식 및 제어"
+                ]
+              },
+              {
+                "id": "phase2",
+                "title": "AI 모델 제작 (35분)",
+                "duration": "0.58시간",
+                "detailDescription": "4가지 생활 상황을 학습시킵니다",
+                "topics": [
+                  "상황 1: 사람 있음 (조명 ON)",
+                  "상황 2: 사람 없음 (조명 OFF)",
+                  "상황 3: 잠자는 중 (조명 OFF, 조용)",
+                  "상황 4: 공부/업무 중 (조명 밝게)",
+                  "각 80장씩 데이터 수집"
+                ]
+              },
+              {
+                "id": "phase3",
+                "title": "시스템 구현 (75분)",
+                "duration": "1.25시간",
+                "detailDescription": "센서 통합 자동화 시스템을 구축합니다",
+                "topics": [
+                  "DWAI: 상황 인식 → 모드 전송 (HOME/AWAY/SLEEP/WORK)",
+                  "마이크로비트: 온도센서(내장) + 조도센서(Pin1) 읽기",
+                  "조명 제어: LED(Pin0) - 밝기 조절",
+                  "에어컨 제어: 릴레이(Pin2) - 온도 기반",
+                  "자동화 규칙: If-Then 로직 구현"
+                ]
+              },
+              {
+                "id": "phase4",
+                "title": "디버깅 & 성찰 (20분)",
+                "duration": "0.33시간",
+                "detailDescription": "다양한 상황을 시뮬레이션합니다",
+                "topics": [
+                  "4가지 상황 각각 테스트",
+                  "센서 데이터와 AI 결합 확인",
+                  "자동화 규칙 조정",
+                  "성찰: 스마트 홈이 삶을 어떻게 바꿀까?"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "materials",
+            "label": "필요 교구재",
+            "duration": "3시간",
+            "description": "준비물 목록",
+            "modules": [
+              {
+                "id": "required",
+                "title": "필수 교구재",
+                "duration": "",
+                "detailDescription": "이 수업에 꼭 필요한 장비",
+                "topics": [
+                  "웹캠 내장 노트북 (학생 2명당 1대)",
+                  "마이크로비트 V2 (팀당 1개)",
+                  "USB 케이블",
+                  "조도센서 (포토레지스터) 1개",
+                  "LED 2개 (조명 역할)",
+                  "릴레이 모듈 1개 (에어컨 역할)",
+                  "점퍼 와이어 12개",
+                  "브레드보드",
+                  "저항 10kΩ 1개"
+                ]
+              },
+              {
+                "id": "optional",
+                "title": "선택 교구재",
+                "duration": "",
+                "detailDescription": "있으면 더 좋은 장비",
+                "topics": [
+                  "온습도 센서 DHT11 (정밀 제어)",
+                  "서보모터 (커튼 제어)",
+                  "OLED 디스플레이 (센서 데이터 표시)"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
   },
   "educationRequirements": {
-    "title": "교육 조건",
+    "title": "교육 환경 및 준비 사항",
     "items": [
       {
         "id": "class-size",
         "icon": "Users",
         "iconColor": "purple",
         "title": "적정 인원",
-        "description": "1:6 ~ 1:12 비율",
+        "description": "최대 20명 (2인 1팀)",
         "details": [
-          "강사 1명당 6~12명 권장",
-          "학년별 그룹 수업",
-          "1:1 맞춤 지도 가능",
-          "소규모 프로젝트 팀 구성"
+          "강사 1-2명 (인원에 따라)",
+          "2인 1팀 협업 권장",
+          "개별 진도 맞춤 지도"
         ]
       },
       {
-        "id": "equipment",
+        "id": "basic-equipment",
         "icon": "Monitor",
-        "iconColor": "indigo",
-        "title": "교구재",
-        "description": "노트북 & 웹캠",
+        "iconColor": "blue",
+        "title": "기본 교구재 (모든 과정)",
+        "description": "노트북 + 웹캠",
         "details": [
-          "개인 노트북 (권장)",
-          "웹캠 (컴퓨터 비전 과정)",
-          "안정적인 인터넷 연결",
-          "헤드셋 (선택사항)"
+          "웹캠 내장 노트북 (팀당 1대)",
+          "Chrome 브라우저 최신 버전",
+          "Google 계정 (TeachableMachine)",
+          "안정적인 WiFi 인터넷"
+        ]
+      },
+      {
+        "id": "intermediate-equipment",
+        "icon": "Cpu",
+        "iconColor": "indigo",
+        "title": "중급 과정 추가 교구재",
+        "description": "마이크로비트 키트",
+        "details": [
+          "마이크로비트 V2 (팀당 1개)",
+          "USB 케이블 (연결용)",
+          "브레드보드 (팀당 1개)",
+          "점퍼 와이어 세트",
+          "LED/부저/서보모터 (프로젝트별)"
+        ]
+      },
+      {
+        "id": "advanced-equipment",
+        "icon": "Zap",
+        "iconColor": "violet",
+        "title": "고급 과정 추가 교구재",
+        "description": "센서 키트",
+        "details": [
+          "온도/습도 센서",
+          "조도 센서 (포토레지스터)",
+          "릴레이 모듈",
+          "OLED 디스플레이 (선택)"
         ]
       },
       {
         "id": "software",
-        "icon": "Package",
-        "iconColor": "violet",
-        "title": "필요 도구",
-        "description": "웹 브라우저 기반",
-        "details": [
-          "최신 웹 브라우저 (Chrome 권장)",
-          "Google 계정",
-          "ChatGPT 계정 (중학생 이상)",
-          "바이브 코딩 플랫폼 (고등)"
-        ]
-      },
-      {
-        "id": "prerequisites",
-        "icon": "GraduationCap",
-        "iconColor": "purple",
-        "title": "사전 지식",
-        "description": "학년별 맞춤",
-        "details": [
-          "초등: 컴퓨터 기본 조작 가능",
-          "중학생: 타이핑 가능, 논리적 사고",
-          "고등학생: 기본 코딩 개념 이해 (권장)",
-          "창의적 사고와 호기심"
-        ]
-      },
-      {
-        "id": "tools",
-        "icon": "Award",
-        "iconColor": "indigo",
+        "icon": "Globe",
+        "iconColor": "green",
         "title": "사용 플랫폼",
-        "description": "최신 AI 도구",
+        "description": "웹 기반 도구",
         "details": [
+          "DWAI (DancingwithAI)",
           "TeachableMachine (Google)",
-          "DancingwithAI",
-          "ChatGPT (OpenAI)",
-          "바이브 코딩 플랫폼"
+          "MakeCode 또는 Python Editor (마이크로비트)"
         ]
       },
       {
         "id": "output",
-        "icon": "ClipboardCheck",
-        "iconColor": "violet",
+        "icon": "Award",
+        "iconColor": "orange",
         "title": "결과물",
-        "description": "포트폴리오 작품",
+        "description": "완성된 프로젝트 1개 (3시간당)",
         "details": [
-          "AI 게임 프로젝트",
-          "창작 컨텐츠 (동화책, 시나리오)",
-          "웹 서비스 프로토타입",
-          "발표 자료 및 문서"
+          "작동하는 AI 게임 또는 IoT 시스템",
+          "프로젝트 설명 문서",
+          "성찰 일지",
+          "포트폴리오 작품"
+        ]
+      }
+    ]
+  },
+  "materials": {
+    "title": "수업 자료 다운로드",
+    "description": "3시간 모듈별 교사용 지도안 및 학생용 워크북",
+    "categories": [
+      {
+        "id": "methodology",
+        "title": "역공학 메이커 교육 가이드",
+        "description": "교육 철학 및 5단계 프로세스",
+        "items": [
+          {
+            "id": "reverse-engineering-guide",
+            "title": "역공학 메이커 교육이란?",
+            "description": "벤치마킹→페르소나→기획→실행→디버깅 방법론",
+            "icon": "FileText",
+            "format": "PDF",
+            "pages": "12페이지",
+            "size": "1.8MB",
+            "downloadUrl": "/downloads/block-coding/reverse-engineering-guide.pdf"
+          }
+        ]
+      },
+      {
+        "id": "beginner-guides",
+        "title": "초급 과정 지도안",
+        "description": "TM + DWAI 기초 (3시간 × 3개)",
+        "items": [
+          {
+            "id": "beginner-a-guide",
+            "title": "초급 A: 마스크 인식 게임",
+            "description": "교사용 지도안 + 학생용 워크북",
+            "icon": "Package",
+            "format": "ZIP",
+            "pages": "지도안 15p + 워크북 8p",
+            "size": "3.2MB",
+            "downloadUrl": "/downloads/block-coding/beginner-a.zip"
+          },
+          {
+            "id": "beginner-b-guide",
+            "title": "초급 B: 가위바위보 게임",
+            "description": "교사용 지도안 + 학생용 워크북",
+            "icon": "Package",
+            "format": "ZIP",
+            "pages": "지도안 14p + 워크북 8p",
+            "size": "2.9MB",
+            "downloadUrl": "/downloads/block-coding/beginner-b.zip"
+          },
+          {
+            "id": "beginner-c-guide",
+            "title": "초급 C: 물체 분류 게임",
+            "description": "교사용 지도안 + 학생용 워크북",
+            "icon": "Package",
+            "format": "ZIP",
+            "pages": "지도안 15p + 워크북 9p",
+            "size": "3.1MB",
+            "downloadUrl": "/downloads/block-coding/beginner-c.zip"
+          }
+        ]
+      },
+      {
+        "id": "intermediate-guides",
+        "title": "중급 과정 지도안",
+        "description": "TM + DWAI + 마이크로비트 (3시간 × 3개)",
+        "items": [
+          {
+            "id": "intermediate-a-guide",
+            "title": "중급 A: 손 제스처 신호등",
+            "description": "교사용 지도안 + 학생용 워크북 + 코드",
+            "icon": "Package",
+            "format": "ZIP",
+            "pages": "지도안 18p + 워크북 10p",
+            "size": "3.8MB",
+            "downloadUrl": "/downloads/block-coding/intermediate-a.zip"
+          },
+          {
+            "id": "intermediate-b-guide",
+            "title": "중급 B: 마스크 감지 경보",
+            "description": "교사용 지도안 + 학생용 워크북 + 코드",
+            "icon": "Package",
+            "format": "ZIP",
+            "pages": "지도안 17p + 워크북 10p",
+            "size": "3.6MB",
+            "downloadUrl": "/downloads/block-coding/intermediate-b.zip"
+          },
+          {
+            "id": "intermediate-c-guide",
+            "title": "중급 C: 분리수거 분류기",
+            "description": "교사용 지도안 + 학생용 워크북 + 코드",
+            "icon": "Package",
+            "format": "ZIP",
+            "pages": "지도안 19p + 워크북 11p",
+            "size": "4.0MB",
+            "downloadUrl": "/downloads/block-coding/intermediate-c.zip"
+          }
+        ]
+      },
+      {
+        "id": "advanced-guides",
+        "title": "고급 과정 지도안",
+        "description": "복합 센서 통합 시스템 (3시간 × 3개)",
+        "items": [
+          {
+            "id": "advanced-a-guide",
+            "title": "고급 A: 출입 관리 시스템",
+            "description": "교사용 지도안 + 학생용 워크북 + 코드",
+            "icon": "Package",
+            "format": "ZIP",
+            "pages": "지도안 22p + 워크북 12p",
+            "size": "4.5MB",
+            "downloadUrl": "/downloads/block-coding/advanced-a.zip"
+          },
+          {
+            "id": "advanced-b-guide",
+            "title": "고급 B: 무인 편의점",
+            "description": "교사용 지도안 + 학생용 워크북 + 코드",
+            "icon": "Package",
+            "format": "ZIP",
+            "pages": "지도안 21p + 워크북 12p",
+            "size": "4.3MB",
+            "downloadUrl": "/downloads/block-coding/advanced-b.zip"
+          },
+          {
+            "id": "advanced-c-guide",
+            "title": "고급 C: 스마트 홈",
+            "description": "교사용 지도안 + 학생용 워크북 + 코드",
+            "icon": "Package",
+            "format": "ZIP",
+            "pages": "지도안 24p + 워크북 13p",
+            "size": "4.8MB",
+            "downloadUrl": "/downloads/block-coding/advanced-c.zip"
+          }
         ]
       }
     ]
   },
   "classGallery": {
     "title": "수업 현장 및 학생 작품",
-    "description": "AI로 만든 창의적인 프로젝트들을 확인해보세요",
+    "description": "역공학 메이커 교육으로 완성한 3시간 프로젝트들",
     "tabs": [
       {
         "id": "class-scene",
@@ -1029,18 +1489,18 @@
         "items": [
           {
             "src": "/gallery/ai-class-teachable-machine.jpg",
-            "alt": "TeachableMachine 실습",
-            "description": "웹캠으로 포즈를 학습시키고 있는 초등학생들의 모습입니다"
+            "alt": "AI 모델 학습",
+            "description": "Teachable Machine으로 데이터를 수집하고 AI를 학습시키는 모습"
           },
           {
-            "src": "/gallery/ai-class-chatgpt.jpg",
-            "alt": "ChatGPT 프롬프트 작성 수업",
-            "description": "효과적인 프롬프트 작성법을 배우는 중학생들입니다"
+            "src": "/gallery/ai-class-microbit.jpg",
+            "alt": "마이크로비트 코딩",
+            "description": "마이크로비트와 센서를 연결하고 코딩하는 학생들"
           },
           {
             "src": "/gallery/ai-class-coding.jpg",
-            "alt": "AI 에이전트 개발 수업",
-            "description": "바이브 코딩으로 AI 서비스를 만드는 고등학생들입니다"
+            "alt": "협업 실습",
+            "description": "2인 1팀으로 문제를 정의하고 해결책을 구현하는 모습"
           }
         ]
       },
@@ -1049,167 +1509,49 @@
         "label": "학생 작품",
         "items": [
           {
-            "src": "/gallery/ai-work-dancing-game.jpg",
-            "alt": "DancingwithAI 게임",
-            "description": "포즈 인식으로 캐릭터를 조종하는 창의적인 게임입니다"
+            "src": "/gallery/ai-work-mask-detection.jpg",
+            "alt": "마스크 인식 게임",
+            "description": "초급 A: Teachable Machine으로 마스크 착용을 판정하는 게임"
           },
           {
-            "src": "/gallery/ai-work-storybook.jpg",
-            "alt": "AI 그림 동화책",
-            "description": "ChatGPT와 이미지 생성 AI로 만든 그림 동화책입니다"
+            "src": "/gallery/ai-work-traffic-light.jpg",
+            "alt": "신호등 IoT",
+            "description": "중급 A: 손 제스처로 LED 신호등을 제어하는 시스템"
           },
           {
-            "src": "/gallery/ai-work-chatbot.jpg",
-            "alt": "맞춤형 AI 챗봇",
-            "description": "학생이 직접 개발한 진로 상담 AI 에이전트입니다"
+            "src": "/gallery/ai-work-smart-store.jpg",
+            "alt": "무인 편의점",
+            "description": "고급 B: 상품을 AI로 인식하여 자동 계산하는 시스템"
           }
         ]
       },
       {
-        "id": "class-reviews",
-        "label": "수업 후기",
+        "id": "reflection",
+        "label": "성찰 및 후기",
         "items": [
           {
-            "src": "/gallery/ai-review-presentation.jpg",
-            "alt": "프로젝트 발표회",
-            "description": "완성한 AI 프로젝트를 자신감 있게 발표하는 모습입니다"
+            "src": "/gallery/ai-review-reflection.jpg",
+            "alt": "디버깅 단계",
+            "description": "디버거 역할로 테스트하고 개선점을 논의하는 학생들"
           },
           {
             "src": "/gallery/ai-review-teamwork.jpg",
-            "alt": "팀 프로젝트 협업",
-            "description": "함께 아이디어를 나누며 협업하는 학생들입니다"
+            "alt": "협업",
+            "description": "기획자-실행자-디버거 역할을 나누어 협업하는 모습"
           },
           {
-            "src": "/gallery/ai-review-certificate.jpg",
-            "alt": "수료식",
-            "description": "AI 교육 과정을 모두 수료한 학생들의 기념 사진입니다"
-          }
-        ]
-      }
-    ]
-  },
-  "materials": {
-    "title": "수업 자료 다운로드",
-    "description": "AI 교육 과정에 필요한 교육 자료를 다운로드하세요",
-    "categories": [
-      {
-        "id": "teaching-guides",
-        "title": "교사용 지도안",
-        "description": "학년별 상세 교수 학습 지도안",
-        "items": [
-          {
-            "id": "elementary-guide",
-            "title": "컴퓨터 비전 교사용 지도안",
-            "description": "TeachableMachine 활용 수업 가이드",
-            "icon": "FileText",
-            "format": "PDF",
-            "pages": "28페이지",
-            "size": "4.2MB",
-            "downloadUrl": "/downloads/ai/elementary-guide.pdf"
-          },
-          {
-            "id": "middle-guide",
-            "title": "ChatGPT 교사용 지도안",
-            "description": "프롬프트 엔지니어링 수업 가이드",
-            "icon": "FileText",
-            "format": "PDF",
-            "pages": "35페이지",
-            "size": "5.8MB",
-            "downloadUrl": "/downloads/ai/middle-guide.pdf"
-          },
-          {
-            "id": "high-guide",
-            "title": "AI 에이전트 교사용 지도안",
-            "description": "ChatGPT API 활용 수업 가이드",
-            "icon": "FileText",
-            "format": "PDF",
-            "pages": "42페이지",
-            "size": "6.5MB",
-            "downloadUrl": "/downloads/ai/high-guide.pdf"
-          }
-        ]
-      },
-      {
-        "id": "workbooks",
-        "title": "학생용 워크북",
-        "description": "학년별 실습 워크북",
-        "items": [
-          {
-            "id": "elementary-workbook",
-            "title": "컴퓨터 비전 워크북",
-            "description": "AI 게임 제작 실습 가이드",
-            "icon": "BookOpen",
-            "format": "PDF",
-            "pages": "24페이지",
-            "size": "3.8MB",
-            "downloadUrl": "/downloads/ai/elementary-workbook.pdf"
-          },
-          {
-            "id": "middle-workbook",
-            "title": "ChatGPT 워크북",
-            "description": "컨텐츠 제작 실습 가이드",
-            "icon": "BookOpen",
-            "format": "PDF",
-            "pages": "30페이지",
-            "size": "4.5MB",
-            "downloadUrl": "/downloads/ai/middle-workbook.pdf"
-          },
-          {
-            "id": "high-workbook",
-            "title": "AI 에이전트 워크북",
-            "description": "웹 서비스 개발 실습 가이드",
-            "icon": "BookOpen",
-            "format": "PDF",
-            "pages": "38페이지",
-            "size": "5.2MB",
-            "downloadUrl": "/downloads/ai/high-workbook.pdf"
-          }
-        ]
-      },
-      {
-        "id": "templates",
-        "title": "프로젝트 템플릿",
-        "description": "바로 사용 가능한 템플릿",
-        "items": [
-          {
-            "id": "game-template",
-            "title": "AI 게임 템플릿",
-            "description": "DancingwithAI 기본 템플릿",
-            "icon": "Package",
-            "format": "ZIP",
-            "pages": "5개 파일",
-            "size": "1.8MB",
-            "downloadUrl": "/downloads/ai/game-template.zip"
-          },
-          {
-            "id": "prompt-template",
-            "title": "프롬프트 템플릿 모음",
-            "description": "효과적인 프롬프트 예시 100개",
-            "icon": "Package",
-            "format": "PDF",
-            "pages": "15페이지",
-            "size": "1.2MB",
-            "downloadUrl": "/downloads/ai/prompt-templates.pdf"
-          },
-          {
-            "id": "chatbot-template",
-            "title": "챗봇 코드 템플릿",
-            "description": "ChatGPT API 연동 예제",
-            "icon": "Package",
-            "format": "ZIP",
-            "pages": "8개 파일",
-            "size": "2.5MB",
-            "downloadUrl": "/downloads/ai/chatbot-template.zip"
+            "src": "/gallery/ai-review-portfolio.jpg",
+            "alt": "포트폴리오",
+            "description": "3시간 프로젝트를 여러 개 수강하여 쌓인 포트폴리오"
           }
         ]
       }
     ]
   },
   "cta": {
-    "title": "AI와 함께 미래를 만들어보세요",
-    "description": "학년별 맞춤 AI 교육으로 창의력과 문제해결 능력을 키우세요",
-    "buttonText": "수업 일정 확인하기",
+    "title": "3시간으로 완성하는 AI + IoT 프로젝트",
+    "description": "원하는 주제를 선택하여 나만의 교육 과정을 만드세요",
+    "buttonText": "수업 문의 및 일정 확인",
     "buttonLink": "/inquiry/schedule"
   }
 }
-

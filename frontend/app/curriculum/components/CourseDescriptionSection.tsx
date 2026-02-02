@@ -28,9 +28,12 @@ export function CourseDescriptionSection({
       <h2 className="mb-6 text-3xl font-bold">{title}</h2>
       <div className="space-y-4 text-gray-600 leading-relaxed mb-8">
         {paragraphs.map((paragraph, index) => (
-          <span className="text-lg" key={index} style={{ lineHeight: '1.72em', wordSpacing: "0.05em" }}>
-            {paragraph}
-          </span>
+          <div 
+            className="text-lg" 
+            key={index} 
+            style={{ lineHeight: '1.72em', wordSpacing: "0.05em" }}
+            dangerouslySetInnerHTML={{ __html: paragraph }}
+          />
         ))}
       </div>
 

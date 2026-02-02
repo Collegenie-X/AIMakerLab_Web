@@ -1,24 +1,24 @@
 {
   "hero": {
     "badge": "바이브 코딩",
-    "title": "장인의 손길 vs 자동화 공장",
-    "description": "1단계는 ChatGPT로 직접 조각하는 콘텐츠 장인이 되고, 2단계는 AI Agent로 자동 생성하는 공장을 만듭니다.",
+    "title": "역공부와 메이커 방식의 AI 프로젝트",
+    "description": "완성된 결과물을 경험한 후 역으로 만들어가는 학습법. 수동 제작으로 깊이를 경험하고, AI Agent로 자동화까지 완성합니다.",
     "features": [
       {
         "icon": "BookOpen",
-        "label": "1단계: 장인"
+        "label": "동화책 제작"
       },
       {
-        "icon": "Factory",
-        "label": "2단계: 공장"
+        "icon": "Globe",
+        "label": "화상 영어"
       },
       {
-        "icon": "Target",
-        "label": "기획 중심"
+        "icon": "Heart",
+        "label": "감정 게임"
       },
       {
-        "icon": "Search",
-        "label": "성찰 습관"
+        "icon": "Zap",
+        "label": "메이커 학습"
       }
     ]
   },
@@ -26,421 +26,226 @@
     {
       "icon": "Users",
       "label": "대상",
-      "value": "중학생(1단계) / 고등(2단계)",
+      "value": "중3 ~ 고등학생",
       "color": "blue"
     },
     {
       "icon": "Clock",
-      "label": "수업 기간",
-      "value": "각 3-4주 (독립 과정)",
+      "label": "수업 시간",
+      "value": "4시간(기초) / 8시간(심화) / 16시간(자동화)",
       "color": "green"
     },
     {
       "icon": "Target",
-      "label": "핵심 역량",
-      "value": "기획 + 프롬프트 + 성찰",
+      "label": "학습 방식",
+      "value": "역공부 + 메이커 + 프로젝트 기반",
       "color": "purple"
     },
     {
       "icon": "Award",
-      "label": "완성 결과물",
-      "value": "수동 콘텐츠 vs 자동 서비스",
+      "label": "단계",
+      "value": "1단계(수동 제작) → 2단계(AI Agent)",
       "color": "orange"
     }
   ],
   "courseDescription": {
-    "title": "왜 장인과 공장을 따로 배우나요?",
+    "title": "바이브 코딩이란? 역공부와 메이커 방식의 학습",
     "paragraphs": [
-      "**1단계 - 콘텐츠 장인 (중학생)**: ChatGPT Playground로 동화책을 직접 만들며 **기획 능력**과 **프롬프트 작성 능력**을 집중 훈련합니다. 한 줄 한 줄 직접 조각하며 '이 질문이 맞나?', '더 나은 방법은?'을 계속 성찰합니다. 수동적이지만 깊이 있는 학습입니다.",
-      "**2단계 - 자동화 공장 (고등학생)**: 1단계의 수작업을 자동화하는 AI Agent를 만듭니다. v0로 UI를 만들고, FastAPI + ChatGPT API로 '버튼 한 번에 동화책 10개' 찍어내는 공장을 설계합니다. 효율적이지만 알고리즘 설계가 핵심입니다.",
-      "**장점과 단점**: 1단계는 느리지만 AI와 대화하는 법을 체득합니다. 2단계는 빠르지만 시스템 설계 실패 시 처음부터 다시 시작해야 합니다. 두 과정은 **독립적**이며, 각각 완결된 프로젝트입니다.",
-      "1단계에서 프롬프트와 기획을 마스터하면, 2단계에서 그 경험을 시스템으로 자동화합니다. 중학생은 1단계로 기초를 다지고, 고등학생은 2단계로 확장합니다."
+      "<p><strong>바이브 코딩 = 역공부 + 메이커 방식</strong>: 전통적인 공부는 이론을 배우고 적용하지만, 바이브 코딩은 '완성된 결과물'을 먼저 경험하고 역으로 만들어가며 학습합니다. 벤치마킹 → 페르소나 → 기획(진짜 문제) → 실행자 → 디버거(성찰) 과정을 거치며 실제로 작동하는 프로젝트를 완성합니다.</p>",
+      "<p><strong>1단계 - 수동 컨텐츠 제작 (4-8시간)</strong>: ChatGPT와 직접 대화하며 한 단계씩 프로젝트를 만듭니다. 동화책, 영어 튜터, 감정 게임 등을 수동으로 제작하며 AI 활용법과 프롬프트 엔지니어링을 체득합니다. 이 과정에서 '진짜 문제'를 발견하고, 성찰하며 개선합니다.</p>",
+      "<p><strong>2단계 - AI Agent 자동화 (16시간)</strong>: 1단계의 수작업을 Cursor와 V0를 활용해 자동화 시스템으로 전환합니다. 버튼 한 번에 컨텐츠를 생성하는 AI Agent를 설계하고 구축합니다. 시스템 설계, 프로토타이핑, 백엔드 개발까지 전체 개발 사이클을 경험합니다.</p>",
+      "<p><strong>메이커 방식의 핵심</strong>: 이론 강의 없이 '만들면서 배웁니다'. 실패하고, 수정하고, 다시 시도하는 과정에서 진짜 실력이 쌓입니다. Cursor로 코드를 수정하고, V0로 빠르게 프로토타입을 만들며, ChatGPT API로 자동화를 구현합니다.</p>"
     ],
     "images": [
       {
-        "src": "/curriculum/vibe-coding-craftsman.jpg",
-        "alt": "1단계: 장인처럼 조각하는 콘텐츠 제작"
+        "src": "/curriculum/vibe-coding-reverse-learning.jpg",
+        "alt": "역공부 방식: 결과물부터 경험"
       },
       {
-        "src": "/curriculum/vibe-coding-factory.jpg",
-        "alt": "2단계: 공장처럼 자동 생성하는 AI Agent"
+        "src": "/curriculum/vibe-coding-maker.jpg",
+        "alt": "메이커 방식: 만들면서 배우기"
+      },
+      {
+        "src": "/curriculum/vibe-coding-automation.jpg",
+        "alt": "수동 제작에서 자동화까지"
       }
     ]
   },
   "learningPath": {
-    "part1": {
-      "title": "1단계: 콘텐츠 장인 (수동 제작)",
-      "description": "ChatGPT로 한 줄씩 조각하며 기획과 프롬프트 마스터하기",
+    "stage1": {
+      "title": "1단계: 수동 컨텐츠 제작 (역공부)",
+      "description": "벤치마킹 → 페르소나 → 기획 → 실행 → 디버거 과정으로 깊이 있게 학습",
       "steps": [
         {
           "id": "step1",
-          "title": "열린 질문 훈련",
-          "description": "제한적 vs 열린 질문, ChatGPT와 대화 연습",
-          "duration": "1주",
-          "outcomes": ["열린 질문 기법", "AI 대화 이해"]
-        },
-        {
-          "id": "step2",
-          "title": "기획 & 페르소나",
-          "description": "독자 정의, 스토리 구상, 지속적 개선 체크",
-          "duration": "1주",
-          "outcomes": ["페르소나 설정", "기획서 작성"],
+          "title": "벤치마킹",
+          "description": "우수 사례 경험 및 분석, 무엇이 좋은지 탐구",
+          "duration": "30분",
+          "outcomes": [
+            "레퍼런스 수집",
+            "핵심 요소 파악"
+          ],
           "emphasis": true
         },
         {
+          "id": "step2",
+          "title": "페르소나",
+          "description": "누구를 위한 프로젝트인가? 사용자 정의",
+          "duration": "30분",
+          "outcomes": [
+            "타겟 사용자",
+            "니즈 분석"
+          ]
+        },
+        {
           "id": "step3",
-          "title": "수동 제작 & 성찰",
-          "description": "한 줄씩 조각하며 '더 나은 방법은?' 성찰",
-          "duration": "1-2주",
-          "outcomes": ["완성된 동화책", "성찰 일지"],
+          "title": "기획 (진짜 문제)",
+          "description": "해결하고자 하는 진짜 문제 정의 및 솔루션 설계",
+          "duration": "1시간",
+          "outcomes": [
+            "문제 정의서",
+            "솔루션 설계"
+          ],
+          "emphasis": true
+        },
+        {
+          "id": "step4",
+          "title": "실행자",
+          "description": "ChatGPT와 대화하며 한 단계씩 제작",
+          "duration": "4-6시간",
+          "outcomes": [
+            "작동하는 결과물",
+            "프롬프트 히스토리"
+          ],
+          "emphasis": true
+        },
+        {
+          "id": "step5",
+          "title": "디버거 (성찰)",
+          "description": "무엇이 잘 됐고, 무엇을 개선할까? 메타인지 훈련",
+          "duration": "1시간",
+          "outcomes": [
+            "성찰 일지",
+            "개선 방향"
+          ],
           "emphasis": true
         }
       ]
     },
-    "part2": {
-      "title": "2단계: 자동화 공장 (AI Agent)",
-      "description": "버튼 한 번에 동화책을 찍어내는 자동 시스템 설계",
+    "stage2": {
+      "title": "2단계: AI Agent 자동화 (메이커)",
+      "description": "Cursor + V0로 수작업을 자동화 시스템으로 전환",
       "steps": [
         {
           "id": "step1",
           "title": "시스템 설계",
-          "description": "입력 → AI 처리 → 출력 알고리즘 설계",
-          "duration": "1주",
-          "outcomes": ["시스템 설계도", "요구사항 정의"],
+          "description": "1단계 경험을 바탕으로 자동화 알고리즘 설계",
+          "duration": "2시간",
+          "outcomes": [
+            "시스템 아키텍처",
+            "플로우차트"
+          ],
           "emphasis": true
         },
         {
           "id": "step2",
-          "title": "v0 프로토타입",
-          "description": "UI 설계, localStorage 테스트, 반복 개선",
-          "duration": "1주",
-          "outcomes": ["작동 프로토타입", "사용자 테스트"]
+          "title": "V0 프로토타입",
+          "description": "빠르게 UI 프로토타입 제작 및 테스트",
+          "duration": "3시간",
+          "outcomes": [
+            "작동 프로토타입",
+            "사용자 테스트"
+          ]
         },
         {
           "id": "step3",
-          "title": "FastAPI + ChatGPT API",
-          "description": "백엔드 공장 구축, 자동 생성 시스템 완성",
-          "duration": "1-2주",
-          "outcomes": ["배포된 AI Agent"],
+          "title": "Cursor로 백엔드",
+          "description": "FastAPI + ChatGPT API 백엔드 개발",
+          "duration": "6시간",
+          "outcomes": [
+            "백엔드 서버",
+            "API 연동"
+          ],
           "emphasis": true
+        },
+        {
+          "id": "step4",
+          "title": "통합 및 배포",
+          "description": "프론트-백엔드 통합 및 실제 배포",
+          "duration": "3시간",
+          "outcomes": [
+            "배포된 서비스",
+            "사용자 피드백"
+          ],
+          "emphasis": true
+        },
+        {
+          "id": "step5",
+          "title": "최종 성찰",
+          "description": "수동 vs 자동 비교 분석 및 학습 정리",
+          "duration": "2시간",
+          "outcomes": [
+            "비교 분석 보고서",
+            "포트폴리오"
+          ]
         }
       ]
     }
   },
-  "learningGoals": {
-    "title": "1단계 vs 2단계 핵심 역량",
-    "description": "장인의 손길(기획+프롬프트) vs 공장의 효율(시스템 설계)",
-    "goals": [
-      {
-        "id": "stage1-planning",
-        "category": "🎨 1단계: 기획 장인",
-        "icon": "Target",
-        "title": "기획 & 프롬프트 마스터",
-        "description": "수동 제작하며 기획 능력과 열린 질문 체득",
-        "color": "blue",
-        "skills": [
-          "페르소나 설정 (누구를 위한가?)",
-          "열린 질문으로 AI와 대화",
-          "프롬프트 지속적 개선",
-          "스토리 기획 및 구성",
-          "한 줄씩 조각하는 장인 정신",
-          "성찰: '더 나은 방법은?'"
-        ]
-      },
-      {
-        "id": "stage1-reflection",
-        "category": "🔍 1단계: 성찰 습관",
-        "icon": "Search",
-        "title": "지속적 개선 & 체크",
-        "description": "매 단계 성찰하고 개선하는 습관",
-        "color": "red",
-        "skills": [
-          "결과물 체크 및 평가",
-          "'왜 이렇게 나왔지?' 질문",
-          "대안 탐색 및 재시도",
-          "성찰 일지 작성",
-          "피드백 수집 및 반영",
-          "개선 방향 설정"
-        ]
-      },
-      {
-        "id": "stage2-system",
-        "category": "⚙️ 2단계: 시스템 설계자",
-        "icon": "Cog",
-        "title": "자동화 알고리즘 설계",
-        "description": "수작업을 자동으로 바꾸는 시스템 설계 능력",
-        "color": "purple",
-        "skills": [
-          "입력 → 처리 → 출력 설계",
-          "알고리즘 플로우차트 작성",
-          "자동화 가능 부분 식별",
-          "시스템 아키텍처 설계",
-          "효율성 vs 품질 트레이드오프",
-          "에러 처리 및 예외 상황"
-        ]
-      },
-      {
-        "id": "stage2-developer",
-        "category": "🏭 2단계: 공장 개발자",
-        "icon": "Factory",
-        "title": "FastAPI + ChatGPT API",
-        "description": "자동으로 찍어내는 공장 구축",
-        "color": "orange",
-        "skills": [
-          "v0 프로토타입 빠른 제작",
-          "localStorage 테스트",
-          "FastAPI 백엔드 구축",
-          "ChatGPT API 통합",
-          "대량 생성 시스템 개발",
-          "배포 및 운영"
-        ]
-      }
-    ],
-    "achievements": [
-      "1단계: 기획 능력 + 프롬프트 작성 마스터",
-      "1단계: 성찰 습관 + 지속적 개선 체크",
-      "2단계: 시스템 설계 + 알고리즘 사고",
-      "2단계: FastAPI + ChatGPT API 자동화",
-      "장인의 손길 vs 공장의 효율 경험",
-      "독립적인 두 개의 완성 프로젝트"
-    ]
-  },
-  "curriculum": {
-    "projects": [
-      {
-        "id": "stage1-craftsman",
-        "grade": "중등 (1-3학년)",
-        "title": "1단계: 동화책 장인 (수동 제작)",
-        "description": "ChatGPT로 한 줄씩 조각하며 기획과 프롬프트를 마스터하는 과정. 느리지만 깊이 있게 배웁니다.",
-        "difficulty": "중간",
-        "duration": "3-4주",
-        "tabs": [
-          {
-            "id": "3-4weeks",
-            "label": "3-4주 과정",
-            "description": "주 1회 2시간 (중학생)",
-            "modules": [
-              {
-                "id": "week1",
-                "week": "1주차",
-                "title": "열린 질문 & ChatGPT 대화",
-                "topics": [
-                  "ChatGPT Playground 소개",
-                  "제한적 질문 vs 열린 질문 비교",
-                  "상황 정의하고 AI에게 묻기",
-                  "체이닝 프롬프트 연습",
-                  "페르소나 설정: AI 역할 부여하기"
-                ],
-                "projects": [
-                  {
-                    "name": "열린 질문 10개 연습",
-                    "duration": "1시간",
-                    "description": "다양한 상황에서 AI와 대화 연습"
-                  }
-                ]
-              },
-              {
-                "id": "week2",
-                "week": "2주차",
-                "title": "기획 & 페르소나 설정",
-                "topics": [
-                  "독자 페르소나 정의 (나이, 관심사, 니즈)",
-                  "문제 정의: 왜 이 동화책이 필요한가?",
-                  "스토리 구조 설계 (시작-전개-절정-결말)",
-                  "캐릭터 개발 및 배경 설정",
-                  "기획서 작성 및 지속적 체크"
-                ],
-                "projects": [
-                  {
-                    "name": "동화책 기획서",
-                    "duration": "2시간",
-                    "description": "페르소나 + 스토리 구조 + 개선 체크리스트"
-                  }
-                ]
-              },
-              {
-                "id": "week3",
-                "week": "3주차",
-                "title": "수동 제작 & 성찰",
-                "topics": [
-                  "ChatGPT로 한 줄씩 조각하기",
-                  "매 단계마다 '더 나은 방법은?' 질문",
-                  "프롬프트 개선 및 재시도",
-                  "삽화 요청 (DALL-E)",
-                  "성찰 일지: 무엇을 배웠나?"
-                ],
-                "projects": [
-                  {
-                    "name": "동화책 초안 (5페이지)",
-                    "duration": "2시간",
-                    "description": "수동으로 조각한 동화책 + 성찰 일지"
-                  }
-                ]
-              },
-              {
-                "id": "week4",
-                "week": "4주차",
-                "title": "완성 & 피드백",
-                "topics": [
-                  "동화책 완성 (10페이지)",
-                  "친구들에게 피드백 받기",
-                  "개선 사항 적용",
-                  "장점: 깊이 있는 학습, AI와 친밀감",
-                  "단점: 느린 속도, 반복 작업"
-                ],
-                "projects": [
-                  {
-                    "name": "완성된 동화책 + 성찰 보고서",
-                    "duration": "2시간",
-                    "description": "최종본 + 장단점 분석"
-                  }
-                ]
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "stage2-factory",
-        "grade": "고등 (1-2학년)",
-        "title": "2단계: 동화책 공장 (자동 생성)",
-        "description": "v0와 FastAPI로 버튼 한 번에 동화책을 찍어내는 자동 시스템 개발. 빠르지만 시스템 설계가 핵심입니다.",
-        "difficulty": "심화",
-        "duration": "4-5주",
-        "tabs": [
-          {
-            "id": "4-5weeks",
-            "label": "4-5주 과정",
-            "description": "주 1회 2시간 (고등학생)",
-            "modules": [
-              {
-                "id": "week1",
-                "week": "1주차",
-                "title": "시스템 설계 & 알고리즘",
-                "topics": [
-                  "자동화 아이디어: 수작업 → 자동 시스템",
-                  "입력 → AI 처리 → 출력 설계",
-                  "알고리즘 플로우차트 작성",
-                  "요구사항 정의: 사용자가 뭘 입력하나?",
-                  "시스템 아키텍처 설계"
-                ],
-                "projects": [
-                  {
-                    "name": "시스템 설계 문서",
-                    "duration": "2시간",
-                    "description": "플로우차트 + 요구사항 명세서"
-                  }
-                ]
-              },
-              {
-                "id": "week2",
-                "week": "2주차",
-                "title": "v0 프로토타입 제작",
-                "topics": [
-                  "v0로 UI 레이아웃 생성",
-                  "입력 폼 설계 (장르, 주인공, 배경, 교훈)",
-                  "localStorage로 동작 테스트",
-                  "JSON 형태로 동화책 데이터 관리",
-                  "UI/UX 반복 테스트"
-                ],
-                "projects": [
-                  {
-                    "name": "작동하는 프로토타입",
-                    "duration": "2시간",
-                    "description": "localStorage 기반 프로토타입"
-                  }
-                ]
-              },
-              {
-                "id": "week3",
-                "week": "3주차",
-                "title": "FastAPI 백엔드 구축",
-                "topics": [
-                  "FastAPI 프로젝트 설정",
-                  "RESTful API 엔드포인트 설계",
-                  "ChatGPT API 연동 준비",
-                  "프롬프트 엔지니어링 (동화책 자동 생성)",
-                  "에러 핸들링 및 테스트"
-                ],
-                "projects": [
-                  {
-                    "name": "FastAPI 서버",
-                    "duration": "2시간",
-                    "description": "ChatGPT API 연동된 백엔드"
-                  }
-                ]
-              },
-              {
-                "id": "week4",
-                "week": "4주차",
-                "title": "통합 & 대량 생성 테스트",
-                "topics": [
-                  "프론트엔드-백엔드 통합",
-                  "버튼 한 번에 동화책 생성 테스트",
-                  "대량 생성 (10개) 성능 테스트",
-                  "장점: 빠른 속도, 자동 생성, 확장성",
-                  "단점: 품질 편차, 시스템 실패 시 재설계"
-                ],
-                "projects": [
-                  {
-                    "name": "자동 생성 시스템",
-                    "duration": "2시간",
-                    "description": "작동하는 AI Agent"
-                  }
-                ]
-              },
-              {
-                "id": "week5",
-                "week": "5주차",
-                "title": "배포 & 장단점 분석",
-                "topics": [
-                  "Vercel + Railway 배포",
-                  "실사용자 테스트 (10명 이상)",
-                  "장인 vs 공장 비교 분석",
-                  "포트폴리오 정리",
-                  "최종 발표: 시스템 설계 과정 공유"
-                ],
-                "projects": [
-                  {
-                    "name": "배포된 AI Agent + 분석 보고서",
-                    "duration": "2시간",
-                    "description": "실제 URL + 장단점 분석"
-                  }
-                ]
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  },
   "gradeRecommendation": {
-    "title": "학년별 추천 과정",
-    "description": "1단계는 중학생, 2단계는 고등학생 추천",
-    "programName": "바이브 코딩 (동화책)",
-    "gradeKeys": ["elementary-mid", "elementary-high", "middle-low", "middle-high", "high"],
-    "headers": ["과정", "초4-5", "초6", "중1-2", "중3", "고1-2"],
+    "title": "학년별 추천 프로젝트",
+    "description": "중3부터 시작, 관심 주제 선택 가능",
+    "programName": "바이브 코딩",
+    "gradeKeys": [
+      "elementary-mid",
+      "elementary-high",
+      "middle-low",
+      "middle-high",
+      "high"
+    ],
+    "headers": [
+      "프로젝트",
+      "초4-5",
+      "초6",
+      "중1-2",
+      "중3",
+      "고1-2"
+    ],
     "courses": [
       {
-        "id": "stage1-craftsman",
-        "courseName": "1단계: 콘텐츠 장인",
-        "description": "기획 + 프롬프트 마스터 (수동)",
-        "difficulty": "중간",
-        "duration": "3-4주",
+        "id": "storybook-project",
+        "courseName": "동화책 만들기",
+        "description": "수동 제작 → AI Agent 자동화",
+        "difficulty": "기초",
+        "duration": "4-16시간",
         "recommendedGrades": {
           "elementary-mid": null,
           "elementary-high": null,
-          "middle-low": "권장",
+          "middle-low": null,
           "middle-high": "권장",
-          "high": "선택"
+          "high": "권장"
         }
       },
       {
-        "id": "stage2-factory",
-        "courseName": "2단계: 자동화 공장",
-        "description": "시스템 설계 + AI Agent (자동)",
+        "id": "english-speaking-project",
+        "courseName": "화상 영어 학습",
+        "description": "AI 튜터 제작 → 자동 학습 플랫폼",
+        "difficulty": "중간",
+        "duration": "4-16시간",
+        "recommendedGrades": {
+          "elementary-mid": null,
+          "elementary-high": null,
+          "middle-low": null,
+          "middle-high": "권장",
+          "high": "권장"
+        }
+      },
+      {
+        "id": "emotion-game-project",
+        "courseName": "감정 방탈출 게임",
+        "description": "텍스트 게임 → 웹 게임 플랫폼",
         "difficulty": "심화",
-        "duration": "4-5주",
+        "duration": "4-16시간",
         "recommendedGrades": {
           "elementary-mid": null,
           "elementary-high": null,
@@ -451,169 +256,1168 @@
       }
     ],
     "legend": {
-      "recommended": "해당 학년에 가장 적합한 과정",
+      "recommended": "해당 학년에 가장 적합한 프로젝트",
       "optional": "선택적으로 수강 가능",
       "challenge": "도전적이지만 수강 가능"
     }
+  },
+  "learningGoals": {
+    "title": "바이브 코딩 핵심 역량",
+    "description": "역공부 + 메이커 방식으로 체득하는 실전 능력",
+    "goals": [
+      {
+        "id": "reverse-learning",
+        "category": "🔄 역공부 능력",
+        "icon": "RotateCcw",
+        "title": "결과물부터 역으로 학습하기",
+        "description": "완성품을 경험하고 분해하며 배우는 역공부",
+        "color": "blue",
+        "skills": [
+          "우수 사례 벤치마킹 및 분석",
+          "핵심 요소 역추적 능력",
+          "완성품에서 프로세스 도출",
+          "레퍼런스 활용 전략",
+          "모방에서 창조로 발전",
+          "패턴 인식 및 추상화"
+        ]
+      },
+      {
+        "id": "maker-mindset",
+        "category": "🛠️ 메이커 마인드",
+        "icon": "Hammer",
+        "title": "만들면서 배우는 실행력",
+        "description": "이론 없이 만들며 체득하는 메이커 정신",
+        "color": "orange",
+        "skills": [
+          "빠른 프로토타이핑",
+          "실패를 통한 학습",
+          "반복적 개선 (Iteration)",
+          "Cursor + V0 활용 능력",
+          "실전 도구 사용법 체득",
+          "완성도 높은 결과물 제작"
+        ]
+      },
+      {
+        "id": "problem-solver",
+        "category": "🎯 진짜 문제 해결",
+        "icon": "Target",
+        "title": "페르소나 기반 문제 정의",
+        "description": "사용자 중심 사고와 문제 해결 능력",
+        "color": "purple",
+        "skills": [
+          "페르소나 정의 및 공감",
+          "진짜 문제 vs 가짜 문제 구분",
+          "사용자 니즈 분석",
+          "문제 정의서 작성",
+          "솔루션 설계 및 검증",
+          "기획 능력 향상"
+        ]
+      },
+      {
+        "id": "debugger-mindset",
+        "category": "🔍 디버거 (성찰)",
+        "icon": "Search",
+        "title": "메타인지와 지속적 개선",
+        "description": "스스로 돌아보고 개선하는 성찰 능력",
+        "color": "red",
+        "skills": [
+          "성찰 일지 작성 습관",
+          "무엇이 잘됐고 못됐는지 분석",
+          "개선 방향 도출",
+          "메타인지 능력 향상",
+          "자기주도 학습 능력",
+          "지속적 성장 마인드"
+        ]
+      },
+      {
+        "id": "automation-expert",
+        "category": "⚙️ 자동화 설계자",
+        "icon": "Cog",
+        "title": "수작업을 시스템으로 전환",
+        "description": "AI Agent로 자동화 구현 능력",
+        "color": "green",
+        "skills": [
+          "시스템 아키텍처 설계",
+          "알고리즘 플로우차트 작성",
+          "FastAPI + ChatGPT API 구축",
+          "프론트-백엔드 통합",
+          "배포 및 운영 경험",
+          "확장 가능한 시스템 설계"
+        ]
+      }
+    ],
+    "achievements": [
+      "역공부 방식으로 빠른 학습 능력 체득",
+      "메이커 정신으로 실전 프로젝트 완성",
+      "페르소나 기반 문제 정의 및 해결",
+      "성찰 습관으로 지속적 성장 역량",
+      "수동 제작에서 자동화까지 전체 사이클 경험",
+      "Cursor, V0, ChatGPT API 실전 활용 능력"
+    ]
+  },
+  "curriculum": {
+    "projects": [
+      {
+        "id": "storybook-project",
+        "grade": "중3 ~ 고등",
+        "title": "동화책 만들기 프로젝트",
+        "description": "ChatGPT로 창의적인 동화책을 수동 제작하고, AI Agent로 자동화까지 구현합니다. 역공부와 메이커 방식으로 깊이 있게 학습합니다.",
+        "difficulty": "기초",
+        "duration": "4-16시간",
+        "tabs": [
+          {
+            "id": "4hours",
+            "label": "4시간 (1단계 기초)",
+            "description": "수동 제작으로 AI 활용법 체득",
+            "modules": [
+              {
+                "id": "phase1",
+                "week": "1단계: 벤치마킹 (30분)",
+                "title": "우수 동화책 경험 및 분석",
+                "topics": [
+                  "베스트셀러 동화책 3-5개 읽기",
+                  "무엇이 좋은 동화책인가? 분석",
+                  "스토리 구조, 캐릭터, 메시지 파악",
+                  "ChatGPT로 분석 대화하기",
+                  "핵심 요소 추출 및 정리"
+                ],
+                "projects": [
+                  {
+                    "name": "벤치마킹 분석 보고서",
+                    "duration": "30분",
+                    "description": "3개 동화책 핵심 요소 정리"
+                  }
+                ]
+              },
+              {
+                "id": "phase2",
+                "week": "2단계: 페르소나 + 기획 (1시간)",
+                "title": "독자 정의 및 진짜 문제 발굴",
+                "topics": [
+                  "누구를 위한 동화책인가? (나이, 관심사, 고민)",
+                  "그들이 가진 진짜 문제는 무엇인가?",
+                  "동화책으로 어떤 가치를 줄 것인가?",
+                  "스토리 주제 및 메시지 설정",
+                  "기획서 작성 (문제 정의 + 솔루션)"
+                ],
+                "projects": [
+                  {
+                    "name": "동화책 기획서",
+                    "duration": "1시간",
+                    "description": "페르소나 + 문제 정의 + 스토리 개요"
+                  }
+                ]
+              },
+              {
+                "id": "phase3",
+                "week": "3단계: 실행자 (2시간)",
+                "title": "ChatGPT와 수동 제작",
+                "topics": [
+                  "프롬프트로 스토리 작성하기",
+                  "캐릭터 대화 및 감정 표현",
+                  "DALL-E로 삽화 생성",
+                  "텍스트-이미지 조합",
+                  "AI 피드백 받으며 개선"
+                ],
+                "projects": [
+                  {
+                    "name": "완성된 동화책 (5-7페이지)",
+                    "duration": "2시간",
+                    "description": "삽화 포함 미니 동화책"
+                  }
+                ]
+              },
+              {
+                "id": "phase4",
+                "week": "4단계: 디버거 (30분)",
+                "title": "성찰 및 개선 방향",
+                "topics": [
+                  "무엇이 잘됐고, 무엇이 아쉬웠는가?",
+                  "ChatGPT 활용에서 배운 점",
+                  "더 나은 프롬프트 전략은?",
+                  "페르소나 니즈를 충족했는가?",
+                  "다음 개선 방향 3가지 도출"
+                ],
+                "projects": [
+                  {
+                    "name": "성찰 일지 + 개선 계획",
+                    "duration": "30분",
+                    "description": "메타인지 훈련 및 학습 정리"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "8hours",
+            "label": "8시간 (1단계 심화)",
+            "description": "프로젝트 기반 깊이 있는 제작",
+            "modules": [
+              {
+                "id": "phase1",
+                "week": "1단계: 벤치마킹 (1시간)",
+                "title": "시장 조사 및 트렌드 분석",
+                "topics": [
+                  "베스트셀러 동화책 10개 이상 분석",
+                  "장르별 특징 및 트렌드 파악",
+                  "성공 요인 및 차별화 포인트",
+                  "ChatGPT와 심화 분석 대화",
+                  "나만의 차별화 전략 수립"
+                ],
+                "projects": [
+                  {
+                    "name": "시장 조사 보고서",
+                    "duration": "1시간",
+                    "description": "10개 동화책 분석 + 차별화 전략"
+                  }
+                ]
+              },
+              {
+                "id": "phase2",
+                "week": "2단계: 페르소나 (1시간)",
+                "title": "타겟 독자 깊이 있는 정의",
+                "topics": [
+                  "인터뷰 기반 페르소나 작성",
+                  "고민, 욕구, 행동 패턴 분석",
+                  "공감 지도 (Empathy Map) 작성",
+                  "사용자 여정 (User Journey) 설계",
+                  "페르소나 검증 및 수정"
+                ],
+                "projects": [
+                  {
+                    "name": "상세 페르소나 문서",
+                    "duration": "1시간",
+                    "description": "공감 지도 + 사용자 여정 포함"
+                  }
+                ]
+              },
+              {
+                "id": "phase3",
+                "week": "3단계: 기획 (2시간)",
+                "title": "진짜 문제 정의 및 솔루션",
+                "topics": [
+                  "페르소나의 진짜 문제 발굴",
+                  "문제 vs 니즈 vs 솔루션 구분",
+                  "스토리를 통한 문제 해결 설계",
+                  "3막 구조 상세 기획",
+                  "교훈 및 메시지 설정"
+                ],
+                "projects": [
+                  {
+                    "name": "프로젝트 기획서 (5페이지)",
+                    "duration": "2시간",
+                    "description": "문제 정의 + 솔루션 + 스토리 구조"
+                  }
+                ]
+              },
+              {
+                "id": "phase4",
+                "week": "4단계: 실행자 (3시간)",
+                "title": "ChatGPT로 수동 제작",
+                "topics": [
+                  "프롬프트 체이닝으로 본문 작성",
+                  "캐릭터 개발 및 대화문",
+                  "감정선 및 긴장감 조절",
+                  "DALL-E로 삽화 제작",
+                  "반복적 개선 (3회 이상)"
+                ],
+                "projects": [
+                  {
+                    "name": "완성된 동화책 (10-12페이지)",
+                    "duration": "3시간",
+                    "description": "출판 수준의 동화책"
+                  }
+                ]
+              },
+              {
+                "id": "phase5",
+                "week": "5단계: 디버거 (1시간)",
+                "title": "성찰 및 베타 테스트",
+                "topics": [
+                  "자가 평가 및 성찰 일지",
+                  "베타 리더 3명 이상 피드백",
+                  "피드백 반영 및 수정",
+                  "개선 방향 5가지 도출",
+                  "학습 정리 및 포트폴리오화"
+                ],
+                "projects": [
+                  {
+                    "name": "성찰 보고서 + 최종본",
+                    "duration": "1시간",
+                    "description": "피드백 반영 + 개선 계획"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "16hours",
+            "label": "16시간 (2단계 자동화)",
+            "description": "AI Agent로 자동 생성 시스템",
+            "modules": [
+              {
+                "id": "phase1",
+                "week": "1단계: 시스템 설계 (3시간)",
+                "title": "자동화 아키텍처 설계",
+                "topics": [
+                  "1단계 수작업 경험 정리",
+                  "자동화 가능 부분 vs 불가능 부분 구분",
+                  "입력 → AI 처리 → 출력 설계",
+                  "알고리즘 플로우차트 작성",
+                  "시스템 요구사항 명세서"
+                ],
+                "projects": [
+                  {
+                    "name": "시스템 설계 문서",
+                    "duration": "3시간",
+                    "description": "플로우차트 + 아키텍처 + 요구사항"
+                  }
+                ]
+              },
+              {
+                "id": "phase2",
+                "week": "2단계: V0 프로토타입 (4시간)",
+                "title": "빠른 UI 프로토타입 제작",
+                "topics": [
+                  "V0로 입력 폼 UI 생성",
+                  "동화책 생성 화면 설계",
+                  "결과 출력 레이아웃",
+                  "localStorage로 동작 테스트",
+                  "사용자 테스트 및 개선"
+                ],
+                "projects": [
+                  {
+                    "name": "작동하는 프로토타입",
+                    "duration": "4시간",
+                    "description": "V0 기반 UI + localStorage 테스트"
+                  }
+                ]
+              },
+              {
+                "id": "phase3",
+                "week": "3단계: Cursor로 백엔드 (5시간)",
+                "title": "FastAPI + ChatGPT API",
+                "topics": [
+                  "Cursor로 FastAPI 프로젝트 생성",
+                  "ChatGPT API 연동",
+                  "프롬프트 엔지니어링 (자동화)",
+                  "RESTful API 엔드포인트 개발",
+                  "에러 핸들링 및 테스트"
+                ],
+                "projects": [
+                  {
+                    "name": "백엔드 API 서버",
+                    "duration": "5시간",
+                    "description": "Cursor로 개발한 FastAPI 서버"
+                  }
+                ]
+              },
+              {
+                "id": "phase4",
+                "week": "4단계: 통합 및 배포 (3시간)",
+                "title": "프론트-백엔드 통합 완성",
+                "topics": [
+                  "프론트엔드-백엔드 연동",
+                  "버튼 한 번에 동화책 생성 테스트",
+                  "Vercel + Railway 배포",
+                  "실사용자 테스트 (5명 이상)",
+                  "피드백 수집 및 개선"
+                ],
+                "projects": [
+                  {
+                    "name": "배포된 AI Agent",
+                    "duration": "3시간",
+                    "description": "실제 URL + 사용자 테스트"
+                  }
+                ]
+              },
+              {
+                "id": "phase5",
+                "week": "5단계: 최종 성찰 (1시간)",
+                "title": "수동 vs 자동 비교 분석",
+                "topics": [
+                  "1단계 수동 제작 vs 2단계 자동화 비교",
+                  "속도, 품질, 확장성 분석",
+                  "장단점 및 트레이드오프",
+                  "배운 점 및 성장 포인트",
+                  "포트폴리오 정리"
+                ],
+                "projects": [
+                  {
+                    "name": "비교 분석 보고서 + 포트폴리오",
+                    "duration": "1시간",
+                    "description": "수동 vs 자동 종합 분석 + 발표 자료"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "english-speaking-project",
+        "grade": "중3 ~ 고등",
+        "title": "화상 영어 학습 프로젝트",
+        "description": "AI 튜터를 수동으로 만들고, 자동화된 영어 학습 시스템을 구축합니다. 맞춤형 회화 연습부터 자동 피드백까지 완성합니다.",
+        "difficulty": "중간",
+        "duration": "4-16시간",
+        "tabs": [
+          {
+            "id": "4hours",
+            "label": "4시간 (1단계 기초)",
+            "description": "AI 튜터 수동 제작",
+            "modules": [
+              {
+                "id": "phase1",
+                "week": "1단계: 벤치마킹 (30분)",
+                "title": "영어 학습 앱 경험 및 분석",
+                "topics": [
+                  "듀오링고, 스픽 등 앱 직접 체험",
+                  "무엇이 효과적인 영어 학습인가?",
+                  "AI 튜터의 핵심 기능 파악",
+                  "ChatGPT와 분석 대화",
+                  "차별화 포인트 도출"
+                ],
+                "projects": [
+                  {
+                    "name": "영어 학습 앱 분석 보고서",
+                    "duration": "30분",
+                    "description": "3개 앱 핵심 기능 정리"
+                  }
+                ]
+              },
+              {
+                "id": "phase2",
+                "week": "2단계: 페르소나 + 기획 (1시간)",
+                "title": "학습자 정의 및 진짜 문제",
+                "topics": [
+                  "영어 학습자 페르소나 (수준, 목표, 고민)",
+                  "왜 영어가 안 되는가? 진짜 문제 발굴",
+                  "AI 튜터로 해결할 문제 정의",
+                  "학습 목표 및 시나리오 설정",
+                  "맞춤형 학습 계획 수립"
+                ],
+                "projects": [
+                  {
+                    "name": "영어 학습 기획서",
+                    "duration": "1시간",
+                    "description": "페르소나 + 문제 + 학습 계획"
+                  }
+                ]
+              },
+              {
+                "id": "phase3",
+                "week": "3단계: 실행자 (2시간)",
+                "title": "ChatGPT AI 튜터 제작",
+                "topics": [
+                  "AI 튜터 프롬프트 설정",
+                  "상황별 대화 연습 (5가지)",
+                  "실시간 피드백 받기",
+                  "발음, 문법, 어휘 교정",
+                  "대화 기록 및 정리"
+                ],
+                "projects": [
+                  {
+                    "name": "AI 튜터 대화 기록 10개",
+                    "duration": "2시간",
+                    "description": "상황별 대화 + 피드백 정리"
+                  }
+                ]
+              },
+              {
+                "id": "phase4",
+                "week": "4단계: 디버거 (30분)",
+                "title": "학습 성찰 및 개선",
+                "topics": [
+                  "무엇이 효과적이었나? 분석",
+                  "자주 틀리는 패턴 정리",
+                  "AI 튜터 프롬프트 개선",
+                  "다음 학습 목표 설정",
+                  "지속 가능한 학습 루틴"
+                ],
+                "projects": [
+                  {
+                    "name": "영어 학습 성찰 일지",
+                    "duration": "30분",
+                    "description": "틀린 표현 + 개선 계획"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "8hours",
+            "label": "8시간 (1단계 심화)",
+            "description": "심화 영어 학습 시스템",
+            "modules": [
+              {
+                "id": "phase1",
+                "week": "1단계: 벤치마킹 (1시간)",
+                "title": "영어 교육 전문가 인터뷰",
+                "topics": [
+                  "전문 영어 강사 교수법 연구",
+                  "효과적인 피드백 방법 분석",
+                  "학습자 동기부여 전략",
+                  "ChatGPT와 교육학 토론",
+                  "최적 학습 경로 설계"
+                ],
+                "projects": [
+                  {
+                    "name": "영어 교육 연구 보고서",
+                    "duration": "1시간",
+                    "description": "교수법 분석 + 학습 전략"
+                  }
+                ]
+              },
+              {
+                "id": "phase2",
+                "week": "2단계: 페르소나 (1시간)",
+                "title": "학습자 깊이 있는 분석",
+                "topics": [
+                  "5명 이상 학습자 인터뷰",
+                  "실패 경험 및 성공 경험 분석",
+                  "학습 장애물 및 극복 방법",
+                  "동기부여 요인 파악",
+                  "맞춤형 페르소나 3개 작성"
+                ],
+                "projects": [
+                  {
+                    "name": "학습자 페르소나 3종",
+                    "duration": "1시간",
+                    "description": "초급/중급/고급 페르소나"
+                  }
+                ]
+              },
+              {
+                "id": "phase3",
+                "week": "3단계: 기획 (2시간)",
+                "title": "맞춤형 학습 시스템 설계",
+                "topics": [
+                  "수준별 학습 경로 설계",
+                  "주제별 시나리오 10개 기획",
+                  "피드백 체계 설계",
+                  "진도 관리 시스템",
+                  "학습 효과 측정 방법"
+                ],
+                "projects": [
+                  {
+                    "name": "영어 학습 시스템 기획서",
+                    "duration": "2시간",
+                    "description": "학습 경로 + 시나리오 + 피드백"
+                  }
+                ]
+              },
+              {
+                "id": "phase4",
+                "week": "4단계: 실행자 (3시간)",
+                "title": "AI 튜터 심화 제작",
+                "topics": [
+                  "수준별 튜터 프롬프트 제작",
+                  "상황별 대화 20개 연습",
+                  "면접, 프레젠테이션 시뮬레이션",
+                  "실시간 피드백 및 교정",
+                  "학습 데이터 누적 및 분석"
+                ],
+                "projects": [
+                  {
+                    "name": "AI 튜터 대화 기록 20개",
+                    "duration": "3시간",
+                    "description": "심화 대화 + 상세 피드백"
+                  }
+                ]
+              },
+              {
+                "id": "phase5",
+                "week": "5단계: 디버거 (1시간)",
+                "title": "학습 효과 분석 및 개선",
+                "topics": [
+                  "Before-After 비교 분석",
+                  "학습 데이터 시각화",
+                  "약점 집중 공략 계획",
+                  "AI 튜터 프롬프트 최적화",
+                  "3개월 학습 로드맵"
+                ],
+                "projects": [
+                  {
+                    "name": "학습 효과 분석 보고서",
+                    "duration": "1시간",
+                    "description": "데이터 기반 분석 + 로드맵"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "16hours",
+            "label": "16시간 (2단계 자동화)",
+            "description": "자동화된 영어 학습 플랫폼",
+            "modules": [
+              {
+                "id": "phase1",
+                "week": "1단계: 시스템 설계 (3시간)",
+                "title": "영어 학습 플랫폼 설계",
+                "topics": [
+                  "1단계 경험 기반 자동화 설계",
+                  "학습자 입력 → AI 처리 → 피드백 흐름",
+                  "수준 진단 알고리즘",
+                  "맞춤형 시나리오 추천 로직",
+                  "진도 관리 및 통계 시스템"
+                ],
+                "projects": [
+                  {
+                    "name": "영어 학습 플랫폼 설계 문서",
+                    "duration": "3시간",
+                    "description": "시스템 아키텍처 + 알고리즘"
+                  }
+                ]
+              },
+              {
+                "id": "phase2",
+                "week": "2단계: V0 프로토타입 (4시간)",
+                "title": "학습 인터페이스 제작",
+                "topics": [
+                  "V0로 학습자 대시보드 생성",
+                  "대화 연습 화면 설계",
+                  "피드백 출력 레이아웃",
+                  "진도 관리 시각화",
+                  "사용자 테스트 및 개선"
+                ],
+                "projects": [
+                  {
+                    "name": "작동하는 학습 UI",
+                    "duration": "4시간",
+                    "description": "V0 기반 학습 인터페이스"
+                  }
+                ]
+              },
+              {
+                "id": "phase3",
+                "week": "3단계: Cursor로 백엔드 (5시간)",
+                "title": "AI 튜터 API 개발",
+                "topics": [
+                  "Cursor로 FastAPI 구축",
+                  "ChatGPT API 튜터 기능 구현",
+                  "대화 기록 저장 및 분석",
+                  "자동 피드백 알고리즘",
+                  "학습 통계 생성 API"
+                ],
+                "projects": [
+                  {
+                    "name": "AI 튜터 백엔드 서버",
+                    "duration": "5시간",
+                    "description": "자동 피드백 시스템"
+                  }
+                ]
+              },
+              {
+                "id": "phase4",
+                "week": "4단계: 통합 및 배포 (3시간)",
+                "title": "영어 학습 플랫폼 완성",
+                "topics": [
+                  "프론트-백엔드 통합",
+                  "실시간 대화 테스트",
+                  "자동 피드백 정확도 검증",
+                  "배포 및 사용자 테스트",
+                  "피드백 수집 및 개선"
+                ],
+                "projects": [
+                  {
+                    "name": "배포된 영어 학습 플랫폼",
+                    "duration": "3시간",
+                    "description": "실제 URL + 사용자 가이드"
+                  }
+                ]
+              },
+              {
+                "id": "phase5",
+                "week": "5단계: 최종 성찰 (1시간)",
+                "title": "수동 학습 vs 자동 플랫폼",
+                "topics": [
+                  "1단계 수동 vs 2단계 자동 비교",
+                  "학습 효과 및 편의성 분석",
+                  "확장 가능성 및 비즈니스 모델",
+                  "기술 스택 및 개발 경험 정리",
+                  "포트폴리오화"
+                ],
+                "projects": [
+                  {
+                    "name": "비교 분석 + 포트폴리오",
+                    "duration": "1시간",
+                    "description": "종합 분석 보고서 + 발표"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "emotion-game-project",
+        "grade": "중3 ~ 고등",
+        "title": "감정 방탈출 게임 프로젝트",
+        "description": "전설의 20턴 기반 감정 표현 게임을 만듭니다. ChatGPT로 수동 제작 후, 자동화된 게임 시스템으로 확장합니다.",
+        "difficulty": "심화",
+        "duration": "4-16시간",
+        "tabs": [
+          {
+            "id": "4hours",
+            "label": "4시간 (1단계 기초)",
+            "description": "텍스트 기반 감정 게임 제작",
+            "modules": [
+              {
+                "id": "phase1",
+                "week": "1단계: 벤치마킹 (30분)",
+                "title": "감정 게임 경험 및 분석",
+                "topics": [
+                  "젠타(Zenta) 게임 직접 플레이",
+                  "전설의 20턴 메커니즘 분석",
+                  "감정 표현 방식 연구",
+                  "게임의 몰입 요소 파악",
+                  "ChatGPT와 게임 디자인 토론"
+                ],
+                "projects": [
+                  {
+                    "name": "감정 게임 분석 보고서",
+                    "duration": "30분",
+                    "description": "젠타 게임 핵심 요소 정리"
+                  }
+                ]
+              },
+              {
+                "id": "phase2",
+                "week": "2단계: 페르소나 + 기획 (1시간)",
+                "title": "플레이어 정의 및 게임 설계",
+                "topics": [
+                  "누가 이 게임을 할까? 페르소나",
+                  "플레이어의 감정적 니즈는?",
+                  "20턴 기반 스토리 구조 설계",
+                  "감정 선택지 및 결과 시스템",
+                  "승리 조건 및 엔딩 기획"
+                ],
+                "projects": [
+                  {
+                    "name": "감정 게임 기획서",
+                    "duration": "1시간",
+                    "description": "페르소나 + 게임 메커니즘 + 스토리"
+                  }
+                ]
+              },
+              {
+                "id": "phase3",
+                "week": "3단계: 실행자 (2시간)",
+                "title": "ChatGPT로 게임 제작",
+                "topics": [
+                  "ChatGPT를 게임 마스터로 설정",
+                  "20턴 기반 텍스트 게임 진행",
+                  "감정 선택에 따른 스토리 분기",
+                  "AI 피드백으로 스토리 개선",
+                  "3개 이상 엔딩 제작"
+                ],
+                "projects": [
+                  {
+                    "name": "완성된 감정 게임 (20턴)",
+                    "duration": "2시간",
+                    "description": "텍스트 기반 방탈출 게임"
+                  }
+                ]
+              },
+              {
+                "id": "phase4",
+                "week": "4단계: 디버거 (30분)",
+                "title": "플레이 테스트 및 성찰",
+                "topics": [
+                  "친구 3명에게 플레이 테스트",
+                  "몰입도 및 감정 이입 평가",
+                  "스토리 흐름 개선점",
+                  "ChatGPT 게임 마스터 최적화",
+                  "다음 버전 개선 계획"
+                ],
+                "projects": [
+                  {
+                    "name": "플레이 테스트 보고서",
+                    "duration": "30분",
+                    "description": "피드백 + 개선 방향"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "8hours",
+            "label": "8시간 (1단계 심화)",
+            "description": "멀티 엔딩 감정 게임",
+            "modules": [
+              {
+                "id": "phase1",
+                "week": "1단계: 벤치마킹 (1시간)",
+                "title": "감정 게임 시장 조사",
+                "topics": [
+                  "젠타, Florence 등 10개 게임 분석",
+                  "감정 표현 메커니즘 연구",
+                  "스토리텔링 기법 분석",
+                  "플레이어 몰입 요소",
+                  "차별화 전략 수립"
+                ],
+                "projects": [
+                  {
+                    "name": "감정 게임 시장 조사 보고서",
+                    "duration": "1시간",
+                    "description": "10개 게임 분석 + 차별화 전략"
+                  }
+                ]
+              },
+              {
+                "id": "phase2",
+                "week": "2단계: 페르소나 (1시간)",
+                "title": "플레이어 심리 분석",
+                "topics": [
+                  "5명 이상 플레이어 인터뷰",
+                  "감정 경험 및 표현 방식 연구",
+                  "게임 플레이 동기 파악",
+                  "페르소나 3종 작성",
+                  "감정적 여정 지도"
+                ],
+                "projects": [
+                  {
+                    "name": "플레이어 페르소나 3종",
+                    "duration": "1시간",
+                    "description": "감정 중심 페르소나 문서"
+                  }
+                ]
+              },
+              {
+                "id": "phase3",
+                "week": "3단계: 기획 (2시간)",
+                "title": "복잡한 게임 설계",
+                "topics": [
+                  "다층적 스토리 구조 (5개 엔딩)",
+                  "감정 상태 시스템 설계",
+                  "선택지 분기 알고리즘",
+                  "20턴 기반 긴장감 곡선",
+                  "숨겨진 루트 및 비밀 엔딩"
+                ],
+                "projects": [
+                  {
+                    "name": "게임 디자인 문서 (10페이지)",
+                    "duration": "2시간",
+                    "description": "스토리 맵 + 분기 다이어그램"
+                  }
+                ]
+              },
+              {
+                "id": "phase4",
+                "week": "4단계: 실행자 (3시간)",
+                "title": "복잡한 게임 제작",
+                "topics": [
+                  "5개 엔딩 스토리 제작",
+                  "감정 상태 변화 시스템",
+                  "선택지 50개 이상 작성",
+                  "ChatGPT 게임 마스터 고도화",
+                  "반복 플레이 테스트 및 밸런싱"
+                ],
+                "projects": [
+                  {
+                    "name": "완성된 감정 게임 (5 엔딩)",
+                    "duration": "3시간",
+                    "description": "복잡한 분기 구조의 게임"
+                  }
+                ]
+              },
+              {
+                "id": "phase5",
+                "week": "5단계: 디버거 (1시간)",
+                "title": "대규모 플레이 테스트",
+                "topics": [
+                  "10명 이상 플레이 테스트",
+                  "감정 몰입도 정량화",
+                  "엔딩 도달률 분석",
+                  "밸런스 조정 및 개선",
+                  "최종 버전 완성"
+                ],
+                "projects": [
+                  {
+                    "name": "플레이 테스트 분석 보고서",
+                    "duration": "1시간",
+                    "description": "데이터 기반 개선 + 최종본"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "16hours",
+            "label": "16시간 (2단계 자동화)",
+            "description": "웹 기반 감정 게임 플랫폼",
+            "modules": [
+              {
+                "id": "phase1",
+                "week": "1단계: 시스템 설계 (3시간)",
+                "title": "게임 엔진 아키텍처",
+                "topics": [
+                  "1단계 수동 게임 분석",
+                  "게임 상태 관리 시스템",
+                  "20턴 진행 알고리즘",
+                  "감정 분기 로직 설계",
+                  "AI 게임 마스터 자동화"
+                ],
+                "projects": [
+                  {
+                    "name": "게임 엔진 설계 문서",
+                    "duration": "3시간",
+                    "description": "시스템 아키텍처 + 알고리즘"
+                  }
+                ]
+              },
+              {
+                "id": "phase2",
+                "week": "2단계: V0 프로토타입 (4시간)",
+                "title": "게임 UI 제작",
+                "topics": [
+                  "V0로 게임 화면 생성",
+                  "20턴 진행 인터페이스",
+                  "감정 선택 UI 설계",
+                  "스토리 출력 레이아웃",
+                  "저장/불러오기 기능"
+                ],
+                "projects": [
+                  {
+                    "name": "작동하는 게임 프로토타입",
+                    "duration": "4시간",
+                    "description": "V0 기반 게임 인터페이스"
+                  }
+                ]
+              },
+              {
+                "id": "phase3",
+                "week": "3단계: Cursor로 백엔드 (5시간)",
+                "title": "게임 엔진 개발",
+                "topics": [
+                  "Cursor로 FastAPI 게임 서버",
+                  "ChatGPT API 게임 마스터",
+                  "스토리 분기 엔진 구현",
+                  "세이브 데이터 관리",
+                  "멀티 엔딩 시스템"
+                ],
+                "projects": [
+                  {
+                    "name": "게임 백엔드 서버",
+                    "duration": "5시간",
+                    "description": "AI 기반 게임 엔진"
+                  }
+                ]
+              },
+              {
+                "id": "phase4",
+                "week": "4단계: 통합 및 배포 (3시간)",
+                "title": "감정 게임 플랫폼 완성",
+                "topics": [
+                  "프론트-백엔드 통합",
+                  "실시간 게임 플레이 테스트",
+                  "멀티 플레이어 기능 추가",
+                  "배포 및 공개",
+                  "사용자 플레이 데이터 수집"
+                ],
+                "projects": [
+                  {
+                    "name": "배포된 감정 게임 플랫폼",
+                    "duration": "3시간",
+                    "description": "실제 URL + 플레이 가능"
+                  }
+                ]
+              },
+              {
+                "id": "phase5",
+                "week": "5단계: 최종 성찰 (1시간)",
+                "title": "수동 게임 vs 자동 플랫폼",
+                "topics": [
+                  "1단계 수동 vs 2단계 자동 비교",
+                  "플레이어 경험 질적 분석",
+                  "확장 가능성 및 수익화",
+                  "게임 개발 경험 정리",
+                  "포트폴리오 완성"
+                ],
+                "projects": [
+                  {
+                    "name": "비교 분석 + 게임 포트폴리오",
+                    "duration": "1시간",
+                    "description": "종합 보고서 + 발표 자료"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
   },
   "educationRequirements": {
     "title": "수업 준비 사항",
     "items": [
       {
         "icon": "Monitor",
-        "title": "개인 노트북",
-        "description": "1단계: 기본 사양 / 2단계: 8GB RAM 이상",
+        "title": "개인 노트북 또는 태블릿",
+        "description": "인터넷 연결 가능한 기기",
         "color": "blue"
       },
       {
         "icon": "Globe",
         "title": "ChatGPT 계정",
-        "description": "Playground (1단계) + API (2단계)",
+        "description": "무료 또는 유료 계정 (Plus 권장)",
         "color": "green"
       },
       {
-        "icon": "Code",
-        "title": "개발 도구 (2단계)",
-        "description": "v0, Cursor, FastAPI 환경",
+        "icon": "BookOpen",
+        "title": "기본 문서 작성 도구",
+        "description": "구글 문서, 워드, 노션 등",
         "color": "purple"
       },
       {
-        "icon": "BookOpen",
-        "title": "성찰 마인드",
-        "description": "지속적 개선 & 체크 습관",
+        "icon": "Lightbulb",
+        "title": "열린 마음과 창의성",
+        "description": "AI와 협업하는 자세",
         "color": "orange"
       }
     ]
   },
   "materials": {
     "title": "수업 자료 다운로드",
-    "description": "1단계와 2단계 각각의 자료",
+    "description": "역공부 + 메이커 방식 학습 자료",
     "categories": [
       {
-        "id": "stage1-guides",
-        "title": "1단계: 장인 가이드",
-        "description": "기획 + 프롬프트 + 성찰",
+        "id": "reverse-learning",
+        "title": "역공부 방법론",
+        "description": "결과물부터 시작하는 학습법",
         "items": [
           {
-            "id": "open-question-guide",
-            "title": "열린 질문 마스터 가이드",
-            "description": "제한적 vs 열린 질문 완벽 정리",
-            "icon": "FileText",
-            "format": "PDF",
-            "pages": "20페이지",
-            "size": "2.3MB",
-            "downloadUrl": "/downloads/vibe-coding/open-question.pdf"
-          },
-          {
-            "id": "planning-guide",
-            "title": "기획 & 페르소나 가이드",
-            "description": "독자 정의부터 스토리 구조까지",
-            "icon": "FileText",
-            "format": "PDF",
-            "pages": "24페이지",
-            "size": "2.8MB",
-            "downloadUrl": "/downloads/vibe-coding/planning-stage1.pdf"
-          },
-          {
-            "id": "reflection-journal",
-            "title": "성찰 일지 템플릿",
-            "description": "지속적 개선 체크리스트",
-            "icon": "BookOpen",
-            "format": "PDF",
-            "pages": "12페이지",
-            "size": "1.5MB",
-            "downloadUrl": "/downloads/vive-coding/reflection-stage1.pdf"
-          },
-          {
-            "id": "craftsman-pros-cons",
-            "title": "1단계 장단점 분석",
-            "description": "장인 방식의 장단점 정리",
-            "icon": "FileText",
-            "format": "PDF",
-            "pages": "8페이지",
-            "size": "1.2MB",
-            "downloadUrl": "/downloads/vive-coding/stage1-pros-cons.pdf"
-          }
-        ]
-      },
-      {
-        "id": "stage2-guides",
-        "title": "2단계: 공장 가이드",
-        "description": "시스템 설계 + 자동화",
-        "items": [
-          {
-            "id": "system-design",
-            "title": "시스템 설계 가이드",
-            "description": "알고리즘 플로우차트 작성법",
+            "id": "reverse-learning-guide",
+            "title": "역공부 완벽 가이드",
+            "description": "벤치마킹부터 성찰까지 5단계",
             "icon": "FileText",
             "format": "PDF",
             "pages": "28페이지",
             "size": "3.5MB",
-            "downloadUrl": "/downloads/vibe-coding/system-design.pdf"
+            "downloadUrl": "/downloads/vive-coding/reverse-learning.pdf"
           },
           {
-            "id": "v0-prototype",
-            "title": "v0 프로토타입 가이드",
-            "description": "빠른 UI 생성 및 테스트",
+            "id": "benchmarking-template",
+            "title": "벤치마킹 템플릿",
+            "description": "우수 사례 분석 워크시트",
             "icon": "FileText",
             "format": "PDF",
-            "pages": "22페이지",
-            "size": "2.6MB",
-            "downloadUrl": "/downloads/vibe-coding/v0-prototype.pdf"
+            "pages": "12페이지",
+            "size": "1.8MB",
+            "downloadUrl": "/downloads/vive-coding/benchmarking.pdf"
           },
           {
-            "id": "fastapi-chatgpt",
-            "title": "FastAPI + ChatGPT API",
-            "description": "자동 생성 시스템 구축",
-            "icon": "FileText",
+            "id": "reflection-journal",
+            "title": "디버거 성찰 일지",
+            "description": "메타인지 훈련 템플릿",
+            "icon": "BookOpen",
             "format": "PDF",
-            "pages": "35페이지",
-            "size": "4.2MB",
-            "downloadUrl": "/downloads/vibe-coding/fastapi-chatgpt.pdf"
-          },
-          {
-            "id": "factory-pros-cons",
-            "title": "2단계 장단점 분석",
-            "description": "공장 방식의 장단점 정리",
-            "icon": "FileText",
-            "format": "PDF",
-            "pages": "10페이지",
-            "size": "1.4MB",
-            "downloadUrl": "/downloads/vibe-coding/stage2-pros-cons.pdf"
+            "pages": "15페이지",
+            "size": "2.1MB",
+            "downloadUrl": "/downloads/vive-coding/reflection.pdf"
           }
         ]
       },
       {
-        "id": "comparison",
-        "title": "장인 vs 공장 비교",
-        "description": "두 방식의 차이점",
+        "id": "maker-guides",
+        "title": "메이커 방식 실전",
+        "description": "Cursor + V0 활용 가이드",
         "items": [
           {
-            "id": "comparison-analysis",
-            "title": "장인 vs 공장 완벽 비교",
-            "description": "속도, 품질, 학습 효과 비교 분석",
+            "id": "cursor-guide",
+            "title": "Cursor 개발 가이드",
+            "description": "AI 기반 코딩 도구 마스터",
             "icon": "FileText",
             "format": "PDF",
-            "pages": "16페이지",
-            "size": "2.1MB",
-            "downloadUrl": "/downloads/vibe-coding/comparison.pdf"
+            "pages": "32페이지",
+            "size": "4.2MB",
+            "downloadUrl": "/downloads/vive-coding/cursor-guide.pdf"
+          },
+          {
+            "id": "v0-prototype",
+            "title": "V0 프로토타이핑 가이드",
+            "description": "빠른 UI 제작 기법",
+            "icon": "FileText",
+            "format": "PDF",
+            "pages": "24페이지",
+            "size": "3.1MB",
+            "downloadUrl": "/downloads/vive-coding/v0-guide.pdf"
+          },
+          {
+            "id": "fastapi-chatgpt",
+            "title": "FastAPI + ChatGPT API",
+            "description": "백엔드 자동화 구축",
+            "icon": "FileText",
+            "format": "PDF",
+            "pages": "38페이지",
+            "size": "4.8MB",
+            "downloadUrl": "/downloads/vive-coding/fastapi-guide.pdf"
+          }
+        ]
+      },
+      {
+        "id": "project-materials",
+        "title": "프로젝트별 자료",
+        "description": "3가지 프로젝트 전용",
+        "items": [
+          {
+            "id": "storybook-guide",
+            "title": "동화책 제작 완벽 가이드",
+            "description": "기획부터 자동화까지",
+            "icon": "FileText",
+            "format": "PDF",
+            "pages": "42페이지",
+            "size": "5.2MB",
+            "downloadUrl": "/downloads/vive-coding/storybook-full.pdf"
+          },
+          {
+            "id": "english-tutor-guide",
+            "title": "AI 영어 튜터 구축 가이드",
+            "description": "수동 제작부터 플랫폼까지",
+            "icon": "FileText",
+            "format": "PDF",
+            "pages": "45페이지",
+            "size": "5.5MB",
+            "downloadUrl": "/downloads/vive-coding/english-full.pdf"
+          },
+          {
+            "id": "emotion-game-guide",
+            "title": "감정 게임 개발 가이드",
+            "description": "20턴 게임 설계 및 구현",
+            "icon": "FileText",
+            "format": "PDF",
+            "pages": "48페이지",
+            "size": "5.8MB",
+            "downloadUrl": "/downloads/vive-coding/emotion-game-full.pdf"
           }
         ]
       },
       {
         "id": "code-templates",
         "title": "코드 템플릿",
-        "description": "2단계 스타터 코드",
+        "description": "스타터 코드 및 보일러플레이트",
         "items": [
           {
-            "id": "storybook-factory",
-            "title": "동화책 공장 템플릿",
+            "id": "ai-agent-template",
+            "title": "AI Agent 템플릿",
             "description": "React + FastAPI + ChatGPT API",
             "icon": "Package",
             "format": "ZIP",
             "pages": "프로젝트 전체",
-            "size": "9.5MB",
-            "downloadUrl": "/downloads/vive-coding/factory-template.zip"
+            "size": "12.5MB",
+            "downloadUrl": "/downloads/vive-coding/ai-agent-template.zip"
+          },
+          {
+            "id": "game-engine-template",
+            "title": "게임 엔진 템플릿",
+            "description": "20턴 기반 텍스트 게임 엔진",
+            "icon": "Package",
+            "format": "ZIP",
+            "pages": "프로젝트 전체",
+            "size": "8.3MB",
+            "downloadUrl": "/downloads/vive-coding/game-engine-template.zip"
           }
         ]
       }
@@ -621,67 +1425,85 @@
   },
   "classGallery": {
     "title": "수업 현장 & 학생 작품",
-    "description": "1단계 장인 vs 2단계 공장",
+    "description": "역공부 + 메이커 방식 프로젝트",
     "tabs": [
       {
-        "id": "stage1-craftsman",
-        "label": "1단계: 콘텐츠 장인",
+        "id": "reverse-learning",
+        "label": "역공부 과정",
         "items": [
           {
-            "src": "/gallery/vibe-stage1-planning.jpg",
-            "alt": "기획서 작성 중인 중학생"
+            "src": "/gallery/vibe-benchmarking.jpg",
+            "alt": "우수 사례 벤치마킹 중인 학생들"
           },
           {
-            "src": "/gallery/vibe-stage1-chatgpt.jpg",
-            "alt": "ChatGPT로 한 줄씩 조각하는 모습"
+            "src": "/gallery/vibe-persona.jpg",
+            "alt": "페르소나 정의 및 진짜 문제 발굴"
           },
           {
-            "src": "/gallery/vibe-stage1-storybook.jpg",
-            "alt": "완성된 수동 제작 동화책"
+            "src": "/gallery/vibe-reflection.jpg",
+            "alt": "디버거 성찰 일지 작성"
           }
         ]
       },
       {
-        "id": "stage2-factory",
-        "label": "2단계: 자동화 공장",
+        "id": "maker-process",
+        "label": "메이커 방식",
         "items": [
           {
-            "src": "/gallery/vibe-stage2-design.jpg",
-            "alt": "시스템 설계도 작성하는 고등학생"
+            "src": "/gallery/vibe-cursor-coding.jpg",
+            "alt": "Cursor로 코딩하는 학생들"
           },
           {
-            "src": "/gallery/vibe-stage2-v0.jpg",
-            "alt": "v0로 UI 프로토타입 만드는 모습"
+            "src": "/gallery/vibe-v0-prototype.jpg",
+            "alt": "V0로 프로토타입 제작"
           },
           {
-            "src": "/gallery/vibe-stage2-factory.jpg",
-            "alt": "버튼 한 번에 동화책 10개 생성"
+            "src": "/gallery/vibe-ai-agent.jpg",
+            "alt": "완성된 AI Agent 자동화 시스템"
           }
         ]
       },
       {
-        "id": "comparison",
-        "label": "장인 vs 공장 비교",
+        "id": "project-results",
+        "label": "프로젝트 결과물",
         "items": [
           {
-            "src": "/gallery/vibe-comparison-speed.jpg",
-            "alt": "제작 속도 비교: 2시간 vs 10초"
+            "src": "/gallery/vibe-storybook-result.jpg",
+            "alt": "완성된 동화책 및 자동 생성 시스템"
           },
           {
-            "src": "/gallery/vibe-comparison-quality.jpg",
-            "alt": "품질 비교: 깊이 vs 편차"
+            "src": "/gallery/vibe-english-platform.jpg",
+            "alt": "AI 영어 학습 플랫폼"
           },
           {
-            "src": "/gallery/vibe-comparison-students.jpg",
-            "alt": "학생들이 분석한 장단점 보고서"
+            "src": "/gallery/vibe-emotion-game.jpg",
+            "alt": "감정 방탈출 게임 플랫폼"
+          }
+        ]
+      },
+      {
+        "id": "presentation",
+        "label": "발표 & 성찰",
+        "items": [
+          {
+            "src": "/gallery/vibe-presentation-1.jpg",
+            "alt": "수동 vs 자동 비교 발표"
+          },
+          {
+            "src": "/gallery/vibe-portfolio.jpg",
+            "alt": "학생들의 포트폴리오 전시"
+          },
+          {
+            "src": "/gallery/vibe-reflection-time.jpg",
+            "alt": "팀별 성찰 및 개선 회의"
           }
         ]
       }
     ]
   },
   "cta": {
-    "title": "장인의 손길과 공장의 효율, 둘 다 경험하세요",
-    "description": "1단계에서 기획과 프롬프트를 마스터하고, 2단계에서 자동화 시스템을 설계합니다.",
+    "title": "역공부와 메이커 방식으로 진짜 실력을 키우세요",
+    "description": "이론 없이 만들면서 배우는 바이브 코딩. 수동 제작의 깊이와 AI Agent 자동화의 효율을 모두 경험합니다.",
     "buttonText": "수업 신청하기",
     "buttonLink": "/inquiry"
   }

@@ -117,6 +117,18 @@ export default function RaspberryPiCurriculumPage() {
         gradientClass="from-green-600 to-emerald-600"
       />
 
+      {/* 학년별 추천 */}
+      <GradeRecommendationTable
+        title={data.gradeRecommendation.title}
+        description={data.gradeRecommendation.description}
+        programName={data.gradeRecommendation.programName}
+        headers={data.gradeRecommendation.headers}
+        courses={data.gradeRecommendation.courses}
+        legend={data.gradeRecommendation.legend}
+        containerClass={layout.containerClass}
+        primaryColor="green"
+      />
+
       {/* 커리큘럼 - 프로젝트별 */}
       {data.curriculum.projects.map((project) => (
         <CurriculumSection
@@ -129,18 +141,6 @@ export default function RaspberryPiCurriculumPage() {
           primaryColor="green"
         />
       ))}
-
-      {/* 학년별 추천 */}
-      <GradeRecommendationTable
-        title={data.gradeRecommendation.title}
-        description={data.gradeRecommendation.description}
-        programName={data.gradeRecommendation.programName}
-        headers={data.gradeRecommendation.headers}
-        courses={data.gradeRecommendation.courses}
-        legend={data.gradeRecommendation.legend}
-        containerClass={layout.containerClass}
-        primaryColor="green"
-      />
 
       {/* 교육 조건 */}
       <EducationRequirementsSection
