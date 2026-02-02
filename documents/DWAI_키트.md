@@ -2834,22 +2834,27 @@ import radio
 
 radio.on()
 
+# 신호 코드 정의
+SIGNAL_RED = "R"
+SIGNAL_YELLOW = "Y"
+SIGNAL_GREEN = "G"
+
 while True:
-    # DWAI에서 AI 결과 수신
+    # DWAI에서 AI 결과 수신 (영문 코드)
     signal = radio.receive()
     
-    if signal == "빨강":
-        pin0.write_digital(1)  # 빨간 LED
+    if signal == SIGNAL_RED:  # 빨간불
+        pin0.write_digital(1)
         pin1.write_digital(0)
         pin2.write_digital(0)
-    elif signal == "노랑":
+    elif signal == SIGNAL_YELLOW:  # 노란불
         pin0.write_digital(0)
-        pin1.write_digital(1)  # 노란 LED
+        pin1.write_digital(1)
         pin2.write_digital(0)
-    elif signal == "초록":
+    elif signal == SIGNAL_GREEN:  # 초록불
         pin0.write_digital(0)
         pin1.write_digital(0)
-        pin2.write_digital(1)  # 초록 LED
+        pin2.write_digital(1)
     
     sleep(100)
 ```
@@ -2895,26 +2900,38 @@ import neopixel
 radio.on()
 np = neopixel.NeoPixel(pin0, 8)  # 8개 LED
 
-def set_color(emotion):
-    """표정에 따라 LED 색상 변경"""
-    if emotion == "행복":
+# 감정 코드 정의
+EMOTION_HAPPY = 1  # 행복
+EMOTION_SAD = 2    # 슬픔
+EMOTION_ANGRY = 3  # 화남
+EMOTION_NEUTRAL = 0  # 무표정
+
+def set_color(emotion_code):
+    """감정 코드에 따라 LED 색상 변경"""
+    if emotion_code == EMOTION_HAPPY:
+        # 빨강 (행복)
         for i in range(8):
-            np[i] = (255, 0, 0)  # 빨강
-    elif emotion == "슬픔":
+            np[i] = (255, 0, 0)
+    elif emotion_code == EMOTION_SAD:
+        # 파랑 (슬픔)
         for i in range(8):
-            np[i] = (0, 0, 255)  # 파랑
-    elif emotion == "화남":
+            np[i] = (0, 0, 255)
+    elif emotion_code == EMOTION_ANGRY:
+        # 노랑 (화남)
         for i in range(8):
-            np[i] = (255, 255, 0)  # 노랑
+            np[i] = (255, 255, 0)
     else:
+        # 끄기
         for i in range(8):
-            np[i] = (0, 0, 0)  # 끄기
+            np[i] = (0, 0, 0)
     np.show()
 
 while True:
-    emotion = radio.receive()
-    if emotion:
-        set_color(emotion)
+    # DWAI에서 감정 코드 수신 (숫자)
+    message = radio.receive()
+    if message:
+        emotion_code = int(message)
+        set_color(emotion_code)
         display.show(Image.HEART)
     sleep(100)
 ```
@@ -2958,19 +2975,28 @@ import music
 
 radio.on()
 
+# 핀 정의
 BUZZER_PIN = pin0
 GREEN_LED = pin1
 RED_LED = pin2
 
+# 상태 코드 정의
+STATUS_OK = "OK"      # 정상 착용
+STATUS_NO = "NO"      # 마스크 없음
+STATUS_WRONG = "WR"   # 잘못된 착용
+
 while True:
+    # DWAI에서 상태 코드 수신
     status = radio.receive()
     
-    if status == "정상착용":
+    if status == STATUS_OK:
+        # 정상 착용
         GREEN_LED.write_digital(1)
         RED_LED.write_digital(0)
         display.show(Image.HAPPY)
         music.play(music.POWER_UP)
-    elif status == "마스크없음" or status == "코노출":
+    elif status == STATUS_NO or status == STATUS_WRONG:
+        # 경고
         GREEN_LED.write_digital(0)
         RED_LED.write_digital(1)
         display.show(Image.SAD)
@@ -3026,10 +3052,14 @@ radio.on()
 
 order_count = 0
 
+# 명령 코드
+CMD_ORDER = "ORD"  # 주문 완료
+
 while True:
+    # DWAI에서 명령 수신
     order = radio.receive()
     
-    if order == "주문완료":
+    if order == CMD_ORDER:
         order_count += 1
         display.scroll(str(order_count))
         # 주문 접수 소리
@@ -3085,24 +3115,30 @@ import radio
 
 radio.on()
 
-# 서보모터 4개 (각 분류함)
+# 서보모터 핀 (각 분류함)
 SERVO_PLASTIC = pin0
 SERVO_PAPER = pin1
 SERVO_GENERAL = pin2
 SERVO_FOOD = pin8
 
-def open_bin(bin_type):
+# 쓰레기 타입 코드
+TYPE_PLASTIC = "PL"  # 플라스틱
+TYPE_PAPER = "PA"    # 종이
+TYPE_GENERAL = "GE"  # 일반
+TYPE_FOOD = "FO"     # 음식물
+
+def open_bin(bin_code):
     """해당 분류함 뚜껑 열기"""
-    if bin_type == "플라스틱":
+    if bin_code == TYPE_PLASTIC:
         SERVO_PLASTIC.write_analog(512)  # 90도
         display.show(Image.ARROW_N)
-    elif bin_type == "종이":
+    elif bin_code == TYPE_PAPER:
         SERVO_PAPER.write_analog(512)
         display.show(Image.ARROW_E)
-    elif bin_type == "일반":
+    elif bin_code == TYPE_GENERAL:
         SERVO_GENERAL.write_analog(512)
         display.show(Image.ARROW_S)
-    elif bin_type == "음식물":
+    elif bin_code == TYPE_FOOD:
         SERVO_FOOD.write_analog(512)
         display.show(Image.ARROW_W)
     
@@ -3115,9 +3151,10 @@ def open_bin(bin_type):
     SERVO_FOOD.write_analog(0)
 
 while True:
-    waste_type = radio.receive()
-    if waste_type:
-        open_bin(waste_type)
+    # DWAI에서 쓰레기 타입 코드 수신
+    waste_code = radio.receive()
+    if waste_code:
+        open_bin(waste_code)
         music.play(music.POWER_UP)
     sleep(100)
 ```
@@ -3164,16 +3201,21 @@ import radio
 
 radio.on()
 
+# 핀 정의
 SERVO_DOOR = pin0  # 서보모터 (문)
 GREEN_LED = pin1
 RED_LED = pin2
 BUZZER = pin8
 
-def open_door(name):
+# 명령 코드
+CMD_ALLOW = "ALLOW"  # 출입 허가
+CMD_DENY = "DENY"    # 출입 거부
+
+def open_door(user_id):
     """출입 허가 - 문 열기"""
     GREEN_LED.write_digital(1)
     RED_LED.write_digital(0)
-    display.scroll(name)
+    display.scroll(user_id)
     
     # 문 열기 (90도)
     SERVO_DOOR.write_analog(512)
@@ -3190,7 +3232,7 @@ def deny_access():
     RED_LED.write_digital(1)
     display.show(Image.NO)
     
-    # 경고음
+    # 경고음 3회
     for i in range(3):
         BUZZER.write_digital(1)
         sleep(200)
@@ -3200,13 +3242,14 @@ def deny_access():
     RED_LED.write_digital(0)
 
 while True:
+    # DWAI에서 명령 수신 (형식: "ALLOW:1" 또는 "DENY")
     message = radio.receive()
     
     if message:
-        if message.startswith("허가:"):
-            name = message.split(":")[1]
-            open_door(name)
-        elif message == "거부":
+        if message.startswith(CMD_ALLOW):
+            user_id = message.split(":")[1]
+            open_door(user_id)
+        elif message == CMD_DENY:
             deny_access()
     
     sleep(100)
@@ -3254,9 +3297,15 @@ import radio
 
 radio.on()
 
+# 핀 정의
 SOIL_SENSOR = pin0  # 토양 습도 센서
 PUMP_PIN = pin1     # 물펌프 릴레이
 LED_PIN = pin2      # 상태 LED
+
+# 상태 코드
+STATUS_DRY = "DRY"      # 물 부족
+STATUS_PEST = "PEST"    # 병해충
+STATUS_HEALTHY = "OK"   # 건강함
 
 def read_soil_moisture():
     """토양 습도 읽기"""
@@ -3275,19 +3324,22 @@ while True:
     soil = read_soil_moisture()
     
     # DWAI에 센서 데이터 전송
-    radio.send(f"soil:{soil}")
+    radio.send("S:" + str(soil))
     
-    # DWAI에서 AI 판단 수신
+    # DWAI에서 AI 판단 수신 (영문 코드)
     ai_result = radio.receive()
     
-    if ai_result == "물부족":
+    if ai_result == STATUS_DRY:
+        # 물 부족
         water_plant(3)  # 3초 급수
         LED_PIN.write_digital(1)
         music.play(music.POWER_UP)
-    elif ai_result == "병해충":
+    elif ai_result == STATUS_PEST:
+        # 병해충
         display.show(Image.SKULL)
-        # 알림 전송 (추가 구현)
-    elif ai_result == "건강함":
+        radio.send("ALERT:PEST")
+    elif ai_result == STATUS_HEALTHY:
+        # 건강함
         display.show(Image.HEART)
         LED_PIN.write_digital(0)
     
@@ -3336,9 +3388,18 @@ import radio
 
 radio.on()
 
+# 서보모터 핀
 SERVO_BASE = pin0    # 베이스 회전
 SERVO_ARM = pin1     # 팔 상하
 SERVO_GRIPPER = pin2 # 그리퍼 개폐
+
+# 제스처 명령 코드
+CMD_LEFT = "L"    # 왼쪽
+CMD_RIGHT = "R"   # 오른쪽
+CMD_UP = "U"      # 위로
+CMD_DOWN = "D"    # 아래로
+CMD_GRAB = "G"    # 잡기
+CMD_RELEASE = "O" # 놓기
 
 # 현재 각도
 base_angle = 90
@@ -3350,44 +3411,45 @@ def set_servo(pin, angle):
     pulse = int((angle / 180) * 1024)
     pin.write_analog(pulse)
 
-def move_base(direction):
+def move_base(cmd):
     """베이스 회전"""
     global base_angle
-    if direction == "왼쪽":
+    if cmd == CMD_LEFT:
         base_angle = max(0, base_angle - 10)
-    elif direction == "오른쪽":
+    elif cmd == CMD_RIGHT:
         base_angle = min(180, base_angle + 10)
     set_servo(SERVO_BASE, base_angle)
 
-def move_arm(direction):
+def move_arm(cmd):
     """팔 상하 이동"""
     global arm_angle
-    if direction == "위로":
+    if cmd == CMD_UP:
         arm_angle = max(0, arm_angle - 10)
-    elif direction == "아래로":
+    elif cmd == CMD_DOWN:
         arm_angle = min(180, arm_angle + 10)
     set_servo(SERVO_ARM, arm_angle)
 
-def control_gripper(action):
+def control_gripper(cmd):
     """그리퍼 개폐"""
     global gripper_open
-    if action == "잡기":
+    if cmd == CMD_GRAB:
         set_servo(SERVO_GRIPPER, 45)  # 닫기
         gripper_open = False
         display.show(Image.SQUARE_SMALL)
-    elif action == "놓기":
+    elif cmd == CMD_RELEASE:
         set_servo(SERVO_GRIPPER, 90)  # 열기
         gripper_open = True
         display.show(Image.SQUARE)
 
 while True:
+    # DWAI에서 제스처 명령 수신 (영문 코드)
     gesture = radio.receive()
     
-    if gesture == "왼쪽" or gesture == "오른쪽":
+    if gesture in [CMD_LEFT, CMD_RIGHT]:
         move_base(gesture)
-    elif gesture == "위로" or gesture == "아래로":
+    elif gesture in [CMD_UP, CMD_DOWN]:
         move_arm(gesture)
-    elif gesture == "잡기" or gesture == "놓기":
+    elif gesture in [CMD_GRAB, CMD_RELEASE]:
         control_gripper(gesture)
     
     sleep(100)
@@ -3435,36 +3497,42 @@ import music
 
 radio.on()
 
-# 음계 정의
+# 음계 정의 (도레미파솔라시도)
 NOTES = [
     music.PITCH_C4, music.PITCH_D4, music.PITCH_E4,
     music.PITCH_F4, music.PITCH_G4, music.PITCH_A4,
     music.PITCH_B4, music.PITCH_C5
 ]
 
-current_instrument = "피아노"
+# 악기 코드
+INST_PIANO = 1    # 피아노
+INST_VIOLIN = 2   # 바이올린
+INST_DRUM = 3     # 드럼
+INST_TRUMPET = 4  # 트럼펫
 
-def play_note(instrument, note_index):
+current_instrument = INST_PIANO
+
+def play_note(instrument_code, note_index):
     """악기별 음 재생"""
-    if instrument == "피아노":
+    if instrument_code == INST_PIANO:
         music.pitch(NOTES[note_index], 200)
-    elif instrument == "바이올린":
+    elif instrument_code == INST_VIOLIN:
         music.pitch(NOTES[note_index], 500)  # 긴 음
-    elif instrument == "드럼":
+    elif instrument_code == INST_DRUM:
         music.play(music.BADDY)  # 타악기 효과
-    elif instrument == "트럼펫":
+    elif instrument_code == INST_TRUMPET:
         music.pitch(NOTES[note_index], 300)
 
 while True:
-    # DWAI에서 표정 + 손 위치 수신
+    # DWAI에서 명령 수신 (형식: "I:1" 또는 "N:3")
     message = radio.receive()
     
     if message:
         parts = message.split(":")
-        if parts[0] == "악기":
-            current_instrument = parts[1]
-            display.scroll(current_instrument[0])
-        elif parts[0] == "음":
+        if parts[0] == "I":  # Instrument
+            current_instrument = int(parts[1])
+            display.scroll(str(current_instrument))
+        elif parts[0] == "N":  # Note
             note_index = int(parts[1])
             play_note(current_instrument, note_index)
             display.show(Image.MUSIC_QUAVER)
@@ -3514,6 +3582,14 @@ import radio
 
 radio.on()
 
+# 드론 명령 코드
+CMD_UP = "U"       # 상승
+CMD_DOWN = "D"     # 하강
+CMD_LEFT = "L"     # 좌회전
+CMD_RIGHT = "R"    # 우회전
+CMD_FORWARD = "F"  # 전진
+CMD_STOP = "S"     # 정지
+
 # 드론 상태
 altitude = 0  # 고도
 direction = 0  # 방향 (0-360도)
@@ -3521,32 +3597,32 @@ direction = 0  # 방향 (0-360도)
 def send_drone_command(command):
     """드론에 명령 전송"""
     radio.send(command)
-    display.show(Image.ARROW_N)
 
 while True:
+    # DWAI에서 제스처 명령 수신 (영문 코드)
     gesture = radio.receive()
     
-    if gesture == "상승":
+    if gesture == CMD_UP:
         altitude = min(100, altitude + 10)
-        send_drone_command("UP")
+        send_drone_command(CMD_UP)
         display.scroll("^")
-    elif gesture == "하강":
+    elif gesture == CMD_DOWN:
         altitude = max(0, altitude - 10)
-        send_drone_command("DOWN")
+        send_drone_command(CMD_DOWN)
         display.scroll("v")
-    elif gesture == "좌회전":
+    elif gesture == CMD_LEFT:
         direction = (direction - 30) % 360
-        send_drone_command("LEFT")
+        send_drone_command(CMD_LEFT)
         display.show(Image.ARROW_W)
-    elif gesture == "우회전":
+    elif gesture == CMD_RIGHT:
         direction = (direction + 30) % 360
-        send_drone_command("RIGHT")
+        send_drone_command(CMD_RIGHT)
         display.show(Image.ARROW_E)
-    elif gesture == "전진":
-        send_drone_command("FORWARD")
+    elif gesture == CMD_FORWARD:
+        send_drone_command(CMD_FORWARD)
         display.show(Image.ARROW_N)
-    elif gesture == "정지":
-        send_drone_command("STOP")
+    elif gesture == CMD_STOP:
+        send_drone_command(CMD_STOP)
         display.show(Image.SQUARE)
     
     # 현재 상태 표시
@@ -3612,21 +3688,32 @@ radio.on()
 cart = []  # 장바구니
 total_price = 0
 
-# 가격 데이터베이스
+# 상품 코드 및 가격 데이터베이스
+ITEM_CHOCO = "CH"   # 초콜릿
+ITEM_DRINK = "DR"   # 음료수
+ITEM_BREAD = "BR"   # 빵
+ITEM_SNACK = "SN"   # 과자
+ITEM_MILK = "MI"    # 우유
+
 PRICES = {
-    "초콜릿": 1500,
-    "음료수": 1200,
-    "빵": 2000,
-    "과자": 1000,
-    "우유": 2500
+    ITEM_CHOCO: 1500,
+    ITEM_DRINK: 1200,
+    ITEM_BREAD: 2000,
+    ITEM_SNACK: 1000,
+    ITEM_MILK: 2500
 }
 
-def add_to_cart(item):
+# 명령 코드
+CMD_PAY = "PAY"     # 결제
+CMD_CANCEL = "CAN"  # 취소
+
+def add_to_cart(item_code):
     """장바구니에 추가"""
     global total_price
-    cart.append(item)
-    total_price += PRICES[item]
-    display.scroll(str(len(cart)))
+    if item_code in PRICES:
+        cart.append(item_code)
+        total_price += PRICES[item_code]
+        display.scroll(str(len(cart)))
 
 def process_payment():
     """결제 처리"""
@@ -3634,11 +3721,11 @@ def process_payment():
     music.play(music.POWER_UP)
     
     # 영수증 출력 (시리얼)
-    uart.write("===== 영수증 =====\n")
-    for item in cart:
-        uart.write(f"{item}: {PRICES[item]}원\n")
-    uart.write(f"총액: {total_price}원\n")
-    uart.write("==================\n")
+    uart.write("===== RECEIPT =====\n")
+    for item_code in cart:
+        uart.write(item_code + ": " + str(PRICES[item_code]) + "\n")
+    uart.write("TOTAL: " + str(total_price) + "\n")
+    uart.write("===================\n")
     
     # 초기화
     cart.clear()
@@ -3646,14 +3733,15 @@ def process_payment():
     display.show(Image.HAPPY)
 
 while True:
+    # DWAI에서 상품 코드 또는 명령 수신
     message = radio.receive()
     
     if message:
         if message in PRICES:
             add_to_cart(message)
-        elif message == "결제":
+        elif message == CMD_PAY:
             process_payment()
-        elif message == "취소":
+        elif message == CMD_CANCEL:
             cart.clear()
             total_price = 0
             display.show(Image.SAD)
@@ -3708,6 +3796,12 @@ CURTAIN_SERVO = pin2  # 커튼
 TEMP_SENSOR = pin3  # 온도 센서
 LIGHT_SENSOR = pin4  # 조도 센서
 
+# 상황 코드
+SITUATION_PRESENT = "PR"   # 사람 있음
+SITUATION_ABSENT = "AB"    # 사람 없음
+SITUATION_SLEEPING = "SL"  # 잠자는 중
+SITUATION_STUDYING = "ST"  # 공부 중
+
 # 상태 변수
 light_on = False
 ac_on = False
@@ -3732,13 +3826,13 @@ def control_curtain(state):
     angle = 90 if state else 0
     CURTAIN_SERVO.write_analog(int(angle / 180 * 1024))
 
-def auto_control(situation):
+def auto_control(situation_code):
     """상황별 자동 제어"""
     temp = temperature()
     light_level = LIGHT_SENSOR.read_analog()
     
-    if situation == "사람있음":
-        # 어두우면 조명 켜기
+    if situation_code == SITUATION_PRESENT:
+        # 사람 있음: 어두우면 조명 켜기
         if light_level < 300:
             control_light(True)
         # 더우면 에어컨 켜기
@@ -3747,33 +3841,33 @@ def auto_control(situation):
         control_curtain(True)
         display.show(Image.HAPPY)
         
-    elif situation == "사람없음":
-        # 모두 끄기 (절전)
+    elif situation_code == SITUATION_ABSENT:
+        # 사람 없음: 모두 끄기 (절전)
         control_light(False)
         control_ac(False)
         display.show(Image.ASLEEP)
         
-    elif situation == "잠자는중":
-        # 조명 끄기, 커튼 닫기
+    elif situation_code == SITUATION_SLEEPING:
+        # 잠자는 중: 조명 끄기, 커튼 닫기
         control_light(False)
         control_curtain(False)
         display.show(Image.ASLEEP)
         
-    elif situation == "공부중":
-        # 조명 켜기, 에어컨 적정 온도
+    elif situation_code == SITUATION_STUDYING:
+        # 공부 중: 조명 켜기, 에어컨 적정 온도
         control_light(True)
         if temp > 24:
             control_ac(True)
         display.show(Image.HEART)
 
 while True:
-    # DWAI에서 상황 수신
+    # DWAI에서 상황 코드 수신
     situation = radio.receive()
     if situation:
         auto_control(situation)
     
-    # 센서 데이터 DWAI에 전송
-    data = f"temp:{temperature()},light:{LIGHT_SENSOR.read_analog()}"
+    # 센서 데이터 DWAI에 전송 (형식: "T:25,L:450")
+    data = "T:" + str(temperature()) + ",L:" + str(LIGHT_SENSOR.read_analog())
     radio.send(data)
     
     sleep(1000)
@@ -3819,68 +3913,84 @@ import radio
 
 radio.on()
 
-# 신호등 LED (동서남북 4방향)
+# 신호등 LED 핀 (동서남북 4방향)
 SIGNAL_NORTH = [pin0, pin1, pin2]  # 빨강, 노랑, 초록
 SIGNAL_SOUTH = [pin3, pin4, pin5]
 SIGNAL_EAST = [pin8, pin9, pin10]
 SIGNAL_WEST = [pin13, pin14, pin15]
 
-def set_signal(direction, color):
+# 방향 코드
+DIR_NORTH = "N"
+DIR_SOUTH = "S"
+DIR_EAST = "E"
+DIR_WEST = "W"
+
+# 색상 코드
+COLOR_RED = "R"
+COLOR_YELLOW = "Y"
+COLOR_GREEN = "G"
+
+# 교통량 레벨
+TRAFFIC_HIGH = "H"   # 많음
+TRAFFIC_MED = "M"    # 보통
+TRAFFIC_LOW = "L"    # 적음
+
+def set_signal(direction_code, color_code):
     """신호등 색상 설정"""
     signals = {
-        "북": SIGNAL_NORTH,
-        "남": SIGNAL_SOUTH,
-        "동": SIGNAL_EAST,
-        "서": SIGNAL_WEST
+        DIR_NORTH: SIGNAL_NORTH,
+        DIR_SOUTH: SIGNAL_SOUTH,
+        DIR_EAST: SIGNAL_EAST,
+        DIR_WEST: SIGNAL_WEST
     }
     
-    pins = signals[direction]
-    if color == "빨강":
+    pins = signals[direction_code]
+    if color_code == COLOR_RED:
         pins[0].write_digital(1)
         pins[1].write_digital(0)
         pins[2].write_digital(0)
-    elif color == "노랑":
+    elif color_code == COLOR_YELLOW:
         pins[0].write_digital(0)
         pins[1].write_digital(1)
         pins[2].write_digital(0)
-    elif color == "초록":
+    elif color_code == COLOR_GREEN:
         pins[0].write_digital(0)
         pins[1].write_digital(0)
         pins[2].write_digital(1)
 
 def adaptive_signal(traffic_data):
     """교통량에 따른 적응형 신호"""
-    # traffic_data = {"북": "많음", "남": "적음", "동": "보통", "서": "적음"}
+    # traffic_data = {"N": "H", "S": "L", "E": "M", "W": "L"}
     
     # 차량 많은 방향 우선
-    if traffic_data["북"] == "많음":
-        set_signal("북", "초록")
-        set_signal("남", "초록")
-        set_signal("동", "빨강")
-        set_signal("서", "빨강")
+    if traffic_data.get(DIR_NORTH) == TRAFFIC_HIGH:
+        set_signal(DIR_NORTH, COLOR_GREEN)
+        set_signal(DIR_SOUTH, COLOR_GREEN)
+        set_signal(DIR_EAST, COLOR_RED)
+        set_signal(DIR_WEST, COLOR_RED)
         sleep(60000)  # 60초
-    elif traffic_data["동"] == "많음":
-        set_signal("북", "빨강")
-        set_signal("남", "빨강")
-        set_signal("동", "초록")
-        set_signal("서", "초록")
+    elif traffic_data.get(DIR_EAST) == TRAFFIC_HIGH:
+        set_signal(DIR_NORTH, COLOR_RED)
+        set_signal(DIR_SOUTH, COLOR_RED)
+        set_signal(DIR_EAST, COLOR_GREEN)
+        set_signal(DIR_WEST, COLOR_GREEN)
         sleep(60000)
     else:
         # 기본 신호 (30초씩)
-        set_signal("북", "초록")
-        set_signal("남", "초록")
+        set_signal(DIR_NORTH, COLOR_GREEN)
+        set_signal(DIR_SOUTH, COLOR_GREEN)
         sleep(30000)
-        set_signal("북", "빨강")
-        set_signal("남", "빨강")
-        set_signal("동", "초록")
-        set_signal("서", "초록")
+        set_signal(DIR_NORTH, COLOR_RED)
+        set_signal(DIR_SOUTH, COLOR_RED)
+        set_signal(DIR_EAST, COLOR_GREEN)
+        set_signal(DIR_WEST, COLOR_GREEN)
         sleep(30000)
 
 while True:
-    # DWAI에서 교통 데이터 수신
+    # DWAI에서 교통 데이터 수신 (형식: "N:H,S:L,E:M,W:L")
     message = radio.receive()
     if message:
-        # 파싱: "북:많음,남:적음,동:보통,서:적음"
+        # 파싱
         traffic_data = {}
         for part in message.split(","):
             direction, level = part.split(":")
@@ -3931,29 +4041,37 @@ import radio
 
 radio.on()
 
+# 핀 정의
 BUZZER = pin0
 SIREN = pin1
 CAMERA_TRIGGER = pin2
 DOOR_LOCK = pin8
 
-# 보안 레벨
-security_level = "정상"
+# 보안 상태 코드
+STATUS_NORMAL = "OK"      # 정상 (등록된 사람)
+STATUS_WARNING = "WR"     # 경고 (미등록 사람)
+STATUS_DANGER = "DN"      # 위험 (수상한 행동)
+STATUS_EMPTY = "EM"       # 사람 없음
 
-def trigger_alarm(level):
+# 보안 레벨
+security_level = STATUS_NORMAL
+
+def trigger_alarm(level_code):
     """경보 발동"""
     global security_level
-    security_level = level
+    security_level = level_code
     
-    if level == "경고":
+    if level_code == STATUS_WARNING:
+        # 경고
         display.show(Image.SURPRISED)
-        # 경고음 1회
         BUZZER.write_digital(1)
         sleep(500)
         BUZZER.write_digital(0)
         
-    elif level == "위험":
+    elif level_code == STATUS_DANGER:
+        # 위험
         display.show(Image.SKULL)
-        # 사이렌 작동
+        # 사이렌 작동 10회
         for i in range(10):
             SIREN.write_digital(1)
             sleep(200)
@@ -3966,38 +4084,38 @@ def trigger_alarm(level):
         # 카메라 녹화 시작
         CAMERA_TRIGGER.write_digital(1)
         
-        # 알림 전송 (시리얼/무선)
-        uart.write("!!! 침입자 감지 !!!\n")
-        radio.send("ALERT:침입자")
+        # 알림 전송
+        uart.write("!!! INTRUDER DETECTED !!!\n")
+        radio.send("ALERT:INTRUDER")
 
 def reset_security():
     """보안 해제"""
     global security_level
-    security_level = "정상"
+    security_level = STATUS_NORMAL
     SIREN.write_digital(0)
     DOOR_LOCK.write_digital(0)
     CAMERA_TRIGGER.write_digital(0)
     display.show(Image.HAPPY)
 
 while True:
-    # DWAI에서 AI 분석 결과 수신
+    # DWAI에서 AI 분석 결과 수신 (영문 코드)
     message = radio.receive()
     
-    if message == "등록된사람":
+    if message == STATUS_NORMAL:
         reset_security()
-    elif message == "미등록사람":
-        trigger_alarm("경고")
-    elif message == "수상한행동":
-        trigger_alarm("위험")
-    elif message == "사람없음":
+    elif message == STATUS_WARNING:
+        trigger_alarm(STATUS_WARNING)
+    elif message == STATUS_DANGER:
+        trigger_alarm(STATUS_DANGER)
+    elif message == STATUS_EMPTY:
         # 정상 모니터링
         display.show(Image.ASLEEP)
     
     # 버튼으로 수동 제어
     if button_a.was_pressed():
-        reset_security()  # 보안 해제
+        reset_security()
     if button_b.was_pressed():
-        trigger_alarm("위험")  # 수동 경보
+        trigger_alarm(STATUS_DANGER)
     
     sleep(100)
 ```
@@ -4060,6 +4178,13 @@ TEMP_LOW = 18
 TEMP_HIGH = 30
 LIGHT_LOW = 200
 
+# AI 상태 코드
+STATUS_HEALTHY = "OK"    # 건강함
+STATUS_DRY = "DRY"       # 물 부족
+STATUS_PEST = "PEST"     # 병해충
+STATUS_DARK = "DARK"     # 햇빛 부족
+STATUS_TEMP = "TEMP"     # 온도 이상
+
 def read_sensors():
     """모든 센서 값 읽기"""
     return {
@@ -4072,14 +4197,14 @@ def auto_control(sensors, ai_status):
     """자동 제어 로직"""
     
     # 1. 급수 제어
-    if sensors['soil'] < SOIL_DRY or ai_status == "물부족":
+    if sensors['soil'] < SOIL_DRY or ai_status == STATUS_DRY:
         PUMP.write_digital(1)
         display.show(Image.UMBRELLA)
         sleep(3000)
         PUMP.write_digital(0)
     
     # 2. 조명 제어
-    if sensors['light'] < LIGHT_LOW or ai_status == "햇빛부족":
+    if sensors['light'] < LIGHT_LOW or ai_status == STATUS_DARK:
         LED_LIGHT.write_digital(1)
         display.show(Image.DIAMOND)
     else:
@@ -4099,11 +4224,10 @@ def auto_control(sensors, ai_status):
         FAN.write_digital(0)
     
     # 4. 병해충 감지
-    if ai_status == "병해충":
+    if ai_status == STATUS_PEST:
         display.show(Image.SKULL)
-        # 알림 전송
-        uart.write("경고: 병해충 감지!\n")
-        radio.send("ALERT:병해충")
+        uart.write("WARNING: PEST DETECTED!\n")
+        radio.send("ALERT:PEST")
 
 # 데이터 로깅
 log_count = 0
@@ -4112,11 +4236,11 @@ while True:
     # 센서 값 읽기
     sensors = read_sensors()
     
-    # DWAI에 센서 데이터 전송
-    data = f"soil:{sensors['soil']},temp:{sensors['temp']},light:{sensors['light']}"
+    # DWAI에 센서 데이터 전송 (형식: "S:450,T:25,L:300")
+    data = "S:" + str(sensors['soil']) + ",T:" + str(sensors['temp']) + ",L:" + str(sensors['light'])
     radio.send(data)
     
-    # DWAI에서 AI 분석 결과 수신
+    # DWAI에서 AI 분석 결과 수신 (영문 코드)
     ai_status = radio.receive()
     
     if ai_status:
@@ -4125,7 +4249,7 @@ while True:
     # 데이터 로깅 (10분마다)
     log_count += 1
     if log_count >= 600:  # 10분 = 600초
-        uart.write(f"LOG:{data},status:{ai_status}\n")
+        uart.write("LOG:" + data + ",ST:" + str(ai_status) + "\n")
         log_count = 0
     
     sleep(1000)  # 1초마다 체크
@@ -4171,24 +4295,32 @@ import radio
 
 radio.on()
 
+# 핀 정의
 VIBRATION = pin0  # 진동 모터
 BUZZER = pin1
 
+# 자세 코드
+POSTURE_GOOD = "OK"    # 바른 자세
+POSTURE_NECK = "NK"    # 거북목
+POSTURE_BACK = "BK"    # 구부정
+POSTURE_TILT = "TL"    # 기울임
+
+# 통계
 good_posture_time = 0
 bad_posture_time = 0
 alert_count = 0
 
-def posture_alert(posture_type):
+def posture_alert(posture_code):
     """잘못된 자세 알림"""
     global alert_count
     
-    if posture_type == "거북목":
+    if posture_code == POSTURE_NECK:
         display.scroll("NECK")
         alert_count += 1
-    elif posture_type == "구부정":
+    elif posture_code == POSTURE_BACK:
         display.scroll("BACK")
         alert_count += 1
-    elif posture_type == "기울임":
+    elif posture_code == POSTURE_TILT:
         display.scroll("TILT")
         alert_count += 1
     
@@ -4212,10 +4344,10 @@ def good_posture_reward():
     music.play(music.POWER_UP)
 
 while True:
-    # DWAI에서 자세 분석 결과 수신
+    # DWAI에서 자세 분석 결과 수신 (영문 코드)
     posture = radio.receive()
     
-    if posture == "바른자세":
+    if posture == POSTURE_GOOD:
         good_posture_time += 1
         display.show(Image.HEART)
         
@@ -4226,13 +4358,13 @@ while True:
         bad_posture_time += 1
         posture_alert(posture)
     
-    # 통계 보기 (버튼 A)
+    # 통계 보기 (버튼 A - 좋은 자세 시간)
     if button_a.was_pressed():
-        display.scroll(f"G:{good_posture_time//60}m")
+        display.scroll("G:" + str(good_posture_time//60) + "m")
     
-    # 통계 보기 (버튼 B)
+    # 통계 보기 (버튼 B - 나쁜 자세 시간)
     if button_b.was_pressed():
-        display.scroll(f"B:{bad_posture_time//60}m")
+        display.scroll("B:" + str(bad_posture_time//60) + "m")
     
     sleep(1000)  # 1초마다 체크
 ```
@@ -4280,45 +4412,43 @@ import radio
 
 radio.on()
 
-# 버튼 상태 (게임 패드 시뮬레이션)
-button_states = {
-    'up': False,
-    'down': False,
-    'left': False,
-    'right': False,
-    'attack': False,
-    'defend': False,
-    'item': False
-}
+# 제스처 명령 코드
+CMD_UP = "U"       # 위
+CMD_DOWN = "D"     # 아래
+CMD_LEFT = "L"     # 왼쪽
+CMD_RIGHT = "R"    # 오른쪽
+CMD_ATTACK = "A"   # 공격
+CMD_DEFEND = "F"   # 방어
+CMD_ITEM = "I"     # 아이템
 
-def send_button_press(button):
+def send_button_press(button_code):
     """버튼 입력 전송"""
-    radio.send(f"BTN:{button}")
+    radio.send("BTN:" + button_code)
     
     # 진동 피드백
     pin0.write_digital(1)
     sleep(50)
     pin0.write_digital(0)
 
-def update_display(gesture):
+def update_display(gesture_code):
     """제스처 표시"""
-    if gesture == "위":
+    if gesture_code == CMD_UP:
         display.show(Image.ARROW_N)
-    elif gesture == "아래":
+    elif gesture_code == CMD_DOWN:
         display.show(Image.ARROW_S)
-    elif gesture == "왼쪽":
+    elif gesture_code == CMD_LEFT:
         display.show(Image.ARROW_W)
-    elif gesture == "오른쪽":
+    elif gesture_code == CMD_RIGHT:
         display.show(Image.ARROW_E)
-    elif gesture == "공격":
+    elif gesture_code == CMD_ATTACK:
         display.show(Image.SWORD)
-    elif gesture == "방어":
+    elif gesture_code == CMD_DEFEND:
         display.show(Image.SHIELD)
-    elif gesture == "아이템":
+    elif gesture_code == CMD_ITEM:
         display.show(Image.DIAMOND)
 
 while True:
-    # DWAI에서 제스처 수신
+    # DWAI에서 제스처 수신 (영문 코드)
     gesture = radio.receive()
     
     if gesture:
@@ -4328,9 +4458,9 @@ while True:
     
     # 물리 버튼으로도 제어 가능
     if button_a.was_pressed():
-        send_button_press("공격")
+        send_button_press(CMD_ATTACK)
     if button_b.was_pressed():
-        send_button_press("방어")
+        send_button_press(CMD_DEFEND)
     
     sleep(100)
 ```
@@ -4377,7 +4507,7 @@ import radio
 
 radio.on()
 
-# 서보모터 (로봇 팔)
+# 서보모터 핀 (로봇 팔)
 SERVO_BASE = pin0
 SERVO_ARM = pin1
 SERVO_GRIPPER = pin2
@@ -4385,14 +4515,22 @@ SERVO_GRIPPER = pin2
 # 컨베이어 벨트
 CONVEYOR = pin8
 
+# 쓰레기 타입 코드
+TYPE_PLASTIC = "PL"  # 플라스틱
+TYPE_PAPER = "PA"    # 종이
+TYPE_CAN = "CA"      # 캔
+TYPE_GENERAL = "GE"  # 일반
+TYPE_FOOD = "FO"     # 음식물
+TYPE_BATTERY = "BA"  # 전지
+
 # 분류함 위치 (각도)
 BIN_POSITIONS = {
-    "플라스틱": 0,
-    "종이": 45,
-    "캔": 90,
-    "일반": 135,
-    "음식물": 180,
-    "전지": 225
+    TYPE_PLASTIC: 0,
+    TYPE_PAPER: 45,
+    TYPE_CAN: 90,
+    TYPE_GENERAL: 135,
+    TYPE_FOOD: 180,
+    TYPE_BATTERY: 225
 }
 
 def move_conveyor():
@@ -4419,9 +4557,9 @@ def pick_waste():
     SERVO_ARM.write_analog(0)
     sleep(1000)
 
-def place_waste(waste_type):
+def place_waste(waste_code):
     """쓰레기 분류함에 배치"""
-    angle = BIN_POSITIONS[waste_type]
+    angle = BIN_POSITIONS[waste_code]
     pulse = int(angle / 270 * 1024)
     
     # 베이스 회전
@@ -4446,38 +4584,38 @@ def place_waste(waste_type):
 
 # 통계
 classification_count = {
-    "플라스틱": 0,
-    "종이": 0,
-    "캔": 0,
-    "일반": 0,
-    "음식물": 0,
-    "전지": 0
+    TYPE_PLASTIC: 0,
+    TYPE_PAPER: 0,
+    TYPE_CAN: 0,
+    TYPE_GENERAL: 0,
+    TYPE_FOOD: 0,
+    TYPE_BATTERY: 0
 }
 
 while True:
     # 컨베이어 벨트 작동
     move_conveyor()
     
-    # DWAI에서 AI 분류 결과 수신
-    waste_type = radio.receive()
+    # DWAI에서 AI 분류 결과 수신 (영문 코드)
+    waste_code = radio.receive()
     
-    if waste_type and waste_type in BIN_POSITIONS:
-        display.scroll(waste_type[0])
+    if waste_code and waste_code in BIN_POSITIONS:
+        display.scroll(waste_code)
         
         # 로봇 팔 작동
         pick_waste()
-        place_waste(waste_type)
+        place_waste(waste_code)
         
         # 통계 업데이트
-        classification_count[waste_type] += 1
+        classification_count[waste_code] += 1
         
         # 성공 소리
         music.play(music.POWER_UP)
     
     # 통계 보기 (버튼 A)
     if button_a.was_pressed():
-        for waste, count in classification_count.items():
-            display.scroll(f"{waste[0]}:{count}")
+        for waste_code, count in classification_count.items():
+            display.scroll(waste_code + ":" + str(count))
     
     sleep(100)
 ```
@@ -4523,40 +4661,52 @@ import radio
 
 radio.on()
 
+# 차량 타입 코드
+TYPE_CAR = "CA"      # 승용차
+TYPE_BUS = "BU"      # 버스
+TYPE_TRUCK = "TR"    # 트럭
+TYPE_BIKE = "BI"     # 오토바이
+TYPE_PERSON = "PE"   # 보행자
+
+# 혼잡도 레벨
+LEVEL_SMOOTH = "SM"   # 원활
+LEVEL_NORMAL = "NM"   # 보통
+LEVEL_BUSY = "BY"     # 혼잡
+LEVEL_JAM = "JM"      # 정체
+
 # 차량 카운트
 vehicle_count = {
-    "승용차": 0,
-    "버스": 0,
-    "트럭": 0,
-    "오토바이": 0,
-    "보행자": 0
+    TYPE_CAR: 0,
+    TYPE_BUS: 0,
+    TYPE_TRUCK: 0,
+    TYPE_BIKE: 0,
+    TYPE_PERSON: 0
 }
 
-# 시간대별 데이터
-hourly_data = []
-
-def count_vehicle(vehicle_type):
+def count_vehicle(vehicle_code):
     """차량 카운트"""
-    vehicle_count[vehicle_type] += 1
-    display.scroll(str(sum(vehicle_count.values())))
+    if vehicle_code in vehicle_count:
+        vehicle_count[vehicle_code] += 1
+        display.scroll(str(sum(vehicle_count.values())))
 
 def calculate_congestion():
     """혼잡도 계산"""
     total = sum(vehicle_count.values())
     
     if total < 10:
-        return "원활"
+        return LEVEL_SMOOTH
     elif total < 30:
-        return "보통"
+        return LEVEL_NORMAL
     elif total < 50:
-        return "혼잡"
+        return LEVEL_BUSY
     else:
-        return "정체"
+        return LEVEL_JAM
 
 def send_traffic_data():
     """교통 데이터 전송"""
     congestion = calculate_congestion()
-    data = f"total:{sum(vehicle_count.values())},status:{congestion}"
+    total = sum(vehicle_count.values())
+    data = "T:" + str(total) + ",S:" + congestion
     radio.send(data)
     uart.write(data + "\n")
 
@@ -4564,10 +4714,10 @@ def send_traffic_data():
 log_interval = 0
 
 while True:
-    # DWAI에서 차량 종류 수신
+    # DWAI에서 차량 종류 수신 (영문 코드)
     vehicle = radio.receive()
     
-    if vehicle and vehicle in vehicle_count:
+    if vehicle:
         count_vehicle(vehicle)
         music.play(music.JUMP_UP)
     
@@ -4631,51 +4781,67 @@ import radio
 
 radio.on()
 
+# 시스템 코드
+SYS_TRAFFIC = "TR"    # 교통
+SYS_SECURITY = "SE"   # 보안
+SYS_ENVIRON = "EN"    # 환경
+SYS_FARM = "FA"       # 농업
+
+# 상태 코드
+STATUS_OK = "OK"      # 정상
+STATUS_WARN = "WR"    # 경고
+STATUS_DANGER = "DN"  # 위험
+
 # 시스템 상태
 city_status = {
-    "교통": "정상",
-    "보안": "정상",
-    "환경": "정상",
-    "농업": "정상"
+    SYS_TRAFFIC: STATUS_OK,
+    SYS_SECURITY: STATUS_OK,
+    SYS_ENVIRON: STATUS_OK,
+    SYS_FARM: STATUS_OK
 }
 
-def update_system(system, status):
+def update_system(system_code, status_code):
     """시스템 상태 업데이트"""
-    city_status[system] = status
+    city_status[system_code] = status_code
     
     # 경고 표시
-    if status == "경고":
+    if status_code == STATUS_WARN:
         display.show(Image.SURPRISED)
         music.play(music.JUMP_DOWN)
-    elif status == "위험":
+    elif status_code == STATUS_DANGER:
         display.show(Image.SKULL)
         music.play(music.WAWAWAWAA)
 
 def send_city_report():
     """도시 상태 리포트"""
-    report = ",".join([f"{k}:{v}" for k, v in city_status.items()])
-    radio.send(f"REPORT:{report}")
+    report_parts = []
+    for sys_code, status_code in city_status.items():
+        report_parts.append(sys_code + ":" + status_code)
+    report = ",".join(report_parts)
+    radio.send("REPORT:" + report)
     uart.write(report + "\n")
 
 while True:
-    # DWAI에서 각 시스템 데이터 수신
+    # DWAI에서 각 시스템 데이터 수신 (형식: "TR:OK" 또는 "SE:WR")
     message = radio.receive()
     
     if message:
         parts = message.split(":")
-        system = parts[0]
-        status = parts[1]
-        
-        update_system(system, status)
+        if len(parts) == 2:
+            system_code = parts[0]
+            status_code = parts[1]
+            
+            if system_code in city_status:
+                update_system(system_code, status_code)
     
     # 10분마다 리포트
     if running_time() % 600000 == 0:
         send_city_report()
     
-    # 시스템 상태 보기
+    # 시스템 상태 보기 (버튼 A)
     if button_a.was_pressed():
-        for system, status in city_status.items():
-            display.scroll(f"{system[0]}:{status[0]}")
+        for sys_code, status_code in city_status.items():
+            display.scroll(sys_code + ":" + status_code)
     
     sleep(100)
 ```
