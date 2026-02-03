@@ -16,124 +16,13 @@ AIMakerLab Web은 **Next.js 15.2.4 App Router**와 **React 19**를 기반으로 
 
 ### 전체 시스템 아키텍처
 
-```mermaid
-graph TB
-    subgraph "클라이언트 (Browser)"
-        subgraph "UI Layer"
-            A[Pages<br/>page.tsx]
-            B[Components<br/>UI 컴포넌트]
-            C[Config<br/>설정 파일]
-        end
-        
-        subgraph "Business Logic Layer"
-            D[Hooks<br/>커스텀 훅]
-            E[Utils<br/>유틸리티]
-            F[State Management<br/>상태 관리]
-        end
-        
-        subgraph "Data Layer"
-            G[JSON Files<br/>public/]
-            H[localStorage<br/>캐싱]
-            I[API Client<br/>향후]
-        end
-    end
-    
-    subgraph "백엔드 (향후)"
-        J[Django REST API]
-        K[Database]
-    end
-    
-    A --> D
-    B --> D
-    C --> A
-    
-    D --> G
-    D --> H
-    D -.향후.-> I
-    
-    I -.향후.-> J
-    J --> K
-    
-    style A fill:#3b82f6,color:#fff
-    style D fill:#10b981,color:#fff
-    style G fill:#f59e0b,color:#fff
-    style J fill:#ef4444,color:#fff
-```
-
 ### 레이어별 역할
-
-```mermaid
-graph LR
-    subgraph "1️⃣ UI Layer"
-        A[렌더링]
-        B[스타일링]
-        C[사용자 인터랙션]
-    end
-    
-    subgraph "2️⃣ Business Logic Layer"
-        D[데이터 로딩]
-        E[상태 관리]
-        F[비즈니스 규칙]
-    end
-    
-    subgraph "3️⃣ Data Layer"
-        G[데이터 소스]
-        H[캐싱]
-        I[API 통신]
-    end
-    
-    A --> D
-    B --> D
-    C --> D
-    
-    D --> G
-    E --> H
-    F --> I
-    
-    style A fill:#3b82f6,color:#fff
-    style D fill:#10b981,color:#fff
-    style G fill:#f59e0b,color:#fff
-```
 
 ---
 
 ## 🏗️ 프론트엔드 레이어 구조
 
 ### 레이어 아키텍처 다이어그램
-
-```mermaid
-graph TB
-    subgraph "1️⃣ Presentation Layer (UI)"
-        A[page.tsx<br/>페이지 진입점]
-        B[components/<br/>UI 컴포넌트]
-        C[config.ts<br/>설정 파일]
-    end
-    
-    subgraph "2️⃣ Business Logic Layer"
-        D[hooks/<br/>커스텀 훅]
-        E[Data Processing<br/>데이터 처리]
-        F[State Management<br/>상태 관리]
-    end
-    
-    subgraph "3️⃣ Data Layer"
-        G[JSON Files<br/>public/]
-        H[localStorage<br/>캐싱]
-    end
-    
-    A --> D
-    B --> D
-    C --> A
-    
-    D --> E
-    D --> F
-    
-    E --> G
-    F --> H
-    
-    style A fill:#3b82f6,color:#fff
-    style D fill:#10b981,color:#fff
-    style G fill:#f59e0b,color:#fff
-```
 
 ### 1. 프레젠테이션 레이어 (Presentation Layer / UI Layer)
 
@@ -155,27 +44,6 @@ app/[section]/
 ```
 
 #### UI 레이어의 책임
-
-```mermaid
-graph LR
-    A[UI Layer] --> B[✅ 렌더링]
-    A --> C[✅ 스타일링]
-    A --> D[✅ 이벤트 핸들링]
-    A --> E[✅ Props 전달]
-    
-    A -.❌ 금지.-> F[데이터 로딩]
-    A -.❌ 금지.-> G[비즈니스 로직]
-    A -.❌ 금지.-> H[API 호출]
-    
-    style A fill:#3b82f6,color:#fff
-    style B fill:#10b981,color:#fff
-    style C fill:#10b981,color:#fff
-    style D fill:#10b981,color:#fff
-    style E fill:#10b981,color:#fff
-    style F fill:#ef4444,color:#fff
-    style G fill:#ef4444,color:#fff
-    style H fill:#ef4444,color:#fff
-```
 
 #### UI Layer 구현 예시
 
@@ -257,27 +125,6 @@ hooks/
 ```
 
 #### 비즈니스 로직 레이어의 책임
-
-```mermaid
-graph LR
-    A[Business Logic Layer] --> B[✅ 데이터 로딩]
-    A --> C[✅ 상태 관리]
-    A --> D[✅ 캐싱]
-    A --> E[✅ 에러 처리]
-    A --> F[✅ 데이터 변환]
-    
-    A -.❌ 금지.-> G[UI 렌더링]
-    A -.❌ 금지.-> H[스타일링]
-    
-    style A fill:#10b981,color:#fff
-    style B fill:#3b82f6,color:#fff
-    style C fill:#3b82f6,color:#fff
-    style D fill:#3b82f6,color:#fff
-    style E fill:#3b82f6,color:#fff
-    style F fill:#3b82f6,color:#fff
-    style G fill:#ef4444,color:#fff
-    style H fill:#ef4444,color:#fff
-```
 
 #### 비즈니스 로직 Hook 구현 예시
 
@@ -396,35 +243,6 @@ function validateCurriculumData(data: any) {
 
 #### 데이터 흐름 아키텍처
 
-```mermaid
-sequenceDiagram
-    participant U as 사용자
-    participant P as Page (UI)
-    participant H as Hook (로직)
-    participant C as Cache (localStorage)
-    participant J as JSON Files
-    participant A as API (향후)
-    
-    U->>P: 페이지 접근
-    P->>H: useData() 호출
-    
-    H->>C: 캐시 확인
-    
-    alt 캐시 있음 (1시간 이내)
-        C-->>H: 캐시 데이터 반환
-        H-->>P: 즉시 데이터 반환
-        P->>U: 렌더링 (< 0.5초)
-    else 캐시 없음
-        H->>J: fetch('/data.json')
-        J-->>H: JSON 데이터
-        H->>C: 캐시 저장
-        H-->>P: 데이터 반환
-        P->>U: 렌더링 (< 2초)
-    end
-    
-    Note over H,A: 향후 API 연동 시<br/>JSON → API로 전환
-```
-
 #### 데이터 소스 구조
 
 ```
@@ -485,46 +303,11 @@ public/
 
 #### 데이터 레이어 타입
 
-```mermaid
-graph TB
-    A[Data Layer] --> B[Static Data<br/>정적 데이터]
-    A --> C[Dynamic Data<br/>동적 데이터]
-    A --> D[Cached Data<br/>캐시 데이터]
-    
-    B --> E[JSON Files<br/>public/ 폴더]
-    B --> F[Images<br/>이미지 파일]
-    
-    C --> G[User Generated<br/>사용자 생성]
-    C --> H[Real-time<br/>실시간 데이터]
-    
-    D --> I[localStorage<br/>브라우저 저장소]
-    D --> J[Session Storage<br/>세션 저장소]
-    
-    style A fill:#f59e0b,color:#fff
-    style B fill:#3b82f6,color:#fff
-    style C fill:#10b981,color:#fff
-    style D fill:#8b5cf6,color:#fff
-```
-
 ---
 
 ## 📂 JSON 파일 처리 상세 가이드
 
 ### JSON 데이터 처리 플로우
-
-```mermaid
-graph TB
-    A[1. JSON 파일 생성<br/>public/ 폴더] --> B[2. Hook에서 로딩<br/>fetch API]
-    B --> C[3. 데이터 파싱<br/>JSON.parse]
-    C --> D[4. 타입 검증<br/>TypeScript]
-    D --> E[5. 캐시 저장<br/>localStorage]
-    E --> F[6. 상태 업데이트<br/>setState]
-    F --> G[7. UI 렌더링<br/>Component]
-    
-    style A fill:#f59e0b,color:#fff
-    style B fill:#10b981,color:#fff
-    style G fill:#3b82f6,color:#fff
-```
 
 ### 1단계: JSON 파일 생성
 
@@ -889,29 +672,6 @@ export const FEATURE_CONFIG = {
 
 ### 분리 원칙 다이어그램
 
-```mermaid
-graph TB
-    subgraph "❌ 잘못된 방식 (로직 혼재)"
-        A1[Component] --> B1[render]
-        A1 --> C1[fetch data]
-        A1 --> D1[process data]
-        A1 --> E1[handle state]
-    end
-    
-    subgraph "✅ 올바른 방식 (로직 분리)"
-        A2[Component<br/>UI만] --> B2[render]
-        A2 --> F2[Hook<br/>비즈니스 로직]
-        
-        F2 --> C2[fetch data]
-        F2 --> D2[process data]
-        F2 --> E2[handle state]
-    end
-    
-    style A1 fill:#ef4444,color:#fff
-    style A2 fill:#10b981,color:#fff
-    style F2 fill:#3b82f6,color:#fff
-```
-
 ### 완전한 예시: AI 교육 페이지
 
 #### ❌ 나쁜 예: 로직 혼재
@@ -1191,86 +951,7 @@ export default function AIEducationCurriculumPage() {
 
 ### 현재 데이터 흐름 (Mock Data + localStorage)
 
-```mermaid
-sequenceDiagram
-    participant U as 👤 사용자
-    participant P as 📄 Page
-    participant H as 🎣 Hook
-    participant C as 💾 Cache
-    participant J as 📦 JSON
-    
-    U->>P: 1. 페이지 접근
-    activate P
-    
-    P->>H: 2. useData() 호출
-    activate H
-    
-    H->>C: 3. localStorage 확인
-    
-    alt 캐시 있음 (유효기간 내)
-        C-->>H: 4a. 캐시 데이터 반환
-        Note over H,C: ⚡ 즉시 로딩<br/>(< 0.5초)
-    else 캐시 없음/만료
-        H->>J: 4b. fetch('/data.json')
-        J-->>H: 5. JSON 데이터
-        H->>C: 6. 캐시 저장
-        Note over H,C: 💾 다음 방문을 위한<br/>캐시 생성
-    end
-    
-    H->>H: 7. 데이터 처리/검증
-    H-->>P: 8. { data, loading, error }
-    deactivate H
-    
-    P->>P: 9. 컴포넌트 렌더링
-    P-->>U: 10. UI 표시
-    deactivate P
-```
-
 ### 향후 데이터 흐름 (Django REST API)
-
-```mermaid
-sequenceDiagram
-    participant U as 👤 사용자
-    participant P as 📄 Page
-    participant H as 🎣 Hook
-    participant A as 🔌 API Client
-    participant D as 🐍 Django
-    participant DB as 🗄️ Database
-    
-    U->>P: 1. 페이지 접근
-    activate P
-    
-    P->>H: 2. useData() 호출
-    activate H
-    
-    H->>A: 3. apiClient.get('/api/data')
-    activate A
-    
-    A->>A: 4. 토큰 추가 (JWT)
-    A->>D: 5. HTTP GET /api/data
-    activate D
-    
-    D->>D: 6. 인증/권한 확인
-    D->>DB: 7. 데이터베이스 쿼리
-    activate DB
-    DB-->>D: 8. 쿼리 결과
-    deactivate DB
-    
-    D->>D: 9. Serialization
-    D-->>A: 10. JSON Response
-    deactivate D
-    
-    A-->>H: 11. 데이터 반환
-    deactivate A
-    
-    H->>H: 12. 데이터 처리/검증
-    H-->>P: 13. { data, loading, error }
-    deactivate H
-    
-    P->>P: 14. 컴포넌트 렌더링
-    P-->>U: 15. UI 표시
-    deactivate P
-```
 
 ### 데이터 흐름 비교표
 
@@ -1284,31 +965,6 @@ sequenceDiagram
 | **총 소요 시간** | ~1초 (첫 방문) / 0.3초 (재방문) | ~1.5초 | - |
 
 ### 상태 전이 다이어그램
-
-```mermaid
-stateDiagram-v2
-    [*] --> Idle: 페이지 로드
-    
-    Idle --> Loading: useData() 호출
-    
-    Loading --> CheckCache: 캐시 확인
-    
-    CheckCache --> Success: 캐시 있음
-    CheckCache --> Fetching: 캐시 없음
-    
-    Fetching --> Processing: 데이터 수신
-    Fetching --> Error: 네트워크 오류
-    
-    Processing --> Caching: 데이터 검증 성공
-    Processing --> Error: 데이터 검증 실패
-    
-    Caching --> Success: 캐시 저장
-    
-    Success --> Rendering: 상태 업데이트
-    Error --> Rendering: 에러 메시지
-    
-    Rendering --> [*]: UI 표시
-```
 
 ---
 
@@ -1884,30 +1540,6 @@ tests/
 
 ### 핵심 원칙 종합
 
-```mermaid
-mindmap
-  root((AIMakerLab<br/>Architecture))
-    UI Layer
-      page.tsx
-      components
-      config.ts
-      오직 렌더링
-    Business Logic
-      Custom Hooks
-      데이터 로딩
-      상태 관리
-      캐싱
-    Data Layer
-      JSON Files
-      localStorage
-      향후 API
-    Key Principles
-      관심사 분리
-      설정 기반
-      타입 안전
-      재사용성
-```
-
 ### 레이어별 책임 요약표
 
 | 레이어 | 위치 | 책임 | 금지사항 | 도구 |
@@ -1918,29 +1550,6 @@ mindmap
 | **Config Layer** | `config.ts` | ✅ 텍스트 관리<br/>✅ 색상 관리<br/>✅ 설정 관리 | ❌ 로직<br/>❌ 상태 | TypeScript const |
 
 ### JSON 파일 처리 플로우 요약
-
-```mermaid
-graph TB
-    A[1️⃣ JSON 파일 생성<br/>public/ 폴더]
-    B[2️⃣ Hook에서 fetch<br/>캐시 확인]
-    C[3️⃣ 데이터 파싱<br/>타입 검증]
-    D[4️⃣ localStorage 캐싱<br/>1시간 유효]
-    E[5️⃣ 상태 업데이트<br/>setState]
-    F[6️⃣ UI 렌더링<br/>Component]
-    
-    A --> B
-    B --> C
-    C --> D
-    D --> E
-    E --> F
-    
-    F -.재방문.-> B
-    
-    style A fill:#f59e0b,color:#fff
-    style B fill:#10b981,color:#fff
-    style D fill:#8b5cf6,color:#fff
-    style F fill:#3b82f6,color:#fff
-```
 
 ### 개발 체크리스트
 
@@ -1979,23 +1588,6 @@ graph TB
 | **LCP** | < 2.5초 | ~1.8초 | ✅ |
 
 ### 향후 개선 사항
-
-```mermaid
-gantt
-    title 아키텍처 개선 로드맵
-    dateFormat  YYYY-MM-DD
-    section API 연동
-    Django REST API 개발           :a1, 2025-01-01, 30d
-    API Client 구현                :a2, after a1, 10d
-    Hooks API 전환                 :a3, after a2, 15d
-    section 성능 최적화
-    React Query 도입               :b1, 2025-02-01, 10d
-    이미지 최적화                   :b2, after b1, 7d
-    코드 스플리팅                   :b3, after b2, 7d
-    section 테스트
-    Unit 테스트 작성               :c1, 2025-03-01, 20d
-    E2E 테스트 작성                :c2, after c1, 15d
-```
 
 ---
 
@@ -2044,5 +1636,4 @@ gantt
 **최종 업데이트**: 2025-12-27  
 **작성자**: AI Maker Lab 개발팀
 **프로젝트 버전**: 0.1.0  
-**문서 버전**: 2.0 (Mermaid 다이어그램 추가)
 

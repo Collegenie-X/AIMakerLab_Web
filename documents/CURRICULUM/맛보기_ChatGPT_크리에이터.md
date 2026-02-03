@@ -104,20 +104,6 @@ AI가 만든 결과물을 **무조건 수용하지 않습니다**. 제작자로�
 
 ### 전체 구조도: AI 파트너 협업 여정
 
-```mermaid
-graph LR
-    A[3시간<br/>AI 파트너 기초] --> B[6시간<br/>+다양한 콘텐츠]
-    B --> C[12시간<br/>+자동화 마스터]
-    
-    A --> A1[역공부<br/>체이닝<br/>장인 정신]
-    B --> B1[구조적 사고<br/>다중 체인]
-    C --> C1[API 자동화<br/>에이전트]
-    
-    style A fill:#3b82f6,color:#fff
-    style B fill:#10b981,color:#fff
-    style C fill:#f59e0b,color:#fff
-```
-
 ### 3시간 과정: AI 웹툰 제작 (역공부 + 체이닝 프롬프트)
 
 **목표**: AI 파트너를 관리하며 웹툰 1화 완성
@@ -138,28 +124,6 @@ graph LR
 
 ### 6시간 과정: 웹툰 + 영상 시나리오 (콘텐츠 구조 학습)
 
-```mermaid
-graph TB
-    subgraph "전반부 3시간: 웹툰"
-        A1[8컷 구조 학습<br/>90분]
-        A2[기승전결 제작<br/>90분]
-    end
-    
-    subgraph "후반부 3시간: 영상"
-        B1[3막 구조 학습<br/>90분]
-        B2[영상 시나리오<br/>90분]
-    end
-    
-    A1 --> A2
-    A2 --> B1
-    B1 --> B2
-    
-    style A1 fill:#3b82f6,color:#fff
-    style A2 fill:#10b981,color:#fff
-    style B1 fill:#f59e0b,color:#fff
-    style B2 fill:#ef4444,color:#fff
-```
-
 | 세션 | 시간 | 프로젝트 | 콘텐츠 구조 |
 |------|------|----------|-------------|
 | 1교시 | 90분 | 웹툰 구조 질문 | "웹툰 8컷 구조가 뭐야?" |
@@ -171,34 +135,6 @@ graph TB
 **핵심 학습**: 각 콘텐츠 고유의 구조 이해
 
 ### 12시간 과정: 3대 콘텐츠 구조 마스터
-
-```mermaid
-graph TB
-    subgraph "1단계: 웹툰 구조 (4시간)"
-        P1[8컷 구조<br/>2시간]
-        P2[장편 연재 구조<br/>2시간]
-    end
-    
-    subgraph "2단계: 영상 구조 (4시간)"
-        A1[3막 구조<br/>2시간]
-        A2[유튜브 특화 구조<br/>2시간]
-    end
-    
-    subgraph "3단계: 게임 구조 (4시간)"
-        E1[세계관+퀘스트<br/>2시간]
-        E2[대화+분기 구조<br/>2시간]
-    end
-    
-    P1 --> P2
-    P2 --> A1
-    A1 --> A2
-    A2 --> E1
-    E1 --> E2
-    
-    style P2 fill:#3b82f6,color:#fff
-    style A2 fill:#10b981,color:#fff
-    style E2 fill:#f59e0b,color:#fff
-```
 
 **일정표**
 
@@ -219,22 +155,6 @@ graph TB
 ## 🎮 프로젝트 상세
 
 ### 프로젝트 1: AI 웹툰 제작 (3시간 과정 메인)
-
-```mermaid
-graph TB
-    A[완성품 분석<br/>역공부] --> B[프롬프트 역추적]
-    B --> C[체이닝 구조 설계]
-    C --> D[1차 제작<br/>AI에게 일 시키기]
-    D --> E[체크+성찰]
-    E --> F{만족?}
-    F -->|NO| G[수정 요청]
-    G --> D
-    F -->|YES| H[최종 완성]
-    
-    style C fill:#3b82f6,color:#fff
-    style E fill:#f59e0b,color:#fff
-    style H fill:#10b981,color:#fff
-```
 
 **난이도**: ⭐⭐⭐ (중급 - AI 관리 역량)  
 **소요 시간**: 3시간  
@@ -526,24 +446,6 @@ AI: "감정 설명이 부족합니다. 지우의 내면 독백을 추가하면
 
 ### 프로젝트 2: 유튜브 영상 시나리오 (6시간 과정 - 3막 구조)
 
-```mermaid
-graph TB
-    A[열린 질문] --> B[영상 구조 학습]
-    B --> C[3막 구조]
-    C --> D[1막: 훅<br/>30초]
-    C --> E[2막: 전개<br/>8분]
-    C --> F[3막: 클라이맥스<br/>1분30초]
-    
-    D --> G[체이닝 프롬프트]
-    E --> G
-    F --> G
-    G --> H[시나리오 완성]
-    
-    style B fill:#3b82f6,color:#fff
-    style C fill:#10b981,color:#fff
-    style G fill:#f59e0b,color:#fff
-```
-
 **난이도**: ⭐⭐⭐ (중급)  
 **소요 시간**: 90분  
 **대상**: 중등 2학년 ~ 고등 3학년
@@ -798,28 +700,6 @@ AI:
 ### 2단계: 퀘스트 구조 설계
 
 **게임 스토리 구조 체계**
-
-```mermaid
-graph TB
-    A[세계관] --> B[메인 퀘스트]
-    A --> C[서브 퀘스트]
-    
-    B --> D[챕터 1<br/>출발]
-    B --> E[챕터 2<br/>분기점 1]
-    E --> F[선택 A: 정의]
-    E --> G[선택 B: 복수]
-    
-    F --> H[챕터 3A]
-    G --> I[챕터 3B]
-    
-    H --> J[엔딩 1: 영웅]
-    I --> K[엔딩 2: 악당]
-    
-    style A fill:#3b82f6,color:#fff
-    style E fill:#f59e0b,color:#fff
-    style J fill:#10b981,color:#fff
-    style K fill:#ef4444,color:#fff
-```
 
 **체이닝 프롬프트 예시**
 
@@ -1189,24 +1069,6 @@ AI:
 
 **일정 구성**
 
-```mermaid
-gantt
-    title 6시간 과정 일정
-    dateFormat HH:mm
-    axisFormat %H:%M
-    
-    section 1부 (3시간)
-    오리엔테이션: 09:00, 15m
-    AI 웹툰: 09:15, 135m
-    
-    section 점심 (1시간)
-    휴식: 12:00, 60m
-    
-    section 2부 (3시간)
-    영상 기획서: 13:00, 90m
-    게임 스토리: 14:30, 90m
-```
-
 **세부 시간표**
 
 | 교시 | 시간 | 프로젝트 | 세부 활동 |
@@ -1235,34 +1097,6 @@ gantt
 **목표**: 6개 콘텐츠 + 3개 자동화 봇
 
 **전체 구조**
-
-```mermaid
-graph TB
-    subgraph "DAY 1 (4시간): 프롬프트"
-        D1A[웹툰+영상<br/>2시간]
-        D1B[게임 기획<br/>2시간]
-    end
-    
-    subgraph "DAY 2 (4시간): API"
-        D2A[NewsAPI+이미지<br/>2시간]
-        D2B[TTS 음성<br/>2시간]
-    end
-    
-    subgraph "DAY 3 (4시간): 에이전트"
-        D3A[자동 블로그<br/>2시간]
-        D3B[커스텀 GPT<br/>2시간]
-    end
-    
-    D1A --> D1B
-    D1B --> D2A
-    D2A --> D2B
-    D2B --> D3A
-    D3A --> D3B
-    
-    style D1A fill:#3b82f6,color:#fff
-    style D2B fill:#10b981,color:#fff
-    style D3B fill:#f59e0b,color:#fff
-```
 
 **일차별 계획**
 
@@ -1336,22 +1170,6 @@ graph TB
 ## 🎯 교육 효과
 
 ### 학습 성과
-
-```mermaid
-graph TB
-    A[3시간 체험] --> B[프롬프트 이해<br/>80%]
-    A --> C[웹툰 1개<br/>100%]
-    
-    D[6시간 과정] --> E[콘텐츠 제작 능력<br/>90%]
-    D --> F[3종 완성<br/>100%]
-    
-    G[12시간 과정] --> H[AI 자동화<br/>95%]
-    G --> I[9종+봇 3개<br/>100%]
-    
-    style C fill:#10b981,color:#fff
-    style F fill:#10b981,color:#fff
-    style I fill:#10b981,color:#fff
-```
 
 ### 역량 비교
 
@@ -1570,16 +1388,6 @@ ChatGPT 크리에이터 문서를 **AI 파트너 협업 + 장인 정신 + 역공
 ### ✅ 3. 장인 정신: 끝없는 개선
 
 **체크 → 성찰 → 수정 → 질문 → 완성**
-
-```mermaid
-graph TB
-    A[AI 1차 결과] --> B[체크: 이게 자연스러워?]
-    B --> C[성찰: 왜 어색할까?]
-    C --> D[수정: ~로 다시 작성해줘]
-    D --> E{만족?}
-    E -->|NO| B
-    E -->|YES| F[최종 완성]
-```
 
 **장인의 질문**
 - ✅ "이 대사가 자연스러운가?"

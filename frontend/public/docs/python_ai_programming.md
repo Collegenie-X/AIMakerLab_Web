@@ -16,24 +16,9 @@
 
 ### 왜 Python인가?
 
-```mermaid
-mindmap
-  root((Python))
-    쉬운 문법
-      영어처럼 읽힘
-      들여쓰기 기반
-      초보자 친화적
-    강력한 라이브러리
-      TensorFlow
-      PyTorch
-      Scikit-learn
-      OpenCV
-    AI 표준 언어
-      Google
-      Facebook
-      Netflix
-      대학 연구
-```
+> **[마인드맵 다이어그램 생략]** 주요 개념은 본문에서 설명합니다.
+
+
 
 ### 설치 및 환경 설정
 
@@ -174,19 +159,9 @@ plt.show()
 
 ### 머신러닝이란?
 
-```mermaid
-graph LR
-    A[데이터 수집] --> B[데이터 전처리]
-    B --> C[모델 선택]
-    C --> D[모델 학습]
-    D --> E[모델 평가]
-    E --> F{성능 OK?}
-    F -->|아니오| C
-    F -->|예| G[모델 배포]
-    
-    style D fill:#4169e1,color:#fff
-    style G fill:#32cd32,color:#fff
-```
+> **[간단한 흐름도]** 본문에서 단계별로 설명합니다.
+
+
 
 ### 프로젝트 1: 꽃 분류하기 (Iris Dataset)
 
@@ -480,58 +455,15 @@ while True:
 
 ### 추천 라이브러리
 
-```mermaid
-graph TB
-    subgraph "데이터 처리"
-        A1[NumPy<br/>수치 계산]
-        A2[Pandas<br/>데이터 분석]
-    end
-    
-    subgraph "시각화"
-        B1[Matplotlib<br/>기본 그래프]
-        B2[Seaborn<br/>통계 시각화]
-    end
-    
-    subgraph "머신러닝"
-        C1[Scikit-learn<br/>전통적 ML]
-        C2[TensorFlow<br/>딥러닝]
-        C3[PyTorch<br/>연구용 DL]
-    end
-    
-    subgraph "컴퓨터 비전"
-        D1[OpenCV<br/>이미지 처리]
-        D2[PIL<br/>이미지 조작]
-    end
-    
-    style C2 fill:#ff6f00,color:#fff
-    style C3 fill:#ee4c2c,color:#fff
-```
+> **[프로세스 다이어그램 생략]** 단계별 설명은 본문을 참조하세요.
+
+
 
 ### 학습 로드맵 (6개월)
 
-```mermaid
-gantt
-    title Python AI 6개월 마스터 플랜
-    dateFormat YYYY-MM-DD
-    
-    section Python 기초 (1개월)
-    문법 기초                :a1, 2025-01-01, 15d
-    자료구조, 함수            :a2, after a1, 15d
-    
-    section 데이터 분석 (1개월)
-    Pandas, NumPy           :b1, after a2, 15d
-    Matplotlib 시각화        :b2, after b1, 15d
-    
-    section 머신러닝 (2개월)
-    Scikit-learn 기초        :c1, after b2, 20d
-    회귀, 분류 알고리즘       :c2, after c1, 20d
-    프로젝트 1               :c3, after c2, 20d
-    
-    section 딥러닝 (2개월)
-    TensorFlow 기초          :d1, after c3, 20d
-    CNN, RNN 구조            :d2, after d1, 20d
-    프로젝트 2               :d3, after d2, 20d
-```
+> **[간트 차트 생략]** 일정 계획은 본문을 참조하세요.
+
+
 
 ---
 

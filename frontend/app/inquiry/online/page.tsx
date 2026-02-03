@@ -1,12 +1,16 @@
 "use client"
 
+import { useState, useEffect } from "react"
+import { useSearchParams } from "next/navigation"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { Card, CardContent } from "@/components/ui/data-display/card"
 import { Badge } from "@/components/ui/data-display/badge"
+import { Button } from "@/components/ui/buttons/button"
 import { InquiryFormDialog } from "@/components/inquiry-form-dialog"
+import { InquiryDialog } from "../components/InquiryDialog"
 import { CheckCircle2, Clock, Send, AlertTriangle } from "lucide-react"
-import { inquiryConfig } from "../config"
+import { inquiryConfig, type InquiryItem } from "../config"
 import { InquiryList } from "../components/InquiryList"
 
 const inquiries = [
@@ -93,6 +97,46 @@ const inquiries = [
 ]
 
 export default function OnlineInquiryPage() {
+  const searchParams = useSearchParams()
+  const [isInquiryDialogOpen, setIsInquiryDialogOpen] = useState(false)
+  const [initialInquiryData, setInitialInquiryData] = useState<InquiryItem | undefined>(undefined)
+
+  // URL 파라미터로 전달된 수업 정보 처리
+  useEffect(() => {
+    const course = searchParams.get('course')
+    const instructor = searchParams.get('instructor')
+    const duration = searchParams.get('duration')
+    const level = searchParams.get('level')
+
+    if (course) {
+      // 수업 정보가 있으면 자동으로 문의 Dialog 열기
+      setInitialInquiryData({
+        id: Date.now(),
+        title: `${course} 출강 문의`,
+        category: '출강 수업',
+        status: '검토중',
+        date: new Date().toISOString().slice(0, 10),
+        course: course,
+        instructor: instructor || undefined,
+        duration: duration || undefined,
+        grade: level || undefined,
+      })
+      setIsInquiryDialogOpen(true)
+    }
+  }, [searchParams])
+
+  // 문의 작성 열기
+  const handleOpenInquiry = () => {
+    setInitialInquiryData(undefined)
+    setIsInquiryDialogOpen(true)
+  }
+
+  // 문의 저장
+  const handleSaveInquiry = (item: InquiryItem) => {
+    console.log('문의 저장:', item)
+    alert('문의가 접수되었습니다. 빠른 시일 내에 연락드리겠습니다.')
+  }
+
   const StatusBadge = ({ status }: { status: string }) => {
     const style =
       status === "확정"
@@ -141,12 +185,18 @@ export default function OnlineInquiryPage() {
         <section className="bg-white py-16">
           <div className="container mx-auto px-4">
             <div className="mx-auto max-w-5xl">
+              <div className="mb-6 flex items-center justify-between">
+                <h2 className="text-2xl font-bold text-gray-900">출강 문의 목록</h2>
+                <Button 
+                  onClick={handleOpenInquiry}
+                  className="bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700"
+                >
+                  <Send className="mr-2 h-4 w-4" />
+                  출강 수업 문의하기
+                </Button>
+              </div>
 
               <InquiryList initialItems={inquiryConfig.items} />
-
-              <div className="mt-2 text-right">
-                <InquiryFormDialog />
-              </div>
             </div>
           </div>
         </section>
@@ -214,6 +264,14 @@ export default function OnlineInquiryPage() {
       </main>
 
       <Footer />
+
+      {/* 문의 작성 다이얼로그 */}
+      <InquiryDialog
+        open={isInquiryDialogOpen}
+        onOpenChange={setIsInquiryDialogOpen}
+        initial={initialInquiryData}
+        onSave={handleSaveInquiry}
+      />
     </div>
   )
 }

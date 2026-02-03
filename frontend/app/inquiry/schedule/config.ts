@@ -90,6 +90,7 @@ export type ScheduleItem = {
 export type ScheduleTexts = {
   heroTitle: string
   heroSubtitle: string
+  heroDescription?: string
   monthPrefix: string
   monthSuffix: string
   listEmpty: string
@@ -201,24 +202,24 @@ export function getScheduleTexts(type: ScheduleType): ScheduleTexts {
   }
 
   const baseInfo = {
-    title: "수강 신청 안내",
-    refundTitle: "환불 정책",
-    refundDesc: "개강 7일 전까지 전액 환불, 개강 3일 전까지 50% 환불, 개강 후에는 환불이 불가능합니다.",
-    capacityTitle: "수강 인원",
-    capacityDesc: "최소 인원 미달 시 개강이 연기되거나 취소될 수 있으며, 이 경우 전액 환불됩니다.",
-    contactTitle: "문의",
-    contactDesc: "수업 관련 문의사항은 010-2708-0051 또는 info@aimakerlab.com으로 연락주세요.",
+    title: "출강 수업 안내",
+    refundTitle: "🎯 간편한 문의 방법",
+    refundDesc: "마음에 드는 커리큘럼을 찾으셨나요? 각 수업 카드의 '출강 수업 문의하기' 버튼을 클릭하면 해당 수업 정보가 자동으로 입력된 문의 폼이 열립니다. 3시간/6시간/12시간 중에서 기관 상황에 맞는 시간을 선택하시면 됩니다!",
+    capacityTitle: "📍 출강 가능 지역",
+    capacityDesc: "서울, 경기는 기본 출강 지역이며 전국 어디든 방문 가능합니다. 학교, 기업, 도서관, 복지관 등 어디든 찾아갑니다. 최소 인원 10명부터 진행 가능하며, 인원과 장소에 따라 맞춤 견적을 제공해드립니다.",
+    contactTitle: "📞 빠른 상담",
+    contactDesc: "궁금한 점이 있으신가요? 전화(010-2708-0051) 또는 이메일(info@aimakerlab.com)로 편하게 연락주세요. 평일 오전 9시부터 오후 6시까지 상담 가능합니다!",
   }
 
-  // 주중 수업 텍스트
+  // 출강 수업 커리큘럼
   if (type === "weekday") {
     return {
-      heroTitle: "주중 오프라인 수업 일정",
-      heroSubtitle:
-        "전문 강사와 함께하는 실습 중심 교육! 주중 저녁 시간에 소규모 정예 수업으로 확실한 학습 효과를 경험하세요.",
+      heroTitle: "출강 수업 커리큘럼",
+      heroSubtitle: "우리 기관에 딱 맞는 AI 교육을 찾고 계신가요?",
+      heroDescription: "3시간부터 12시간까지, 필요에 맞게 선택하세요. 아래 커리큘럼을 보고 '출강 수업 문의하기'를 클릭하면 바로 문의할 수 있어요!",
       monthPrefix: "",
-      monthSuffix: " 개강 수업",
-      listEmpty: "해당 월에 예정된 주중 수업이 없습니다.",
+      monthSuffix: " 추천 커리큘럼",
+      listEmpty: "해당 시간대 커리큘럼을 준비 중입니다.",
       info: baseInfo,
       labels: baseLabels,
     }

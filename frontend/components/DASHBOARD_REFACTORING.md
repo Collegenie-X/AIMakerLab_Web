@@ -24,60 +24,7 @@
 
 ### 전체 구조
 
-```mermaid
-graph TB
-    subgraph "프레젠테이션 레이어"
-        A[대시보드 페이지<br/>page.tsx] --> B[UI 컴포넌트<br/>components/]
-        A --> C[설정 파일<br/>config.ts]
-    end
-    
-    subgraph "비즈니스 로직 레이어"
-        D[커스텀 훅<br/>hooks/] --> E[인증 로직<br/>use-auth-guard.ts]
-        D --> F[데이터 로직<br/>use-dashboard-data.ts]
-        D --> G[프로필 로직<br/>use-profile.ts]
-    end
-    
-    subgraph "데이터 레이어"
-        H[JSON Mock Data<br/>public/dashboard/] --> I[courses-mock.json]
-        H --> J[comments-mock.json]
-        H --> K[gallery-mock.json]
-        H --> L[stats-mock.json]
-    end
-    
-    A --> D
-    D --> H
-    
-    style A fill:#3b82f6,color:#fff
-    style D fill:#10b981,color:#fff
-    style H fill:#f59e0b,color:#fff
-```
-
 ### 데이터 흐름
-
-```mermaid
-sequenceDiagram
-    participant U as 사용자
-    participant P as Page Component
-    participant H as Custom Hook
-    participant J as JSON Data
-    participant LS as LocalStorage
-    
-    U->>P: 페이지 접근
-    P->>H: useAuthGuard() 호출
-    H->>LS: getCurrentUser() 체크
-    
-    alt 인증됨
-        LS-->>H: userEmail 반환
-        H-->>P: userEmail, isLoading=false
-        P->>H: useCourses() 호출
-        H->>J: fetch('/dashboard/courses-mock.json')
-        J-->>H: 강의 데이터
-        H-->>P: courses 반환
-        P->>U: UI 렌더링
-    else 미인증
-        H->>U: 홈으로 리다이렉트
-    end
-```
 
 ---
 
@@ -144,22 +91,6 @@ frontend/
 
 ### 1. 설정 기반 개발 (`config.ts`)
 
-```mermaid
-graph LR
-    A[config.ts] --> B[네비게이션 메뉴]
-    A --> C[페이지 텍스트]
-    A --> D[배지 색상 매핑]
-    A --> E[버튼 라벨]
-    
-    B --> F[page.tsx]
-    C --> F
-    D --> F
-    E --> F
-    
-    style A fill:#3b82f6,color:#fff
-    style F fill:#10b981,color:#fff
-```
-
 **모든 텍스트와 설정이 한 곳에서 관리됩니다:**
 
 ```typescript
@@ -222,39 +153,6 @@ export const statusBadgeVariants = {
 | ✅ **타입 안전성** | TypeScript로 오타 방지 |
 
 ### 2. 비즈니스 로직 분리 (Custom Hooks)
-
-```mermaid
-graph TB
-    subgraph "Hooks Layer (비즈니스 로직)"
-        A[use-auth-guard.ts]
-        B[use-dashboard-data.ts]
-        C[use-profile.ts]
-    end
-    
-    subgraph "Data Layer"
-        D[localStorage<br/>인증 정보]
-        E[JSON Mock Data<br/>courses/comments/gallery]
-        F[Form State<br/>프로필/비밀번호]
-    end
-    
-    subgraph "UI Layer"
-        G[Page Components]
-        H[Card Components]
-    end
-    
-    A --> D
-    B --> E
-    C --> F
-    
-    G --> A
-    G --> B
-    G --> C
-    H --> B
-    
-    style A fill:#ef4444,color:#fff
-    style B fill:#3b82f6,color:#fff
-    style C fill:#10b981,color:#fff
-```
 
 #### 📋 Hooks 목록 및 역할
 
@@ -403,42 +301,6 @@ export function usePasswordChange(userEmail: string) {
 ### 3. 재사용 가능한 컴포넌트
 
 #### 🧩 공통 컴포넌트 시스템
-
-```mermaid
-graph TB
-    subgraph "공통 컴포넌트 (app/dashboard/components/)"
-        A[EmptyState<br/>빈 상태 표시]
-        B[StatCard<br/>통계 카드]
-        C[DashboardSidebar<br/>사이드바 네비게이션]
-    end
-    
-    subgraph "페이지별 컴포넌트"
-        D[CourseCard<br/>강의 카드]
-        E[CommentCard<br/>댓글 카드]
-        F[GalleryItemCard<br/>갤러리 카드]
-        G[ProfileForm<br/>프로필 폼]
-        H[SecurityForm<br/>보안 폼]
-    end
-    
-    I[courses/page.tsx] --> A
-    I --> D
-    
-    J[comments/page.tsx] --> A
-    J --> E
-    
-    K[gallery/page.tsx] --> A
-    K --> F
-    
-    L[profile/page.tsx] --> G
-    L --> H
-    
-    M[page.tsx] --> B
-    M --> C
-    
-    style A fill:#3b82f6,color:#fff
-    style B fill:#3b82f6,color:#fff
-    style C fill:#3b82f6,color:#fff
-```
 
 #### 📦 EmptyState 컴포넌트
 
@@ -593,33 +455,6 @@ export function CourseCard({ course }: CourseCardProps) {
 
 ### 5. JSON 데이터 분리 (Mock Data)
 
-```mermaid
-graph LR
-    subgraph "JSON Mock Data (public/dashboard/)"
-        A[courses-mock.json<br/>강의 목록]
-        B[comments-mock.json<br/>댓글 목록]
-        C[gallery-mock.json<br/>갤러리 아이템]
-        D[stats-mock.json<br/>통계 데이터]
-    end
-    
-    subgraph "Hooks"
-        E[useCourses]
-        F[useComments]
-        G[useGallery]
-        H[useDashboardStats]
-    end
-    
-    A --> E
-    B --> F
-    C --> G
-    D --> H
-    
-    style A fill:#f59e0b,color:#fff
-    style B fill:#f59e0b,color:#fff
-    style C fill:#f59e0b,color:#fff
-    style D fill:#f59e0b,color:#fff
-```
-
 #### 📦 JSON 데이터 구조
 
 **courses-mock.json (강의 목록)**
@@ -691,21 +526,6 @@ graph LR
 ```
 
 #### 🔄 데이터 로딩 플로우
-
-```mermaid
-sequenceDiagram
-    participant P as Page
-    participant H as Hook
-    participant J as JSON
-    participant S as State
-    
-    P->>H: useCourses() 호출
-    H->>J: fetch('/dashboard/courses-mock.json')
-    J-->>H: JSON 데이터 반환
-    H->>S: setCourses(data)
-    S-->>P: courses 업데이트
-    P->>P: UI 렌더링
-```
 
 ## 코드 개선 예시
 
@@ -852,28 +672,6 @@ const filters = [
 
 ### 타입 정의 구조
 
-```mermaid
-graph TB
-    A[TypeScript 타입 정의] --> B[Course]
-    A --> C[Comment]
-    A --> D[GalleryItem]
-    A --> E[DashboardStats]
-    A --> F[ProfileData]
-    A --> G[PasswordChangeData]
-    
-    B --> H[Page Components]
-    C --> H
-    D --> H
-    E --> H
-    
-    F --> I[Form Components]
-    G --> I
-    
-    style A fill:#3b82f6,color:#fff
-    style H fill:#10b981,color:#fff
-    style I fill:#10b981,color:#fff
-```
-
 ### 📋 인터페이스 정의
 
 모든 데이터 타입이 명확하게 정의되어 있습니다:
@@ -956,26 +754,6 @@ export interface PasswordChangeData {
 ## 🔄 백엔드 API 연동 준비
 
 ### API 전환 전략
-
-```mermaid
-graph LR
-    subgraph "현재 (Mock Data)"
-        A[Hook] --> B[fetch JSON]
-        B --> C[public/dashboard/*.json]
-    end
-    
-    subgraph "향후 (REST API)"
-        D[Hook] --> E[API Client]
-        E --> F[Django REST API]
-    end
-    
-    A -.전환.-> D
-    B -.전환.-> E
-    C -.전환.-> F
-    
-    style A fill:#f59e0b,color:#fff
-    style D fill:#10b981,color:#fff
-```
 
 ### 📝 전환 가이드
 
@@ -1061,23 +839,6 @@ setCourses(response.data)
 ### 상세 이점
 
 #### 1️⃣ 유지보수성 향상
-```mermaid
-graph LR
-    A[텍스트 변경 요청] --> B{리팩토링 전}
-    A --> C{리팩토링 후}
-    
-    B --> D[5개 페이지 수정]
-    B --> E[각 페이지 배포]
-    B --> F[5개 파일 테스트]
-    
-    C --> G[config.ts 1줄 수정]
-    C --> H[즉시 반영]
-    
-    style C fill:#10b981,color:#fff
-    style G fill:#10b981,color:#fff
-    style H fill:#10b981,color:#fff
-```
-
 - ✅ **텍스트 변경**: `config.ts` 한 곳만 수정
 - ✅ **작은 컴포넌트**: 50줄 이하로 이해하기 쉬움
 - ✅ **로직 분리**: 비즈니스 로직이 hooks에 분리되어 테스트 용이
@@ -1108,19 +869,6 @@ graph LR
 ## 🔧 마이그레이션 가이드
 
 ### 단계별 리팩토링 프로세스
-
-```mermaid
-graph TB
-    A[기존 페이지] --> B[1단계: 텍스트 추출]
-    B --> C[2단계: 데이터 분리]
-    C --> D[3단계: 로직 추출]
-    D --> E[4단계: 컴포넌트 분할]
-    E --> F[5단계: map 적용]
-    F --> G[리팩토링 완료]
-    
-    style A fill:#ef4444,color:#fff
-    style G fill:#10b981,color:#fff
-```
 
 ### 📝 상세 단계
 
@@ -1231,15 +979,6 @@ const { courses } = useCourses()
 ## 📊 리팩토링 전후 비교
 
 ### 코드 품질 지표
-
-```mermaid
-xychart-beta
-    title "코드 품질 개선 (점수: 0-100)"
-    x-axis ["유지보수성", "재사용성", "타입안정성", "테스트용이성", "확장성"]
-    y-axis "점수" 0 --> 100
-    bar [30, 20, 40, 25, 35]
-    bar [95, 90, 100, 85, 90]
-```
 
 | 지표 | Before | After | 개선율 |
 |------|--------|-------|--------|

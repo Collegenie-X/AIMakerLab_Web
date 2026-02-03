@@ -20,72 +20,7 @@
 
 ### 전체 구조
 
-```mermaid
-graph TB
-    subgraph "프레젠테이션 레이어 (UI)"
-        A[Terms Page<br/>이용약관]
-        B[Privacy Page<br/>개인정보처리방침]
-        C[Email Policy Page<br/>이메일무단수집거부]
-    end
-    
-    subgraph "비즈니스 로직 레이어"
-        D[usePolicyData Hook]
-        E[데이터 로딩 로직]
-        F[에러 처리]
-    end
-    
-    subgraph "데이터 레이어"
-        G[terms.json]
-        H[privacy.json]
-        I[email-policy.json]
-    end
-    
-    subgraph "테마 시스템"
-        J[파란색 테마<br/>이용약관]
-        K[녹색 테마<br/>개인정보]
-        L[빨간색 테마<br/>이메일정책]
-    end
-    
-    A --> D --> G
-    B --> D --> H
-    C --> D --> I
-    
-    A --> J
-    B --> K
-    C --> L
-    
-    style A fill:#3b82f6,color:#fff
-    style B fill:#10b981,color:#fff
-    style C fill:#ef4444,color:#fff
-    style D fill:#f59e0b,color:#fff
-```
-
 ### 데이터 흐름
-
-```mermaid
-sequenceDiagram
-    participant U as 사용자
-    participant P as Page Component
-    participant H as usePolicyData Hook
-    participant J as JSON Data
-    participant LS as localStorage
-    
-    U->>P: 페이지 접근
-    P->>H: usePolicyData('terms') 호출
-    
-    alt localStorage에 캐시 있음
-        H->>LS: 캐시된 데이터 확인
-        LS-->>H: 캐시 데이터 반환
-        H-->>P: 즉시 데이터 반환
-    else localStorage에 캐시 없음
-        H->>J: fetch('/policies/terms.json')
-        J-->>H: JSON 데이터 반환
-        H->>LS: 데이터 캐싱 저장
-        H-->>P: 데이터 반환
-    end
-    
-    P->>U: UI 렌더링
-```
 
 ---
 
@@ -129,37 +64,6 @@ frontend/
 ## 🧩 아키텍처 상세
 
 ### 1. UI / 비즈니스 로직 분리
-
-```mermaid
-graph LR
-    subgraph "UI Layer (page.tsx)"
-        A[렌더링]
-        B[스타일링]
-        C[인터랙션]
-    end
-    
-    subgraph "Logic Layer (usePolicyData)"
-        D[데이터 로딩]
-        E[캐싱]
-        F[에러 처리]
-    end
-    
-    subgraph "Data Layer"
-        G[JSON 파일]
-        H[localStorage]
-    end
-    
-    A --> D
-    B --> D
-    C --> D
-    
-    D --> G
-    E --> H
-    
-    style A fill:#3b82f6,color:#fff
-    style D fill:#10b981,color:#fff
-    style G fill:#f59e0b,color:#fff
-```
 
 #### UI 레이어 (page.tsx)
 
@@ -294,24 +198,6 @@ function saveToCache(key: string, data: any) {
 
 #### 활용 방안
 
-```mermaid
-graph TB
-    A[사용자 방문] --> B{캐시 확인}
-    B -->|캐시 있음| C[localStorage에서 로딩]
-    B -->|캐시 없음| D[JSON 파일 로딩]
-    
-    C --> E[즉시 렌더링]
-    D --> F[localStorage에 저장]
-    F --> E
-    
-    E --> G{1시간 경과?}
-    G -->|Yes| H[캐시 무효화]
-    G -->|No| I[캐시 유지]
-    
-    style C fill:#10b981,color:#fff
-    style E fill:#10b981,color:#fff
-```
-
 #### 장점
 
 | 장점 | 설명 |
@@ -339,20 +225,6 @@ graph TB
 ## 🎨 테마 시스템
 
 ### 페이지별 색상 테마
-
-```mermaid
-graph LR
-    A[이용약관] --> B[파란색 테마<br/>#3b82f6]
-    C[개인정보처리방침] --> D[녹색 테마<br/>#10b981]
-    E[이메일무단수집거부] --> F[빨간색 테마<br/>#ef4444]
-    
-    style A fill:#3b82f6,color:#fff
-    style B fill:#3b82f6,color:#fff
-    style C fill:#10b981,color:#fff
-    style D fill:#10b981,color:#fff
-    style E fill:#ef4444,color:#fff
-    style F fill:#ef4444,color:#fff
-```
 
 ### 테마 매핑 테이블
 
@@ -464,26 +336,6 @@ const THEME_CONFIG = {
 
 ### 공통 UI 요소
 
-```mermaid
-graph TB
-    A[정책 페이지] --> B[히어로 섹션]
-    A --> C[컨텐츠 영역]
-    A --> D[푸터]
-    
-    B --> E[제목]
-    B --> F[최종 업데이트 배지]
-    B --> G[그라디언트 배경]
-    
-    C --> H[섹션 카드들]
-    H --> I[아이콘]
-    H --> J[제목]
-    H --> K[본문]
-    
-    style B fill:#3b82f6,color:#fff
-    style C fill:#10b981,color:#fff
-    style H fill:#f59e0b,color:#fff
-```
-
 ### 공통 요소 스펙
 
 | 요소 | 스펙 | 클래스 예시 |
@@ -498,17 +350,6 @@ graph TB
 
 #### 📘 이용약관 (Terms)
 
-```mermaid
-graph LR
-    A[이용약관] --> B[파란색 테마]
-    B --> C[문서 아이콘]
-    B --> D[ARTICLE 번호]
-    B --> E[조항별 구분]
-    
-    style A fill:#3b82f6,color:#fff
-    style B fill:#3b82f6,color:#fff
-```
-
 | 특징 | 설명 | 구현 |
 |------|------|------|
 | **색상 테마** | 파란색 계열 (#3b82f6) | 신뢰감, 전문성 |
@@ -518,17 +359,6 @@ graph LR
 
 #### 📗 개인정보취급방침 (Privacy)
 
-```mermaid
-graph LR
-    A[개인정보취급방침] --> B[녹색 테마]
-    B --> C[보안 아이콘]
-    B --> D[카테고리 박스]
-    B --> E[정보 테이블]
-    
-    style A fill:#10b981,color:#fff
-    style B fill:#10b981,color:#fff
-```
-
 | 특징 | 설명 | 구현 |
 |------|------|------|
 | **색상 테마** | 녹색 계열 (#10b981) | 안전, 보안 |
@@ -537,17 +367,6 @@ graph LR
 | **보안 섹션** | 암호화 방법 강조 | Alert 컴포넌트 |
 
 #### 📕 이메일무단수집거부 (Email Policy)
-
-```mermaid
-graph LR
-    A[이메일무단수집거부] --> B[빨간색 테마]
-    B --> C[경고 아이콘]
-    B --> D[경고 박스]
-    B --> E[법률 인용]
-    
-    style A fill:#ef4444,color:#fff
-    style B fill:#ef4444,color:#fff
-```
 
 | 특징 | 설명 | 구현 |
 |------|------|------|
@@ -571,28 +390,6 @@ graph LR
 ## 🔄 백엔드 연동 계획
 
 ### API 전환 전략
-
-```mermaid
-graph LR
-    subgraph "현재"
-        A[page.tsx] --> B[fetch JSON]
-        B --> C[public/policies/*.json]
-    end
-    
-    subgraph "향후"
-        D[page.tsx] --> E[usePolicyData Hook]
-        E --> F[API Client]
-        F --> G[Django REST API]
-        G --> H[Database]
-    end
-    
-    A -.전환.-> D
-    B -.전환.-> E
-    C -.전환.-> G
-    
-    style A fill:#f59e0b,color:#fff
-    style D fill:#10b981,color:#fff
-```
 
 ### 코드 전환 예시
 
@@ -636,20 +433,6 @@ useEffect(() => {
 ## 📱 반응형 디자인
 
 ### 브레이크포인트 전략
-
-```mermaid
-graph LR
-    A[모바일<br/>< 640px] --> B[태블릿<br/>640px-1024px]
-    B --> C[데스크톱<br/>> 1024px]
-    
-    A --> D[단일 컬럼<br/>작은 여백]
-    B --> E[중간 여백<br/>일부 그리드]
-    C --> F[넓은 여백<br/>그리드 레이아웃]
-    
-    style A fill:#ef4444,color:#fff
-    style B fill:#f59e0b,color:#fff
-    style C fill:#10b981,color:#fff
-```
 
 ### 반응형 클래스 가이드
 
@@ -698,23 +481,6 @@ graph LR
 
 ### 시맨틱 HTML 구조
 
-```mermaid
-graph TB
-    A[article] --> B[header]
-    A --> C[main]
-    A --> D[footer]
-    
-    B --> E[h1: 제목]
-    B --> F[time: 업데이트일]
-    
-    C --> G[section: 섹션들]
-    G --> H[h2: 섹션 제목]
-    G --> I[p: 본문]
-    
-    style A fill:#3b82f6,color:#fff
-    style C fill:#10b981,color:#fff
-```
-
 ### 향후 개선 사항
 
 ```typescript
@@ -736,30 +502,6 @@ export const metadata: Metadata = {
 ## 🧪 테스트 가이드
 
 ### UI 동작 테스트 (localStorage 활용)
-
-```mermaid
-graph TB
-    A[테스트 시작] --> B[localStorage 조작]
-    B --> C{테스트 시나리오}
-    
-    C --> D[캐시 있음]
-    C --> E[캐시 없음]
-    C --> F[캐시 만료]
-    C --> G[잘못된 데이터]
-    
-    D --> H[즉시 로딩 확인]
-    E --> I[JSON 로딩 확인]
-    F --> J[재로딩 확인]
-    G --> K[에러 처리 확인]
-    
-    H --> L[테스트 완료]
-    I --> L
-    J --> L
-    K --> L
-    
-    style A fill:#3b82f6,color:#fff
-    style L fill:#10b981,color:#fff
-```
 
 ### 수동 테스트 체크리스트
 
@@ -866,28 +608,6 @@ describe('Terms Page', () => {
 | **에러 처리 누락** | fetch 실패 시 처리 필수 | try-catch 블록 |
 
 ### ✅ 베스트 프랙티스
-
-```mermaid
-graph TB
-    A[정책 페이지 개발] --> B{체크리스트}
-    
-    B --> C[✅ JSON으로 데이터 분리]
-    B --> D[✅ Hook으로 로직 분리]
-    B --> E[✅ localStorage 캐싱]
-    B --> F[✅ 테마 일관성]
-    B --> G[✅ 반응형 디자인]
-    B --> H[✅ 접근성 준수]
-    
-    C --> I[배포 준비 완료]
-    D --> I
-    E --> I
-    F --> I
-    G --> I
-    H --> I
-    
-    style A fill:#3b82f6,color:#fff
-    style I fill:#10b981,color:#fff
-```
 
 1. **데이터 분리**: 모든 텍스트를 JSON 파일로 관리
 2. **로직 분리**: 비즈니스 로직을 Hook으로 분리

@@ -16,16 +16,9 @@
 
 ### 개념
 
-```mermaid
-graph LR
-    A[텍스트 코딩<br/>어려움 ❌] --> B[블록코딩<br/>쉬움 ✅]
-    
-    A --> A1["print('Hello')<br/>타이핑 필요"]
-    B --> B1[말하기 Hello<br/>드래그만 하면 됨]
-    
-    style B fill:#32cd32,color:#fff
-    style B1 fill:#98fb98,color:#000
-```
+> **[간단한 흐름도]** 본문에서 단계별로 설명합니다.
+
+
 
 ### 장점
 
@@ -74,19 +67,9 @@ graph LR
 ```
 
 #### Step 2: 블록 조립
-```mermaid
-flowchart TD
-    A[🚩 깃발 클릭했을 때]
-    B[10만큼 움직이기]
-    C[1초 기다리기]
-    D[10만큼 움직이기]
-    E[Hi! 2초 동안 말하기]
-    
-    A --> B --> C --> D --> E
-    
-    style A fill:#ffd700,color:#000
-    style E fill:#32cd32,color:#fff
-```
+> **[간단한 흐름도]** 본문에서 단계별로 설명합니다.
+
+
 
 ---
 
@@ -148,29 +131,9 @@ Entry 블록 → Arduino → LED 켜기/끄기
 
 #### 필요한 블록
 
-```mermaid
-graph TB
-    subgraph "바구니 (플레이어)"
-        P1[왼쪽 화살표 눌렀을 때<br/>x좌표를 -10만큼 바꾸기]
-        P2[오른쪽 화살표 눌렀을 때<br/>x좌표를 +10만큼 바꾸기]
-    end
-    
-    subgraph "사과 (장애물)"
-        A1[시작: y좌표 180으로 정하기<br/>x좌표 -200~200 사이 난수]
-        A2[반복: y좌표를 -5만큼 바꾸기]
-        A3[바구니에 닿았다면?<br/>점수 +1, 다시 위로]
-        A4[y좌표 < -180이면<br/>다시 위로]
-    end
-    
-    subgraph "게임 관리"
-        G1[타이머: 30초<br/>1초마다 -1]
-        G2[타이머 = 0이면<br/>게임 종료]
-    end
-    
-    style P1 fill:#4169e1,color:#fff
-    style A1 fill:#ff6347,color:#fff
-    style G1 fill:#32cd32,color:#fff
-```
+> **[프로세스 다이어그램 생략]** 단계별 설명은 본문을 참조하세요.
+
+
 
 #### 소스 코드 (의사코드)
 ```
@@ -269,25 +232,9 @@ graph TB
 
 ### Entry AI 블록 종류
 
-```mermaid
-mindmap
-  root((Entry AI))
-    번역 블록
-      한→영 번역
-      영→한 번역
-      다국어 지원
-    음성 인식
-      마이크 입력
-      텍스트 변환
-      명령 인식
-    이미지 인식
-      얼굴 감지
-      손동작 인식
-      물체 분류
-    감정 분석
-      텍스트 감정
-      긍정/부정 판단
-```
+> **[마인드맵 다이어그램 생략]** 주요 개념은 본문에서 설명합니다.
+
+
 
 ### 프로젝트 3: AI 번역 앵무새
 
@@ -353,17 +300,9 @@ mindmap
 
 ### Q2. 블록코딩 후에는 뭘 배워야 하나요?
 **A2**:
-```mermaid
-graph LR
-    A[블록코딩] --> B[Python]
-    B --> C[웹 개발<br/>HTML/CSS/JS]
-    B --> D[AI/머신러닝<br/>TensorFlow]
-    
-    style A fill:#ffd700,color:#000
-    style B fill:#3776ab,color:#fff
-    style C fill:#e34c26,color:#fff
-    style D fill:#ff6f00,color:#fff
-```
+> **[간단한 흐름도]** 본문에서 단계별로 설명합니다.
+
+
 
 ### Q3. 블록코딩으로 진짜 프로그래머가 될 수 있나요?
 **A3**: 물론입니다!
@@ -375,23 +314,9 @@ graph LR
 
 ## 학습 로드맵
 
-```mermaid
-gantt
-    title 블록코딩 마스터 6개월 로드맵
-    dateFormat YYYY-MM-DD
-    
-    section 기초 (1-2개월)
-    Scratch 기본 문법        :a1, 2025-01-01, 30d
-    간단한 애니메이션         :a2, after a1, 30d
-    
-    section 중급 (3-4개월)
-    Entry AI 블록            :b1, after a2, 30d
-    게임 만들기              :b2, after b1, 30d
-    
-    section 고급 (5-6개월)
-    복잡한 게임 프로젝트      :c1, after b2, 30d
-    하드웨어 연동 (Arduino)   :c2, after c1, 30d
-```
+> **[간트 차트 생략]** 일정 계획은 본문을 참조하세요.
+
+
 
 ---
 

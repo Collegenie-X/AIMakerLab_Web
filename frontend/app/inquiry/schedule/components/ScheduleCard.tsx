@@ -3,24 +3,50 @@
 import { Badge } from "@/components/ui/data-display/badge"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/data-display/card"
 import { Button } from "@/components/ui/buttons/button"
-import { Calendar, Clock, Star, Users } from "lucide-react"
+import { Calendar, Clock, Star, Users, Send } from "lucide-react"
+import { useRouter } from "next/navigation"
 import type { ScheduleItem, ScheduleTexts } from "../config"
 
 type Props = {
   item: ScheduleItem
   texts: ScheduleTexts
+  onViewDetail?: (item: ScheduleItem) => void
 }
 
 /**
  * 수업 카드 컴포넌트
  * @param item - 수업 정보
  * @param texts - 표시할 텍스트 설정
+ * @param onViewDetail - 상세보기 핸들러
  */
-export function ScheduleCard({ item, texts }: Props) {
+export function ScheduleCard({ item, texts, onViewDetail }: Props) {
+  const router = useRouter()
   const isClosed = item.enrolled >= item.capacity
 
+  // 출강 수업 문의하기 핸들러
+  const handleOutreachInquiry = (e: React.MouseEvent) => {
+    e.stopPropagation()
+    const params = new URLSearchParams({
+      course: item.title,
+      instructor: item.instructor,
+      duration: item.duration,
+      level: item.level,
+    })
+    router.push(`/inquiry/online?${params.toString()}`)
+  }
+
+  // 카드 클릭 핸들러
+  const handleCardClick = () => {
+    if (onViewDetail) {
+      onViewDetail(item)
+    }
+  }
+
   return (
-    <Card className="group cursor-pointer overflow-hidden transition-all hover:shadow-xl">
+    <Card 
+      className="group cursor-pointer overflow-hidden transition-all hover:shadow-xl"
+      onClick={handleCardClick}
+    >
       <div className="relative aspect-video w-full overflow-hidden bg-gray-900">
         {(item.videoUrl || item.videoId) ? (
           <iframe
@@ -93,9 +119,29 @@ export function ScheduleCard({ item, texts }: Props) {
           </div>
         </div>
 
-        <div className="flex items-center justify-between border-t pt-2">
-          <div className="text-xl font-bold text-blue-600">{item.price}</div>
-          <Button variant="outline" size="sm">{texts.labels.seeDetail}</Button>
+        <div className="space-y-2 border-t pt-3">
+          <div className="flex items-center justify-between">
+            <div className="text-xl font-bold text-blue-600">{item.price}</div>
+            <Button 
+              variant="outline" 
+              size="sm"
+              onClick={(e) => {
+                e.stopPropagation()
+                if (onViewDetail) onViewDetail(item)
+              }}
+            >
+              {texts.labels.seeDetail}
+            </Button>
+          </div>
+          <Button 
+            className="w-full"
+            variant="secondary"
+            size="sm"
+            onClick={handleOutreachInquiry}
+          >
+            <Send className="mr-2 h-4 w-4" />
+            출강 수업 문의하기
+          </Button>
         </div>
       </CardContent>
     </Card>

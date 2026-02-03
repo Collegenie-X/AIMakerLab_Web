@@ -30,34 +30,6 @@
 
 ## 📄 페이지 구조
 
-```mermaid
-graph TB
-    subgraph "갤러리 전체 구조"
-        A[갤러리 홈 /gallery]
-        B[작품 갤러리 /gallery/works]
-        C[후기 갤러리 /gallery/reviews]
-    end
-    
-    subgraph "작품 섹션"
-        B --> D[작품 리스트]
-        D --> E[작품 상세 /gallery/works/:id]
-        E --> F[작품 등록/수정 /gallery/works/new]
-    end
-    
-    subgraph "후기 섹션"
-        C --> G[후기 리스트]
-        G --> H[후기 상세 /gallery/reviews/:id]
-        H --> I[후기 작성 /gallery/reviews/new]
-    end
-    
-    A --> B
-    A --> C
-    
-    style A fill:#ff6b6b
-    style B fill:#51cf66
-    style C fill:#339af0
-```
-
 ### 라우팅 구조
 
 ```
@@ -80,25 +52,6 @@ graph TB
 ### 1. 작품 리스트 페이지 (`/gallery/works`)
 
 #### 페이지 레이아웃
-
-```mermaid
-graph TB
-    subgraph "작품 리스트 페이지"
-        A[헤더 - 제목, 탭 전환]
-        B[필터 바 - 카테고리, 난이도, 정렬]
-        C[작품 그리드 - 카드 형식]
-        D[페이지네이션]
-    end
-    
-    A --> B
-    B --> C
-    C --> D
-    
-    style A fill:#e3f2fd
-    style B fill:#fff3e0
-    style C fill:#f3e5f5
-    style D fill:#e8f5e9
-```
 
 #### UI 구성 요소
 
@@ -283,34 +236,6 @@ export default async function WorksListPage({
 ### 2. 작품 상세 페이지 (`/gallery/works/:id`)
 
 #### 페이지 레이아웃
-
-```mermaid
-graph TB
-    subgraph "작품 상세 페이지"
-        A[네비게이션 - 뒤로가기, 공유, 좋아요]
-        B[헤더 - 제목, 카테고리, 작성자]
-        C[이미지 갤러리 - 메인 + 추가 이미지]
-        D[프로젝트 정보 - 기술 스택, 난이도, 기간]
-        E[프로젝트 설명 - 개요, 상세]
-        F[주요 기능 리스트]
-        G[제작 과정 - 어려웠던 점, 배운 점]
-        H[태그 및 통계]
-        I[작성자 정보]
-        J[관련 작품 추천]
-        K[댓글 섹션]
-    end
-    
-    A --> B
-    B --> C
-    C --> D
-    D --> E
-    E --> F
-    F --> G
-    G --> H
-    H --> I
-    I --> J
-    J --> K
-```
 
 #### UI 구성 요소
 
@@ -579,32 +504,6 @@ export default async function WorkDetailPage({
 ### 3. 작품 등록/수정 페이지 (`/gallery/works/new`, `/gallery/works/:id/edit`)
 
 #### 폼 구조
-
-```mermaid
-graph TB
-    subgraph "작품 등록 폼"
-        A[기본 정보 - 제목, 카테고리, 요약]
-        B[이미지 업로드 - 메인 + 추가 이미지]
-        C[프로젝트 정보 - 기술 스택, 난이도, 기간]
-        D[상세 설명 - 설명, 프로젝트 상세]
-        E[주요 기능 - 기능 목록]
-        F[제작 과정 - 어려웠던 점, 배운 점]
-        G[태그 입력]
-        H[제출 버튼 - 임시저장, 제출]
-    end
-    
-    A --> B
-    B --> C
-    C --> D
-    D --> E
-    E --> F
-    F --> G
-    G --> H
-    
-    style A fill:#e3f2fd
-    style B fill:#fff3e0
-    style H fill:#c8e6c9
-```
 
 #### 폼 필드
 
@@ -910,28 +809,6 @@ export default function WorkCreatePage() {
 
 #### 페이지 레이아웃
 
-```mermaid
-graph TB
-    subgraph "후기 리스트 페이지"
-        A[헤더 - 제목, 탭 전환]
-        B[필터 바 - 강좌, 평점, 정렬]
-        C[통계 요약 - 평균 평점, 총 후기 수]
-        D[후기 리스트 - 카드 형식]
-        E[페이지네이션]
-    end
-    
-    A --> B
-    B --> C
-    C --> D
-    D --> E
-    
-    style A fill:#e3f2fd
-    style B fill:#fff3e0
-    style C fill:#ffe0b2
-    style D fill:#f3e5f5
-    style E fill:#e8f5e9
-```
-
 #### UI 구성 요소
 
 **1. 통계 요약**
@@ -1062,32 +939,6 @@ interface ReviewListResponse {
 ### 2. 후기 상세 페이지 (`/gallery/reviews/:id`)
 
 #### 페이지 레이아웃
-
-```mermaid
-graph TB
-    subgraph "후기 상세 페이지"
-        A[네비게이션 - 뒤로가기, 공유, 좋아요]
-        B[헤더 - 제목, 평점, 작성자]
-        C[강좌 정보 카드]
-        D[이미지 갤러리]
-        E[후기 내용 - 전체 텍스트]
-        F[만족도 상세 - 4가지 항목]
-        G[성과 및 배운 점]
-        H[추천 대상]
-        I[작성자 정보]
-        J[관련 후기 추천]
-    end
-    
-    A --> B
-    B --> C
-    C --> D
-    D --> E
-    E --> F
-    F --> G
-    G --> H
-    H --> I
-    I --> J
-```
 
 #### 상세 레이아웃
 
@@ -1766,92 +1617,9 @@ export const useFilterStore = create<FilterState>((set) => ({
 
 ### 작품 조회 플로우
 
-```mermaid
-sequenceDiagram
-    participant U as User
-    participant P as Page Component
-    participant A as API
-    participant DB as Database
-
-    U->>P: 페이지 접속
-    P->>A: GET /api/v1/gallery/works
-    A->>DB: SELECT * FROM gallery_work
-    DB-->>A: works data
-    A-->>P: WorkListResponse
-    P-->>U: 작품 목록 렌더링
-    
-    U->>P: 작품 클릭
-    P->>A: GET /api/v1/gallery/works/:id
-    A->>DB: SELECT * FROM gallery_work WHERE id=:id
-    A->>DB: SELECT * FROM gallery_work_image WHERE work_id=:id
-    A->>DB: UPDATE view_count
-    DB-->>A: work detail + images
-    A-->>P: WorkDetailResponse
-    P-->>U: 작품 상세 렌더링
-```
-
 ### 작품 등록 플로우
 
-```mermaid
-sequenceDiagram
-    participant U as User
-    participant F as Form Component
-    participant A as API
-    participant S as Storage
-    participant DB as Database
-    participant AD as Admin
-
-    U->>F: 폼 작성 및 이미지 업로드
-    F->>S: 이미지 업로드
-    S-->>F: image URLs
-    F->>A: POST /api/v1/gallery/works (FormData)
-    A->>DB: INSERT gallery_work (status='pending')
-    A->>DB: INSERT gallery_work_image (multiple)
-    DB-->>A: work_id
-    A-->>F: 등록 완료 응답
-    F-->>U: "승인 대기 중입니다"
-    
-    Note over AD: 관리자 페이지에서 확인
-    AD->>A: GET /api/v1/admin/gallery/works?status=pending
-    A->>DB: SELECT pending works
-    DB-->>A: pending works list
-    A-->>AD: 승인 대기 목록
-    
-    AD->>A: PUT /api/v1/admin/gallery/works/:id<br/>{status: 'approved'}
-    A->>DB: UPDATE status='approved'
-    DB-->>A: Success
-    A-->>AD: 승인 완료
-    
-    Note over U: 작품이 갤러리에 공개됨
-```
-
 ### 좋아요 플로우
-
-```mermaid
-sequenceDiagram
-    participant U as User
-    participant C as Component
-    participant A as API
-    participant DB as Database
-
-    U->>C: 좋아요 버튼 클릭
-    C->>A: POST /api/v1/gallery/works/:id/like
-    A->>DB: CHECK IF already liked
-    
-    alt Not Liked
-        A->>DB: INSERT INTO likes
-        A->>DB: UPDATE like_count += 1
-        DB-->>A: Success
-        A-->>C: {liked: true, likeCount: N+1}
-    else Already Liked
-        A->>DB: DELETE FROM likes
-        A->>DB: UPDATE like_count -= 1
-        DB-->>A: Success
-        A-->>C: {liked: false, likeCount: N-1}
-    end
-    
-    C-->>U: UI 업데이트 (하트 색상, 카운트)
-```
 
 ---
 
@@ -2007,7 +1775,6 @@ frontend/
 
 ```bash
 cd frontend
-npm install mermaid
 ```
 
 ### 2. 서버 실행
@@ -2078,43 +1845,6 @@ http://localhost:3000/docs
 │                                             │
 │  ## 데이터베이스 설계                       │
 │                                             │
-│  ```mermaid                                 │
-│  graph TB                                   │
-│      A[User] --> B[Post]                    │
-│  ```                                        │
-│  [Mermaid 다이어그램이 여기 렌더링됨]        │
-│                                             │
-│  | 컬럼 | 타입 | 설명 |                     │
-│  |------|------|------|                     │
-│  | id   | INT  | PK   |                     │
-│                                             │
-│  ← 문서 목록으로 돌아가기                    │
-└─────────────────────────────────────────────┘
-```
-
-**기능:**
-- ✅ **마크다운 렌더링**:
-  - 헤더 (H1, H2, H3)
-  - 리스트 (ordered, unordered)
-  - 코드 블록 (syntax highlighting)
-  - 테이블
-  - 링크, 볼드, 이탤릭
-  - 인라인 코드
-  - 수평선
-
-- ✅ **Mermaid 다이어그램**:
-  - 플로우차트
-  - 시퀀스 다이어그램
-  - ERD (Entity Relationship Diagram)
-  - 클래스 다이어그램
-  - 상태 다이어그램
-
-- ✅ **네비게이션**:
-  - 목록으로 돌아가기
-  - 다운로드 버튼
-  - 카테고리 배지
-  - 수정일 표시
-
 ### 3️⃣ 헤더 메뉴
 
 ```
@@ -2189,14 +1919,6 @@ touch NEW_DOCUMENT.md
 
 내용...
 
-### Mermaid 다이어그램
-
-```mermaid
-graph TB
-    A[시작] --> B[처리]
-    B --> C[종료]
-```
-
 ### 코드 예제
 
 ```typescript
@@ -2228,19 +1950,11 @@ npm run dev
 | **링크** | `[텍스트](url)` | 클릭 가능한 링크 |
 | **리스트** | `- 항목` or `1. 항목` | 불릿/번호 리스트 |
 | **테이블** | `\| A \| B \|` | 표 |
-| **Mermaid** | ` ```mermaid` | 다이어그램 |
-| **수평선** | `---` | 구분선 |
-
----
-
 ## 🔧 고급 설정
-
-### Mermaid 테마 변경
 
 `/app/docs/[slug]/MarkdownRenderer.tsx`:
 
 ```typescript
-mermaid.initialize({
   theme: 'default', // 또는 'dark', 'forest', 'neutral'
   themeVariables: {
     primaryColor: '#3b82f6',    // 파란색
@@ -2270,11 +1984,8 @@ const docMetadata: Record<string, DocMetadata> = {
 
 ## 🐛 트러블슈팅
 
-### 문제 1: Mermaid가 렌더링되지 않음
-
 **해결:**
 ```bash
-npm install mermaid
 ```
 
 ### 문제 2: 문서가 목록에 안 보임
@@ -2304,7 +2015,6 @@ Ctrl + Shift + R (Windows)
 - `/frontend/DOCS_SETUP.md` - 완전한 설치 및 사용 가이드
 
 **참고 문서:**
-- Mermaid 공식 문서: https://mermaid.js.org/
 - Markdown 가이드: https://www.markdownguide.org/
 
 ---
@@ -2313,7 +2023,6 @@ Ctrl + Shift + R (Windows)
 
 이제 **교육 게시판**을 사용할 수 있습니다!
 
-1. ✅ 패키지 설치: `npm install mermaid`
 2. ✅ 서버 실행: `npm run dev`
 3. ✅ 브라우저 접속: `http://localhost:3000/docs`
 

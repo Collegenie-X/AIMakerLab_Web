@@ -72,20 +72,6 @@ Flask 서버, OpenCV, YOLO 모두 **라즈베리파이 내부**에서 실행되�
 
 ### 전체 구조도: 하나의 교구재, 3단계 성장
 
-```mermaid
-graph LR
-    A[3시간<br/>얼굴 인식] --> B[6시간<br/>+AI 도어락]
-    B --> C[12시간<br/>+YOLO 자율주행]
-    
-    A --> A1[OpenCV<br/>Haar Cascade]
-    B --> B1[Face Recognition<br/>GPIO 제어]
-    C --> C1[YOLOv5<br/>로봇카 제어]
-    
-    style A fill:#3b82f6,color:#fff
-    style B fill:#10b981,color:#fff
-    style C fill:#f59e0b,color:#fff
-```
-
 ### 3시간 과정: 얼굴 인식 카메라 (1단계)
 
 **목표**: OpenCV로 실시간 얼굴 인식 시스템 완성
@@ -107,28 +93,6 @@ graph LR
 
 **목표**: 얼굴 인식 + Face Recognition 도어락 시스템 완성
 
-```mermaid
-graph TB
-    subgraph "전반부 3시간: 얼굴 인식"
-        A1[환경 구축<br/>VNC+VSCode<br/>90분]
-        A2[OpenCV 실습<br/>Haar Cascade<br/>90분]
-    end
-    
-    subgraph "후반부 3시간: AI 도어락"
-        B1[Face Recognition<br/>얼굴 등록+인증<br/>90분]
-        B2[GPIO 제어<br/>서보+LED<br/>90분]
-    end
-    
-    A1 --> A2
-    A2 --> B1
-    B1 --> B2
-    
-    style A1 fill:#3b82f6,color:#fff
-    style A2 fill:#10b981,color:#fff
-    style B1 fill:#f59e0b,color:#fff
-    style B2 fill:#ef4444,color:#fff
-```
-
 | 세션 | 시간 | 프로젝트 | 핵심 기술 |
 |------|------|----------|-----------|
 | 1교시 | 90분 | 개발환경 구축 | VNC, VSCode, Linux 명령어 |
@@ -142,34 +106,6 @@ graph TB
 ### 12시간 과정: 얼굴 인식 + AI 도어락 + YOLO 자율주행 (1-2-3단계 완성)
 
 **목표**: YOLO 객체 인식 자율주행 로봇카 최종 완성
-
-```mermaid
-graph TB
-    subgraph "1단계: 얼굴 인식 (4시간)"
-        O1[Linux 환경 구축<br/>2시간]
-        O2[OpenCV 얼굴 인식<br/>2시간]
-    end
-    
-    subgraph "2단계: AI 도어락 (4시간)"
-        D1[Face Recognition<br/>2시간]
-        D2[GPIO 제어 통합<br/>2시간]
-    end
-    
-    subgraph "3단계: YOLO 자율주행 (4시간)"
-        A1[YOLOv5 설치<br/>2시간]
-        A2[로봇카 통합<br/>2시간]
-    end
-    
-    O1 --> O2
-    O2 --> D1
-    D1 --> D2
-    D2 --> A1
-    A1 --> A2
-    
-    style O2 fill:#3b82f6,color:#fff
-    style D2 fill:#10b981,color:#fff
-    style A2 fill:#f59e0b,color:#fff
-```
 
 **일정표**
 
@@ -190,21 +126,6 @@ graph TB
 ## 🎮 프로젝트 상세
 
 ### 1단계: OpenCV 얼굴 인식 카메라 (3시간 과정)
-
-```mermaid
-graph LR
-    A[카메라 모듈] --> B[라즈베리파이 4]
-    B --> C[Python<br/>로컬 실행]
-    C --> D[OpenCV<br/>pip install]
-    D --> E[Haar Cascade]
-    E --> F{얼굴 검출}
-    F -->|YES| G[박스 + 텍스트]
-    F -->|NO| H[다음 프레임]
-    
-    style B fill:#10b981,color:#fff
-    style D fill:#3b82f6,color:#fff
-    style E fill:#f59e0b,color:#fff
-```
 
 **난이도**: ⭐⭐ (초급)  
 **소요 시간**: 3시간  
@@ -343,26 +264,6 @@ pkill -f face_detection.py
 
 ### 2단계: Face Recognition AI 도어락 (6시간 과정)
 
-```mermaid
-graph TB
-    A[카메라] --> B[얼굴 검출]
-    B --> C[얼굴 인식]
-    C --> D{등록된<br/>사용자?}
-    D -->|YES| E[도어 오픈]
-    D -->|NO| F[접근 거부]
-    
-    E --> G[서보모터]
-    E --> H[LED 녹색]
-    E --> I[로그 저장]
-    
-    F --> J[LED 빨강]
-    F --> K[부저]
-    F --> I
-    
-    style C fill:#10b981,color:#fff
-    style E fill:#3b82f6,color:#fff
-```
-
 **난이도**: ⭐⭐⭐ (중급)  
 **소요 시간**: 6시간 (얼굴 인식 3h + AI 도어락 3h)  
 **대상**: 중등 3학년 ~ 고등 3학년
@@ -468,29 +369,6 @@ while True:
 **대상**: 고등 1-3학년
 
 **시스템 구조**
-
-```mermaid
-graph TB
-    A[카메라 모듈] --> B[라즈베리파이 4<br/>Python 로컬 실행]
-    C[초음파 센서] --> B
-    
-    B --> D[YOLOv5<br/>pip install]
-    B --> E[OpenCV<br/>차선 인식]
-    
-    D --> F[객체 탐지<br/>사람/차/신호등]
-    E --> G[라인 트레이싱<br/>Canny+Hough]
-    
-    F --> H[의사결정 알고리즘]
-    G --> H
-    C --> H
-    
-    H --> I[모터 제어<br/>GPIO PWM]
-    I --> J[4WD 로봇카]
-    
-    style B fill:#3b82f6,color:#fff
-    style D fill:#f59e0b,color:#fff
-    style H fill:#10b981,color:#fff
-```
 
 **YOLOv5 설치 (라즈베리파이 내부)**
 
@@ -832,27 +710,6 @@ sudo pkill -f autonomous_car.py
 
 **일정 구성**
 
-```mermaid
-gantt
-    title 6시간 과정 일정
-    dateFormat HH:mm
-    axisFormat %H:%M
-    
-    section 1부: 얼굴 인식 (3시간)
-    벤치마킹: 09:00, 15m
-    개발환경 구축: 09:15, 30m
-    OpenCV 실습: 09:45, 75m
-    개선 활동: 11:00, 60m
-    
-    section 점심 (1시간)
-    휴식: 12:00, 60m
-    
-    section 2부: AI 도어락 (3시간)
-    Face Recognition: 13:00, 60m
-    얼굴 등록+인증: 14:00, 60m
-    GPIO 제어: 15:00, 60m
-```
-
 **세부 시간표**
 
 | 교시 | 시간 | 프로젝트 | 세부 활동 |
@@ -880,34 +737,6 @@ gantt
 **목표**: 얼굴 인식 + AI 도어락 + YOLO 자율주행 로봇카
 
 **전체 구조**
-
-```mermaid
-graph TB
-    subgraph "DAY 1 (4시간): 얼굴 인식"
-        D1A[Linux 환경 구축<br/>2시간]
-        D1B[OpenCV 얼굴 인식<br/>2시간]
-    end
-    
-    subgraph "DAY 2 (4시간): AI 도어락"
-        D2A[Face Recognition<br/>2시간]
-        D2B[GPIO 제어 통합<br/>2시간]
-    end
-    
-    subgraph "DAY 3 (4시간): YOLO 자율주행"
-        D3A[YOLOv5 설치<br/>2시간]
-        D3B[로봇카 통합<br/>2시간]
-    end
-    
-    D1A --> D1B
-    D1B --> D2A
-    D2A --> D2B
-    D2B --> D3A
-    D3A --> D3B
-    
-    style D1B fill:#3b82f6,color:#fff
-    style D2B fill:#10b981,color:#fff
-    style D3B fill:#f59e0b,color:#fff
-```
 
 **일차별 계획**
 
@@ -1006,22 +835,6 @@ graph TB
 ## 🎯 교육 효과
 
 ### 학습 성과
-
-```mermaid
-graph TB
-    A[3시간<br/>얼굴 인식] --> B[Linux 환경 이해<br/>80%]
-    A --> C[OpenCV 실습<br/>85%]
-    
-    D[6시간<br/>+AI 도어락] --> E[Face Recognition<br/>90%]
-    D --> F[GPIO 제어<br/>90%]
-    
-    G[12시간<br/>+YOLO 자율주행] --> H[YOLOv5 실전<br/>95%]
-    G --> I[로봇카 완성<br/>100%]
-    
-    style A fill:#3b82f6,color:#fff
-    style D fill:#10b981,color:#fff
-    style G fill:#f59e0b,color:#fff
-```
 
 ### 역량 성장 비교
 

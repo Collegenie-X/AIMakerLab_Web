@@ -10,116 +10,14 @@ export function MarkdownRenderer({ content }: MarkdownRendererProps) {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Mermaid 다이어그램 렌더링
-    const renderMermaid = async () => {
-      if (typeof window === 'undefined') return;
-      
-      try {
-        // Mermaid 동적 임포트
-        const mermaid = (await import('mermaid')).default;
-        
-        // Mermaid 초기화 (한 번만)
-        if (!(window as any).mermaidInitialized) {
-          mermaid.initialize({
-            startOnLoad: false, // 수동으로 렌더링
-            theme: 'default',
-            securityLevel: 'loose',
-            fontFamily: 'ui-sans-serif, system-ui, sans-serif',
-            suppressErrorRendering: true, // ⭐ 에러 렌더링 비활성화
-            logLevel: 'error', // ⭐ 에러 로그 레벨 설정
-            themeVariables: {
-              primaryColor: '#3b82f6',
-              primaryTextColor: '#fff',
-              primaryBorderColor: '#2563eb',
-              lineColor: '#64748b',
-              secondaryColor: '#10b981',
-              tertiaryColor: '#f59e0b',
-              background: '#ffffff',
-              mainBkg: '#3b82f6',
-              secondBkg: '#10b981',
-              tertiaryBkg: '#f59e0b',
-            },
-          });
-          (window as any).mermaidInitialized = true;
-        }
-        
-        if (!containerRef.current) return;
-        
-        // 아직 렌더링되지 않은 Mermaid 블록 찾기
-        const mermaidDivs = containerRef.current.querySelectorAll('.language-mermaid:not(.mermaid-rendered)');
-        
-        if (mermaidDivs.length === 0) return;
-        
-        // 각 Mermaid 블록 처리
-        for (let index = 0; index < mermaidDivs.length; index++) {
-          const div = mermaidDivs[index];
-          const code = div.textContent?.trim() || '';
-          
-          if (!code) continue;
-          
-          try {
-            const id = `mermaid-diagram-${Date.now()}-${index}`;
-            const wrapper = document.createElement('div');
-            wrapper.className = 'mermaid-wrapper';
-            
-            // Mermaid 렌더링
-            const { svg } = await mermaid.render(id, code);
-            wrapper.innerHTML = svg;
-            
-            // 원본 div를 wrapper로 교체
-            div.parentNode?.replaceChild(wrapper, div);
-            wrapper.classList.add('mermaid-rendered');
-          } catch (err: any) {
-            // 콘솔에만 에러 로그 출력 (사용자에게는 표시 안 함)
-            console.warn(`Mermaid 다이어그램 ${index} 렌더링 건너뜀 (문법 오류)`);
-            
-            // 에러 발생 시 해당 블록을 완전히 제거
-            if (div.parentNode) {
-              div.parentNode.removeChild(div);
-            }
-          }
-        }
-        
-        // Mermaid가 자동으로 삽입한 에러 요소 제거 (클린업)
-        if (containerRef.current) {
-          // Mermaid 에러 메시지 요소 찾기 및 제거
-          const errorElements = containerRef.current.querySelectorAll('[id^="dmermaid-"], .mermaid-parse-error');
-          errorElements.forEach(el => {
-            if (el.textContent?.includes('Syntax error') || el.textContent?.includes('Parse error')) {
-              el.remove();
-            }
-          });
-        }
-      } catch (error: any) {
-        // Mermaid 패키지 자체를 불러오지 못한 경우
-        console.warn('Mermaid 패키지를 로드할 수 없습니다:', error?.message || String(error));
-      }
-    };
-
-    renderMermaid();
-    
-    // 클린업: 남아있는 에러 요소 제거
-    return () => {
-      if (containerRef.current) {
-        const errors = containerRef.current.querySelectorAll('[id^="dmermaid-"]');
-        errors.forEach(el => el.remove());
-      }
-    };
   }, [content]);
 
   // 간단한 마크다운 파싱 (react-markdown 없이)
   const parseMarkdown = (md: string) => {
     let html = md;
     
-    // 코드 블록 보호 (mermaid 먼저 처리)
+    // 코드 블록 보호
     const codeBlocks: any[] = [];
-    
-    // Mermaid 블록 먼저 처리
-    html = html.replace(/```mermaid\n([\s\S]*?)```/g, (match, code) => {
-      const placeholder = `___CODE_BLOCK_${codeBlocks.length}___`;
-      codeBlocks.push({ lang: 'mermaid', code: code.trim(), match });
-      return placeholder;
-    });
     
     // 일반 코드 블록
     html = html.replace(/```(\w+)?\n([\s\S]*?)```/g, (match, lang, code) => {
@@ -205,41 +103,33 @@ export function MarkdownRenderer({ content }: MarkdownRendererProps) {
       const placeholder = `___CODE_BLOCK_${index}___`;
       const lang = block.lang || 'text';
       
-      if (lang === 'mermaid') {
-        // Mermaid 블록
-        html = html.replace(
-          placeholder,
-          `<div class="language-mermaid my-8 p-6 bg-white rounded-lg border-2 border-gray-200 shadow-md overflow-x-auto max-w-full">${block.code}</div>`
-        );
-      } else {
-        // 일반 코드 블록 - 구문 강조 색상 적용
-        const code = block.code
-          .replace(/</g, '&lt;')
-          .replace(/>/g, '&gt;')
-          // Python 키워드 강조
-          .replace(/\b(from|import|def|class|if|else|elif|for|while|return|try|except|with|as|in|is|not|and|or|True|False|None)\b/g, '<span class="text-purple-400 font-semibold">$1</span>')
-          // 문자열 강조
-          .replace(/(["'])(.*?)\1/g, '<span class="text-green-400">$1$2$1</span>')
-          // 주석 강조
-          .replace(/(#.*$)/gm, '<span class="text-gray-400 italic">$1</span>')
-          // 함수명 강조
-          .replace(/\b([a-zA-Z_][a-zA-Z0-9_]*)\s*\(/g, '<span class="text-yellow-300">$1</span>(')
-          // 숫자 강조
-          .replace(/\b(\d+\.?\d*)\b/g, '<span class="text-blue-400">$1</span>');
-        
-        html = html.replace(
-          placeholder,
-          `<div class="my-6 rounded-lg overflow-hidden shadow-lg max-w-full">
-            <div class="bg-gray-700 text-gray-100 px-4 py-2 text-sm font-mono font-semibold flex items-center gap-2">
-              <span class="w-3 h-3 rounded-full bg-red-500"></span>
-              <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
-              <span class="w-3 h-3 rounded-full bg-green-500"></span>
-              <span class="ml-2 text-white">${lang}</span>
-            </div>
-            <pre class="bg-gray-900 text-gray-100 p-4 overflow-x-auto max-w-full" style="max-height: 600px; overflow-y: auto;"><code class="language-${lang} text-sm leading-relaxed text-white block whitespace-pre">${code}</code></pre>
-          </div>`
-        );
-      }
+      // 일반 코드 블록 - 구문 강조 색상 적용
+      const code = block.code
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        // Python 키워드 강조
+        .replace(/\b(from|import|def|class|if|else|elif|for|while|return|try|except|with|as|in|is|not|and|or|True|False|None)\b/g, '<span class="text-purple-400 font-semibold">$1</span>')
+        // 문자열 강조
+        .replace(/(["'])(.*?)\1/g, '<span class="text-green-400">$1$2$1</span>')
+        // 주석 강조
+        .replace(/(#.*$)/gm, '<span class="text-gray-400 italic">$1</span>')
+        // 함수명 강조
+        .replace(/\b([a-zA-Z_][a-zA-Z0-9_]*)\s*\(/g, '<span class="text-yellow-300">$1</span>(')
+        // 숫자 강조
+        .replace(/\b(\d+\.?\d*)\b/g, '<span class="text-blue-400">$1</span>');
+      
+      html = html.replace(
+        placeholder,
+        `<div class="my-6 rounded-lg overflow-hidden shadow-lg max-w-full">
+          <div class="bg-gray-700 text-gray-100 px-4 py-2 text-sm font-mono font-semibold flex items-center gap-2">
+            <span class="w-3 h-3 rounded-full bg-red-500"></span>
+            <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
+            <span class="w-3 h-3 rounded-full bg-green-500"></span>
+            <span class="ml-2 text-white">${lang}</span>
+          </div>
+          <pre class="bg-gray-900 text-gray-100 p-4 overflow-x-auto max-w-full" style="max-height: 600px; overflow-y: auto;"><code class="language-${lang} text-sm leading-relaxed text-white block whitespace-pre">${code}</code></pre>
+        </div>`
+      );
     });
 
     // 단락
@@ -277,18 +167,12 @@ export function MarkdownRenderer({ content }: MarkdownRendererProps) {
   );
 }
 
-// Mermaid 및 코드 블록 스타일 추가
 if (typeof document !== 'undefined') {
   const style = document.createElement('style');
   style.textContent = `
-    /* Mermaid 에러 메시지 강제 숨김 */
-    [id^="dmermaid-"],
-    .mermaid-parse-error,
-    pre[class*="mermaid"] {
       display: none !important;
     }
     
-    .mermaid-wrapper {
       margin: 2rem 0;
       padding: 1.5rem;
       background: white;
@@ -299,14 +183,12 @@ if (typeof document !== 'undefined') {
       max-width: 100%;
     }
     
-    .mermaid {
       display: flex;
       justify-content: center;
       align-items: center;
       min-height: 100px;
     }
     
-    .mermaid svg {
       max-width: 100%;
       height: auto;
     }

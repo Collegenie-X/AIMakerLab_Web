@@ -56,20 +56,6 @@
 
 ### 모든 프로젝트의 기본 구조
 
-```mermaid
-graph LR
-    A[1단계<br/>벤치마킹] --> B[2단계<br/>AI 모델 제작]
-    B --> C[3단계<br/>게임 구현]
-    
-    A --> A1[현실 문제 분석<br/>산업 사례 연구]
-    B --> B1[Teachable Machine<br/>데이터 수집/학습]
-    C --> C1[DWAI 블록코딩<br/>게임 완성]
-    
-    style A fill:#ef4444,color:#fff
-    style B fill:#10b981,color:#fff
-    style C fill:#3b82f6,color:#fff
-```
-
 #### 1단계: 벤치마킹 (15-30분)
 - **목표**: 배우는 이유와 현실 적용 사례 이해
 - **활동**: 
@@ -101,24 +87,6 @@ graph LR
 
 ### 전체 학습 경로
 
-```mermaid
-graph TB
-    A[3시간 과정<br/>1가지 기술 체험] --> B[6시간 과정<br/>3가지 기술 비교]
-    B --> C[12시간 과정<br/>6개 프로젝트 마스터]
-    
-    A --> A1[Handing<br/>과일 자르기]
-    B --> B1[Facing + Handing + Object<br/>각 1개씩]
-    C --> C1[각 기술별 2개씩<br/>총 6개 프로젝트]
-    
-    A --> A2[초등 4~5학년]
-    B --> B2[초6 ~ 중1]
-    C --> C2[중1~2 심화]
-    
-    style A fill:#3b82f6,color:#fff
-    style B fill:#10b981,color:#fff
-    style C fill:#f59e0b,color:#fff
-```
-
 ### 3시간 과정: 손 인식 게임 (Handing)
 
 | 단계 | 시간 | 내용 | 3단계 학습법 |
@@ -135,28 +103,6 @@ graph TB
 
 ### 6시간 과정: 얼굴+손+사물 3종 체험
 
-```mermaid
-graph TB
-    subgraph "전반부 3시간"
-        A1[얼굴 인식<br/>Facing<br/>90분]
-        A2[손 인식<br/>Handing<br/>90분]
-    end
-    
-    subgraph "후반부 3시간"
-        B1[사물 인식<br/>Object<br/>90분]
-        B2[통합 복습<br/>90분]
-    end
-    
-    A1 --> A2
-    A2 --> B1
-    B1 --> B2
-    
-    style A1 fill:#3b82f6,color:#fff
-    style A2 fill:#10b981,color:#fff
-    style B1 fill:#f59e0b,color:#fff
-    style B2 fill:#ef4444,color:#fff
-```
-
 | 세션 | 시간 | 프로젝트 | 기술 구분 | 핵심 도구 |
 |------|------|----------|-----------|-----------|
 | 1교시 | 90분 | 마스크 착용 인식기 | Facing (TM 분류) | Teachable Machine |
@@ -168,35 +114,6 @@ graph TB
 **핵심 학습**: TM 분류 vs DWAI Tracking 차이 이해
 
 ### 12시간 과정: 컴퓨터 비전 6개 프로젝트 완전 마스터
-
-```mermaid
-graph TB
-    subgraph "DAY 1: Facing 얼굴 (4시간)"
-        F1[1. 마스크 인식<br/>방역 시스템<br/>2시간]
-        F2[2. 출입 관리<br/>얼굴 감지 시스템<br/>2시간]
-    end
-    
-    subgraph "DAY 2: Handing 손 (4시간)"
-        H1[3. 과일 자르기<br/>게임 컨트롤<br/>2시간]
-        H2[4. 터치리스 UI<br/>손 제스처 조작<br/>2시간]
-    end
-    
-    subgraph "DAY 3: Object 사물 (4시간)"
-        O1[5. 분리수거<br/>환경 교육<br/>2시간]
-        O2[6. 무인 편의점<br/>자동 계산<br/>2시간]
-    end
-    
-    F1 --> F2
-    F2 --> H1
-    H1 --> H2
-    H2 --> O1
-    O1 --> O2
-    
-    style F1 fill:#3b82f6,color:#fff
-    style H1 fill:#10b981,color:#fff
-    style O1 fill:#f59e0b,color:#fff
-    style O2 fill:#ef4444,color:#fff
-```
 
 **일정표 (실생활 문제 해결 중심)**
 
@@ -235,22 +152,6 @@ graph TB
 
 ### 🔵 프로젝트 1: 마스크 착용 인식기 (Facing - TM 분류)
 
-```mermaid
-graph LR
-    A[웹캠] --> B[Teachable Machine]
-    B --> C{AI 분류}
-    C --> D[😷 마스크 착용]
-    C --> E[😊 마스크 없음]
-    C --> F[👃 코 노출]
-    D --> G[게임 로직]
-    E --> G
-    F --> G
-    G --> H[결과: O/X]
-    
-    style B fill:#10b981,color:#fff
-    style G fill:#3b82f6,color:#fff
-```
-
 **난이도**: ⭐⭐ (초급)  
 **소요 시간**: 2시간  
 **대상**: 초등 4학년 ~ 중학 2학년
@@ -277,22 +178,6 @@ graph LR
 **기대 효과**: TM 분류 원리 이해, 사회 문제 해결 경험
 
 ### 🔵 프로젝트 2: 출입 관리 시스템 (Facing - DWAI + TM)
-
-```mermaid
-graph TB
-    A[웹캠] --> B[DWAI Face Tracking]
-    B --> C{얼굴 감지}
-    C --> D[얼굴 있음]
-    C --> E[얼굴 없음]
-    D --> F[TM 분류]
-    F --> G[등록된 얼굴]
-    F --> H[미등록 얼굴]
-    G --> I[출입 허가 ✅]
-    H --> J[출입 거부 ❌]
-    
-    style B fill:#3b82f6,color:#fff
-    style F fill:#10b981,color:#fff
-```
 
 **난이도**: ⭐⭐⭐ (중급)  
 **소요 시간**: 2시간  
@@ -327,21 +212,6 @@ graph TB
 
 ### 🟢 프로젝트 3: 과일 자르기 게임 (Handing - DWAI Tracking)
 
-```mermaid
-graph LR
-    A[웹캠] --> B[DWAI Hand Tracking]
-    B --> C{손 좌표}
-    C --> D[손 X 좌표]
-    C --> E[손 Y 좌표]
-    D --> F[충돌 감지]
-    E --> F
-    F --> G[과일 sprite]
-    G --> H[점수 +1]
-    
-    style B fill:#10b981,color:#fff
-    style F fill:#f59e0b,color:#fff
-```
-
 **난이도**: ⭐⭐ (초중급)  
 **소요 시간**: 2시간  
 **대상**: 초등 4학년 ~ 중학 2학년
@@ -374,24 +244,6 @@ graph LR
 ---
 
 ### 🟢 프로젝트 4: 터치리스 UI 조작 시스템 (Handing - DWAI Tracking)
-
-```mermaid
-graph LR
-    A[웹캠] --> B[DWAI Hand Tracking]
-    B --> C{손 제스처}
-    C --> D[손 위로 → 메뉴 Up]
-    C --> E[손 아래로 → 메뉴 Down]
-    C --> F[손 앞으로 → 선택]
-    C --> G[손 뒤로 → 뒤로가기]
-    
-    D --> H[키오스크 UI]
-    E --> H
-    F --> H
-    G --> H
-    
-    style B fill:#10b981,color:#fff
-    style H fill:#3b82f6,color:#fff
-```
 
 **난이도**: ⭐⭐⭐ (중급)  
 **소요 시간**: 2시간  
@@ -428,24 +280,6 @@ graph LR
 
 ### 🟠 프로젝트 5: 쓰레기 분리수거 게임 (Object - TM 분류)
 
-```mermaid
-graph TB
-    A[웹캠] --> B[Teachable Machine]
-    B --> C{AI 분류}
-    C --> D[♻️ 플라스틱]
-    C --> E[📄 종이]
-    C --> F[🗑️ 일반]
-    C --> G[🍃 음식물]
-    D --> H[분리수거함]
-    E --> H
-    F --> H
-    G --> H
-    H --> I[점수 계산]
-    
-    style B fill:#f59e0b,color:#fff
-    style H fill:#10b981,color:#fff
-```
-
 **난이도**: ⭐⭐⭐ (중급)  
 **소요 시간**: 2시간  
 **대상**: 초등 5학년 ~ 중학 2학년
@@ -479,25 +313,6 @@ graph TB
 ---
 
 ### 🟠 프로젝트 6: 무인 편의점 자동 계산 시스템 (Object - TM 분류)
-
-```mermaid
-graph TB
-    A[웹캠] --> B[Teachable Machine]
-    B --> C{물품 인식}
-    C --> D[🍫 초콜릿 1,500원]
-    C --> E[🥤 음료수 1,200원]
-    C --> F[🍞 빵 2,000원]
-    C --> G[🍪 과자 1,000원]
-    D --> H[장바구니]
-    E --> H
-    F --> H
-    G --> H
-    H --> I[자동 계산]
-    I --> J[영수증 출력]
-    
-    style B fill:#f59e0b,color:#fff
-    style I fill:#10b981,color:#fff
-```
 
 **난이도**: ⭐⭐⭐⭐ (중상급)  
 **소요 시간**: 2시간  
@@ -573,26 +388,6 @@ graph TB
 
 **일정 구성**
 
-```mermaid
-gantt
-    title 6시간 과정 일정
-    dateFormat HH:mm
-    axisFormat %H:%M
-    
-    section 1부 (3시간)
-    오리엔테이션: 09:00, 15m
-    Facing 마스크 인식: 09:15, 75m
-    Handing 과일 자르기: 10:30, 90m
-    
-    section 점심 (1시간)
-    휴식: 12:00, 60m
-    
-    section 2부 (3시간)
-    Object 분리수거: 13:00, 90m
-    기술 비교 정리: 14:30, 60m
-    발표: 15:30, 30m
-```
-
 **세부 시간표 (3단계 학습법 적용)**
 
 | 교시 | 시간 | 프로젝트 | 1단계 | 2단계 | 3단계 |
@@ -628,36 +423,6 @@ gantt
 - 총 6개 실생활 문제 해결 프로젝트 완성 + 포트폴리오
 
 **전체 구조 (실생활 문제 중심)**
-
-```mermaid
-graph TB
-    subgraph "DAY 1: Facing 얼굴 (4시간)"
-        D1A[1. 마스크 인식<br/>방역 시스템]
-        D1B[2. 출입 관리<br/>보안 시스템]
-    end
-    
-    subgraph "DAY 2: Handing 손 (4시간)"
-        D2A[3. 과일 자르기<br/>게임 컨트롤]
-        D2B[4. 터치리스 UI<br/>비접촉 조작]
-    end
-    
-    subgraph "DAY 3: Object 사물 (4시간)"
-        D3A[5. 분리수거<br/>환경 시스템]
-        D3B[6. 무인 편의점<br/>자동 계산]
-    end
-    
-    D1A --> D1B
-    D1B --> D2A
-    D2A --> D2B
-    D2B --> D3A
-    D3A --> D3B
-    D3B --> P[포트폴리오<br/>산업 적용 정리]
-    
-    style D1A fill:#3b82f6,color:#fff
-    style D2A fill:#10b981,color:#fff
-    style D3A fill:#f59e0b,color:#fff
-    style P fill:#ef4444,color:#fff
-```
 
 **일차별 계획 (3단계 학습법 + 실생활 문제 해결)**
 
@@ -752,22 +517,6 @@ graph TB
 ## 🎯 교육 효과
 
 ### 학습 성과 (개발의 필요성 이해 중심)
-
-```mermaid
-graph TB
-    A[3시간 체험] --> B[개발 필요성 이해<br/>70%]
-    A --> C[Handing 프로젝트 1개<br/>100%]
-    
-    D[6시간 과정] --> E[기술 차이 완전 이해<br/>90%]
-    D --> F[3종 실생활 프로젝트<br/>100%]
-    
-    G[12시간 과정] --> H[문제 해결 능력<br/>95%]
-    G --> I[6개 산업 프로젝트<br/>100%]
-    
-    style C fill:#10b981,color:#fff
-    style F fill:#10b981,color:#fff
-    style I fill:#10b981,color:#fff
-```
 
 ### 역량 성장 비교
 
@@ -891,17 +640,6 @@ graph TB
 - 단순 따라하기로 끝남
 
 **3단계 학습법의 장점:**
-
-```mermaid
-graph LR
-    A[1단계<br/>벤치마킹] --> B[동기부여<br/>명확한 목표]
-    C[2단계<br/>AI 학습] --> D[원리 이해<br/>직접 체험]
-    E[3단계<br/>게임 구현] --> F[창의적 응용<br/>완성의 기쁨]
-    
-    style B fill:#10b981,color:#fff
-    style D fill:#10b981,color:#fff
-    style F fill:#10b981,color:#fff
-```
 
 | 단계 | 학습 효과 | 실제 예시 |
 |------|----------|-----------|

@@ -8,56 +8,9 @@
 
 ### 교육 철학: 컴퓨터 비전 AI 전문가 양성
 
-```mermaid
-mindmap
-  root((컴퓨터 비전 AI))
-    1단계 손 인식
-      제스처 게임
-      손 모양 제어
-      핸드 트래킹
-    2단계 얼굴 인식
-      표정 인식
-      얼굴 필터
-      감정 분석
-    3단계 사물 인식
-      물체 분류
-      실시간 감지
-      시나리오 응용
-```
-
 ---
 
 ## 📊 컴퓨터 비전 3단계 학습 로드맵
-
-```mermaid
-graph TB
-    subgraph "1단계: 손 인식"
-        H1[초등 4학년<br/>손 모양 게임]
-        H2[초등 5학년<br/>손 제스처 제어]
-    end
-    
-    subgraph "2단계: 얼굴 인식"
-        F1[초등 6학년<br/>표정 인식]
-        F2[중등 1학년<br/>얼굴 필터]
-    end
-    
-    subgraph "3단계: 사물 인식"
-        O1[중등 2학년<br/>물체 분류]
-        O2[중등 3학년<br/>실시간 감지]
-    end
-    
-    subgraph "고급: MediaPipe"
-        M1[고등 1학년<br/>포즈 추정]
-        M2[고등 2학년<br/>종합 프로젝트]
-    end
-    
-    H1 --> H2 --> F1 --> F2 --> O1 --> O2 --> M1 --> M2
-    
-    style H1 fill:#3b82f6,color:#fff
-    style F1 fill:#10b981,color:#fff
-    style O1 fill:#f59e0b,color:#fff
-    style M1 fill:#ef4444,color:#fff
-```
 
 ---
 
@@ -75,23 +28,6 @@ graph TB
 #### 🎮 프로젝트 1: 가위바위보 마스터 (3시간)
 
 **컴퓨터 비전 핵심**: 손 모양 3가지 분류
-
-```mermaid
-graph LR
-    A[손 모양] --> B[웹캠 촬영]
-    B --> C[TM 분류]
-    C --> D1[✊ 바위]
-    C --> D2[✋ 보]
-    C --> D3[✌️ 가위]
-    
-    D1 --> E[게임 로직]
-    D2 --> E
-    D3 --> E
-    
-    style A fill:#3b82f6,color:#fff
-    style C fill:#10b981,color:#fff
-    style E fill:#f59e0b,color:#fff
-```
 
 **게임 제작 단계**:
 
@@ -139,24 +75,6 @@ Teachable Machine:
 
 **컴퓨터 비전 핵심**: 손 위치와 방향 인식
 
-```mermaid
-graph TB
-    A[손 제스처]
-    
-    A --> B1[주먹 = 가속]
-    A --> B2[손바닥 = 정지]
-    A --> B3[왼쪽 기울임 = 좌회전]
-    A --> B4[오른쪽 기울임 = 우회전]
-    
-    B1 --> C[자동차 제어]
-    B2 --> C
-    B3 --> C
-    B4 --> C
-    
-    style A fill:#8b5cf6,color:#fff
-    style C fill:#10b981,color:#fff
-```
-
 **게임 시스템**:
 ```
 🏎️ 레이싱 게임:
@@ -176,19 +94,6 @@ graph TB
 #### 🎮 프로젝트 3: 손가락 카운팅 게임 (2.5시간)
 
 **컴퓨터 비전 핵심**: 손가락 개수 인식
-
-```mermaid
-graph LR
-    A[손가락 개수] --> B[TM 분류]
-    B --> C1[0개 = 주먹]
-    B --> C2[1개 = 검지]
-    B --> C3[2개 = V]
-    B --> C4[3개 = OK]
-    B --> C5[5개 = 손바닥]
-    
-    style A fill:#3b82f6,color:#fff
-    style B fill:#10b981,color:#fff
-```
 
 **게임 아이디어**:
 ```
@@ -211,33 +116,6 @@ graph LR
 
 **컴퓨터 비전 핵심**: 손 위치별 인식
 
-```mermaid
-graph TB
-    A[손 위치 감지]
-    B[TM 위치 분류]
-    
-    A --> B
-    B --> C1[왼쪽 위 = 도]
-    B --> C2[중앙 위 = 레]
-    B --> C3[오른쪽 위 = 미]
-    B --> C4[왼쪽 중 = 파]
-    B --> C5[중앙 중 = 솔]
-    B --> C6[오른쪽 중 = 라]
-    B --> C7[중앙 하 = 시]
-    
-    C1 --> D[소리 재생]
-    C2 --> D
-    C3 --> D
-    C4 --> D
-    C5 --> D
-    C6 --> D
-    C7 --> D
-    
-    style A fill:#8b5cf6,color:#fff
-    style B fill:#10b981,color:#fff
-    style D fill:#f59e0b,color:#fff
-```
-
 **기능**:
 ```
 🎹 가상 피아노:
@@ -256,19 +134,6 @@ graph TB
 #### 🎮 프로젝트 2: 공중 그림 그리기 (2.5시간)
 
 **컴퓨터 비전 핵심**: 손 움직임 추적
-
-```mermaid
-graph LR
-    A[손 위치] --> B[좌표 추적]
-    B --> C[선 그리기]
-    
-    A --> A1[검지 = 그리기]
-    A --> A2[주먹 = 멈춤]
-    A --> A3[손바닥 = 지우기]
-    
-    style A fill:#3b82f6,color:#fff
-    style C fill:#10b981,color:#fff
-```
 
 **기능**:
 ```
@@ -289,23 +154,6 @@ graph LR
 
 **컴퓨터 비전 핵심**: 2개 손 동시 인식
 
-```mermaid
-graph TB
-    A[2인 플레이]
-    
-    A --> B1[플레이어1 손]
-    A --> B2[플레이어2 손]
-    
-    B1 --> C[충돌 감지]
-    B2 --> C
-    
-    C --> D[점수 계산]
-    
-    style A fill:#8b5cf6,color:#fff
-    style C fill:#10b981,color:#fff
-    style D fill:#f59e0b,color:#fff
-```
-
 ---
 
 ## 😊 2단계: 얼굴 인식 (초등 6학년 - 중등 1학년)
@@ -315,29 +163,6 @@ graph TB
 #### 🎮 프로젝트 1: 감정 연기자 (3시간)
 
 **컴퓨터 비전 핵심**: 얼굴 표정 분류
-
-```mermaid
-graph TB
-    A[얼굴 촬영]
-    B[TM 표정 분류]
-    
-    A --> B
-    B --> C1[😊 행복]
-    B --> C2[😢 슬픔]
-    B --> C3[😮 놀람]
-    B --> C4[😠 화남]
-    B --> C5[😐 무표정]
-    
-    C1 --> D[게임 반응]
-    C2 --> D
-    C3 --> D
-    C4 --> D
-    C5 --> D
-    
-    style A fill:#3b82f6,color:#fff
-    style B fill:#10b981,color:#fff
-    style D fill:#f59e0b,color:#fff
-```
 
 **AI 학습**:
 ```
@@ -375,24 +200,6 @@ Teachable Machine:
 
 **컴퓨터 비전 핵심**: 표정 → 게임 제어 매핑
 
-```mermaid
-graph LR
-    A[표정] --> B[캐릭터 행동]
-    
-    A --> A1[😊 = 점프]
-    A --> A2[😢 = 앉기]
-    A --> A3[😮 = 공격]
-    A --> A4[😠 = 방어]
-    
-    A1 --> B
-    A2 --> B
-    A3 --> B
-    A4 --> B
-    
-    style A fill:#8b5cf6,color:#fff
-    style B fill:#10b981,color:#fff
-```
-
 **게임 시나리오**:
 ```
 🎮 표정 모험 게임:
@@ -411,19 +218,6 @@ graph LR
 
 **컴퓨터 비전 핵심**: 표정 유사도 비교
 
-```mermaid
-sequenceDiagram
-    participant 화면
-    participant AI
-    participant 플레이어
-    
-    화면->>플레이어: 표정 예시 표시
-    플레이어->>AI: 얼굴 촬영
-    AI->>AI: 표정 분석
-    AI->>화면: 유사도 % 표시
-    화면->>플레이어: 점수 부여
-```
-
 ---
 
 ### 중등 1학년: 얼굴 필터 & 인식 (8시간)
@@ -431,32 +225,6 @@ sequenceDiagram
 #### 🎮 프로젝트 1: AR 얼굴 필터 (3시간)
 
 **컴퓨터 비전 핵심**: 얼굴 랜드마크 감지
-
-```mermaid
-graph TB
-    A[얼굴 감지]
-    B[랜드마크 추출]
-    C[필터 적용]
-    
-    A --> B
-    B --> B1[눈 위치]
-    B --> B2[코 위치]
-    B --> B3[입 위치]
-    B --> B4[얼굴 윤곽]
-    
-    B1 --> C
-    B2 --> C
-    B3 --> C
-    B4 --> C
-    
-    C --> D1[선글라스]
-    C --> D2[고양이 수염]
-    C --> D3[왕관]
-    
-    style A fill:#3b82f6,color:#fff
-    style B fill:#10b981,color:#fff
-    style C fill:#f59e0b,color:#fff
-```
 
 **필터 종류**:
 ```
@@ -479,22 +247,6 @@ graph TB
 
 **컴퓨터 비전 핵심**: 얼굴 비교 및 인증
 
-```mermaid
-graph LR
-    A[사용자 등록] --> B[얼굴 촬영]
-    B --> C[DB 저장]
-    
-    D[로그인 시도] --> E[얼굴 촬영]
-    E --> F[DB 비교]
-    F --> G{일치?}
-    G -->|예| H[출입 허가]
-    G -->|아니오| I[거부]
-    
-    style A fill:#3b82f6,color:#fff
-    style F fill:#10b981,color:#fff
-    style H fill:#f59e0b,color:#fff
-```
-
 **기능**:
 ```
 🔐 보안 시스템:
@@ -514,26 +266,6 @@ graph LR
 
 **컴퓨터 비전 핵심**: 표정 → 이모티콘 생성
 
-```mermaid
-graph TB
-    A[표정 촬영]
-    B[AI 분석]
-    C[이모티콘 생성]
-    D[저장/공유]
-    
-    A --> B
-    B --> B1[감정 분류]
-    B --> B2[특징 추출]
-    
-    B1 --> C
-    B2 --> C
-    
-    C --> D
-    
-    style A fill:#3b82f6,color:#fff
-    style C fill:#10b981,color:#fff
-```
-
 ---
 
 ## 📦 3단계: 사물 인식 (중등 2-3학년)
@@ -543,30 +275,6 @@ graph TB
 #### 🎮 프로젝트 1: AI 마트 계산원 (3시간)
 
 **컴퓨터 비전 핵심**: 다중 물체 분류
-
-```mermaid
-graph TB
-    A[물체 인식]
-    
-    A --> B[TM 분류]
-    B --> C1[🍎 사과 500원]
-    B --> C2[🍌 바나나 300원]
-    B --> C3[🍊 오렌지 600원]
-    B --> C4[🍇 포도 800원]
-    B --> C5[🥕 당근 400원]
-    
-    C1 --> D[가격 계산]
-    C2 --> D
-    C3 --> D
-    C4 --> D
-    C5 --> D
-    
-    D --> E[영수증 출력]
-    
-    style A fill:#3b82f6,color:#fff
-    style B fill:#10b981,color:#fff
-    style E fill:#f59e0b,color:#fff
-```
 
 **AI 데이터셋**:
 ```
@@ -610,25 +318,6 @@ Teachable Machine:
 
 **컴퓨터 비전 핵심**: 물체 → 카테고리 분류
 
-```mermaid
-graph LR
-    A[쓰레기 인식] --> B[AI 분류]
-    
-    B --> C1[♻️ 재활용]
-    B --> C2[🗑️ 일반]
-    B --> C3[🍽️ 음식물]
-    B --> C4[⚠️ 기타]
-    
-    C1 --> D[올바른 통 표시]
-    C2 --> D
-    C3 --> D
-    C4 --> D
-    
-    style A fill:#3b82f6,color:#fff
-    style B fill:#10b981,color:#fff
-    style D fill:#f59e0b,color:#fff
-```
-
 **교육 목표**:
 ```
 ♻️ 환경 교육:
@@ -647,29 +336,6 @@ graph LR
 #### 🎮 프로젝트 3: 물체 도감 수집 (2.5시간)
 
 **컴퓨터 비전 핵심**: 물체 인식 + 데이터 수집
-
-```mermaid
-graph TB
-    A[카메라로 촬영]
-    B[AI 인식]
-    C[도감 등록]
-    D[정보 표시]
-    E[컬렉션 완성]
-    
-    A --> B
-    B --> C
-    C --> D
-    D --> E
-    
-    D --> D1[이름]
-    D --> D2[카테고리]
-    D --> D3[설명]
-    D --> D4[재미있는 사실]
-    
-    style A fill:#3b82f6,color:#fff
-    style B fill:#10b981,color:#fff
-    style E fill:#f59e0b,color:#fff
-```
 
 **포켓몬 도감 스타일**:
 ```
@@ -697,27 +363,6 @@ graph TB
 
 **컴퓨터 비전 핵심**: 화면 속 여러 물체 동시 인식
 
-```mermaid
-graph TB
-    A[실시간 카메라]
-    B[AI 분석]
-    
-    A --> B
-    B --> C1[물체 1 감지]
-    B --> C2[물체 2 감지]
-    B --> C3[물체 3 감지]
-    
-    C1 --> D[박스 표시]
-    C2 --> D
-    C3 --> D
-    
-    D --> E[카운트]
-    
-    style A fill:#3b82f6,color:#fff
-    style B fill:#10b981,color:#fff
-    style E fill:#f59e0b,color:#fff
-```
-
 **게임 응용**:
 ```
 🔍 물체 찾기 게임:
@@ -736,20 +381,6 @@ graph TB
 #### 🎮 프로젝트 2: 동작 인식 챌린지 (2.5시간)
 
 **컴퓨터 비전 핵심**: 물체 움직임 감지
-
-```mermaid
-sequenceDiagram
-    participant 카메라
-    participant AI
-    participant 게임
-    
-    카메라->>AI: 프레임 1
-    AI->>AI: 위치 A 기록
-    카메라->>AI: 프레임 2
-    AI->>AI: 위치 B 기록
-    AI->>게임: 움직임 계산
-    게임->>플레이어: 반응
-```
 
 **게임 예시**:
 ```
@@ -770,27 +401,6 @@ sequenceDiagram
 
 **컴퓨터 비전 핵심**: 이상 감지 시스템
 
-```mermaid
-graph TB
-    A[감시 모드 ON]
-    B[실시간 촬영]
-    C[AI 분석]
-    D{변화 감지?}
-    E[알림 전송]
-    F[영상 저장]
-    
-    A --> B
-    B --> C
-    C --> D
-    D -->|예| E
-    D -->|예| F
-    D -->|아니오| B
-    
-    style A fill:#3b82f6,color:#fff
-    style D fill:#f59e0b,color:#fff
-    style E fill:#ef4444,color:#fff
-```
-
 ---
 
 ## 🚀 고급 과정: MediaPipe + Colab (고등 1-2학년)
@@ -798,23 +408,6 @@ graph TB
 ### 고등 1학년: MediaPipe 기초 (12시간)
 
 #### 📚 MediaPipe란?
-
-```mermaid
-graph LR
-    A[Google MediaPipe] --> B[손 인식]
-    A --> C[얼굴 인식]
-    A --> D[포즈 추정]
-    A --> E[물체 감지]
-    
-    B --> F[21개 손 랜드마크]
-    C --> G[468개 얼굴 랜드마크]
-    D --> H[33개 신체 랜드마크]
-    
-    style A fill:#10b981,color:#fff
-    style F fill:#3b82f6,color:#fff
-    style G fill:#f59e0b,color:#fff
-    style H fill:#ef4444,color:#fff
-```
 
 ---
 
@@ -872,27 +465,6 @@ while cap.isOpened():
 #### 🎮 프로젝트 2: 전신 포즈 추정 게임 (4시간)
 
 **기술**: MediaPipe Pose (33개 랜드마크)
-
-```mermaid
-graph TB
-    A[전신 인식]
-    
-    A --> B[상체 포즈]
-    A --> C[하체 포즈]
-    A --> D[전신 균형]
-    
-    B --> E[팔 각도]
-    B --> F[어깨 위치]
-    
-    C --> G[다리 각도]
-    C --> H[무릎 높이]
-    
-    D --> I[중심 이동]
-    
-    style A fill:#3b82f6,color:#fff
-    style E fill:#10b981,color:#fff
-    style I fill:#f59e0b,color:#fff
-```
 
 **게임 프로젝트**:
 ```
@@ -965,28 +537,6 @@ if results.multi_face_landmarks:
 
 **기술**: OCR + 물체 감지
 
-```mermaid
-graph TB
-    A[자동차 감지]
-    B[번호판 영역 추출]
-    C[문자 인식 OCR]
-    D[번호 저장]
-    E[데이터베이스]
-    
-    A --> B
-    B --> C
-    C --> D
-    D --> E
-    
-    E --> F[주차 관리]
-    E --> G[출입 관리]
-    E --> H[통계 분석]
-    
-    style A fill:#3b82f6,color:#fff
-    style C fill:#10b981,color:#fff
-    style E fill:#f59e0b,color:#fff
-```
-
 **구현 단계**:
 ```python
 # Google Colab 코드 구조
@@ -1028,24 +578,6 @@ import sqlite3
 #### 🎮 프로젝트 2: 실시간 객체 추적 시스템 (4시간)
 
 **기술**: Object Tracking + Kalman Filter
-
-```mermaid
-sequenceDiagram
-    participant 카메라
-    participant 감지기
-    participant 추적기
-    participant 예측기
-    
-    카메라->>감지기: 프레임 1
-    감지기->>추적기: 물체 A 발견
-    추적기->>예측기: 위치 기록
-    
-    카메라->>감지기: 프레임 2
-    감지기->>추적기: 물체 A 이동
-    추적기->>예측기: 궤적 예측
-    
-    예측기->>시스템: 다음 위치 예측
-```
 
 **프로젝트 예시**:
 ```
@@ -1125,41 +657,6 @@ sequenceDiagram
 
 ### 컴퓨터 비전 프로젝트 평가
 
-```mermaid
-graph TB
-    subgraph "AI 모델 40%"
-        A1[데이터 수집<br/>10%]
-        A2[학습 품질<br/>15%]
-        A3[정확도<br/>15%]
-    end
-    
-    subgraph "게임 구현 35%"
-        G1[창의성<br/>15%]
-        G2[완성도<br/>10%]
-        G3[사용성<br/>10%]
-    end
-    
-    subgraph "기술 이해 25%"
-        T1[원리 설명<br/>10%]
-        T2[문제 해결<br/>10%]
-        T3[개선 능력<br/>5%]
-    end
-    
-    A1 --> F[최종 점수]
-    A2 --> F
-    A3 --> F
-    G1 --> F
-    G2 --> F
-    G3 --> F
-    T1 --> F
-    T2 --> F
-    T3 --> F
-    
-    style A2 fill:#10b981,color:#fff
-    style G1 fill:#3b82f6,color:#fff
-    style T1 fill:#f59e0b,color:#fff
-```
-
 ---
 
 ## 🛠️ 필요 도구 및 환경
@@ -1194,24 +691,6 @@ from google.colab.patches import cv2_imshow
 ---
 
 ## 📚 학습 로드맵 요약
-
-```mermaid
-gantt
-    title 컴퓨터 비전 AI 학습 여정
-    dateFormat  YYYY-MM-DD
-    
-    section 초등 4-5학년
-    손 인식 (6개)     :a1, 2024-01-01, 16d
-    
-    section 초등 6 - 중1
-    얼굴 인식 (6개)    :a2, after a1, 16d
-    
-    section 중등 2-3학년
-    사물 인식 (6개)    :a3, after a2, 16d
-    
-    section 고등 1-2학년
-    MediaPipe (6개)   :a4, after a3, 24d
-```
 
 ---
 

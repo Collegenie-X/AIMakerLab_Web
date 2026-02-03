@@ -8,86 +8,13 @@
 
 ### 교육 철학: 프로젝트 중심 실전 개발
 
-```mermaid
-mindmap
-  root((피지컬<br/>컴퓨팅))
-    1단계 ESP32
-      Serial 통신
-      Camera 제어
-      Web 제어
-      App Inventor
-      빠른 프로토타입
-    2단계 라즈베리파이
-      OpenCV2
-      YOLO 모델
-      복잡한 시스템
-      AI 통합
-      실제 배포
-```
-
 ### 2단계 학습 로드맵
-
-```mermaid
-graph TB
-    subgraph "1단계: ESP32 (32시간)"
-        E1[ESP32 기초<br/>Serial 통신]
-        E2[Camera 모듈<br/>Web 제어]
-        E3[App Inventor<br/>모바일 제어]
-        E4[5대 프로젝트<br/>프로토타입]
-    end
-    
-    subgraph "2단계: 라즈베리파이 (32시간)"
-        R1[라즈베리파이<br/>Linux 기초]
-        R2[OpenCV2<br/>이미지 처리]
-        R3[YOLO<br/>객체 인식]
-        R4[5대 프로젝트<br/>완성품]
-    end
-    
-    E1 --> E2 --> E3 --> E4
-    E4 --> R1
-    R1 --> R2 --> R3 --> R4
-    
-    style E1 fill:#3b82f6,color:#fff
-    style E4 fill:#10b981,color:#fff
-    style R2 fill:#f59e0b,color:#fff
-    style R4 fill:#ef4444,color:#fff
-```
 
 ---
 
 ## 🚗 5대 핵심 프로젝트
 
 ### 프로젝트 개요
-
-```mermaid
-mindmap
-  root((5대 프로젝트))
-    스마트 카
-      자율 주행
-      장애물 회피
-      라인 트레이싱
-      객체 추적
-    스마트 팔
-      3축 제어
-      물체 집기
-      패턴 반복
-      CV 연동
-    스마트 홈
-      조명 자동화
-      온도 제어
-      보안 시스템
-      음성 제어
-    스마트 팜
-      토양 센서
-      자동 급수
-      환경 모니터
-      데이터 분석
-    무인 차단기
-      번호판 인식
-      출입 관리
-      자동 개폐
-      로그 기록
-```
 
 ### 프로젝트별 난이도 및 시수
 
@@ -104,24 +31,6 @@ mindmap
 ## 📱 1단계: ESP32 프로토타입 개발 (32시간)
 
 ### 왜 ESP32부터 시작하는가?
-
-```mermaid
-graph TB
-    A[ESP32 장점]
-    
-    A --> B[저전력<br/>3.3V]
-    A --> C[WiFi/BLE<br/>내장]
-    A --> D[저렴한 가격<br/>$5-10]
-    A --> E[빠른 개발<br/>Arduino IDE]
-    
-    B --> F[배터리 구동]
-    C --> F[무선 제어]
-    D --> F[대량 제작]
-    E --> F[프로토타입]
-    
-    style A fill:#3b82f6,color:#fff
-    style F fill:#10b981,color:#fff
-```
 
 ### 1단계 학습 목표
 
@@ -144,20 +53,6 @@ graph TB
 ### 핵심 기술 1: Serial 통신 마스터
 
 #### Serial 통신이란?
-
-```mermaid
-sequenceDiagram
-    participant PC
-    participant ESP32
-    participant 센서
-    
-    PC->>ESP32: 명령 전송 (USB)
-    ESP32->>센서: 값 읽기
-    센서->>ESP32: 데이터 응답
-    ESP32->>PC: 결과 출력 (Serial)
-    
-    Note over PC,ESP32: 115200 baud rate
-```
 
 #### 실습: LED 제어 + Serial 디버깅 (ChatGPT 활용)
 
@@ -239,24 +134,6 @@ void loop() {
 ### 핵심 기술 2: ESP32-CAM 활용
 
 #### ESP32-CAM이란?
-
-```mermaid
-graph TB
-    A[ESP32-CAM]
-    
-    A --> B[카메라 내장]
-    A --> C[WiFi 내장]
-    A --> D[microSD 슬롯]
-    A --> E[저렴한 가격]
-    
-    B --> F[감시 카메라]
-    C --> F[이미지 전송]
-    D --> F[로컬 저장]
-    E --> F[대량 제작]
-    
-    style A fill:#3b82f6,color:#fff
-    style F fill:#10b981,color:#fff
-```
 
 #### 실습: WiFi 스트리밍 카메라 (ChatGPT 활용)
 
@@ -375,43 +252,7 @@ void loop() {
 
 #### App Inventor란?
 
-```mermaid
-graph TB
-    A[App Inventor]
-    
-    A --> B[블록 코딩]
-    A --> C[안드로이드 앱]
-    A --> D[Bluetooth/WiFi]
-    A --> E[무료]
-    
-    B --> F[쉬운 개발]
-    C --> F[실제 앱]
-    D --> F[ESP32 제어]
-    E --> F[교육용]
-    
-    style A fill:#f59e0b,color:#fff
-    style F fill:#10b981,color:#fff
-```
-
 #### 실습: Bluetooth로 LED 제어 앱
-
-```mermaid
-sequenceDiagram
-    participant 앱 as App Inventor 앱
-    participant BT as Bluetooth
-    participant ESP32
-    participant LED
-    
-    앱->>BT: 버튼 클릭 "ON"
-    BT->>ESP32: '1' 전송
-    ESP32->>LED: digitalWrite(HIGH)
-    LED->>앱: 상태 표시 "켜짐"
-    
-    앱->>BT: 버튼 클릭 "OFF"
-    BT->>ESP32: '0' 전송
-    ESP32->>LED: digitalWrite(LOW)
-    LED->>앱: 상태 표시 "꺼짐"
-```
 
 **ESP32 Bluetooth 코드**:
 
@@ -455,46 +296,6 @@ void loop() {
 ### 프로젝트 1: 스마트 팜 (센서 기반) - 4시간
 
 #### 시스템 구성
-
-```mermaid
-graph TB
-    subgraph "센서"
-        S1[토양 습도]
-        S2[온도/습도]
-        S3[조도]
-    end
-    
-    subgraph "ESP32"
-        E[ESP32]
-        W[WiFi]
-    end
-    
-    subgraph "제어"
-        P[물펌프]
-        L[LED 조명]
-        F[팬]
-    end
-    
-    subgraph "사용자"
-        WEB[웹 대시보드]
-        APP[앱]
-    end
-    
-    S1 --> E
-    S2 --> E
-    S3 --> E
-    
-    E --> W
-    E --> P
-    E --> L
-    E --> F
-    
-    W --> WEB
-    W --> APP
-    
-    style E fill:#3b82f6,color:#fff
-    style WEB fill:#10b981,color:#fff
-```
 
 #### 핵심 코드 (ChatGPT 활용 90%)
 
@@ -619,48 +420,6 @@ void controlFan(float temperature) {
 ### 프로젝트 2: 스마트 홈 (IoT 통합) - 6시간
 
 #### 시스템 구성
-
-```mermaid
-graph TB
-    subgraph "센서"
-        M[모션 센서]
-        T[온습도]
-        L[조도]
-        G[가스]
-    end
-    
-    subgraph "ESP32 + Web"
-        E[ESP32]
-        W[웹 서버]
-    end
-    
-    subgraph "제어"
-        LT[조명]
-        AC[에어컨]
-        AL[알람]
-    end
-    
-    subgraph "사용자"
-        PC[웹 브라우저]
-        PHONE[스마트폰]
-    end
-    
-    M --> E
-    T --> E
-    L --> E
-    G --> E
-    
-    E --> W
-    E --> LT
-    E --> AC
-    E --> AL
-    
-    W --> PC
-    W --> PHONE
-    
-    style E fill:#3b82f6,color:#fff
-    style W fill:#10b981,color:#fff
-```
 
 #### 핵심 코드: 웹 제어 시스템
 
@@ -863,22 +622,6 @@ void checkSensors() {
 
 #### 시스템 구성
 
-```mermaid
-graph TB
-    A[조이스틱]
-    B[ESP32]
-    C1[서보 1<br/>베이스]
-    C2[서보 2<br/>관절]
-    C3[서보 3<br/>그리퍼]
-    
-    A --> B
-    B --> C1
-    B --> C2
-    B --> C3
-    
-    style B fill:#3b82f6,color:#fff
-```
-
 #### 핵심 코드: 서보 모터 제어
 
 ```cpp
@@ -963,24 +706,6 @@ void moveToPosition(int a1, int a2, int a3) {
 ### 프로젝트 4: 스마트 카 (자율 주행) - 4시간
 
 #### 시스템 구성
-
-```mermaid
-graph TB
-    C[ESP32-CAM]
-    U1[초음파 1<br/>전방]
-    U2[초음파 2<br/>좌측]
-    U3[초음파 3<br/>우측]
-    M1[모터 드라이버]
-    M2[DC 모터 2개]
-    
-    C --> M1
-    U1 --> C
-    U2 --> C
-    U3 --> C
-    M1 --> M2
-    
-    style C fill:#3b82f6,color:#fff
-```
 
 #### 핵심 코드: 장애물 회피
 
@@ -1094,22 +819,6 @@ void stopMotor() {
 ### 프로젝트 5: 무인 차단기 (출입 관리) - 4시간
 
 #### 시스템 구성
-
-```mermaid
-graph TB
-    C[ESP32-CAM]
-    U[초음파]
-    S[서보 모터]
-    L[LED]
-    
-    C -->|차량 감지| U
-    U -->|거리 측정| C
-    C -->|이미지 전송| W[WiFi]
-    C -->|차단기 제어| S
-    C -->|상태 표시| L
-    
-    style C fill:#3b82f6,color:#fff
-```
 
 #### 핵심 코드: 자동 개폐
 
@@ -1353,24 +1062,6 @@ finally:
 
 #### YOLO (You Only Look Once)
 
-```mermaid
-graph TB
-    A[입력 이미지]
-    B[YOLO 모델]
-    C[객체 검출]
-    
-    A --> B
-    B --> C
-    
-    C --> D[사람]
-    C --> E[자동차]
-    C --> F[동물]
-    C --> G[기타]
-    
-    style B fill:#3b82f6,color:#fff
-    style C fill:#10b981,color:#fff
-```
-
 #### 실습: YOLOv5로 실시간 객체 인식
 
 ```bash
@@ -1455,28 +1146,6 @@ finally:
 ### 프로젝트 1: 스마트 카 (자율 주행) - 8시간
 
 #### 시스템 구성: ESP32 → 라즈베리파이 업그레이드
-
-```mermaid
-graph TB
-    subgraph "1단계 ESP32"
-        E1[초음파 센서]
-        E2[장애물 회피]
-    end
-    
-    subgraph "2단계 라즈베리파이"
-        R1[카메라]
-        R2[YOLO 객체 인식]
-        R3[라인 트레이싱]
-        R4[신호등 인식]
-    end
-    
-    E1 --> E2
-    E2 -.업그레이드.-> R1
-    R1 --> R2 --> R3 --> R4
-    
-    style E2 fill:#3b82f6,color:#fff
-    style R2 fill:#10b981,color:#fff
-```
 
 #### 핵심 코드: YOLO 기반 자율 주행
 
@@ -1624,28 +1293,6 @@ finally:
 ### 프로젝트 2: 무인 차단기 (번호판 인식) - 8시간
 
 #### 시스템 구성: ESP32 → 라즈베리파이 업그레이드
-
-```mermaid
-graph TB
-    subgraph "1단계 ESP32"
-        E1[초음파]
-        E2[거리 기반 개폐]
-    end
-    
-    subgraph "2단계 라즈베리파이"
-        R1[카메라]
-        R2[OCR 번호판 인식]
-        R3[DB 조회]
-        R4[출입 관리]
-    end
-    
-    E1 --> E2
-    E2 -.업그레이드.-> R1
-    R1 --> R2 --> R3 --> R4
-    
-    style E2 fill:#3b82f6,color:#fff
-    style R2 fill:#10b981,color:#fff
-```
 
 #### 핵심 코드: OCR 번호판 인식
 
@@ -1973,31 +1620,6 @@ while True:
 
 ### 프로젝트 기반 평가
 
-```mermaid
-graph TB
-    subgraph "1단계 평가 60%"
-        E1[프로토타입<br/>40%]
-        E2[디버깅<br/>10%]
-        E3[원격 제어<br/>10%]
-    end
-    
-    subgraph "2단계 평가 40%"
-        R1[AI 통합<br/>25%]
-        R2[안정성<br/>10%]
-        R3[발표<br/>5%]
-    end
-    
-    E1 --> F[최종 점수]
-    E2 --> F
-    E3 --> F
-    R1 --> F
-    R2 --> F
-    R3 --> F
-    
-    style E1 fill:#3b82f6,color:#fff
-    style R1 fill:#10b981,color:#fff
-```
-
 ---
 
 ## 🛠️ 필요 교구
@@ -2046,42 +1668,9 @@ graph TB
 
 ### 추천 학습 키트
 
-```mermaid
-graph TB
-    A[1단계 키트<br/>$60]
-    B[2단계 키트<br/>$100]
-    
-    A --> A1[ESP32 + 센서]
-    A --> A2[5대 프로젝트<br/>프로토타입]
-    
-    B --> B1[라즈베리파이 + AI]
-    B --> B2[5대 프로젝트<br/>완성품]
-    
-    A2 -.업그레이드.-> B1
-    
-    style A fill:#3b82f6,color:#fff
-    style B fill:#10b981,color:#fff
-```
-
 ---
 
 ## 📚 학습 로드맵 요약
-
-```mermaid
-gantt
-    title 피지컬 컴퓨팅 학습 여정 (64시간)
-    dateFormat  YYYY-MM-DD
-    
-    section 1단계 (32시간)
-    ESP32 기초 + Serial  :a1, 2024-01-01, 8d
-    Camera + Web    :a2, after a1, 10d
-    5대 프로젝트 프로토타입  :a3, after a2, 14d
-    
-    section 2단계 (32시간)
-    라즈베리파이 + OpenCV  :b1, after a3, 8d
-    YOLO 객체 인식  :b2, after b1, 8d
-    5대 프로젝트 AI 통합  :b3, after b2, 16d
-```
 
 ---
 

@@ -11,9 +11,7 @@
 ### 1. 필요한 패키지 설치
 
 ```bash
-npm install mermaid
 # 또는
-pnpm add mermaid
 ```
 
 ### 2. 서버 실행
@@ -62,7 +60,6 @@ http://localhost:3000/docs
   - 인라인 코드
   - 수평선
 
-- **Mermaid 다이어그램 지원**:
   - 플로우차트
   - 시퀀스 다이어그램
   - ERD (Entity Relationship Diagram)
@@ -138,13 +135,7 @@ const hello = "world";
 ```
 ````
 
-### Mermaid 다이어그램
 ````markdown
-```mermaid
-graph TB
-    A[시작] --> B[처리]
-    B --> C[종료]
-```
 ````
 
 ### 테이블
@@ -166,12 +157,7 @@ graph TB
 
 ## 🔧 고급 설정
 
-### Mermaid 테마 커스터마이징
-
-`/app/docs/[slug]/MarkdownRenderer.tsx`에서 Mermaid 테마를 변경할 수 있습니다:
-
 ```typescript
-mermaid.initialize({
   theme: 'default', // default, dark, forest, neutral
   themeVariables: {
     primaryColor: '#3b82f6',    // 메인 색상
@@ -214,11 +200,8 @@ mermaid.initialize({
 
 ## 🐛 트러블슈팅
 
-### 1. Mermaid 다이어그램이 렌더링되지 않아요
-
 **해결책:**
 ```bash
-npm install mermaid
 ```
 
 ### 2. 문서가 목록에 표시되지 않아요
@@ -254,18 +237,10 @@ npm install mermaid
 더 많은 내용...
 ```
 
-### 예제 2: Mermaid 포함
-
 ````markdown
 # 시스템 구조
 
 ## 아키텍처
-
-```mermaid
-graph TB
-    A[Frontend] --> B[API]
-    B --> C[Database]
-```
 
 ## 설명
 
@@ -278,14 +253,12 @@ graph TB
 
 1. **문서 구조화**: 카테고리별로 문서를 정리하세요
 2. **메타데이터 활용**: 각 문서에 적절한 아이콘과 설명을 추가하세요
-3. **Mermaid 활용**: 복잡한 개념은 다이어그램으로 시각화하세요
 4. **코드 블록**: 언어를 명시하여 syntax highlighting을 활용하세요
 
 ---
 
 ## 🚀 다음 단계
 
-1. ✅ 패키지 설치 (`npm install mermaid`)
 2. ✅ 서버 실행 (`npm run dev`)
 3. ✅ `/docs` 페이지 확인
 4. ✅ 새 문서 추가

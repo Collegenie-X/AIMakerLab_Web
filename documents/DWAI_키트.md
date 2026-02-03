@@ -21,42 +21,6 @@
 
 ### 전체 구조
 
-```mermaid
-graph TB
-    A[DWAI 프로젝트<br/>80가지]
-    
-    A --> B[📚 학습 도구<br/>20가지]
-    A --> C[🎮 게임<br/>20가지]
-    A --> D[🤖 AI 체험<br/>20가지]
-    A --> E[🔧 실전 프로젝트<br/>20가지]
-    
-    B --> B1[언어 학습<br/>5개]
-    B --> B2[수학 학습<br/>5개]
-    B --> B3[과학 학습<br/>5개]
-    B --> B4[예술 학습<br/>5개]
-    
-    C --> C1[액션 게임<br/>5개]
-    C --> C2[퍼즐 게임<br/>5개]
-    C --> C3[리듬 게임<br/>5개]
-    C --> C4[시뮬레이션<br/>5개]
-    
-    D --> D1[얼굴 인식<br/>5개]
-    D --> D2[손 인식<br/>5개]
-    D --> D3[사물 인식<br/>5개]
-    D --> D4[음성 인식<br/>5개]
-    
-    E --> E1[스마트 홈<br/>5개]
-    E --> E2[환경 보호<br/>5개]
-    E --> E3[보안 시스템<br/>5개]
-    E --> E4[농업 자동화<br/>5개]
-    
-    style A fill:#8b5cf6,color:#fff
-    style B fill:#10b981,color:#fff
-    style C fill:#3b82f6,color:#fff
-    style D fill:#f59e0b,color:#fff
-    style E fill:#ef4444,color:#fff
-```
-
 ---
 
 ## 📚 학습 도구 (20가지)
@@ -2113,44 +2077,6 @@ DWAI 블록:
 
 ## 🎯 학습 로드맵
 
-```mermaid
-graph TB
-    A[DWAI 시작]
-    
-    A --> B[📚 학습 도구<br/>20개]
-    A --> C[🎮 게임<br/>20개]
-    
-    B --> B1[언어 5개]
-    B --> B2[수학 5개]
-    B --> B3[과학 5개]
-    B --> B4[예술 5개]
-    
-    C --> C1[액션 5개]
-    C --> C2[퍼즐 5개]
-    C --> C3[리듬 5개]
-    C --> C4[시뮬 5개]
-    
-    B1 --> D[🤖 AI 체험<br/>20개]
-    B2 --> D
-    B3 --> D
-    B4 --> D
-    C1 --> D
-    C2 --> D
-    C3 --> D
-    C4 --> D
-    
-    D --> E[🔧 실전 프로젝트<br/>20개]
-    
-    E --> F[포트폴리오<br/>경진대회]
-    
-    style A fill:#8b5cf6,color:#fff
-    style B fill:#10b981,color:#fff
-    style C fill:#3b82f6,color:#fff
-    style D fill:#f59e0b,color:#fff
-    style E fill:#ef4444,color:#fff
-    style F fill:#ec4899,color:#fff
-```
-
 ---
 
 ## 🔗 관련 링크
@@ -2174,7 +2100,6 @@ graph TB
 - ✅ 액션, 퍼즐, 리듬, 시뮬레이션 게임
 - ✅ 학년별 맞춤 추천
 - ✅ 재미있는 AI 교육
-
 
 ## 🟢 입문 단계 (Lv.1-10): 순수 게임 + AI 체험
 
@@ -4857,40 +4782,6 @@ while True:
 ---
 
 ## 📊 학습 로드맵 요약
-
-```mermaid
-graph TB
-    subgraph "🟢 입문 (Lv.1-10)"
-        A1[순수 게임<br/>AI 체험]
-        A2[DWAI 내장 기능]
-        A3[재미 중심]
-    end
-    
-    subgraph "🔵 초급 (Lv.11-20)"
-        B1[게임 + TM]
-        B2[AI 모델 학습]
-        B3[분류 원리]
-    end
-    
-    subgraph "🟡 중급 (Lv.21-30)"
-        C1[TM + 마이크로비트]
-        C2[하드웨어 연동]
-        C3[실전 응용]
-    end
-    
-    subgraph "🔴 고급 (Lv.31-40)"
-        D1[종합 시스템]
-        D2[다중 센서]
-        D3[경진대회]
-    end
-    
-    A1 --> B1 --> C1 --> D1
-    
-    style A1 fill:#10b981,color:#fff
-    style B1 fill:#3b82f6,color:#fff
-    style C1 fill:#f59e0b,color:#fff
-    style D1 fill:#ef4444,color:#fff
-```
 
 ---
 

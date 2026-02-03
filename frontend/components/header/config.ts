@@ -75,17 +75,17 @@ export const headerNavSections: HeaderNavSection[] = [
     icon: "HelpCircle",
     items: [
       { 
-        label: "출강 수업", 
-        href: "/inquiry/online", 
-        icon: "School",
-        description: "학교 및 기관 방문 교육"
+        label: "출강 커리큘럼", 
+        href: "/inquiry/schedule", 
+        icon: "BookOpen",
+        description: "3시간·6시간·12시간"
       },
-      // { 
-      //   label: "주중 수업", 
-      //   href: "/inquiry/schedule", 
-      //   icon: "CalendarDays",
-      //   description: "평일 정규 교육 프로그램"
-      // },
+      { 
+        label: "출강 문의하기", 
+        href: "/inquiry/online", 
+        icon: "Calendar",
+        description: "학교,대학 출강 수업 신청"
+      },
       // { 
       //   label: "주말 수업", 
       //   href: "/inquiry/weekend-schedule", 
@@ -143,10 +143,10 @@ export const headerNavSections: HeaderNavSection[] = [
         description: "교육 참가자들의 생생한 후기"
       },
       { 
-        label: "기술 문서", 
+        label: "교육 가이드", 
         href: "/docs", 
         icon: "BookOpen",
-        description: "API 명세 및 구현 가이드"
+        description: "교육 철학·방법론·용언 설명"
       },
     ],
   },

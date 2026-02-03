@@ -4,6 +4,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/navigation/tabs"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/layout/accordion"
 import { useCallback, useState } from "react"
+import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/buttons/button"
 import { Badge } from "@/components/ui/data-display/badge"
 import { Textarea } from "@/components/ui/forms/textarea"
@@ -28,20 +29,40 @@ import { ScheduleMediaGallery } from "./ScheduleMediaGallery"
 
 type Props = {
   item: ScheduleItem
-  trigger: React.ReactNode
+  trigger?: React.ReactNode
   texts: ScheduleTexts
+  open?: boolean
+  onOpenChange?: (open: boolean) => void
 }
 
 /**
  * 수업 상세 정보 다이얼로그 컴포넌트 (Udemy 스타일)
  * @param item - 수업 정보
- * @param trigger - 다이얼로그를 여는 트리거 요소
+ * @param trigger - 다이얼로그를 여는 트리거 요소 (선택)
  * @param texts - 표시할 텍스트 설정
+ * @param open - 다이얼로그 열림 상태 (선택, 외부 제어)
+ * @param onOpenChange - 다이얼로그 열림 상태 변경 핸들러 (선택, 외부 제어)
  */
-export function ScheduleDetailDialog({ item, trigger, texts }: Props) {
+export function ScheduleDetailDialog({ item, trigger, texts, open: controlledOpen, onOpenChange }: Props) {
+  const router = useRouter()
   const isClosed = item.enrolled >= item.capacity
-  const [open, setOpen] = useState(false)
+  const [internalOpen, setInternalOpen] = useState(false)
   const [newComment, setNewComment] = useState("")
+
+  // 외부 제어와 내부 상태 중 선택
+  const open = controlledOpen !== undefined ? controlledOpen : internalOpen
+  const setOpen = onOpenChange !== undefined ? onOpenChange : setInternalOpen
+
+  // 출강 수업 문의하기 핸들러
+  const handleOutreachInquiry = () => {
+    const params = new URLSearchParams({
+      course: item.title,
+      instructor: item.instructor,
+      duration: item.duration,
+      level: item.level,
+    })
+    router.push(`/inquiry/online?${params.toString()}`)
+  }
 
   const handleTriggerClick = useCallback(() => {
     if (typeof window !== "undefined") {
@@ -74,9 +95,11 @@ export function ScheduleDetailDialog({ item, trigger, texts }: Props) {
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <div role="button" onClick={handleTriggerClick} aria-label="수업 상세 열기">
-        {trigger}
-      </div>
+      {trigger && (
+        <div role="button" onClick={handleTriggerClick} aria-label="수업 상세 열기">
+          {trigger}
+        </div>
+      )}
       
       {/* 너비를 max-w-7xl로 확장 */}
       <DialogContent className="h-[90vh] overflow-y-auto sm:max-w-7xl">
@@ -574,13 +597,24 @@ export function ScheduleDetailDialog({ item, trigger, texts }: Props) {
                   <div className="mb-1 text-3xl font-bold text-blue-600">{item.price}</div>
                   <div className="text-sm text-gray-500">{item.duration}</div>
                 </div>
-                <Button 
-                  size="lg" 
-                  disabled={isClosed}
-                  className="bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white px-8 py-6 text-base font-semibold shadow-lg hover:shadow-xl transition-all"
-                >
-                  {isClosed ? texts.labels.closedFull : texts.labels.apply}
-                </Button>
+                <div className="flex flex-col gap-3 w-full">
+                  <Button 
+                    size="lg" 
+                    disabled={isClosed}
+                    className="bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white px-8 py-6 text-base font-semibold shadow-lg hover:shadow-xl transition-all w-full"
+                  >
+                    {isClosed ? texts.labels.closedFull : texts.labels.apply}
+                  </Button>
+                  <Button 
+                    size="lg"
+                    variant="outline"
+                    onClick={handleOutreachInquiry}
+                    className="border-2 border-purple-600 text-purple-600 hover:bg-purple-50 px-8 py-6 text-base font-semibold w-full"
+                  >
+                    <Send className="mr-2 h-5 w-5" />
+                    출강 수업 문의하기
+                  </Button>
+                </div>
               </div>
             </div>
           </aside>

@@ -18,40 +18,6 @@
 
 ## 📊 학년별 커리큘럼 구조
 
-```mermaid
-graph TB
-    subgraph "초등 저학년 (1-3학년)"
-        A1[DWAI 게임 체험<br/>3시간]
-        A2[손/얼굴 인식 게임<br/>6시간]
-    end
-    
-    subgraph "초등 고학년 (4-6학년)"
-        B1[TM 기초 + DWAI<br/>3시간]
-        B2[3가지 인식 게임<br/>6시간]
-        B3[마이크로비트 입문<br/>12시간]
-    end
-    
-    subgraph "중학 저학년 (1-2학년)"
-        C1[TM + 마이크로비트<br/>6시간]
-        C2[IoT 프로젝트<br/>12시간]
-        C3[실전 시스템<br/>18시간]
-    end
-    
-    subgraph "중학 고학년 (3학년)"
-        D1[고급 센서 통합<br/>12시간]
-        D2[경진대회 프로젝트<br/>24시간]
-    end
-    
-    A1 --> A2 --> B1 --> B2 --> B3
-    B3 --> C1 --> C2 --> C3
-    C3 --> D1 --> D2
-    
-    style A1 fill:#10b981,color:#fff
-    style B1 fill:#3b82f6,color:#fff
-    style C1 fill:#f59e0b,color:#fff
-    style D1 fill:#ef4444,color:#fff
-```
-
 ---
 
 ## 🟢 초등 저학년 (1-3학년): DWAI 게임 체험

@@ -13,56 +13,6 @@
 
 ### 단계별 교육 흐름
 
-```mermaid
-graph LR
-    
-    subgraph "초등학교 4-6학년" 
-    direction LR
-        E1[블록 코딩 DWAI<br/>기초]
-        E2[블록 코딩 DWAI<br/>중급]
-        E3[블록 코딩 DWAI<br/>심화]
-    end
-
-    E1 --> E2
-    E2 --> E3
-
-
-    style E1 fill:#3b82f6,color:#fff
-    style E2 fill:#3b82f6,color:#fff
-    style E3 fill:#3b82f6,color:#fff
-```
-
-```mermaid
-graph LR   
-    subgraph "중학교 1-3학년"
-        direction LR
-        M1[ChatGPT 컨텐츠<br/>+ 피지컬 컴퓨팅 기초]
-        M2[ChatGPT AI Agent<br/>+ 피지컬 컴퓨팅 중급]
-        M3[ChatGPT 바이브<br/>+ 피지컬 컴퓨팅 심화]
-    end
-
-
-    M1 --> M2
-    M2 --> M3
-    style M1 fill:#10b981,color:#fff
-    style M2 fill:#10b981,color:#fff
-    style M3 fill:#10b981,color:#fff
-```
-```mermaid
-graph LR   
-    subgraph "고등학교 1-2학년"
-        direction LR
-        H1[고급 피지컬 컴퓨팅<br/>+ AI 프로젝트]
-        H2[실전 프로젝트<br/>+ 포트폴리오]
-    end
-    
-    H1 --> H2
-
-
-    style H1 fill:#f59e0b,color:#fff
-    style H2 fill:#f59e0b,color:#fff
-```
-
 ---
 
 ## 📊 학년별 교육 내용 종합표
@@ -86,27 +36,6 @@ graph LR
 
 ### 교육 목표
 
-```mermaid
-mindmap
-  root((초등 블록 코딩))
-    창의적 사고
-      문제 발견
-      해결 방법 탐색
-      다양한 시도
-    논리적 사고
-      순차 구조
-      반복 구조
-      조건 구조
-    컴퓨팅 사고력
-      알고리즘 이해
-      패턴 인식
-      추상화
-    협업 능력
-      팀 프로젝트
-      아이디어 공유
-      피드백
-```
-
 ### 초등 4학년: 블록 코딩 기초
 
 #### 교육 내용
@@ -121,18 +50,6 @@ mindmap
 | 11-12 | 종합 프로젝트 | - 배운 내용 종합<br/>- 팀 프로젝트<br/>- 발표 | 나만의 게임 만들기 | 2시간 |
 
 #### 학습 성과
-
-```mermaid
-graph LR
-    A[초등 4학년] --> B[기초 블록 이해]
-    B --> C[순차 구조 구현]
-    C --> D[반복 구조 활용]
-    D --> E[조건 구조 적용]
-    E --> F[간단한 게임 제작]
-    
-    style A fill:#3b82f6,color:#fff
-    style F fill:#10b981,color:#fff
-```
 
 ### 초등 5학년: 블록 코딩 중급
 
@@ -149,18 +66,6 @@ graph LR
 
 #### 학습 성과
 
-```mermaid
-graph LR
-    A[초등 5학년] --> B[함수 활용]
-    B --> C[이벤트 처리]
-    C --> D[리스트 관리]
-    D --> E[AI 모델 체험]
-    E --> F[복합 프로젝트 완성]
-    
-    style A fill:#3b82f6,color:#fff
-    style F fill:#10b981,color:#fff
-```
-
 ### 초등 6학년: 블록 코딩 심화 + 피지컬 컴퓨팅 체험
 
 #### 교육 내용
@@ -176,52 +81,11 @@ graph LR
 
 #### 학습 성과
 
-```mermaid
-graph TB
-    A[초등 6학년] --> B[고급 알고리즘]
-    A --> C[데이터 시각화]
-    B --> D[피지컬 컴퓨팅 체험]
-    C --> D
-    D --> E[센서 활용]
-    D --> F[액추에이터 제어]
-    E --> G[종합 프로젝트]
-    F --> G
-    
-    style A fill:#3b82f6,color:#fff
-    style D fill:#8b5cf6,color:#fff
-    style G fill:#10b981,color:#fff
-```
-
 ---
 
 ## 🎓 중학교 1-3학년: ChatGPT + 피지컬 컴퓨팅
 
 ### 교육 목표
-
-```mermaid
-mindmap
-  root((중학교 AI 교육))
-    ChatGPT 활용
-      프롬프트 작성
-      정보 검색
-      AI 대화
-      컨텐츠 생성
-    피지컬 컴퓨팅
-      센서 활용
-      제어 시스템
-      IoT 개념
-      실생활 적용
-    문제 해결
-      프로젝트 설계
-      알고리즘 구현
-      디버깅
-      최적화
-    창의적 설계
-      아이디어 발상
-      프로토타이핑
-      테스트
-      개선
-```
 
 ### 중학교 1학년: ChatGPT 컨텐츠 + 피지컬 컴퓨팅 기초
 
@@ -237,24 +101,6 @@ mindmap
 | 16-20 | 통합 프로젝트 | - ChatGPT로 기획<br/>- 아두이노 구현<br/>- 발표 | 스마트 알림 시스템 | 5시간 |
 
 #### 기술 스택
-
-```mermaid
-graph LR
-    A[ChatGPT 컨텐츠] --> C[통합 프로젝트]
-    B[아두이노 기초] --> C
-    
-    A --> A1[프롬프트 작성]
-    A --> A2[컨텐츠 생성]
-    A --> A3[학습 지원]
-    
-    B --> B1[디지털 IO]
-    B --> B2[센서 읽기]
-    B --> B3[회로 구성]
-    
-    style A fill:#10b981,color:#fff
-    style B fill:#f59e0b,color:#fff
-    style C fill:#8b5cf6,color:#fff
-```
 
 ### 중학교 2학년: ChatGPT AI Agent + 피지컬 컴퓨팅 중급
 
@@ -272,40 +118,6 @@ graph LR
 
 #### 시스템 아키텍처
 
-```mermaid
-graph TB
-    subgraph "ChatGPT AI Agent"
-        A[사용자 입력]
-        B[프롬프트 처리]
-        C[AI 응답 생성]
-    end
-    
-    subgraph "피지컬 컴퓨팅"
-        D[센서 데이터]
-        E[아두이노 제어]
-        F[액추에이터 동작]
-    end
-    
-    subgraph "통신 레이어"
-        G[API 통신]
-        H[시리얼 통신]
-    end
-    
-    A --> B
-    B --> C
-    C --> G
-    
-    D --> E
-    E --> F
-    E --> H
-    
-    G <--> H
-    
-    style A fill:#10b981,color:#fff
-    style D fill:#f59e0b,color:#fff
-    style G fill:#8b5cf6,color:#fff
-```
-
 ### 중학교 3학년: ChatGPT 바이브 + 피지컬 컴퓨팅 심화
 
 #### 교육 내용
@@ -322,78 +134,11 @@ graph TB
 
 #### 통합 시스템
 
-```mermaid
-graph TB
-    subgraph "ChatGPT 바이브"
-        A1[감성 대화]
-        A2[페르소나]
-        A3[창의적 생성]
-    end
-    
-    subgraph "센서 네트워크"
-        B1[온도/습도]
-        B2[조도/소리]
-        B3[동작 감지]
-    end
-    
-    subgraph "출력 장치"
-        C1[디스플레이]
-        C2[스피커]
-        C3[액추에이터]
-    end
-    
-    subgraph "데이터 처리"
-        D[아두이노<br/>마이크로컨트롤러]
-    end
-    
-    A1 --> D
-    A2 --> D
-    A3 --> D
-    
-    B1 --> D
-    B2 --> D
-    B3 --> D
-    
-    D --> C1
-    D --> C2
-    D --> C3
-    
-    style A1 fill:#10b981,color:#fff
-    style B1 fill:#f59e0b,color:#fff
-    style D fill:#8b5cf6,color:#fff
-    style C1 fill:#3b82f6,color:#fff
-```
-
 ---
 
 ## 🎓 고등학교 1-2학년: 고급 피지컬 컴퓨팅 + AI 프로젝트
 
 ### 교육 목표
-
-```mermaid
-mindmap
-  root((고등학교 AI))
-    심화 기술
-      라즈베리파이
-      센서 네트워크
-      머신러닝
-      컴퓨터 비전
-    실전 프로젝트
-      문제 정의
-      설계 및 구현
-      테스트
-      최적화
-    포트폴리오
-      프로젝트 문서화
-      발표 자료
-      GitHub
-      영상 제작
-    진로 탐색
-      AI 엔지니어
-      IoT 개발자
-      로보틱스
-      데이터 과학자
-```
 
 ### 고등학교 1학년: 고급 피지컬 컴퓨팅 + AI 프로젝트
 
@@ -410,50 +155,6 @@ mindmap
 
 #### 기술 스택
 
-```mermaid
-graph TB
-    subgraph "하드웨어"
-        H1[라즈베리파이]
-        H2[아두이노]
-        H3[센서/카메라]
-    end
-    
-    subgraph "소프트웨어"
-        S1[Python]
-        S2[OpenCV]
-        S3[TensorFlow]
-    end
-    
-    subgraph "통신/네트워크"
-        N1[MQTT]
-        N2[HTTP/API]
-        N3[시리얼]
-    end
-    
-    subgraph "AI 서비스"
-        A1[ChatGPT API]
-        A2[컴퓨터 비전]
-        A3[음성 인식]
-    end
-    
-    H1 --> S1
-    H2 --> S1
-    H3 --> S2
-    
-    S1 --> N1
-    S2 --> N2
-    S3 --> N3
-    
-    N1 --> A1
-    N2 --> A2
-    N3 --> A3
-    
-    style H1 fill:#f59e0b,color:#fff
-    style S1 fill:#3b82f6,color:#fff
-    style N1 fill:#8b5cf6,color:#fff
-    style A1 fill:#10b981,color:#fff
-```
-
 ### 고등학교 2학년: 실전 프로젝트 + 포트폴리오
 
 #### 교육 내용
@@ -469,59 +170,11 @@ graph TB
 
 #### 프로젝트 흐름
 
-```mermaid
-graph LR
-    A[아이디어 도출] --> B[요구사항 분석]
-    B --> C[시스템 설계]
-    C --> D[프로토타입 제작]
-    D --> E[구현]
-    E --> F[테스트]
-    F --> G{통과?}
-    G -->|아니오| E
-    G -->|예| H[문서화]
-    H --> I[발표 준비]
-    I --> J[전시/시연]
-    
-    style A fill:#8b5cf6,color:#fff
-    style E fill:#3b82f6,color:#fff
-    style G fill:#f59e0b,color:#fff
-    style J fill:#10b981,color:#fff
-```
-
 ---
 
 ## 📈 학년별 역량 발전 단계
 
 ### 역량별 성장 곡선
-
-```mermaid
-graph TB
-    subgraph "초등 4-6학년"
-        E[블록 코딩 역량<br/>⬆️⬆️⬆️⬆️⬆️]
-    end
-    
-    subgraph "중등 1-3학년"
-        M1[ChatGPT 활용<br/>⬆️⬆️⬆️⬆️⬆️]
-        M2[피지컬 컴퓨팅<br/>⬆️⬆️⬆️⬆️]
-    end
-    
-    subgraph "고등 1-2학년"
-        H1[고급 AI/IoT<br/>⬆️⬆️⬆️⬆️⬆️]
-        H2[프로젝트 관리<br/>⬆️⬆️⬆️⬆️]
-    end
-    
-    E --> M1
-    E --> M2
-    M1 --> H1
-    M2 --> H1
-    M2 --> H2
-    
-    style E fill:#3b82f6,color:#fff
-    style M1 fill:#10b981,color:#fff
-    style M2 fill:#f59e0b,color:#fff
-    style H1 fill:#8b5cf6,color:#fff
-    style H2 fill:#ef4444,color:#fff
-```
 
 ### 역량 매트릭스
 
@@ -540,30 +193,6 @@ graph TB
 
 ### 평가 기준
 
-```mermaid
-graph TB
-    A[학습 평가]
-    
-    A --> B[이론 이해]
-    A --> C[실습 능력]
-    A --> D[프로젝트 완성도]
-    A --> E[창의성]
-    A --> F[협업 능력]
-    
-    B --> B1[개념 이해 20%]
-    C --> C1[코딩 능력 30%]
-    D --> D1[작품 완성 25%]
-    E --> E1[독창성 15%]
-    F --> F1[팀워크 10%]
-    
-    style A fill:#8b5cf6,color:#fff
-    style B fill:#3b82f6,color:#fff
-    style C fill:#10b981,color:#fff
-    style D fill:#f59e0b,color:#fff
-    style E fill:#ef4444,color:#fff
-    style F fill:#ec4899,color:#fff
-```
-
 ### 단계별 목표
 
 | 단계 | 학년 | 핵심 목표 | 성취 기준 |
@@ -579,26 +208,6 @@ graph TB
 ## 💡 교육 방법론
 
 ### 프로젝트 기반 학습(PBL)
-
-```mermaid
-graph LR
-    A[문제 발견] --> B[아이디어 도출]
-    B --> C[계획 수립]
-    C --> D[설계]
-    D --> E[구현]
-    E --> F[테스트]
-    F --> G[개선]
-    G --> H[발표]
-    H --> I[피드백]
-    I --> J{만족?}
-    J -->|아니오| C
-    J -->|예| K[완성]
-    
-    style A fill:#8b5cf6,color:#fff
-    style E fill:#3b82f6,color:#fff
-    style H fill:#10b981,color:#fff
-    style K fill:#f59e0b,color:#fff
-```
 
 ### 교수학습 전략
 
@@ -629,16 +238,6 @@ graph LR
 
 ### 교구 예산 (학생 1인당)
 
-```mermaid
-pie title 학년별 교구 비용
-    "초등 4-6학년" : 0
-    "중학 1학년" : 80000
-    "중학 2학년" : 120000
-    "중학 3학년" : 150000
-    "고등 1학년" : 200000
-    "고등 2학년" : 250000
-```
-
 | 학년 | 예상 비용 | 주요 항목 |
 |------|----------|----------|
 | 초4-6 | 무료 | DWAI 온라인 플랫폼 |
@@ -664,65 +263,11 @@ pie title 학년별 교구 비용
 
 ### 추천 교재
 
-```mermaid
-graph TB
-    subgraph "초등"
-        E1[블록 코딩으로<br/>시작하는 AI]
-        E2[스크래치로<br/>만드는 게임]
-    end
-    
-    subgraph "중등"
-        M1[아두이노<br/>시작하기]
-        M2[ChatGPT<br/>활용 가이드]
-        M3[IoT<br/>프로젝트]
-    end
-    
-    subgraph "고등"
-        H1[Python으로<br/>배우는 머신러닝]
-        H2[라즈베리파이<br/>프로젝트]
-        H3[컴퓨터 비전<br/>with OpenCV]
-    end
-    
-    E1 --> M1
-    E2 --> M2
-    M1 --> H1
-    M2 --> H2
-    M3 --> H3
-    
-    style E1 fill:#3b82f6,color:#fff
-    style M1 fill:#10b981,color:#fff
-    style H1 fill:#f59e0b,color:#fff
-```
-
 ---
 
 ## 🎓 진로 연계
 
 ### AI 관련 진로 경로
-
-```mermaid
-graph TB
-    A[AI 교육 이수]
-    
-    A --> B[AI 엔지니어]
-    A --> C[데이터 과학자]
-    A --> D[IoT 개발자]
-    A --> E[로보틱스 엔지니어]
-    A --> F[게임 개발자]
-    
-    B --> B1[AI 연구원<br/>머신러닝 엔지니어]
-    C --> C1[데이터 분석가<br/>빅데이터 전문가]
-    D --> D1[스마트홈 개발자<br/>임베디드 엔지니어]
-    E --> E1[자율주행 개발자<br/>드론 엔지니어]
-    F --> F1[게임 AI 개발자<br/>VR/AR 개발자]
-    
-    style A fill:#8b5cf6,color:#fff
-    style B fill:#3b82f6,color:#fff
-    style C fill:#10b981,color:#fff
-    style D fill:#f59e0b,color:#fff
-    style E fill:#ef4444,color:#fff
-    style F fill:#ec4899,color:#fff
-```
 
 ### 대학 전공 연계
 
@@ -740,21 +285,6 @@ graph TB
 
 ### 수업 운영 모델
 
-```mermaid
-graph LR
-    A[정규 과정<br/>주 1회 2시간] --> D[수료]
-    B[방학 집중<br/>주 5일 3시간] --> D
-    C[자유학기제<br/>주 2회 3시간] --> D
-    
-    D --> E[수료증 발급]
-    D --> F[포트폴리오]
-    
-    style A fill:#3b82f6,color:#fff
-    style B fill:#10b981,color:#fff
-    style C fill:#f59e0b,color:#fff
-    style E fill:#8b5cf6,color:#fff
-```
-
 ### 수업 구성 (2시간 기준)
 
 | 시간 | 활동 | 내용 |
@@ -770,35 +300,6 @@ graph LR
 ## 🎯 학습 성과 관리
 
 ### 포트폴리오 구성
-
-```mermaid
-graph TB
-    A[학생 포트폴리오]
-    
-    A --> B[프로젝트 작품]
-    A --> C[학습 일지]
-    A --> D[인증서]
-    A --> E[발표 자료]
-    
-    B --> B1[코드<br/>GitHub]
-    B --> B2[영상<br/>YouTube]
-    B --> B3[사진<br/>문서]
-    
-    C --> C1[주간 일지]
-    C --> C2[회고록]
-    
-    D --> D1[수료증]
-    D --> D2[자격증]
-    
-    E --> E1[PPT]
-    E --> E2[시연 영상]
-    
-    style A fill:#8b5cf6,color:#fff
-    style B fill:#3b82f6,color:#fff
-    style C fill:#10b981,color:#fff
-    style D fill:#f59e0b,color:#fff
-    style E fill:#ef4444,color:#fff
-```
 
 ### 평가 루브릭
 
@@ -816,19 +317,6 @@ graph TB
 
 ### 교육 신청 절차
 
-```mermaid
-graph LR
-    A[홈페이지 방문] --> B[과정 선택]
-    B --> C[온라인 신청]
-    C --> D[상담 예약]
-    D --> E[수강료 결제]
-    E --> F[교육 시작]
-    
-    style A fill:#3b82f6,color:#fff
-    style C fill:#10b981,color:#fff
-    style F fill:#f59e0b,color:#fff
-```
-
 ### 연락처
 
 - **홈페이지**: https://aimakerlab.com
@@ -841,5 +329,4 @@ graph LR
 **최종 업데이트**: 2025-12-29  
 **작성자**: AI Maker Lab 교육팀  
 **문서 버전**: 1.0
-
 

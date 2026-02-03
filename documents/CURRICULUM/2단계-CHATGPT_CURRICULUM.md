@@ -8,71 +8,9 @@
 
 ### 교육 철학: AI 컨텐츠 크리에이터
 
-```mermaid
-mindmap
-  root((ChatGPT<br/>컨텐츠 제작))
-    크리에이터
-      아이디어 발굴
-      스토리텔링
-      컨텐츠 기획
-      창의적 표현
-    프로듀서
-      프로젝트 관리
-      AI와 협업
-      프로토타입 제작
-      반복 개선
-    이노베이터
-      문제 해결
-      자동화 구현
-      새로운 시도
-      포트폴리오
-```
-
 ---
 
 ## 📚 전체 로드맵
-
-```mermaid
-graph TB
-    subgraph "중등 1학년 (8시간)"
-        M1[ChatGPT Playground<br/>컨텐츠 제작<br/>코딩 없음]
-    end
-    
-    subgraph "중등 2학년 (10시간)"
-        M2A[고급 컨텐츠 제작]
-        M2B[AI Agent<br/>페르소나 설계]
-    end
-    
-    subgraph "중등 3학년 (10시간)"
-        M3A[AI Agent<br/>+ Colab 연동]
-        M3B[자동화<br/>컨텐츠 생성]
-    end
-    
-    subgraph "고등 1학년 (10시간)"
-        H1A[API 활용<br/>컨텐츠 도구]
-        H1B[데이터 기반<br/>스토리텔링]
-    end
-    
-    subgraph "고등 2학년 (10시간)"
-        H2A[멀티미디어<br/>자동화]
-        H2B[크리에이터<br/>포트폴리오]
-    end
-    
-    M1 --> M2A
-    M2A --> M2B
-    M2B --> M3A
-    M3A --> M3B
-    M3B --> H1A
-    H1A --> H1B
-    H1B --> H2A
-    H2A --> H2B
-    
-    style M1 fill:#3b82f6,color:#fff
-    style M2B fill:#10b981,color:#fff
-    style M3B fill:#f59e0b,color:#fff
-    style H1B fill:#8b5cf6,color:#fff
-    style H2B fill:#ef4444,color:#fff
-```
 
 ---
 
@@ -80,21 +18,6 @@ graph TB
 ### 💡 코딩 없음! 순수 AI 컨텐츠 크리에이터
 
 ### 컨텐츠 제작 프로세스 (핵심 프레임워크)
-
-```mermaid
-graph LR
-    A[💭 아이디어<br/>브레인스토밍] --> B[📝 기획서<br/>작성]
-    B --> C[🎨 프로토타입<br/>1차 제작]
-    C --> D[🔍 검토<br/>피드백]
-    D --> E[✨ 개선<br/>반복]
-    E --> F[🎯 완성]
-    E -.반복.-> C
-    
-    style A fill:#8b5cf6,color:#fff
-    style C fill:#3b82f6,color:#fff
-    style E fill:#10b981,color:#fff
-    style F fill:#f59e0b,color:#fff
-```
 
 ### 학년 목표
 - **코딩 없이** ChatGPT Playground만으로 3가지 컨텐츠 완성
@@ -419,21 +342,6 @@ ASCII 아트나 간단한 스케치 형태로 표현해줘
 ### 💡 Custom GPT 활용 + 재사용 가능한 AI 도구 제작
 
 ### AI Agent 제작 프로세스
-
-```mermaid
-graph LR
-    A[💡 목적<br/>정의] --> B[🎭 페르소나<br/>설계]
-    B --> C[📋 Instructions<br/>작성]
-    C --> D[🧪 테스트<br/>대화]
-    D --> E[✨ 개선<br/>반복]
-    E --> F[🚀 배포]
-    E -.피드백.-> C
-    
-    style A fill:#8b5cf6,color:#fff
-    style C fill:#3b82f6,color:#fff
-    style E fill:#10b981,color:#fff
-    style F fill:#f59e0b,color:#fff
-```
 
 ### 학년 목표
 - Custom GPT(AI Agent) 3개 제작
@@ -894,22 +802,6 @@ ChatGPT에게:
 ### 💡 ChatGPT가 코드를 작성하고, 학생은 아이디어와 개선에 집중
 
 ### Colab 활용 철학
-
-```mermaid
-graph TB
-    A[아이디어] --> B[ChatGPT에게<br/>설명]
-    B --> C[코드 생성<br/>95% AI]
-    C --> D[Colab 실행]
-    D --> E{동작?}
-    E -->|Yes| F[기능 추가]
-    E -->|No| G[ChatGPT<br/>디버깅]
-    G --> C
-    F --> H[완성]
-    
-    style A fill:#8b5cf6,color:#fff
-    style C fill:#3b82f6,color:#fff
-    style H fill:#10b981,color:#fff
-```
 
 ### 학년 목표
 - **코딩은 ChatGPT가**, **기획과 개선은 학생이**
@@ -1672,22 +1564,6 @@ def get_encouragement(self):
 ### 💡 외부 서비스 연동으로 강력한 컨텐츠 제작 도구 만들기
 
 ### API 활용 철학
-
-```mermaid
-graph TB
-    A[컨텐츠 아이디어] --> B[필요한 데이터/<br/>기능 파악]
-    B --> C[적절한 API<br/>찾기]
-    C --> D[ChatGPT로<br/>코드 생성]
-    D --> E[API 연동<br/>테스트]
-    E --> F{성공?}
-    F -->|Yes| G[컨텐츠 대량 생성]
-    F -->|No| H[ChatGPT<br/>디버깅]
-    H --> D
-    
-    style A fill:#8b5cf6,color:#fff
-    style D fill:#3b82f6,color:#fff
-    style G fill:#10b981,color:#fff
-```
 
 ### 학년 목표
 - **API 5개 이상** 활용한 컨텐츠 도구 제작
@@ -2628,23 +2504,6 @@ for topic in topics:
 
 ### 포트폴리오 프로젝트 철학
 
-```mermaid
-graph TB
-    A[문제 발견] --> B[시장 조사]
-    B --> C[솔루션 기획]
-    C --> D[MVP 개발<br/>ChatGPT 활용]
-    D --> E[베타 테스트]
-    E --> F{피드백}
-    F -->|개선| D
-    F -->|완성| G[배포]
-    G --> H[포트폴리오<br/>문서화]
-    
-    style A fill:#8b5cf6,color:#fff
-    style D fill:#3b82f6,color:#fff
-    style G fill:#10b981,color:#fff
-    style H fill:#f59e0b,color:#fff
-```
-
 ### 학년 목표
 - **실제 사용 가능한** 크리에이터 도구 완성
 - 포트폴리오 3개 (각기 다른 영역)
@@ -3514,41 +3373,6 @@ def create_media_kit(creator_data):
 
 ### 크리에이터 역량 평가
 
-```mermaid
-graph TB
-    subgraph "기획 능력 35%"
-        P1[아이디어 발굴<br/>10%]
-        P2[프로젝트 설계<br/>15%]
-        P3[시장 조사<br/>10%]
-    end
-    
-    subgraph "실행 능력 40%"
-        M1[프로토타입 제작<br/>15%]
-        M2[AI 활용 능력<br/>15%]
-        M3[완성도<br/>10%]
-    end
-    
-    subgraph "개선 능력 25%"
-        D1[피드백 반영<br/>10%]
-        D2[반복 개선<br/>10%]
-        D3[포트폴리오 문서화<br/>5%]
-    end
-    
-    P1 --> F[최종 점수]
-    P2 --> F
-    P3 --> F
-    M1 --> F
-    M2 --> F
-    M3 --> F
-    D1 --> F
-    D2 --> F
-    D3 --> F
-    
-    style P1 fill:#8b5cf6,color:#fff
-    style M2 fill:#3b82f6,color:#fff
-    style D1 fill:#f59e0b,color:#fff
-```
-
 ### AI 컨텐츠 크리에이터 수준
 
 | 수준 | 설명 | 프로젝트 예시 | ChatGPT 활용 |
@@ -3800,44 +3624,7 @@ API 정보:
 
 ## 🎯 학습 로드맵 요약
 
-```mermaid
-gantt
-    title AI 컨텐츠 크리에이터 성장 여정
-    dateFormat  YYYY-MM-DD
-    
-    section 중등 1학년 (8시간)
-    ChatGPT Playground 컨텐츠 제작     :a1, 2024-01-01, 8d
-    
-    section 중등 2학년 (10시간)
-    Custom GPT + AI Agent 제작  :a2, after a1, 10d
-    
-    section 중등 3학년 (10시간)
-    Colab 자동화 도구 개발     :a3, after a2, 10d
-    
-    section 고등 1학년 (10시간)
-    API 통합 크리에이터 도구      :a4, after a3, 10d
-    
-    section 고등 2학년 (10시간)
-    실전 포트폴리오 완성 :a5, after a4, 10d
-```
-
 ### 학습 성과 로드맵
-
-```mermaid
-graph LR
-    A[중1: 컨텐츠 3개] --> B[중2: Custom GPT 3개]
-    B --> C[중3: 자동화 도구 3개]
-    C --> D[고1: API 통합 도구 3개]
-    D --> E[고2: 비즈니스 도구 3개]
-    E --> F[총 15개<br/>포트폴리오]
-    
-    style A fill:#3b82f6,color:#fff
-    style B fill:#10b981,color:#fff
-    style C fill:#f59e0b,color:#fff
-    style D fill:#8b5cf6,color:#fff
-    style E fill:#ef4444,color:#fff
-    style F fill:#ec4899,color:#fff
-```
 
 ---
 

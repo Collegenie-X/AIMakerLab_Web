@@ -67,20 +67,6 @@ Colab 대신 로컬 Flask 서버를 구축하여 ESP32-CAM과 실시간 통신�
 
 ### 전체 구조도: 하나의 교구재, 3단계 성장
 
-```mermaid
-graph LR
-    A[3시간<br/>원격제어] --> B[6시간<br/>+자율주행]
-    B --> C[12시간<br/>+AI 인식]
-    
-    A --> A1[앱인벤터<br/>블루투스]
-    B --> B1[OpenCV<br/>라인 트레이싱]
-    C --> C1[Haar/YOLO<br/>표지판 인식]
-    
-    style A fill:#3b82f6,color:#fff
-    style B fill:#10b981,color:#fff
-    style C fill:#f59e0b,color:#fff
-```
-
 ### 3시간 과정: 원격제어 스마트카 (1단계)
 
 **목표**: 앱인벤터로 블루투스 원격제어 스마트카 완성
@@ -102,28 +88,6 @@ graph LR
 
 **목표**: 원격제어 + OpenCV 라인 트레이싱 자율주행 완성
 
-```mermaid
-graph TB
-    subgraph "전반부 3시간: 원격제어"
-        A1[앱인벤터<br/>블루투스 제어<br/>90분]
-        A2[개선 활동<br/>속도/LED<br/>90분]
-    end
-    
-    subgraph "후반부 3시간: 자율주행"
-        B1[OpenCV 기초<br/>라인 인식<br/>90분]
-        B2[Flask 서버<br/>자율주행<br/>90분]
-    end
-    
-    A1 --> A2
-    A2 --> B1
-    B1 --> B2
-    
-    style A1 fill:#3b82f6,color:#fff
-    style A2 fill:#10b981,color:#fff
-    style B1 fill:#f59e0b,color:#fff
-    style B2 fill:#ef4444,color:#fff
-```
-
 | 세션 | 시간 | 프로젝트 | 핵심 기술 |
 |------|------|----------|-----------|
 | 1교시 | 90분 | 원격제어 스마트카 | 앱인벤터 + 블루투스 |
@@ -137,33 +101,6 @@ graph TB
 ### 12시간 과정: 원격제어 + 자율주행 + AI 인식 (1-2-3단계 완성)
 
 **목표**: AI 이미지 인식 자율주행 스마트카 최종 완성
-
-```mermaid
-graph TB
-    subgraph "1단계: 원격제어 (4시간)"
-        C1[앱인벤터 제어<br/>2시간]
-        C2[고급 기능<br/>2시간]
-    end
-    
-    subgraph "2단계: 자율주행 (4시간)"
-        H1[OpenCV 라인<br/>2시간]
-        H2[Flask 연동<br/>2시간]
-    end
-    
-    subgraph "3단계: AI 인식 (4시간)"
-        R1[모델 학습<br/>2시간]
-        R2[통합 시스템<br/>2시간]
-    end
-    
-    C1 --> C2 --> H1
-    H1 --> H2
-    H2 --> R1
-    R1 --> R2
-    
-    style C2 fill:#3b82f6,color:#fff
-    style H2 fill:#10b981,color:#fff
-    style R2 fill:#f59e0b,color:#fff
-```
 
 **일정표**
 
@@ -184,22 +121,6 @@ graph TB
 ## 🎮 프로젝트 상세
 
 ### 1단계: 앱인벤터 원격제어 스마트카 (3시간 과정)
-
-```mermaid
-graph LR
-    A[앱인벤터<br/>리모컨 앱] -->|블루투스| B[ESP32]
-    B --> C[모터 드라이버<br/>L298N]
-    C --> D[DC 모터 4개]
-    D --> E[바퀴 회전]
-    
-    B --> F[초음파 센서]
-    F --> G{거리 측정}
-    G --> H[앱에 표시]
-    
-    style A fill:#f59e0b,color:#fff
-    style B fill:#10b981,color:#fff
-    style C fill:#3b82f6,color:#fff
-```
 
 **난이도**: ⭐⭐ (초급)  
 **소요 시간**: 3시간  
@@ -285,21 +206,6 @@ void moveForward(int speed) {
 - ✅ 기획·실행 전체 사이클 경험
 
 ### 2단계: OpenCV 라인 트레이싱 자율주행 (6시간 과정)
-
-```mermaid
-graph TB
-    A[ESP32-CAM<br/>영상 스트리밍] -->|WiFi| B[Flask 서버]
-    B --> C[OpenCV<br/>라인 인식]
-    C --> D{제어 명령<br/>생성}
-    D -->|WiFi| E[ESP32 모터 제어]
-    
-    C --> F[cv2.Canny<br/>엣지 검출]
-    C --> G[HoughLines<br/>직선 검출]
-    
-    style A fill:#3b82f6,color:#fff
-    style B fill:#10b981,color:#fff
-    style C fill:#f59e0b,color:#fff
-```
 
 **난이도**: ⭐⭐⭐ (중급)  
 **소요 시간**: 6시간 (3시간 원격제어 + 3시간 자율주행)  
@@ -453,26 +359,6 @@ void sendFrameToFlask() {
 **대상**: 중등 3학년 ~ 고등 3학년
 
 **시스템 구조**
-
-```mermaid
-graph TB
-    A[ESP32-CAM<br/>영상 스트리밍] -->|WiFi| B[Flask 서버]
-    B --> C[AI 모델]
-    
-    C --> D[Haar Cascade<br/>표지판 검출]
-    C --> E[YOLO<br/>객체 인식]
-    
-    D --> F{표지판 종류}
-    E --> F
-    
-    F -->|정지| G[브레이크]
-    F -->|좌회전| H[좌회전 실행]
-    F -->|장애물| I[우회]
-    
-    style B fill:#3b82f6,color:#fff
-    style C fill:#f59e0b,color:#fff
-    style F fill:#10b981,color:#fff
-```
 
 **학습 데이터셋**
 
@@ -670,29 +556,6 @@ void handleAICommand() {
 
 **일정 구성**
 
-```mermaid
-gantt
-    title 6시간 과정 일정
-    dateFormat HH:mm
-    axisFormat %H:%M
-    
-    section 1부: 원격제어 (3시간)
-    벤치마킹: 09:00, 15m
-    하드웨어 조립: 09:15, 40m
-    앱인벤터 제작: 09:55, 30m
-    연동 테스트: 10:25, 20m
-    개선 활동: 10:45, 45m
-    
-    section 점심 (1시간)
-    휴식: 12:00, 60m
-    
-    section 2부: 자율주행 (3시간)
-    Flask 서버 구축: 13:00, 30m
-    영상 스트리밍: 13:30, 30m
-    OpenCV 라인 인식: 14:00, 60m
-    자율주행 통합: 15:00, 60m
-```
-
 **세부 시간표**
 
 | 교시 | 시간 | 프로젝트 | 세부 활동 |
@@ -721,34 +584,6 @@ gantt
 **목표**: 원격제어 + 자율주행 + AI 이미지 인식 통합 시스템
 
 **전체 구조**
-
-```mermaid
-graph TB
-    subgraph "DAY 1 (4시간): 원격제어"
-        D1A[하드웨어 조립<br/>2시간]
-        D1B[앱인벤터 제어<br/>2시간]
-    end
-    
-    subgraph "DAY 2 (4시간): 자율주행"
-        D2A[Flask + OpenCV<br/>2시간]
-        D2B[라인 트레이싱<br/>2시간]
-    end
-    
-    subgraph "DAY 3 (4시간): AI 인식"
-        D3A[Haar Cascade<br/>2시간]
-        D3B[YOLO 통합<br/>2시간]
-    end
-    
-    D1A --> D1B
-    D1B --> D2A
-    D2A --> D2B
-    D2B --> D3A
-    D3A --> D3B
-    
-    style D1B fill:#3b82f6,color:#fff
-    style D2B fill:#10b981,color:#fff
-    style D3B fill:#f59e0b,color:#fff
-```
 
 **일차별 계획**
 
@@ -857,22 +692,6 @@ graph TB
 ## 🎯 교육 효과
 
 ### 학습 성과
-
-```mermaid
-graph TB
-    A[3시간<br/>원격제어] --> B[앱 개발<br/>80%]
-    A --> C[하드웨어 이해<br/>75%]
-    
-    D[6시간<br/>+자율주행] --> E[컴퓨터비전<br/>85%]
-    D --> F[Flask 서버<br/>90%]
-    
-    G[12시간<br/>+AI 인식] --> H[AI 모델 학습<br/>95%]
-    G --> I[포트폴리오<br/>100%]
-    
-    style A fill:#3b82f6,color:#fff
-    style D fill:#10b981,color:#fff
-    style G fill:#f59e0b,color:#fff
-```
 
 ### 역량 성장 비교
 
@@ -1043,9 +862,6 @@ graph TB
 - 3단계 통합 자율주행 완성
 
 ### ✅ 3. Flask 서버 기반 아키텍처
-```mermaid
-ESP32-CAM → WiFi → Flask 서버 → OpenCV/YOLO → 제어 명령 → ESP32
-```
 - Colab 문제 해결 (로컬 네트워크 통신)
 - 실시간 이미지 처리 파이프라인
 

@@ -22,33 +22,6 @@
 
 ### ERD (Entity Relationship Diagram)
 
-```mermaid
-erDiagram
-    USER ||--o{ ENROLLMENT : "수강신청"
-    USER ||--o{ INQUIRY : "작성"
-    USER ||--o{ GALLERY_WORK : "작품등록"
-    USER ||--o{ GALLERY_REVIEW : "후기작성"
-    USER ||--o{ QUOTE : "요청"
-    
-    CURRICULUM ||--o{ CURRICULUM_MODULE : "포함"
-    CURRICULUM ||--o{ ENROLLMENT : "수강생"
-    CURRICULUM ||--o{ SCHEDULE : "강좌개설"
-    
-    SCHEDULE ||--|| INSTRUCTOR : "담당"
-    SCHEDULE ||--o{ REVIEW : "수강후기"
-    SCHEDULE ||--o{ COMMENT : "질문답변"
-    SCHEDULE ||--o{ ENROLLMENT : "수강신청"
-    
-    PRODUCT ||--o{ PRODUCT_REVIEW : "후기"
-    PRODUCT ||--o{ QUOTE_ITEM : "견적항목"
-    PRODUCT ||--o{ PRODUCT_IMAGE : "이미지"
-    PRODUCT ||--o{ PRODUCT_COMPONENT : "구성품"
-    
-    QUOTE ||--o{ QUOTE_ITEM : "항목"
-    
-    VIDEO ||--o{ VIDEO_STEP : "제작단계"
-```
-
 ### 주요 엔티티 관계
 
 | 관계 | 카디널리티 | 설명 |

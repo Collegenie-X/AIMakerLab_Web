@@ -1,151 +1,157 @@
 {
   "categories": {
-    "Backend": {
-      "id": "Backend",
-      "label": "백엔드",
-      "description": "Django REST API, 데이터베이스, 인증 시스템",
-      "icon": "Database",
+    "Terminology": {
+      "id": "Terminology",
+      "label": "교육 용어",
+      "description": "역공부, 메이커 방식, 벤치마킹 등 핵심 용어 설명",
+      "icon": "BookText",
+      "color": "purple-600",
+      "bgColor": "bg-purple-100",
+      "textColor": "text-purple-800",
+      "borderColor": "border-purple-300"
+    },
+    "Methodology": {
+      "id": "Methodology",
+      "label": "교육 방법론",
+      "description": "AI Maker Lab만의 독특한 교육 철학과 방법",
+      "icon": "Lightbulb",
       "color": "blue-600",
       "bgColor": "bg-blue-100",
       "textColor": "text-blue-800",
       "borderColor": "border-blue-300"
     },
-    "Frontend": {
-      "id": "Frontend",
-      "label": "프론트엔드",
-      "description": "Next.js, React, UI/UX 구현",
-      "icon": "Code",
+    "Guide": {
+      "id": "Guide",
+      "label": "수업 진행 가이드",
+      "description": "실제 수업을 어떻게 진행하는지 단계별 안내",
+      "icon": "Map",
       "color": "green-600",
       "bgColor": "bg-green-100",
       "textColor": "text-green-800",
       "borderColor": "border-green-300"
     },
-    "Architecture": {
-      "id": "Architecture",
-      "label": "아키텍처",
-      "description": "시스템 설계 및 프로젝트 구조",
-      "icon": "GitBranch",
-      "color": "red-600",
-      "bgColor": "bg-red-100",
-      "textColor": "text-red-800",
-      "borderColor": "border-red-300"
-    },
-    "Legal": {
-      "id": "Legal",
-      "label": "법률/정책",
-      "description": "개인정보처리방침, 이용약관",
-      "icon": "FileText",
-      "color": "gray-600",
-      "bgColor": "bg-gray-100",
-      "textColor": "text-gray-800",
-      "borderColor": "border-gray-300"
-    },
-    "Education": {
-      "id": "Education",
-      "label": "교육 자료",
+    "Curriculum": {
+      "id": "Curriculum",
+      "label": "커리큘럼",
       "description": "AI, 로봇, 코딩 교육 커리큘럼",
       "icon": "BookOpen",
-      "color": "emerald-600",
-      "bgColor": "bg-emerald-100",
-      "textColor": "text-emerald-800",
-      "borderColor": "border-emerald-300"
+      "color": "orange-600",
+      "bgColor": "bg-orange-100",
+      "textColor": "text-orange-800",
+      "borderColor": "border-orange-300"
     }
   },
   "metadata": {
-    "API_INTEGRATION.md": {
-      "title": "API 통합 가이드",
-      "description": "Django REST API 전체 명세 및 PostgreSQL DB 스키마 설계",
-      "category": "Backend",
-      "icon": "Database",
-      "color": "blue",
-      "tags": ["Django", "REST API", "PostgreSQL", "ERD"]
-    },
-    "API_INTEGRATION_SUMMARY.md": {
-      "title": "API 통합 요약",
-      "description": "ERD, 테이블 구조, CRUD 매트릭스, Mermaid 다이어그램",
-      "category": "Backend",
-      "icon": "Layers",
-      "color": "blue",
-      "tags": ["API", "ERD", "Mermaid"]
-    },
-    "AUTH_SYSTEM.md": {
-      "title": "인증 시스템",
-      "description": "JWT 인증, 회원가입, 로그인, 이메일 인증 시스템",
-      "category": "Backend",
-      "icon": "Lock",
+    "physical_ai_terminology.md": {
+      "title": "피지컬 AI 용어 정리",
+      "description": "피지컬 컴퓨팅, 센서, 액추에이터 등 AI 융합 교육에 필요한 핵심 용어들을 초보자도 쉽게 이해할 수 있도록 친절하게 설명합니다. 하드웨어부터 소프트웨어까지 체계적으로 정리된 용어집입니다.",
+      "category": "Terminology",
+      "icon": "BookText",
       "color": "purple",
-      "tags": ["JWT", "Authentication", "Security"]
+      "tags": ["용어", "피지컬 AI", "기초"]
     },
-    "GALLERY_IMPLEMENTATION.md": {
-      "title": "갤러리 구현 가이드",
-      "description": "학생 작품 & 수업 후기 갤러리 완전한 구현 가이드",
-      "category": "Frontend",
-      "icon": "Code",
+    "vibe_coding_workflow.md": {
+      "title": "바이브 코딩 실전 워크플로우",
+      "description": "역공부와 메이커 방식을 결합한 AI Maker Lab만의 독특한 교육 방법론입니다. 학생이 먼저 결과물을 체험하고, 원리를 탐구하며, 창의적으로 응용하는 3단계 학습 과정을 소개합니다.",
+      "category": "Methodology",
+      "icon": "Lightbulb",
+      "color": "blue",
+      "tags": ["바이브코딩", "역공부", "메이커"]
+    },
+    "ai_education_trends_2026.md": {
+      "title": "2026 AI 교육 트렌드 & 대회 가이드",
+      "description": "2026년 최신 AI 교육 트렌드와 주요 국내외 대회 정보를 총정리했습니다. WRO, FLL, 정보올림피아드 등 다양한 대회 일정과 참가 방법, 준비 전략까지 한 번에 확인하세요.",
+      "category": "Guide",
+      "icon": "TrendingUp",
       "color": "green",
-      "tags": ["Gallery", "React", "Next.js"]
+      "tags": ["트렌드", "대회", "2026"]
     },
-    "USER_DASHBOARD_GUIDE.md": {
-      "title": "사용자 대시보드",
-      "description": "학생/교사/관리자 대시보드 구현 가이드",
-      "category": "Frontend",
+    "ai_competition_analysis_2026.md": {
+      "title": "초중고 AI 대회 수상작 분석 (2026)",
+      "description": "실제 수상한 작품들을 상세하게 분석하여 성공 전략을 도출했습니다. 어떤 아이디어가 심사위원의 마음을 움직였는지, 기술적으로 어떤 점이 돋보였는지 구체적으로 알려드립니다.",
+      "category": "Guide",
+      "icon": "Award",
+      "color": "green",
+      "tags": ["대회", "수상작", "분석"]
+    },
+    "ai_school_proposal.md": {
+      "title": "AI 중점학교 운영 제안서",
+      "description": "학교에 AI 교육 프로그램을 제안할 때 필요한 모든 자료가 담겨 있습니다. 교육 목표, 커리큘럼, 예산 계획, 기대 효과까지 실전에서 바로 활용할 수 있는 완성도 높은 제안서입니다.",
+      "category": "Guide",
+      "icon": "School",
+      "color": "green",
+      "tags": ["학교", "제안서", "AI중점학교"]
+    },
+    "external_instructor_program.md": {
+      "title": "외부강사 특화 교육 프로그램",
+      "description": "학교나 기관에서 진행하는 출강 수업을 위한 특화 프로그램입니다. 시간별 커리큘럼, 준비물 리스트, 주의사항 등 외부 강사로서 성공적인 수업을 진행하는 데 필요한 모든 정보를 담았습니다.",
+      "category": "Guide",
       "icon": "Users",
-      "color": "yellow",
-      "tags": ["Dashboard", "UI", "React"]
+      "color": "green",
+      "tags": ["출강", "외부강사", "프로그램"]
     },
-    "ARCHITECTURE.md": {
-      "title": "시스템 아키텍처",
-      "description": "프로젝트 구조 및 시스템 설계 문서",
-      "category": "Architecture",
-      "icon": "GitBranch",
-      "color": "red",
-      "tags": ["Architecture", "Design", "Structure"]
+    "ai_education_curriculum_overview.md": {
+      "title": "AI 교육 커리큘럼 개요",
+      "description": "블록코딩부터 딥러닝까지, 초등부터 고등까지 이어지는 체계적인 AI 교육 로드맵입니다. 각 단계별 학습 목표와 권장 교육 기간, 필요한 선수 지식을 한눈에 파악할 수 있습니다.",
+      "category": "Curriculum",
+      "icon": "Map",
+      "color": "orange",
+      "tags": ["커리큘럼", "개요", "로드맵"]
     },
-    "POLICIES.md": {
-      "title": "정책 문서",
-      "description": "개인정보처리방침, 이용약관 등 정책 관리",
-      "category": "Legal",
-      "icon": "FileText",
-      "color": "gray",
-      "tags": ["Legal", "Privacy", "Terms"]
+    "ai_education_curriculum_guide.md": {
+      "title": "AI 교육 커리큘럼 완전 가이드",
+      "description": "1단계부터 4단계까지 단계별로 상세하게 풀어낸 AI 교육 커리큘럼입니다. 각 단계별 수업 계획, 실습 프로젝트, 평가 방법까지 실제 수업에 바로 적용할 수 있는 구체적인 가이드를 제공합니다.",
+      "category": "Curriculum",
+      "icon": "BookOpen",
+      "color": "orange",
+      "tags": ["커리큘럼", "가이드", "상세"]
+    },
+    "physical_computing_advanced_guide.md": {
+      "title": "피지컬 컴퓨팅 종합 가이드 (고급)",
+      "description": "ESP32 마이크로컨트롤러, 다양한 센서, AI 모델 연동까지 고급 피지컬 컴퓨팅의 모든 것을 다룹니다. IoT 프로젝트 제작을 위한 하드웨어 선택부터 클라우드 연동까지 실전 노하우를 공유합니다.",
+      "category": "Curriculum",
+      "icon": "Cpu",
+      "color": "orange",
+      "tags": ["피지컬컴퓨팅", "ESP32", "고급"]
     },
     "ai_education_starter_guide.md": {
       "title": "AI 교육 시작 가이드",
-      "description": "AI 교육을 처음 시작하는 학생과 교사를 위한 완벽 가이드",
-      "category": "Education",
+      "description": "AI 교육이 처음이라면 여기서 시작하세요! 학생과 교사 모두를 위한 입문 가이드로, AI의 기본 개념부터 첫 프로젝트 만들기까지 친절하게 안내합니다. 어려운 수학 없이도 AI를 이해할 수 있습니다.",
+      "category": "Curriculum",
       "icon": "BookOpen",
-      "color": "green",
+      "color": "orange",
       "tags": ["AI", "교육", "입문"]
     },
     "block_coding_complete_guide.md": {
       "title": "블록코딩 완벽 가이드",
-      "description": "초보자를 위한 블록코딩 학습 및 프로젝트 제작 가이드",
-      "category": "Education",
+      "description": "Scratch, 엔트리 등 블록코딩 툴 활용법과 게임, 애니메이션 제작 프로젝트를 담은 완벽 가이드입니다. 초등학생도 쉽게 따라할 수 있는 단계별 실습 예제로 코딩의 재미를 느껴보세요.",
+      "category": "Curriculum",
       "icon": "Code",
-      "color": "green",
+      "color": "orange",
       "tags": ["블록코딩", "Scratch", "초급"]
     },
     "python_ai_programming.md": {
       "title": "파이썬 AI 프로그래밍",
-      "description": "파이썬으로 시작하는 인공지능 프로그래밍 완전 정복",
-      "category": "Education",
+      "description": "파이썬 기초 문법부터 머신러닝, 딥러닝 라이브러리 활용까지 체계적으로 배웁니다. 실제 데이터로 AI 모델을 만들고 학습시키는 실습 프로젝트를 통해 현업에서도 활용 가능한 실력을 키웁니다.",
+      "category": "Curriculum",
       "icon": "Code",
-      "color": "green",
+      "color": "orange",
       "tags": ["Python", "AI", "ML"]
     },
     "robotarm_computer_vision_curriculum.md": {
       "title": "로봇팔 & 컴퓨터비전 융합 커리큘럼",
-      "description": "로봇팔과 컴퓨터비전을 결합한 실전 AI 융합 교육 커리큘럼",
-      "category": "Education",
+      "description": "OpenCV로 물체를 인식하고, 로봇팔로 자동으로 물건을 집는 AI 융합 프로젝트 커리큘럼입니다. 하드웨어와 소프트웨어가 결합된 실전 프로젝트를 통해 AI 로봇 시스템의 원리를 완벽하게 이해합니다.",
+      "category": "Curriculum",
       "icon": "GitBranch",
-      "color": "green",
+      "color": "orange",
       "tags": ["로봇", "Computer Vision", "융합"]
     },
     "global_humanoid_robot_industry_benchmark.md": {
       "title": "글로벌 휴머노이드 로봇 산업 벤치마킹",
-      "description": "세계 최신 휴머노이드 로봇 기술 트렌드 및 산업 분석 리포트",
-      "category": "Education",
-      "icon": "BookOpen",
-      "color": "green",
+      "description": "Tesla Optimus, Boston Dynamics Atlas 등 세계 최고 수준의 휴머노이드 로봇 기술을 분석합니다. 각 기업의 기술 전략, 시장 전망, 교육적 시사점을 도출하여 미래 로봇 교육 방향성을 제시합니다.",
+      "category": "Curriculum",
+      "icon": "Bot",
+      "color": "orange",
       "tags": ["휴머노이드", "로봇", "산업분석"]
     }
   }

@@ -97,9 +97,9 @@ function getIconComponent(iconName: string) {
 export function getDocumentsServer(config: DocsConfig) {
   const documents: any[] = [];
 
-  // 1. documents 폴더에서 읽기
+  // 1. documents 폴더에서 읽기 (상위 폴더)
   try {
-    const docsPath = join(process.cwd(), 'documents');
+    const docsPath = join(process.cwd(), '..', 'documents');
     const files = readdirSync(docsPath);
     const mdFiles = files.filter(file => file.endsWith('.md') && !file.endsWith('.backup'));
 
@@ -109,6 +109,15 @@ export function getDocumentsServer(config: DocsConfig) {
       const metadata = config.metadata[file];
 
       if (metadata) {
+        // 파일 줄 수 계산
+        let lineCount = 0;
+        try {
+          const content = readFileSync(filePath, 'utf-8');
+          lineCount = content.split('\n').length;
+        } catch (error) {
+          lineCount = 0;
+        }
+
         documents.push({
           filename: file,
           slug: file.replace('.md', '').toLowerCase().replace(/_/g, '-'),
@@ -120,6 +129,7 @@ export function getDocumentsServer(config: DocsConfig) {
           color: metadata.color,
           updatedAt: stats.mtime.toISOString(), // Date를 문자열로 변환
           size: stats.size,
+          lineCount, // 줄 수 추가
           tags: metadata.tags,
         });
       }
@@ -140,6 +150,15 @@ export function getDocumentsServer(config: DocsConfig) {
       const metadata = config.metadata[file];
 
       if (metadata) {
+        // 파일 줄 수 계산
+        let lineCount = 0;
+        try {
+          const content = readFileSync(filePath, 'utf-8');
+          lineCount = content.split('\n').length;
+        } catch (error) {
+          lineCount = 0;
+        }
+
         documents.push({
           filename: file,
           slug: file.replace('.md', '').toLowerCase().replace(/_/g, '-'),
@@ -151,6 +170,7 @@ export function getDocumentsServer(config: DocsConfig) {
           color: metadata.color,
           updatedAt: stats.mtime.toISOString(), // Date를 문자열로 변환
           size: stats.size,
+          lineCount, // 줄 수 추가
           tags: metadata.tags,
         });
       }
