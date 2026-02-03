@@ -56,9 +56,9 @@ export const docMetadata: Record<string, DocMetadata> = {
 export async function generateStaticParams() {
   const slugs: { slug: string }[] = [];
   
-  // 1. documents 폴더
+  // 1. documents 폴더 (상위 폴더)
   try {
-    const docsPath = join(process.cwd(), 'documents');
+    const docsPath = join(process.cwd(), '..', 'documents');
     const files = readdirSync(docsPath);
     const mdFiles = files.filter(file => file.endsWith('.md') && !file.endsWith('.backup'));
     
@@ -106,8 +106,8 @@ export function getDocument(slug: string): Document | null {
     `${baseFilename.split('_').map(word => word.toUpperCase()).join('_')}.md`,
   ];
   
-  // 1. documents 폴더에서 찾기
-  const docsPath = join(process.cwd(), 'documents');
+  // 1. documents 폴더에서 찾기 (상위 폴더)
+  const docsPath = join(process.cwd(), '..', 'documents');
   try {
     const docsFiles = readdirSync(docsPath);
     
