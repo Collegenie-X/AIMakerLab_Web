@@ -1,4 +1,30 @@
-// 강사 정보 타입
+/**
+ * Schedule 페이지 설정 파일
+ * 
+ * 색상, 아이콘, 라벨 등 모든 설정을 중앙에서 관리합니다.
+ * JSON 데이터는 컨텐츠만 담당하고, UI 설정은 이 파일에서 관리합니다.
+ */
+
+import {
+  Calendar,
+  Users,
+  Clock,
+  MapPin,
+  BookOpen,
+  Target,
+  Award,
+  GraduationCap,
+  Zap,
+  type LucideIcon,
+} from "lucide-react"
+
+// ========================================
+// 타입 정의
+// ========================================
+
+/**
+ * 강사 정보 타입
+ */
 export type InstructorInfo = {
   name: string
   title: string
@@ -8,7 +34,9 @@ export type InstructorInfo = {
   introduction: string
 }
 
-// 커리큘럼 모듈 타입
+/**
+ * 커리큘럼 모듈 타입
+ */
 export type CurriculumModule = {
   week: string
   title: string
@@ -16,20 +44,26 @@ export type CurriculumModule = {
   duration: string
 }
 
-// 학생 프로젝트 타입
+/**
+ * 학생 프로젝트 타입
+ */
 export type StudentProject = {
   title: string
   description: string
   image: string
 }
 
-// FAQ 타입
+/**
+ * FAQ 타입
+ */
 export type FAQ = {
   question: string
   answer: string
 }
 
-// 리뷰 타입
+/**
+ * 리뷰 타입
+ */
 export type Review = {
   id: number
   studentName: string
@@ -39,7 +73,9 @@ export type Review = {
   course?: string
 }
 
-// 댓글/질문 타입
+/**
+ * 댓글/질문 타입
+ */
 export type Comment = {
   id: number
   userName: string
@@ -55,7 +91,9 @@ export type Comment = {
   }
 }
 
-// ScheduleItem 타입 정의
+/**
+ * 스케줄 아이템 타입
+ */
 export type ScheduleItem = {
   id: number
   title: string
@@ -86,7 +124,9 @@ export type ScheduleItem = {
   gallery?: { type: "image" | "video"; src: string; alt?: string }[]
 }
 
-// ScheduleTexts 타입 정의
+/**
+ * 스케줄 텍스트 설정 타입
+ */
 export type ScheduleTexts = {
   heroTitle: string
   heroSubtitle: string
@@ -148,7 +188,155 @@ export type ScheduleTexts = {
   }
 }
 
-// 수업 타입 정의
+// ========================================
+// 색상 테마 설정
+// ========================================
+
+/**
+ * 색상 타입
+ */
+export type ThemeColor = 'purple' | 'blue' | 'green' | 'orange' | 'pink' | 'cyan'
+
+/**
+ * 색상별 그라디언트 클래스 매핑
+ */
+export const gradientClasses: Record<ThemeColor, string> = {
+  purple: 'from-purple-500 via-indigo-600 to-blue-700',
+  blue: 'from-cyan-500 via-blue-600 to-indigo-700',
+  green: 'from-green-500 via-emerald-600 to-teal-700',
+  orange: 'from-orange-500 via-amber-600 to-yellow-700',
+  pink: 'from-pink-500 via-rose-600 to-red-700',
+  cyan: 'from-cyan-400 via-sky-500 to-blue-600',
+}
+
+/**
+ * 색상별 배경 그라디언트 클래스 매핑
+ */
+export const bgGradientClasses: Record<string, string> = {
+  filter: 'bg-gradient-to-b from-gray-50 to-white',
+  list: 'bg-white',
+  info: 'bg-gray-50',
+}
+
+// ========================================
+// 아이콘 매핑
+// ========================================
+
+/**
+ * Hero 섹션 특징 아이콘 매핑
+ */
+export const heroFeatureIcons: Array<{
+  Icon: LucideIcon
+  label: string
+  bgColor: string
+  iconColor: string
+}> = [
+  { Icon: Clock, label: '3시간 / 6시간 / 12시간', bgColor: 'bg-white/20', iconColor: 'text-white' },
+  { Icon: Users, label: '학교 · 기업 · 기관', bgColor: 'bg-white/20', iconColor: 'text-white' },
+  { Icon: Calendar, label: '맞춤형 일정', bgColor: 'bg-white/20', iconColor: 'text-white' },
+  { Icon: MapPin, label: '전국 출강 가능', bgColor: 'bg-white/20', iconColor: 'text-white' },
+]
+
+/**
+ * Info 섹션 아이콘 매핑
+ */
+export const infoIcons: Record<string, LucideIcon> = {
+  refund: Target,
+  capacity: MapPin,
+  contact: Users,
+}
+
+// ========================================
+// 섹션 설정
+// ========================================
+
+/**
+ * 섹션 키 타입
+ */
+export type SectionKey = 'hero' | 'filter' | 'list' | 'info'
+
+/**
+ * 섹션 순서 및 표시 여부 설정
+ */
+export const sectionsConfig: Array<{
+  key: SectionKey
+  enabled: boolean
+  order: number
+}> = [
+  { key: 'hero', enabled: true, order: 1 },
+  { key: 'filter', enabled: true, order: 2 },
+  { key: 'list', enabled: true, order: 3 },
+  { key: 'info', enabled: true, order: 4 },
+]
+
+/**
+ * 활성화된 섹션만 순서대로 정렬하여 반환
+ */
+export function getEnabledSections() {
+  return sectionsConfig
+    .filter(section => section.enabled)
+    .sort((a, b) => a.order - b.order)
+}
+
+// ========================================
+// 페이지 설정
+// ========================================
+
+/**
+ * 페이지별 색상 테마 설정
+ */
+export const pageThemes: Record<ScheduleType, ThemeColor> = {
+  weekday: 'purple',
+  weekend: 'blue',
+}
+
+/**
+ * 페이지별 타이틀과 설명
+ */
+export const pageTitles = {
+  filterTitle: '수업 시간을 선택하세요',
+  filterDescription: '3시간, 6시간, 12시간 중 기관 상황에 맞는 커리큘럼을 찾아보세요',
+  listTitle: (duration: string) => duration !== '전체' ? `${duration} 커리큘럼` : '전체 커리큘럼',
+  listCount: (count: number) => `총 ${count}개의 커리큘럼`,
+  listHelper: "마음에 드는 커리큘럼을 찾으셨나요? '출강 수업 문의하기' 버튼을 클릭해보세요!",
+  loading: '로딩 중...',
+}
+
+// ========================================
+// Duration 필터 설정
+// ========================================
+
+/**
+ * Duration 카테고리 매핑 함수
+ */
+export function getDurationCategory(duration: string): string {
+  if (duration.includes("3시간") || duration.includes("3h")) return "3시간"
+  if (duration.includes("6시간") || duration.includes("6h")) return "6시간"
+  if (duration.includes("12시간") || duration.includes("12h")) return "12시간"
+  return "기타"
+}
+
+/**
+ * Duration 옵션 추출 함수
+ */
+export function extractDurationOptions(items: ScheduleItem[]): string[] {
+  const durationSet = new Set<string>()
+  items.forEach(item => {
+    const category = getDurationCategory(item.duration)
+    if (category !== "기타") {
+      durationSet.add(category)
+    }
+  })
+  return ["전체", ...Array.from(durationSet).sort()]
+}
+
+// ========================================
+// 수업 타입 및 데이터 로드
+// ========================================
+
+/**
+ * 수업 타입 정의
+ */
 export type ScheduleType = "weekday" | "weekend"
 
 /**

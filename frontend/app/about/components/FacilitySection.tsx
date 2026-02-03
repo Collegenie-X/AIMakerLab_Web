@@ -1,18 +1,18 @@
 import { Card } from "@/components/ui/data-display/card"
-import { Cpu, Zap, Users, Award, Sparkles, CheckCircle2 } from "lucide-react"
+import { Sparkles, CheckCircle2 } from "lucide-react"
 import { useAboutSectionContent } from "../hooks/useAboutContent"
 import { themeText, themeColors } from "@/theme"
-
-const StatIcon = {
-  blue: Cpu,
-  purple: Zap,
-  green: Users,
-  pink: Award,
-}
+import { 
+  facilityStatIcons, 
+  themeStyles, 
+  sectionBackgrounds, 
+  sectionDividers,
+  type ThemeColor 
+} from "../config"
 
 /**
  * 교육 시설 섹션
- * JSON 파일에서 컨텐츠를 불러옵니다.
+ * JSON 파일에서 컨텐츠를 불러오고, config.ts에서 스타일 설정을 가져옵니다.
  */
 export function FacilitySection() {
   const { content, isLoading, error } = useAboutSectionContent('facility')
@@ -22,12 +22,15 @@ export function FacilitySection() {
     console.error('Facility 섹션 컨텐츠 로딩 실패:', error)
     return null
   }
+  
   return (
-    <section className="bg-gradient-to-br from-green-50 to-cyan-50 py-24">
+    <section className={`${sectionBackgrounds.facility} py-24`}>
       <div className="container mx-auto px-4">
         <div className="mx-auto max-w-6xl">
-          <h2 className={`mb-4 text-center ${themeText.h2} ${themeColors.heading}`}>{content.heading}</h2>
-          <div className="mb-16 mx-auto h-1 w-30 bg-gradient-to-r from-green-400 to-cyan-400"></div>
+          <h2 className={`mb-4 text-center ${themeText.h2} ${themeColors.heading}`}>
+            {content.heading}
+          </h2>
+          <div className={`mb-16 mx-auto h-1 w-30 bg-gradient-to-r ${sectionDividers.facility}`}></div>
 
           <div className="mb-12 grid gap-8 md:grid-cols-2 md:items-center">
             <div className="flex aspect-video items-center justify-center rounded-lg border-4 border-cyan-200 bg-gradient-to-br from-cyan-100 to-blue-100 shadow-xl">
@@ -44,7 +47,9 @@ export function FacilitySection() {
                   </span>
                 ))}
               </h3>
-              <p className={`mb-6 leading-relaxed ${themeText.body} ${themeColors.body}`}>{content.description}</p>
+              <p className={`mb-6 leading-relaxed ${themeText.body} ${themeColors.body}`}>
+                {content.description}
+              </p>
 
               <div className="space-y-4">
                 {content.features.map((f) => (
@@ -62,20 +67,19 @@ export function FacilitySection() {
 
           <div className="grid gap-6 md:grid-cols-4">
             {content.stats.map((s) => {
-              const Icon = StatIcon[s.theme]
-              const color =
-                s.theme === 'blue'
-                  ? { card: 'border-blue-200 from-blue-100 to-blue-50', icon: 'text-blue-500', value: 'text-blue-700', label: 'text-blue-600' }
-                  : s.theme === 'purple'
-                  ? { card: 'border-purple-200 from-purple-100 to-purple-50', icon: 'text-purple-500', value: 'text-purple-700', label: 'text-purple-600' }
-                  : s.theme === 'green'
-                  ? { card: 'border-green-200 from-green-100 to-green-50', icon: 'text-green-500', value: 'text-green-700', label: 'text-green-600' }
-                  : { card: 'border-pink-200 from-pink-100 to-pink-50', icon: 'text-pink-500', value: 'text-pink-700', label: 'text-pink-600' }
+              const Icon = facilityStatIcons[s.theme]
+              const theme = themeStyles[s.theme]
+              
               return (
-                <Card key={s.label} className={`border-2 bg-gradient-to-br p-4 text-center shadow-lg ${color.card}`}>
-                  <Icon className={`mx-auto my-2 h-12 w-12 ${color.icon}`} />
-                  <div className={`text-3xl mb-[-20px] font-bold ${color.value}`}>{s.value}</div>
-                  <div className={`mb-1 text-lg ${color.label}`}>{s.label}</div>
+                <Card 
+                  key={s.label} 
+                  className={`border-2 bg-gradient-to-br p-4 text-center shadow-lg ${theme.border} ${theme.bgGradient}`}
+                >
+                  <Icon className={`mx-auto my-2 h-12 w-12 ${theme.icon}`} />
+                  <div className={`text-3xl mb-[-20px] font-bold ${theme.textDark}`}>
+                    {s.value}
+                  </div>
+                  <div className={`mb-1 text-lg ${theme.text}`}>{s.label}</div>
                 </Card>
               )
             })}
@@ -85,5 +89,4 @@ export function FacilitySection() {
     </section>
   )
 }
-
 

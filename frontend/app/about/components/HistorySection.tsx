@@ -1,9 +1,10 @@
 import { useAboutSectionContent } from "../hooks/useAboutContent"
 import { themeText, themeColors } from "@/theme"
+import { sectionBackgrounds, sectionDividers } from "../config"
 
 /**
  * 연혁 섹션
- * JSON 파일에서 컨텐츠를 불러옵니다.
+ * JSON 파일에서 컨텐츠를 불러오고, config.ts에서 스타일 설정을 가져옵니다.
  */
 export function HistorySection() {
   const { content, isLoading, error } = useAboutSectionContent('history')
@@ -13,12 +14,15 @@ export function HistorySection() {
     console.error('History 섹션 컨텐츠 로딩 실패:', error)
     return null
   }
+  
   return (
-    <section className="bg-gradient-to-br from-yellow-50 to-orange-50 py-24">
+    <section className={`${sectionBackgrounds.history} py-24`}>
       <div className="container mx-auto px-4">
         <div className="mx-auto max-w-4xl">
-          <h2 className={`mb-4 text-center ${themeText.h3} ${themeColors.heading}`}>{content.heading}</h2>
-          <div className="mb-12 h-1 w-24 bg-gradient-to-r from-yellow-400 to-orange-400 mx-auto"></div>
+          <h2 className={`mb-4 text-center ${themeText.h3} ${themeColors.heading}`}>
+            {content.heading}
+          </h2>
+          <div className={`mb-12 h-1 w-24 bg-gradient-to-r ${sectionDividers.history} mx-auto`}></div>
 
           <div className="space-y-12">
             {content.items.map((item) => (
@@ -29,7 +33,9 @@ export function HistorySection() {
                   </div>
                 </div>
                 <div className="flex-1">
-                  <h3 className={`mb-4 ${themeText.h3} ${themeColors.heading}`}>{item.year}</h3>
+                  <h3 className={`mb-4 ${themeText.h3} ${themeColors.heading}`}>
+                    {item.year}
+                  </h3>
                   <ul className={`space-y-2 ${themeColors.body}`}>
                     {item.bullets.map((b, idx) => (
                       <li key={idx}>• {b}</li>
@@ -44,5 +50,4 @@ export function HistorySection() {
     </section>
   )
 }
-
 

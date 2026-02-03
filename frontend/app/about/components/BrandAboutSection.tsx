@@ -1,9 +1,10 @@
 import { useAboutSectionContent } from "../hooks/useAboutContent"
 import { themeText, themeColors } from "@/theme"
+import { sectionBackgrounds } from "../config"
 
 /**
  * 브랜드 소개 섹션
- * JSON 파일에서 컨텐츠를 불러옵니다.
+ * JSON 파일에서 컨텐츠를 불러오고, config.ts에서 스타일 설정을 가져옵니다.
  */
 export function BrandAboutSection() {
   const { content, isLoading, error } = useAboutSectionContent('brand')
@@ -13,8 +14,9 @@ export function BrandAboutSection() {
     console.error('Brand 섹션 컨텐츠 로딩 실패:', error)
     return null
   }
+  
   return (
-    <section className="bg-gradient-to-br from-purple-50 to-pink-50 py-12">
+    <section className={`${sectionBackgrounds.brand} py-12`}>
       <div className="container mx-auto px-4">
         <div className="mx-auto max-w-4xl text-center">
           <div className="mb-8 flex justify-center">
@@ -25,7 +27,9 @@ export function BrandAboutSection() {
               </div>
             </div>
           </div>
-          <h2 className={`mb-6 ${themeText.h3} ${themeColors.heading}`}>{content.heading}</h2>
+          <h2 className={`mb-6 ${themeText.h3} ${themeColors.heading}`}>
+            {content.heading}
+          </h2>
           <div className={`space-y-4 ${themeText.body} leading-relaxed ${themeColors.body}`}>
             {content.paragraphs.map((p, idx) => (
               <p key={idx}>{p}</p>
@@ -36,5 +40,4 @@ export function BrandAboutSection() {
     </section>
   )
 }
-
 

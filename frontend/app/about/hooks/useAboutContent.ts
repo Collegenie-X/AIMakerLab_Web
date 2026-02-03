@@ -62,6 +62,7 @@ export type ProjectsSectionContent = {
     student: string
     theme: 'blue' | 'purple' | 'green' | 'yellow' | 'pink' | 'orange'
     icon: 'bot' | 'smartphone' | 'home' | 'music' | 'brain' | 'gamepad'
+    url?: string
   }>
 }
 

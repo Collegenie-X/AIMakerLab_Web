@@ -1,5 +1,69 @@
-// 작품 갤러리 전용 폼 설정
+/**
+ * Works 페이지 설정 파일
+ * 
+ * 색상, 아이콘, 라벨 등 모든 설정을 중앙에서 관리합니다.
+ * JSON 데이터는 컨텐츠만 담당하고, UI 설정은 이 파일에서 관리합니다.
+ */
 
+import {
+  Palette,
+  Sparkles,
+  Award,
+  type LucideIcon,
+} from "lucide-react"
+
+// ========================================
+// 색상 테마 설정
+// ========================================
+
+/**
+ * Hero 섹션 그라디언트
+ */
+export const heroGradient = 'from-purple-100 via-pink-100 to-blue-100'
+
+/**
+ * 컨텐츠 섹션 배경 그라디언트
+ */
+export const contentBg = 'from-blue-50 via-purple-50 to-pink-50'
+
+// ========================================
+// 아이콘 매핑
+// ========================================
+
+/**
+ * Hero 섹션 아이콘
+ */
+export const heroIcon: LucideIcon = Palette
+
+/**
+ * 기본 emoji
+ */
+export const defaultEmoji = "🎨"
+
+// ========================================
+// 라벨 및 텍스트 상수
+// ========================================
+
+/**
+ * 페이지 라벨
+ */
+export const labels = {
+  hero: {
+    emoji: defaultEmoji,
+    title: "학생 작품",
+    subtitle: "학생들이 직접 만든 창의적이고 멋진 프로젝트를 만나보세요",
+  },
+  loading: "로딩 중...",
+  error: "컨텐츠를 불러오는데 실패했습니다.",
+}
+
+// ========================================
+// 타입 정의
+// ========================================
+
+/**
+ * 작품 폼 텍스트 타입
+ */
 export type WorksFormTexts = {
   title: string
   emoji: string
@@ -44,7 +108,10 @@ export type WorksFormTexts = {
   }
 }
 
-export const worksFormTexts: WorksFormTexts = {
+/**
+ * 기본 폼 텍스트 (JSON에서 로드 실패 시 사용)
+ */
+export const defaultWorksFormTexts: WorksFormTexts = {
   title: "새 작품 등록하기",
   emoji: "✨",
   fields: {
@@ -87,4 +154,37 @@ export const worksFormTexts: WorksFormTexts = {
     },
   },
 }
+
+// ========================================
+// 섹션 설정
+// ========================================
+
+/**
+ * 섹션 키 타입
+ */
+export type SectionKey = 'hero' | 'content'
+
+/**
+ * 섹션 순서 및 표시 여부 설정
+ */
+export const sectionsConfig: Array<{
+  key: SectionKey
+  enabled: boolean
+  order: number
+}> = [
+  { key: 'hero', enabled: true, order: 1 },
+  { key: 'content', enabled: true, order: 2 },
+]
+
+/**
+ * 활성화된 섹션만 순서대로 정렬하여 반환
+ */
+export function getEnabledSections() {
+  return sectionsConfig
+    .filter(section => section.enabled)
+    .sort((a, b) => a.order - b.order)
+}
+
+// 하위 호환성을 위한 export
+export const worksFormTexts = defaultWorksFormTexts
 

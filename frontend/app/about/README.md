@@ -1,12 +1,15 @@
-# About 섹션
+# About 페이지 관리 가이드
 
-AI Maker Lab의 소개 페이지입니다.
+About 페이지는 유지보수성을 위해 **컨텐츠(JSON)**, **스타일 설정(config.ts)**, **컴포넌트**를 분리하여 관리합니다.
 
 ## 📁 폴더 구조
 
 ```
-about/
-├── components/          # 각 섹션별 컴포넌트
+app/about/
+├── page.tsx                    # 메인 페이지 (섹션을 동적으로 렌더링)
+├── config.ts                   # 스타일, 아이콘, 섹션 순서 설정
+├── components/                 # 섹션별 컴포넌트
+│   ├── index.ts               # 컴포넌트 인덱스
 │   ├── HeroAboutSection.tsx
 │   ├── PhilosophySection.tsx
 │   ├── MethodologySection.tsx
@@ -15,212 +18,213 @@ about/
 │   ├── BrandAboutSection.tsx
 │   ├── FacilitySection.tsx
 │   └── HistorySection.tsx
-├── hooks/               # 컨텐츠 관리 Hooks
-│   ├── useAboutContent.ts
-│   └── useLocationContent.ts
-├── location/            # 위치 페이지
-│   └── page.tsx
-├── config.ts           # (Deprecated) 타입 정의 참조용
-├── page.tsx            # About 메인 페이지
-└── README.md           # 이 문서
+├── hooks/
+│   └── useAboutContent.ts     # JSON 데이터 로딩 훅
+└── README.md                   # 이 문서
+
+public/about/
+└── about-content.json          # 모든 컨텐츠 데이터
 ```
 
-## 🗂️ 컨텐츠 관리
+## 🎯 수정 방법
 
-### JSON 파일 위치
+### 1️⃣ 컨텐츠 수정 (텍스트, 제목, 설명 등)
 
-컨텐츠는 JSON 파일로 관리됩니다:
-
-- **About 메인 페이지**: `/public/about/about-content.json`
-- **Location 페이지**: `/public/about/location.json`
-
-### Hooks 사용
-
-각 섹션은 hooks를 통해 JSON 파일에서 컨텐츠를 불러옵니다:
-
-```typescript
-import { useAboutSectionContent } from "../hooks/useAboutContent"
-
-export function HeroAboutSection() {
-  const { content, isLoading, error } = useAboutSectionContent('hero')
-  
-  if (isLoading) return <LoadingState />
-  if (error || !content) return null
-  
-  return <section>{content.title}</section>
-}
-```
-
-## 📋 섹션 목록
-
-### About 페이지 (`/about`)
-
-1. **HeroAboutSection** - 히어로 섹션
-   - 타이틀, 서브타이틀, 설명
-   - 애니메이션 아이콘 (전구, 로켓, 상)
-
-2. **PhilosophySection** - 교육 철학
-   - 창의, 경험, 신뢰
-   - 각 철학별 아이콘과 설명
-
-3. **MethodologySection** - 교육 방법론
-   - 이론 학습 → 실습 → 프로젝트
-   - 3단계 프로세스 시각화
-
-4. **ComparisonSection** - 비교표
-   - 일반 학원 vs AI Maker Lab
-   - 수업 방식, 학습 목표 등 비교
-
-5. **ProjectsGallerySection** - 학생 작품 갤러리
-   - 로봇, 앱, IoT, AI 등 다양한 프로젝트
-   - 학생별 작품 소개
-
-6. **BrandAboutSection** - 브랜드 소개
-   - AI Maker Lab 소개
-   - 교육 철학 및 비전
-
-7. **FacilitySection** - 교육 시설
-   - 시설 특징 및 통계
-   - 레이저 커팅기, 교육 키트 등
-
-8. **HistorySection** - 연혁
-   - 2022년부터 현재까지
-   - 년도별 주요 성과
-
-### Location 페이지 (`/about/location`)
-
-- **연락처 정보**: 전화, 이메일, 운영시간
-- **지도**: Google Maps 임베드
-- **주소**: 상세 주소 및 교통편
-- **방문 안내**: 주차, 예약 등
-
-## 🔧 컨텐츠 수정 방법
-
-### 1. JSON 파일 수정
-
-`/public/about/about-content.json` 또는 `/public/about/location.json` 파일을 직접 수정합니다.
+**파일**: `public/about/about-content.json`
 
 ```json
 {
-  "hero": {
-    "title": "AI Maker Lab",
-    "subtitle": "창의적인 미래를 만드는 AI 교육 연구소",
-    "descriptions": [
-      "첫 번째 설명",
-      "두 번째 설명"
+  "philosophy": {
+    "heading": "우리의 교육 철학",
+    "items": [
+      {
+        "id": "creative",
+        "topLabelEn": "PLANNER",
+        "topLabelKo": "기획자",
+        "title": "진짜 문제 발견과 정의",
+        "description": "벤치마킹과 페르소나 분석을 통해...",
+        "color": "blue"
+      }
     ]
   }
 }
 ```
 
-### 2. 타입 확인
+**수정 가능한 항목**:
+- 제목, 부제목, 설명 텍스트
+- 항목 추가/삭제
+- 순서 변경
 
-타입 정의는 `hooks/useAboutContent.ts`에 있습니다:
+### 2️⃣ 스타일 및 색상 설정
 
+**파일**: `app/about/config.ts`
+
+#### 색상 테마 변경
 ```typescript
-export type AboutHeroContent = {
-  title: string
-  subtitle: string
-  descriptions: string[]
+export const themeStyles: Record<ThemeColor, {...}> = {
+  blue: {
+    border: 'border-blue-200',
+    bg: 'bg-blue-50',
+    icon: 'text-blue-500',
+    // ...
+  },
 }
 ```
 
-### 3. 변경사항 적용
-
-JSON 파일 수정 후 저장하면 자동으로 반영됩니다. (개발 서버 재시작 불필요)
-
-## 🎨 스타일링
-
-각 섹션은 다음과 같은 색상 테마를 사용합니다:
-
-- **Hero**: 파란색-보라-분홍 그라데이션
-- **Philosophy**: 분홍-보라 그라데이션
-- **Methodology**: 회색-오렌지 그라데이션
-- **Comparison**: 보라-분홍 테마
-- **Projects**: 청록-파랑 그라데이션
-- **Brand**: 보라-분홍 그라데이션
-- **Facility**: 초록-청록 그라데이션
-- **History**: 노랑-오렌지 그라데이션
-
-## 🚀 개발 가이드
-
-### 새 섹션 추가하기
-
-1. **JSON에 데이터 추가**
-   ```json
-   {
-     "newSection": {
-       "heading": "새 섹션",
-       "content": "내용"
-     }
-   }
-   ```
-
-2. **타입 정의 추가** (`hooks/useAboutContent.ts`)
-   ```typescript
-   export type NewSectionContent = {
-     heading: string
-     content: string
-   }
-   
-   export type AboutContent = {
-     // ... existing types
-     newSection: NewSectionContent
-   }
-   ```
-
-3. **컴포넌트 생성** (`components/NewSection.tsx`)
-   ```typescript
-   import { useAboutSectionContent } from "../hooks/useAboutContent"
-   
-   export function NewSection() {
-     const { content, isLoading, error } = useAboutSectionContent('newSection')
-     
-     if (isLoading || !content) return null
-     if (error) return null
-     
-     return <section>{content.heading}</section>
-   }
-   ```
-
-4. **페이지에 추가** (`page.tsx`)
-   ```typescript
-   import { NewSection } from "./components/NewSection"
-   
-   // ...
-   <NewSection />
-   ```
-
-### 로딩 및 에러 처리
-
-각 컴포넌트는 다음과 같은 패턴을 따릅니다:
-
+#### 아이콘 변경
 ```typescript
-const { content, isLoading, error } = useAboutSectionContent('sectionName')
-
-// 간단한 방식
-if (isLoading || !content) return null
-if (error) {
-  console.error('섹션 컨텐츠 로딩 실패:', error)
-  return null
+export const philosophyIcons: Record<string, LucideIcon> = {
+  creative: Lightbulb,    // 다른 아이콘으로 변경 가능
+  experience: Target,
+  confidence: Heart,
 }
-
-// 또는 커스텀 로딩 UI
-if (isLoading) return <LoadingSpinner />
-if (error || !content) return <ErrorMessage />
 ```
 
-## 📝 참고사항
+#### 섹션 배경색 변경
+```typescript
+export const sectionBackgrounds = {
+  hero: 'bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100',
+  philosophy: 'bg-gradient-to-br from-pink-50 to-purple-50',
+  // ...
+}
+```
 
-- **config.ts**: Deprecated - 타입 정의 참조용으로만 사용
-- **"use client"**: hooks를 사용하므로 클라이언트 컴포넌트로 설정
-- **이미지**: `/public` 폴더의 이미지 경로 사용
-- **아이콘**: `lucide-react` 라이브러리 사용
+### 3️⃣ 섹션 순서 변경 및 표시/숨김
 
-## 🔗 관련 파일
+**파일**: `app/about/config.ts`
 
-- 타입 정의: `hooks/useAboutContent.ts`, `hooks/useLocationContent.ts`
-- JSON 파일: `/public/about/about-content.json`, `/public/about/location.json`
-- 테마: `/theme/index.ts`, `/theme/tokens.ts`
-- UI 컴포넌트: `/components/ui/`
+```typescript
+export const sectionsConfig: Array<{...}> = [
+  { key: 'hero', enabled: true, order: 1 },
+  { key: 'philosophy', enabled: true, order: 2 },
+  { key: 'methodology', enabled: true, order: 3 },
+  // ...
+]
+```
 
+**변경 방법**:
+- `order`: 섹션 표시 순서 (숫자가 작을수록 위에 표시)
+- `enabled`: `false`로 설정하면 해당 섹션이 페이지에 표시되지 않음
+
+**예시 - 섹션 순서 변경**:
+```typescript
+{ key: 'methodology', enabled: true, order: 2 },  // 2번으로 변경
+{ key: 'philosophy', enabled: true, order: 3 },   // 3번으로 변경
+```
+
+**예시 - 섹션 숨기기**:
+```typescript
+{ key: 'comparison', enabled: false, order: 4 },  // 비교표 섹션 숨김
+```
+
+### 4️⃣ 새로운 섹션 추가
+
+#### 단계 1: 컴포넌트 생성
+`app/about/components/NewSection.tsx` 파일 생성:
+
+```tsx
+import { useAboutSectionContent } from "../hooks/useAboutContent"
+import { themeText, themeColors } from "@/theme"
+import { sectionBackgrounds } from "../config"
+
+export function NewSection() {
+  const { content, isLoading, error } = useAboutSectionContent('newSection')
+
+  if (isLoading || !content) return null
+  if (error) {
+    console.error('NewSection 로딩 실패:', error)
+    return null
+  }
+
+  return (
+    <section className={`${sectionBackgrounds.newSection} py-24`}>
+      <div className="container mx-auto px-4">
+        <h2 className={`mb-4 text-center ${themeText.h2} ${themeColors.heading}`}>
+          {content.heading}
+        </h2>
+        {/* 컨텐츠 렌더링 */}
+      </div>
+    </section>
+  )
+}
+```
+
+#### 단계 2: JSON에 컨텐츠 추가
+`public/about/about-content.json`:
+
+```json
+{
+  "newSection": {
+    "heading": "새로운 섹션",
+    "content": "섹션 내용..."
+  }
+}
+```
+
+#### 단계 3: config.ts 업데이트
+
+```typescript
+// 1. 섹션 키 타입에 추가
+export type SectionKey = 
+  | 'hero' 
+  | 'philosophy'
+  | 'newSection'  // 추가
+  // ...
+
+// 2. 배경 설정 추가
+export const sectionBackgrounds = {
+  // ...
+  newSection: 'bg-gradient-to-br from-gray-50 to-white',
+}
+
+// 3. 섹션 설정에 추가
+export const sectionsConfig: Array<{...}> = [
+  // ...
+  { key: 'newSection', enabled: true, order: 9 },
+]
+```
+
+#### 단계 4: page.tsx에 컴포넌트 등록
+
+```typescript
+import { NewSection } from "./components/NewSection"
+
+const sectionComponents: Record<SectionKey, React.ComponentType> = {
+  // ...
+  newSection: NewSection,
+}
+```
+
+#### 단계 5: index.ts에 export 추가
+
+```typescript
+export { NewSection } from './NewSection'
+```
+
+## 🔧 타입 안전성
+
+모든 섹션은 TypeScript로 타입이 정의되어 있습니다:
+- `useAboutContent.ts`: 각 섹션의 데이터 타입 정의
+- `config.ts`: 색상, 아이콘 등의 타입 정의
+
+타입 오류가 발생하면 IDE에서 바로 확인할 수 있습니다.
+
+## 📝 유지보수 팁
+
+1. **컨텐츠만 수정**: `about-content.json` 파일만 수정
+2. **색상/스타일 변경**: `config.ts`의 해당 부분만 수정
+3. **섹션 순서 변경**: `config.ts`의 `sectionsConfig`만 수정
+4. **섹션 숨김**: `enabled: false`로 설정 (삭제하지 않음)
+
+## 🎨 디자인 일관성
+
+- 색상 테마는 `config.ts`의 `themeStyles`에서 중앙 관리
+- 모든 섹션은 동일한 패딩(`py-24`) 사용
+- 제목 스타일은 `@/theme`에서 가져와 일관성 유지
+
+## ⚠️ 주의사항
+
+1. JSON 파일 수정 시 문법 오류가 없는지 확인 (쉼표, 따옴표 등)
+2. 섹션 순서 변경 시 `order` 값이 중복되지 않도록 주의
+3. 새로운 색상 추가 시 `ThemeColor` 타입에도 추가 필요
+4. 아이콘 변경 시 `lucide-react`에서 제공하는 아이콘만 사용 가능

@@ -1,59 +1,20 @@
 import { Card } from "@/components/ui/data-display/card"
 import { useAboutSectionContent } from "../hooks/useAboutContent"
-import { Bot, Smartphone, Home, Music, Brain, Gamepad2, Star } from "lucide-react"
+import { Star, ExternalLink } from "lucide-react"
 import { themeText, themeColors } from "@/theme"
-
-const iconMap = {
-  bot: Bot,
-  smartphone: Smartphone,
-  home: Home,
-  music: Music,
-  brain: Brain,
-  gamepad: Gamepad2,
-}
-
-const themeClass = {
-  blue: {
-    border: 'border-blue-200',
-    bg: 'from-blue-50 to-blue-100',
-    icon: 'text-blue-500',
-    badge: 'bg-blue-200 text-blue-700',
-  },
-  purple: {
-    border: 'border-purple-200',
-    bg: 'from-purple-50 to-purple-100',
-    icon: 'text-purple-500',
-    badge: 'bg-purple-200 text-purple-700',
-  },
-  green: {
-    border: 'border-green-200',
-    bg: 'from-green-50 to-green-100',
-    icon: 'text-green-500',
-    badge: 'bg-green-200 text-green-700',
-  },
-  yellow: {
-    border: 'border-yellow-200',
-    bg: 'from-yellow-50 to-yellow-100',
-    icon: 'text-yellow-600',
-    badge: 'bg-yellow-200 text-yellow-700',
-  },
-  pink: {
-    border: 'border-pink-200',
-    bg: 'from-pink-50 to-pink-100',
-    icon: 'text-pink-500',
-    badge: 'bg-pink-200 text-pink-700',
-  },
-  orange: {
-    border: 'border-orange-200',
-    bg: 'from-orange-50 to-orange-100',
-    icon: 'text-orange-500',
-    badge: 'bg-orange-200 text-orange-700',
-  },
-}
+import { 
+  projectIcons, 
+  themeStyles, 
+  sectionBackgrounds, 
+  sectionDividers,
+  type ThemeColor 
+} from "../config"
+import Link from "next/link"
 
 /**
  * 학생 작품 갤러리 섹션
- * JSON 파일에서 컨텐츠를 불러옵니다.
+ * JSON 파일에서 컨텐츠를 불러오고, config.ts에서 스타일 설정을 가져옵니다.
+ * 각 카드를 클릭하면 해당 작품 페이지로 이동합니다.
  */
 export function ProjectsGallerySection() {
   const { content, isLoading, error } = useAboutSectionContent('projects')
@@ -63,25 +24,33 @@ export function ProjectsGallerySection() {
     console.error('Projects 섹션 컨텐츠 로딩 실패:', error)
     return null
   }
+  
   return (
-    <section className="bg-gradient-to-br from-cyan-50 to-blue-10 py-24">
+    <section className={`${sectionBackgrounds.projects} py-24`}>
       <div className="container mx-auto px-2">
         <div className="mx-auto max-w-6xl">
-          <h2 className={`mb-4 text-center ${themeText.h2} ${themeColors.heading}`}>{content.heading}</h2>
-          <div className="mb-4 mx-auto h-1 w-24 bg-gradient-to-r from-cyan-400 to-blue-400"></div>
-          <p className={`mb-16 text-center ${themeText.body} ${themeColors.muted}`}>{content.subtitle}</p>
+          <h2 className={`mb-4 text-center ${themeText.h2} ${themeColors.heading}`}>
+            {content.heading}
+          </h2>
+          <div className={`mb-4 mx-auto h-1 w-24 bg-gradient-to-r ${sectionDividers.projects}`}></div>
+          <p className={`mb-16 text-center ${themeText.body} ${themeColors.muted}`}>
+            {content.subtitle}
+          </p>
 
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {content.items.map((proj) => {
-              const Icon = iconMap[proj.icon]
-              const theme = themeClass[proj.theme]
-              return (
-                <Card
-                  key={proj.id}
-                  className={`group overflow-hidden border-2 bg-gradient-to-br ${theme.border} from-transparent to-transparent shadow-lg transition-all hover:scale-105 hover:shadow-2xl`}
-                >
-                  <div className={`flex aspect-video items-center justify-center bg-gradient-to-br ${theme.bg}`}>
+              const Icon = projectIcons[proj.icon]
+              const theme = themeStyles[proj.theme as ThemeColor]
+              
+              const CardContent = (
+                <>
+                  <div className={`flex aspect-video items-center justify-center bg-gradient-to-br ${theme.bgGradient} relative`}>
                     <Icon className={`h-32 w-32 ${theme.icon}`} />
+                    {proj.url && (
+                      <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <ExternalLink className={`h-6 w-6 ${theme.icon}`} />
+                      </div>
+                    )}
                   </div>
                   <div className="px-6 py-3">
                     <div className={`mb-3 inline-block rounded-full px-3 py-1 text-sm font-semibold ${theme.badge}`}>
@@ -94,6 +63,27 @@ export function ProjectsGallerySection() {
                       <span>{proj.student}</span>
                     </div>
                   </div>
+                </>
+              )
+              
+              if (proj.url) {
+                return (
+                  <Link key={proj.id} href={proj.url}>
+                    <Card
+                      className={`group overflow-hidden border-2 bg-gradient-to-br ${theme.border} from-transparent to-transparent shadow-lg transition-all hover:scale-105 hover:shadow-2xl cursor-pointer`}
+                    >
+                      {CardContent}
+                    </Card>
+                  </Link>
+                )
+              }
+              
+              return (
+                <Card
+                  key={proj.id}
+                  className={`group overflow-hidden border-2 bg-gradient-to-br ${theme.border} from-transparent to-transparent shadow-lg transition-all hover:scale-105 hover:shadow-2xl`}
+                >
+                  {CardContent}
                 </Card>
               )
             })}
@@ -103,5 +93,4 @@ export function ProjectsGallerySection() {
     </section>
   )
 }
-
 
