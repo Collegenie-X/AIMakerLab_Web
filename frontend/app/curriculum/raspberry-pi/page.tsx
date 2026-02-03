@@ -8,6 +8,7 @@ import {
   HeroSection,
   CourseInfoSection,
   CourseDescriptionSection,
+  LearningPathSection,
   LearningGoalsSection,
   CurriculumSection,
   GradeRecommendationTable,
@@ -116,6 +117,17 @@ export default function RaspberryPiCurriculumPage() {
         primaryColor="green"
         gradientClass="from-green-600 to-emerald-600"
       />
+
+      {/* 학습 단계 구조도 */}
+      {data.learningPath?.methodology && (
+        <LearningPathSection
+          title={data.learningPath.methodology.title}
+          description={data.learningPath.methodology.description}
+          steps={data.learningPath.methodology.steps}
+          containerClass={layout.containerClass}
+          primaryColor="green"
+        />
+      )}
 
       {/* 학년별 추천 */}
       <GradeRecommendationTable

@@ -168,6 +168,73 @@
       "MIT App Inventor 수료증 발급"
     ]
   },
+  "learningPath": {
+    "methodology": {
+      "title": "따라 만들기 단계 (5단계)",
+      "description": "앱 보고 따라 만들며 배우기",
+      "steps": [
+        {
+          "id": "step1",
+          "title": "벤치마킹",
+          "description": "비슷한 앱 보기",
+          "duration": "30분",
+          "outcomes": [
+            "앱 찾아보기",
+            "기능 조사하기",
+            "화면 보기"
+          ],
+          "emphasis": true
+        },
+        {
+          "id": "step2",
+          "title": "기술 배우기",
+          "description": "원리 이해하기",
+          "duration": "30분",
+          "outcomes": [
+            "블록 코딩 배우기",
+            "원리 알기"
+          ]
+        },
+        {
+          "id": "step3",
+          "title": "설계",
+          "description": "만들 앱 계획하기",
+          "duration": "1시간",
+          "outcomes": [
+            "계획 세우기",
+            "기능 정하기"
+          ],
+          "emphasis": true
+        },
+        {
+          "id": "step4",
+          "title": "만들기",
+          "description": "실제로 만들기",
+          "duration": "3-6시간",
+          "outcomes": [
+            "App Inventor",
+            "블록 코딩",
+            "센서 연결",
+            "앱 완성"
+          ],
+          "emphasis": true
+        },
+        {
+          "id": "step5",
+          "title": "테스트",
+          "description": "확인하고 고치기",
+          "duration": "1시간",
+          "outcomes": [
+            "테스트하기",
+            "의견 듣기",
+            "고치기",
+            "발표하기"
+          ],
+          "emphasis": true
+        }
+      ]
+    }
+  },
   "curriculum": {
     "title": "커리큘럼",
     "tabs": [

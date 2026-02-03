@@ -100,6 +100,8 @@ export default function ViveCodingCurriculumPage() {
           containerClass={layout.containerClass}
         />
 
+  
+
         {/* 과정 소개 */}
         <CourseDescriptionSection
           title={data.courseDescription.title}
@@ -107,6 +109,20 @@ export default function ViveCodingCurriculumPage() {
           images={data.courseDescription.images}
           containerClass={layout.containerClass}
         />
+
+              {/* 학년별 추천 */}
+              {data.gradeRecommendation && (
+          <GradeRecommendationTable
+            title={data.gradeRecommendation.title}
+            description={data.gradeRecommendation.description}
+            programName={data.gradeRecommendation.programName}
+            headers={data.gradeRecommendation.headers}
+            courses={data.gradeRecommendation.courses}
+            legend={data.gradeRecommendation.legend}
+            containerClass={layout.containerClass}
+            primaryColor="orange"
+          />
+        )}
 
         {/* 학습 목표 */}
         <LearningGoalsSection
@@ -120,22 +136,22 @@ export default function ViveCodingCurriculumPage() {
         />
 
         {/* 학습 단계 구조도 - 1단계 */}
-        {data.learningPath?.part1 && (
+        {data.learningPath?.stage1 && (
           <LearningPathSection
-            title={data.learningPath.part1.title}
-            description={data.learningPath.part1.description}
-            steps={data.learningPath.part1.steps}
+            title={data.learningPath.stage1.title}
+            description={data.learningPath.stage1.description}
+            steps={data.learningPath.stage1.steps}
             containerClass={layout.containerClass}
             primaryColor="orange"
           />
         )}
 
         {/* 학습 단계 구조도 - 2단계 */}
-        {data.learningPath?.part2 && (
+        {data.learningPath?.stage2 && (
           <LearningPathSection
-            title={data.learningPath.part2.title}
-            description={data.learningPath.part2.description}
-            steps={data.learningPath.part2.steps}
+            title={data.learningPath.stage2.title}
+            description={data.learningPath.stage2.description}
+            steps={data.learningPath.stage2.steps}
             containerClass={layout.containerClass}
             primaryColor="orange"
           />
@@ -153,20 +169,6 @@ export default function ViveCodingCurriculumPage() {
           durationTabInactiveClass="bg-gray-100 text-gray-600 hover:bg-gray-200"
           primaryColor="orange"
         />
-
-        {/* 학년별 추천 */}
-        {data.gradeRecommendation && (
-          <GradeRecommendationTable
-            title={data.gradeRecommendation.title}
-            description={data.gradeRecommendation.description}
-            programName={data.gradeRecommendation.programName}
-            headers={data.gradeRecommendation.headers}
-            courses={data.gradeRecommendation.courses}
-            legend={data.gradeRecommendation.legend}
-            containerClass={layout.containerClass}
-            primaryColor="orange"
-          />
-        )}
 
         {/* 교육 조건 */}
         <EducationRequirementsSection

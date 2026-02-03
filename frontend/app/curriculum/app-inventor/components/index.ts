@@ -14,3 +14,6 @@ export { ClassGallerySection } from "./ClassGallerySection";
 export { MaterialsDownloadSection } from "./MaterialsDownloadSection";
 export { CtaSection } from "./CtaSection";
 
+// 공통 컴포넌트
+export { LearningPathSection } from "../../components/LearningPathSection";
+

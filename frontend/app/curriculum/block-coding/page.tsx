@@ -99,6 +99,8 @@ export default function AIEducationCurriculumPage() {
           containerClass={layout.containerClass}
         />
 
+
+
         {/* 과정 소개 */}
         <CourseDescriptionSection
           title={data.courseDescription.title}
@@ -107,8 +109,8 @@ export default function AIEducationCurriculumPage() {
           containerClass={layout.containerClass}
         />
 
-        {/* 학습 목표 */}
-        <LearningGoalsSection
+          {/* 학습 목표 */}
+          <LearningGoalsSection
           title={data.learningGoals.title}
           description={data.learningGoals.description}
           goals={data.learningGoals.goals}
@@ -118,34 +120,26 @@ export default function AIEducationCurriculumPage() {
           gradientClass="from-purple-600 to-indigo-600"
         />
 
-        {/* 학습 단계 구조도 - 초등 */}
-        {data.learningPath?.elementary && (
-          <LearningPathSection
-            title={data.learningPath.elementary.title}
-            description={data.learningPath.elementary.description}
-            steps={data.learningPath.elementary.steps}
-            containerClass={layout.containerClass}
-            primaryColor="purple"
-          />
-        )}
+          {/* 학년별 추천 (컴팩트 2행 레이아웃) */}
+          <CompactGradeTable
+          title={data.gradeRecommendation.title}
+          description={data.gradeRecommendation.description}
+          programName={data.gradeRecommendation.programName}
+          headers={data.gradeRecommendation.headers}
+          courses={data.gradeRecommendation.courses}
+          legend={data.gradeRecommendation.legend}
+          containerClass={layout.containerClass}
+          primaryColor="purple"
+        />
 
-        {/* 학습 단계 구조도 - 중등 */}
-        {data.learningPath?.middleSchool && (
-          <LearningPathSection
-            title={data.learningPath.middleSchool.title}
-            description={data.learningPath.middleSchool.description}
-            steps={data.learningPath.middleSchool.steps}
-            containerClass={layout.containerClass}
-            primaryColor="purple"
-          />
-        )}
 
-        {/* 학습 단계 구조도 - 고등 */}
-        {data.learningPath?.highSchool && (
+
+        {/* 학습 단계 구조도 - 메이커 프로세스 */}
+        {data.learningPath?.methodology && (
           <LearningPathSection
-            title={data.learningPath.highSchool.title}
-            description={data.learningPath.highSchool.description}
-            steps={data.learningPath.highSchool.steps}
+            title={data.learningPath.methodology.title}
+            description={data.learningPath.methodology.description}
+            steps={data.learningPath.methodology.steps}
             containerClass={layout.containerClass}
             primaryColor="purple"
           />
@@ -164,17 +158,7 @@ export default function AIEducationCurriculumPage() {
           primaryColor="purple"
         />
 
-        {/* 학년별 추천 (컴팩트 2행 레이아웃) */}
-        <CompactGradeTable
-          title={data.gradeRecommendation.title}
-          description={data.gradeRecommendation.description}
-          programName={data.gradeRecommendation.programName}
-          headers={data.gradeRecommendation.headers}
-          courses={data.gradeRecommendation.courses}
-          legend={data.gradeRecommendation.legend}
-          containerClass={layout.containerClass}
-          primaryColor="purple"
-        />
+ 
 
         {/* 교육 조건 */}
         <EducationRequirementsSection

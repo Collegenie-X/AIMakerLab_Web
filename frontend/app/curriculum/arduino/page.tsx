@@ -100,14 +100,16 @@ export default function ArduinoPage() {
         {/* 과정 소개 섹션 */}
         <CourseDescriptionSection data={data.description} />
 
+        {/* 프로젝트별 학년 추천 테이블 */}
+        <ProjectGradeRecommendationSection data={data.projects} />
+
         {/* 학습 단계 구조도 */}
         <LearningPathSection data={data.learningPath} />
 
         {/* 6대 프로젝트 섹션 */}
         <ProjectsSection data={data.projects} />
 
-        {/* 프로젝트별 학년 추천 테이블 */}
-        <ProjectGradeRecommendationSection data={data.projects} />
+      
 
         {/* 교육 조건 섹션 */}
         <EducationRequirementsSection data={data.educationRequirements} />

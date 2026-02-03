@@ -62,84 +62,84 @@
     }
   ],
   "courseDescription": {
-    "title": "AI 심화 제작 코딩이란?",
+    "title": "AI 심화 제작 수업이란?",
     "paragraphs": [
-      "AI 심화 제작 코딩은 IoT 제작과 AI 서비스 개발을 통해 실전 프로젝트 경험을 쌓는 과정입니다.",
-      "기획부터 실행까지 전 과정을 경험하며, 하드웨어와 AI를 결합한 제품 개발 능력을 키웁니다.",
-      "최신 AI 도구를 활용하여 빠르게 프로토타입을 만들고, 반복 개선하는 실전 개발 방법을 배웁니다."
+      "<p><strong>AI 심화 제작 수업은 IoT 제품과 AI 서비스를 실제로 만들어보는 수업입니다.</strong> IoT 하드웨어를 직접 제작하고, AI 기술을 활용한 웹 서비스를 개발하면서 실전 프로젝트 경험을 쌓습니다. 3개월 동안 기획부터 실행까지 전체 과정을 경험합니다.</p>",
+      "<p><strong>기획부터 실행까지 전 과정을 배웁니다.</strong> 하드웨어와 AI를 합쳐서 실제로 작동하는 제품을 만들고, 이 과정에서 제품 개발 능력을 키웁니다. 단순히 코딩만 배우는 것이 아니라 문제를 정의하고 해결하는 전체 프로세스를 익힙니다.</p>",
+      "<p><strong>최신 AI 도구를 활용하여 빠르게 개발합니다.</strong> ChatGPT, Cursor, V0 같은 최신 AI 도구를 사용해서 빠르게 프로토타입을 만들고, 계속 고치고 개선하면서 완성도 높은 결과물을 만드는 방법을 배웁니다.</p>"
     ],
     "images": []
   },
   "learningPath": {
     "iot": {
-      "title": "IoT 컴퓨터 비전 프로젝트",
-      "description": "하드웨어와 AI를 결합한 실전 프로젝트",
+      "title": "IoT 프로젝트 만들기",
+      "description": "하드웨어 + AI 합치기",
       "steps": [
         {
           "id": "step-1",
           "number": 1,
-          "title": "문제 발견",
+          "title": "문제 찾기",
           "description": "실생활 문제 찾기"
         },
         {
           "id": "step-2",
           "number": 2,
-          "title": "기획",
-          "description": "해결 방법 설계"
+          "title": "계획하기",
+          "description": "해결 방법 정하기"
         },
         {
           "id": "step-3",
           "number": 3,
-          "title": "하드웨어 구성",
+          "title": "하드웨어",
           "description": "라즈베리파이 + 카메라"
         },
         {
           "id": "step-4",
           "number": 4,
-          "title": "AI 모델 연동",
-          "description": "YOLO 물체 인식"
+          "title": "AI 연결",
+          "description": "YOLO로 물체 찾기"
         },
         {
           "id": "step-5",
           "number": 5,
-          "title": "프로젝트 완성",
-          "description": "테스트 및 개선"
+          "title": "완성하기",
+          "description": "테스트하고 고치기"
         }
       ]
     },
     "vibe": {
-      "title": "바이브 코딩 서비스 개발",
-      "description": "AI 도구로 웹 서비스 빠르게 만들기",
+      "title": "웹 서비스 만들기",
+      "description": "AI로 빠르게 서비스 만들기",
       "steps": [
         {
           "id": "step-1",
           "number": 1,
           "title": "아이디어",
-          "description": "만들고 싶은 서비스 정의"
+          "description": "뭘 만들지 정하기"
         },
         {
           "id": "step-2",
           "number": 2,
-          "title": "AI 활용 개발",
-          "description": "ChatGPT로 코드 생성"
+          "title": "AI로 코딩",
+          "description": "ChatGPT로 코드 만들기"
         },
         {
           "id": "step-3",
           "number": 3,
-          "title": "프론트엔드",
-          "description": "화면 구성 및 디자인"
+          "title": "화면 만들기",
+          "description": "화면 구성하기"
         },
         {
           "id": "step-4",
           "number": 4,
-          "title": "AI API 연동",
-          "description": "OpenAI API 통합"
+          "title": "AI 연결",
+          "description": "OpenAI API 붙이기"
         },
         {
           "id": "step-5",
           "number": 5,
-          "title": "배포",
-          "description": "실제 서비스 런칭"
+          "title": "배포하기",
+          "description": "서비스 올리기"
         }
       ]
     }

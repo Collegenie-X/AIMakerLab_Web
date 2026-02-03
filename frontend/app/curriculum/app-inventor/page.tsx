@@ -9,6 +9,7 @@ import {
   CourseDescriptionSection,
   EducationRequirementsSection,
   LearningGoalsSection,
+  LearningPathSection,
   GradeRecommendationTable,
   CurriculumSection,
   ClassGallerySection,
@@ -98,26 +99,36 @@ export default function AppInventorPage() {
         {/* 과정 정보 섹션 */}
         <CourseInfoSection data={data.courseInfo} />
 
-        {/* 학년별 추천 커리큘럼 테이블 */}
-        <GradeRecommendationTable data={data.gradeRecommendation} />    
+ 
 
         {/* 과정 소개 섹션 */}
         <CourseDescriptionSection data={data.description} />
 
-
+       {/* 학년별 추천 커리큘럼 테이블 */}
+       <GradeRecommendationTable data={data.gradeRecommendation} />    
       
 
-        {/* 교육 조건 섹션 */}
-        <EducationRequirementsSection data={data.educationRequirements} />
+
 
         {/* 학습 목표 및 기대 효과 섹션 */}
         <LearningGoalsSection data={data.learningGoals} />
 
+        {/* 학습 단계 구조도 */}
+        {data.learningPath?.methodology && (
+          <LearningPathSection
+            title={data.learningPath.methodology.title}
+            description={data.learningPath.methodology.description}
+            steps={data.learningPath.methodology.steps}
+            containerClass="container mx-auto px-4 py-16"
+            primaryColor="blue"
+          />
+        )}
 
         {/* 커리큘럼 상세 섹션 */}
         <CurriculumSection data={data.curriculum} />
 
-     
+        {/* 교육 조건 섹션 */}
+        <EducationRequirementsSection data={data.educationRequirements} />
 
         {/* 수업 현장 및 학생 작품 갤러리 */}
         <ClassGallerySection data={data.gallery} />
