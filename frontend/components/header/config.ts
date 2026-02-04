@@ -96,7 +96,7 @@ export const headerNavSections: HeaderNavSection[] = [
         label: "교육 소식", 
         href: "/inquiry/method", 
         icon: "Bell",
-        description: "최신 교육 정보 및 공지사항"
+        description: "최신 교육 및 공지사항"
       },
     ],
   },

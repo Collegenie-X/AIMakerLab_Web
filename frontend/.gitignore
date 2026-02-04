@@ -16,8 +16,10 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# env files
-.env*
+# env files (로컬 환경 변수는 무시, 예시 파일은 포함)
+.env*.local
+.env.local
+!.env.local.example
 
 # vercel
 .vercel

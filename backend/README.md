@@ -2,6 +2,22 @@
 
 Django + Django REST Framework 기반의 AI Maker Lab 백엔드 API 서버입니다.
 
+## 📚 문서 가이드
+
+### 🚀 빠른 시작
+1. **[API_GUIDE.md](API_GUIDE.md)** - Django 설정 및 기본 사용법
+2. **[API_CRUD_GUIDE.md](API_CRUD_GUIDE.md)** - 전체 REST API curl 명령어 모음 ⭐
+3. **[POSTMAN_GUIDE.md](POSTMAN_GUIDE.md)** - Postman 테스트 완벽 가이드
+
+### 📦 Postman Collection
+- **[AIMakerLab_API.postman_collection.json](AIMakerLab_API.postman_collection.json)** - Import하여 즉시 테스트 가능
+
+### 📖 추가 문서
+- **[IMPLEMENTATION_SUMMARY.md](IMPLEMENTATION_SUMMARY.md)** - 백엔드 구현 요약
+- **[IMAGE_GUIDE.md](IMAGE_GUIDE.md)** - 이미지 업로드 가이드
+
+---
+
 ## 📋 목차
 
 - [기술 스택](#기술-스택)

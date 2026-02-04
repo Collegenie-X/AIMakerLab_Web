@@ -3,7 +3,15 @@
 """
 
 from django.contrib import admin
-from .models import Product, ProductReview, QuoteItem, Video, ClassroomPhoto, RelatedClass
+from .models import (
+    Product, 
+    ProductReview, 
+    QuoteItem, 
+    Video, 
+    ClassroomPhoto, 
+    RelatedClass,
+    QuoteInquiry
+)
 
 
 @admin.register(Product)
@@ -97,3 +105,68 @@ class RelatedClassAdmin(admin.ModelAdmin):
     list_filter = ['difficulty']
     search_fields = ['title', 'description']
     ordering = ['order']
+
+
+@admin.register(QuoteInquiry)
+class QuoteInquiryAdmin(admin.ModelAdmin):
+    """견적 문의 Admin"""
+    
+    list_display = [
+        'requester_name',
+        'institution_name',
+        'total_amount',
+        'status',
+        'created_at',
+    ]
+    list_filter = ['status', 'institution_type', 'created_at']
+    search_fields = [
+        'requester_name',
+        'requester_email',
+        'institution_name',
+        'message',
+    ]
+    ordering = ['-created_at']
+    
+    fieldsets = (
+        ('기본 정보', {
+            'fields': ('user', 'title', 'status')
+        }),
+        ('문의자 정보', {
+            'fields': ('requester_name', 'requester_email', 'requester_phone')
+        }),
+        ('기관 정보', {
+            'fields': ('institution_name', 'institution_type')
+        }),
+        ('견적 정보', {
+            'fields': ('quote_items', 'total_amount')
+        }),
+        ('추가 정보', {
+            'fields': ('message', 'delivery_address', 'preferred_delivery_date')
+        }),
+        ('관리자', {
+            'fields': ('admin_notes', 'admin_quote_file'),
+            'classes': ('collapse',)
+        }),
+    )
+    
+    readonly_fields = ['created_at', 'updated_at']
+    
+    actions = ['mark_as_reviewing', 'mark_as_quoted', 'mark_as_confirmed']
+    
+    def mark_as_reviewing(self, request, queryset):
+        """검토중으로 상태 변경"""
+        updated = queryset.update(status='reviewing')
+        self.message_user(request, f'{updated}개의 견적 문의를 검토중으로 변경했습니다.')
+    mark_as_reviewing.short_description = '선택된 견적을 검토중으로 변경'
+    
+    def mark_as_quoted(self, request, queryset):
+        """견적발송으로 상태 변경"""
+        updated = queryset.update(status='quoted')
+        self.message_user(request, f'{updated}개의 견적 문의를 견적발송으로 변경했습니다.')
+    mark_as_quoted.short_description = '선택된 견적을 견적발송으로 변경'
+    
+    def mark_as_confirmed(self, request, queryset):
+        """확정으로 상태 변경"""
+        updated = queryset.update(status='confirmed')
+        self.message_user(request, f'{updated}개의 견적 문의를 확정으로 변경했습니다.')
+    mark_as_confirmed.short_description = '선택된 견적을 확정으로 변경'

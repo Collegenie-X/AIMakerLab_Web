@@ -3,10 +3,16 @@
 """
 
 from django.urls import path, include
+from rest_framework.routers import DefaultRouter
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 from . import views
 
 app_name = 'accounts'
+
+# Router 설정
+router = DefaultRouter()
+router.register(r'user-profiles', views.UserProfileViewSet, basename='user-profile')
+router.register(r'user-courses', views.UserCourseEnrollmentViewSet, basename='user-course')
 
 urlpatterns = [
     # JWT 토큰
@@ -27,9 +33,12 @@ urlpatterns = [
     # 로그아웃
     path('logout/', views.logout_view, name='logout'),
     
+    # Router URLs (나의 강의, 나의 프로필 등)
+    path('', include(router.urls)),
+    
     # dj-rest-auth (소셜 로그인 포함)
-    path('', include('dj_rest_auth.urls')),
-    path('registration/', include('dj_rest_auth.registration.urls')),
-    path('social/', include('allauth.socialaccount.urls')),
+    path('auth/', include('dj_rest_auth.urls')),
+    path('auth/registration/', include('dj_rest_auth.registration.urls')),
+    path('auth/social/', include('allauth.socialaccount.urls')),
 ]
 
