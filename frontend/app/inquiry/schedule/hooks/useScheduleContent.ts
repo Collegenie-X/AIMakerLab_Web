@@ -58,7 +58,11 @@ export function useScheduleContent() {
     const fetchContent = async () => {
       try {
         setLoading(true)
-        const response = await fetch("/inquiry/schedule-content.json")
+        // 개발 환경에서 캐시 방지를 위해 timestamp 추가
+        const timestamp = process.env.NODE_ENV === 'development' ? `?t=${Date.now()}` : ''
+        const response = await fetch(`/inquiry/schedule-content.json${timestamp}`, {
+          cache: 'no-store', // 캐시 사용 안 함
+        })
         
         if (!response.ok) {
           throw new Error(`Failed to fetch content: ${response.status}`)

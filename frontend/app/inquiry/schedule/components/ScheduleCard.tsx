@@ -3,9 +3,10 @@
 import { Badge } from "@/components/ui/data-display/badge"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/data-display/card"
 import { Button } from "@/components/ui/buttons/button"
-import { Calendar, Clock, Star, Users, Send } from "lucide-react"
+import { Calendar, Clock, Star, Users, Send, DollarSign } from "lucide-react"
 import { useRouter } from "next/navigation"
 import type { ScheduleItem, ScheduleTexts } from "../config"
+import { useState } from "react"
 
 type Props = {
   item: ScheduleItem
@@ -14,14 +15,35 @@ type Props = {
 }
 
 /**
- * 수업 카드 컴포넌트
+ * 가격 계산 함수
+ */
+function calculatePrice(
+  studentCount: number,
+  hours: number,
+  materialsPerKit: number,
+  studentsPerKit: number,
+  instructorFeePerHour: number
+) {
+  const kitCount = Math.ceil(studentCount / studentsPerKit)
+  const materialsTotal = kitCount * materialsPerKit
+  const instructorTotal = hours * instructorFeePerHour
+  return materialsTotal + instructorTotal
+}
+
+/**
+ * 수업 카드 컴포넌트 (출강 교육 커리큘럼용)
  * @param item - 수업 정보
  * @param texts - 표시할 텍스트 설정
  * @param onViewDetail - 상세보기 핸들러
  */
 export function ScheduleCard({ item, texts, onViewDetail }: Props) {
   const router = useRouter()
-  const isClosed = item.enrolled >= item.capacity
+  
+  // JSON에서 기본값 가져오기 (없으면 폴백)
+  const defaultStudents = item.pricingInfo?.defaultStudents || 12
+  const [selectedStudents, setSelectedStudents] = useState(defaultStudents)
+  
+  const isClosed = item.capacity ? item.enrolled >= item.capacity : false
 
   // 출강 수업 문의하기 핸들러
   const handleOutreachInquiry = (e: React.MouseEvent) => {
@@ -81,66 +103,115 @@ export function ScheduleCard({ item, texts, onViewDetail }: Props) {
         {/* 강사 표시는 제거 */}
       </CardHeader>
 
-      <CardContent className="space-y-2">
+      <CardContent className="space-y-3">
         <p className="line-clamp-2 text-sm text-gray-600">{item.description}</p>
 
-        <div className="grid grid-cols-2 gap-2 text-sm text-gray-600">
-          <div className="flex items-center gap-2">
-            <Calendar className="h-4 w-4 text-blue-600" />
-            <span>{item.date}</span>
-          </div>
-          <div className="flex items-center gap-2 justify-end">
-            <Clock className="h-4 w-4 text-blue-600" />
-            <span>{item.time}</span>
-          </div>
+        {/* 수업 시간 표시 */}
+        <div className="flex items-center gap-2 text-sm">
+          <Clock className="h-4 w-4 text-blue-600" />
+          <span className="font-semibold text-gray-700">{item.duration}</span>
+          <span className="text-gray-500">커리큘럼</span>
         </div>
 
-        <div className="rounded-lg bg-blue-50 p-2">
-          <div className="mb-1 flex items-center justify-between">
-            <div className="flex items-center gap-1 text-sm font-medium text-gray-700">
-              <Users className="h-4 w-4 text-blue-600" />
-              수강 인원
+        {/* 가격 정보 - 출강 수업용 */}
+        {item.pricingInfo ? (
+          <div className="space-y-2 rounded-lg bg-gradient-to-br from-blue-50 to-indigo-50 p-3">
+            <div className="flex items-center gap-2 text-sm font-semibold text-gray-800">
+              <DollarSign className="h-4 w-4 text-blue-600" />
+              <span>인원별 예상 비용</span>
             </div>
-            <span className="text-xs text-gray-600">
-              {item.capacity - item.enrolled > 0 ? `${item.capacity - item.enrolled}${texts.labels.remain}` :
-                texts.labels.closed}
-            </span>
-          </div>
-          {/* 좌: 현재 인원, 가운데: 진행바, 우: 총 정원 */}
-          <div className="mt-1 flex items-center gap-3">
-            <span className="text-sm font-semibold text-blue-600">{item.enrolled}명</span>
-            <div className="relative h-2 flex-1 overflow-hidden rounded-full bg-gray-200">
-              <div
-                className="absolute left-0 top-0 h-2 rounded-full bg-blue-600 transition-all"
-                style={{ width: `${(item.enrolled / item.capacity) * 100}%` }}
+            
+            {/* 인원 선택 슬라이더 */}
+            <div className="space-y-1">
+              <div className="flex items-center justify-between text-xs text-gray-600">
+                <span>수강 인원</span>
+                <span className="font-bold text-blue-600">{selectedStudents}명</span>
+              </div>
+              <input
+                type="range"
+                min={item.pricingInfo.minStudents}
+                max={item.pricingInfo.maxStudents}
+                step={item.pricingInfo.studentStep}
+                value={selectedStudents}
+                onChange={(e) => {
+                  e.stopPropagation()
+                  setSelectedStudents(Number(e.target.value))
+                }}
+                className="w-full"
+                onClick={(e) => e.stopPropagation()}
               />
+              <div className="flex justify-between text-xs text-gray-500">
+                <span>{item.pricingInfo.minStudents}명</span>
+                <span>{item.pricingInfo.maxStudents}명</span>
+              </div>
             </div>
-            <span className="text-sm font-semibold text-gray-700">{item.capacity}명</span>
-          </div>
-        </div>
 
-        <div className="space-y-2 border-t pt-3">
-          <div className="flex items-center justify-between">
-            <div className="text-xl font-bold text-blue-600">{item.price}</div>
-            <Button 
-              variant="outline" 
-              size="sm"
-              onClick={(e) => {
-                e.stopPropagation()
-                if (onViewDetail) onViewDetail(item)
-              }}
-            >
-              {texts.labels.seeDetail}
-            </Button>
+            {/* 비용 계산 결과 */}
+            <div className="space-y-1 border-t border-blue-200 pt-2 text-xs">
+              <div className="flex justify-between text-gray-600">
+                <span>재료비 ({Math.ceil(selectedStudents / item.pricingInfo.studentsPerKit)}세트 × {item.pricingInfo.materialsPerKit.toLocaleString()}원)</span>
+                <span className="font-semibold">
+                  {(Math.ceil(selectedStudents / item.pricingInfo.studentsPerKit) * item.pricingInfo.materialsPerKit).toLocaleString()}원
+                </span>
+              </div>
+              <div className="flex justify-between text-gray-600">
+                <span>강사료 ({item.durationHours}시간 × {item.pricingInfo.instructorFeePerHour.toLocaleString()}원)</span>
+                <span className="font-semibold">
+                  {(item.durationHours * item.pricingInfo.instructorFeePerHour).toLocaleString()}원
+                </span>
+              </div>
+              <div className="flex justify-between border-t border-blue-200 pt-1 text-sm font-bold text-blue-600">
+                <span>총 예상 비용</span>
+                <span>
+                  {calculatePrice(
+                    selectedStudents,
+                    item.durationHours,
+                    item.pricingInfo.materialsPerKit,
+                    item.pricingInfo.studentsPerKit,
+                    item.pricingInfo.instructorFeePerHour
+                  ).toLocaleString()}원
+                </span>
+              </div>
+              <div className="space-y-0.5">
+                <p className="text-xs text-gray-500">
+                  * {item.pricingInfo.studentsPerKit}인 1조 기준, {item.pricingInfo.minHours}시간부터 가능
+                </p>
+                {item.pricingInfo.rentalPerKit && (
+                  <p className="text-xs font-semibold text-green-600">
+                    💡 교구재 대여 가능 (교구 1개당 {item.pricingInfo.rentalPerKit.toLocaleString()}원)
+                  </p>
+                )}
+              </div>
+            </div>
           </div>
+        ) : item.price ? (
+          /* 고정 가격 (주말반용) */
+          <div className="rounded-lg bg-blue-50 p-3">
+            <div className="text-xl font-bold text-blue-600">{item.price}</div>
+          </div>
+        ) : null}
+
+        {/* 버튼 영역 */}
+        <div className="flex gap-2 border-t pt-3">
           <Button 
-            className="w-full"
-            variant="secondary"
+            variant="outline" 
+            className="flex-1"
+            size="sm"
+            onClick={(e) => {
+              e.stopPropagation()
+              if (onViewDetail) onViewDetail(item)
+            }}
+          >
+            {texts.labels.seeDetail}
+          </Button>
+          <Button 
+            className="flex-1"
+            variant="default"
             size="sm"
             onClick={handleOutreachInquiry}
           >
-            <Send className="mr-2 h-4 w-4" />
-            출강 수업 문의하기
+            <Send className="mr-1 h-4 w-4" />
+            문의하기
           </Button>
         </div>
       </CardContent>

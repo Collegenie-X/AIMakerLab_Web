@@ -22,15 +22,20 @@ import {
 } from "./config"
 
 /**
- * 출강 수업 커리큘럼 페이지
+ * 출강 교육 커리큘럼 페이지
+ * 
+ * 학교, 기업, 기관을 위한 맞춤형 AI/메이커 교육 커리큘럼을 소개합니다.
+ * - 3시간, 6시간, 12시간 단위로 구성
+ * - 재료비(4인 1조 55,000원) + 강사료(시간당 50,000원)
+ * - 인원수(4~20명)에 따라 유연한 가격 산정
  * 
  * config.ts에서 모든 설정을 관리하여 유지보수성을 향상시킵니다.
  * - 색상 테마: config.ts의 gradientClasses
  * - 텍스트: config.ts의 pageTitles와 getScheduleTexts
- * - 섹션 순서: 필요시 config.ts의 sectionsConfig 활용 가능
+ * - 가격 정보: JSON의 pricingInfo 객체
  */
 export default function OutreachCurriculumPage() {
-  // 출강 수업 설정 (weekday)
+  // 출강 교육 설정 (weekday)
   const scheduleType = "weekday"
   const texts = getScheduleTexts(scheduleType)
   const dataUrl = getScheduleDataUrl(scheduleType)

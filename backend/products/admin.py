@@ -9,11 +9,33 @@ from django.db.models import Avg, Count
 from .models import (
     Product,
     ProductReview,
+    ProductImage,
     QuoteItem,
     Video,
     ClassroomPhoto,
     RelatedClass,
 )
+
+
+class ProductImageInline(admin.TabularInline):
+    """제품 이미지 인라인 (Product Image Inline)"""
+
+    model = ProductImage
+    extra = 1
+    fields = ["image", "image_preview", "caption", "order"]
+    readonly_fields = ["image_preview"]
+
+    def image_preview(self, obj):
+        """이미지 미리보기"""
+        if obj.image:
+            return format_html(
+                '<img src="{}" style="max-width: 150px; max-height: 150px; '
+                'border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" />',
+                obj.image.url,
+            )
+        return "이미지 없음"
+
+    image_preview.short_description = "미리보기"
 
 
 class ProductReviewInline(admin.TabularInline):
@@ -62,6 +84,8 @@ class ProductAdmin(admin.ModelAdmin):
     list_editable = ["order"]
 
     list_per_page = 30
+
+    inlines = [ProductImageInline, ProductReviewInline]
 
     fieldsets = (
         (
@@ -116,8 +140,6 @@ class ProductAdmin(admin.ModelAdmin):
     )
 
     readonly_fields = ["main_image_preview", "created_at", "updated_at"]
-
-    inlines = [ProductReviewInline]
 
     # Custom display methods
     def image_preview(self, obj):

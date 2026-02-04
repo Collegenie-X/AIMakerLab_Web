@@ -5,7 +5,54 @@
 
 from django.contrib import admin
 from django.utils.html import format_html
-from .models import StudentWork, ClassReview
+from .models import StudentWork, ClassReview, StudentWorkImage, ClassReviewImage
+
+
+# ============================================
+# 인라인 Admin - 이미지 갤러리
+# ============================================
+
+
+class StudentWorkImageInline(admin.TabularInline):
+    """학생 작품 이미지 인라인"""
+
+    model = StudentWorkImage
+    extra = 1
+    fields = ["image", "image_preview", "caption", "order"]
+    readonly_fields = ["image_preview"]
+
+    def image_preview(self, obj):
+        """이미지 미리보기"""
+        if obj.image:
+            return format_html(
+                '<img src="{}" style="max-width: 150px; max-height: 150px; '
+                'border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" />',
+                obj.image.url,
+            )
+        return "이미지 없음"
+
+    image_preview.short_description = "미리보기"
+
+
+class ClassReviewImageInline(admin.TabularInline):
+    """수업 후기 이미지 인라인"""
+
+    model = ClassReviewImage
+    extra = 1
+    fields = ["image", "image_preview", "caption", "order"]
+    readonly_fields = ["image_preview"]
+
+    def image_preview(self, obj):
+        """이미지 미리보기"""
+        if obj.image:
+            return format_html(
+                '<img src="{}" style="max-width: 150px; max-height: 150px; '
+                'border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" />',
+                obj.image.url,
+            )
+        return "이미지 없음"
+
+    image_preview.short_description = "미리보기"
 
 
 # ============================================
@@ -55,6 +102,8 @@ class StudentWorkAdmin(admin.ModelAdmin):
     list_editable = ["order"]
 
     list_per_page = 50
+
+    inlines = [StudentWorkImageInline]
 
     fieldsets = (
         (
@@ -297,6 +346,8 @@ class ClassReviewAdmin(admin.ModelAdmin):
     list_editable = ["order"]
 
     list_per_page = 50
+
+    inlines = [ClassReviewImageInline]
 
     fieldsets = (
         (

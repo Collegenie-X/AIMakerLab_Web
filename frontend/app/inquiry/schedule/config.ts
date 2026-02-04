@@ -42,6 +42,8 @@ export type CurriculumModule = {
   title: string
   topics: string[]
   duration: string
+  image?: string  // 차시별 이미지 경로
+  imageAlt?: string  // 이미지 설명
 }
 
 /**
@@ -92,6 +94,35 @@ export type Comment = {
 }
 
 /**
+ * 가격 정보 타입 (출강 수업용)
+ */
+export type PricingInfo = {
+  materialsPerKit: number  // 키트당 재료비 (예: 55000)
+  studentsPerKit: number   // 키트당 학생 수 (예: 4)
+  instructorFeePerHour: number  // 시간당 강사료 (예: 50000)
+  minHours: number  // 최소 수업 시간 (예: 2)
+  defaultHours: number  // 기본 수업 시간 (예: 3)
+  minStudents: number  // 최소 수강 인원 (예: 10)
+  maxStudents: number  // 최대 수강 인원 (예: 30)
+  defaultStudents: number  // 기본 수강 인원 (예: 12)
+  studentStep: number  // 인원 증가 단위 (예: 2 또는 4)
+  rentalPerKit?: number  // 키트당 대여비 (예: 20000, 선택)
+}
+
+/**
+ * 교구재 정보 타입
+ */
+export type EducationKit = {
+  name: string  // 교구재 이름
+  description: string  // 교구재 설명
+  image?: string  // 교구재 이미지
+  videoId?: string  // 유튜브 동영상 ID
+  productUrl?: string  // 교육 제품 페이지 URL
+  purchasePrice?: number  // 구매 가격
+  rentalPrice?: number  // 대여 가격
+}
+
+/**
  * 스케줄 아이템 타입
  */
 export type ScheduleItem = {
@@ -99,14 +130,15 @@ export type ScheduleItem = {
   title: string
   instructor: string
   instructorInfo?: InstructorInfo
-  date: string
-  time: string
-  location: string
-  capacity: number
-  enrolled: number
+  date?: string  // 출강 수업은 날짜가 유동적
+  time?: string  // 출강 수업은 시간이 유동적
+  location?: string  // 출강 수업은 위치가 유동적
+  capacity?: number
+  enrolled?: number
   level: string
-  duration: string
-  month: string
+  duration: string  // "3시간", "6시간", "12시간"
+  durationHours: number  // 숫자로 시간 (3, 6, 12)
+  month?: string
   rating: number
   reviews: number
   videoUrl?: string
@@ -114,13 +146,15 @@ export type ScheduleItem = {
   description: string
   learningObjectives?: string[]
   expectedOutcomes?: string[]
-  curriculum: string[] | CurriculumModule[]
+  curriculum: CurriculumModule[]  // 이미지 포함을 위해 객체 배열만 사용
   studentProjects?: StudentProject[]
   requirements: string[]
   faqs?: FAQ[]
   reviewList?: Review[]
   commentList?: Comment[]
-  price: string
+  price?: string  // 기존 고정 가격 (주말반용)
+  pricingInfo?: PricingInfo  // 유연한 가격 정보 (출강 수업용)
+  educationKit?: EducationKit  // 교구재 정보
   gallery?: { type: "image" | "video"; src: string; alt?: string }[]
 }
 
@@ -185,6 +219,11 @@ export type ScheduleTexts = {
     reply: string
     answered: string
     unanswered: string
+    educationKit: string
+    kitPurchase: string
+    kitRental: string
+    kitDescription: string
+    viewProduct: string
   }
 }
 
@@ -295,10 +334,10 @@ export const pageThemes: Record<ScheduleType, ThemeColor> = {
  */
 export const pageTitles = {
   filterTitle: '수업 시간을 선택하세요',
-  filterDescription: '3시간, 6시간, 12시간 중 기관 상황에 맞는 커리큘럼을 찾아보세요',
+  filterDescription: '3시간, 6시간, 12시간 중 기관 상황에 맞는 커리큘럼을 찾아보세요. 인원수에 따라 유연하게 가격이 조정됩니다.',
   listTitle: (duration: string) => duration !== '전체' ? `${duration} 커리큘럼` : '전체 커리큘럼',
   listCount: (count: number) => `총 ${count}개의 커리큘럼`,
-  listHelper: "마음에 드는 커리큘럼을 찾으셨나요? '출강 수업 문의하기' 버튼을 클릭해보세요!",
+  listHelper: "마음에 드는 커리큘럼을 찾으셨나요? '문의하기' 버튼을 클릭하면 바로 견적을 받아보실 수 있습니다!",
   loading: '로딩 중...',
 }
 
@@ -310,14 +349,19 @@ export const pageTitles = {
  * Duration 카테고리 매핑 함수
  */
 export function getDurationCategory(duration: string): string {
-  if (duration.includes("3시간") || duration.includes("3h")) return "3시간"
-  if (duration.includes("6시간") || duration.includes("6h")) return "6시간"
-  if (duration.includes("12시간") || duration.includes("12h")) return "12시간"
+  // 정확한 시간 매칭 (3시간, 6시간, 12시간)
+  if (duration === "3시간" || duration.includes("3시간")) return "3시간"
+  if (duration === "6시간" || duration.includes("6시간")) return "6시간"
+  if (duration === "12시간" || duration.includes("12시간")) return "12시간"
   return "기타"
 }
 
 /**
  * Duration 옵션 추출 함수
+ */
+/**
+ * Duration 옵션을 추출하고 시간 순서대로 정렬
+ * "전체", "3시간", "6시간", "12시간" 순서로 반환
  */
 export function extractDurationOptions(items: ScheduleItem[]): string[] {
   const durationSet = new Set<string>()
@@ -327,7 +371,15 @@ export function extractDurationOptions(items: ScheduleItem[]): string[] {
       durationSet.add(category)
     }
   })
-  return ["전체", ...Array.from(durationSet).sort()]
+  
+  // 시간 순서대로 정렬 (3시간 → 6시간 → 12시간)
+  const sortedDurations = Array.from(durationSet).sort((a, b) => {
+    const aNum = parseInt(a.replace("시간", ""))
+    const bNum = parseInt(b.replace("시간", ""))
+    return aNum - bNum
+  })
+  
+  return ["전체", ...sortedDurations]
 }
 
 // ========================================
@@ -387,24 +439,29 @@ export function getScheduleTexts(type: ScheduleType): ScheduleTexts {
     reply: "답변",
     answered: "답변 완료",
     unanswered: "답변 대기",
+    educationKit: "교구재 정보",
+    kitPurchase: "구매",
+    kitRental: "대여",
+    kitDescription: "교구재 설명",
+    viewProduct: "제품 상세보기",
   }
 
   const baseInfo = {
     title: "출강 수업 안내",
     refundTitle: "🎯 간편한 문의 방법",
-    refundDesc: "마음에 드는 커리큘럼을 찾으셨나요? 각 수업 카드의 '출강 수업 문의하기' 버튼을 클릭하면 해당 수업 정보가 자동으로 입력된 문의 폼이 열립니다. 3시간/6시간/12시간 중에서 기관 상황에 맞는 시간을 선택하시면 됩니다!",
-    capacityTitle: "📍 출강 가능 지역",
-    capacityDesc: "서울, 경기는 기본 출강 지역이며 전국 어디든 방문 가능합니다. 학교, 기업, 도서관, 복지관 등 어디든 찾아갑니다. 최소 인원 10명부터 진행 가능하며, 인원과 장소에 따라 맞춤 견적을 제공해드립니다.",
-    contactTitle: "📞 빠른 상담",
-    contactDesc: "궁금한 점이 있으신가요? 전화(010-2708-0051) 또는 이메일(info@aimakerlab.com)로 편하게 연락주세요. 평일 오전 9시부터 오후 6시까지 상담 가능합니다!",
+    refundDesc: "마음에 드는 커리큘럼을 찾으셨나요? 각 수업 카드의 '문의하기' 버튼을 클릭하면 해당 수업 정보가 자동으로 입력된 문의 폼이 열립니다. 3시간/6시간/12시간 중에서 기관 상황에 맞는 시간을 선택하시면 됩니다!",
+    capacityTitle: "💰 유연한 가격 구성",
+    capacityDesc: "가격은 '재료비 + 강사료'로 구성됩니다. 재료비는 4인 1조 기준 55,000원, 강사료는 시간당 50,000원입니다. 기본 3시간 이상(2시간도 가능)이며, 인원수에 따라 비용이 달라집니다. 예를 들어 12명이 3시간 수업을 받으면 재료비 165,000원 + 강사료 150,000원 = 총 315,000원입니다. 재료비와 강사료를 분리하여 유연하게 조정할 수 있습니다.",
+    contactTitle: "📍 출강 가능 지역",
+    contactDesc: "서울, 경기는 기본 출강 지역이며 전국 어디든 방문 가능합니다. 학교, 기업, 도서관, 복지관 등 어디든 찾아갑니다. 최소 인원 10명부터 최대 30명까지 진행 가능하며, 인원과 장소에 따라 맞춤 견적을 제공해드립니다.",
   }
 
-  // 출강 수업 커리큘럼
+  // 출강 교육 커리큘럼
   if (type === "weekday") {
     return {
-      heroTitle: "출강 수업 커리큘럼",
-      heroSubtitle: "우리 기관에 딱 맞는 AI 교육을 찾고 계신가요?",
-      heroDescription: "3시간부터 12시간까지, 필요에 맞게 선택하세요. 아래 커리큘럼을 보고 '출강 수업 문의하기'를 클릭하면 바로 문의할 수 있어요!",
+      heroTitle: "출강 교육 커리큘럼",
+      heroSubtitle: "우리 기관에 딱 맞는 AI 메이커 교육을 찾고 계신가요?",
+      heroDescription: "3시간, 6시간, 12시간 중 선택하세요. 재료비와 강사료가 분리되어 유연하게 운영할 수 있습니다. 인원수에 따라 견적이 달라지며, 각 커리큘럼에는 실습 이미지가 포함되어 있습니다!",
       monthPrefix: "",
       monthSuffix: " 추천 커리큘럼",
       listEmpty: "해당 시간대 커리큘럼을 준비 중입니다.",

@@ -21,6 +21,16 @@ def class_review_image_path(instance, filename):
     return f"gallery/reviews/{filename}"
 
 
+def student_work_gallery_image_path(instance, filename):
+    """학생 작품 갤러리 이미지 업로드 경로"""
+    return f"gallery/works/gallery/{filename}"
+
+
+def class_review_gallery_image_path(instance, filename):
+    """수업 후기 갤러리 이미지 업로드 경로"""
+    return f"gallery/reviews/gallery/{filename}"
+
+
 # ============================================
 # 학생 작품 모델
 # ============================================
@@ -194,3 +204,60 @@ class ClassReview(models.Model):
             + self.curriculum_quality
             + self.learning_effect
         ) / 4
+
+
+# ============================================
+# 갤러리 이미지 모델들
+# ============================================
+
+
+class StudentWorkImage(models.Model):
+    """학생 작품 추가 이미지"""
+
+    work = models.ForeignKey(
+        StudentWork,
+        on_delete=models.CASCADE,
+        related_name="gallery_images",
+        verbose_name="작품",
+    )
+    image = models.ImageField("이미지", upload_to=student_work_gallery_image_path)
+    caption = models.CharField(
+        "설명", max_length=200, blank=True, help_text="이미지 설명 (선택사항)"
+    )
+    order = models.PositiveIntegerField("정렬 순서", default=0)
+    created_at = models.DateTimeField("등록일", auto_now_add=True)
+
+    class Meta:
+        db_table = "gallery_student_work_images"
+        verbose_name = "작품 이미지"
+        verbose_name_plural = "작품 이미지 목록"
+        ordering = ["order", "id"]
+
+    def __str__(self):
+        return f"{self.work.title} - 이미지 {self.order}"
+
+
+class ClassReviewImage(models.Model):
+    """수업 후기 추가 이미지"""
+
+    review = models.ForeignKey(
+        ClassReview,
+        on_delete=models.CASCADE,
+        related_name="gallery_images",
+        verbose_name="후기",
+    )
+    image = models.ImageField("이미지", upload_to=class_review_gallery_image_path)
+    caption = models.CharField(
+        "설명", max_length=200, blank=True, help_text="이미지 설명 (선택사항)"
+    )
+    order = models.PositiveIntegerField("정렬 순서", default=0)
+    created_at = models.DateTimeField("등록일", auto_now_add=True)
+
+    class Meta:
+        db_table = "gallery_class_review_images"
+        verbose_name = "후기 이미지"
+        verbose_name_plural = "후기 이미지 목록"
+        ordering = ["order", "id"]
+
+    def __str__(self):
+        return f"{self.review.title} - 이미지 {self.order}"

@@ -19,7 +19,12 @@ export function useSchedules({ initial = [], sourceUrl = scheduleDataUrl }: UseS
       try {
         setLoading(true)
         setError(null)
-        const res = await fetch(sourceUrl, { cache: "no-store" })
+        // 개발 환경에서 캐시 방지를 위해 timestamp 추가
+        const timestamp = process.env.NODE_ENV === 'development' ? `?t=${Date.now()}` : ''
+        const url = sourceUrl.includes('?') 
+          ? `${sourceUrl}&t=${Date.now()}` 
+          : `${sourceUrl}${timestamp}`
+        const res = await fetch(url, { cache: "no-store" })
         if (!res.ok) throw new Error(`Failed to fetch schedules: ${res.status}`)
         const data: ScheduleItem[] = await res.json()
         if (!cancelled) setItems(data)
