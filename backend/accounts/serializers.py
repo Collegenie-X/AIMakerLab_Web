@@ -5,6 +5,7 @@
 from rest_framework import serializers
 from django.contrib.auth import get_user_model
 from django.contrib.auth.password_validation import validate_password
+from .models import UserProfile, UserCourseEnrollment
 
 User = get_user_model()
 
@@ -118,4 +119,86 @@ class EmailVerificationSerializer(serializers.Serializer):
             raise serializers.ValidationError('유효하지 않은 토큰입니다.')
         
         return value
+
+
+class UserProfileSerializer(serializers.ModelSerializer):
+    """사용자 프로필 Serializer"""
+    
+    user_email = serializers.EmailField(source='user.email', read_only=True)
+    user_name = serializers.CharField(source='user.name', read_only=True)
+    
+    class Meta:
+        model = UserProfile
+        fields = [
+            'id',
+            'user',
+            'user_email',
+            'user_name',
+            'bio',
+            'avatar',
+            'email_notifications',
+            'sms_notifications',
+            'interests',
+            'total_courses',
+            'total_inquiries',
+            'total_gallery_items',
+            'updated_at',
+        ]
+        read_only_fields = [
+            'id',
+            'user',
+            'total_courses',
+            'total_inquiries',
+            'total_gallery_items',
+            'updated_at',
+        ]
+
+
+class UserCourseEnrollmentSerializer(serializers.ModelSerializer):
+    """사용자 수강 과정 Serializer"""
+    
+    user_email = serializers.EmailField(source='user.email', read_only=True)
+    status_display = serializers.CharField(source='get_status_display', read_only=True)
+    
+    class Meta:
+        model = UserCourseEnrollment
+        fields = [
+            'id',
+            'user',
+            'user_email',
+            'course_title',
+            'instructor',
+            'category',
+            'start_date',
+            'end_date',
+            'status',
+            'status_display',
+            'progress',
+            'description',
+            'location',
+            'notes',
+            'enrolled_at',
+            'updated_at',
+        ]
+        read_only_fields = ['id', 'user', 'enrolled_at', 'updated_at']
+
+
+class UserCourseEnrollmentListSerializer(serializers.ModelSerializer):
+    """사용자 수강 과정 목록 Serializer (간단 버전)"""
+    
+    status_display = serializers.CharField(source='get_status_display', read_only=True)
+    
+    class Meta:
+        model = UserCourseEnrollment
+        fields = [
+            'id',
+            'course_title',
+            'instructor',
+            'category',
+            'start_date',
+            'end_date',
+            'status',
+            'status_display',
+            'progress',
+        ]
 

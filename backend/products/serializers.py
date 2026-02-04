@@ -3,7 +3,15 @@
 """
 
 from rest_framework import serializers
-from .models import Product, ProductReview, QuoteItem, Video, ClassroomPhoto, RelatedClass
+from .models import (
+    Product,
+    ProductReview,
+    QuoteItem,
+    Video,
+    ClassroomPhoto,
+    RelatedClass,
+    QuoteInquiry
+)
 
 
 class ProductListSerializer(serializers.ModelSerializer):
@@ -83,4 +91,52 @@ class RelatedClassSerializer(serializers.ModelSerializer):
     class Meta:
         model = RelatedClass
         fields = '__all__'
+
+
+class QuoteInquiryListSerializer(serializers.ModelSerializer):
+    """견적 문의 목록 Serializer"""
+    
+    status_display = serializers.CharField(source='get_status_display', read_only=True)
+    
+    class Meta:
+        model = QuoteInquiry
+        fields = [
+            'id',
+            'title',
+            'requester_name',
+            'institution_name',
+            'total_amount',
+            'status',
+            'status_display',
+            'created_at',
+        ]
+
+
+class QuoteInquiryDetailSerializer(serializers.ModelSerializer):
+    """견적 문의 상세 Serializer"""
+    
+    status_display = serializers.CharField(source='get_status_display', read_only=True)
+    
+    class Meta:
+        model = QuoteInquiry
+        fields = '__all__'
+
+
+class QuoteInquiryCreateSerializer(serializers.ModelSerializer):
+    """견적 문의 생성 Serializer"""
+    
+    class Meta:
+        model = QuoteInquiry
+        fields = [
+            'requester_name',
+            'requester_email',
+            'requester_phone',
+            'institution_name',
+            'institution_type',
+            'quote_items',
+            'total_amount',
+            'message',
+            'delivery_address',
+            'preferred_delivery_date',
+        ]
 
