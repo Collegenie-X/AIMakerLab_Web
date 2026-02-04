@@ -14,19 +14,24 @@ class GalleryItemAdmin(admin.ModelAdmin):
         'title',
         'category',
         'author',
+        'user',
         'date',
         'views',
         'likes',
         'rating',
+        'is_published',
         'order',
     ]
-    list_filter = ['category', 'rating', 'date']
-    search_fields = ['title', 'description', 'author']
+    list_filter = ['category', 'rating', 'is_published', 'date']
+    search_fields = ['title', 'description', 'author', 'user__email']
     ordering = ['category', 'order', '-date']
     
     fieldsets = (
+        ('사용자', {
+            'fields': ('user',)
+        }),
         ('기본 정보', {
-            'fields': ('item_id', 'category', 'title', 'description', 'emoji')
+            'fields': ('item_id', 'category', 'title', 'description', 'emoji', 'is_published')
         }),
         ('이미지', {
             'fields': ('image', 'images')
@@ -41,3 +46,17 @@ class GalleryItemAdmin(admin.ModelAdmin):
             'fields': ('details', 'tags', 'order')
         }),
     )
+    
+    actions = ['publish_items', 'unpublish_items']
+    
+    def publish_items(self, request, queryset):
+        """선택된 항목 공개"""
+        updated = queryset.update(is_published=True)
+        self.message_user(request, f'{updated}개의 항목을 공개했습니다.')
+    publish_items.short_description = '선택된 항목 공개'
+    
+    def unpublish_items(self, request, queryset):
+        """선택된 항목 비공개"""
+        updated = queryset.update(is_published=False)
+        self.message_user(request, f'{updated}개의 항목을 비공개했습니다.')
+    unpublish_items.short_description = '선택된 항목 비공개'

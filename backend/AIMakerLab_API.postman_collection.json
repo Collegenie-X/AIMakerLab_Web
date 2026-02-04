@@ -1,0 +1,821 @@
+{
+  "info": {
+    "name": "AIMakerLab API",
+    "description": "AIMakerLab Django REST API Collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "1"
+  },
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{token}}",
+        "type": "string"
+      }
+    ]
+  },
+  "item": [
+    {
+      "name": "1. Authentication",
+      "item": [
+        {
+          "name": "Register",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"user@example.com\",\n  \"password\": \"SecurePass123!\",\n  \"password2\": \"SecurePass123!\",\n  \"name\": \"홍길동\",\n  \"phone\": \"010-1234-5678\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/accounts/register/",
+              "host": ["{{base_url}}"],
+              "path": ["api", "accounts", "register", ""]
+            }
+          }
+        },
+        {
+          "name": "Login (Get Token)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "if (pm.response.code === 200) {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.environment.set(\"token\", jsonData.access);",
+                  "    pm.environment.set(\"refresh_token\", jsonData.refresh);",
+                  "    console.log(\"Token saved: \" + jsonData.access);",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"user@example.com\",\n  \"password\": \"SecurePass123!\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/accounts/token/",
+              "host": ["{{base_url}}"],
+              "path": ["api", "accounts", "token", ""]
+            }
+          }
+        },
+        {
+          "name": "Refresh Token",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"refresh\": \"{{refresh_token}}\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/accounts/token/refresh/",
+              "host": ["{{base_url}}"],
+              "path": ["api", "accounts", "token", "refresh", ""]
+            }
+          }
+        },
+        {
+          "name": "Logout",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"refresh\": \"{{refresh_token}}\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/accounts/logout/",
+              "host": ["{{base_url}}"],
+              "path": ["api", "accounts", "logout", ""]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "2. Accounts",
+      "item": [
+        {
+          "name": "Profile",
+          "item": [
+            {
+              "name": "GET Profile",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/api/accounts/profile/",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "accounts", "profile", ""]
+                }
+              }
+            },
+            {
+              "name": "PUT Profile",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"bio\": \"안녕하세요, AI 교육에 관심이 많은 학생입니다.\",\n  \"interests\": [\"블록코딩\", \"ChatGPT\", \"로봇\"],\n  \"notification_email\": true,\n  \"notification_sms\": false\n}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/accounts/profile/",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "accounts", "profile", ""]
+                }
+              }
+            },
+            {
+              "name": "PATCH Profile",
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"bio\": \"새로운 소개\"\n}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/accounts/profile/",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "accounts", "profile", ""]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "User Courses",
+          "item": [
+            {
+              "name": "POST Create Course",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"course_title\": \"블록코딩 기초\",\n  \"course_category\": \"블록코딩\",\n  \"instructor\": \"김강사\",\n  \"start_date\": \"2025-03-01\",\n  \"end_date\": \"2025-04-30\",\n  \"total_sessions\": 16,\n  \"status\": \"enrolled\"\n}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/accounts/user-courses/",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "accounts", "user-courses", ""]
+                }
+              }
+            },
+            {
+              "name": "GET Courses List",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/api/accounts/user-courses/",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "accounts", "user-courses", ""]
+                }
+              }
+            },
+            {
+              "name": "GET Course Detail",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/api/accounts/user-courses/1/",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "accounts", "user-courses", "1", ""]
+                }
+              }
+            },
+            {
+              "name": "PATCH Course",
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"completed_sessions\": 10,\n  \"progress\": 62.5,\n  \"status\": \"in_progress\"\n}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/accounts/user-courses/1/",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "accounts", "user-courses", "1", ""]
+                }
+              }
+            },
+            {
+              "name": "DELETE Course",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/api/accounts/user-courses/1/",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "accounts", "user-courses", "1", ""]
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "3. Inquiry",
+      "item": [
+        {
+          "name": "Inquiries",
+          "item": [
+            {
+              "name": "POST Create Inquiry",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"홍길동\",\n  \"email\": \"hong@example.com\",\n  \"phone\": \"010-1234-5678\",\n  \"subject\": \"블록코딩 수업 문의\",\n  \"message\": \"초등학교 3학년 학생입니다. 블록코딩 수업을 듣고 싶어요.\",\n  \"inquiry_type\": \"course\",\n  \"preferred_contact\": \"phone\"\n}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/inquiry/inquiries/",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "inquiry", "inquiries", ""]
+                }
+              }
+            },
+            {
+              "name": "GET Inquiries List",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/api/inquiry/inquiries/",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "inquiry", "inquiries", ""]
+                }
+              }
+            },
+            {
+              "name": "GET Inquiry Detail",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/api/inquiry/inquiries/1/",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "inquiry", "inquiries", "1", ""]
+                }
+              }
+            },
+            {
+              "name": "DELETE Inquiry",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/api/inquiry/inquiries/1/",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "inquiry", "inquiries", "1", ""]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "Outreach",
+          "item": [
+            {
+              "name": "POST Create Outreach",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"서울 강남초등학교 AI 교육 출강 요청\",\n  \"institution\": \"강남초등학교\",\n  \"institution_type\": \"elementary\",\n  \"institution_address\": \"서울시 강남구 테헤란로 123\",\n  \"requester_name\": \"김선생\",\n  \"requester_email\": \"teacher@school.com\",\n  \"requester_contact\": \"010-1234-5678\",\n  \"requester_position\": \"담당교사\",\n  \"course\": \"블록코딩\",\n  \"grade\": \"초등 3-4학년\",\n  \"student_count\": 30,\n  \"preferred_schedule\": \"주중 오전\",\n  \"preferred_start_date\": \"2025-03-01\",\n  \"duration\": \"3개월\",\n  \"session_count\": 12,\n  \"budget\": \"협의 필요\",\n  \"has_equipment\": false,\n  \"additional_requests\": \"프로젝터와 노트북이 필요합니다.\"\n}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/inquiry/outreach/",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "inquiry", "outreach", ""]
+                }
+              }
+            },
+            {
+              "name": "GET Outreach List",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/api/inquiry/outreach/",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "inquiry", "outreach", ""]
+                }
+              }
+            },
+            {
+              "name": "GET Outreach Detail",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/api/inquiry/outreach/1/",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "inquiry", "outreach", "1", ""]
+                }
+              }
+            },
+            {
+              "name": "PATCH Outreach",
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"status\": \"confirmed\",\n  \"admin_notes\": \"견적 승인, 2025-03-15 시작 확정\"\n}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/inquiry/outreach/1/",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "inquiry", "outreach", "1", ""]
+                }
+              }
+            },
+            {
+              "name": "DELETE Outreach",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/api/inquiry/outreach/1/",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "inquiry", "outreach", "1", ""]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "Schedules",
+          "item": [
+            {
+              "name": "GET Schedules (All)",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/api/inquiry/schedules/",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "inquiry", "schedules", ""]
+                }
+              }
+            },
+            {
+              "name": "GET Schedules (Weekday)",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/api/inquiry/schedules/?schedule_type=weekday",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "inquiry", "schedules", ""],
+                  "query": [
+                    {
+                      "key": "schedule_type",
+                      "value": "weekday"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "name": "GET Schedules (Weekend)",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/api/inquiry/schedules/?schedule_type=weekend",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "inquiry", "schedules", ""],
+                  "query": [
+                    {
+                      "key": "schedule_type",
+                      "value": "weekend"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "4. Products",
+      "item": [
+        {
+          "name": "Products",
+          "item": [
+            {
+              "name": "GET Products List",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/api/products/products/",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "products", "products", ""]
+                }
+              }
+            },
+            {
+              "name": "GET Product Detail",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/api/products/products/1/",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "products", "products", "1", ""]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "Quote Inquiries",
+          "item": [
+            {
+              "name": "POST Create Quote Inquiry",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"requester_name\": \"홍길동\",\n  \"requester_email\": \"hong@example.com\",\n  \"requester_phone\": \"010-1234-5678\",\n  \"institution\": \"강남초등학교\",\n  \"institution_type\": \"school\",\n  \"quote_items\": [\n    {\n      \"item_id\": \"dwai-001\",\n      \"item_name\": \"DWAI 키트\",\n      \"quantity\": 30,\n      \"unit_price\": 50000\n    }\n  ],\n  \"total_amount\": 1500000,\n  \"message\": \"교육용으로 사용할 예정입니다.\",\n  \"delivery_address\": \"서울시 강남구 테헤란로 123\"\n}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/products/quote-inquiries/",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "products", "quote-inquiries", ""]
+                }
+              }
+            },
+            {
+              "name": "GET Quote Inquiries List",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/api/products/quote-inquiries/",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "products", "quote-inquiries", ""]
+                }
+              }
+            },
+            {
+              "name": "GET Quote Inquiry Detail",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/api/products/quote-inquiries/1/",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "products", "quote-inquiries", "1", ""]
+                }
+              }
+            },
+            {
+              "name": "PATCH Quote Inquiry",
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"status\": \"quoted\",\n  \"admin_notes\": \"견적서 발송 완료\"\n}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/products/quote-inquiries/1/",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "products", "quote-inquiries", "1", ""]
+                }
+              }
+            },
+            {
+              "name": "DELETE Quote Inquiry",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/api/products/quote-inquiries/1/",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "products", "quote-inquiries", "1", ""]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "Quote Items",
+          "item": [
+            {
+              "name": "GET Quote Items List",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/api/products/quote-items/",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "products", "quote-items", ""]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "Videos",
+          "item": [
+            {
+              "name": "GET Videos List",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/api/products/videos/",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "products", "videos", ""]
+                }
+              }
+            },
+            {
+              "name": "GET Video Detail",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/api/products/videos/1/",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "products", "videos", "1", ""]
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "5. Gallery",
+      "item": [
+        {
+          "name": "Works",
+          "item": [
+            {
+              "name": "POST Create Work",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"나만의 AI 챗봇 만들기\",\n  \"description\": \"ChatGPT API를 활용한 맞춤형 챗봇 프로젝트\",\n  \"category\": \"works\",\n  \"author\": \"김학생\",\n  \"grade\": \"초등 5학년\",\n  \"course\": \"ChatGPT 크리에이터\",\n  \"tags\": [\"ChatGPT\", \"AI\", \"챗봇\"],\n  \"is_published\": true\n}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/gallery/",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "gallery", ""]
+                }
+              }
+            },
+            {
+              "name": "GET Works List",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/api/gallery/?category=works",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "gallery", ""],
+                  "query": [
+                    {
+                      "key": "category",
+                      "value": "works"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "name": "GET Work Detail",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/api/gallery/1/",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "gallery", "1", ""]
+                }
+              }
+            },
+            {
+              "name": "PATCH Work",
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"is_published\": false\n}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/gallery/1/",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "gallery", "1", ""]
+                }
+              }
+            },
+            {
+              "name": "DELETE Work",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/api/gallery/1/",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "gallery", "1", ""]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "Reviews",
+          "item": [
+            {
+              "name": "POST Create Review",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"블록코딩 수업 후기\",\n  \"description\": \"아이가 너무 재미있어했어요. 다음 수업도 기대됩니다!\",\n  \"category\": \"reviews\",\n  \"author\": \"학부모 이OO\",\n  \"course\": \"블록코딩 기초\",\n  \"rating\": 5,\n  \"is_published\": true\n}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/gallery/",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "gallery", ""]
+                }
+              }
+            },
+            {
+              "name": "GET Reviews List",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/api/gallery/?category=reviews",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "gallery", ""],
+                  "query": [
+                    {
+                      "key": "category",
+                      "value": "reviews"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "6. Curriculum",
+      "item": [
+        {
+          "name": "GET Curriculum List",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/curriculum/projects/",
+              "host": ["{{base_url}}"],
+              "path": ["api", "curriculum", "projects", ""]
+            }
+          }
+        },
+        {
+          "name": "GET Curriculum Detail",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/curriculum/projects/1/",
+              "host": ["{{base_url}}"],
+              "path": ["api", "curriculum", "projects", "1", ""]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:8000",
+      "type": "string"
+    },
+    {
+      "key": "token",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "refresh_token",
+      "value": "",
+      "type": "string"
+    }
+  ]
+}

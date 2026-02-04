@@ -160,33 +160,46 @@ SITE_ID = 1
 
 # CORS 설정
 # ==============================================================================
+# CORS 설정을 cors_settings.py에서 가져옵니다.
+# 보안이 강화된 CORS 설정을 사용합니다.
 
-CORS_ALLOWED_ORIGINS = config(
-    "CORS_ALLOWED_ORIGINS", default="http://localhost:3000,http://127.0.0.1:3000"
-).split(",")
+from .cors_settings import (
+    get_cors_settings,
+    get_csrf_trusted_origins,
+    get_secure_settings,
+)
 
-CORS_ALLOW_CREDENTIALS = True
+# CORS 설정 적용
+_cors_settings = get_cors_settings()
+CORS_ALLOWED_ORIGINS = _cors_settings['CORS_ALLOWED_ORIGINS']
+CORS_ALLOW_ALL_ORIGINS = _cors_settings['CORS_ALLOW_ALL_ORIGINS']
+CORS_ALLOW_CREDENTIALS = _cors_settings['CORS_ALLOW_CREDENTIALS']
+CORS_ALLOW_METHODS = _cors_settings['CORS_ALLOW_METHODS']
+CORS_ALLOW_HEADERS = _cors_settings['CORS_ALLOW_HEADERS']
+CORS_PREFLIGHT_MAX_AGE = _cors_settings['CORS_PREFLIGHT_MAX_AGE']
+CORS_EXPOSE_HEADERS = _cors_settings['CORS_EXPOSE_HEADERS']
 
-CORS_ALLOW_METHODS = [
-    "DELETE",
-    "GET",
-    "OPTIONS",
-    "PATCH",
-    "POST",
-    "PUT",
-]
+# CSRF 신뢰 도메인
+CSRF_TRUSTED_ORIGINS = get_csrf_trusted_origins()
 
-CORS_ALLOW_HEADERS = [
-    "accept",
-    "accept-encoding",
-    "authorization",
-    "content-type",
-    "dnt",
-    "origin",
-    "user-agent",
-    "x-csrftoken",
-    "x-requested-with",
-]
+# 보안 설정
+_secure_settings = get_secure_settings()
+SECURE_SSL_REDIRECT = _secure_settings['SECURE_SSL_REDIRECT']
+SESSION_COOKIE_SECURE = _secure_settings['SESSION_COOKIE_SECURE']
+CSRF_COOKIE_SECURE = _secure_settings['CSRF_COOKIE_SECURE']
+SESSION_COOKIE_SAMESITE = _secure_settings['SESSION_COOKIE_SAMESITE']
+CSRF_COOKIE_SAMESITE = _secure_settings['CSRF_COOKIE_SAMESITE']
+SESSION_COOKIE_HTTPONLY = _secure_settings['SESSION_COOKIE_HTTPONLY']
+CSRF_COOKIE_HTTPONLY = _secure_settings['CSRF_COOKIE_HTTPONLY']
+SECURE_BROWSER_XSS_FILTER = _secure_settings['SECURE_BROWSER_XSS_FILTER']
+SECURE_CONTENT_TYPE_NOSNIFF = _secure_settings['SECURE_CONTENT_TYPE_NOSNIFF']
+X_FRAME_OPTIONS = _secure_settings['X_FRAME_OPTIONS']
+
+# 쿠키 도메인 설정 (선택사항)
+if _secure_settings['SESSION_COOKIE_DOMAIN']:
+    SESSION_COOKIE_DOMAIN = _secure_settings['SESSION_COOKIE_DOMAIN']
+if _secure_settings['CSRF_COOKIE_DOMAIN']:
+    CSRF_COOKIE_DOMAIN = _secure_settings['CSRF_COOKIE_DOMAIN']
 
 
 # Django REST Framework 설정
@@ -347,3 +360,47 @@ LOGGING = {
 
 # logs 디렉토리 생성
 os.makedirs(BASE_DIR / "logs", exist_ok=True)
+
+
+# 데이터 소스 설정 (JSON vs Database)
+# ==============================================================================
+# 페이지별로 JSON 또는 DB를 선택할 수 있도록 설정
+
+# True: JSON 파일 사용, False: Database 사용
+DATA_SOURCE_CONFIG = {
+    # 계정
+    'accounts': {
+        'user_profile': config('USE_JSON_USER_PROFILE', default=False, cast=bool),
+        'user_courses': config('USE_JSON_USER_COURSES', default=False, cast=bool),
+    },
+    # 문의
+    'inquiry': {
+        'inquiries': config('USE_JSON_INQUIRIES', default=False, cast=bool),
+        'schedules': config('USE_JSON_SCHEDULES', default=False, cast=bool),
+        'outreach': config('USE_JSON_OUTREACH', default=False, cast=bool),
+    },
+    # 제품
+    'products': {
+        'products': config('USE_JSON_PRODUCTS', default=False, cast=bool),
+        'videos': config('USE_JSON_VIDEOS', default=False, cast=bool),
+        'quote_items': config('USE_JSON_QUOTE_ITEMS', default=False, cast=bool),
+        'quote_inquiries': config('USE_JSON_QUOTE_INQUIRIES', default=False, cast=bool),
+        'reviews': config('USE_JSON_REVIEWS', default=False, cast=bool),
+    },
+    # 갤러리
+    'gallery': {
+        'works': config('USE_JSON_GALLERY_WORKS', default=False, cast=bool),
+        'reviews': config('USE_JSON_GALLERY_REVIEWS', default=False, cast=bool),
+    },
+    # 커리큘럼
+    'curriculum': {
+        'curriculums': config('USE_JSON_CURRICULUMS', default=False, cast=bool),
+    },
+    # 홈
+    'home': {
+        'content': config('USE_JSON_HOME_CONTENT', default=False, cast=bool),
+    },
+}
+
+# Frontend의 public 폴더 경로
+FRONTEND_PUBLIC_PATH = BASE_DIR.parent / 'frontend' / 'public'

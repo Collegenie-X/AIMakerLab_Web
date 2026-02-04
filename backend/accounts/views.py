@@ -2,8 +2,8 @@
 사용자 인증 Views
 """
 
-from rest_framework import status, generics, permissions
-from rest_framework.decorators import api_view, permission_classes
+from rest_framework import status, generics, permissions, viewsets
+from rest_framework.decorators import api_view, permission_classes, action
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework_simplejwt.tokens import RefreshToken
@@ -12,13 +12,17 @@ from django.utils import timezone
 from datetime import timedelta
 import uuid
 
-from .models import EmailVerification
+from .models import EmailVerification, UserProfile, UserCourseEnrollment
 from .serializers import (
     UserSerializer,
     UserRegistrationSerializer,
     PasswordChangeSerializer,
-    EmailVerificationSerializer
+    EmailVerificationSerializer,
+    UserProfileSerializer,
+    UserCourseEnrollmentSerializer,
+    UserCourseEnrollmentListSerializer,
 )
+from .data_source_utils import get_data_source_config, load_json_file, save_json_file
 
 User = get_user_model()
 
@@ -162,3 +166,132 @@ def logout_view(request):
         return Response({
             'error': str(e)
         }, status=status.HTTP_400_BAD_REQUEST)
+
+
+class UserProfileViewSet(viewsets.ModelViewSet):
+    """사용자 프로필 ViewSet (CRUD)"""
+    
+    serializer_class = UserProfileSerializer
+    permission_classes = [IsAuthenticated]
+    
+    def get_queryset(self):
+        """현재 사용자의 프로필만 조회"""
+        return UserProfile.objects.filter(user=self.request.user)
+    
+    def retrieve(self, request, *args, **kwargs):
+        """프로필 조회 (JSON 또는 DB)"""
+        use_json = get_data_source_config('user_profile')
+        
+        if use_json:
+            data = load_json_file('user-profile.json')
+            if data:
+                return Response(data)
+        
+        # DB에서 조회
+        try:
+            profile = UserProfile.objects.get(user=request.user)
+            serializer = self.get_serializer(profile)
+            return Response(serializer.data)
+        except UserProfile.DoesNotExist:
+            # 프로필이 없으면 자동 생성
+            profile = UserProfile.objects.create(user=request.user)
+            serializer = self.get_serializer(profile)
+            return Response(serializer.data)
+    
+    def update(self, request, *args, **kwargs):
+        """프로필 수정"""
+        use_json = get_data_source_config('user_profile')
+        
+        if use_json:
+            # JSON 파일에 저장
+            data = request.data
+            save_json_file('user-profile.json', data)
+            return Response(data)
+        
+        # DB에 저장
+        return super().update(request, *args, **kwargs)
+
+
+class UserCourseEnrollmentViewSet(viewsets.ModelViewSet):
+    """사용자 수강 과정 ViewSet (나의 강의 - CRUD)"""
+    
+    permission_classes = [IsAuthenticated]
+    
+    def get_serializer_class(self):
+        """액션에 따라 다른 Serializer 사용"""
+        if self.action == 'list':
+            return UserCourseEnrollmentListSerializer
+        return UserCourseEnrollmentSerializer
+    
+    def get_queryset(self):
+        """현재 사용자의 수강 과정만 조회"""
+        return UserCourseEnrollment.objects.filter(user=self.request.user)
+    
+    def list(self, request, *args, **kwargs):
+        """수강 과정 목록 조회 (JSON 또는 DB)"""
+        use_json = get_data_source_config('user_courses')
+        
+        if use_json:
+            data = load_json_file('user-courses.json')
+            if data:
+                return Response(data)
+        
+        # DB에서 조회
+        queryset = self.filter_queryset(self.get_queryset())
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)
+    
+    def create(self, request, *args, **kwargs):
+        """수강 과정 추가"""
+        use_json = get_data_source_config('user_courses')
+        
+        if use_json:
+            # JSON 파일에 추가
+            data = load_json_file('user-courses.json') or []
+            new_item = request.data
+            new_item['id'] = len(data) + 1
+            data.append(new_item)
+            save_json_file('user-courses.json', data)
+            return Response(new_item, status=status.HTTP_201_CREATED)
+        
+        # DB에 저장
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save(user=request.user)
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+    
+    def update(self, request, *args, **kwargs):
+        """수강 과정 수정"""
+        use_json = get_data_source_config('user_courses')
+        
+        if use_json:
+            # JSON 파일에서 수정
+            data = load_json_file('user-courses.json') or []
+            item_id = int(kwargs.get('pk'))
+            
+            for i, item in enumerate(data):
+                if item.get('id') == item_id:
+                    data[i] = {**item, **request.data}
+                    save_json_file('user-courses.json', data)
+                    return Response(data[i])
+            
+            return Response({'error': '항목을 찾을 수 없습니다.'}, status=status.HTTP_404_NOT_FOUND)
+        
+        # DB에서 수정
+        return super().update(request, *args, **kwargs)
+    
+    def destroy(self, request, *args, **kwargs):
+        """수강 과정 삭제"""
+        use_json = get_data_source_config('user_courses')
+        
+        if use_json:
+            # JSON 파일에서 삭제
+            data = load_json_file('user-courses.json') or []
+            item_id = int(kwargs.get('pk'))
+            
+            data = [item for item in data if item.get('id') != item_id]
+            save_json_file('user-courses.json', data)
+            return Response(status=status.HTTP_204_NO_CONTENT)
+        
+        # DB에서 삭제
+        return super().destroy(request, *args, **kwargs)

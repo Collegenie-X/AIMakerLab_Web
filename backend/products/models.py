@@ -3,6 +3,7 @@
 """
 
 from django.db import models
+from django.conf import settings
 
 
 def product_image_path(instance, filename):
@@ -208,3 +209,66 @@ class RelatedClass(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class QuoteInquiry(models.Model):
+    """견적 문의"""
+    
+    STATUS_CHOICES = [
+        ('pending', '접수대기'),
+        ('reviewing', '검토중'),
+        ('quoted', '견적발송'),
+        ('confirmed', '확정'),
+        ('cancelled', '취소'),
+    ]
+    
+    # 사용자 (선택 - 비회원 문의 가능)
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name='quote_inquiries',
+        verbose_name='사용자'
+    )
+    
+    # 기본 정보
+    title = models.CharField('제목', max_length=200, default='견적 문의')
+    status = models.CharField('상태', max_length=50, choices=STATUS_CHOICES, default='pending')
+    
+    # 문의자 정보
+    requester_name = models.CharField('이름', max_length=100)
+    requester_email = models.EmailField('이메일')
+    requester_phone = models.CharField('연락처', max_length=50)
+    
+    # 기관 정보
+    institution_name = models.CharField('기관명', max_length=200, blank=True)
+    institution_type = models.CharField('기관 유형', max_length=100, blank=True)
+    
+    # 견적 항목 (JSON 형태로 저장)
+    quote_items = models.JSONField('견적 항목', default=list, help_text='[{item_id, name, quantity, price}]')
+    
+    # 총액
+    total_amount = models.DecimalField('총 견적 금액', max_digits=12, decimal_places=2, default=0)
+    
+    # 추가 요청사항
+    message = models.TextField('추가 메시지', blank=True)
+    delivery_address = models.CharField('배송지 주소', max_length=500, blank=True)
+    preferred_delivery_date = models.DateField('희망 납품일', null=True, blank=True)
+    
+    # 관리자 메모
+    admin_notes = models.TextField('관리자 메모', blank=True)
+    admin_quote_file = models.FileField('견적서 파일', upload_to='quotes/', blank=True, null=True)
+    
+    # 타임스탬프
+    created_at = models.DateTimeField('생성일', auto_now_add=True)
+    updated_at = models.DateTimeField('수정일', auto_now=True)
+    
+    class Meta:
+        db_table = 'quote_inquiries'
+        verbose_name = '견적 문의'
+        verbose_name_plural = '견적 문의 목록'
+        ordering = ['-created_at']
+    
+    def __str__(self):
+        return f'{self.requester_name} - {self.total_amount}원 ({self.get_status_display()})'

@@ -3,6 +3,7 @@
 """
 
 from django.db import models
+from django.conf import settings
 
 
 def gallery_image_path(instance, filename):
@@ -18,6 +19,16 @@ class GalleryItem(models.Model):
         ("works", "학생 작품"),
         ("reviews", "수업 후기"),
     ]
+
+    # 사용자 (선택 - 비회원도 작성 가능)
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name='gallery_items',
+        verbose_name='사용자'
+    )
 
     item_id = models.IntegerField("아이템 ID", unique=True)
     category = models.CharField("카테고리", max_length=50, choices=CATEGORY_CHOICES)
@@ -42,6 +53,9 @@ class GalleryItem(models.Model):
 
     # 순서
     order = models.PositiveIntegerField("정렬 순서", default=0)
+    
+    # 공개 여부
+    is_published = models.BooleanField("공개", default=True)
 
     # 타임스탬프
     created_at = models.DateTimeField("생성일", auto_now_add=True)
