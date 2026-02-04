@@ -1,0 +1,257 @@
+{% extends "admin/base_site.html" %}
+{% load static %}
+
+{% block extrastyle %}
+<style>
+    .dashboard-container {
+        padding: 20px;
+    }
+    
+    .dashboard-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 30px;
+    }
+    
+    .dashboard-header h1 {
+        font-size: 32px;
+        font-weight: bold;
+        color: #333;
+    }
+    
+    .period-selector {
+        display: flex;
+        gap: 10px;
+    }
+    
+    .period-btn {
+        padding: 8px 16px;
+        background: #417690;
+        color: white;
+        text-decoration: none;
+        border-radius: 4px;
+        transition: background 0.3s;
+    }
+    
+    .period-btn:hover, .period-btn.active {
+        background: #2c5263;
+    }
+    
+    .chart-container {
+        background: white;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 30px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+    
+    .dashboard-table {
+        width: 100%;
+        border-collapse: collapse;
+        background: white;
+    }
+    
+    .dashboard-table th {
+        background: #f8f9fa;
+        padding: 12px;
+        text-align: left;
+        font-weight: 600;
+        border-bottom: 2px solid #dee2e6;
+    }
+    
+    .dashboard-table td {
+        padding: 12px;
+        border-bottom: 1px solid #dee2e6;
+    }
+    
+    .dashboard-table tr:hover {
+        background: #f8f9fa;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="dashboard-container">
+    <!-- 헤더 -->
+    <div class="dashboard-header">
+        <div>
+            <h1>📆 월별 통계</h1>
+            <p style="color: #666;">최근 {{ months }}개월간의 활동 통계</p>
+        </div>
+        <div class="period-selector">
+            <a href="?months=3" class="period-btn {% if months == 3 %}active{% endif %}">3개월</a>
+            <a href="?months=6" class="period-btn {% if months == 6 %}active{% endif %}">6개월</a>
+            <a href="?months=12" class="period-btn {% if months == 12 %}active{% endif %}">12개월</a>
+            <a href="?months=24" class="period-btn {% if months == 24 %}active{% endif %}">24개월</a>
+        </div>
+    </div>
+    
+    <!-- 차트 -->
+    <div class="chart-container">
+        <h2>📊 월별 활동 추이</h2>
+        <canvas id="monthlyChart" height="80"></canvas>
+    </div>
+    
+    <!-- 막대 차트 -->
+    <div class="chart-container">
+        <h2>📈 월별 비교 (막대 그래프)</h2>
+        <canvas id="barChart" height="80"></canvas>
+    </div>
+    
+    <!-- 테이블 -->
+    <div class="chart-container">
+        <h2>📋 월별 상세 데이터</h2>
+        <table class="dashboard-table">
+            <thead>
+                <tr>
+                    <th>월</th>
+                    <th>신규 사용자</th>
+                    <th>신규 문의</th>
+                    <th>총 활동</th>
+                    <th>전월 대비</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for stat in monthly_stats %}
+                <tr>
+                    <td><strong>{{ stat.month }}</strong> ({{ stat.month_kr }})</td>
+                    <td>{{ stat.users }}명</td>
+                    <td>{{ stat.inquiries }}건</td>
+                    <td><strong>{{ stat.users|add:stat.inquiries }}</strong></td>
+                    <td>
+                        {% if forloop.counter0 > 0 %}
+                            {% with prev=monthly_stats|slice:forloop.counter0|slice:"-1:" %}
+                            {% with prev_total=prev.0.users|add:prev.0.inquiries %}
+                            {% with curr_total=stat.users|add:stat.inquiries %}
+                                {% if curr_total > prev_total %}
+                                <span style="color: #28a745;">↑ 증가</span>
+                                {% elif curr_total < prev_total %}
+                                <span style="color: #dc3545;">↓ 감소</span>
+                                {% else %}
+                                <span style="color: #6c757d;">→ 유지</span>
+                                {% endif %}
+                            {% endwith %}
+                            {% endwith %}
+                            {% endwith %}
+                        {% else %}
+                        <span style="color: #6c757d;">-</span>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="5" style="text-align: center; padding: 20px; color: #999;">
+                        데이터가 없습니다
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    
+    <!-- 뒤로 가기 -->
+    <div style="margin-top: 20px;">
+        <a href="{% url 'admin:index' %}" class="period-btn">← 대시보드로 돌아가기</a>
+    </div>
+</div>
+
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script>
+    // 선 그래프
+    const lineCtx = document.getElementById('monthlyChart').getContext('2d');
+    const lineChart = new Chart(lineCtx, {
+        type: 'line',
+        data: {
+            labels: [
+                {% for stat in monthly_stats %}
+                '{{ stat.month_kr }}'{% if not forloop.last %},{% endif %}
+                {% endfor %}
+            ],
+            datasets: [{
+                label: '신규 사용자',
+                data: [
+                    {% for stat in monthly_stats %}
+                    {{ stat.users }}{% if not forloop.last %},{% endif %}
+                    {% endfor %}
+                ],
+                borderColor: '#007bff',
+                backgroundColor: 'rgba(0, 123, 255, 0.1)',
+                tension: 0.4,
+                fill: true
+            }, {
+                label: '신규 문의',
+                data: [
+                    {% for stat in monthly_stats %}
+                    {{ stat.inquiries }}{% if not forloop.last %},{% endif %}
+                    {% endfor %}
+                ],
+                borderColor: '#28a745',
+                backgroundColor: 'rgba(40, 167, 69, 0.1)',
+                tension: 0.4,
+                fill: true
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: true,
+            plugins: {
+                legend: {
+                    position: 'top',
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+    
+    // 막대 그래프
+    const barCtx = document.getElementById('barChart').getContext('2d');
+    const barChart = new Chart(barCtx, {
+        type: 'bar',
+        data: {
+            labels: [
+                {% for stat in monthly_stats %}
+                '{{ stat.month_kr }}'{% if not forloop.last %},{% endif %}
+                {% endfor %}
+            ],
+            datasets: [{
+                label: '신규 사용자',
+                data: [
+                    {% for stat in monthly_stats %}
+                    {{ stat.users }}{% if not forloop.last %},{% endif %}
+                    {% endfor %}
+                ],
+                backgroundColor: 'rgba(0, 123, 255, 0.7)',
+            }, {
+                label: '신규 문의',
+                data: [
+                    {% for stat in monthly_stats %}
+                    {{ stat.inquiries }}{% if not forloop.last %},{% endif %}
+                    {% endfor %}
+                ],
+                backgroundColor: 'rgba(40, 167, 69, 0.7)',
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: true,
+            plugins: {
+                legend: {
+                    position: 'top',
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>
+{% endblock %}

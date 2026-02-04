@@ -1,0 +1,309 @@
+{% extends "admin/base_site.html" %}
+{% load static %}
+
+{% block extrastyle %}
+<style>
+    .dashboard-container {
+        padding: 20px;
+    }
+    
+    .stats-section {
+        background: white;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 30px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+    
+    .section-title {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid #417690;
+        color: #333;
+    }
+    
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+        margin-bottom: 20px;
+    }
+    
+    .stat-box {
+        background: #f8f9fa;
+        padding: 15px;
+        border-radius: 6px;
+        border-left: 4px solid #417690;
+    }
+    
+    .stat-label {
+        font-size: 12px;
+        color: #666;
+        margin-bottom: 5px;
+    }
+    
+    .stat-value {
+        font-size: 24px;
+        font-weight: bold;
+        color: #333;
+    }
+    
+    .period-btn {
+        padding: 8px 16px;
+        background: #417690;
+        color: white;
+        text-decoration: none;
+        border-radius: 4px;
+        display: inline-block;
+        margin-top: 20px;
+    }
+    
+    .period-btn:hover {
+        background: #2c5263;
+    }
+    
+    .progress-bar {
+        width: 100%;
+        height: 20px;
+        background: #e9ecef;
+        border-radius: 4px;
+        overflow: hidden;
+        margin-top: 5px;
+    }
+    
+    .progress-fill {
+        height: 100%;
+        background: #417690;
+        transition: width 0.3s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 11px;
+        font-weight: bold;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="dashboard-container">
+    <h1 style="font-size: 32px; font-weight: bold; margin-bottom: 30px;">📊 상세 통계</h1>
+    
+    <!-- 사용자 통계 -->
+    <div class="stats-section">
+        <div class="section-title">👥 사용자 통계</div>
+        <div class="stats-grid">
+            <div class="stat-box">
+                <div class="stat-label">총 사용자</div>
+                <div class="stat-value">{{ user_stats.total|default:0 }}</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">활성 사용자</div>
+                <div class="stat-value">{{ user_stats.active|default:0 }}</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: {{ user_stats.active_rate|default:0 }}%">
+                        {{ user_stats.active_rate|floatformat:1 }}%
+                    </div>
+                </div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">이메일 인증 완료</div>
+                <div class="stat-value">{{ user_stats.verified|default:0 }}</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: {{ user_stats.verified_rate|default:0 }}%">
+                        {{ user_stats.verified_rate|floatformat:1 }}%
+                    </div>
+                </div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">오늘 가입</div>
+                <div class="stat-value">{{ user_stats.today|default:0 }}</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">이번 주 가입</div>
+                <div class="stat-value">{{ user_stats.week|default:0 }}</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">이번 달 가입</div>
+                <div class="stat-value">{{ user_stats.month|default:0 }}</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 문의 통계 -->
+    <div class="stats-section">
+        <div class="section-title">📞 문의 통계</div>
+        <div class="stats-grid">
+            <div class="stat-box">
+                <div class="stat-label">총 문의</div>
+                <div class="stat-value">{{ inquiry_stats.total|default:0 }}</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">접수 대기</div>
+                <div class="stat-value" style="color: #ffc107;">{{ inquiry_stats.pending|default:0 }}</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">검토 중</div>
+                <div class="stat-value" style="color: #007bff;">{{ inquiry_stats.reviewing|default:0 }}</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">견적 발송</div>
+                <div class="stat-value" style="color: #fd7e14;">{{ inquiry_stats.quoted|default:0 }}</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">확정</div>
+                <div class="stat-value" style="color: #28a745;">{{ inquiry_stats.confirmed|default:0 }}</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">완료</div>
+                <div class="stat-value" style="color: #17a2b8;">{{ inquiry_stats.completed|default:0 }}</div>
+            </div>
+        </div>
+        
+        <div class="section-title" style="margin-top: 30px;">📅 일정 통계</div>
+        <div class="stats-grid">
+            <div class="stat-box">
+                <div class="stat-label">총 일정</div>
+                <div class="stat-value">{{ inquiry_stats.schedules.total|default:0 }}</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">수강 가능</div>
+                <div class="stat-value" style="color: #28a745;">{{ inquiry_stats.schedules.available|default:0 }}</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">만석</div>
+                <div class="stat-value" style="color: #dc3545;">{{ inquiry_stats.schedules.full|default:0 }}</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 제품 통계 -->
+    <div class="stats-section">
+        <div class="section-title">📦 제품 통계</div>
+        <div class="stats-grid">
+            <div class="stat-box">
+                <div class="stat-label">총 제품</div>
+                <div class="stat-value">{{ product_stats.products.total|default:0 }}</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">코딩/AI 제품</div>
+                <div class="stat-value">{{ product_stats.products.coding_ai|default:0 }}</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">교구</div>
+                <div class="stat-value">{{ product_stats.products.classroom|default:0 }}</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">키트</div>
+                <div class="stat-value">{{ product_stats.products.kits|default:0 }}</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">할인 중</div>
+                <div class="stat-value" style="color: #dc3545;">{{ product_stats.products.discounted|default:0 }}</div>
+            </div>
+        </div>
+        
+        <div class="section-title" style="margin-top: 30px;">⭐ 리뷰 통계</div>
+        <div class="stats-grid">
+            <div class="stat-box">
+                <div class="stat-label">총 리뷰</div>
+                <div class="stat-value">{{ product_stats.reviews.total|default:0 }}</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">평균 평점</div>
+                <div class="stat-value">{{ product_stats.reviews.avg_rating|default:0 }}</div>
+            </div>
+        </div>
+        
+        <div class="section-title" style="margin-top: 30px;">🎥 영상 통계</div>
+        <div class="stats-grid">
+            <div class="stat-box">
+                <div class="stat-label">총 영상</div>
+                <div class="stat-value">{{ product_stats.videos.total|default:0 }}</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">총 조회수</div>
+                <div class="stat-value">{{ product_stats.videos.total_views|default:0 }}</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 갤러리 통계 -->
+    <div class="stats-section">
+        <div class="section-title">🎨 갤러리 통계</div>
+        <div class="stats-grid">
+            <div class="stat-box">
+                <div class="stat-label">총 항목</div>
+                <div class="stat-value">{{ gallery_stats.total|default:0 }}</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">작품</div>
+                <div class="stat-value">{{ gallery_stats.works|default:0 }}</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">후기</div>
+                <div class="stat-value">{{ gallery_stats.reviews|default:0 }}</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">총 조회수</div>
+                <div class="stat-value">{{ gallery_stats.engagement.total_views|default:0 }}</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">총 좋아요</div>
+                <div class="stat-value">{{ gallery_stats.engagement.total_likes|default:0 }}</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">평균 평점</div>
+                <div class="stat-value">{{ gallery_stats.engagement.avg_rating|default:0 }}</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 커리큘럼 통계 -->
+    <div class="stats-section">
+        <div class="section-title">📚 커리큘럼 통계</div>
+        <div class="stats-grid">
+            <div class="stat-box">
+                <div class="stat-label">커리큘럼</div>
+                <div class="stat-value">{{ curriculum_stats.curriculums|default:0 }}</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">프로젝트</div>
+                <div class="stat-value">{{ curriculum_stats.projects|default:0 }}</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">모듈</div>
+                <div class="stat-value">{{ curriculum_stats.modules|default:0 }}</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">자료</div>
+                <div class="stat-value">{{ curriculum_stats.materials|default:0 }}</div>
+            </div>
+        </div>
+        
+        <div class="section-title" style="margin-top: 30px;">카테고리별</div>
+        <div class="stats-grid">
+            <div class="stat-box">
+                <div class="stat-label">AI 교육</div>
+                <div class="stat-value">{{ curriculum_stats.categories.ai_education|default:0 }}</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">앱 인벤터</div>
+                <div class="stat-value">{{ curriculum_stats.categories.app_inventor|default:0 }}</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">아두이노</div>
+                <div class="stat-value">{{ curriculum_stats.categories.arduino|default:0 }}</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 뒤로 가기 -->
+    <div>
+        <a href="{% url 'admin:index' %}" class="period-btn">← 대시보드로 돌아가기</a>
+    </div>
+</div>
+{% endblock %}

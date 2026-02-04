@@ -9,6 +9,11 @@ from django.conf.urls.static import static
 from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
+from config.custom_admin import admin_site  # 커스텀 Admin Site
+from config.admin_init import register_all_models  # 모델 등록
+
+# 모든 모델을 커스텀 Admin Site에 등록
+register_all_models()
 
 # API 문서화 스키마
 schema_view = get_schema_view(
@@ -25,8 +30,8 @@ schema_view = get_schema_view(
 )
 
 urlpatterns = [
-    # Admin
-    path("admin/", admin.site.urls),
+    # Admin (커스텀 대시보드 포함)
+    path("admin/", admin_site.urls),
     # API 문서화 (Swagger)
     path(
         "swagger/",
@@ -47,8 +52,3 @@ urlpatterns = [
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-
-# Admin 사이트 커스터마이징
-admin.site.site_header = "AI Maker Lab 관리자"
-admin.site.site_title = "AI Maker Lab Admin"
-admin.site.index_title = "AI Maker Lab 관리 시스템"

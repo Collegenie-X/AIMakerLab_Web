@@ -2,6 +2,42 @@
 
 Django + Django REST Framework 기반의 AI Maker Lab 백엔드 API 서버입니다.
 
+## 📚 문서 가이드
+
+### 🚀 빠른 시작
+1. **[API_GUIDE.md](API_GUIDE.md)** - Django 설정 및 기본 사용법
+2. **[API_CRUD_GUIDE.md](API_CRUD_GUIDE.md)** - 전체 REST API curl 명령어 모음 ⭐
+3. **[POSTMAN_GUIDE.md](POSTMAN_GUIDE.md)** - Postman 테스트 완벽 가이드
+4. **[QUICK_START_API_TESTING.md](QUICK_START_API_TESTING.md)** - 5분 API 테스트
+
+### 📦 Postman Collection
+- **[AIMakerLab_API.postman_collection.json](AIMakerLab_API.postman_collection.json)** - Import하여 즉시 테스트 가능
+
+### 🎨 Django Admin 강화 (NEW!)
+- **[ADMIN_ENHANCEMENT_COMPLETE.md](ADMIN_ENHANCEMENT_COMPLETE.md)** - Admin 전체 강화 완료 ⭐
+  - ✅ 이미지 미리보기 (10개 모델)
+  - ✅ 관계형 데이터 inline 관리 (8개)
+  - ✅ 시각적 배지 및 컬러 코딩 (50+)
+  - ✅ Bulk actions 일괄 작업 (33개)
+  - ✅ CSV 내보내기 (한글 지원)
+  - ✅ **모든 변수명/함수명 영문, 주석 한글** 🌟
+
+### 📊 통합 대시보드 (NEW! 🔥)
+- **[DASHBOARD_GUIDE.md](DASHBOARD_GUIDE.md)** - 대시보드 완벽 가이드 ⭐⭐⭐
+  - ✅ **통합 대시보드** - 전체 CRUD 현황 한눈에 보기
+  - ✅ **일별/월별 통계** - 기간별 활동 추이 분석
+  - ✅ **차트 시각화** - Chart.js 기반 그래프
+  - ✅ **모델별 데이터 현황** - 27개 모델 통계
+  - ✅ **최근 활동 내역** - 실시간 활동 로그
+  - ✅ **상세 통계** - 앱별/카테고리별 상세 분석
+
+### 📖 추가 문서
+- **[IMPLEMENTATION_SUMMARY.md](IMPLEMENTATION_SUMMARY.md)** - 백엔드 구현 요약
+- **[IMAGE_GUIDE.md](IMAGE_GUIDE.md)** - 이미지 업로드 가이드
+- **[REQUIREMENTS_GUIDE.md](REQUIREMENTS_GUIDE.md)** - 패키지 설치 완벽 가이드 ⭐
+
+---
+
 ## 📋 목차
 
 - [기술 스택](#기술-스택)
