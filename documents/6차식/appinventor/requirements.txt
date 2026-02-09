@@ -1,0 +1,27 @@
+# 보안 카메라 Flask 서버 필수 라이브러리
+# 설치 방법: pip install -r requirements.txt
+
+# Flask 웹 프레임워크
+flask>=3.0.0
+flask-cors>=4.0.0
+
+# YOLO 객체 탐지
+ultralytics>=8.0.0
+
+# 이미지 처리
+opencv-python>=4.8.0
+# 또는 헤드리스 버전 (서버용)
+# opencv-python-headless>=4.8.0
+
+# 딥러닝 프레임워크
+torch>=2.0.0
+torchvision>=0.15.0
+
+# 데이터 처리
+numpy>=1.24.0
+pillow>=10.0.0
+
+# 기타 유틸리티
+pyyaml>=6.0
+requests>=2.31.0
+
