@@ -109,6 +109,19 @@ export default function AIEducationCurriculumPage() {
           containerClass={layout.containerClass}
         />
 
+        {/* 학년별 추천 (컴팩트 2행 레이아웃) */}
+        <CompactGradeTable
+          title={data.gradeRecommendation.title}
+          description={data.gradeRecommendation.description}
+          programName={data.gradeRecommendation.programName}
+          headers={data.gradeRecommendation.headers}
+          courses={data.gradeRecommendation.courses}
+          legend={data.gradeRecommendation.legend}
+          containerClass={layout.containerClass}
+          primaryColor="purple"
+        />
+
+
           {/* 학습 목표 */}
           <LearningGoalsSection
           title={data.learningGoals.title}
@@ -120,18 +133,7 @@ export default function AIEducationCurriculumPage() {
           gradientClass="from-purple-600 to-indigo-600"
         />
 
-          {/* 학년별 추천 (컴팩트 2행 레이아웃) */}
-          <CompactGradeTable
-          title={data.gradeRecommendation.title}
-          description={data.gradeRecommendation.description}
-          programName={data.gradeRecommendation.programName}
-          headers={data.gradeRecommendation.headers}
-          courses={data.gradeRecommendation.courses}
-          legend={data.gradeRecommendation.legend}
-          containerClass={layout.containerClass}
-          primaryColor="purple"
-        />
-
+   
 
 
         {/* 학습 단계 구조도 - 메이커 프로세스 */}
