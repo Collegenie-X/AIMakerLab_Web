@@ -24,9 +24,9 @@ export function CourseDescriptionSection({
   }
 
   return (
-    <CurriculumSectionContainer className="bg-gray-50 py-12" containerClass={containerClass}>
-      <h2 className="mb-6 text-3xl font-bold">{title}</h2>
-      <div className="space-y-4 text-gray-600 leading-relaxed mb-8">
+    <CurriculumSectionContainer className="bg-gray-900 py-12" containerClass={containerClass}>
+      <h2 className="mb-6 text-3xl font-bold text-white">{title}</h2>
+      <div className="space-y-4 text-gray-300 leading-relaxed mb-8">
         {paragraphs.map((paragraph, index) => (
           <div 
             className="text-lg" 
@@ -41,7 +41,7 @@ export function CourseDescriptionSection({
       {images.length > 0 && (
         <div className="grid grid-cols-3 gap-4 mt-8">
           {images.map((image, index) => (
-            <div key={index} className="aspect-video rounded-lg overflow-hidden bg-white shadow-sm">
+            <div key={index} className="aspect-video rounded-lg overflow-hidden bg-gray-800 shadow-sm">
               <img
                 src={image.src}
                 alt={image.alt}

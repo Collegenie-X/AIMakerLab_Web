@@ -74,10 +74,10 @@ export default function OutreachCurriculumPage() {
           <div className="mx-auto max-w-7xl px-4">
             {/* Duration 필터 */}
             <div className="mb-10">
-              <h2 className="mb-3 text-center text-3xl font-bold text-gray-900">
+              <h2 className="mb-3 text-center text-3xl font-bold text-white">
                 {pageTitles.filterTitle}
               </h2>
-              <p className="mb-6 text-center text-gray-600">
+              <p className="mb-6 text-center text-gray-400">
                 {pageTitles.filterDescription}
               </p>
               <div className="flex justify-center">
@@ -92,10 +92,10 @@ export default function OutreachCurriculumPage() {
             {/* 리스트 헤더 */}
             <div className="mb-6">
               <div className="flex items-center justify-between">
-                <h3 className="text-xl font-bold text-gray-900">
+                <h3 className="text-xl font-bold text-white">
                   {pageTitles.listTitle(selectedDuration)}
                 </h3>
-                <p className="text-gray-600 text-sm">
+                <p className="text-gray-400 text-sm">
                   {pageTitles.listCount(filtered.length)}
                 </p>
               </div>
@@ -106,7 +106,7 @@ export default function OutreachCurriculumPage() {
 
             {/* 스케줄 리스트 또는 로딩/에러 */}
             {loading ? (
-              <div className="py-12 text-center text-gray-500">
+              <div className="py-12 text-center text-gray-400">
                 {pageTitles.loading}
               </div>
             ) : error ? (

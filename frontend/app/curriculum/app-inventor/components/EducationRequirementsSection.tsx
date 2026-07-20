@@ -52,11 +52,11 @@ export function EducationRequirementsSection({ data }: EducationRequirementsSect
   const { iconColors, layout } = APP_INVENTOR_CONFIG;
 
   return (
-    <section className="py-16 bg-gradient-to-br from-gray-50 to-blue-50">
+    <section className="py-16 bg-gradient-to-br from-gray-950 to-gray-900">
       <div>
         <div className={layout.containerClass}>
           <h2 className="mb-4 text-3xl font-bold text-center">{data.title}</h2>
-          <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+          <p className="text-center text-gray-400 mb-12 max-w-2xl mx-auto">
             효과적인 앱 인벤터 교육을 위한 필수 조건들을 확인하세요
           </p>
 
@@ -85,7 +85,7 @@ export function EducationRequirementsSection({ data }: EducationRequirementsSect
                     
                     <ul className="space-y-2 ml-2">
                       {item.details.map((detail, index) => (
-                        <li key={index} className="flex items-start gap-2 text-sm text-gray-700">
+                        <li key={index} className="flex items-start gap-2 text-sm text-gray-300">
                           <ChevronRight className="h-4 w-4 text-blue-500 mt-0.5 flex-shrink-0" />
                           <span>{detail}</span>
                         </li>

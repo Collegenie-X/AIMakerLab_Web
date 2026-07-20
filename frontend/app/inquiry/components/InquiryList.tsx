@@ -31,12 +31,12 @@ function saveLocal(items: InquiryItem[]) {
 
 function StatusBadge({ status }: { status: string }) {
   const config = {
-    확정: { bg: 'bg-green-100', text: 'text-green-700', icon: CheckCircle2 },
-    완료: { bg: 'bg-emerald-100', text: 'text-emerald-700', icon: CheckCircle2 },
-    견적발송: { bg: 'bg-blue-100', text: 'text-blue-700', icon: Send },
-    검토중: { bg: 'bg-orange-100', text: 'text-orange-700', icon: AlertTriangle },
-    접수대기: { bg: 'bg-gray-100', text: 'text-gray-700', icon: Clock },
-  }[status] ?? { bg: 'bg-gray-100', text: 'text-gray-700', icon: FileText }
+    확정: { bg: 'bg-green-500/15', text: 'text-green-400', icon: CheckCircle2 },
+    완료: { bg: 'bg-emerald-500/15', text: 'text-emerald-400', icon: CheckCircle2 },
+    견적발송: { bg: 'bg-blue-500/15', text: 'text-blue-400', icon: Send },
+    검토중: { bg: 'bg-orange-500/15', text: 'text-orange-400', icon: AlertTriangle },
+    접수대기: { bg: 'bg-gray-500/15', text: 'text-gray-400', icon: Clock },
+  }[status] ?? { bg: 'bg-gray-500/15', text: 'text-gray-400', icon: FileText }
 
   const Icon = config.icon
   return (
@@ -87,9 +87,9 @@ export function InquiryList({ initialItems }: Props) {
 
   return (
     <>
-      <Card className="overflow-hidden shadow-sm">
+      <Card className="overflow-hidden shadow-sm border-white/10 bg-gray-900">
         <CardContent className="p-0">
-          <div className="hidden grid-cols-[1fr_140px_140px_120px] items-center gap-4 border-b bg-gray-50 px-6 py-3 text-sm font-medium text-gray-700 md:grid">
+          <div className="hidden grid-cols-[1fr_140px_140px_120px] items-center gap-4 border-b border-white/10 bg-gray-800 px-6 py-3 text-sm font-medium text-gray-300 md:grid">
             <div>제목</div>
             <div className="text-center">교육과정</div>
             <div className="text-center">상태</div>
@@ -99,23 +99,23 @@ export function InquiryList({ initialItems }: Props) {
             {visible.map((inquiry, idx) => (
               <button
                 key={inquiry.id}
-                className={`grid w-full grid-cols-1 items-center gap-3 px-6 py-4 text-left transition-colors hover:bg-blue-50/50 md:grid-cols-[1fr_140px_140px_120px] md:gap-4 ${
-                  idx < visible.length - 1 ? 'border-b' : ''
+                className={`grid w-full grid-cols-1 items-center gap-3 px-6 py-4 text-left transition-colors hover:bg-white/5 md:grid-cols-[1fr_140px_140px_120px] md:gap-4 ${
+                  idx < visible.length - 1 ? 'border-b border-white/10' : ''
                 }`}
                 onClick={() => handleItemClick(inquiry)}
               >
                 <div className="min-w-0">
-                  <div className="truncate text-base font-semibold text-gray-900">{inquiry.title}</div>
+                  <div className="truncate text-base font-semibold text-white">{inquiry.title}</div>
                 </div>
                 <div className="md:text-center">
-                  <Badge variant="outline" className="border-blue-200 bg-blue-50 text-blue-700">
+                  <Badge variant="outline" className="border-blue-400/30 bg-blue-500/10 text-blue-300">
                     {inquiry.category}
                   </Badge>
                 </div>
                 <div className="md:text-center">
                   <StatusBadge status={inquiry.status} />
                 </div>
-                <div className="text-sm text-gray-600 md:text-center">{inquiry.date}</div>
+                <div className="text-sm text-gray-400 md:text-center">{inquiry.date}</div>
               </button>
             ))}
           </div>

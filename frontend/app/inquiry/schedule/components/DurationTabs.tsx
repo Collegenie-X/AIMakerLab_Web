@@ -26,7 +26,7 @@ export function DurationTabs({ durations, selected, onChange }: DurationTabsProp
           className={`min-w-[120px] h-12 text-base font-semibold transition-all ${
             selected === duration
               ? "bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 shadow-lg"
-              : "border-2 border-gray-300 hover:border-purple-400 hover:bg-purple-50"
+              : "border-2 border-white/20 text-gray-300 hover:border-purple-400 hover:bg-purple-500/10 bg-transparent"
           }`}
         >
           {duration !== "전체" && <Clock className="mr-2 h-5 w-5" />}

@@ -75,11 +75,11 @@ export function ItemsTableSection({ items, onChange }: ItemsTableSectionProps) {
   }
 
   return (
-    <Card>
+    <Card className="bg-gray-900 border-gray-800">
       <CardContent className="pt-6">
         {/* 헤더 */}
         <div className="flex items-center justify-between mb-3">
-          <Label className="text-base">품목 목록</Label>
+          <Label className="text-base text-white">품목 목록</Label>
           <Button size="sm" variant="secondary" onClick={handleAddItem}>
             <Plus className="h-4 w-4 mr-1" /> 행 추가
           </Button>

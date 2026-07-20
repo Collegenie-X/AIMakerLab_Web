@@ -19,12 +19,12 @@ type InquiryListSectionProps = {
  */
 export function InquiryListSection({ onOpenInquiry }: InquiryListSectionProps) {
   return (
-    <section className="bg-white py-16">
+    <section className="bg-gray-950 py-16">
       <div className="container mx-auto px-4">
         <div className="mx-auto max-w-5xl">
           {/* 헤더 */}
           <div className="mb-6 flex items-center justify-between">
-            <h2 className="text-2xl font-bold text-gray-900">
+            <h2 className="text-2xl font-bold text-white">
               {labels.list.title}
             </h2>
             <Button 

@@ -33,11 +33,11 @@ export function LearningPathSection({
   }
 
   return (
-    <CurriculumSectionContainer className="py-16 bg-gradient-to-br from-gray-50 to-white" containerClass={containerClass}>
+    <CurriculumSectionContainer className="py-16 bg-gradient-to-br from-gray-950 to-gray-900" containerClass={containerClass}>
       {/* 제목 및 설명 */}
       <div className="text-center mb-12">
-        <h2 className="text-3xl font-bold mb-4">{title}</h2>
-        {description && <p className="text-gray-600 max-w-3xl mx-auto">{description}</p>}
+        <h2 className="text-3xl font-bold mb-4 text-white">{title}</h2>
+        {description && <p className="text-gray-400 max-w-3xl mx-auto">{description}</p>}
       </div>
 
       {/* 학습 단계 플로우 */}
@@ -48,22 +48,22 @@ export function LearningPathSection({
             <div key={`step-${step.id}`}>
               <div className={`
                 relative p-6 rounded-xl border-2 transition-all
-                ${step.emphasis 
-                  ? `border-${primaryColor}-500 bg-${primaryColor}-50 shadow-lg` 
-                  : 'border-gray-200 bg-white hover:border-gray-300'}
+                ${step.emphasis
+                  ? `border-${primaryColor}-500 bg-${primaryColor}-900/20 shadow-lg`
+                  : 'border-gray-700 bg-gray-900 hover:border-gray-600'}
               `}>
                 {/* 단계 번호 */}
                 <div className={`
                   absolute -left-4 -top-4 w-12 h-12 rounded-full flex items-center justify-center font-bold text-lg
-                  ${step.emphasis 
-                    ? `bg-${primaryColor}-600 text-white shadow-lg` 
-                    : 'bg-gray-100 text-gray-600'}
+                  ${step.emphasis
+                    ? `bg-${primaryColor}-600 text-white shadow-lg`
+                    : 'bg-gray-800 text-gray-400'}
                 `}>
                   {index + 1}
                 </div>
 
                 <div className="mt-2">
-                  <h3 className={`text-lg font-bold mb-2 ${step.emphasis ? `text-${primaryColor}-900` : 'text-gray-900'}`}>
+                  <h3 className={`text-lg font-bold mb-2 ${step.emphasis ? `text-${primaryColor}-400` : 'text-white'}`}>
                     {step.title}
                   </h3>
                   {step.duration && (
@@ -71,13 +71,13 @@ export function LearningPathSection({
                       ⏱️ {step.duration}
                     </span>
                   )}
-                  <p className="text-gray-600 text-sm mt-2">{step.description}</p>
+                  <p className="text-gray-400 text-sm mt-2">{step.description}</p>
                 </div>
 
                 {step.emphasis && (
                   <div className="mt-3">
                     <CheckCircle2 className={`h-5 w-5 text-${primaryColor}-600 inline mr-2`} />
-                    <span className={`text-sm font-semibold text-${primaryColor}-700`}>핵심 단계</span>
+                    <span className={`text-sm font-semibold text-${primaryColor}-400`}>핵심 단계</span>
                   </div>
                 )}
               </div>
@@ -99,22 +99,22 @@ export function LearningPathSection({
               <div key={step.id} className="flex items-center flex-1">
                 <div className={`
                   relative w-full p-6 rounded-xl border-2 transition-all
-                  ${step.emphasis 
-                    ? `border-${primaryColor}-500 bg-${primaryColor}-50 shadow-lg` 
-                    : 'border-gray-200 bg-white hover:border-gray-300 hover:shadow-md'}
+                  ${step.emphasis
+                    ? `border-${primaryColor}-500 bg-${primaryColor}-900/20 shadow-lg`
+                    : 'border-gray-700 bg-gray-900 hover:border-gray-600 hover:shadow-md'}
                 `}>
                   {/* 단계 번호 */}
                   <div className={`
                     absolute -left-4 -top-4 w-12 h-12 rounded-full flex items-center justify-center font-bold text-lg
-                    ${step.emphasis 
-                      ? `bg-${primaryColor}-600 text-white shadow-lg` 
-                      : 'bg-gray-100 text-gray-600'}
+                    ${step.emphasis
+                      ? `bg-${primaryColor}-600 text-white shadow-lg`
+                      : 'bg-gray-800 text-gray-400'}
                   `}>
                     {index + 1}
                   </div>
 
                   <div className="mt-2">
-                    <h3 className={`text-lg font-bold mb-2 ${step.emphasis ? `text-${primaryColor}-900` : 'text-gray-900'}`}>
+                    <h3 className={`text-lg font-bold mb-2 ${step.emphasis ? `text-${primaryColor}-400` : 'text-white'}`}>
                       {step.title}
                     </h3>
                     {step.duration && (
@@ -122,13 +122,13 @@ export function LearningPathSection({
                         ⏱️ {step.duration}
                       </span>
                     )}
-                    <p className="text-gray-600 text-sm mt-2">{step.description}</p>
+                    <p className="text-gray-400 text-sm mt-2">{step.description}</p>
                   </div>
 
                   {step.emphasis && (
                     <div className="mt-3">
                       <CheckCircle2 className={`h-4 w-4 text-${primaryColor}-600 inline mr-1`} />
-                      <span className={`text-xs font-semibold text-${primaryColor}-700`}>핵심</span>
+                      <span className={`text-xs font-semibold text-${primaryColor}-400`}>핵심</span>
                     </div>
                   )}
                 </div>
@@ -154,4 +154,3 @@ export function LearningPathSection({
     </CurriculumSectionContainer>
   );
 }
-

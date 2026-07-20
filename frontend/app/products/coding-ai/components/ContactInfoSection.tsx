@@ -9,39 +9,39 @@ import { LABELS, CONTACT_INFO } from '../config'
  */
 export function ContactInfoSection() {
   return (
-    <section className="bg-purple-50 pt-[20px] pb-[80px]">
+    <section className="bg-gray-900 pt-[20px] pb-[80px]">
       <div className="container mx-auto px-4">
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           {/* 견적 문의 */}
-          <Card className="border-teal-200">
+          <Card className="border-gray-700 bg-gray-800">
             <CardContent className="pt-5 pb-5">
               <div className="mb-3 flex items-center gap-2">
-                <Phone className="h-5 w-5 text-teal-600" />
-                <h3 className="font-semibold text-sm">견적 문의</h3>
+                <Phone className="h-5 w-5 text-teal-400" />
+                <h3 className="font-semibold text-sm text-gray-200">견적 문의</h3>
               </div>
-              <p className="text-lg font-bold text-teal-600 mb-1">{CONTACT_INFO.sales.phone}</p>
-              <p className="text-xs text-gray-500">{CONTACT_INFO.sales.email}</p>
+              <p className="text-lg font-bold text-teal-400 mb-1">{CONTACT_INFO.sales.phone}</p>
+              <p className="text-xs text-gray-400">{CONTACT_INFO.sales.email}</p>
             </CardContent>
           </Card>
 
           {/* 수업 문의 */}
-          <Card className="border-blue-200">
+          <Card className="border-gray-700 bg-gray-800">
             <CardContent className="pt-5 pb-5">
               <div className="mb-3 flex items-center gap-2">
-                <BookOpen className="h-5 w-5 text-blue-600" />
-                <h3 className="font-semibold text-sm">수업 문의</h3>
+                <BookOpen className="h-5 w-5 text-blue-400" />
+                <h3 className="font-semibold text-sm text-gray-200">수업 문의</h3>
               </div>
-              <p className="text-lg font-bold text-blue-600 mb-1">{CONTACT_INFO.education.phone}</p>
-              <p className="text-xs text-gray-500">{CONTACT_INFO.education.email}</p>
+              <p className="text-lg font-bold text-blue-400 mb-1">{CONTACT_INFO.education.phone}</p>
+              <p className="text-xs text-gray-400">{CONTACT_INFO.education.email}</p>
             </CardContent>
           </Card>
 
           {/* 카탈로그 */}
-          <Card className="bg-teal-50 border-teal-200">
+          <Card className="bg-gray-800 border-gray-700">
             <CardContent className="pt-5 pb-5">
               <div className="mb-3 flex items-center gap-2">
-                <Download className="h-5 w-5 text-teal-600" />
-                <h3 className="font-semibold text-sm text-teal-900">제품 카탈로그</h3>
+                <Download className="h-5 w-5 text-teal-400" />
+                <h3 className="font-semibold text-sm text-gray-200">제품 카탈로그</h3>
               </div>
               <Button className="w-full bg-teal-600 hover:bg-teal-700 text-sm" size="sm">
                 PDF 다운로드
@@ -50,11 +50,11 @@ export function ContactInfoSection() {
           </Card>
 
           {/* 교사 자료 */}
-          <Card className="bg-blue-50 border-blue-200">
+          <Card className="bg-gray-800 border-gray-700">
             <CardContent className="pt-5 pb-5">
               <div className="mb-3 flex items-center gap-2">
-                <GraduationCap className="h-5 w-5 text-blue-600" />
-                <h3 className="font-semibold text-sm text-blue-900">교사 지도서</h3>
+                <GraduationCap className="h-5 w-5 text-blue-400" />
+                <h3 className="font-semibold text-sm text-gray-200">교사 지도서</h3>
               </div>
               <Button className="w-full bg-blue-600 hover:bg-blue-700 text-sm" size="sm">
                 PDF 다운로드

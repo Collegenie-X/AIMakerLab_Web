@@ -41,14 +41,14 @@ export function CurriculumSection({ data }: CurriculumSectionProps) {
   const { layout } = APP_INVENTOR_CONFIG;
 
   return (
-    <section className="py-12 bg-white">
+    <section className="py-12 bg-gray-900">
       <div>
         <div className={layout.containerClass}>
           <h2 className="mb-8 text-3xl font-bold text-center">{title}</h2>
 
           {/* 탭 버튼 영역 - 좁은 너비, 가운데 정렬 */}
           <div className="flex justify-center mb-8">
-            <div className="inline-flex gap-3 rounded-lg border border-gray-200 p-2 bg-gray-50">
+            <div className="inline-flex gap-3 rounded-lg border border-gray-700 p-2 bg-gray-950">
               {tabs.map((tab) => (
                 <button
                   key={tab.id}
@@ -57,7 +57,7 @@ export function CurriculumSection({ data }: CurriculumSectionProps) {
                     px-6 py-3 rounded-md font-medium transition-all duration-200
                     ${activeTabId === tab.id
                       ? "bg-blue-600 text-white shadow-sm"
-                      : "text-gray-600 hover:text-gray-900 hover:bg-white"
+                      : "text-gray-400 hover:text-white hover:bg-gray-800"
                     }
                   `}
                 >
@@ -72,13 +72,13 @@ export function CurriculumSection({ data }: CurriculumSectionProps) {
 
           {/* 선택된 탭의 설명 */}
           <div className="mb-8 text-center">
-            <div className="inline-flex items-center gap-2 bg-blue-50 px-4 py-2 rounded-full mb-3">
+            <div className="inline-flex items-center gap-2 bg-blue-900/20 px-4 py-2 rounded-full mb-3">
               <Clock className="h-4 w-4 text-blue-600" />
-              <span className="text-sm font-medium text-blue-900">
+              <span className="text-sm font-medium text-blue-300">
                 총 {activeTab.duration}
               </span>
             </div>
-            <p className="text-gray-600">{activeTab.description}</p>
+            <p className="text-gray-400">{activeTab.description}</p>
           </div>
 
           {/* 모듈 목록 - 좌우 분할 레이아웃 */}
@@ -104,12 +104,12 @@ export function CurriculumSection({ data }: CurriculumSectionProps) {
                       
                       {/* 상세 설명 */}
                       {module.detailDescription && (
-                        <p className="text-sm text-gray-600 mb-3">{module.detailDescription}</p>
+                        <p className="text-sm text-gray-400 mb-3">{module.detailDescription}</p>
                       )}
                       
                       <ul className="space-y-2">
                         {module.topics.map((topic, topicIndex) => (
-                          <li key={topicIndex} className="flex items-start gap-2 text-gray-600">
+                          <li key={topicIndex} className="flex items-start gap-2 text-gray-400">
                             <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-green-600" />
                             <span>{topic}</span>
                           </li>
@@ -119,7 +119,7 @@ export function CurriculumSection({ data }: CurriculumSectionProps) {
 
                     {/* 우측: 대표 이미지 */}
                     <div className="flex items-center justify-center">
-                      <div className="w-full aspect-video rounded-lg overflow-hidden bg-gray-100 shadow-md">
+                      <div className="w-full aspect-video rounded-lg overflow-hidden bg-gray-800 shadow-md">
                         <img 
                           src={index % 3 === 0 ? "/home/app-inventor-coding-blocks.jpg" : index % 3 === 1 ? "/home/mobile-app-interface.png" : "/home/student-robot-project.jpg"} 
                           alt={`${module.title} 이미지`} 
@@ -134,9 +134,9 @@ export function CurriculumSection({ data }: CurriculumSectionProps) {
           </div>
 
           {/* 총 시간 요약 */}
-          <div className="mt-8 p-6 bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg border border-blue-100">
+          <div className="mt-8 p-6 bg-gradient-to-r from-gray-950 to-gray-900 rounded-lg border border-blue-800">
             <div className="flex items-center justify-center gap-2 text-center">
-              <div className="flex items-center gap-2 text-blue-900">
+              <div className="flex items-center gap-2 text-blue-300">
                 <Clock className="h-5 w-5" />
                 <span className="font-semibold">총 학습 시간:</span>
                 <span className="text-xl font-bold text-blue-600">{activeTab.duration}</span>

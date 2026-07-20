@@ -58,7 +58,7 @@ export function GalleryListSection({ type, sourceFilter = "all" }: Props) {
       <div className="flex justify-center items-center py-20">
         <div className="text-center">
           <div className="mb-4 text-5xl animate-bounce">⏳</div>
-          <p className="text-gray-600">로딩 중...</p>
+          <p className="text-gray-400">로딩 중...</p>
         </div>
       </div>
     )
@@ -70,8 +70,8 @@ export function GalleryListSection({ type, sourceFilter = "all" }: Props) {
       <div className="flex justify-center items-center py-20">
         <div className="text-center">
           <div className="mb-4 text-5xl">❌</div>
-          <p className="text-red-600 font-semibold mb-2">데이터를 불러오는데 실패했습니다</p>
-          <p className="text-gray-600 text-sm">{error.message}</p>
+          <p className="text-red-400 font-semibold mb-2">데이터를 불러오는데 실패했습니다</p>
+          <p className="text-gray-400 text-sm">{error.message}</p>
         </div>
       </div>
     )

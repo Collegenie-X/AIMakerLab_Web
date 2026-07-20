@@ -48,7 +48,7 @@ export function CourseInfoSection({ data }: CourseInfoSectionProps) {
                     <IconComponent className={`h-6 w-6 ${colorConfig.text}`} />
                   </div>
                   <div>
-                    <div className="text-sm text-gray-600">{item.label}</div>
+                    <div className="text-sm text-gray-400">{item.label}</div>
                     <div className="font-semibold">{item.value}</div>
                   </div>
                 </CardContent>

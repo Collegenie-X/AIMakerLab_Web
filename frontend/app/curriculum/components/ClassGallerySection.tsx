@@ -16,11 +16,6 @@ interface GalleryTab {
   items: GalleryItem[];
 }
 
-/**
- * 공통 수업 현장 및 학생 작품 갤러리 섹션
- * 탭으로 수업 현장, 학생 작품, 수업 후기를 전환
- * 각 탭마다 대표 이미지 3장과 설명 표시
- */
 interface ClassGallerySectionProps {
   title: string;
   description?: string;
@@ -37,7 +32,7 @@ export function ClassGallerySection({
   tabs,
   containerClass,
   activeTabClass = "bg-blue-600 text-white shadow-sm",
-  inactiveTabClass = "text-gray-600 hover:text-gray-900 hover:bg-white",
+  inactiveTabClass = "text-gray-400 hover:text-white hover:bg-gray-800",
   primaryColor = "blue",
 }: ClassGallerySectionProps) {
   if (!tabs || tabs.length === 0) {
@@ -51,23 +46,22 @@ export function ClassGallerySection({
     return null;
   }
 
-  // 대표 이미지 3장만 표시
   const displayItems = activeTab.items.slice(0, 3);
 
   return (
-    <CurriculumSectionContainer className="py-16 bg-white" containerClass={containerClass}>
+    <CurriculumSectionContainer className="py-16 bg-gray-950" containerClass={containerClass}>
       {/* 제목 및 설명 */}
       <div className="text-center mb-12">
         <div className="inline-flex items-center gap-2 mb-4">
           <Camera className={`h-8 w-8 text-${primaryColor}-600`} />
-          <h2 className="text-3xl font-bold">{title}</h2>
+          <h2 className="text-3xl font-bold text-white">{title}</h2>
         </div>
-        {description && <p className="text-gray-600 max-w-3xl mx-auto">{description}</p>}
+        {description && <p className="text-gray-400 max-w-3xl mx-auto">{description}</p>}
       </div>
 
       {/* 탭 버튼 영역 */}
       <div className="flex justify-center mb-12">
-        <div className="inline-flex rounded-lg border border-gray-200 p-1 bg-gray-50">
+        <div className="inline-flex rounded-lg border border-gray-700 p-1 bg-gray-900">
           {tabs.map((tab) => (
             <button
               key={tab.id}
@@ -89,24 +83,21 @@ export function ClassGallerySection({
             key={index}
             className="group cursor-pointer"
           >
-            {/* 이미지 */}
-            <div className="aspect-[4/3] rounded-xl overflow-hidden bg-gray-100 shadow-lg hover:shadow-2xl transition-all duration-300 mb-4">
+            <div className="aspect-[4/3] rounded-xl overflow-hidden bg-gray-800 shadow-lg hover:shadow-2xl transition-all duration-300 mb-4">
               <img
                 src={item.src}
                 alt={item.alt}
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
               />
             </div>
-            {/* 설명 */}
             <div className="text-center">
-              <p className="text-gray-800 font-medium text-lg mb-1">{item.alt}</p>
-              <p className="text-gray-600 text-sm">{item.description}</p>
+              <p className="text-gray-200 font-medium text-lg mb-1">{item.alt}</p>
+              <p className="text-gray-400 text-sm">{item.description}</p>
             </div>
           </div>
         ))}
       </div>
 
-      {/* 더보기 안내 (선택사항) */}
       {activeTab.items.length > 3 && (
         <div className="text-center mt-8">
           <p className="text-gray-500 text-sm">
@@ -117,4 +108,3 @@ export function ClassGallerySection({
     </CurriculumSectionContainer>
   );
 }
-

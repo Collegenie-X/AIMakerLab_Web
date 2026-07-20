@@ -25,12 +25,12 @@ export function HeroReviewsSection() {
           </div>
           
           {/* 타이틀 */}
-          <h1 className="mb-4 text-4xl font-bold text-gray-900 text-balance">
+          <h1 className="mb-4 text-4xl font-bold text-white text-balance">
             {heroData.title}
           </h1>
-          
+
           {/* 서브타이틀 */}
-          <p className="text-lg text-gray-600 text-pretty">
+          <p className="text-lg text-gray-400 text-pretty">
             {heroData.subtitle}
           </p>
         </div>

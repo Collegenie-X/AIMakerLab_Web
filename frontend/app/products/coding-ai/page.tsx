@@ -40,12 +40,12 @@ export default function CodingAIProductsPage() {
   // 로딩 상태 처리
   if (isLoading) {
     return (
-      <div className="flex min-h-screen flex-col">
+      <div className="flex min-h-screen flex-col bg-gray-950">
         <Header />
         <div className="flex flex-1 items-center justify-center">
           <div className="text-center">
             <div className="mb-4 h-12 w-12 animate-spin rounded-full border-4 border-teal-600 border-t-transparent mx-auto"></div>
-            <p className="text-gray-600">제품 정보를 불러오는 중...</p>
+            <p className="text-gray-400">제품 정보를 불러오는 중...</p>
           </div>
         </div>
         <Footer />
@@ -56,12 +56,12 @@ export default function CodingAIProductsPage() {
   // 에러 상태 처리
   if (error) {
     return (
-      <div className="flex min-h-screen flex-col">
+      <div className="flex min-h-screen flex-col bg-gray-950">
         <Header />
         <div className="flex flex-1 items-center justify-center">
           <div className="text-center">
-            <p className="text-red-600 mb-2">제품 정보를 불러오는데 실패했습니다.</p>
-            <p className="text-gray-500 text-sm">{error.message}</p>
+            <p className="text-red-400 mb-2">제품 정보를 불러오는데 실패했습니다.</p>
+            <p className="text-gray-400 text-sm">{error.message}</p>
           </div>
         </div>
         <Footer />
@@ -70,7 +70,7 @@ export default function CodingAIProductsPage() {
   }
 
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-screen flex-col bg-gray-950">
       <Header />
 
       {/* Hero Section */}
@@ -90,10 +90,10 @@ export default function CodingAIProductsPage() {
       <section className="py-8">
         <div className="container mx-auto px-4">
           <div className="mb-6 flex items-center justify-between">
-            <h2 className="text-xl font-bold text-gray-900">
+            <h2 className="text-xl font-bold text-white">
               전체 {filteredProducts.length}개 제품
             </h2>
-            <select className="rounded-lg border border-gray-300 px-3 py-2 text-sm">
+            <select className="rounded-lg border border-gray-700 bg-gray-900 text-gray-200 px-3 py-2 text-sm">
               <option>{LABELS.productList.sortOptions.recommended}</option>
               <option>{LABELS.productList.sortOptions.popular}</option>
               <option>{LABELS.productList.sortOptions.priceLow}</option>

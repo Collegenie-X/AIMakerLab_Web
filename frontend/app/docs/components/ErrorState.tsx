@@ -18,9 +18,9 @@ export function ErrorState({ message }: ErrorStateProps) {
   return (
     <div className="flex min-h-screen flex-col">
       <Header />
-      <div className="flex-1 flex flex-col items-center justify-center gap-4">
-        <h3 className="text-xl font-bold text-gray-800">{DOCS_CONFIG.messages.error.title}</h3>
-        <p className="text-red-600">{displayMessage}</p>
+      <div className="flex-1 flex flex-col items-center justify-center gap-4 bg-black">
+        <h3 className="text-xl font-bold text-white">{DOCS_CONFIG.messages.error.title}</h3>
+        <p className="text-red-400">{displayMessage}</p>
       </div>
       <Footer />
     </div>

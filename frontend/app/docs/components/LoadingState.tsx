@@ -15,9 +15,9 @@ export function LoadingState() {
   return (
     <div className="flex min-h-screen flex-col">
       <Header />
-      <div className="flex-1 flex flex-col items-center justify-center gap-4">
-        <LoadingIcon className="w-12 h-12 animate-spin text-blue-600" />
-        <p className="text-gray-600">{DOCS_CONFIG.messages.loading.text}</p>
+      <div className="flex-1 flex flex-col items-center justify-center gap-4 bg-black">
+        <LoadingIcon className="w-12 h-12 animate-spin text-purple-400" />
+        <p className="text-gray-400">{DOCS_CONFIG.messages.loading.text}</p>
       </div>
       <Footer />
     </div>

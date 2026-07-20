@@ -65,8 +65,8 @@ export function ScheduleCard({ item, texts, onViewDetail }: Props) {
   }
 
   return (
-    <Card 
-      className="group cursor-pointer overflow-hidden transition-all hover:shadow-xl"
+    <Card
+      className="group cursor-pointer overflow-hidden transition-all hover:shadow-xl border-white/10 bg-gray-900"
       onClick={handleCardClick}
     >
       <div className="relative aspect-video w-full overflow-hidden bg-gray-900">
@@ -99,33 +99,33 @@ export function ScheduleCard({ item, texts, onViewDetail }: Props) {
             <span className="text-gray-500">({item.reviews})</span>
           </div>
         </div>
-        <CardTitle className="line-clamp-2 text-lg group-hover:text-blue-600">{item.title}</CardTitle>
+        <CardTitle className="line-clamp-2 text-lg text-white group-hover:text-blue-400">{item.title}</CardTitle>
         {/* 강사 표시는 제거 */}
       </CardHeader>
 
       <CardContent className="space-y-3">
-        <p className="line-clamp-2 text-sm text-gray-600">{item.description}</p>
+        <p className="line-clamp-2 text-sm text-gray-400">{item.description}</p>
 
         {/* 수업 시간 표시 */}
         <div className="flex items-center gap-2 text-sm">
-          <Clock className="h-4 w-4 text-blue-600" />
-          <span className="font-semibold text-gray-700">{item.duration}</span>
+          <Clock className="h-4 w-4 text-blue-400" />
+          <span className="font-semibold text-gray-300">{item.duration}</span>
           <span className="text-gray-500">커리큘럼</span>
         </div>
 
         {/* 가격 정보 - 출강 수업용 */}
         {item.pricingInfo ? (
-          <div className="space-y-2 rounded-lg bg-gradient-to-br from-blue-50 to-indigo-50 p-3">
-            <div className="flex items-center gap-2 text-sm font-semibold text-gray-800">
-              <DollarSign className="h-4 w-4 text-blue-600" />
+          <div className="space-y-2 rounded-lg bg-gray-800 border border-white/10 p-3">
+            <div className="flex items-center gap-2 text-sm font-semibold text-gray-200">
+              <DollarSign className="h-4 w-4 text-blue-400" />
               <span>인원별 예상 비용</span>
             </div>
-            
+
             {/* 인원 선택 슬라이더 */}
             <div className="space-y-1">
-              <div className="flex items-center justify-between text-xs text-gray-600">
+              <div className="flex items-center justify-between text-xs text-gray-400">
                 <span>수강 인원</span>
-                <span className="font-bold text-blue-600">{selectedStudents}명</span>
+                <span className="font-bold text-blue-400">{selectedStudents}명</span>
               </div>
               <input
                 type="range"
@@ -147,20 +147,20 @@ export function ScheduleCard({ item, texts, onViewDetail }: Props) {
             </div>
 
             {/* 비용 계산 결과 */}
-            <div className="space-y-1 border-t border-blue-200 pt-2 text-xs">
-              <div className="flex justify-between text-gray-600">
+            <div className="space-y-1 border-t border-white/10 pt-2 text-xs">
+              <div className="flex justify-between text-gray-400">
                 <span>재료비 ({Math.ceil(selectedStudents / item.pricingInfo.studentsPerKit)}세트 × {item.pricingInfo.materialsPerKit.toLocaleString()}원)</span>
                 <span className="font-semibold">
                   {(Math.ceil(selectedStudents / item.pricingInfo.studentsPerKit) * item.pricingInfo.materialsPerKit).toLocaleString()}원
                 </span>
               </div>
-              <div className="flex justify-between text-gray-600">
+              <div className="flex justify-between text-gray-400">
                 <span>강사료 ({item.durationHours}시간 × {item.pricingInfo.instructorFeePerHour.toLocaleString()}원)</span>
                 <span className="font-semibold">
                   {(item.durationHours * item.pricingInfo.instructorFeePerHour).toLocaleString()}원
                 </span>
               </div>
-              <div className="flex justify-between border-t border-blue-200 pt-1 text-sm font-bold text-blue-600">
+              <div className="flex justify-between border-t border-white/10 pt-1 text-sm font-bold text-blue-400">
                 <span>총 예상 비용</span>
                 <span>
                   {calculatePrice(
@@ -177,7 +177,7 @@ export function ScheduleCard({ item, texts, onViewDetail }: Props) {
                   * {item.pricingInfo.studentsPerKit}인 1조 기준, {item.pricingInfo.minHours}시간부터 가능
                 </p>
                 {item.pricingInfo.rentalPerKit && (
-                  <p className="text-xs font-semibold text-green-600">
+                  <p className="text-xs font-semibold text-green-400">
                     💡 교구재 대여 가능 (교구 1개당 {item.pricingInfo.rentalPerKit.toLocaleString()}원)
                   </p>
                 )}
@@ -186,13 +186,13 @@ export function ScheduleCard({ item, texts, onViewDetail }: Props) {
           </div>
         ) : item.price ? (
           /* 고정 가격 (주말반용) */
-          <div className="rounded-lg bg-blue-50 p-3">
-            <div className="text-xl font-bold text-blue-600">{item.price}</div>
+          <div className="rounded-lg bg-gray-800 border border-white/10 p-3">
+            <div className="text-xl font-bold text-blue-400">{item.price}</div>
           </div>
         ) : null}
 
         {/* 버튼 영역 */}
-        <div className="flex gap-2 border-t pt-3">
+        <div className="flex gap-2 border-t border-white/10 pt-3">
           <Button 
             variant="outline" 
             className="flex-1"

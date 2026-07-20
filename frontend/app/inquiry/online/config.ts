@@ -98,23 +98,23 @@ export const statusStyles: Record<InquiryStatus, {
 export const infoCardStyles = [
   {
     key: 'location',
-    border: 'border-blue-100',
-    titleColor: 'text-blue-700',
+    border: 'border-blue-500/20',
+    titleColor: 'text-blue-400',
   },
   {
     key: 'course',
-    border: 'border-purple-100',
-    titleColor: 'text-purple-700',
+    border: 'border-purple-500/20',
+    titleColor: 'text-purple-400',
   },
   {
     key: 'time',
-    border: 'border-green-100',
-    titleColor: 'text-green-700',
+    border: 'border-green-500/20',
+    titleColor: 'text-green-400',
   },
   {
     key: 'contact',
-    border: 'border-pink-100',
-    titleColor: 'text-pink-700',
+    border: 'border-pink-500/20',
+    titleColor: 'text-pink-400',
   },
 ]
 

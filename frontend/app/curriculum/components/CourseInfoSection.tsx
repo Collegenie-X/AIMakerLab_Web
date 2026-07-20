@@ -52,15 +52,15 @@ export function CourseInfoSection({ data, iconColors, containerClass }: CourseIn
           }
 
           return (
-            <Card key={item.id} className="border-0 shadow-sm">
+            <Card key={item.id} className="border-0 shadow-sm bg-gray-900">
               <CardContent className="p-6">
                 <div className="flex items-center gap-4">
                   <div className={`flex h-14 w-14 items-center justify-center rounded-xl ${colorConfig.bg} flex-shrink-0`}>
                     <IconComponent className={`h-7 w-7 ${colorConfig.text}`} />
                   </div>
                   <div className="flex-1">
-                    <div className="text-sm text-gray-500 mb-1">{item.label}</div>
-                    <div className="text-base font-bold text-gray-900">{item.value}</div>
+                    <div className="text-sm text-gray-400 mb-1">{item.label}</div>
+                    <div className="text-base font-bold text-white">{item.value}</div>
                   </div>
                 </div>
               </CardContent>

@@ -30,12 +30,12 @@ export function ProductFilter({
   onGradeChange,
 }: ProductFilterProps) {
   return (
-    <section className="border-b bg-white py-6">
+    <section className="border-b border-gray-800 bg-gray-900 py-6">
       <div className="container mx-auto px-4">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-6">
           {/* 카테고리 드롭다운 */}
           <div className="flex items-center gap-3">
-            <label className="text-sm font-semibold text-gray-700 whitespace-nowrap">
+            <label className="text-sm font-semibold text-gray-300 whitespace-nowrap">
               {LABELS.filter.categoryLabel}
             </label>
             <Select value={selectedCategory} onValueChange={onCategoryChange}>
@@ -54,7 +54,7 @@ export function ProductFilter({
 
           {/* 학년별 드롭다운 */}
           <div className="flex items-center gap-3">
-            <label className="text-sm font-semibold text-gray-700 whitespace-nowrap">
+            <label className="text-sm font-semibold text-gray-300 whitespace-nowrap">
               {LABELS.filter.gradeLabel}
             </label>
             <Select value={selectedGrade} onValueChange={onGradeChange}>

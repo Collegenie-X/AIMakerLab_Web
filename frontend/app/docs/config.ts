@@ -143,21 +143,21 @@ export const RESPONSIVE = {
 
 export const STYLES = {
   // 페이지 배경
-  pageBackground: 'bg-gradient-to-b from-purple-50 via-white to-gray-50',
-  
+  pageBackground: 'bg-gradient-to-b from-gray-950 via-black to-gray-950',
+
   // 카드 호버 효과
-  cardHover: 'hover:shadow-xl transition-all duration-300 border-2 hover:border-purple-400',
-  
+  cardHover: 'hover:shadow-xl hover:shadow-purple-500/10 transition-all duration-300 border-2 hover:border-purple-400',
+
   // 배지 스타일
   badge: {
-    primary: 'bg-purple-100 text-purple-800 border-purple-300',
-    secondary: 'bg-blue-100 text-blue-800 border-blue-300',
+    primary: 'bg-purple-900/50 text-purple-300 border-purple-700',
+    secondary: 'bg-blue-900/50 text-blue-300 border-blue-700',
   },
-  
+
   // 버튼 스타일
   button: {
-    primary: 'border-2 border-purple-400 text-purple-600 hover:bg-purple-50',
-    ghost: 'hover:bg-gray-100',
+    primary: 'border-2 border-purple-500 text-purple-400 hover:bg-purple-500/10',
+    ghost: 'hover:bg-white/10',
   },
 };
 

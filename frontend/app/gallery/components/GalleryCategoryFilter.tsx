@@ -46,7 +46,7 @@ export function GalleryCategoryFilter({
           className={
             selectedCategory === "all"
               ? "bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600"
-              : ""
+              : "bg-white/10 border-white/20 text-white hover:bg-white/20"
           }
         >
           전체
@@ -59,7 +59,7 @@ export function GalleryCategoryFilter({
             className={
               selectedCategory === category
                 ? "bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600"
-                : ""
+                : "bg-white/10 border-white/20 text-white hover:bg-white/20"
             }
           >
             {category}
@@ -69,8 +69,8 @@ export function GalleryCategoryFilter({
 
       {/* 정렬 및 카운트 */}
       <div className="flex items-center justify-between">
-        <p className="text-sm text-gray-600">
-          총 <span className="font-bold text-purple-600">{itemCount}</span>개의 {itemLabel}
+        <p className="text-sm text-gray-400">
+          총 <span className="font-bold text-purple-400">{itemCount}</span>개의 {itemLabel}
         </p>
 
         <Select value={sortBy} onValueChange={(v) => onSortChange(v as typeof sortBy)}>

@@ -84,6 +84,32 @@ const steps: Step[] = [
   },
 ];
 
+/** 단계와 단계 사이를 잇는 커넥터. 전류가 흐르고 화살촉이 다음 단계로 달려간다. */
+function FlowArrow({ delay }: { delay: number }) {
+  return (
+    <div className="pointer-events-none absolute -right-5 top-1/2 z-10 hidden w-5 -translate-y-1/2 lg:block">
+      <svg viewBox="0 0 20 16" className="w-full" aria-hidden>
+        {/* 트랙 */}
+        <line x1="1" y1="8" x2="19" y2="8" stroke="#a78bfa" strokeOpacity="0.22" strokeWidth="1.5" strokeLinecap="round" />
+        {/* 흐르는 전류 */}
+        <line
+          x1="1" y1="8" x2="19" y2="8"
+          stroke="#a78bfa" strokeWidth="1.5" strokeLinecap="round"
+          className="ai-dash-flow"
+          style={{ ["--flow-dash" as string]: "3 6", ["--flow-len" as string]: "9", animationDuration: "1s", animationDelay: `${delay}s` }}
+        />
+        {/* 다음 단계로 달려가는 화살촉 */}
+        <path
+          d="M1 4 L5 8 L1 12"
+          fill="none" stroke="#c4b5fd" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+          className="ai-packet"
+          style={{ ["--packet-dist" as string]: "14px", animationDuration: "1.8s", animationDelay: `${delay}s` }}
+        />
+      </svg>
+    </div>
+  );
+}
+
 export function PhilosophySection() {
   const { ref, visible } = useScrollReveal(0.1);
 
@@ -93,12 +119,25 @@ export function PhilosophySection() {
       <div className="ai-glow pointer-events-none absolute -left-32 bottom-20 h-72 w-72 rounded-full bg-cyan-500/8 blur-[80px]" style={{ animationDelay: "2s" }} />
       <div className="ai-dot-bg pointer-events-none absolute inset-0 opacity-20" />
 
-      {/* Decorative SVG - DNA helix left side */}
-      <svg viewBox="0 0 60 400" className="pointer-events-none absolute left-4 top-1/4 h-64 w-10 opacity-[0.06]">
-        <path d="M30 0C10 40 50 80 30 120C10 160 50 200 30 240C10 280 50 320 30 360" stroke="#a78bfa" strokeWidth="2" fill="none" />
-        <path d="M30 0C50 40 10 80 30 120C50 160 10 200 30 240C50 280 10 320 30 360" stroke="#22d3ee" strokeWidth="2" fill="none" />
-        {[0, 60, 120, 180, 240, 300].map(y => (
-          <line key={y} x1="15" y1={y + 30} x2="45" y2={y + 30} stroke="#818cf8" strokeWidth="1" opacity="0.5" />
+      {/* Decorative SVG - DNA helix left side. 가닥을 따라 신호가 흐른다. */}
+      <svg viewBox="0 0 60 400" className="pointer-events-none absolute left-4 top-1/4 h-64 w-10 opacity-[0.12]">
+        <path d="M30 0C10 40 50 80 30 120C10 160 50 200 30 240C10 280 50 320 30 360" stroke="#a78bfa" strokeOpacity="0.4" strokeWidth="2" fill="none" />
+        <path d="M30 0C50 40 10 80 30 120C50 160 10 200 30 240C50 280 10 320 30 360" stroke="#22d3ee" strokeOpacity="0.4" strokeWidth="2" fill="none" />
+        <path
+          d="M30 0C10 40 50 80 30 120C10 160 50 200 30 240C10 280 50 320 30 360"
+          stroke="#a78bfa" strokeWidth="2.5" fill="none" className="ai-dash-flow"
+          style={{ ["--flow-dash" as string]: "8 26", ["--flow-len" as string]: "34", animationDuration: "2.2s" }}
+        />
+        <path
+          d="M30 0C50 40 10 80 30 120C50 160 10 200 30 240C50 280 10 320 30 360"
+          stroke="#22d3ee" strokeWidth="2.5" fill="none" className="ai-dash-flow"
+          style={{ ["--flow-dash" as string]: "8 26", ["--flow-len" as string]: "34", animationDuration: "2.2s", animationDelay: "1.1s" }}
+        />
+        {[0, 60, 120, 180, 240, 300].map((y, i) => (
+          <line
+            key={y} x1="15" y1={y + 30} x2="45" y2={y + 30} stroke="#818cf8" strokeWidth="1"
+            className="ai-blink" style={{ animationDelay: `${i * 0.25}s`, animationDuration: "3s" }}
+          />
         ))}
       </svg>
 
@@ -134,11 +173,14 @@ export function PhilosophySection() {
                 className={`grid grid-cols-[1fr_auto_1fr] items-center gap-4 transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
                 style={{ transitionDelay: `${i * 100 + 200}ms` }}
               >
-                <div className="rounded-xl border border-white/5 bg-white/5 px-4 py-3 text-center text-sm text-white/40 line-through decoration-white/20">
+                <div className="rounded-xl border border-white/5 bg-white/5 px-4 py-3 text-center text-sm text-white/40 line-through decoration-white/20 transition-opacity duration-300 hover:opacity-60">
                   {item.bg}
                 </div>
-                <ArrowRight className="h-5 w-5 shrink-0 text-violet-400" />
-                <div className="rounded-xl border border-violet-400/20 bg-violet-500/10 px-4 py-3 text-center text-sm font-medium text-white/90">
+                <ArrowRight
+                  className="ai-blink h-5 w-5 shrink-0 text-violet-400"
+                  style={{ animationDelay: `${i * 0.18}s`, animationDuration: "2.4s" }}
+                />
+                <div className="ai-shimmer relative overflow-hidden rounded-xl border border-violet-400/20 bg-violet-500/10 px-4 py-3 text-center text-sm font-medium text-white/90 transition-colors duration-300 hover:border-violet-400/50">
                   {item.ag}
                 </div>
               </div>
@@ -163,9 +205,9 @@ export function PhilosophySection() {
           <div className="mx-auto grid max-w-6xl gap-4 md:grid-cols-3 lg:grid-cols-5">
             {steps.map((step, i) => (
               <div key={step.num} className="group relative">
-                <div className="ai-card-hover flex h-full flex-col rounded-2xl border border-white/10 bg-white/5 p-5">
+                <div className="ai-card-hover ai-shimmer relative flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-5">
                   <div className="mb-3 flex items-center gap-3">
-                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-violet-500 to-indigo-600 text-2xl shadow-lg shadow-violet-500/30">
+                    <div className="ai-bob flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-violet-500 to-indigo-600 text-2xl shadow-lg shadow-violet-500/30" style={{ animationDelay: `${i * 0.3}s` }}>
                       {step.emoji}
                     </div>
                     <div>
@@ -194,11 +236,7 @@ export function PhilosophySection() {
                     <div className="text-[11px] leading-snug text-white/55">{step.human}</div>
                   </div>
                 </div>
-                {i < steps.length - 1 && (
-                  <div className="absolute -right-3 top-1/2 z-10 hidden -translate-y-1/2 lg:block">
-                    <ArrowRight className="h-5 w-5 text-white/20" />
-                  </div>
-                )}
+                {i < steps.length - 1 && <FlowArrow delay={i * 0.35} />}
               </div>
             ))}
           </div>

@@ -14,9 +14,6 @@ import {
 import { Card, CardContent } from "@/components/ui/data-display/card";
 import { CurriculumSectionContainer } from "./CurriculumSectionContainer";
 
-/**
- * 아이콘 매핑
- */
 const iconMap: Record<string, LucideIcon> = {
   Users,
   Package,
@@ -45,9 +42,6 @@ interface IconColors {
   };
 }
 
-/**
- * 공통 교육 조건 섹션 컴포넌트
- */
 interface EducationRequirementsSectionProps {
   title: string;
   subtitle?: string;
@@ -71,11 +65,11 @@ export function EducationRequirementsSection({
 
   return (
     <CurriculumSectionContainer
-      className="py-16 bg-gradient-to-br from-gray-50 to-blue-50"
+      className="py-16 bg-gradient-to-br from-gray-950 to-gray-900"
       containerClass={containerClass}
     >
-      <h2 className="mb-4 text-3xl font-bold text-center">{title}</h2>
-      <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">{subtitle}</p>
+      <h2 className="mb-4 text-3xl font-bold text-center text-white">{title}</h2>
+      <p className="text-center text-gray-400 mb-12 max-w-2xl mx-auto">{subtitle}</p>
 
       <div className="grid gap-6 md:grid-cols-2">
         {items.map((item) => {
@@ -87,21 +81,21 @@ export function EducationRequirementsSection({
           }
 
           return (
-            <Card key={item.id} className="hover:shadow-lg transition-shadow">
+            <Card key={item.id} className="hover:shadow-lg transition-shadow bg-gray-900 border-gray-700">
               <CardContent className="pt-6">
                 <div className="flex items-start gap-4 mb-4">
                   <div className={`flex h-14 w-14 items-center justify-center rounded-xl ${colorConfig.bg} flex-shrink-0`}>
                     <IconComponent className={`h-7 w-7 ${colorConfig.text}`} />
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-xl font-bold mb-1">{item.title}</h3>
-                    <p className={`text-sm font-medium text-${primaryColor}-600`}>{item.description}</p>
+                    <h3 className="text-xl font-bold mb-1 text-white">{item.title}</h3>
+                    <p className={`text-sm font-medium text-${primaryColor}-400`}>{item.description}</p>
                   </div>
                 </div>
 
                 <ul className="space-y-2 ml-2">
                   {item.details.map((detail, index) => (
-                    <li key={index} className="flex items-start gap-2 text-sm text-gray-700">
+                    <li key={index} className="flex items-start gap-2 text-sm text-gray-300">
                       <ChevronRight className={`h-4 w-4 text-${primaryColor}-500 mt-0.5 flex-shrink-0`} />
                       <span>{detail}</span>
                     </li>
@@ -115,4 +109,3 @@ export function EducationRequirementsSection({
     </CurriculumSectionContainer>
   );
 }
-

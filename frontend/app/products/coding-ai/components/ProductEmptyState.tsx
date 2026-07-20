@@ -6,10 +6,10 @@ import { LABELS } from '../config'
 export function ProductEmptyState() {
   return (
     <div className="col-span-full py-16 text-center">
-      <p className="text-lg text-gray-500">
+      <p className="text-lg text-gray-400">
         {LABELS.productList.emptyMessage}
       </p>
-      <p className="mt-2 text-sm text-gray-400">
+      <p className="mt-2 text-sm text-gray-500">
         {LABELS.productList.emptySubMessage}
       </p>
     </div>

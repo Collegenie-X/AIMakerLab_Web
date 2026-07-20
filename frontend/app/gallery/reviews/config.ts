@@ -19,12 +19,12 @@ import {
 /**
  * Hero 섹션 그라디언트
  */
-export const heroGradient = 'from-blue-100 via-cyan-100 to-purple-100'
+export const heroGradient = 'from-gray-950 via-black to-gray-950'
 
 /**
  * 컨텐츠 섹션 배경 그라디언트
  */
-export const contentBg = 'from-blue-50 via-purple-50 to-pink-50'
+export const contentBg = 'from-gray-950 via-gray-900 to-black'
 
 // ========================================
 // 아이콘 매핑

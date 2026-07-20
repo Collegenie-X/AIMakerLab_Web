@@ -252,9 +252,9 @@ export const gradientClasses: Record<ThemeColor, string> = {
  * 색상별 배경 그라디언트 클래스 매핑
  */
 export const bgGradientClasses: Record<string, string> = {
-  filter: 'bg-gradient-to-b from-gray-50 to-white',
-  list: 'bg-white',
-  info: 'bg-gray-50',
+  filter: 'bg-gray-950',
+  list: 'bg-gray-950',
+  info: 'bg-gray-900',
 }
 
 // ========================================

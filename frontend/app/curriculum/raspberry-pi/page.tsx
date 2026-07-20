@@ -78,7 +78,7 @@ export default function RaspberryPiCurriculumPage() {
   })) || [];
 
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-screen flex-col bg-gray-950">
       <Header />
       <main className="flex-1">
       {/* 히어로 섹션 */}

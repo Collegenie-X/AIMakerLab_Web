@@ -19,9 +19,9 @@ interface ProductCardProps {
 export function ProductCard({ product }: ProductCardProps) {
   return (
     <Link href={`/products/coding-ai/${product.id}`}>
-      <Card className="group h-full overflow-hidden transition-all hover:shadow-xl">
+      <Card className="group h-full overflow-hidden transition-all hover:shadow-xl bg-gray-900 border-gray-800">
         {/* 제품 이미지 */}
-        <div className="relative aspect-square overflow-hidden bg-gray-50">
+        <div className="relative aspect-square overflow-hidden bg-gray-800">
           <img
             src={product.image || '/placeholder.svg'}
             alt={product.title}
@@ -72,23 +72,23 @@ export function ProductCard({ product }: ProductCardProps) {
 
         <CardContent className="p-4">
           {/* 제목 */}
-          <h3 className="mb-2 text-base font-bold text-gray-900 line-clamp-2">
+          <h3 className="mb-2 text-base font-bold text-white line-clamp-2">
             {product.title}
           </h3>
 
           {/* 교육적 가치 - 강조 */}
-          <div className="mb-3 rounded-lg bg-blue-50 border border-blue-100 p-3">
+          <div className="mb-3 rounded-lg bg-blue-950/50 border border-blue-900/50 p-3">
             <div className="mb-1 flex items-center gap-1.5">
-              <GraduationCap className="h-4 w-4 text-blue-600" />
-              <span className="text-xs font-semibold text-blue-900">교육 커리큘럼</span>
+              <GraduationCap className="h-4 w-4 text-blue-400" />
+              <span className="text-xs font-semibold text-blue-300">교육 커리큘럼</span>
             </div>
-            <p className="text-sm text-blue-800 leading-relaxed line-clamp-2">
+            <p className="text-sm text-blue-200 leading-relaxed line-clamp-2">
               {product.educationalValue}
             </p>
           </div>
 
           {/* 수업 활용 안내 */}
-          <p className="mb-3 text-xs text-gray-600 line-clamp-2">
+          <p className="mb-3 text-xs text-gray-400 line-clamp-2">
             {product.classroomUse}
           </p>
 
@@ -97,10 +97,10 @@ export function ProductCard({ product }: ProductCardProps) {
             {/* 가격 - 왼쪽 */}
             <div className="flex-shrink-0">
               <div className="flex items-baseline gap-1">
-                <span className="text-2xl font-bold text-teal-600">
+                <span className="text-2xl font-bold text-teal-400">
                   {Number.parseInt(product.price).toLocaleString()}
                 </span>
-                <span className="text-sm font-bold text-teal-600">원</span>
+                <span className="text-sm font-bold text-teal-400">원</span>
               </div>
               {product.originalPrice && (
                 <div className="flex items-center gap-1 mt-0.5">
@@ -116,7 +116,7 @@ export function ProductCard({ product }: ProductCardProps) {
               {product.features.slice(0, 2).map((feature, i) => (
                 <span
                   key={i}
-                  className="rounded-full bg-gray-100 px-2 py-1 text-xs text-gray-600 whitespace-nowrap"
+                  className="rounded-full bg-gray-800 px-2 py-1 text-xs text-gray-400 whitespace-nowrap"
                 >
                   {feature}
                 </span>

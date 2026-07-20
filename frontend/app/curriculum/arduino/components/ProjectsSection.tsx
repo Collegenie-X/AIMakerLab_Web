@@ -26,19 +26,19 @@ const iconMap = {
 
 // 아이콘 색상 매핑
 const iconColorMap = {
-  blue: "text-blue-600 bg-blue-100",
-  purple: "text-purple-600 bg-purple-100",
-  green: "text-green-600 bg-green-100",
-  orange: "text-orange-600 bg-orange-100",
-  cyan: "text-cyan-600 bg-cyan-100",
-  emerald: "text-emerald-600 bg-emerald-100",
+  blue: "text-blue-400 bg-blue-900/30",
+  purple: "text-purple-400 bg-purple-900/30",
+  green: "text-green-400 bg-green-900/30",
+  orange: "text-orange-400 bg-orange-900/30",
+  cyan: "text-cyan-400 bg-cyan-900/30",
+  emerald: "text-emerald-400 bg-emerald-900/30",
 };
 
 // 난이도 색상 매핑
 const difficultyColorMap = {
-  "입문": "bg-green-100 text-green-700 border-green-300",
-  "중급": "bg-blue-100 text-blue-700 border-blue-300",
-  "고급": "bg-purple-100 text-purple-700 border-purple-300",
+  "입문": "bg-green-900/30 text-green-400 border-green-800",
+  "중급": "bg-blue-900/30 text-blue-400 border-blue-800",
+  "고급": "bg-purple-900/30 text-purple-400 border-purple-800",
 };
 
 export function ProjectsSection({ data }: ProjectsSectionProps) {
@@ -50,7 +50,7 @@ export function ProjectsSection({ data }: ProjectsSectionProps) {
   const { layout } = ARDUINO_CONFIG;
 
   return (
-    <section className="py-16 bg-gradient-to-br from-slate-50 to-blue-50">
+    <section className="py-16 bg-gradient-to-br from-gray-950 to-gray-900">
       <div>
         <div className={layout.containerClass}>
           {/* 제목 및 설명 */}
@@ -59,7 +59,7 @@ export function ProjectsSection({ data }: ProjectsSectionProps) {
               <Zap className="h-8 w-8 text-orange-600" />
               <h2 className="text-3xl font-bold">{data.title}</h2>
             </div>
-            <p className="text-gray-600 max-w-2xl mx-auto">{data.description}</p>
+            <p className="text-gray-400 max-w-2xl mx-auto">{data.description}</p>
           </div>
 
           {/* 프로젝트 그리드 */}
@@ -72,7 +72,7 @@ export function ProjectsSection({ data }: ProjectsSectionProps) {
               return (
                 <Card
                   key={project.id}
-                  className="hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-2"
+                  className="hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-2 bg-gray-900"
                 >
                   <CardHeader>
                     {/* 아이콘 및 제목 */}
@@ -85,24 +85,24 @@ export function ProjectsSection({ data }: ProjectsSectionProps) {
                       </Badge>
                     </div>
                     <CardTitle className="text-xl">{project.title}</CardTitle>
-                    <CardDescription className="text-sm font-medium text-gray-600">
+                    <CardDescription className="text-sm font-medium text-gray-400">
                       {project.subtitle}
                     </CardDescription>
                   </CardHeader>
 
                   <CardContent className="space-y-4">
                     {/* 설명 */}
-                    <p className="text-sm text-gray-700">{project.description}</p>
+                    <p className="text-sm text-gray-300">{project.description}</p>
 
                     {/* 기술 스택 */}
                     <div>
-                      <h4 className="text-xs font-semibold text-gray-500 mb-2">핵심 기술</h4>
+                      <h4 className="text-xs font-semibold text-gray-400 mb-2">핵심 기술</h4>
                       <div className="flex flex-wrap gap-1.5">
                         {project.technologies.map((tech, idx) => (
                           <Badge
                             key={idx}
                             variant="outline"
-                            className="text-xs bg-white"
+                            className="text-xs bg-gray-900"
                           >
                             {tech}
                           </Badge>
@@ -112,10 +112,10 @@ export function ProjectsSection({ data }: ProjectsSectionProps) {
 
                     {/* 주요 기능 */}
                     <div>
-                      <h4 className="text-xs font-semibold text-gray-500 mb-2">주요 기능</h4>
+                      <h4 className="text-xs font-semibold text-gray-400 mb-2">주요 기능</h4>
                       <ul className="space-y-1">
                         {project.features.slice(0, 3).map((feature, idx) => (
-                          <li key={idx} className="text-xs text-gray-600 flex items-start gap-2">
+                          <li key={idx} className="text-xs text-gray-400 flex items-start gap-2">
                             <span className="text-blue-500 mt-0.5">•</span>
                             <span>{feature}</span>
                           </li>
@@ -129,12 +129,12 @@ export function ProjectsSection({ data }: ProjectsSectionProps) {
           </div>
 
           {/* 안내 문구 */}
-          <div className="mt-12 p-6 bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl border-2 border-blue-200">
+          <div className="mt-12 p-6 bg-gradient-to-r from-gray-950 to-gray-900 rounded-xl border-2 border-blue-800">
             <div className="text-center">
-              <h3 className="text-lg font-bold text-gray-900 mb-2">
+              <h3 className="text-lg font-bold text-white mb-2">
                 프로젝트 기반 학습
               </h3>
-              <p className="text-sm text-gray-700">
+              <p className="text-sm text-gray-300">
                 각 프로젝트는 3시간(체험), 6시간(기본), 12시간(심화) 과정으로 진행됩니다.
                 학생의 수준과 관심사에 따라 원하는 프로젝트를 선택하여 집중적으로 학습할 수 있습니다.
               </p>

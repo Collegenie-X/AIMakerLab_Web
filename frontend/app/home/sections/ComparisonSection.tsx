@@ -122,7 +122,7 @@ export function ComparisonSection() {
             ⚖️ COMPARISON · 무엇이 남는가
           </div>
           <h2 className="mb-4 text-3xl font-bold text-white md:text-4xl">
-            코딩만도, 메이커만도 <span className="ai-gradient-text">아닙니다</span> 🔍
+            코딩도, 메이커도 <span className="ai-gradient-text">아닙니다</span> 🔍
           </h2>
           <p className="mx-auto max-w-2xl text-lg text-white/50">
             소프트웨어만 가르치는 곳과 하드웨어만 만지는 곳 사이에서,

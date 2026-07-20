@@ -78,7 +78,7 @@ export default function AIEducationCurriculumPage() {
   })) || [];
 
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-screen flex-col bg-gray-950">
       <Header />
       <main className="flex-1">
         {/* 히어로 섹션 */}
@@ -154,9 +154,9 @@ export default function AIEducationCurriculumPage() {
           projects={data.curriculum.projects}
           containerClass={layout.containerClass}
           projectTabActiveClass="bg-gradient-to-r from-purple-600 to-indigo-600 text-white shadow-lg"
-          projectTabInactiveClass="bg-gray-100 text-gray-700 hover:bg-gray-200"
+          projectTabInactiveClass="bg-gray-800 text-gray-300 hover:bg-gray-700"
           durationTabActiveClass="bg-purple-600 text-white shadow-md"
-          durationTabInactiveClass="bg-gray-100 text-gray-600 hover:bg-gray-200"
+          durationTabInactiveClass="bg-gray-800 text-gray-400 hover:bg-gray-700"
           primaryColor="purple"
         />
 

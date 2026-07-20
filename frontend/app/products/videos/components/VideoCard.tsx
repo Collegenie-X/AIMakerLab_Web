@@ -28,7 +28,7 @@ export function VideoCard({ video, onClick }: VideoCardProps) {
       onClick={onClick} 
       className="text-left transition-transform hover:scale-[1.02] w-full"
     >
-      <Card className="overflow-hidden h-full hover:shadow-lg transition-shadow">
+      <Card className="overflow-hidden h-full hover:shadow-lg transition-shadow bg-gray-900 border-gray-800">
         {/* 썸네일 영역 */}
         <div className="relative w-full aspect-video">
           <Image 

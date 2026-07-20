@@ -37,9 +37,9 @@ export default function ProductsInquiryPage() {
     : formData.extra.shippingFee
 
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-screen flex-col bg-gray-950">
       <Header />
-      
+
       <main className="flex-1">
         {/* Hero Section */}
         <section className="relative overflow-hidden bg-gradient-to-br from-green-500 via-emerald-600 to-teal-600 py-12 text-white">
@@ -85,9 +85,9 @@ export default function ProductsInquiryPage() {
         <section className="mx-auto max-w-5xl px-4 py-10">
           <form onSubmit={submitForm} className="space-y-8">
             {/* 고객/학교 정보 */}
-            <Card>
+            <Card className="bg-gray-900 border-gray-800">
               <CardHeader>
-                <CardTitle>고객/학교 정보</CardTitle>
+                <CardTitle className="text-white">고객/학교 정보</CardTitle>
               </CardHeader>
               <CardContent>
                 <CustomerInfoSection
@@ -99,14 +99,14 @@ export default function ProductsInquiryPage() {
             </Card>
 
             {/* 세금계산서 정보 */}
-            <Card>
+            <Card className="bg-gray-900 border-gray-800">
               <CardHeader>
-                <CardTitle>세금계산서 정보</CardTitle>
+                <CardTitle className="text-white">세금계산서 정보</CardTitle>
               </CardHeader>
               <CardContent>
-                <InvoiceInfoSection 
-                  value={formData.invoice} 
-                  onChange={updateInvoiceInfo} 
+                <InvoiceInfoSection
+                  value={formData.invoice}
+                  onChange={updateInvoiceInfo}
                 />
               </CardContent>
             </Card>
@@ -118,9 +118,9 @@ export default function ProductsInquiryPage() {
             />
 
             {/* 배송/비고 및 동의 */}
-            <Card>
+            <Card className="bg-gray-900 border-gray-800">
               <CardHeader>
-                <CardTitle>배송/비고 및 동의</CardTitle>
+                <CardTitle className="text-white">배송/비고 및 동의</CardTitle>
               </CardHeader>
               <CardContent>
                 <DeliveryAndAgreementSection
@@ -131,11 +131,11 @@ export default function ProductsInquiryPage() {
             </Card>
 
             {/* 합계 정보 */}
-            <Card>
+            <Card className="bg-gray-900 border-gray-800">
               <CardContent className="pt-6">
                 <div className="grid gap-2 md:grid-cols-2">
                   {/* 상세 금액 */}
-                  <div className="space-y-1">
+                  <div className="space-y-1 text-gray-300">
                     <div className="flex justify-between">
                       <span>공급가 합계</span>
                       <strong>{totals.supplyAmount.toLocaleString()}원</strong>
@@ -165,7 +165,7 @@ export default function ProductsInquiryPage() {
                       <div className="text-sm text-muted-foreground mb-1">
                         {QUOTE_TEXT.grandTotalLabel}
                       </div>
-                      <div className="text-3xl font-bold">
+                      <div className="text-3xl font-bold text-white">
                         {totals.grandTotal.toLocaleString()}원
                       </div>
                     </div>

@@ -1,7 +1,8 @@
 "use client";
 import Link from "next/link";
 import { Button } from "@/components/ui/buttons/button";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import { MakerAiSceneSVG } from "../components/MakerAiSceneSVG";
 
 const tags = [
   { emoji: "🔧", label: "아두이노" },
@@ -13,36 +14,59 @@ const tags = [
 function FloatingShapes() {
   return (
     <div className="pointer-events-none absolute inset-0 overflow-hidden">
-      {/* Hexagon - top right */}
-      <svg viewBox="0 0 120 120" className="hero-float absolute -right-6 top-[15%] h-32 w-32 opacity-[0.07]" style={{ animationDelay: "0s" }}>
-        <path d="M60 10L105 35V85L60 110L15 85V35L60 10Z" stroke="url(#hex1)" strokeWidth="2" fill="none" />
-        <path d="M60 25L90 42V78L60 95L30 78V42L60 25Z" stroke="url(#hex1)" strokeWidth="1" fill="url(#hex1)" fillOpacity="0.1" />
+      {/* 육각 프레임 - 우상단, 천천히 회전 */}
+      <svg viewBox="0 0 120 120" className="absolute -right-6 top-[15%] h-32 w-32 opacity-[0.09]">
+        <g className="ai-spin-slow" style={{ transformBox: "view-box", transformOrigin: "60px 60px", animationDuration: "26s" }}>
+          <path d="M60 10L105 35V85L60 110L15 85V35L60 10Z" stroke="url(#hex1)" strokeWidth="2" fill="none" />
+        </g>
+        <g className="ai-spin-reverse" style={{ transformBox: "view-box", transformOrigin: "60px 60px", animationDuration: "18s" }}>
+          <path d="M60 25L90 42V78L60 95L30 78V42L60 25Z" stroke="url(#hex1)" strokeWidth="1" fill="url(#hex1)" fillOpacity="0.1" />
+        </g>
         <defs><linearGradient id="hex1" x1="0" y1="0" x2="120" y2="120"><stop stopColor="#a78bfa"/><stop offset="1" stopColor="#22d3ee"/></linearGradient></defs>
       </svg>
 
-      {/* Code brackets - left */}
-      <svg viewBox="0 0 100 100" className="hero-float absolute left-[5%] top-[30%] h-24 w-24 opacity-[0.08]" style={{ animationDelay: "1.5s" }}>
-        <path d="M35 20L15 50L35 80" stroke="#818cf8" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-        <path d="M65 20L85 50L65 80" stroke="#22d3ee" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-        <line x1="55" y1="15" x2="45" y2="85" stroke="#c084fc" strokeWidth="2" strokeLinecap="round" opacity="0.6" />
+      {/* 렌치 + 볼트 - 좌측, 흔들린다 */}
+      <svg viewBox="0 0 100 100" className="hero-float absolute left-[5%] top-[30%] h-24 w-24 opacity-[0.1]" style={{ animationDelay: "1.5s" }}>
+        <g className="ai-tilt" style={{ transformBox: "view-box", transformOrigin: "50px 50px" }}>
+          <path
+            d="M64 22a14 14 0 0 0-18 17L24 61a8 8 0 1 0 11 11l22-22a14 14 0 0 0 17-18l-9 9-8-2-2-8 9-9Z"
+            stroke="#818cf8" strokeWidth="2.5" fill="#818cf8" fillOpacity="0.12" strokeLinejoin="round"
+          />
+        </g>
+        <g className="ai-spin-slow" style={{ transformBox: "view-box", transformOrigin: "24px 24px", animationDuration: "14s" }}>
+          <path d="M24 12l7 4v8l-7 4-7-4v-8l7-4Z" stroke="#22d3ee" strokeWidth="2" fill="none" />
+        </g>
       </svg>
 
-      {/* Circuit pattern - bottom left */}
-      <svg viewBox="0 0 160 160" className="hero-float absolute -left-8 bottom-[20%] h-40 w-40 opacity-[0.06]" style={{ animationDelay: "3s" }}>
-        <circle cx="40" cy="40" r="4" fill="#818cf8" />
-        <circle cx="120" cy="40" r="4" fill="#22d3ee" />
-        <circle cx="40" cy="120" r="4" fill="#c084fc" />
-        <circle cx="120" cy="120" r="4" fill="#818cf8" />
+      {/* 회로 - 좌하단, 전류가 흐른다 */}
+      <svg viewBox="0 0 160 160" className="absolute -left-8 bottom-[20%] h-40 w-40 opacity-[0.12]">
+        <path d="M44 40h32L80 74M80 86L80 116M80 86l36-42M44 120h32" stroke="url(#circ1)" strokeOpacity="0.35" strokeWidth="1.5" fill="none" />
+        <path
+          d="M44 40h32L80 74M80 86L80 116M80 86l36-42M44 120h32"
+          stroke="url(#circ1)" strokeWidth="1.8" fill="none"
+          className="ai-dash-flow"
+          style={{ ["--flow-dash" as string]: "5 14", ["--flow-len" as string]: "19", animationDuration: "1.7s" }}
+        />
+        {[[40, 40, "#818cf8", "0s"], [120, 40, "#22d3ee", "0.4s"], [40, 120, "#c084fc", "0.8s"], [120, 120, "#818cf8", "1.2s"]].map(
+          ([cx, cy, c, d]) => (
+            <circle key={`${cx}-${cy}`} cx={cx as number} cy={cy as number} r="4" fill={c as string} className="ai-blink" style={{ animationDelay: d as string, animationDuration: "2.6s" }} />
+          )
+        )}
         <circle cx="80" cy="80" r="6" fill="url(#circ1)" />
-        <path d="M44 40h32L80 74M80 86L80 116M80 86l36-42M44 120h32" stroke="url(#circ1)" strokeWidth="1.5" fill="none" opacity="0.6" />
         <defs><linearGradient id="circ1" x1="0" y1="0" x2="160" y2="160"><stop stopColor="#818cf8"/><stop offset="1" stopColor="#22d3ee"/></linearGradient></defs>
       </svg>
 
-      {/* Atom/orbit - right middle */}
-      <svg viewBox="0 0 120 120" className="hero-float absolute right-[8%] bottom-[35%] h-28 w-28 opacity-[0.07]" style={{ animationDelay: "2s" }}>
+      {/* 궤도 - 우측 중앙, 입자가 돈다 */}
+      <svg viewBox="0 0 120 120" className="absolute right-[8%] bottom-[35%] h-28 w-28 opacity-[0.1]">
         <ellipse cx="60" cy="60" rx="50" ry="20" stroke="#c084fc" strokeWidth="1.5" fill="none" transform="rotate(-30 60 60)" />
         <ellipse cx="60" cy="60" rx="50" ry="20" stroke="#818cf8" strokeWidth="1.5" fill="none" transform="rotate(30 60 60)" />
         <ellipse cx="60" cy="60" rx="50" ry="20" stroke="#22d3ee" strokeWidth="1.5" fill="none" transform="rotate(90 60 60)" />
+        <g className="ai-spin-slow" style={{ transformBox: "view-box", transformOrigin: "60px 60px", animationDuration: "7s" }}>
+          <circle cx="110" cy="60" r="3.5" fill="#22d3ee" />
+        </g>
+        <g className="ai-spin-reverse" style={{ transformBox: "view-box", transformOrigin: "60px 60px", animationDuration: "10s" }}>
+          <circle cx="10" cy="60" r="3" fill="#c084fc" />
+        </g>
         <circle cx="60" cy="60" r="5" fill="url(#atom1)" />
         <defs><radialGradient id="atom1"><stop stopColor="#c084fc"/><stop offset="1" stopColor="#818cf8"/></radialGradient></defs>
       </svg>
@@ -75,7 +99,7 @@ export function HeroSection() {
       <div className="star-field pointer-events-none absolute inset-0" />
       <FloatingShapes />
 
-      <div className="container relative mx-auto px-4 py-20">
+      <div className="container relative mx-auto px-4 py-12">
         <div className="mx-auto max-w-4xl text-center">
           <div
             className="hero-slide-up mb-8 inline-flex items-center gap-2 rounded-full border border-violet-400/30 bg-violet-500/10 px-5 py-2 font-mono text-sm tracking-wide text-violet-300"
@@ -93,7 +117,7 @@ export function HeroSection() {
           </h1>
 
           <p
-            className="hero-slide-up mx-auto mb-10 max-w-2xl break-keep text-lg leading-relaxed text-white/60 md:text-xl"
+            className="hero-slide-up mx-auto mb-8 max-w-2xl break-keep text-lg leading-relaxed text-white/60 md:text-xl"
             style={{ animationDelay: "0.2s" }}
           >
             아두이노·앱 인벤터·라즈베리파이로 <span className="text-white/90 font-medium">직접 만들고</span>,
@@ -104,7 +128,7 @@ export function HeroSection() {
           </p>
 
           <div
-            className="hero-slide-up mb-12 flex flex-wrap justify-center gap-3"
+            className="hero-slide-up mb-8 flex flex-wrap justify-center gap-3"
             style={{ animationDelay: "0.3s" }}
           >
             {tags.map(({ emoji, label }) => (
@@ -145,8 +169,15 @@ export function HeroSection() {
           </div>
 
           <div
-            className="hero-slide-up mt-20 text-sm text-white/30"
+            className="hero-slide-up mx-auto mt-10 max-w-2xl"
             style={{ animationDelay: "0.5s" }}
+          >
+            <MakerAiSceneSVG />
+          </div>
+
+          <div
+            className="hero-slide-up mt-6 text-sm text-white/30"
+            style={{ animationDelay: "0.6s" }}
           >
             👇 스크롤하여 더 알아보기
           </div>

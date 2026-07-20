@@ -14,31 +14,31 @@ interface LearningPathSectionProps {
 // 색상 매핑
 const colorMap = {
   blue: {
-    bg: "bg-blue-50",
-    border: "border-blue-200",
-    text: "text-blue-700",
-    icon: "bg-blue-100 text-blue-600",
+    bg: "bg-blue-900/20",
+    border: "border-blue-800",
+    text: "text-blue-400",
+    icon: "bg-blue-900/30 text-blue-400",
     gradient: "from-blue-500 to-blue-600",
   },
   purple: {
-    bg: "bg-purple-50",
-    border: "border-purple-200",
-    text: "text-purple-700",
-    icon: "bg-purple-100 text-purple-600",
+    bg: "bg-purple-900/20",
+    border: "border-purple-800",
+    text: "text-purple-400",
+    icon: "bg-purple-900/30 text-purple-400",
     gradient: "from-purple-500 to-purple-600",
   },
   orange: {
-    bg: "bg-orange-50",
-    border: "border-orange-200",
-    text: "text-orange-700",
-    icon: "bg-orange-100 text-orange-600",
+    bg: "bg-orange-900/20",
+    border: "border-orange-800",
+    text: "text-orange-400",
+    icon: "bg-orange-900/30 text-orange-400",
     gradient: "from-orange-500 to-orange-600",
   },
   green: {
-    bg: "bg-green-50",
-    border: "border-green-200",
-    text: "text-green-700",
-    icon: "bg-green-100 text-green-600",
+    bg: "bg-green-900/20",
+    border: "border-green-800",
+    text: "text-green-400",
+    icon: "bg-green-900/30 text-green-400",
     gradient: "from-green-500 to-green-600",
   },
 };
@@ -52,13 +52,13 @@ export function LearningPathSection({ data }: LearningPathSectionProps) {
   const { layout } = ARDUINO_CONFIG;
 
   return (
-    <section className="py-16 bg-gradient-to-br from-gray-50 to-blue-50">
+    <section className="py-16 bg-gradient-to-br from-gray-950 to-gray-900">
       <div>
         <div className={layout.containerClass}>
           {/* 제목 및 설명 */}
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">{data.title}</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">{data.description}</p>
+            <p className="text-gray-400 max-w-2xl mx-auto">{data.description}</p>
           </div>
 
           {/* 학습 단계 플로우 */}
@@ -87,10 +87,10 @@ export function LearningPathSection({ data }: LearningPathSectionProps) {
                         <h3 className={`text-xl font-bold ${colors.text} mb-1`}>
                           {stage.title}
                         </h3>
-                        <p className="text-sm font-medium text-gray-600 mb-3">
+                        <p className="text-sm font-medium text-gray-400 mb-3">
                           {stage.subtitle}
                         </p>
-                        <p className="text-sm text-gray-700 mb-4">
+                        <p className="text-sm text-gray-300 mb-4">
                           {stage.description}
                         </p>
 
@@ -99,7 +99,7 @@ export function LearningPathSection({ data }: LearningPathSectionProps) {
                           {stage.skills.map((skill, idx) => (
                             <div key={idx} className="flex items-start gap-2">
                               <CheckCircle2 className={`h-4 w-4 mt-0.5 flex-shrink-0 ${colors.text}`} />
-                              <span className="text-xs text-gray-700">{skill}</span>
+                              <span className="text-xs text-gray-300">{skill}</span>
                             </div>
                           ))}
                         </div>
@@ -141,10 +141,10 @@ export function LearningPathSection({ data }: LearningPathSectionProps) {
                         <h3 className={`text-xl font-bold ${colors.text} mb-1`}>
                           {stage.title}
                         </h3>
-                        <p className="text-sm font-medium text-gray-600 mb-3">
+                        <p className="text-sm font-medium text-gray-400 mb-3">
                           {stage.subtitle}
                         </p>
-                        <p className="text-sm text-gray-700 mb-4">
+                        <p className="text-sm text-gray-300 mb-4">
                           {stage.description}
                         </p>
 
@@ -153,7 +153,7 @@ export function LearningPathSection({ data }: LearningPathSectionProps) {
                           {stage.skills.map((skill, idx) => (
                             <div key={idx} className="flex items-start gap-2">
                               <CheckCircle2 className={`h-4 w-4 mt-0.5 flex-shrink-0 ${colors.text}`} />
-                              <span className="text-xs text-gray-700">{skill}</span>
+                              <span className="text-xs text-gray-300">{skill}</span>
                             </div>
                           ))}
                         </div>
@@ -175,12 +175,12 @@ export function LearningPathSection({ data }: LearningPathSectionProps) {
           </div>
 
           {/* 안내 문구 */}
-          <div className="mt-12 p-6 bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl border-2 border-blue-200">
+          <div className="mt-12 p-6 bg-gradient-to-r from-gray-950 to-gray-900 rounded-xl border-2 border-blue-800">
             <div className="text-center">
-              <h3 className="text-lg font-bold text-gray-900 mb-2">
+              <h3 className="text-lg font-bold text-white mb-2">
                 단계별 메이커 학습
               </h3>
-              <p className="text-sm text-gray-700">
+              <p className="text-sm text-gray-300">
                 각 프로젝트는 이 4단계 학습 경로를 따라 진행됩니다. 
                 3시간 과정에서는 1-2단계, 6시간 과정에서는 1-3단계, 12시간 과정에서는 전체 4단계를 모두 학습합니다.
               </p>

@@ -25,9 +25,9 @@ export function CourseDescriptionSection({ data }: CourseDescriptionSectionProps
   const { layout } = ARDUINO_CONFIG;
 
   return (
-    <CurriculumSectionContainer className="bg-gray-50 py-12" containerClass={layout.containerClass}>
+    <CurriculumSectionContainer className="bg-gray-950 py-12" containerClass={layout.containerClass}>
       <h2 className="mb-6 text-3xl font-bold">{title}</h2>
-      <div className="space-y-4 text-gray-600 leading-relaxed mb-8">
+      <div className="space-y-4 text-gray-400 leading-relaxed mb-8">
         {paragraphs.map((paragraph, index) => (
           <span className="text-lg" key={index} style={{ lineHeight: '1.92em' , wordSpacing: "0.18em" }}> {paragraph}</span>
         ))}
@@ -35,21 +35,21 @@ export function CourseDescriptionSection({ data }: CourseDescriptionSectionProps
       
       {/* 대표 이미지 3장 */}
       <div className="grid grid-cols-3 gap-4 mt-8">
-        <div className="aspect-video rounded-lg overflow-hidden bg-white shadow-sm">
+        <div className="aspect-video rounded-lg overflow-hidden bg-gray-900 shadow-sm">
           <img 
             src="/home/arduino-electronics-circuit.jpg" 
             alt="아두이노 하드웨어 실습" 
             className="w-full h-full object-cover"
           />
         </div>
-        <div className="aspect-video rounded-lg overflow-hidden bg-white shadow-sm">
+        <div className="aspect-video rounded-lg overflow-hidden bg-gray-900 shadow-sm">
           <img 
             src="/home/ai-neural-network.png" 
             alt="AI 연계 시스템" 
             className="w-full h-full object-cover"
           />
         </div>
-        <div className="aspect-video rounded-lg overflow-hidden bg-white shadow-sm">
+        <div className="aspect-video rounded-lg overflow-hidden bg-gray-900 shadow-sm">
           <img 
             src="/home/smart-home-iot-device.jpg" 
             alt="IoT 프로젝트 완성" 

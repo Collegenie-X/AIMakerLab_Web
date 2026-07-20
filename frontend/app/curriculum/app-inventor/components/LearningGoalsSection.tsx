@@ -27,7 +27,7 @@ export function LearningGoalsSection({ data }: LearningGoalsSectionProps) {
   const { layout } = APP_INVENTOR_CONFIG;
 
   return (
-    <section className="py-16 bg-white">
+    <section className="py-16 bg-gray-900">
       <div>
         <div className={layout.containerClass}>
           {/* 제목 및 설명 */}
@@ -36,7 +36,7 @@ export function LearningGoalsSection({ data }: LearningGoalsSectionProps) {
               <Target className="h-8 w-8 text-blue-600" />
               <h2 className="text-3xl font-bold">{data.title}</h2>
             </div>
-            <p className="text-gray-600 max-w-3xl mx-auto">{data.description}</p>
+            <p className="text-gray-400 max-w-3xl mx-auto">{data.description}</p>
           </div>
 
           {/* 학습 목표 카드 */}
@@ -44,17 +44,17 @@ export function LearningGoalsSection({ data }: LearningGoalsSectionProps) {
             {data.goals.map((goal) => (
               <Card key={goal.id} className="hover:shadow-lg transition-shadow">
                 <CardContent className="pt-6">
-                  <Badge className="mb-3 bg-blue-100 text-blue-700 hover:bg-blue-100">
+                  <Badge className="mb-3 bg-blue-900/30 text-blue-400 hover:bg-blue-900/30">
                     {goal.category}
                   </Badge>
                   <h3 className="text-xl font-bold mb-2">{goal.title}</h3>
-                  <p className="text-gray-600 mb-4 text-sm">{goal.description}</p>
+                  <p className="text-gray-400 mb-4 text-sm">{goal.description}</p>
                   
                   <div className="space-y-2">
-                    <p className="text-sm font-semibold text-gray-700 mb-2">핵심 역량</p>
+                    <p className="text-sm font-semibold text-gray-300 mb-2">핵심 역량</p>
                     <ul className="grid grid-cols-1 gap-2">
                       {goal.skills.map((skill, index) => (
-                        <li key={index} className="flex items-start gap-2 text-sm text-gray-700">
+                        <li key={index} className="flex items-start gap-2 text-sm text-gray-300">
                           <CheckCircle2 className="h-4 w-4 text-green-600 mt-0.5 flex-shrink-0" />
                           <span>{skill}</span>
                         </li>

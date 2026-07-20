@@ -42,7 +42,7 @@ function StatCard({ stat, index, visible }: { stat: (typeof stats)[number]; inde
 
   return (
     <div
-      className={`group relative overflow-hidden rounded-3xl border p-7 transition-all duration-700 hover:-translate-y-2 ${
+      className={`group ai-shimmer relative overflow-hidden rounded-3xl border p-7 transition-all duration-700 hover:-translate-y-2 ${
         visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
       }`}
       style={{
@@ -55,7 +55,20 @@ function StatCard({ stat, index, visible }: { stat: (typeof stats)[number]; inde
         className="pointer-events-none absolute inset-0 rounded-3xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"
         style={{ boxShadow: `0 0 50px ${stat.color}20` }}
       />
-      <div className="mb-3 text-3xl">{stat.emoji}</div>
+      {/* 카드 모서리를 도는 궤도 점 */}
+      <svg viewBox="0 0 100 100" className="pointer-events-none absolute -right-6 -top-6 h-24 w-24 opacity-25" aria-hidden>
+        <circle cx="50" cy="50" r="30" fill="none" stroke={stat.color} strokeWidth="1" strokeDasharray="3 6" />
+        <g
+          className="ai-spin-slow"
+          style={{ transformBox: "view-box", transformOrigin: "50px 50px", animationDuration: `${9 + index * 2}s` }}
+        >
+          <circle cx="80" cy="50" r="3.5" fill={stat.color} />
+        </g>
+      </svg>
+
+      <div className="ai-bob mb-3 text-3xl" style={{ animationDelay: `${index * 0.35}s` }}>
+        {stat.emoji}
+      </div>
       <div className="mb-1 flex items-baseline gap-1">
         <span className="text-4xl font-extrabold text-white">{count}</span>
         <span className="text-lg font-bold" style={{ color: stat.color }}>

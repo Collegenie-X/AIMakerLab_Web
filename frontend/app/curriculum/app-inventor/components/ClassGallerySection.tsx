@@ -41,18 +41,18 @@ export function ClassGallerySection({ data }: ClassGallerySectionProps) {
   const { layout } = APP_INVENTOR_CONFIG;
 
   return (
-    <section className="py-16 bg-gradient-to-br from-purple-50 to-blue-50">
+    <section className="py-16 bg-gradient-to-br from-gray-950 to-gray-900">
       <div>
         <div className={layout.containerClass}>
           {/* 제목 및 설명 */}
           <div className="text-center mb-12">
             <h2 className="mb-4 text-3xl font-bold">{data.title}</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">{data.description}</p>
+            <p className="text-gray-400 max-w-2xl mx-auto">{data.description}</p>
           </div>
 
           {/* 탭 버튼 */}
           <div className="flex justify-center mb-8">
-            <div className="inline-flex rounded-lg border border-gray-200 p-1 bg-white shadow-sm">
+            <div className="inline-flex rounded-lg border border-gray-700 p-1 bg-gray-900 shadow-sm">
               {data.tabs.map((tab) => (
                 <button
                   key={tab.id}
@@ -61,7 +61,7 @@ export function ClassGallerySection({ data }: ClassGallerySectionProps) {
                     px-6 py-3 rounded-md font-medium transition-all duration-200
                     ${activeTabId === tab.id
                       ? "bg-purple-600 text-white shadow-sm"
-                      : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
+                      : "text-gray-400 hover:text-white hover:bg-gray-800"
                     }
                   `}
                 >
@@ -76,7 +76,7 @@ export function ClassGallerySection({ data }: ClassGallerySectionProps) {
             {activeTab.items.map((item) => (
               <Card key={item.id} className="overflow-hidden hover:shadow-xl transition-shadow group">
                 {/* 이미지 */}
-                <div className="relative h-48 overflow-hidden bg-gray-200">
+                <div className="relative h-48 overflow-hidden bg-gray-800">
                   <Image
                     src={item.imageUrl}
                     alt={item.title}
@@ -86,7 +86,7 @@ export function ClassGallerySection({ data }: ClassGallerySectionProps) {
                   {item.tags && item.tags.length > 0 && (
                     <div className="absolute top-3 left-3 flex gap-2 flex-wrap">
                       {item.tags.map((tag, index) => (
-                        <Badge key={index} className="bg-white/90 text-gray-700 hover:bg-white">
+                        <Badge key={index} className="bg-gray-900/90 text-gray-300 hover:bg-gray-800">
                           {tag}
                         </Badge>
                       ))}
@@ -96,11 +96,11 @@ export function ClassGallerySection({ data }: ClassGallerySectionProps) {
 
                 <CardContent className="pt-4">
                   <h3 className="font-bold text-lg mb-2 line-clamp-1">{item.title}</h3>
-                  <p className="text-sm text-gray-600 mb-3 line-clamp-2">{item.description}</p>
+                  <p className="text-sm text-gray-400 mb-3 line-clamp-2">{item.description}</p>
 
                   {/* 학생 작품인 경우 */}
                   {item.student && (
-                    <div className="mb-3 flex items-center gap-2 text-sm text-gray-700">
+                    <div className="mb-3 flex items-center gap-2 text-sm text-gray-300">
                       <User className="h-4 w-4 text-blue-600" />
                       <span>{item.student}</span>
                     </div>
@@ -109,7 +109,7 @@ export function ClassGallerySection({ data }: ClassGallerySectionProps) {
                   {/* 작품 기능 */}
                   {item.features && item.features.length > 0 && (
                     <div className="mb-3">
-                      <p className="text-xs font-semibold text-gray-700 mb-1">주요 기능</p>
+                      <p className="text-xs font-semibold text-gray-300 mb-1">주요 기능</p>
                       <div className="flex flex-wrap gap-1">
                         {item.features.map((feature, index) => (
                           <Badge key={index} variant="secondary" className="text-xs">
@@ -122,8 +122,8 @@ export function ClassGallerySection({ data }: ClassGallerySectionProps) {
 
                   {/* 후기 내용 */}
                   {item.content && (
-                    <div className="mb-3 p-3 bg-gray-50 rounded-lg">
-                      <p className="text-sm text-gray-700 italic line-clamp-3">"{item.content}"</p>
+                    <div className="mb-3 p-3 bg-gray-950 rounded-lg">
+                      <p className="text-sm text-gray-300 italic line-clamp-3">"{item.content}"</p>
                     </div>
                   )}
 
@@ -132,7 +132,7 @@ export function ClassGallerySection({ data }: ClassGallerySectionProps) {
                     <div className="flex items-center justify-between pt-3 border-t">
                       <div className="flex items-center gap-2">
                         <Award className="h-4 w-4 text-purple-600" />
-                        <span className="text-sm font-medium text-gray-700">{item.author}</span>
+                        <span className="text-sm font-medium text-gray-300">{item.author}</span>
                       </div>
                       {item.rating && (
                         <div className="flex items-center gap-1">

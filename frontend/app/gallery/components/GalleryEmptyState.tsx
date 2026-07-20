@@ -28,8 +28,8 @@ export function GalleryEmptyState({ type }: Props) {
   return (
     <div className="flex flex-col items-center justify-center py-20">
       <div className="mb-6 text-8xl">{emoji}</div>
-      <h3 className="mb-2 text-2xl font-bold text-gray-900">{title}</h3>
-      <p className="text-gray-600 text-center max-w-md">{message}</p>
+      <h3 className="mb-2 text-2xl font-bold text-white">{title}</h3>
+      <p className="text-gray-400 text-center max-w-md">{message}</p>
     </div>
   )
 }

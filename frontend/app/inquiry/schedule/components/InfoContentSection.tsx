@@ -14,15 +14,15 @@ export function InfoContentSection() {
   // 로딩 중일 때
   if (loading) {
     return (
-      <section className="w-full bg-gray-50 py-12">
+      <section className="w-full bg-gray-950 py-12">
         <div className="mx-auto max-w-7xl px-4">
           <div className="mx-auto max-w-3xl">
             <div className="animate-pulse space-y-4">
-              <div className="h-8 bg-gray-200 rounded w-1/3"></div>
+              <div className="h-8 bg-gray-800 rounded w-1/3"></div>
               <div className="space-y-3">
-                <div className="h-24 bg-gray-200 rounded"></div>
-                <div className="h-24 bg-gray-200 rounded"></div>
-                <div className="h-24 bg-gray-200 rounded"></div>
+                <div className="h-24 bg-gray-800 rounded"></div>
+                <div className="h-24 bg-gray-800 rounded"></div>
+                <div className="h-24 bg-gray-800 rounded"></div>
               </div>
             </div>
           </div>
@@ -34,7 +34,7 @@ export function InfoContentSection() {
   // 에러 발생 시
   if (error || !content) {
     return (
-      <section className="w-full bg-gray-50 py-12">
+      <section className="w-full bg-gray-950 py-12">
         <div className="mx-auto max-w-7xl px-4">
           <div className="mx-auto max-w-3xl text-center text-red-500">
             컨텐츠를 불러오는데 실패했습니다.
@@ -45,17 +45,17 @@ export function InfoContentSection() {
   }
 
   return (
-    <section className="w-full bg-gray-50 py-12">
+    <section className="w-full bg-gray-950 py-12">
       <div className="mx-auto max-w-7xl px-4">
         <div className="mx-auto max-w-3xl">
-          <h2 className="mb-6 text-2xl font-bold">{content.info.title}</h2>
-          <div className="space-y-4 text-gray-600">
+          <h2 className="mb-6 text-2xl font-bold text-white">{content.info.title}</h2>
+          <div className="space-y-4 text-gray-400">
             {content.info.sections.map((section, index) => (
-              <div key={index} className="rounded-lg bg-white p-4 shadow-sm hover:shadow-md transition-shadow">
-                <h3 className="mb-2 font-semibold text-gray-900">
+              <div key={index} className="rounded-lg bg-gray-900 border border-white/10 p-4 shadow-sm hover:shadow-md hover:border-white/20 transition-all">
+                <h3 className="mb-2 font-semibold text-white">
                   {section.emoji} {section.title}
                 </h3>
-                <p className="text-sm leading-relaxed">{section.description}</p>
+                <p className="text-sm leading-relaxed text-gray-400">{section.description}</p>
               </div>
             ))}
           </div>

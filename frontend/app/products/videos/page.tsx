@@ -22,7 +22,7 @@ export default function VideosPage() {
   const totalSteps = videos.reduce((sum, video) => sum + video.steps.length, 0)
 
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-screen flex-col bg-gray-950">
       <Header />
       <main className="flex-1">
         {/* Hero 섹션 */}

@@ -49,13 +49,13 @@ export function ProjectGradeRecommendationSection({ data }: ProjectGradeRecommen
       "도전": "bg-gradient-to-r from-purple-500 to-purple-600 text-white shadow-md",
     };
 
-    return styles[level as keyof typeof styles] || "bg-gray-200 text-gray-700";
+    return styles[level as keyof typeof styles] || "bg-gray-700 text-gray-300";
   };
 
   const { layout } = ARDUINO_CONFIG;
 
   return (
-    <section className="py-16 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50">
+    <section className="py-16 bg-gradient-to-br from-gray-900/80 via-gray-900 to-gray-900/80">
       <div>
         <div className={layout.containerClass}>
           {/* 제목 및 설명 */}
@@ -64,7 +64,7 @@ export function ProjectGradeRecommendationSection({ data }: ProjectGradeRecommen
               <TrendingUp className="h-8 w-8 text-blue-600" />
               <h2 className="text-3xl font-bold">프로젝트별 학년 추천</h2>
             </div>
-            <p className="text-gray-600 max-w-2xl mx-auto">
+            <p className="text-gray-400 max-w-2xl mx-auto">
               학생의 학년과 수준에 맞는 최적의 프로젝트를 선택하세요
             </p>
           </div>
@@ -72,7 +72,7 @@ export function ProjectGradeRecommendationSection({ data }: ProjectGradeRecommen
           {/* 카테고리별 테이블 */}
           <div className="space-y-8">
             {data.categories.map((category) => (
-              <div key={category.id} className="bg-white rounded-2xl shadow-xl overflow-hidden">
+              <div key={category.id} className="bg-gray-900 rounded-2xl shadow-xl overflow-hidden">
                 {/* 카테고리 헤더 */}
                 <div className={`p-6 ${category.id === "beginner" ? "bg-gradient-to-r from-green-500 to-blue-500" : "bg-gradient-to-r from-purple-500 to-pink-500"}`}>
                   <div className="flex items-center justify-between">
@@ -114,15 +114,15 @@ export function ProjectGradeRecommendationSection({ data }: ProjectGradeRecommen
                         <tr
                           key={project.id}
                           className={`${
-                            index % 2 === 0 ? "bg-gray-50" : "bg-white"
-                          } hover:bg-blue-50 transition-colors`}
+                            index % 2 === 0 ? "bg-gray-950" : "bg-gray-900"
+                          } hover:bg-gray-800 transition-colors`}
                         >
                           {/* 프로젝트명 열 */}
-                          <td className="px-6 py-5 border-r border-gray-200">
+                          <td className="px-6 py-5 border-r border-gray-700">
                             <div className="flex items-center gap-3">
                               <div>
-                                <div className="font-bold text-gray-900 mb-1">{project.title}</div>
-                                <div className="text-xs text-gray-600">{project.subtitle}</div>
+                                <div className="font-bold text-white mb-1">{project.title}</div>
+                                <div className="text-xs text-gray-400">{project.subtitle}</div>
                               </div>
                             </div>
                           </td>
@@ -135,7 +135,7 @@ export function ProjectGradeRecommendationSection({ data }: ProjectGradeRecommen
                             return (
                               <td
                                 key={gradeKey}
-                                className="px-4 py-5 text-center border-r border-gray-200 last:border-r-0"
+                                className="px-4 py-5 text-center border-r border-gray-700 last:border-r-0"
                               >
                                 {recommendation ? (
                                   <div
@@ -144,7 +144,7 @@ export function ProjectGradeRecommendationSection({ data }: ProjectGradeRecommen
                                     {recommendation}
                                   </div>
                                 ) : (
-                                  <div className="text-gray-300">-</div>
+                                  <div className="text-gray-600">-</div>
                                 )}
                               </td>
                             );
@@ -160,39 +160,39 @@ export function ProjectGradeRecommendationSection({ data }: ProjectGradeRecommen
 
           {/* 범례 */}
           <div className="mt-8 grid md:grid-cols-3 gap-4">
-            <div className="flex items-start gap-3 p-4 bg-white rounded-lg shadow-sm">
+            <div className="flex items-start gap-3 p-4 bg-gray-900 rounded-lg shadow-sm">
               <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-r from-blue-500 to-blue-600 text-white font-bold flex-shrink-0">
                 권장
               </div>
               <div className="flex-1">
-                <p className="text-sm text-gray-700">해당 학년에 가장 적합한 난이도</p>
+                <p className="text-sm text-gray-300">해당 학년에 가장 적합한 난이도</p>
               </div>
             </div>
 
-            <div className="flex items-start gap-3 p-4 bg-white rounded-lg shadow-sm">
+            <div className="flex items-start gap-3 p-4 bg-gray-900 rounded-lg shadow-sm">
               <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-r from-cyan-400 to-cyan-500 text-white font-bold flex-shrink-0">
                 선택
               </div>
               <div className="flex-1">
-                <p className="text-sm text-gray-700">관심 있으면 도전 가능</p>
+                <p className="text-sm text-gray-300">관심 있으면 도전 가능</p>
               </div>
             </div>
 
-            <div className="flex items-start gap-3 p-4 bg-white rounded-lg shadow-sm">
+            <div className="flex items-start gap-3 p-4 bg-gray-900 rounded-lg shadow-sm">
               <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-r from-purple-500 to-purple-600 text-white font-bold flex-shrink-0">
                 도전
               </div>
               <div className="flex-1">
-                <p className="text-sm text-gray-700">프로그래밍 경험이 있다면 가능</p>
+                <p className="text-sm text-gray-300">프로그래밍 경험이 있다면 가능</p>
               </div>
             </div>
           </div>
 
           {/* 안내 문구 */}
-          <div className="mt-6 p-4 bg-blue-50 rounded-lg border border-blue-200">
+          <div className="mt-6 p-4 bg-blue-900/20 rounded-lg border border-blue-800">
             <div className="flex items-start gap-3">
               <Info className="h-5 w-5 text-blue-600 mt-0.5 flex-shrink-0" />
-              <div className="text-sm text-blue-800">
+              <div className="text-sm text-blue-300">
                 학년별 추천은 일반적인 가이드입니다. 학생의 개별 역량과 관심도에 따라 다른 프로젝트를 선택할 수 있습니다.
                 각 프로젝트는 3시간/6시간/12시간 과정으로 구성되어 있습니다.
               </div>

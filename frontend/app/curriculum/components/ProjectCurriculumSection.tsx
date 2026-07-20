@@ -58,29 +58,24 @@ export function ProjectCurriculumSection({
   const [selectedProject, setSelectedProject] = useState(projects[0]?.id || "");
   const [selectedDurations, setSelectedDurations] = useState<Record<string, string>>({});
 
-  // Early return: 프로젝트가 없는 경우
   if (!projects || projects.length === 0) {
     return null;
   }
 
   const currentProject = projects.find((p) => p.id === selectedProject);
 
-  // Early return: 선택된 프로젝트가 없는 경우
   if (!currentProject) {
     return null;
   }
 
-  // 선택된 프로젝트의 현재 duration 탭
   const currentDuration =
     selectedDurations[selectedProject] || currentProject.tabs[0]?.id || "";
   const currentTab = currentProject.tabs.find((t) => t.id === currentDuration);
 
-  // 프로젝트 탭 변경
   const handleProjectChange = (projectId: string) => {
     setSelectedProject(projectId);
   };
 
-  // Duration 탭 변경
   const handleDurationChange = (projectId: string, durationId: string) => {
     setSelectedDurations((prev) => ({
       ...prev,
@@ -89,11 +84,11 @@ export function ProjectCurriculumSection({
   };
 
   return (
-    <CurriculumSectionContainer className="py-16 bg-white" containerClass={containerClass}>
+    <CurriculumSectionContainer className="py-16 bg-gray-950" containerClass={containerClass}>
       {/* 제목 */}
       <div className="text-center mb-12">
-        <h2 className="text-3xl font-bold mb-4">{title}</h2>
-        {description && <p className="text-gray-600 max-w-3xl mx-auto">{description}</p>}
+        <h2 className="text-3xl font-bold mb-4 text-white">{title}</h2>
+        {description && <p className="text-gray-400 max-w-3xl mx-auto">{description}</p>}
       </div>
 
       {/* 프로젝트 선택 탭 */}
@@ -109,7 +104,7 @@ export function ProjectCurriculumSection({
                   ? projectTabActiveClass ||
                     `bg-gradient-to-r from-${primaryColor}-600 to-${primaryColor}-700 text-white shadow-lg scale-105`
                   : projectTabInactiveClass ||
-                    "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                    "bg-gray-800 text-gray-300 hover:bg-gray-700"
               }
             `}
           >
@@ -123,20 +118,20 @@ export function ProjectCurriculumSection({
 
       {/* 선택된 프로젝트 정보 */}
       {currentProject.description && (
-        <div className="mb-10 p-8 rounded-2xl bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 border-2 border-purple-200 shadow-lg">
+        <div className="mb-10 p-8 rounded-2xl bg-gradient-to-br from-gray-900 via-gray-900 to-gray-800 border-2 border-gray-700 shadow-lg">
           <div className="flex flex-col md:flex-row items-center gap-6">
             {currentProject.image && (
               <div className="flex-shrink-0">
                 <img
                   src={currentProject.image}
                   alt={currentProject.title}
-                  className="w-full md:w-48 h-48 rounded-xl object-cover shadow-md ring-4 ring-white"
+                  className="w-full md:w-48 h-48 rounded-xl object-cover shadow-md ring-4 ring-gray-800"
                 />
               </div>
             )}
             <div className="flex-1 text-center md:text-left">
               <div className="flex items-center justify-center md:justify-start gap-3 mb-3">
-                <h3 className="text-2xl font-bold text-gray-900">
+                <h3 className="text-2xl font-bold text-white">
                   {currentProject.title}
                 </h3>
                 {currentProject.difficulty && (
@@ -145,7 +140,7 @@ export function ProjectCurriculumSection({
                   </Badge>
                 )}
               </div>
-              <p className="text-gray-700 text-lg leading-relaxed">{currentProject.description}</p>
+              <p className="text-gray-300 text-lg leading-relaxed">{currentProject.description}</p>
             </div>
           </div>
         </div>
@@ -164,7 +159,7 @@ export function ProjectCurriculumSection({
                   ? durationTabActiveClass ||
                     `bg-${primaryColor}-600 text-white shadow-md`
                   : durationTabInactiveClass ||
-                    "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                    "bg-gray-800 text-gray-400 hover:bg-gray-700"
               }
             `}
           >
@@ -177,7 +172,7 @@ export function ProjectCurriculumSection({
       {/* 선택된 Duration 설명 */}
       {currentTab && (
         <div className="mb-8 text-center">
-          <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full bg-${primaryColor}-100 text-${primaryColor}-800`}>
+          <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full bg-${primaryColor}-900/20 text-${primaryColor}-400`}>
             <Clock className="h-4 w-4" />
             <span className="font-medium">{currentTab.duration}</span>
             <span className="text-sm">· {currentTab.description}</span>
@@ -191,7 +186,7 @@ export function ProjectCurriculumSection({
           {currentTab.modules.map((module, index) => (
             <div
               key={module.id}
-              className="group p-6 rounded-xl border-2 border-gray-200 hover:border-${primaryColor}-300 bg-white hover:shadow-lg transition-all"
+              className={`group p-6 rounded-xl border-2 border-gray-700 hover:border-${primaryColor}-600 bg-gray-900 hover:shadow-lg transition-all`}
             >
               <div className="flex items-start gap-4">
                 {/* 모듈 번호 */}
@@ -206,16 +201,16 @@ export function ProjectCurriculumSection({
                 {/* 모듈 내용 */}
                 <div className="flex-1">
                   <div className="flex items-start justify-between mb-3">
-                    <h4 className="text-lg font-bold text-gray-900 group-hover:text-${primaryColor}-700 transition-colors">
+                    <h4 className={`text-lg font-bold text-white group-hover:text-${primaryColor}-400 transition-colors`}>
                       {module.title}
                     </h4>
-                    <span className={`text-sm font-semibold text-${primaryColor}-600 bg-${primaryColor}-50 px-3 py-1 rounded-full`}>
+                    <span className={`text-sm font-semibold text-${primaryColor}-400 bg-${primaryColor}-900/20 px-3 py-1 rounded-full`}>
                       {module.duration}
                     </span>
                   </div>
 
                   {module.detailDescription && (
-                    <p className="text-gray-600 mb-3">{module.detailDescription}</p>
+                    <p className="text-gray-400 mb-3">{module.detailDescription}</p>
                   )}
 
                   {/* 학습 주제 */}
@@ -223,13 +218,13 @@ export function ProjectCurriculumSection({
                     <div className="mt-4">
                       <div className="flex items-center gap-2 mb-2">
                         <BookOpen className="h-4 w-4 text-gray-500" />
-                        <span className="text-sm font-semibold text-gray-700">학습 내용</span>
+                        <span className="text-sm font-semibold text-gray-300">학습 내용</span>
                       </div>
                       <ul className="grid grid-cols-1 md:grid-cols-2 gap-2 ml-6">
                         {module.topics.map((topic, topicIndex) => (
                           <li
                             key={topicIndex}
-                            className="text-sm text-gray-600 flex items-start gap-2"
+                            className="text-sm text-gray-400 flex items-start gap-2"
                           >
                             <span className={`text-${primaryColor}-500 mt-1`}>•</span>
                             <span>{topic}</span>
@@ -246,12 +241,11 @@ export function ProjectCurriculumSection({
       )}
 
       {/* 하단 설명 */}
-      <div className="mt-12 text-center p-6 bg-gray-50 rounded-xl">
-        <p className="text-sm text-gray-600">
+      <div className="mt-12 text-center p-6 bg-gray-900 rounded-xl">
+        <p className="text-sm text-gray-400">
           각 프로젝트는 3시간 과정에서는 1-2단계, 6시간 과정에서는 1-3단계, 12시간 과정에서는 전체 4단계 모두 학습합니다.
         </p>
       </div>
     </CurriculumSectionContainer>
   );
 }
-

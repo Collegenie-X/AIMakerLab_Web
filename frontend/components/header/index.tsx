@@ -127,7 +127,7 @@ export function Header() {
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <div
-                    className="p-2 bg-gray-900 border border-white/10 rounded-lg shadow-xl shadow-black/20"
+                    className="p-2 bg-black border border-white/10 rounded-lg shadow-xl shadow-black/20"
                     style={
                       section.width
                         ? { width: `${section.width}px` }
@@ -178,7 +178,7 @@ export function Header() {
                     <span>About</span>
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <div className="p-2 bg-gray-900 border border-white/10 rounded-lg shadow-xl shadow-black/20" style={{ width: "190px" }}>
+                    <div className="p-2 bg-black border border-white/10 rounded-lg shadow-xl shadow-black/20" style={{ width: "190px" }}>
                       <ul className="space-y-1">
                         {aboutSection.items.map((item: HeaderNavItem) => (
                           <li key={item.href}>

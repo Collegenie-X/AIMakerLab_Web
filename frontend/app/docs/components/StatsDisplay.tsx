@@ -17,14 +17,14 @@ export function StatsDisplay({ documentCount, categoryCount }: StatsDisplayProps
   const CategoriesIcon = (Icons as any)[DOCS_CONFIG.icons.stats.categories];
 
   return (
-    <div className="flex items-center justify-center gap-6 text-sm text-gray-500">
-      <span className="flex items-center gap-2 bg-white px-5 py-3 rounded-full shadow-md border border-purple-200">
-        <DocumentsIcon className="w-4 h-4 text-purple-600" />
-        {DOCS_CONFIG.messages.stats.total} <strong className="text-gray-900">{documentCount}</strong>{DOCS_CONFIG.messages.stats.documents}
+    <div className="flex items-center justify-center gap-6 text-sm text-gray-400">
+      <span className="flex items-center gap-2 bg-white/5 px-5 py-3 rounded-full shadow-md border border-white/10">
+        <DocumentsIcon className="w-4 h-4 text-purple-400" />
+        {DOCS_CONFIG.messages.stats.total} <strong className="text-white">{documentCount}</strong>{DOCS_CONFIG.messages.stats.documents}
       </span>
-      <span className="flex items-center gap-2 bg-white px-5 py-3 rounded-full shadow-md border border-purple-200">
-        <CategoriesIcon className="w-4 h-4 text-purple-600" />
-        <strong className="text-gray-900">{categoryCount}</strong>{DOCS_CONFIG.messages.stats.categories}
+      <span className="flex items-center gap-2 bg-white/5 px-5 py-3 rounded-full shadow-md border border-white/10">
+        <CategoriesIcon className="w-4 h-4 text-purple-400" />
+        <strong className="text-white">{categoryCount}</strong>{DOCS_CONFIG.messages.stats.categories}
       </span>
     </div>
   );
