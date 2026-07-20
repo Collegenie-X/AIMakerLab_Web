@@ -4,43 +4,39 @@ import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { useHomeContent } from "./home/hooks/useHomeContent";
 import { HeroSection } from "./home/sections/HeroSection";
-import { IntroVideoSection } from "./home/sections/IntroVideoSection";
+import { ImpactStatsSection } from "./home/sections/ImpactStatsSection";
+import { PhilosophySection } from "./home/sections/PhilosophySection";
+import { LearningPathSection } from "./home/sections/LearningPathSection";
+import { ComparisonSection } from "./home/sections/ComparisonSection";
+import { PhysicalAiSection } from "./home/sections/PhysicalAiSection";
 import { FeaturesSection } from "./home/sections/FeaturesSection";
+import { DevProcessSection } from "./home/sections/DevProcessSection";
 import { CurriculumSection } from "./home/sections/CurriculumSection";
-import { QuickLinksSection } from "./home/sections/QuickLinksSection";
+import { OutsourcingSection } from "./home/sections/OutsourcingSection";
 import { RecommendedKitsSection } from "./home/sections/RecommendedKitsSection";
-import { RecentInquiriesSection } from "./home/sections/RecentInquiriesSection";
-import { GallerySection } from "./home/sections/GallerySection";
 import { CtaSection } from "./home/sections/CtaSection";
-import { OutreachStatsSection } from "./home/sections/OutreachStatsSection";
 
-/**
- * 홈페이지
- * JSON 파일에서 컨텐츠를 불러와 표시합니다.
- */
 export default function HomePage() {
   const { content, isLoading, error } = useHomeContent();
 
-  // 로딩 상태
   if (isLoading) {
     return (
-      <div className="flex min-h-screen flex-col">
+      <div className="flex min-h-screen flex-col bg-gray-950">
         <Header />
         <div className="flex-1 flex items-center justify-center">
-          <p className="text-gray-500">로딩 중...</p>
+          <p className="text-white/50">로딩 중...</p>
         </div>
         <Footer />
       </div>
     );
   }
 
-  // 에러 상태
   if (error || !content) {
     return (
-      <div className="flex min-h-screen flex-col">
+      <div className="flex min-h-screen flex-col bg-gray-950">
         <Header />
         <div className="flex-1 flex items-center justify-center">
-          <p className="text-red-500">오류: {error?.message || '컨텐츠를 불러올 수 없습니다'}</p>
+          <p className="text-red-400">오류: {error?.message || '컨텐츠를 불러올 수 없습니다'}</p>
         </div>
         <Footer />
       </div>
@@ -48,20 +44,22 @@ export default function HomePage() {
   }
 
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-screen flex-col bg-gray-950">
       <Header />
 
-      <HeroSection text={content.hero} />
-      {/* <IntroVideoSection text={content.introVideo} /> */}
+      <HeroSection />
+      <ImpactStatsSection />
+      <PhysicalAiSection />
+      <PhilosophySection />
+      <LearningPathSection />
       <FeaturesSection text={content.features} />
-      {/* <QuickLinksSection /> */}
+      <DevProcessSection />
+      <ComparisonSection />
       <CurriculumSection text={content.curriculum} />
+      <OutsourcingSection />
       <RecommendedKitsSection />
-      <RecentInquiriesSection />
-      <GallerySection />
-      <OutreachStatsSection text={content.outreach} />
       <CtaSection />
-      
+
       <Footer />
     </div>
   );

@@ -1,96 +1,158 @@
 "use client";
-import { Button } from "@/components/ui/buttons/button";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
-import type { HomeTextConfig } from "../types";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, type CarouselApi } from "@/components/ui/data-display/carousel";
-import { useEffect, useState } from "react";
+import { Button } from "@/components/ui/buttons/button";
+import { ArrowRight, Sparkles } from "lucide-react";
 
-type HeroSectionProps = {
-  text: HomeTextConfig["hero"];
-};
+const tags = [
+  { emoji: "🎯", label: "기획력" },
+  { emoji: "🎵", label: "AI 오케스트레이션" },
+  { emoji: "🏗️", label: "아키텍처 설계" },
+  { emoji: "🐛", label: "디버깅" },
+];
 
-export function HeroSection({ text }: HeroSectionProps) {
-  const slides = text.slides ?? [];
-  const carouselCfg = text.carousel ?? { autoplay: true, intervalMs: 4000, indicators: true, pauseOnHover: true };
-  const [api, setApi] = useState<CarouselApi | null>(null);
-  const [selectedIndex, setSelectedIndex] = useState(0);
-
-  useEffect(() => {
-    if (!api) return;
-    const onSelect = () => setSelectedIndex(api.selectedScrollSnap());
-    api.on("select", onSelect);
-    onSelect();
-    return () => {
-      api.off("select", onSelect as any);
-    };
-  }, [api]);
-
-  useEffect(() => {
-    if (!api || !carouselCfg.autoplay) return;
-    let raf: number;
-    let timeout: NodeJS.Timeout;
-    const play = () => {
-      timeout = setTimeout(() => {
-        api.scrollNext();
-        raf = requestAnimationFrame(play);
-      }, Math.max(1000, carouselCfg.intervalMs || 4000));
-    };
-    play();
-    return () => {
-      cancelAnimationFrame(raf);
-      clearTimeout(timeout);
-    };
-  }, [api, carouselCfg.autoplay, carouselCfg.intervalMs]);
+function FloatingShapes() {
   return (
-    <section className="relative overflow-hidden bg-gray-900">
-      <Carousel className="relative" opts={{ loop: true }} setApi={setApi as any}>
-        <CarouselContent>
-          {slides.map((s, idx) => (
-            <CarouselItem key={s.img + idx}>
-              <div className="relative h-[60vh] min-h-[420px] w-full">
-                <img src={s.img} alt={s.title} className="absolute inset-0 h-full w-full object-cover" />
-                <div className="absolute inset-0 bg-black/50" />
-                <div className="relative z-10 flex h-full items-center">
-                  <div className="container mx-auto px-4">
-                    <div className="max-w-2xl">
-                      <h1 className="mb-4 text-4xl font-bold text-white md:text-5xl">{s.title}</h1>
-                      <p className="mb-6 text-lg text-white/90 md:text-xl">{s.description}</p>
-                      {s.ctaHref && s.ctaLabel && (
-                        <Button size="lg" className="bg-white text-gray-900 hover:bg-gray-100" asChild>
-                          <Link href={s.ctaHref}>
-                            {s.ctaLabel}
-                            <ArrowRight className="ml-2 h-5 w-5" />
-                          </Link>
-                        </Button>
-                      )}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-        <CarouselPrevious className="left-4 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white" />
-        <CarouselNext className="right-4 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white" />
-      </Carousel>
-      {carouselCfg.indicators && (
-        <div className="pointer-events-none absolute bottom-6 left-1/2 z-10 -translate-x-1/2">
-          <div className="flex items-center gap-2">
-            {slides.map((_, i) => (
-              <span
-                key={i}
-                className={`h-2 rounded-full transition-all ${
-                  selectedIndex === i ? 'w-6 bg-blue-500' : 'w-2 bg-white/70'
-                }`}
-              />
-            ))}
-          </div>
-        </div>
-      )}
-      <div className="absolute -bottom-1 left-0 right-0 h-12 bg-gradient-to-t from-white to-transparent" />
-    </section>
+    <div className="pointer-events-none absolute inset-0 overflow-hidden">
+      {/* Hexagon - top right */}
+      <svg viewBox="0 0 120 120" className="hero-float absolute -right-6 top-[15%] h-32 w-32 opacity-[0.07]" style={{ animationDelay: "0s" }}>
+        <path d="M60 10L105 35V85L60 110L15 85V35L60 10Z" stroke="url(#hex1)" strokeWidth="2" fill="none" />
+        <path d="M60 25L90 42V78L60 95L30 78V42L60 25Z" stroke="url(#hex1)" strokeWidth="1" fill="url(#hex1)" fillOpacity="0.1" />
+        <defs><linearGradient id="hex1" x1="0" y1="0" x2="120" y2="120"><stop stopColor="#a78bfa"/><stop offset="1" stopColor="#22d3ee"/></linearGradient></defs>
+      </svg>
+
+      {/* Code brackets - left */}
+      <svg viewBox="0 0 100 100" className="hero-float absolute left-[5%] top-[30%] h-24 w-24 opacity-[0.08]" style={{ animationDelay: "1.5s" }}>
+        <path d="M35 20L15 50L35 80" stroke="#818cf8" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+        <path d="M65 20L85 50L65 80" stroke="#22d3ee" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+        <line x1="55" y1="15" x2="45" y2="85" stroke="#c084fc" strokeWidth="2" strokeLinecap="round" opacity="0.6" />
+      </svg>
+
+      {/* Circuit pattern - bottom left */}
+      <svg viewBox="0 0 160 160" className="hero-float absolute -left-8 bottom-[20%] h-40 w-40 opacity-[0.06]" style={{ animationDelay: "3s" }}>
+        <circle cx="40" cy="40" r="4" fill="#818cf8" />
+        <circle cx="120" cy="40" r="4" fill="#22d3ee" />
+        <circle cx="40" cy="120" r="4" fill="#c084fc" />
+        <circle cx="120" cy="120" r="4" fill="#818cf8" />
+        <circle cx="80" cy="80" r="6" fill="url(#circ1)" />
+        <path d="M44 40h32L80 74M80 86L80 116M80 86l36-42M44 120h32" stroke="url(#circ1)" strokeWidth="1.5" fill="none" opacity="0.6" />
+        <defs><linearGradient id="circ1" x1="0" y1="0" x2="160" y2="160"><stop stopColor="#818cf8"/><stop offset="1" stopColor="#22d3ee"/></linearGradient></defs>
+      </svg>
+
+      {/* Atom/orbit - right middle */}
+      <svg viewBox="0 0 120 120" className="hero-float absolute right-[8%] bottom-[35%] h-28 w-28 opacity-[0.07]" style={{ animationDelay: "2s" }}>
+        <ellipse cx="60" cy="60" rx="50" ry="20" stroke="#c084fc" strokeWidth="1.5" fill="none" transform="rotate(-30 60 60)" />
+        <ellipse cx="60" cy="60" rx="50" ry="20" stroke="#818cf8" strokeWidth="1.5" fill="none" transform="rotate(30 60 60)" />
+        <ellipse cx="60" cy="60" rx="50" ry="20" stroke="#22d3ee" strokeWidth="1.5" fill="none" transform="rotate(90 60 60)" />
+        <circle cx="60" cy="60" r="5" fill="url(#atom1)" />
+        <defs><radialGradient id="atom1"><stop stopColor="#c084fc"/><stop offset="1" stopColor="#818cf8"/></radialGradient></defs>
+      </svg>
+
+      {/* Floating emojis */}
+      <span className="hero-float absolute left-[18%] top-[15%] text-2xl opacity-20" style={{ animationDelay: "0.5s" }}>💡</span>
+      <span className="hero-float absolute right-[22%] top-[10%] text-xl opacity-15" style={{ animationDelay: "2.5s" }}>🚀</span>
+      <span className="hero-float absolute left-[38%] bottom-[18%] text-lg opacity-10" style={{ animationDelay: "4s" }}>✨</span>
+      <span className="hero-float absolute right-[12%] bottom-[22%] text-xl opacity-15" style={{ animationDelay: "1s" }}>🤖</span>
+      <span className="hero-float absolute left-[60%] top-[8%] text-lg opacity-10" style={{ animationDelay: "3s" }}>⚡</span>
+    </div>
   );
 }
 
+export function HeroSection() {
+  return (
+    <section className="relative flex min-h-screen items-center overflow-hidden bg-gray-950">
+      <div className="ai-glow pointer-events-none absolute -left-40 -top-40 h-[600px] w-[600px] rounded-full bg-violet-600/20 blur-[120px]" />
+      <div
+        className="ai-glow pointer-events-none absolute -bottom-40 -right-40 h-[500px] w-[500px] rounded-full bg-indigo-500/15 blur-[100px]"
+        style={{ animationDelay: "2s" }}
+      />
+      <div
+        className="ai-glow pointer-events-none absolute left-1/2 top-1/4 h-72 w-72 -translate-x-1/2 rounded-full bg-cyan-400/10 blur-[80px]"
+        style={{ animationDelay: "4s" }}
+      />
+      <div className="ai-grid-bg pointer-events-none absolute inset-0 opacity-30" />
+      <div className="star-field pointer-events-none absolute inset-0" />
+      <FloatingShapes />
 
+      <div className="container relative mx-auto px-4 py-20">
+        <div className="mx-auto max-w-4xl text-center">
+          <div
+            className="hero-slide-up mb-8 inline-flex items-center gap-2 rounded-full border border-violet-400/30 bg-violet-500/10 px-5 py-2 font-mono text-sm tracking-wide text-violet-300"
+          >
+            <span className="ai-blink h-1.5 w-1.5 rounded-full bg-violet-400" />
+            AI MAKER LAB · VIBE CODING EDUCATION ✨
+          </div>
+
+          <h1
+            className="hero-slide-up mb-6 text-4xl font-extrabold leading-tight text-white md:text-6xl lg:text-7xl"
+            style={{ animationDelay: "0.1s" }}
+          >
+            AI 바이브 코딩으로
+            <br />
+            <span className="ai-gradient-text">미래 교육</span>을 시작하다 🚀
+          </h1>
+
+          <p
+            className="hero-slide-up mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-white/60 md:text-xl"
+            style={{ animationDelay: "0.2s" }}
+          >
+            코딩을 잘하는 사람이 아니라,{" "}
+            <span className="text-white/90 font-medium">전공 지식 + AI를 쓸 줄 아는 사람</span>이
+            이기는 시대.
+            <br className="hidden md:block" />
+            아두이노·앱 인벤터·라즈베리파이, 모든 수업에 바이브 코딩을 적용합니다.
+          </p>
+
+          <div
+            className="hero-slide-up mb-12 flex flex-wrap justify-center gap-3"
+            style={{ animationDelay: "0.3s" }}
+          >
+            {tags.map(({ emoji, label }) => (
+              <span
+                key={label}
+                className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/70 backdrop-blur-sm"
+              >
+                <span className="text-base">{emoji}</span>
+                {label}
+              </span>
+            ))}
+          </div>
+
+          <div
+            className="hero-slide-up flex flex-col items-center gap-4 sm:flex-row sm:justify-center"
+            style={{ animationDelay: "0.4s" }}
+          >
+            <Button
+              size="lg"
+              className="group bg-gradient-to-r from-violet-600 via-indigo-500 to-cyan-400 px-8 text-white shadow-xl shadow-violet-500/30 hover:shadow-violet-500/50"
+              asChild
+            >
+              <Link href="/curriculum/vive-coding">
+                📚 커리큘럼 보기
+                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+              </Link>
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-white/20 px-8 text-white hover:bg-white/10"
+              asChild
+            >
+              <Link href="/inquiry/online">
+                💬 수업 문의하기
+              </Link>
+            </Button>
+          </div>
+
+          <div
+            className="hero-slide-up mt-20 text-sm text-white/30"
+            style={{ animationDelay: "0.5s" }}
+          >
+            👇 스크롤하여 더 알아보기
+          </div>
+        </div>
+      </div>
+
+      <div className="absolute -bottom-1 left-0 right-0 h-32 bg-gradient-to-t from-gray-950 to-transparent" />
+    </section>
+  );
+}

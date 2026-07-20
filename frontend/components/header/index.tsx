@@ -17,7 +17,7 @@ import { getCurrentUser } from "@/lib/auth/email-verification"
 import { headerBrand, headerNavSections, headerUIConfig } from "@/components/header/config"
 import type { HeaderNavItem, HeaderNavSection } from "@/components/header/config"
 import { useEffect, useState } from "react"
-import { ArrowUp, Code, Cpu, CircuitBoard, Smartphone, Lightbulb, School, CalendarDays, Calendar, Bell, Box, Video, Calculator, Image, MessageSquare, Info, MapPin, BookOpen, HelpCircle, Package, Images, Building, Briefcase, Scale, GraduationCap, FileSearch } from "lucide-react"
+import { ArrowUp, Code, Cpu, CircuitBoard, Smartphone, Lightbulb, School, CalendarDays, Calendar, Bell, Box, Video, Calculator, Image, MessageSquare, Info, MapPin, BookOpen, HelpCircle, Package, Images, Building, Briefcase, Scale, GraduationCap, FileSearch, Rocket } from "lucide-react"
 import { Button } from "@/components/ui/buttons/button"
 import { themeText, themeColors } from "@/theme"
 
@@ -81,18 +81,19 @@ export function Header() {
       case "Scale": return <Scale {...iconProps} />
       case "GraduationCap": return <GraduationCap {...iconProps} />
       case "FileSearch": return <FileSearch {...iconProps} />
+      case "Rocket": return <Rocket {...iconProps} />
       default: return null
     }
   }
 
   return (
-    <header className="sticky top-0 z-[10] w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
+    <header className="sticky top-0 z-[10] w-full border-b border-white/10 bg-gray-950/90 backdrop-blur supports-[backdrop-filter]:bg-gray-950/70">
       <div className="mx-auto max-w-7xl flex h-20 items-center justify-between px-4">
         <div className="flex items-center gap-4">
           <MobileDrawer />
           <Link href="/" className="flex items-center space-x-2">
-            <span className={`${themeText.brandTitle} ${themeColors.brandPrimary}`}>{headerBrand.primary}</span>
-            <span className={`${themeText.brandTitle} ${themeColors.brandSecondary}`}>{headerBrand.secondary}</span>
+            <span className="text-xl font-bold bg-gradient-to-r from-violet-400 to-indigo-400 bg-clip-text text-transparent">{headerBrand.primary}</span>
+            <span className="text-xl font-bold text-white">{headerBrand.secondary}</span>
           </Link>
         </div>
 
@@ -100,12 +101,12 @@ export function Header() {
           <NavigationMenuList className="flex gap-3">
             {headerNavSections.map((section: HeaderNavSection) => (
             <NavigationMenuItem key={section.title}>
-                <NavigationMenuTrigger className={`text-base font-medium ${themeColors.body}`}>
+                <NavigationMenuTrigger className="text-base font-medium text-white/80 hover:text-white">
                   <span>{section.title}</span>
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <div
-                    className="p-2 bg-white"
+                    className="p-2 bg-gray-900 border border-white/10 rounded-lg"
                     style={
                       section.width
                         ? { width: typeof section.width === "number" ? `${section.width}px` : `${section.width}px` }
@@ -118,16 +119,16 @@ export function Header() {
                           <NavigationMenuLink asChild>
                             <Link
                               href={item.href}
-                              className="block select-none no-underline outline-none transition-colors hover:bg-gray-50 rounded-md"
+                              className="block select-none no-underline outline-none transition-colors hover:bg-white/10 rounded-md"
                             >
                               <div className="flex items-center p-1">
-                                <div className="flex items-center justify-center pl-2 w-8 h-8 mr-3 rounded-md border border-gray-200">
+                                <div className="flex items-center justify-center pl-2 w-8 h-8 mr-3 rounded-md border border-white/20 text-violet-400">
                                   {renderIcon(item.icon, 'sm')}
                                 </div>
                                 <div>
-                                  <div className="text-sm font-medium text-gray-900">{item.label}</div>
+                                  <div className="text-sm font-medium text-white">{item.label}</div>
                                   {item.description && (
-                                    <div className="text-gray-500" style={{ fontSize: "11px" }}>
+                                    <div className="text-white/50" style={{ fontSize: "11px" }}>
                                       {item.description}
                                     </div>
                                   )}

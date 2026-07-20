@@ -12,10 +12,27 @@
     "views": 234,
     "likes": 45,
     "projectDetails": "라즈베리파이와 다양한 센서를 활용하여 음성으로 집안의 조명, 온도, 습도를 제어할 수 있는 스마트 홈 시스템을 구현했습니다. Google Assistant API를 연동하여 자연어 처리가 가능하며, 모바일 앱으로도 원격 제어가 가능합니다.",
-    "images": ["/gallery/images/smart-home-iot-device.jpg", "/gallery/images/raspberry-pi-computer-iot.jpg"],
-    "tags": ["라즈베리파이", "IoT", "음성인식", "스마트홈"],
-    "techStack": ["Python", "Raspberry Pi", "Google Assistant API", "MQTT"],
-    "tools": ["Raspbian OS", "VS Code", "Home Assistant"],
+    "images": [
+      "/gallery/images/smart-home-iot-device.jpg",
+      "/gallery/images/raspberry-pi-computer-iot.jpg"
+    ],
+    "tags": [
+      "라즈베리파이",
+      "IoT",
+      "음성인식",
+      "스마트홈"
+    ],
+    "techStack": [
+      "Python",
+      "Raspberry Pi",
+      "Google Assistant API",
+      "MQTT"
+    ],
+    "tools": [
+      "Raspbian OS",
+      "VS Code",
+      "Home Assistant"
+    ],
     "difficulty": "중급",
     "duration": "3개월",
     "features": [
@@ -26,7 +43,8 @@
     ],
     "challenges": "여러 센서를 동시에 제어하고 음성 인식의 정확도를 높이는 것이 어려웠습니다.",
     "learnings": "IoT 통신 프로토콜(MQTT)과 API 연동 방법을 배웠고, 실제 하드웨어와 소프트웨어를 통합하는 경험을 했습니다.",
-    "grade": "고1"
+    "grade": "고1",
+    "source": "student"
   },
   {
     "type": "work",
@@ -41,10 +59,25 @@
     "views": 189,
     "likes": 38,
     "projectDetails": "앱 인벤터로 제작한 환경 보호 앱입니다. 카메라로 쓰레기를 촬영하면 AI가 자동으로 분류하여 어떤 쓰레기통에 버려야 하는지 알려줍니다. 또한 분리수거를 할 때마다 포인트가 쌓여 환경 보호 활동을 게임처럼 즐길 수 있습니다.",
-    "images": ["/gallery/images/mobile-app-interface.png", "/gallery/images/app-inventor-coding-blocks.jpg"],
-    "tags": ["앱인벤터", "AI", "환경보호", "이미지인식"],
-    "techStack": ["App Inventor", "MIT AI2", "TensorFlow Lite"],
-    "tools": ["App Inventor", "Teachable Machine"],
+    "images": [
+      "/gallery/images/mobile-app-interface.png",
+      "/gallery/images/app-inventor-coding-blocks.jpg"
+    ],
+    "tags": [
+      "앱인벤터",
+      "AI",
+      "환경보호",
+      "이미지인식"
+    ],
+    "techStack": [
+      "App Inventor",
+      "MIT AI2",
+      "TensorFlow Lite"
+    ],
+    "tools": [
+      "App Inventor",
+      "Teachable Machine"
+    ],
     "difficulty": "초급",
     "duration": "2개월",
     "features": [
@@ -55,7 +88,8 @@
     ],
     "challenges": "AI 모델 학습에 필요한 다양한 쓰레기 이미지를 수집하는 것이 어려웠습니다.",
     "learnings": "앱 개발 전 과정과 AI를 실생활 문제 해결에 적용하는 방법을 배웠습니다.",
-    "grade": "초6"
+    "grade": "초6",
+    "source": "student"
   },
   {
     "type": "work",
@@ -70,10 +104,26 @@
     "views": 312,
     "likes": 67,
     "projectDetails": "아두이노와 초음파 센서, 모터 드라이버를 활용하여 장애물을 자동으로 감지하고 회피하는 자율주행 로봇을 만들었습니다. 블루투스 모듈을 추가하여 스마트폰으로도 제어할 수 있으며, 라인 트레이싱 기능도 구현했습니다.",
-    "images": ["/gallery/images/student-robot-project.jpg", "/gallery/images/arduino-electronics-circuit.jpg"],
-    "tags": ["아두이노", "로보틱스", "자율주행", "센서"],
-    "techStack": ["Arduino", "C++", "Bluetooth"],
-    "tools": ["Arduino IDE", "블루투스 모듈 (HC-06)", "초음파 센서"],
+    "images": [
+      "/gallery/images/student-robot-project.jpg",
+      "/gallery/images/arduino-electronics-circuit.jpg"
+    ],
+    "tags": [
+      "아두이노",
+      "로보틱스",
+      "자율주행",
+      "센서"
+    ],
+    "techStack": [
+      "Arduino",
+      "C++",
+      "Bluetooth"
+    ],
+    "tools": [
+      "Arduino IDE",
+      "블루투스 모듈 (HC-06)",
+      "초음파 센서"
+    ],
     "difficulty": "중급",
     "duration": "2개월",
     "features": [
@@ -84,7 +134,8 @@
     ],
     "challenges": "센서 값을 읽고 모터를 정밀하게 제어하는 알고리즘 구현이 어려웠습니다.",
     "learnings": "센서 데이터 처리와 실시간 제어 알고리즘, 하드웨어 회로 설계를 배웠습니다.",
-    "grade": "중2"
+    "grade": "중2",
+    "source": "student"
   },
   {
     "type": "work",
@@ -99,10 +150,26 @@
     "views": 278,
     "likes": 52,
     "projectDetails": "Python과 TensorFlow를 활용하여 텍스트에서 감정을 분석하는 AI 챗봇을 개발했습니다. 사용자의 감정 상태를 파악하여 적절한 공감과 조언을 제공하며, 대화 내용을 학습하여 점점 더 자연스러운 대화가 가능합니다.",
-    "images": ["/gallery/images/ai-neural-network.png"],
-    "tags": ["Python", "AI", "감정인식", "챗봇"],
-    "techStack": ["Python", "TensorFlow", "NLTK", "Flask"],
-    "tools": ["Google Colab", "Jupyter Notebook", "Flask"],
+    "images": [
+      "/gallery/images/ai-neural-network.png"
+    ],
+    "tags": [
+      "Python",
+      "AI",
+      "감정인식",
+      "챗봇"
+    ],
+    "techStack": [
+      "Python",
+      "TensorFlow",
+      "NLTK",
+      "Flask"
+    ],
+    "tools": [
+      "Google Colab",
+      "Jupyter Notebook",
+      "Flask"
+    ],
     "difficulty": "고급",
     "duration": "4개월",
     "features": [
@@ -113,7 +180,8 @@
     ],
     "challenges": "자연어 처리와 감정 분석 모델의 정확도를 높이는 것이 가장 큰 도전이었습니다.",
     "learnings": "딥러닝 모델 학습 과정과 자연어 처리 기술, 웹 API 개발을 배웠습니다.",
-    "grade": "고2"
+    "grade": "고2",
+    "source": "student"
   },
   {
     "type": "work",
@@ -128,10 +196,28 @@
     "views": 195,
     "likes": 41,
     "projectDetails": "토양 습도 센서와 조도 센서를 활용하여 식물의 상태를 실시간으로 모니터링하고, 자동으로 물을 공급하며 LED 조명을 제어하는 스마트팜 시스템입니다. 웹 대시보드를 통해 원격으로 식물의 상태를 확인할 수 있습니다.",
-    "images": ["/gallery/images/raspberry-pi-computer-iot.jpg", "/gallery/images/arduino-electronics-circuit.jpg"],
-    "tags": ["아두이노", "IoT", "스마트팜", "센서"],
-    "techStack": ["Arduino", "Node.js", "MongoDB", "Chart.js"],
-    "tools": ["Arduino IDE", "토양 습도 센서", "릴레이 모듈", "LED 조명"],
+    "images": [
+      "/gallery/images/raspberry-pi-computer-iot.jpg",
+      "/gallery/images/arduino-electronics-circuit.jpg"
+    ],
+    "tags": [
+      "아두이노",
+      "IoT",
+      "스마트팜",
+      "센서"
+    ],
+    "techStack": [
+      "Arduino",
+      "Node.js",
+      "MongoDB",
+      "Chart.js"
+    ],
+    "tools": [
+      "Arduino IDE",
+      "토양 습도 센서",
+      "릴레이 모듈",
+      "LED 조명"
+    ],
     "difficulty": "중급",
     "duration": "3개월",
     "features": [
@@ -142,7 +228,8 @@
     ],
     "challenges": "센서 데이터를 안정적으로 수집하고 릴레이를 정확하게 제어하는 것이 어려웠습니다.",
     "learnings": "IoT 시스템 전체 구축 경험과 데이터 시각화, 자동화 제어를 배웠습니다.",
-    "grade": "중3"
+    "grade": "중3",
+    "source": "student"
   },
   {
     "type": "work",
@@ -157,10 +244,26 @@
     "views": 256,
     "likes": 48,
     "projectDetails": "LSTM 신경망을 활용하여 기존 음악 데이터를 학습하고 새로운 멜로디를 자동으로 생성하는 AI 프로그램입니다. 사용자가 장르와 분위기를 선택하면 그에 맞는 음악을 작곡해주며, MIDI 파일로 저장할 수 있습니다.",
-    "images": ["/app-inventor-coding-blocks.jpg"],
-    "tags": ["Python", "AI", "음악", "머신러닝"],
-    "techStack": ["Python", "TensorFlow", "Music21", "LSTM"],
-    "tools": ["Google Colab", "Audacity", "MIDI Editor"],
+    "images": [
+      "/app-inventor-coding-blocks.jpg"
+    ],
+    "tags": [
+      "Python",
+      "AI",
+      "음악",
+      "머신러닝"
+    ],
+    "techStack": [
+      "Python",
+      "TensorFlow",
+      "Music21",
+      "LSTM"
+    ],
+    "tools": [
+      "Google Colab",
+      "Audacity",
+      "MIDI Editor"
+    ],
     "difficulty": "고급",
     "duration": "5개월",
     "features": [
@@ -171,6 +274,189 @@
     ],
     "challenges": "MIDI 데이터 전처리와 음악적으로 자연스러운 멜로디를 생성하는 것이 어려웠습니다.",
     "learnings": "시계열 데이터 처리와 LSTM 모델 구조, 음악 이론과 AI의 결합을 배웠습니다.",
-    "grade": "고1"
+    "grade": "고1",
+    "source": "student"
+  },
+  {
+    "type": "work",
+    "id": 7,
+    "title": "LingoPang - 한글 & 영어 게임 학습",
+    "description": "두 딸을 키우는 엄마가 만든 한글·영어 학습 보조 앱",
+    "category": "앱 개발",
+    "image": "/gallery/images/lingopang.jpg",
+    "emoji": "🐥",
+    "author": "AI Maker Lab",
+    "date": "2025.06.01",
+    "views": 520,
+    "likes": 87,
+    "projectDetails": "영상이 아니라 글자 그 자체와 놀 수 있는 한글·영어 학습 앱입니다. 8단계 게임(카드→타이핑→자모 조립→쓰기→퀴즈→퍼즐→TALK→크로스워드)으로 아이가 먼저 '한번만 더!'를 외칩니다. 하루 15분, 힌트 기반으로 스스로 답을 찾는 경험이 장기 기억을 만들어줍니다. 한글 6단계(자모~사자성어)와 영어 5단계(기초 단어~여행 영어)를 지원합니다.",
+    "images": [
+      "/gallery/images/lingopang.jpg"
+    ],
+    "tags": [
+      "교육",
+      "한글",
+      "영어",
+      "게임학습",
+      "유아",
+      "웹앱"
+    ],
+    "techStack": [
+      "Next.js",
+      "TypeScript",
+      "Web Audio API"
+    ],
+    "tools": [
+      "Vercel",
+      "Google Play"
+    ],
+    "difficulty": "중급",
+    "duration": "6개월",
+    "features": [
+      "8단계 게임 학습 시스템 (카드→타이핑→자모→쓰기→퀴즈→퍼즐→TALK→크로스워드)",
+      "단계별 힌트로 스스로 답 찾기",
+      "하루 15분 잠금 시스템으로 자동 진도 관리",
+      "한글 6단계 · 영어 5단계 스테이지 맵"
+    ],
+    "challenges": "4~7세 유아의 집중력과 소근육 발달 수준에 맞는 UX를 설계하는 것이 큰 도전이었습니다.",
+    "learnings": "교육 콘텐츠를 게임화(Gamification)하는 방법과 유아 대상 UX 설계를 깊이 연구했습니다.",
+    "source": "internal"
+  },
+  {
+    "type": "work",
+    "id": 8,
+    "title": "AI R&D Simulator",
+    "description": "연구계획서를 업로드하면 AI가 연구를 시뮬레이션하는 플랫폼",
+    "category": "AI",
+    "image": "/gallery/images/ai-rnd-simulator.jpg",
+    "emoji": "🔬",
+    "author": "AI Maker Lab",
+    "date": "2025.05.15",
+    "views": 380,
+    "likes": 72,
+    "projectDetails": "GPT-4o 기반의 AI 연구개발 프로젝트 시뮬레이터입니다. 연구계획서(HWPX, DOCX, PDF)를 업로드하면 AI가 분석하여 현실적인 연구 일정을 생성하고 상세한 연구노트를 자동으로 작성합니다. 국가연구개발혁신법 제23조를 100% 준수하는 법적 검증 시스템을 내장하고 있으며, 인터랙티브 대시보드로 프로젝트 진행 상황을 한눈에 파악할 수 있습니다.",
+    "images": [
+      "/gallery/images/ai-rnd-simulator.jpg"
+    ],
+    "tags": [
+      "AI",
+      "GPT-4o",
+      "연구개발",
+      "시뮬레이션",
+      "자동화",
+      "SaaS"
+    ],
+    "techStack": [
+      "Next.js",
+      "TypeScript",
+      "OpenAI GPT-4o",
+      "Supabase"
+    ],
+    "tools": [
+      "Vercel",
+      "OpenAI API"
+    ],
+    "difficulty": "고급",
+    "duration": "4개월",
+    "features": [
+      "HWPX·DOCX·PDF 연구계획서 자동 분석",
+      "GPT-4o 기반 WBS 및 연구노트 자동 생성",
+      "국가R&D혁신법 제23조 법적 검증 시스템",
+      "인터랙티브 대시보드 (타임라인·캘린더·차트)"
+    ],
+    "challenges": "다양한 형식의 연구계획서를 정확하게 파싱하고, 법적 요구사항을 자동으로 반영하는 시스템을 구축하는 것이 어려웠습니다.",
+    "learnings": "LLM 기반 문서 분석 파이프라인과 규제 준수 자동화 시스템 설계를 깊이 학습했습니다.",
+    "source": "internal"
+  },
+  {
+    "type": "work",
+    "id": 9,
+    "title": "파도를 타라 - 투자 교육 게임",
+    "description": "차트로 매수·매도 감각을 훈련하는 투자 시뮬레이션 게임",
+    "category": "웹 개발",
+    "image": "/gallery/images/stock-wave.jpg",
+    "emoji": "📈",
+    "author": "AI Maker Lab",
+    "date": "2025.04.20",
+    "views": 450,
+    "likes": 93,
+    "projectDetails": "실제 주식 차트를 기반으로 매수·매도 타이밍을 연습할 수 있는 교육용 투자 시뮬레이션 게임입니다. AI와의 대결 모드를 통해 투자 전략을 배우고, 실시간 차트 분석 및 거래 체험이 가능합니다. 100% 무료이며 회원가입 없이 즉시 이용할 수 있습니다.",
+    "images": [
+      "/gallery/images/stock-wave.jpg"
+    ],
+    "tags": [
+      "투자교육",
+      "시뮬레이션",
+      "게임",
+      "차트분석",
+      "무료",
+      "웹앱"
+    ],
+    "techStack": [
+      "Next.js",
+      "TypeScript",
+      "Chart.js",
+      "AI"
+    ],
+    "tools": [
+      "Vercel"
+    ],
+    "difficulty": "중급",
+    "duration": "3개월",
+    "features": [
+      "실제 주식 차트 기반 매수·매도 훈련",
+      "AI 대결 모드로 투자 전략 학습",
+      "실시간 차트 분석 체험",
+      "100% 무료 · 회원가입 불필요"
+    ],
+    "challenges": "실제와 유사한 차트 데이터를 시뮬레이션하고, 직관적인 모바일 UI를 구현하는 것이 도전이었습니다.",
+    "learnings": "금융 데이터 시각화와 게이미피케이션을 결합한 교육 콘텐츠 설계를 경험했습니다.",
+    "source": "internal"
+  },
+  {
+    "type": "work",
+    "id": 10,
+    "title": "AI CareerPath - AI 진로 설계 플랫폼",
+    "description": "AI와 함께 설계하는 나만의 커리어 패스 플랫폼",
+    "category": "AI",
+    "image": "/gallery/images/ai-careerpath.jpg",
+    "emoji": "🧭",
+    "author": "AI Maker Lab",
+    "date": "2025.06.10",
+    "views": 620,
+    "likes": 105,
+    "projectDetails": "AI 시대에 맞는 5단계 커리어 여정(적성 발견 → 커리어 탐색 → 패스 설계 → 실행 계획 → 포트폴리오)을 제공하는 진로 설계 플랫폼입니다. RIASEC 적성 검사, 200개 이상의 직업 탐색, AI 협업 기반 커리어 패스 설계, 자동 포트폴리오 생성까지 원스톱으로 지원합니다. 중학생·고등학생·학부모를 주요 대상으로 하며, 기본 기능은 모두 무료입니다.",
+    "images": [
+      "/gallery/images/ai-careerpath.jpg"
+    ],
+    "tags": [
+      "AI",
+      "진로설계",
+      "커리어",
+      "적성검사",
+      "교육",
+      "플랫폼"
+    ],
+    "techStack": [
+      "Next.js",
+      "TypeScript",
+      "OpenAI API",
+      "Supabase"
+    ],
+    "tools": [
+      "Vercel",
+      "OpenAI API"
+    ],
+    "difficulty": "고급",
+    "duration": "5개월",
+    "features": [
+      "RIASEC 적성 검사 및 AI 분석 리포트",
+      "200개 이상 직업 탐색 및 커리어 패스 설계",
+      "AI 협업 기반 실행 계획 및 주간·월간 액션 관리",
+      "자동 포트폴리오 생성 (생기부·자소서 연동)"
+    ],
+    "challenges": "200개 이상의 직업 데이터를 체계적으로 구조화하고, 학년별 맞춤형 진로 가이드를 설계하는 것이 가장 큰 도전이었습니다.",
+    "learnings": "교육 도메인에서의 AI 활용 설계와 대규모 콘텐츠 기반 플랫폼 아키텍처를 심도 있게 학습했습니다.",
+    "source": "internal"
   }
 ]

@@ -2,7 +2,7 @@ import { Card } from "@/components/ui/data-display/card"
 import { useAboutSectionContent } from "../hooks/useAboutContent"
 import { Star, ExternalLink } from "lucide-react"
 import { themeText, themeColors } from "@/theme"
-import { 
+import { aboutColors, 
   projectIcons, 
   themeStyles, 
   sectionBackgrounds, 
@@ -29,11 +29,11 @@ export function ProjectsGallerySection() {
     <section className={`${sectionBackgrounds.projects} py-24`}>
       <div className="container mx-auto px-2">
         <div className="mx-auto max-w-6xl">
-          <h2 className={`mb-4 text-center ${themeText.h2} ${themeColors.heading}`}>
+          <h2 className={`mb-4 text-center ${themeText.h2} ${aboutColors.heading}`}>
             {content.heading}
           </h2>
           <div className={`mb-4 mx-auto h-1 w-24 bg-gradient-to-r ${sectionDividers.projects}`}></div>
-          <p className={`mb-16 text-center ${themeText.body} ${themeColors.muted}`}>
+          <p className={`mb-16 text-center ${themeText.body} ${aboutColors.muted}`}>
             {content.subtitle}
           </p>
 
@@ -56,9 +56,9 @@ export function ProjectsGallerySection() {
                     <div className={`mb-3 inline-block rounded-full px-3 py-1 text-sm font-semibold ${theme.badge}`}>
                       {proj.categoryBadge}
                     </div>
-                    <h3 className="mb-2 text-xl font-bold text-gray-800">{proj.title}</h3>
-                    <p className="mb-4 text-sm text-gray-600">{proj.description}</p>
-                    <div className="flex items-center gap-2 text-sm text-gray-500">
+                    <h3 className="mb-2 text-xl font-bold text-white">{proj.title}</h3>
+                    <p className="mb-4 text-sm text-gray-300">{proj.description}</p>
+                    <div className="flex items-center gap-2 text-sm text-gray-400">
                       <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
                       <span>{proj.student}</span>
                     </div>
@@ -70,7 +70,7 @@ export function ProjectsGallerySection() {
                 return (
                   <Link key={proj.id} href={proj.url}>
                     <Card
-                      className={`group overflow-hidden border-2 bg-gradient-to-br ${theme.border} from-transparent to-transparent shadow-lg transition-all hover:scale-105 hover:shadow-2xl cursor-pointer`}
+                      className={`group overflow-hidden border bg-white/5 text-gray-200 ${theme.border} shadow-lg transition-all hover:scale-105 hover:shadow-2xl cursor-pointer`}
                     >
                       {CardContent}
                     </Card>
@@ -81,7 +81,7 @@ export function ProjectsGallerySection() {
               return (
                 <Card
                   key={proj.id}
-                  className={`group overflow-hidden border-2 bg-gradient-to-br ${theme.border} from-transparent to-transparent shadow-lg transition-all hover:scale-105 hover:shadow-2xl`}
+                  className={`group overflow-hidden border bg-white/5 text-gray-200 ${theme.border} shadow-lg transition-all hover:scale-105 hover:shadow-2xl`}
                 >
                   {CardContent}
                 </Card>

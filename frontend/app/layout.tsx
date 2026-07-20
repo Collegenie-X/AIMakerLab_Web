@@ -22,12 +22,14 @@ export const metadata: Metadata = {
   description: 'AI Maker Lab - 코딩/AI/메이커 교육 전문 랩',
   generator: 'AI Maker Lab',
   icons: {
+    // SVG를 먼저 두어 지원 브라우저는 벡터를, 나머지는 PNG를 사용하게 한다
     icon: [
-      { url: '/favicon.png', type: 'image/png' },
       { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/icon-192.png', type: 'image/png', sizes: '192x192' },
+      { url: '/favicon.png', type: 'image/png', sizes: '512x512' },
     ],
     shortcut: ['/favicon.png'],
-    apple: ['/favicon.png'],
+    apple: [{ url: '/apple-touch-icon.png', sizes: '180x180' }],
   },
   applicationName: 'AI Maker Lab',
   manifest: '/site.webmanifest',

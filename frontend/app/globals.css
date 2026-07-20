@@ -4,39 +4,39 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: oklch(0.9730 0.0133 286.1503);
-  --foreground: oklch(0.3015 0.0572 282.4176);
-  --card: oklch(1.0000 0 0);
-  --card-foreground: oklch(0.3015 0.0572 282.4176);
-  --popover: oklch(1.0000 0 0);
-  --popover-foreground: oklch(0.3015 0.0572 282.4176);
-  --primary: oklch(0.5417 0.1790 288.0332);
-  --primary-foreground: oklch(1.0000 0 0);
-  --secondary: oklch(0.9174 0.0435 292.6901);
-  --secondary-foreground: oklch(0.4143 0.1039 288.1742);
-  --muted: oklch(0.9580 0.0133 286.1454);
-  --muted-foreground: oklch(0.5426 0.0465 284.7435);
-  --accent: oklch(0.9221 0.0373 262.1410);
-  --accent-foreground: oklch(0.3015 0.0572 282.4176);
+  --background: oklch(0.1743 0.0227 283.7998);
+  --foreground: oklch(0.9185 0.0257 285.8834);
+  --card: oklch(0.2284 0.0384 282.9324);
+  --card-foreground: oklch(0.9185 0.0257 285.8834);
+  --popover: oklch(0.2284 0.0384 282.9324);
+  --popover-foreground: oklch(0.9185 0.0257 285.8834);
+  --primary: oklch(0.7162 0.1597 290.3962);
+  --primary-foreground: oklch(0.1743 0.0227 283.7998);
+  --secondary: oklch(0.3139 0.0736 283.4591);
+  --secondary-foreground: oklch(0.8367 0.0849 285.9111);
+  --muted: oklch(0.2710 0.0621 281.4377);
+  --muted-foreground: oklch(0.7166 0.0462 285.1741);
+  --accent: oklch(0.3354 0.0828 280.9705);
+  --accent-foreground: oklch(0.9185 0.0257 285.8834);
   --destructive: oklch(0.6861 0.2061 14.9941);
   --destructive-foreground: oklch(1.0000 0 0);
-  --border: oklch(0.9115 0.0216 285.9625);
-  --input: oklch(0.9115 0.0216 285.9625);
-  --ring: oklch(0.5417 0.1790 288.0332);
-  --chart-1: oklch(0.5417 0.1790 288.0332);
-  --chart-2: oklch(0.7042 0.1602 288.9880);
-  --chart-3: oklch(0.5679 0.2113 276.7065);
-  --chart-4: oklch(0.6356 0.1922 281.8054);
-  --chart-5: oklch(0.4509 0.1758 279.3838);
+  --border: oklch(0.3261 0.0597 282.5832);
+  --input: oklch(0.3261 0.0597 282.5832);
+  --ring: oklch(0.7162 0.1597 290.3962);
+  --chart-1: oklch(0.7162 0.1597 290.3962);
+  --chart-2: oklch(0.6382 0.1047 274.9117);
+  --chart-3: oklch(0.7482 0.1235 244.7492);
+  --chart-4: oklch(0.7124 0.0977 186.6761);
+  --chart-5: oklch(0.7546 0.1831 346.8124);
   --radius: 0.5rem;
-  --sidebar: oklch(0.9580 0.0133 286.1454);
-  --sidebar-foreground: oklch(0.3015 0.0572 282.4176);
-  --sidebar-primary: oklch(0.5417 0.1790 288.0332);
-  --sidebar-primary-foreground: oklch(1.0000 0 0);
-  --sidebar-accent: oklch(0.9221 0.0373 262.1410);
-  --sidebar-accent-foreground: oklch(0.3015 0.0572 282.4176);
-  --sidebar-border: oklch(0.9115 0.0216 285.9625);
-  --sidebar-ring: oklch(0.5417 0.1790 288.0332);
+  --sidebar: oklch(0.2284 0.0384 282.9324);
+  --sidebar-foreground: oklch(0.9185 0.0257 285.8834);
+  --sidebar-primary: oklch(0.7162 0.1597 290.3962);
+  --sidebar-primary-foreground: oklch(0.1743 0.0227 283.7998);
+  --sidebar-accent: oklch(0.3354 0.0828 280.9705);
+  --sidebar-accent-foreground: oklch(0.9185 0.0257 285.8834);
+  --sidebar-border: oklch(0.3261 0.0597 282.5832);
+  --sidebar-ring: oklch(0.7162 0.1597 290.3962);
   --font-sans: 'Geist', 'Geist Fallback';
   --font-mono: 'Geist Mono', 'Geist Mono Fallback';
   --font-serif: 'Source Serif 4', 'Source Serif 4 Fallback';
@@ -155,6 +155,44 @@
   }
 }
 
+/* ── Home page animations ── */
+@keyframes hero-float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33%       { transform: translateY(-12px) rotate(3deg); }
+  66%       { transform: translateY(-6px) rotate(-2deg); }
+}
+
+@keyframes hero-slide-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes hero-marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@keyframes cta-orb-pulse {
+  0%, 100% { transform: scale(1) translate(0, 0); opacity: 0.15; }
+  50%       { transform: scale(1.3) translate(10px, -15px); opacity: 0.25; }
+}
+
+.hero-float {
+  animation: hero-float 6s ease-in-out infinite;
+}
+
+.hero-slide-up {
+  animation: hero-slide-up 0.6s ease-out both;
+}
+
+.hero-marquee {
+  animation: hero-marquee 22s linear infinite;
+}
+
+.cta-orb {
+  animation: cta-orb-pulse 8s ease-in-out infinite;
+}
+
 /* 커리큘럼 페이지 레이아웃 클래스 (config.ts에서 사용) */
 @layer utilities {
   .curriculum-container {
@@ -166,4 +204,107 @@
   .curriculum-container-7xl {
     @apply mx-auto max-w-7xl px-4;
   }
+}
+
+/* ── AI-style visual language ── */
+@keyframes ai-gradient-pan {
+  0%, 100% { background-position: 0% 50%; }
+  50%       { background-position: 100% 50%; }
+}
+
+@keyframes ai-glow-pulse {
+  0%, 100% { opacity: 0.35; transform: scale(1); }
+  50%       { opacity: 0.6; transform: scale(1.08); }
+}
+
+@keyframes ai-spin-slow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes ai-blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.2; }
+}
+
+.ai-gradient-text {
+  background: linear-gradient(90deg, #818cf8, #c084fc, #22d3ee, #818cf8);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: ai-gradient-pan 6s ease infinite;
+}
+
+.ai-grid-bg {
+  background-image:
+    linear-gradient(rgba(148, 163, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 255, 0.08) 1px, transparent 1px);
+  background-size: 42px 42px;
+}
+
+.ai-dot-bg {
+  background-image: radial-gradient(rgba(129, 140, 248, 0.35) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+.ai-glow {
+  animation: ai-glow-pulse 5s ease-in-out infinite;
+}
+
+.ai-spin-slow {
+  animation: ai-spin-slow 14s linear infinite;
+}
+
+.ai-blink {
+  animation: ai-blink 1.6s ease-in-out infinite;
+}
+
+.ai-glass {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.ai-glass-light {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.ai-chip {
+  @apply inline-flex items-center gap-1.5 rounded-full border border-indigo-400/30 bg-indigo-500/10 px-3 py-1 text-xs font-medium tracking-wide text-indigo-600;
+  font-family: var(--font-mono);
+}
+
+.ai-card-hover {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+.ai-card-hover:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px -12px rgba(99, 102, 241, 0.25);
+  border-color: rgba(129, 140, 248, 0.4);
+}
+
+/* ── Star field (CSS-only, no hydration issues) ── */
+.star-field {
+  background-image:
+    radial-gradient(1px 1px at 10% 15%, rgba(255,255,255,0.4) 50%, transparent 50%),
+    radial-gradient(1.5px 1.5px at 25% 45%, rgba(255,255,255,0.3) 50%, transparent 50%),
+    radial-gradient(1px 1px at 40% 8%, rgba(255,255,255,0.5) 50%, transparent 50%),
+    radial-gradient(1px 1px at 55% 72%, rgba(255,255,255,0.2) 50%, transparent 50%),
+    radial-gradient(2px 2px at 68% 25%, rgba(255,255,255,0.35) 50%, transparent 50%),
+    radial-gradient(1px 1px at 82% 55%, rgba(255,255,255,0.4) 50%, transparent 50%),
+    radial-gradient(1px 1px at 95% 85%, rgba(255,255,255,0.25) 50%, transparent 50%),
+    radial-gradient(1.5px 1.5px at 15% 78%, rgba(255,255,255,0.3) 50%, transparent 50%),
+    radial-gradient(1px 1px at 48% 38%, rgba(255,255,255,0.2) 50%, transparent 50%),
+    radial-gradient(1px 1px at 72% 62%, rgba(255,255,255,0.45) 50%, transparent 50%),
+    radial-gradient(1px 1px at 5% 50%, rgba(255,255,255,0.3) 50%, transparent 50%),
+    radial-gradient(2px 2px at 33% 92%, rgba(255,255,255,0.2) 50%, transparent 50%),
+    radial-gradient(1px 1px at 60% 18%, rgba(255,255,255,0.35) 50%, transparent 50%),
+    radial-gradient(1px 1px at 88% 42%, rgba(255,255,255,0.25) 50%, transparent 50%),
+    radial-gradient(1.5px 1.5px at 78% 88%, rgba(255,255,255,0.3) 50%, transparent 50%);
 }

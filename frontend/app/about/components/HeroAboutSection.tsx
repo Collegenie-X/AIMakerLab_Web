@@ -1,6 +1,6 @@
 import { useAboutSectionContent } from "../hooks/useAboutContent"
 import { themeText, themeColors } from "@/theme"
-import { heroIcons, sectionBackgrounds } from "../config"
+import { aboutColors, heroIcons, sectionBackgrounds } from "../config"
 
 /**
  * About 페이지 히어로 섹션
@@ -16,10 +16,10 @@ export function HeroAboutSection() {
         <div className="container relative z-5 mx-auto px-4">
           <div className="mx-auto max-w-4xl text-center">
             <div className="animate-pulse">
-              <div className="mb-8 h-24 w-full bg-gray-200 rounded"></div>
-              <div className="mb-6 h-12 w-3/4 mx-auto bg-gray-200 rounded"></div>
-              <div className="mb-4 h-6 w-2/3 mx-auto bg-gray-200 rounded"></div>
-              <div className="h-6 w-full bg-gray-200 rounded"></div>
+              <div className="mb-8 h-24 w-full bg-white/10 rounded"></div>
+              <div className="mb-6 h-12 w-3/4 mx-auto bg-white/10 rounded"></div>
+              <div className="mb-4 h-6 w-2/3 mx-auto bg-white/10 rounded"></div>
+              <div className="h-6 w-full bg-white/10 rounded"></div>
             </div>
           </div>
         </div>
@@ -46,13 +46,13 @@ export function HeroAboutSection() {
               </div>
             ))}
           </div>
-          <h1 className={`mb-6 ${themeText.h1} ${themeColors.heading}`}>
+          <h1 className={`mb-6 ${themeText.h1} ${aboutColors.heading}`}>
             {content.title}
           </h1>
-          <p className={`mb-4 ${themeText.lead} ${themeColors.subheading}`}>
+          <p className={`mb-4 ${themeText.lead} ${aboutColors.subheading}`}>
             {content.subtitle}
           </p>
-          <p className={`${themeText.body} leading-relaxed ${themeColors.body}`}>
+          <p className={`${themeText.body} leading-relaxed ${aboutColors.body}`}>
             {content.descriptions[0]}
             <br />
             {content.descriptions[1]}

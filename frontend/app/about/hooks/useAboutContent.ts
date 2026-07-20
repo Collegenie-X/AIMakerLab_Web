@@ -22,8 +22,20 @@ export type PhilosophyItem = {
   color: 'blue' | 'green' | 'pink' | 'purple'
 }
 
+export type AiVsHumanColumn = {
+  label: string
+  items: string[]
+}
+
 export type PhilosophySectionContent = {
   heading: string
+  subheading?: string
+  /** AI가 하는 것 vs 사람이 해야 하는 것 대비 블록 */
+  aiVsHuman?: {
+    heading: string
+    ai: AiVsHumanColumn
+    human: AiVsHumanColumn
+  }
   items: PhilosophyItem[]
 }
 
@@ -87,6 +99,27 @@ export type FacilitySectionContent = {
   stats: FacilityStat[]
 }
 
+export type EraItem = {
+  id: string
+  year: string
+  /** EraVisuals의 eraIcons 키 */
+  icon: string
+  color: 'blue' | 'purple' | 'green' | 'yellow' | 'pink' | 'orange'
+  /** 그 시점에 세상이 어떻게 바뀌었는지 */
+  eraTitle: string
+  eraBody: string
+  /** 그 변화에 AI Maker Lab이 어떻게 대응했는지 */
+  responseTitle: string
+  responseBody: string
+  tags: string[]
+}
+
+export type EraSectionContent = {
+  heading: string
+  subheading: string
+  items: EraItem[]
+}
+
 export type HistoryItem = { year: number; bullets: string[] }
 
 export type HistorySectionContent = {
@@ -99,6 +132,7 @@ export type AboutContent = {
   philosophy: PhilosophySectionContent
   methodology: MethodologySectionContent
   comparison: ComparisonSectionContent
+  era: EraSectionContent
   projects: ProjectsSectionContent
   brand: BrandSectionContent
   facility: FacilitySectionContent

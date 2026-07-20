@@ -67,36 +67,36 @@ export function ProjectCurriculumSection({ data }: ProjectCurriculumSectionProps
           {selectedProject && (
             <>
               {/* 프로젝트 정보 및 대표 이미지 */}
-              <div className={`${layout.containerClass} mb-8 p-6 bg-gradient-to-r from-orange-50 to-red-50 rounded-xl border-2 border-orange-200`}>
+              <div className={`${layout.containerClass} mb-8 p-6 bg-gradient-to-r from-orange-100 to-red-100 rounded-xl border-2 border-orange-300 shadow-md`}>
                 <div className="mb-4">
                   <h3 className="text-2xl font-bold text-gray-900 mb-2">
                     {selectedProject.title}
                   </h3>
-                  <Badge className="bg-orange-100 text-orange-700">
+                  <Badge className="bg-orange-500 text-white hover:bg-orange-600">
                     {selectedProject.difficulty}
                   </Badge>
                 </div>
-                
+
                 {/* 대표 이미지 3장 */}
                 <div className="grid grid-cols-3 gap-4 mt-6">
-                  <div className="aspect-video rounded-lg overflow-hidden bg-white shadow-sm">
-                    <img 
-                      src="/home/arduino-electronics-circuit.jpg" 
-                      alt="하드웨어 실습" 
+                  <div className="aspect-video rounded-lg overflow-hidden bg-white shadow-md ring-2 ring-orange-200">
+                    <img
+                      src="/home/images/arduino-electronics-circuit.jpg"
+                      alt="하드웨어 실습"
                       className="w-full h-full object-cover"
                     />
                   </div>
-                  <div className="aspect-video rounded-lg overflow-hidden bg-white shadow-sm">
-                    <img 
-                      src="/home/ai-neural-network.png" 
-                      alt="AI 연계" 
+                  <div className="aspect-video rounded-lg overflow-hidden bg-white shadow-md ring-2 ring-orange-200">
+                    <img
+                      src="/home/images/ai-neural-network.png"
+                      alt="AI 연계"
                       className="w-full h-full object-cover"
                     />
                   </div>
-                  <div className="aspect-video rounded-lg overflow-hidden bg-white shadow-sm">
-                    <img 
-                      src="/home/smart-home-iot-device.jpg" 
-                      alt="완성 프로젝트" 
+                  <div className="aspect-video rounded-lg overflow-hidden bg-white shadow-md ring-2 ring-orange-200">
+                    <img
+                      src="/home/images/smart-home-iot-device.jpg"
+                      alt="완성 프로젝트"
                       className="w-full h-full object-cover"
                     />
                   </div>
@@ -129,14 +129,14 @@ export function ProjectCurriculumSection({ data }: ProjectCurriculumSectionProps
               {selectedTab && (
                 <div>
                   {/* 탭 설명 */}
-                  <div className={`${layout.containerClass} mb-8 p-6 bg-blue-50 rounded-xl border border-blue-200`}>
+                  <div className={`${layout.containerClass} mb-8 p-6 bg-gradient-to-r from-blue-100 to-cyan-100 rounded-xl border-2 border-blue-300 shadow-md`}>
                     <div className="flex items-start gap-3">
-                      <Clock className="h-6 w-6 text-blue-600 mt-1 flex-shrink-0" />
+                      <Clock className="h-6 w-6 text-blue-700 mt-1 flex-shrink-0" />
                       <div>
                         <h3 className="text-xl font-bold text-gray-900 mb-2">
                           {selectedTab.duration} 과정
                         </h3>
-                        <p className="text-gray-700">{selectedTab.description}</p>
+                        <p className="text-gray-800 font-medium">{selectedTab.description}</p>
                       </div>
                     </div>
                   </div>
@@ -144,7 +144,7 @@ export function ProjectCurriculumSection({ data }: ProjectCurriculumSectionProps
                   {/* 모듈 목록 - 좌우 분할 레이아웃 */}
                   <div className="space-y-6">
                     {selectedTab.modules.map((module, index) => (
-                      <Card key={module.id} className={`${layout.containerClass} border-2 hover:shadow-lg transition-shadow`}>
+                      <Card key={module.id} className={`${layout.containerClass} border-2 border-orange-200 bg-gradient-to-br from-white to-orange-50 hover:shadow-xl hover:border-orange-300 transition-all`}>
                         <CardContent className="p-6">
                           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                             {/* 좌측: 설명 영역 */}
@@ -152,7 +152,7 @@ export function ProjectCurriculumSection({ data }: ProjectCurriculumSectionProps
                               <div className="flex items-start gap-4 mb-4">
                                 {/* 모듈 번호 */}
                                 <div className="flex-shrink-0">
-                                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-orange-500 to-red-600 text-white flex items-center justify-center font-bold text-xl">
+                                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-orange-400 to-red-500 text-white flex items-center justify-center font-bold text-xl shadow-lg ring-4 ring-orange-100">
                                     {index + 1}
                                   </div>
                                 </div>
@@ -163,7 +163,7 @@ export function ProjectCurriculumSection({ data }: ProjectCurriculumSectionProps
                                     <h4 className="text-xl font-bold text-gray-900">
                                       {module.title}
                                     </h4>
-                                    <Badge variant="outline" className="bg-orange-50 text-orange-700 border-orange-200 w-fit">
+                                    <Badge variant="outline" className="bg-orange-500 text-white border-orange-500 w-fit shadow-sm">
                                       <Clock className="h-3 w-3 mr-1" />
                                       {module.duration}
                                     </Badge>
@@ -172,7 +172,7 @@ export function ProjectCurriculumSection({ data }: ProjectCurriculumSectionProps
                               </div>
 
                               {module.detailDescription && (
-                                <p className="text-gray-600 mb-4">
+                                <p className="text-gray-800 font-medium mb-4">
                                   {module.detailDescription}
                                 </p>
                               )}
@@ -181,8 +181,8 @@ export function ProjectCurriculumSection({ data }: ProjectCurriculumSectionProps
                               <div className="space-y-2">
                                 {module.topics.map((topic, idx) => (
                                   <div key={idx} className="flex items-start gap-2">
-                                    <CheckCircle2 className="h-5 w-5 text-orange-600 mt-0.5 flex-shrink-0" />
-                                    <span className="text-gray-700">{topic}</span>
+                                    <CheckCircle2 className="h-5 w-5 text-orange-500 mt-0.5 flex-shrink-0" />
+                                    <span className="text-gray-800 font-medium">{topic}</span>
                                   </div>
                                 ))}
                               </div>
@@ -190,10 +190,10 @@ export function ProjectCurriculumSection({ data }: ProjectCurriculumSectionProps
 
                             {/* 우측: 대표 이미지 */}
                             <div className="flex items-center justify-center">
-                              <div className="w-full aspect-video rounded-lg overflow-hidden bg-gray-100 shadow-md">
-                                <img 
-                                  src={index % 3 === 0 ? "/home/arduino-electronics-circuit.jpg" : index % 3 === 1 ? "/home/ai-neural-network.png" : "/home/smart-home-iot-device.jpg"} 
-                                  alt={`${module.title} 이미지`} 
+                              <div className="w-full aspect-video rounded-lg overflow-hidden bg-white shadow-lg ring-2 ring-orange-200">
+                                <img
+                                  src={index % 3 === 0 ? "/home/images/arduino-electronics-circuit.jpg" : index % 3 === 1 ? "/home/images/ai-neural-network.png" : "/home/images/smart-home-iot-device.jpg"}
+                                  alt={`${module.title} 이미지`}
                                   className="w-full h-full object-cover"
                                 />
                               </div>
@@ -209,12 +209,12 @@ export function ProjectCurriculumSection({ data }: ProjectCurriculumSectionProps
           )}
 
           {/* 안내 문구 */}
-          <div className={`${layout.containerClass} mt-12 p-6 bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl border-2 border-blue-200`}>
+          <div className={`${layout.containerClass} mt-12 p-6 bg-gradient-to-r from-blue-100 to-purple-100 rounded-xl border-2 border-blue-300 shadow-md`}>
             <div className="text-center">
               <h3 className="text-lg font-bold text-gray-900 mb-2">
                 메이커 프로젝트 기반 학습
               </h3>
-              <p className="text-sm text-gray-700">
+              <p className="text-sm text-gray-800 font-medium">
                 각 프로젝트는 IoT 기초 → 원격 제어 → AI 연계 → 서버 구축 순서로 진행됩니다.
                 3시간 과정은 1-2단계, 6시간 과정은 1-3단계, 12시간 과정은 전체 4단계를 학습합니다.
               </p>

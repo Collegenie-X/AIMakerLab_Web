@@ -27,6 +27,13 @@ type BaseMetadata = {
 // ============================================================================
 
 /**
+ * 작품 구분
+ * - student: 학생 작품 (수업/교육 과정에서 학생이 직접 제작)
+ * - internal: 내부 작품 (AI Maker Lab 내부/강사진 제작 샘플, 시연용 프로젝트)
+ */
+export type WorkSource = 'student' | 'internal'
+
+/**
  * 학생 작품 아이템
  * - 기술 중심의 프로젝트
  */
@@ -35,7 +42,8 @@ export type WorkItem = BaseMetadata & {
   description: string // 한 줄 소개
   category: string // 기술 카테고리 (IoT, AI, 로보틱스, 앱 개발 등)
   image: string // 대표 이미지
-  
+  source?: WorkSource // 작품 구분 (학생 작품 / 내부 작품), 미지정 시 'student'로 취급
+
   // 작품 전용 필드
   projectDetails: string // 프로젝트 상세 설명
   techStack?: string[] // 사용 기술 (Python, 아두이노, 라즈베리파이 등)

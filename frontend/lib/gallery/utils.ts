@@ -3,7 +3,7 @@
  * - 공통 로직 및 헬퍼 함수
  */
 
-import type { GalleryItem, WorkItem, ReviewItem, GalleryType, isWorkItem, isReviewItem } from './types'
+import type { GalleryItem, WorkItem, ReviewItem, GalleryType, WorkSource, isWorkItem, isReviewItem } from './types'
 
 // ============================================================================
 // 카테고리 관련
@@ -84,6 +84,20 @@ export function filterByCategory(items: GalleryItem[], category: string): Galler
     return items
   }
   return items.filter((item) => item.category === category)
+}
+
+/**
+ * 작품 구분(학생 작품 / 내부 작품)으로 필터링
+ * - 작품(work)에만 의미가 있으며, source가 없으면 'student'로 간주
+ */
+export function filterBySource(items: GalleryItem[], source: WorkSource | 'all'): GalleryItem[] {
+  if (!source || source === 'all') {
+    return items
+  }
+  return items.filter((item) => {
+    if (item.type !== 'work') return true
+    return (item.source || 'student') === source
+  })
 }
 
 /**

@@ -2,7 +2,7 @@ import { Card } from "@/components/ui/data-display/card"
 import { ArrowRight } from "lucide-react"
 import { useAboutSectionContent } from "../hooks/useAboutContent"
 import { themeText, themeColors } from "@/theme"
-import { 
+import { aboutColors, 
   methodologyIcons, 
   themeStyles, 
   sectionBackgrounds, 
@@ -27,7 +27,7 @@ export function MethodologySection() {
     <section className={`${sectionBackgrounds.methodology} py-24`}>
       <div className="container mx-auto px-4">
         <div className="mx-auto max-w-7xl">
-          <h2 className={`mb-4 text-center ${themeText.h2} ${themeColors.heading}`}>
+          <h2 className={`mb-4 text-center ${themeText.h2} ${aboutColors.heading}`}>
             {content.heading}
           </h2>
           <div className={`mb-16 mx-auto h-1 w-24 bg-gradient-to-r ${sectionDividers.methodology}`}></div>
@@ -42,7 +42,7 @@ export function MethodologySection() {
                 const theme = themeStyles[color]
                 
                 return (
-                  <Card key={step.order} className={`border-2 p-6 text-center shadow-lg ${theme.border} bg-gradient-to-br ${theme.bgGradient}`}>
+                  <Card key={step.order} className={`border bg-white/5 p-6 text-center text-gray-200 shadow-lg ${theme.border} bg-gradient-to-br ${theme.bgGradient}`}>
                     <div className="mb-4 flex justify-center">
                       <div className={`flex h-20 w-20 items-center justify-center rounded-full ${theme.circleBg}`}>
                         <Icon className={`h-10 w-10 ${theme.text}`} />
@@ -68,7 +68,7 @@ export function MethodologySection() {
                 
                 return (
                   <div key={step.order} className="flex items-center gap-6">
-                    <Card className={`flex-1 min-w-[200px] max-w-[240px] border-2 p-6 text-center shadow-lg ${theme.border} bg-gradient-to-br ${theme.bgGradient}`}>
+                    <Card className={`flex-1 min-w-[200px] max-w-[240px] border bg-white/5 p-6 text-center text-gray-200 shadow-lg ${theme.border} bg-gradient-to-br ${theme.bgGradient}`}>
                       <div className="mb-4 flex justify-center">
                         <div className={`flex h-20 w-20 items-center justify-center rounded-full ${theme.circleBg}`}>
                           <Icon className={`h-10 w-10 ${theme.text}`} />

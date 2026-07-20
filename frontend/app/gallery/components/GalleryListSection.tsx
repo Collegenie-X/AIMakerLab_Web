@@ -1,8 +1,8 @@
 "use client"
 
 import { useState, useMemo } from "react"
-import { useGalleryItems, useUserGalleryItems, type GalleryType } from "@/lib/gallery"
-import { extractCategories, filterByCategory, sortGalleryItems } from "@/lib/gallery"
+import { useGalleryItems, useUserGalleryItems, type GalleryType, type WorkSource } from "@/lib/gallery"
+import { extractCategories, filterByCategory, filterBySource, sortGalleryItems } from "@/lib/gallery"
 import { Button } from "@/components/ui/buttons/button"
 import { Plus } from "lucide-react"
 import { GalleryCard } from "./GalleryCard"
@@ -14,6 +14,8 @@ import type { GalleryItem } from "@/lib/gallery"
 
 type Props = {
   type: GalleryType
+  /** 작품 구분(학생 작품/내부 작품) 필터 - 상위(Hero)에서 제어되어 전달됨. works 타입에서만 사용 */
+  sourceFilter?: WorkSource | "all"
 }
 
 /**
@@ -21,7 +23,7 @@ type Props = {
  * - React Query로 데이터 로딩
  * - 카테고리 필터링 및 정렬
  */
-export function GalleryListSection({ type }: Props) {
+export function GalleryListSection({ type, sourceFilter = "all" }: Props) {
   const [selectedItem, setSelectedItem] = useState<GalleryItem | null>(null)
   const [selectedCategory, setSelectedCategory] = useState<string>("all")
   const [sortBy, setSortBy] = useState<"latest" | "popular" | "views">("latest")
@@ -31,18 +33,24 @@ export function GalleryListSection({ type }: Props) {
   // React Query로 데이터 로딩
   const { data: publicItems = [], isLoading, error } = useGalleryItems(type)
   const { data: userItems = [] } = useUserGalleryItems(type)
-  
+
   // 공개 아이템 + 사용자 아이템 합치기
   const items = useMemo(() => [...publicItems, ...userItems], [publicItems, userItems])
 
+  // 작품 구분(학생 작품 / 내부 작품)으로 먼저 필터링 - 작품 페이지에서만 사용
+  const sourceFilteredItems = useMemo(
+    () => (type === "works" ? filterBySource(items, sourceFilter) : items),
+    [items, type, sourceFilter]
+  )
+
   // 카테고리 목록 추출
-  const categories = useMemo(() => extractCategories(items), [items])
+  const categories = useMemo(() => extractCategories(sourceFilteredItems), [sourceFilteredItems])
 
   // 필터링 및 정렬된 아이템
   const filteredAndSortedItems = useMemo(() => {
-    const filtered = filterByCategory(items, selectedCategory)
+    const filtered = filterByCategory(sourceFilteredItems, selectedCategory)
     return sortGalleryItems(filtered, sortBy)
-  }, [items, selectedCategory, sortBy])
+  }, [sourceFilteredItems, selectedCategory, sortBy])
 
   // 로딩 상태
   if (isLoading) {
@@ -90,7 +98,7 @@ export function GalleryListSection({ type }: Props) {
     return (
       <>
         <GalleryEmptyState type={type} />
-        
+
         {/* 등록 플로팅 버튼 */}
         <Button
           onClick={handleCreate}

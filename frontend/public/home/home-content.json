@@ -5,25 +5,25 @@
   "hero": {
     "slides": [
       {
-        "img": "/home/images/raspberry-pi-computer-iot.jpg",
-        "title": "라즈베리파이 IoT",
-        "description": "임베디드와 IoT로 만드는 실전 프로젝트",
-        "ctaLabel": "과정 보기",
-        "ctaHref": "/curriculum/raspberry-pi"
-      },
-      {
-        "img": "/home/images/app-inventor-coding-blocks.jpg",
-        "title": "앱 인벤터 코딩",
-        "description": "블록 코딩으로 나만의 앱 만들기",
+        "img": "/home/images/slide-vibe-coding.svg",
+        "title": "바이브 코딩 프로젝트 교육",
+        "description": "AI와 대화하며 완성하는 나만의 실전 서비스 개발",
         "ctaLabel": "커리큘럼 보기",
-        "ctaHref": "/curriculum/app-inventor"
+        "ctaHref": "/curriculum/vive-coding"
       },
       {
-        "img": "/home/images/raspberry-pi-computer-iot.jpg",
-        "title": "라즈베리파이 IoT",
-        "description": "임베디드와 IoT로 만드는 실전 프로젝트",
-        "ctaLabel": "과정 보기",
-        "ctaHref": "/curriculum/raspberry-pi"
+        "img": "/home/images/slide-vibe-frontend.svg",
+        "title": "프론트엔드 바이브 코딩",
+        "description": "React·Next.js로 만드는 인터랙티브 웹 서비스",
+        "ctaLabel": "커리큘럼 보기",
+        "ctaHref": "/curriculum/vive-coding"
+      },
+      {
+        "img": "/home/images/slide-vibe-django.svg",
+        "title": "Django 백엔드 바이브 코딩",
+        "description": "AI와 함께 설계하는 서버, 데이터베이스, 배포까지",
+        "ctaLabel": "커리큘럼 보기",
+        "ctaHref": "/curriculum/vive-coding"
       }
     ],
     "carousel": {
@@ -40,79 +40,79 @@
     "youtubeEmbedUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ"
   },
   "features": {
-    "heading": "왜 AI Maker Lab인가요?",
-    "subheading": "체계적인 커리큘럼과 실습 중심 교육으로 실력을 키웁니다",
+    "heading": "왜 바이브 코딩인가요?",
+    "subheading": "AI 시대, 코딩을 잘하는 사람이 아니라 전공 지식 + AI를 쓸 줄 아는 사람이 이깁니다",
     "items": [
       {
-        "icon": "BookOpen",
-        "title": "체계적인 커리큘럼",
-        "desc": "기초부터 심화까지 단계별로 설계된 교육 과정"
+        "icon": "Sparkles",
+        "title": "말하면서 만드는 바이브 코딩",
+        "desc": "문법 암기 대신, AI에게 설명하고 다듬으며 완성하는 개발 방식"
       },
       {
         "icon": "Code",
-        "title": "실습 중심 교육",
-        "desc": "직접 만들고 경험하며 배우는 프로젝트 기반 학습"
+        "title": "실전 프로젝트 기반 학습",
+        "desc": "기획 → 프롬프트 설계 → 개발 → 배포까지, 진짜 서비스를 만듭니다"
       },
       {
         "icon": "Cpu",
-        "title": "최신 기술 교육",
-        "desc": "AI, IoT, 로보틱스 등 미래 기술을 선도하는 교육"
+        "title": "모든 수업에 AI 오케스트레이션",
+        "desc": "아두이노·앱 인벤터·라즈베리파이까지, AI와 함께 만드는 방식으로 전환"
       },
       {
         "icon": "Lightbulb",
-        "title": "창의력 개발",
-        "desc": "문제 해결 능력과 창의적 사고력을 키우는 교육"
+        "title": "기획력 + 문제 정의력",
+        "desc": "코딩은 AI가 합니다. 사람은 '뭘 만들지'를 정하는 힘을 키웁니다"
       },
       {
         "icon": "Users",
-        "title": "소규모 그룹 수업",
-        "desc": "개인별 맞춤 지도가 가능한 소규모 클래스 운영"
+        "title": "소규모 그룹 코칭",
+        "desc": "개인별 맞춤 피드백이 가능한 소규모 클래스 운영"
       },
       {
-        "icon": "Award",
-        "title": "전문 강사진",
-        "desc": "풍부한 경험과 전문성을 갖춘 교육 전문가"
+        "icon": "Rocket",
+        "title": "미래 교육 표준을 지향",
+        "desc": "OECD 2030·WEF 미래역량과 맞닿은 프로젝트·서술형 교육"
       }
     ]
   },
   "curriculum": {
-    "sectionBadge": "교육 프로그램",
-    "heading": "체계적인 교육 커리큘럼",
-    "subheading": "초급부터 고급까지, 단계별 맞춤 교육 프로그램",
+    "sectionBadge": "AI 바이브 코딩 교육",
+    "heading": "모든 수업에 바이브 코딩을 적용합니다",
+    "subheading": "앱 인벤터·아두이노·라즈베리파이까지, AI와 대화하며 만드는 방식으로",
     "items": [
       {
-        "href": "/curriculum/app-inventor",
+        "href": "/curriculum/vive-coding",
         "img": "/home/images/app-inventor-coding-blocks.jpg",
-        "levelBadge": "초급",
-        "title": "앱 인벤터 코딩",
-        "desc": "블록 코딩으로 나만의 앱 만들기",
+        "levelBadge": "바이브 코딩",
+        "title": "앱 인벤터 × 바이브 코딩",
+        "desc": "블록 코딩 + AI 프롬프트로 나만의 앱을 기획부터 완성까지",
         "duration": "12주 과정",
         "size": "6-8명"
       },
       {
-        "href": "/curriculum/arduino",
+        "href": "/curriculum/vive-coding",
         "img": "/home/images/arduino-electronics-circuit.jpg",
-        "levelBadge": "중급",
-        "title": "아두이노 코딩",
-        "desc": "하드웨어와 소프트웨어의 융합",
+        "levelBadge": "바이브 코딩",
+        "title": "아두이노 × 바이브 코딩",
+        "desc": "AI에게 말해서 만드는 하드웨어 제어 코드와 회로 설계",
         "duration": "16주 과정",
         "size": "6명"
       },
       {
-        "href": "/curriculum/raspberry-pi",
+        "href": "/curriculum/vive-coding",
         "img": "/home/images/raspberry-pi-computer-iot.jpg",
-        "levelBadge": "중급",
-        "title": "Raspberry Pi 코딩",
-        "desc": "IoT와 임베디드 시스템 학습",
+        "levelBadge": "바이브 코딩",
+        "title": "라즈베리파이 × 바이브 코딩",
+        "desc": "IoT·임베디드 시스템을 AI 오케스트레이션으로 설계하고 구현",
         "duration": "16주 과정",
         "size": "6명"
       },
       {
-        "href": "/curriculum/ai-education",
+        "href": "/curriculum/vive-coding",
         "img": "/home/images/ai-neural-network.png",
-        "levelBadge": "고급",
-        "title": "AI 교육 프로그램",
-        "desc": "인공지능의 원리와 실습",
+        "levelBadge": "심화",
+        "title": "프론트엔드 + Django 바이브 코딩",
+        "desc": "React·Next.js 프론트엔드와 Django 백엔드로 실전 서비스 런칭",
         "duration": "20주 과정",
         "size": "4-6명"
       }

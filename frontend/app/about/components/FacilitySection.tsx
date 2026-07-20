@@ -2,7 +2,7 @@ import { Card } from "@/components/ui/data-display/card"
 import { Sparkles, CheckCircle2 } from "lucide-react"
 import { useAboutSectionContent } from "../hooks/useAboutContent"
 import { themeText, themeColors } from "@/theme"
-import { 
+import { aboutColors, 
   facilityStatIcons, 
   themeStyles, 
   sectionBackgrounds, 
@@ -27,7 +27,7 @@ export function FacilitySection() {
     <section className={`${sectionBackgrounds.facility} py-24`}>
       <div className="container mx-auto px-4">
         <div className="mx-auto max-w-6xl">
-          <h2 className={`mb-4 text-center ${themeText.h2} ${themeColors.heading}`}>
+          <h2 className={`mb-4 text-center ${themeText.h2} ${aboutColors.heading}`}>
             {content.heading}
           </h2>
           <div className={`mb-16 mx-auto h-1 w-30 bg-gradient-to-r ${sectionDividers.facility}`}></div>
@@ -39,7 +39,7 @@ export function FacilitySection() {
               </div>
             </div>
             <div>
-              <h3 className="mb-6 text-3xl font-bold text-gray-800">
+              <h3 className="mb-6 text-3xl font-bold text-white">
                 {content.subheading.split('\n').map((line, i) => (
                   <span key={i}>
                     {line}
@@ -47,7 +47,7 @@ export function FacilitySection() {
                   </span>
                 ))}
               </h3>
-              <p className={`mb-6 leading-relaxed ${themeText.body} ${themeColors.body}`}>
+              <p className={`mb-6 leading-relaxed ${themeText.body} ${aboutColors.body}`}>
                 {content.description}
               </p>
 
@@ -56,8 +56,8 @@ export function FacilitySection() {
                   <div key={f.title} className="flex items-start gap-3">
                     <CheckCircle2 className="mt-1 h-6 w-6 flex-shrink-0 text-green-500" />
                     <div>
-                      <span className="font-semibold text-gray-800">{f.title}</span>
-                      <p className="text-sm text-gray-600">{f.description}</p>
+                      <span className="font-semibold text-white">{f.title}</span>
+                      <p className="text-sm text-gray-300">{f.description}</p>
                     </div>
                   </div>
                 ))}
@@ -73,7 +73,7 @@ export function FacilitySection() {
               return (
                 <Card 
                   key={s.label} 
-                  className={`border-2 bg-gradient-to-br p-4 text-center shadow-lg ${theme.border} ${theme.bgGradient}`}
+                  className={`border bg-white/5 bg-gradient-to-br p-4 text-center text-gray-200 shadow-lg ${theme.border} ${theme.bgGradient}`}
                 >
                   <Icon className={`mx-auto my-2 h-12 w-12 ${theme.icon}`} />
                   <div className={`text-3xl mb-[-20px] font-bold ${theme.textDark}`}>

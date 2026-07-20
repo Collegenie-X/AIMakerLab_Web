@@ -1,6 +1,6 @@
 import { useAboutSectionContent } from "../hooks/useAboutContent"
 import { themeText, themeColors } from "@/theme"
-import { sectionBackgrounds } from "../config"
+import { aboutColors, sectionBackgrounds } from "../config"
 
 /**
  * 브랜드 소개 섹션
@@ -20,17 +20,17 @@ export function BrandAboutSection() {
       <div className="container mx-auto px-4">
         <div className="mx-auto max-w-4xl text-center">
           <div className="mb-8 flex justify-center">
-            <div className="rounded-lg border-4 border-purple-300 bg-white p-8  shadow-xl">
+            <div className="rounded-lg border border-purple-400/30 bg-white/5 p-8  shadow-xl">
               <div className="flex items-center gap-3">
-                <span className="text-3xl font-bold text-purple-600">AI Maker</span>
-                <span className="text-3xl font-bold text-pink-600">Lab</span>
+                <span className="text-3xl font-bold text-purple-300">AI Maker</span>
+                <span className="text-3xl font-bold text-pink-400">Lab</span>
               </div>
             </div>
           </div>
-          <h2 className={`mb-6 ${themeText.h3} ${themeColors.heading}`}>
+          <h2 className={`mb-6 ${themeText.h3} ${aboutColors.heading}`}>
             {content.heading}
           </h2>
-          <div className={`space-y-4 ${themeText.body} leading-relaxed ${themeColors.body}`}>
+          <div className={`space-y-4 ${themeText.body} leading-relaxed ${aboutColors.body}`}>
             {content.paragraphs.map((p, idx) => (
               <p key={idx}>{p}</p>
             ))}

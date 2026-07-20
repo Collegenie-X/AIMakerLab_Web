@@ -9,12 +9,13 @@ export function IntroVideoSection({ text }: IntroVideoSectionProps) {
     <section className="py-20 bg-white">
       <div className="container mx-auto px-4">
         <div className="mb-12 text-center">
+          <div className="ai-chip mb-4">WATCH</div>
           <h2 className="mb-4 text-3xl font-bold text-gray-900">{text.heading}</h2>
           <p className="text-lg text-gray-600">{text.subheading}</p>
         </div>
 
         <div className="mx-auto max-w-5xl">
-          <div className="aspect-video overflow-hidden rounded-2xl bg-gray-900 shadow-2xl">
+          <div className="aspect-video overflow-hidden rounded-2xl bg-gray-900 shadow-2xl shadow-indigo-500/10 ring-1 ring-indigo-500/20">
             <iframe
               className="h-full w-full"
               src={text.youtubeEmbedUrl}

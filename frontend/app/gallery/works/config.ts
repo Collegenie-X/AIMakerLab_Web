@@ -57,6 +57,28 @@ export const labels = {
   error: "컨텐츠를 불러오는데 실패했습니다.",
 }
 
+/**
+ * 작품 구분(전체/학생 작품/내부 작품)별 Hero 문구
+ * - 탭 선택에 따라 상단 Hero 영역의 제목/부제가 함께 바뀝니다
+ */
+export const heroBySource: Record<"all" | "student" | "internal", { emoji: string; title: string; subtitle: string }> = {
+  all: {
+    emoji: "🎨",
+    title: "작품 갤러리",
+    subtitle: "학생들의 창의적인 프로젝트와 AI Maker Lab의 작품을 만나보세요",
+  },
+  student: {
+    emoji: "🎨",
+    title: "학생 작품",
+    subtitle: "학생들이 직접 만든 창의적이고 멋진 프로젝트를 만나보세요",
+  },
+  internal: {
+    emoji: "🏢",
+    title: "내부 작품",
+    subtitle: "AI Maker Lab이 직접 제작한 시연 및 샘플 프로젝트를 만나보세요",
+  },
+}
+
 // ========================================
 // 타입 정의
 // ========================================

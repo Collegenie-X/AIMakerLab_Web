@@ -20,7 +20,11 @@ export function GalleryCard({ item, onClick, showRating = false }: Props) {
   
   // 후기일 경우 summary, 작품일 경우 description 사용
   const description = isReview ? item.summary : item.description
-  
+
+  // 작품인 경우 내부 작품 여부 확인 (미지정 시 학생 작품으로 취급)
+  const isInternalWork = item.type === "work" && item.source === "internal"
+
+
   return (
     <div
       className="group relative cursor-pointer overflow-hidden rounded-2xl shadow-lg transition-all hover:shadow-2xl hover:-translate-y-2"
@@ -38,6 +42,13 @@ export function GalleryCard({ item, onClick, showRating = false }: Props) {
 
         {/* 이모지 배지 */}
         <div className="absolute top-4 left-4 text-5xl drop-shadow-2xl">{item.emoji}</div>
+
+        {/* 내부 작품 배지 */}
+        {isInternalWork && (
+          <div className="absolute top-4 left-24">
+            <Badge className="bg-blue-600/90 text-white backdrop-blur-sm">🏢 내부 작품</Badge>
+          </div>
+        )}
 
         {/* 카테고리 배지 */}
         <div className="absolute top-4 right-4">

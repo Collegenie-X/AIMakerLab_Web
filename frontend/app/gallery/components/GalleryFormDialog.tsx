@@ -8,7 +8,7 @@ import { Label } from "@/components/ui/forms/label"
 import { Textarea } from "@/components/ui/forms/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/forms/select"
 import { Upload, X, Star } from "lucide-react"
-import { useCreateGalleryItem, useUpdateGalleryItem, type GalleryItem, type WorkItem, type ReviewItem, type GalleryType } from "@/lib/gallery"
+import { useCreateGalleryItem, useUpdateGalleryItem, type GalleryItem, type WorkItem, type ReviewItem, type GalleryType, type WorkSource } from "@/lib/gallery"
 import { useToast } from "@/hooks/use-toast"
 
 type Props = {
@@ -41,6 +41,7 @@ export function GalleryFormDialog({ type, open, onClose, editingItem }: Props) {
   const [uploadedImages, setUploadedImages] = useState<string[]>([])
 
   // 작품 전용
+  const [source, setSource] = useState<WorkSource>("student")
   const [techStack, setTechStack] = useState("")
   const [difficulty, setDifficulty] = useState<WorkItem['difficulty']>("초급")
   const [duration, setDuration] = useState("")
@@ -73,6 +74,7 @@ export function GalleryFormDialog({ type, open, onClose, editingItem }: Props) {
       if (editingItem.type === 'work') {
         setDescription(editingItem.description)
         setDetails(editingItem.projectDetails)
+        setSource(editingItem.source || "student")
         setTechStack(editingItem.techStack?.join(", ") || "")
         setDifficulty(editingItem.difficulty || "초급")
         setDuration(editingItem.duration || "")
@@ -108,6 +110,7 @@ export function GalleryFormDialog({ type, open, onClose, editingItem }: Props) {
     setTags("")
     setEmoji("✨")
     setUploadedImages([])
+    setSource("student")
     setTechStack("")
     setDifficulty("초급")
     setDuration("")
@@ -165,6 +168,7 @@ export function GalleryFormDialog({ type, open, onClose, editingItem }: Props) {
         image: imageArray[0],
         emoji,
         author: author + (grade ? ` (${grade})` : ""),
+        source,
         projectDetails: details,
         images: imageArray,
         tags: tagsArray,
@@ -370,9 +374,22 @@ export function GalleryFormDialog({ type, open, onClose, editingItem }: Props) {
             />
           </div>
 
-          {/* 작품 전용: 기술 정보 */}
+          {/* 작품 전용: 구분 & 기술 정보 */}
           {isWorkType && (
             <>
+              <div>
+                <Label htmlFor="source">작품 구분 *</Label>
+                <Select value={source} onValueChange={(v) => setSource(v as WorkSource)}>
+                  <SelectTrigger>
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="student">🧑‍🎓 학생 작품</SelectItem>
+                    <SelectItem value="internal">🏢 내부 작품</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <Label htmlFor="techStack">사용 기술 (쉼표로 구분)</Label>

@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 600" width="1440" height="600">
+  <defs>
+    <linearGradient id="dbg1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#04120c"/>
+      <stop offset="45%" style="stop-color:#0a2e22"/>
+      <stop offset="100%" style="stop-color:#071f2a"/>
+    </linearGradient>
+    <radialGradient id="dnebA" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#34d399" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#04120c" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="dnebB" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#22d3ee" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#04120c" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="dglow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="dsoft" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="26"/>
+    </filter>
+    <filter id="dshadow" x="-30%" y="-30%" width="170%" height="180%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#00110b" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+
+  <rect width="1440" height="600" fill="url(#dbg1)"/>
+  <g filter="url(#dsoft)">
+    <ellipse cx="1100" cy="220" rx="320" ry="240" fill="url(#dnebA)"/>
+    <ellipse cx="1300" cy="420" rx="240" ry="200" fill="url(#dnebB)"/>
+  </g>
+
+  <!-- Terminal window -->
+  <g transform="translate(740, 90)" filter="url(#dshadow)">
+    <rect x="0" y="0" width="400" height="230" rx="10" fill="#0d1117" stroke="#134e4a" stroke-width="1.5"/>
+    <rect x="0" y="0" width="400" height="30" rx="10" fill="#161b22"/>
+    <circle cx="18" cy="15" r="5" fill="#ff5f57"/>
+    <circle cx="34" cy="15" r="5" fill="#ffbd2e"/>
+    <circle cx="50" cy="15" r="5" fill="#28c840"/>
+    <text x="200" y="20" text-anchor="middle" fill="#6ee7b7" font-size="10" font-family="monospace">django-admin · zsh</text>
+
+    <text x="16" y="56" fill="#34d399" font-size="11" font-family="monospace">$ python manage.py runserver</text>
+    <text x="16" y="76" fill="#94a3b8" font-size="10" font-family="monospace">Watching for file changes...</text>
+    <text x="16" y="96" fill="#94a3b8" font-size="10" font-family="monospace">Django version 5.0, using settings 'core'</text>
+    <text x="16" y="116" fill="#67e8f9" font-size="10" font-family="monospace">Starting development server at http://127.0.0.1:8000/</text>
+    <text x="16" y="146" fill="#34d399" font-size="11" font-family="monospace">$ python manage.py migrate</text>
+    <text x="16" y="166" fill="#94a3b8" font-size="10" font-family="monospace">Applying accounts.0001_initial... OK</text>
+    <text x="16" y="186" fill="#94a3b8" font-size="10" font-family="monospace">Applying projects.0002_project... OK</text>
+    <rect x="16" y="196" width="7" height="13" fill="#6ee7b7">
+      <animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+
+  <!-- DB / API schema card -->
+  <g transform="translate(920, 340)" filter="url(#dshadow)">
+    <rect width="220" height="150" rx="10" fill="#0f2419" stroke="#22c55e" stroke-width="1.5" opacity="0.95"/>
+    <text x="16" y="26" fill="#86efac" font-size="11" font-family="monospace" font-weight="bold">models.py</text>
+    <text x="16" y="50" fill="#a5f3fc" font-size="10" font-family="monospace">class User(models.Model):</text>
+    <text x="30" y="68" fill="#e2e8f0" font-size="10" font-family="monospace">email = CharField()</text>
+    <text x="16" y="90" fill="#a5f3fc" font-size="10" font-family="monospace">class Project(models.Model):</text>
+    <text x="30" y="108" fill="#e2e8f0" font-size="10" font-family="monospace">owner = ForeignKey(User)</text>
+    <text x="30" y="126" fill="#e2e8f0" font-size="10" font-family="monospace">status = CharField()</text>
+  </g>
+
+  <!-- floating labels -->
+  <g font-family="monospace" font-size="12" font-weight="600">
+    <g transform="translate(130,120)"><rect width="150" height="34" rx="17" fill="#064e3b" opacity="0.85"/><text x="75" y="22" text-anchor="middle" fill="#6ee7b7">Django REST</text></g>
+    <g transform="translate(100,190)"><rect width="150" height="34" rx="17" fill="#0e3a4f" opacity="0.85"/><text x="75" y="22" text-anchor="middle" fill="#7dd3fc">PostgreSQL</text></g>
+    <g transform="translate(160,260)"><rect width="150" height="34" rx="17" fill="#1e293b" opacity="0.85"/><text x="75" y="22" text-anchor="middle" fill="#cbd5e1">JWT Auth</text></g>
+    <g transform="translate(110,330)"><rect width="170" height="34" rx="17" fill="#3730a3" opacity="0.85"/><text x="85" y="22" text-anchor="middle" fill="#c7d2fe">GitHub Actions</text></g>
+    <g transform="translate(180,400)"><rect width="150" height="34" rx="17" fill="#155e75" opacity="0.85"/><text x="75" y="22" text-anchor="middle" fill="#67e8f9">CI/CD 배포</text></g>
+  </g>
+
+  <g fill="#6ee7b7" filter="url(#dglow)">
+    <circle cx="220" cy="80" r="2"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="3.2s" repeatCount="indefinite"/></circle>
+    <circle cx="1380" cy="120" r="2"><animate attributeName="opacity" values="0.25;0.95;0.25" dur="3.5s" repeatCount="indefinite"/></circle>
+    <circle cx="1300" cy="500" r="2.5"><animate attributeName="opacity" values="0.3;0.9;0.3" dur="3s" repeatCount="indefinite"/></circle>
+  </g>
+</svg>
