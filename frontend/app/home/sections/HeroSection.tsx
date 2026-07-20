@@ -4,10 +4,10 @@ import { Button } from "@/components/ui/buttons/button";
 import { ArrowRight, Sparkles } from "lucide-react";
 
 const tags = [
-  { emoji: "🎯", label: "기획력" },
-  { emoji: "🎵", label: "AI 오케스트레이션" },
-  { emoji: "🏗️", label: "아키텍처 설계" },
-  { emoji: "🐛", label: "디버깅" },
+  { emoji: "🔧", label: "아두이노" },
+  { emoji: "📱", label: "앱 인벤터" },
+  { emoji: "🍓", label: "라즈베리파이" },
+  { emoji: "🤖", label: "AI 바이브 코딩" },
 ];
 
 function FloatingShapes() {
@@ -47,12 +47,14 @@ function FloatingShapes() {
         <defs><radialGradient id="atom1"><stop stopColor="#c084fc"/><stop offset="1" stopColor="#818cf8"/></radialGradient></defs>
       </svg>
 
-      {/* Floating emojis */}
-      <span className="hero-float absolute left-[18%] top-[15%] text-2xl opacity-20" style={{ animationDelay: "0.5s" }}>💡</span>
+      {/* Floating emojis - Maker 중심 */}
+      <span className="hero-float absolute left-[18%] top-[15%] text-2xl opacity-20" style={{ animationDelay: "0.5s" }}>🔧</span>
       <span className="hero-float absolute right-[22%] top-[10%] text-xl opacity-15" style={{ animationDelay: "2.5s" }}>🚀</span>
-      <span className="hero-float absolute left-[38%] bottom-[18%] text-lg opacity-10" style={{ animationDelay: "4s" }}>✨</span>
+      <span className="hero-float absolute left-[38%] bottom-[18%] text-lg opacity-10" style={{ animationDelay: "4s" }}>⚙️</span>
       <span className="hero-float absolute right-[12%] bottom-[22%] text-xl opacity-15" style={{ animationDelay: "1s" }}>🤖</span>
-      <span className="hero-float absolute left-[60%] top-[8%] text-lg opacity-10" style={{ animationDelay: "3s" }}>⚡</span>
+      <span className="hero-float absolute left-[60%] top-[8%] text-lg opacity-10" style={{ animationDelay: "3s" }}>💡</span>
+      <span className="hero-float absolute left-[8%] bottom-[40%] text-xl opacity-10" style={{ animationDelay: "1.8s" }}>🍓</span>
+      <span className="hero-float absolute right-[35%] bottom-[12%] text-lg opacity-10" style={{ animationDelay: "3.5s" }}>📱</span>
     </div>
   );
 }
@@ -79,27 +81,26 @@ export function HeroSection() {
             className="hero-slide-up mb-8 inline-flex items-center gap-2 rounded-full border border-violet-400/30 bg-violet-500/10 px-5 py-2 font-mono text-sm tracking-wide text-violet-300"
           >
             <span className="ai-blink h-1.5 w-1.5 rounded-full bg-violet-400" />
-            AI MAKER LAB · VIBE CODING EDUCATION ✨
+            AI MAKER LAB · 만들면서 배우는 미래 교육 🔧
           </div>
 
           <h1
             className="hero-slide-up mb-6 text-4xl font-extrabold leading-tight text-white md:text-6xl lg:text-7xl"
             style={{ animationDelay: "0.1s" }}
           >
-            AI 바이브 코딩으로
-            <br />
-            <span className="ai-gradient-text">미래 교육</span>을 시작하다 🚀
+            <span className="ai-gradient-text">만드는 사람</span>이<br />
+            AI 시대를 앞서간다 🚀
           </h1>
 
           <p
-            className="hero-slide-up mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-white/60 md:text-xl"
+            className="hero-slide-up mx-auto mb-10 max-w-2xl break-keep text-lg leading-relaxed text-white/60 md:text-xl"
             style={{ animationDelay: "0.2s" }}
           >
-            코딩을 잘하는 사람이 아니라,{" "}
-            <span className="text-white/90 font-medium">전공 지식 + AI를 쓸 줄 아는 사람</span>이
-            이기는 시대.
-            <br className="hidden md:block" />
-            아두이노·앱 인벤터·라즈베리파이, 모든 수업에 바이브 코딩을 적용합니다.
+            아두이노·앱 인벤터·라즈베리파이로 <span className="text-white/90 font-medium">직접 만들고</span>,
+            <br />
+            AI 바이브 코딩으로 <span className="text-white/90 font-medium">더 빠르게 완성</span>합니다.
+            <br />
+            메이커에 AI가 더해질 때, 진짜 교육이 시작됩니다.
           </p>
 
           <div

@@ -26,7 +26,7 @@ export const headerBrand = {
 
 export const headerNavSections: HeaderNavSection[] = [
   {
-    title: "AI 교육 커리큘럼",
+    title: "교육 커리큘럼",
     width: 210,
     icon: "BookOpen",
     items: [
@@ -71,7 +71,7 @@ export const headerNavSections: HeaderNavSection[] = [
   },
   {
     title: "수업 문의",
-    width: 190,
+    width: 220,
     icon: "HelpCircle",
     items: [
       { 
@@ -92,16 +92,22 @@ export const headerNavSections: HeaderNavSection[] = [
       //   icon: "Calendar",
       //   description: "주말 특별 교육 과정"
       // },
-      { 
-        label: "교육 소식", 
-        href: "/inquiry/method", 
+      {
+        label: "웹 · 앱 제작",
+        href: "/?service=webapp#outsourcing",
+        icon: "Rocket",
+        description: "기획부터 배포까지 풀스택 외주 개발"
+      },
+      {
+        label: "교육 소식",
+        href: "/inquiry/method",
         icon: "Bell",
         description: "최신 교육 및 공지사항"
       },
     ],
   },
   {
-    title: "교육 제품(KIT)",
+    title: "교육 제품",
     width: 220,
     icon: "Package",
     items: [
@@ -151,26 +157,7 @@ export const headerNavSections: HeaderNavSection[] = [
     ],
   },
   {
-    title: "외주 개발",
-    width: 210,
-    icon: "Rocket",
-    items: [
-      {
-        label: "AI 교과서 제작",
-        href: "/?service=textbook#outsourcing",
-        icon: "BookOpen",
-        description: "AI 기반 맞춤형 교과서·교재 제작"
-      },
-      {
-        label: "웹 · 앱 제작",
-        href: "/?service=webapp#outsourcing",
-        icon: "Rocket",
-        description: "기획부터 배포까지 풀스택 외주 개발"
-      },
-    ],
-  },
-  {
-    title: "AI Maker 소개",
+    title: "About",
     width: 190,
     icon: "Building",
     items: [

@@ -17,9 +17,8 @@ import { getCurrentUser } from "@/lib/auth/email-verification"
 import { headerBrand, headerNavSections, headerUIConfig } from "@/components/header/config"
 import type { HeaderNavItem, HeaderNavSection } from "@/components/header/config"
 import { useEffect, useState } from "react"
-import { ArrowUp, Code, Cpu, CircuitBoard, Smartphone, Lightbulb, School, CalendarDays, Calendar, Bell, Box, Video, Calculator, Image, MessageSquare, Info, MapPin, BookOpen, HelpCircle, Package, Images, Building, Briefcase, Scale, GraduationCap, FileSearch, Rocket } from "lucide-react"
+import { ArrowUp, Code, Cpu, CircuitBoard, Smartphone, Lightbulb, School, CalendarDays, Calendar, Bell, Box, Video, Calculator, Image, MessageSquare, Info, MapPin, BookOpen, HelpCircle, Package, Images, Building, Briefcase, Scale, GraduationCap, FileSearch, Rocket, LogIn, Sparkles } from "lucide-react"
 import { Button } from "@/components/ui/buttons/button"
-import { themeText, themeColors } from "@/theme"
 
 export function Header() {
   const [showTop, setShowTop] = useState(false)
@@ -35,26 +34,24 @@ export function Header() {
   }, [])
 
   useEffect(() => {
-    // 로그인 상태 확인
     setIsLoggedIn(getCurrentUser() !== null)
   }, [])
 
   const handleScrollTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" })
   }
-  
-  // 아이콘 동적 렌더링 함수
+
   const renderIcon = (iconName?: string, size: 'sm' | 'md' | 'lg' = 'sm') => {
     if (!iconName) return null
-    
-    const iconProps = { 
-      className: size === 'sm' 
-        ? "h-4 w-4 mr-2 flex-shrink-0" 
+
+    const iconProps = {
+      className: size === 'sm'
+        ? "h-4 w-4 mr-2 flex-shrink-0"
         : size === 'md'
           ? "h-5 w-5 mr-2 flex-shrink-0"
           : "h-6 w-6 flex-shrink-0"
     }
-    
+
     switch (iconName) {
       case "Code": return <Code {...iconProps} />
       case "Cpu": return <Cpu {...iconProps} />
@@ -86,34 +83,58 @@ export function Header() {
     }
   }
 
+  const renderTriggerIcon = (iconName?: string) => {
+    if (!iconName) return null
+    const iconProps = { className: "h-4 w-4 mr-1.5 flex-shrink-0 opacity-70" }
+    switch (iconName) {
+      case "BookOpen": return <BookOpen {...iconProps} />
+      case "HelpCircle": return <HelpCircle {...iconProps} />
+      case "Package": return <Package {...iconProps} />
+      case "Images": return <Images {...iconProps} />
+      case "Rocket": return <Rocket {...iconProps} />
+      case "Building": return <Building {...iconProps} />
+      default: return null
+    }
+  }
+
+  const mainNavSections = headerNavSections.filter(s => s.title !== "About")
+  const aboutSection = headerNavSections.find(s => s.title === "About")
+
   return (
-    <header className="sticky top-0 z-[10] w-full border-b border-white/10 bg-gray-950/90 backdrop-blur supports-[backdrop-filter]:bg-gray-950/70">
-      <div className="mx-auto max-w-7xl flex h-20 items-center justify-between px-4">
+    <header className="sticky top-0 z-[10] w-full bg-gray-950/95 backdrop-blur supports-[backdrop-filter]:bg-gray-950/80">
+      <div className="mx-auto max-w-7xl flex h-16 items-center justify-between px-4">
+        {/* Logo */}
         <div className="flex items-center gap-4">
           <MobileDrawer />
-          <Link href="/" className="flex items-center space-x-2">
-            <span className="text-xl font-bold bg-gradient-to-r from-violet-400 to-indigo-400 bg-clip-text text-transparent">{headerBrand.primary}</span>
-            <span className="text-xl font-bold text-white">{headerBrand.secondary}</span>
+          <Link href="/" className="flex items-center gap-2.5">
+            <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-gradient-to-br from-violet-500 to-indigo-600">
+              <Sparkles className="h-4.5 w-4.5 text-white" />
+            </div>
+            <span className="text-lg font-bold text-white tracking-tight">
+              {headerBrand.primary} {headerBrand.secondary}
+            </span>
           </Link>
         </div>
 
-        <NavigationMenu className="hidden md:flex" viewport={false}>
-          <NavigationMenuList className="flex gap-3">
-            {headerNavSections.map((section: HeaderNavSection) => (
-            <NavigationMenuItem key={section.title}>
-                <NavigationMenuTrigger className="text-base font-medium text-white/80 hover:text-white">
+        {/* Main Navigation */}
+        <NavigationMenu className="hidden lg:flex" viewport={false}>
+          <NavigationMenuList className="flex gap-1">
+            {mainNavSections.map((section: HeaderNavSection) => (
+              <NavigationMenuItem key={section.title}>
+                <NavigationMenuTrigger className="bg-transparent text-sm font-medium text-white/70 hover:text-white hover:bg-white/5 data-[state=open]:bg-white/5 data-[state=open]:text-white px-3 py-2 h-9">
+                  {renderTriggerIcon(section.icon)}
                   <span>{section.title}</span>
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <div
-                    className="p-2 bg-gray-900 border border-white/10 rounded-lg"
+                    className="p-2 bg-gray-900 border border-white/10 rounded-lg shadow-xl shadow-black/20"
                     style={
                       section.width
-                        ? { width: typeof section.width === "number" ? `${section.width}px` : `${section.width}px` }
+                        ? { width: `${section.width}px` }
                         : undefined
                     }
                   >
-                    <ul className="space-y-2">
+                    <ul className="space-y-1">
                       {section.items.map((item: HeaderNavItem) => (
                         <li key={item.href}>
                           <NavigationMenuLink asChild>
@@ -121,14 +142,14 @@ export function Header() {
                               href={item.href}
                               className="block select-none no-underline outline-none transition-colors hover:bg-white/10 rounded-md"
                             >
-                              <div className="flex items-center p-1">
-                                <div className="flex items-center justify-center pl-2 w-8 h-8 mr-3 rounded-md border border-white/20 text-violet-400">
+                              <div className="flex items-center p-1.5">
+                                <div className="flex items-center justify-center w-7 h-7 mr-2.5 rounded-md border border-white/15 text-violet-400">
                                   {renderIcon(item.icon, 'sm')}
                                 </div>
                                 <div>
                                   <div className="text-sm font-medium text-white">{item.label}</div>
                                   {item.description && (
-                                    <div className="text-white/50" style={{ fontSize: "11px" }}>
+                                    <div className="text-white/40 leading-tight" style={{ fontSize: "11px" }}>
                                       {item.description}
                                     </div>
                                   )}
@@ -146,10 +167,66 @@ export function Header() {
           </NavigationMenuList>
         </NavigationMenu>
 
-        <div className="flex items-center gap-2">
+        {/* Right Side: About + Auth */}
+        <div className="hidden lg:flex items-center gap-2">
+          {aboutSection && (
+            <NavigationMenu viewport={false}>
+              <NavigationMenuList>
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger className="bg-transparent text-sm font-medium text-white/90 border border-white/20 rounded-full hover:bg-white/5 hover:border-white/30 data-[state=open]:bg-white/5 data-[state=open]:border-violet-400/50 px-4 py-2 h-9">
+                    <Info className="h-4 w-4 mr-1.5 flex-shrink-0 opacity-70" />
+                    <span>About</span>
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <div className="p-2 bg-gray-900 border border-white/10 rounded-lg shadow-xl shadow-black/20" style={{ width: "190px" }}>
+                      <ul className="space-y-1">
+                        {aboutSection.items.map((item: HeaderNavItem) => (
+                          <li key={item.href}>
+                            <NavigationMenuLink asChild>
+                              <Link
+                                href={item.href}
+                                className="block select-none no-underline outline-none transition-colors hover:bg-white/10 rounded-md"
+                              >
+                                <div className="flex items-center p-1.5">
+                                  <div className="flex items-center justify-center w-7 h-7 mr-2.5 rounded-md border border-white/15 text-violet-400">
+                                    {renderIcon(item.icon, 'sm')}
+                                  </div>
+                                  <div>
+                                    <div className="text-sm font-medium text-white">{item.label}</div>
+                                    {item.description && (
+                                      <div className="text-white/40 leading-tight" style={{ fontSize: "11px" }}>
+                                        {item.description}
+                                      </div>
+                                    )}
+                                  </div>
+                                </div>
+                              </Link>
+                            </NavigationMenuLink>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+              </NavigationMenuList>
+            </NavigationMenu>
+          )}
+
+          {isLoggedIn ? (
+            <UserMenuDropdown />
+          ) : (
+            <LoginDialog />
+          )}
+        </div>
+
+        {/* Mobile auth (shown on smaller screens) */}
+        <div className="flex lg:hidden items-center gap-2">
           {isLoggedIn ? <UserMenuDropdown /> : <LoginDialog />}
         </div>
       </div>
+
+      {/* Gradient bottom border */}
+      <div className="h-[2px] bg-gradient-to-r from-violet-600 via-indigo-500 to-purple-600 opacity-80" />
 
       {showTop && (
         <div className="hidden md:block fixed bottom-6 right-6 z-[150]">
@@ -163,5 +240,3 @@ export function Header() {
 }
 
 export default Header
-
-

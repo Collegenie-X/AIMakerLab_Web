@@ -10,7 +10,7 @@ import { Label } from "@/components/ui/forms/label"
 import { Separator } from "@/components/ui/layout/separator"
 import { Checkbox } from "@/components/ui/forms/checkbox"
 import { signUp, generateVerification, loginWithPassword, setCurrentUser } from "@/lib/auth/email-verification"
-import { Eye, EyeOff } from "lucide-react"
+import { Eye, EyeOff, LogIn } from "lucide-react"
 import Link from "next/link"
 import { PasswordResetDialog } from "./password-reset-dialog"
 
@@ -90,7 +90,10 @@ export function LoginDialog() {
         }}
       >
         <DialogTrigger asChild>
-          <Button variant="outline">로그인</Button>
+          <Button variant="outline" className="border-white/20 bg-transparent text-white hover:bg-white/10 hover:text-white rounded-full px-4 h-9 text-sm font-medium">
+            <LogIn className="h-4 w-4 mr-1.5" />
+            로그인
+          </Button>
         </DialogTrigger>
         <DialogContent className="sm:max-w-[420px]">
           <DialogHeader>
