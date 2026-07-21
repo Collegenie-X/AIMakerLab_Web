@@ -22,11 +22,11 @@ export function RelatedClassInquiry({ productTitle, productCategory }: RelatedCl
       .then((res) => res.json())
       .then((data) => {
         // 제품 카테고리와 관련된 수업 우선 표시 (최대 6개)
-        const filtered = data.filter((item: any) => 
-          item.category.includes(productCategory) || 
+        const filtered = data.filter((item: any) =>
+          item.category.includes(productCategory) ||
           item.title.includes(productTitle.split(' ')[0])
         )
-        const others = data.filter((item: any) => 
+        const others = data.filter((item: any) =>
           !filtered.includes(item)
         )
         setRelatedClasses([...filtered, ...others].slice(0, 6))
@@ -35,13 +35,13 @@ export function RelatedClassInquiry({ productTitle, productCategory }: RelatedCl
   }, [productCategory, productTitle])
 
   return (
-    <section className="border-t bg-gradient-to-br from-teal-50 to-blue-50 py-10">
+    <section className="border-t border-gray-700 bg-gray-900 py-10">
       <div className="container mx-auto max-w-6xl px-4">
         <div className="mb-8 text-center">
-          <h2 className="mb-2 text-3xl font-bold text-gray-900">
+          <h2 className="mb-2 text-3xl font-bold text-white">
             이 교구로 수업을 받아보고 싶으신가요?
           </h2>
-          <p className="text-gray-600">
+          <p className="text-gray-400">
             전문 강사의 수업과 함께 더 효과적으로 배워보세요
           </p>
         </div>
@@ -52,7 +52,7 @@ export function RelatedClassInquiry({ productTitle, productCategory }: RelatedCl
         {/* 연관된 수업 강의 목록 */}
         {relatedClasses.length > 0 && (
           <div className="mt-10">
-            <h3 className="mb-6 text-2xl font-bold text-gray-900">
+            <h3 className="mb-6 text-2xl font-bold text-white">
               🎓 연관된 수업 강의
             </h3>
             <RelatedClassesList classes={relatedClasses} />
@@ -62,4 +62,3 @@ export function RelatedClassInquiry({ productTitle, productCategory }: RelatedCl
     </section>
   )
 }
-

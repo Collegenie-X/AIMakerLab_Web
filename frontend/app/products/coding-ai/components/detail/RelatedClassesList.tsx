@@ -36,9 +36,9 @@ export function RelatedClassesList({ classes }: RelatedClassesListProps) {
     <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
       {classes.map((classItem) => (
         <Link key={classItem.id} href={classItem.link}>
-          <Card className="group h-full overflow-hidden border-2 border-gray-200 transition-all hover:border-teal-500 hover:shadow-xl cursor-pointer">
+          <Card className="group h-full overflow-hidden border-2 border-gray-700 bg-gray-900 transition-all hover:border-teal-500 hover:shadow-xl cursor-pointer">
             {/* 이미지 */}
-            <div className="relative aspect-video overflow-hidden bg-gray-100">
+            <div className="relative aspect-video overflow-hidden bg-gray-800">
               <img
                 src={classItem.image}
                 alt={classItem.title}
@@ -55,37 +55,37 @@ export function RelatedClassesList({ classes }: RelatedClassesListProps) {
             <CardContent className="p-4">
               {/* 카테고리 */}
               <div className="mb-2">
-                <span className="text-xs font-semibold text-gray-500">{classItem.category}</span>
+                <span className="text-xs font-semibold text-gray-400">{classItem.category}</span>
               </div>
 
               {/* 제목 */}
-              <h3 className="mb-2 text-lg font-bold text-gray-900 line-clamp-2 group-hover:text-teal-600 transition-colors">
+              <h3 className="mb-2 text-lg font-bold text-white line-clamp-2 group-hover:text-teal-400 transition-colors">
                 {classItem.title}
               </h3>
 
               {/* 설명 */}
-              <p className="mb-3 text-sm text-gray-600 line-clamp-2">
+              <p className="mb-3 text-sm text-gray-400 line-clamp-2">
                 {classItem.description}
               </p>
 
               {/* 상세 정보 */}
-              <div className="mb-3 space-y-2 border-t pt-3">
-                <div className="flex items-center gap-2 text-xs text-gray-600">
+              <div className="mb-3 space-y-2 border-t border-gray-700 pt-3">
+                <div className="flex items-center gap-2 text-xs text-gray-400">
                   <Clock className="h-3 w-3" />
                   <span>{classItem.duration}</span>
                 </div>
-                <div className="flex items-center gap-2 text-xs text-gray-600">
+                <div className="flex items-center gap-2 text-xs text-gray-400">
                   <Users className="h-3 w-3" />
                   <span>{classItem.targetGrade} · {classItem.classSize}</span>
                 </div>
-                <div className="flex items-center gap-2 text-xs text-gray-600">
+                <div className="flex items-center gap-2 text-xs text-gray-400">
                   <Package className="h-3 w-3" />
                   <span>{classItem.includedKit}</span>
                 </div>
               </div>
 
               {/* 버튼 */}
-              <div className="flex items-center justify-between text-sm font-semibold text-teal-600 group-hover:text-teal-700">
+              <div className="flex items-center justify-between text-sm font-semibold text-teal-400 group-hover:text-teal-300">
                 <span>자세히 보기</span>
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </div>
@@ -96,4 +96,3 @@ export function RelatedClassesList({ classes }: RelatedClassesListProps) {
     </div>
   )
 }
-

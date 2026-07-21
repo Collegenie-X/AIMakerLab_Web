@@ -93,20 +93,20 @@ export function MobileDrawer() {
           <span className="sr-only">메뉴 열기</span>
         </Button>
       </SheetTrigger>
-      <SheetContent side="left" className="w-[300px] flex flex-col p-0">
+      <SheetContent side="left" className="w-[300px] flex flex-col p-0 bg-black border-gray-800">
         {/* 상단 헤더 */}
         <div className="flex-shrink-0 p-6 pb-4">
           <SheetHeader>
             <SheetTitle className="text-left">
               <Link href="/" onClick={() => setOpen(false)} className="flex items-center space-x-2">
-                <span className="text-xl font-bold text-red-600">AI Maker</span>
-                <span className="text-xl font-bold text-gray-900">Lab</span>
+                <span className="text-xl font-bold text-red-500">AI Maker</span>
+                <span className="text-xl font-bold text-gray-300">Lab</span>
               </Link>
             </SheetTitle>
           </SheetHeader>
         </div>
 
-        <Separator />
+        <Separator className="bg-gray-800" />
 
         {/* 스크롤 가능한 메뉴 영역 */}
         <nav className="flex-1 overflow-y-auto px-6 py-4 space-y-2">
@@ -114,7 +114,7 @@ export function MobileDrawer() {
           {userEmail && (
             <>
               <Collapsible>
-                <CollapsibleTrigger className="flex w-full items-center justify-between rounded-lg px-4 py-3 text-left font-semibold text-blue-600 bg-blue-50 hover:bg-blue-100 transition-colors">
+                <CollapsibleTrigger className="flex w-full items-center justify-between rounded-lg px-4 py-3 text-left font-semibold text-blue-400 bg-blue-950/50 hover:bg-blue-900/50 transition-colors">
                   {myLearningMenu.title}
                   <ChevronDown className="h-4 w-4 transition-transform duration-200 group-data-[state=open]:rotate-180" />
                 </CollapsibleTrigger>
@@ -124,7 +124,7 @@ export function MobileDrawer() {
                       key={itemIndex}
                       href={item.href}
                       onClick={() => setOpen(false)}
-                      className="flex items-center gap-2 rounded-lg px-4 py-2.5 text-sm text-gray-600 hover:bg-gray-50 hover:text-gray-900 transition-colors"
+                      className="flex items-center gap-2 rounded-lg px-4 py-2.5 text-sm text-gray-400 hover:bg-gray-800 hover:text-gray-200 transition-colors"
                     >
                       <ChevronRight className="h-3 w-3" />
                       {item.label}
@@ -132,14 +132,14 @@ export function MobileDrawer() {
                   ))}
                 </CollapsibleContent>
               </Collapsible>
-              <Separator className="my-2" />
+              <Separator className="my-2 bg-gray-800" />
             </>
           )}
 
           {/* 일반 메뉴 */}
           {menuItems.map((menu, index) => (
             <Collapsible key={index}>
-              <CollapsibleTrigger className="flex w-full items-center justify-between rounded-lg px-4 py-3 text-left font-semibold text-gray-900 hover:bg-gray-100 transition-colors">
+              <CollapsibleTrigger className="flex w-full items-center justify-between rounded-lg px-4 py-3 text-left font-semibold text-gray-200 hover:bg-gray-800 transition-colors">
                 {menu.title}
                 <ChevronDown className="h-4 w-4 transition-transform duration-200 group-data-[state=open]:rotate-180" />
               </CollapsibleTrigger>
@@ -149,7 +149,7 @@ export function MobileDrawer() {
                     key={itemIndex}
                     href={item.href}
                     onClick={() => setOpen(false)}
-                    className="flex items-center gap-2 rounded-lg px-4 py-2.5 text-sm text-gray-600 hover:bg-gray-50 hover:text-gray-900 transition-colors"
+                    className="flex items-center gap-2 rounded-lg px-4 py-2.5 text-sm text-gray-400 hover:bg-gray-800 hover:text-gray-200 transition-colors"
                   >
                     <ChevronRight className="h-3 w-3" />
                     {item.label}
@@ -161,13 +161,13 @@ export function MobileDrawer() {
         </nav>
 
         {/* 하단 고정 로그인/로그아웃 영역 */}
-        <div className="flex-shrink-0 border-t bg-blue-50">
+        <div className="flex-shrink-0 border-t border-gray-800 bg-gray-950">
           <div className="p-4">
             {userEmail ? (
-              <div className="p-4 bg-blue-50 rounded-lg">
+              <div className="p-4 bg-gray-900 rounded-lg">
                 <div className="flex items-center gap-2 mb-2">
-                  <User className="h-4 w-4 text-blue-600" />
-                  <span className="text-sm font-medium text-blue-900 truncate">
+                  <User className="h-4 w-4 text-blue-400" />
+                  <span className="text-sm font-medium text-gray-200 truncate">
                     {userEmail}
                   </span>
                 </div>

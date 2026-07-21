@@ -120,7 +120,7 @@ export function ProductReviews({ reviews, averageRating, totalReviews }: Product
             className={`h-4 w-4 ${
               star <= rating
                 ? 'fill-yellow-400 text-yellow-400'
-                : 'text-gray-300'
+                : 'text-gray-600'
             }`}
           />
         ))}
@@ -129,28 +129,28 @@ export function ProductReviews({ reviews, averageRating, totalReviews }: Product
   }
 
   return (
-    <section className="border-t bg-gray-50 py-10">
+    <section className="border-t border-gray-700 bg-gray-900 py-10">
       <div className="container mx-auto max-w-6xl px-4">
         <div className="mb-8">
-          <h2 className="mb-4 text-3xl font-bold text-gray-900">사용 후기</h2>
-          
+          <h2 className="mb-4 text-3xl font-bold text-white">사용 후기</h2>
+
           {/* 평균 평점 */}
-          <div className="flex items-center gap-6 rounded-xl border-2 border-gray-200 bg-white p-6">
+          <div className="flex items-center gap-6 rounded-xl border-2 border-gray-700 bg-gray-800 p-6">
             <div className="text-center">
-              <div className="mb-2 text-5xl font-bold text-teal-600">{averageRating.toFixed(1)}</div>
+              <div className="mb-2 text-5xl font-bold text-teal-400">{averageRating.toFixed(1)}</div>
               <div className="mb-2 flex justify-center">
                 {renderStars(Math.round(averageRating))}
               </div>
-              <div className="text-sm text-gray-600">{totalReviews}개 후기</div>
+              <div className="text-sm text-gray-400">{totalReviews}개 후기</div>
             </div>
-            
-            <div className="h-20 w-px bg-gray-200" />
-            
+
+            <div className="h-20 w-px bg-gray-700" />
+
             <div className="flex-1">
-              <p className="text-gray-700">
-                <span className="font-bold text-teal-600">{totalReviews}명</span>의 선생님과 학부모님이 이 제품을 사용하고 계십니다.
+              <p className="text-gray-300">
+                <span className="font-bold text-teal-400">{totalReviews}명</span>의 선생님과 학부모님이 이 제품을 사용하고 계십니다.
               </p>
-              <p className="mt-2 text-sm text-gray-600">
+              <p className="mt-2 text-sm text-gray-400">
                 실제 수업에서 활용한 생생한 후기를 확인하세요!
               </p>
             </div>
@@ -162,18 +162,18 @@ export function ProductReviews({ reviews, averageRating, totalReviews }: Product
           {pagedReviews.map((review) => (
             <div
               key={review.id}
-              className="rounded-xl border-2 border-gray-200 bg-white p-6 transition-shadow hover:shadow-md"
+              className="rounded-xl border-2 border-gray-700 bg-gray-800 p-6 transition-shadow hover:shadow-md"
             >
               {/* 리뷰 헤더 */}
               <div className="mb-4 flex items-start justify-between">
                 <div>
                   <div className="mb-1 flex items-center gap-2">
-                    <span className="font-bold text-gray-900">{review.authorName}</span>
-                    <span className="rounded bg-teal-100 px-2 py-0.5 text-xs font-medium text-teal-700">
+                    <span className="font-bold text-white">{review.authorName}</span>
+                    <span className="rounded bg-teal-900/50 px-2 py-0.5 text-xs font-medium text-teal-300">
                       {review.authorRole}
                     </span>
                   </div>
-                  <div className="mb-2 flex items-center gap-2 text-sm text-gray-600">
+                  <div className="mb-2 flex items-center gap-2 text-sm text-gray-400">
                     <span>{review.authorSchool}</span>
                     <span>·</span>
                     <span>{review.date}</span>
@@ -183,7 +183,7 @@ export function ProductReviews({ reviews, averageRating, totalReviews }: Product
               </div>
 
               {/* 리뷰 내용 */}
-              <p className="mb-4 text-gray-700 leading-relaxed">{review.content}</p>
+              <p className="mb-4 text-gray-300 leading-relaxed">{review.content}</p>
 
               {/* 리뷰 사진 */}
               {review.photos.length > 0 && (
@@ -198,7 +198,7 @@ export function ProductReviews({ reviews, averageRating, totalReviews }: Product
                       <img
                         src={photo}
                         alt={`후기 사진 ${index + 1}`}
-                        className="h-24 w-24 flex-shrink-0 rounded-lg border object-cover"
+                        className="h-24 w-24 flex-shrink-0 rounded-lg border border-gray-700 object-cover"
                       />
                     </button>
                   ))}
@@ -206,13 +206,13 @@ export function ProductReviews({ reviews, averageRating, totalReviews }: Product
               )}
 
               {/* 리뷰 액션 */}
-              <div className="flex items-center gap-3 border-t pt-4">
+              <div className="flex items-center gap-3 border-t border-gray-700 pt-4">
                 <Button
                   variant="outline"
                   size="sm"
                   className={`gap-2 ${
                     likedReviews.has(review.id)
-                      ? 'border-teal-600 bg-teal-50 text-teal-600'
+                      ? 'border-teal-600 bg-teal-950/30 text-teal-400'
                       : 'bg-transparent'
                   }`}
                   onClick={() => toggleLike(review.id)}
@@ -220,13 +220,13 @@ export function ProductReviews({ reviews, averageRating, totalReviews }: Product
                   <ThumbsUp className="h-4 w-4" />
                   좋아요 {review.likes + (likedReviews.has(review.id) ? 1 : 0)}
                 </Button>
-                
+
                 <Button
                   variant="outline"
                   size="sm"
                   className={`gap-2 ${
                     helpfulReviews.has(review.id)
-                      ? 'border-blue-600 bg-blue-50 text-blue-600'
+                      ? 'border-blue-600 bg-blue-950/30 text-blue-400'
                       : 'bg-transparent'
                   }`}
                   onClick={() => toggleHelpful(review.id)}
@@ -238,16 +238,16 @@ export function ProductReviews({ reviews, averageRating, totalReviews }: Product
 
               {/* 댓글 (더미) */}
               {dummyComments[review.id]?.length ? (
-                <div className="mt-4 rounded-lg border bg-gray-50 p-4">
-                  <div className="mb-3 text-sm font-semibold text-gray-800">댓글 {dummyComments[review.id].length}</div>
+                <div className="mt-4 rounded-lg border border-gray-700 bg-gray-700/50 p-4">
+                  <div className="mb-3 text-sm font-semibold text-gray-200">댓글 {dummyComments[review.id].length}</div>
                   <div className="space-y-3">
                     {dummyComments[review.id].map((comment) => (
-                      <div key={comment.id} className="rounded-md border bg-white p-3">
+                      <div key={comment.id} className="rounded-md border border-gray-600 bg-gray-800 p-3">
                         <div className="mb-1 flex items-center justify-between text-sm">
-                          <span className="font-semibold text-gray-900">{comment.authorName}</span>
-                          <span className="text-gray-500">{comment.date}</span>
+                          <span className="font-semibold text-white">{comment.authorName}</span>
+                          <span className="text-gray-400">{comment.date}</span>
                         </div>
-                        <p className="mb-2 text-sm text-gray-700">{comment.content}</p>
+                        <p className="mb-2 text-sm text-gray-300">{comment.content}</p>
                         {comment.photos.length > 0 && (
                           <div className="flex gap-2">
                             {comment.photos.map((p, i) => (
@@ -257,7 +257,7 @@ export function ProductReviews({ reviews, averageRating, totalReviews }: Product
                                 className="focus:outline-hidden"
                                 onClick={() => setImageViewer({ open: true, src: p, alt: `댓글 사진 ${i + 1}` })}
                               >
-                                <img src={p} alt={`댓글 사진 ${i + 1}`} className="h-16 w-16 rounded border object-cover" />
+                                <img src={p} alt={`댓글 사진 ${i + 1}`} className="h-16 w-16 rounded border border-gray-700 object-cover" />
                               </button>
                             ))}
                           </div>
@@ -272,8 +272,8 @@ export function ProductReviews({ reviews, averageRating, totalReviews }: Product
         </div>
 
         {/* 페이지네이션 */}
-        <div className="mt-6 flex items-center justify-between rounded-lg border bg-white px-4 py-3 text-sm">
-          <span className="text-gray-600">
+        <div className="mt-6 flex items-center justify-between rounded-lg border border-gray-700 bg-gray-800 px-4 py-3 text-sm">
+          <span className="text-gray-400">
             {reviews.length === 0 ? '후기가 없습니다.' : `${startIndex + 1}-${endIndex} / ${reviews.length}`}
           </span>
           <div className="flex items-center gap-2">
@@ -286,7 +286,7 @@ export function ProductReviews({ reviews, averageRating, totalReviews }: Product
             >
               <ChevronLeft className="h-4 w-4" /> 이전
             </Button>
-            <span className="min-w-16 text-center font-semibold text-gray-800">
+            <span className="min-w-16 text-center font-semibold text-gray-200">
               {page} / {totalPages}
             </span>
             <Button
@@ -303,7 +303,7 @@ export function ProductReviews({ reviews, averageRating, totalReviews }: Product
 
         {/* 이미지 확대 다이얼로그 */}
         <Dialog open={imageViewer.open} onOpenChange={(o) => setImageViewer((prev) => ({ ...prev, open: o }))}>
-          <DialogContent className="sm:max-w-3xl">
+          <DialogContent className="bg-gray-900 border-gray-700 text-gray-200 sm:max-w-3xl">
             <div className="overflow-hidden rounded-lg">
               {imageViewer.src && (
                 <img src={imageViewer.src} alt={imageViewer.alt} className="max-h-[70vh] w-full object-contain" />
@@ -314,9 +314,9 @@ export function ProductReviews({ reviews, averageRating, totalReviews }: Product
 
         {/* 후기 작성 안내 + 다이얼로그 */}
         <Dialog open={open} onOpenChange={setOpen}>
-          <div className="mt-8 rounded-xl border-2 border-dashed border-gray-300 bg-gray-50 p-8 text-center">
-            <p className="mb-2 text-lg font-semibold text-gray-900">이 제품을 사용해보셨나요?</p>
-            <p className="mb-4 text-sm text-gray-600">다른 선생님들과 경험을 공유해주세요!</p>
+          <div className="mt-8 rounded-xl border-2 border-dashed border-gray-700 bg-gray-800 p-8 text-center">
+            <p className="mb-2 text-lg font-semibold text-white">이 제품을 사용해보셨나요?</p>
+            <p className="mb-4 text-sm text-gray-400">다른 선생님들과 경험을 공유해주세요!</p>
             <DialogTrigger asChild>
               <Button className="bg-teal-600 hover:bg-teal-700">
                 후기 작성하기
@@ -324,17 +324,17 @@ export function ProductReviews({ reviews, averageRating, totalReviews }: Product
             </DialogTrigger>
           </div>
 
-          <DialogContent className="sm:max-w-xl">
+          <DialogContent className="bg-gray-900 border-gray-700 text-gray-200 sm:max-w-xl">
             <DialogHeader>
               <DialogTitle className="flex items-center gap-2 text-2xl">
-                <Smile className="h-6 w-6 text-teal-600" /> 후기 작성
+                <Smile className="h-6 w-6 text-teal-400" /> 후기 작성
               </DialogTitle>
             </DialogHeader>
 
             <div className="space-y-4">
               <div className="grid gap-3 sm:grid-cols-2">
                 <div>
-                  <label className="mb-1 block text-sm font-medium text-gray-700">이름</label>
+                  <label className="mb-1 block text-sm font-medium text-gray-300">이름</label>
                   <Input
                     placeholder="예: 김교사"
                     value={newReview.authorName}
@@ -342,7 +342,7 @@ export function ProductReviews({ reviews, averageRating, totalReviews }: Product
                   />
                 </div>
                 <div>
-                  <label className="mb-1 block text-sm font-medium text-gray-700">소속</label>
+                  <label className="mb-1 block text-sm font-medium text-gray-300">소속</label>
                   <Input
                     placeholder="예: 서울초 5학년"
                     value={newReview.authorSchool}
@@ -353,7 +353,7 @@ export function ProductReviews({ reviews, averageRating, totalReviews }: Product
 
               {/* 별점 선택 */}
               <div>
-                <label className="mb-2 block text-sm font-medium text-gray-700">별점</label>
+                <label className="mb-2 block text-sm font-medium text-gray-300">별점</label>
                 <div className="flex gap-1">
                   {[1, 2, 3, 4, 5].map((star) => (
                     <button
@@ -363,7 +363,7 @@ export function ProductReviews({ reviews, averageRating, totalReviews }: Product
                       onClick={() => setNewReview({ ...newReview, rating: star })}
                       aria-label={`${star}점`}
                     >
-                      <Star className={`h-6 w-6 ${star <= newReview.rating ? 'fill-yellow-400 text-yellow-400' : 'text-gray-300'}`} />
+                      <Star className={`h-6 w-6 ${star <= newReview.rating ? 'fill-yellow-400 text-yellow-400' : 'text-gray-600'}`} />
                     </button>
                   ))}
                 </div>
@@ -371,7 +371,7 @@ export function ProductReviews({ reviews, averageRating, totalReviews }: Product
 
               {/* 내용 */}
               <div>
-                <label className="mb-1 block text-sm font-medium text-gray-700">후기 내용</label>
+                <label className="mb-1 block text-sm font-medium text-gray-300">후기 내용</label>
                 <Textarea
                   rows={5}
                   placeholder="수업에서 어떻게 활용하셨는지, 좋았던 점과 아쉬웠던 점을 적어주세요 😊"
@@ -382,10 +382,10 @@ export function ProductReviews({ reviews, averageRating, totalReviews }: Product
 
               {/* 사진 업로드 (간단 표시용) */}
               <div>
-                <label className="mb-2 block text-sm font-medium text-gray-700">수업 사진 업로드 (여러 장 가능)</label>
+                <label className="mb-2 block text-sm font-medium text-gray-300">수업 사진 업로드 (여러 장 가능)</label>
                 <label
                   htmlFor="review-photos"
-                  className="flex cursor-pointer items-center justify-center gap-2 rounded-lg border-2 border-dashed border-gray-300 bg-gray-50 p-4 text-sm text-gray-600 transition-colors hover:bg-gray-100"
+                  className="flex cursor-pointer items-center justify-center gap-2 rounded-lg border-2 border-dashed border-gray-600 bg-gray-800 p-4 text-sm text-gray-400 transition-colors hover:bg-gray-700"
                 >
                   <ImageIcon className="h-4 w-4" /> 이미지를 선택하거나 끌어다 놓으세요
                   <input
@@ -415,7 +415,7 @@ export function ProductReviews({ reviews, averageRating, totalReviews }: Product
                 {newReview.photos.length > 0 && (
                   <div className="mt-3 grid grid-cols-3 gap-3 sm:grid-cols-4">
                     {newReview.photos.map((src, idx) => (
-                      <div key={idx} className="relative overflow-hidden rounded-md border">
+                      <div key={idx} className="relative overflow-hidden rounded-md border border-gray-700">
                         <img src={src} alt={`선택 사진 ${idx + 1}`} className="h-24 w-full object-cover" />
                         <button
                           type="button"
@@ -456,4 +456,3 @@ export function ProductReviews({ reviews, averageRating, totalReviews }: Product
     </section>
   )
 }
-

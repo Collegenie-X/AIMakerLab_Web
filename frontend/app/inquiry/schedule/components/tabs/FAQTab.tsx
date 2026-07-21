@@ -15,7 +15,7 @@ type Props = {
 export function FAQTab({ faqs, texts }: Props) {
   if (!faqs || faqs.length === 0) {
     return (
-      <div className="rounded-lg border border-dashed p-8 text-center text-gray-500">
+      <div className="rounded-lg border border-dashed border-gray-700 p-8 text-center text-gray-400">
         FAQ가 준비 중입니다.
       </div>
     )
@@ -24,7 +24,7 @@ export function FAQTab({ faqs, texts }: Props) {
   return (
     <div className="space-y-4 mt-0">
       <div className="mb-4 flex items-center gap-2">
-        <HelpCircle className="h-6 w-6 text-blue-600" />
+        <HelpCircle className="h-6 w-6 text-blue-400" />
         <h3 className="text-xl font-bold">{texts.labels.faqs}</h3>
       </div>
       
@@ -32,10 +32,10 @@ export function FAQTab({ faqs, texts }: Props) {
         {faqs.map((faq, i) => (
           <AccordionItem key={i} value={`faq-${i}`}>
             <AccordionTrigger className="text-left hover:no-underline">
-              <span className="font-semibold text-gray-900">{faq.question}</span>
+              <span className="font-semibold text-gray-200">{faq.question}</span>
             </AccordionTrigger>
             <AccordionContent>
-              <p className="text-sm leading-relaxed text-gray-700 pl-4 border-l-2 border-blue-200">
+              <p className="text-sm leading-relaxed text-gray-400 pl-4 border-l-2 border-blue-700">
                 {faq.answer}
               </p>
             </AccordionContent>

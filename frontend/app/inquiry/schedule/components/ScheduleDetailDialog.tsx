@@ -69,12 +69,12 @@ export function ScheduleDetailDialog({ item, trigger, texts, open: controlledOpe
         </div>
       )}
       
-      <DialogContent className="h-[90vh] overflow-y-auto sm:max-w-7xl">
+      <DialogContent className="h-[90vh] overflow-y-auto sm:max-w-7xl bg-gray-950 border-gray-800 text-gray-200">
         <DialogHeader>
           <div className="flex items-start justify-between gap-4">
             <div className="flex-1">
-              <DialogTitle className="text-3xl mb-2">{item.title}</DialogTitle>
-              <div className="flex flex-wrap items-center gap-3 text-sm text-gray-600">
+              <DialogTitle className="text-3xl mb-2 text-white">{item.title}</DialogTitle>
+              <div className="flex flex-wrap items-center gap-3 text-sm text-gray-400">
                 <div className="flex items-center gap-2">
                   <Badge variant="secondary">{item.level}</Badge>
                   <div className="flex items-center gap-1">
@@ -106,7 +106,7 @@ export function ScheduleDetailDialog({ item, trigger, texts, open: controlledOpe
 
             {/* 탭 네비게이션 */}
             <Tabs defaultValue="overview" className="w-full">
-              <TabsList className="grid w-full grid-cols-6 mb-4">
+              <TabsList className="grid w-full grid-cols-6 mb-4 bg-gray-900 border border-gray-700">
                 <TabsTrigger value="overview">{texts.labels.overview}</TabsTrigger>
                 <TabsTrigger value="curriculum">{texts.labels.curriculum}</TabsTrigger>
                 <TabsTrigger value="kit">{texts.labels.educationKit}</TabsTrigger>

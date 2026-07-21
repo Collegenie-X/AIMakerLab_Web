@@ -30,10 +30,10 @@ export function QnATab({ commentList, texts }: Props) {
   return (
     <div className="space-y-4 mt-0">
       {/* 댓글 입력 폼 */}
-      <div className="rounded-lg border bg-blue-50 p-6">
+      <div className="rounded-lg border border-gray-700 bg-gray-900 p-6">
         <div className="mb-4 flex items-center gap-2">
-          <MessageCircle className="h-5 w-5 text-blue-600" />
-          <h3 className="text-lg font-bold text-gray-900">{texts.labels.writeComment}</h3>
+          <MessageCircle className="h-5 w-5 text-blue-400" />
+          <h3 className="text-lg font-bold text-white">{texts.labels.writeComment}</h3>
         </div>
         <Textarea
           value={newComment}
@@ -57,7 +57,7 @@ export function QnATab({ commentList, texts }: Props) {
       {commentList && commentList.length > 0 ? (
         <div className="space-y-4">
           {commentList.map((comment) => (
-            <div key={comment.id} className="rounded-lg border bg-white p-6 shadow-sm">
+            <div key={comment.id} className="rounded-lg border border-gray-700 bg-gray-900 p-6 shadow-sm">
               <div className="mb-3 flex items-start justify-between">
                 <div className="flex items-center gap-3">
                   <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-purple-500 text-white font-bold">
@@ -65,7 +65,7 @@ export function QnATab({ commentList, texts }: Props) {
                   </div>
                   <div>
                     <div className="flex items-center gap-2">
-                      <span className="font-semibold text-gray-900">{comment.userName}</span>
+                      <span className="font-semibold text-white">{comment.userName}</span>
                       {comment.userType === "student" && (
                         <Badge variant="secondary" className="text-xs">수강생</Badge>
                       )}
@@ -73,7 +73,7 @@ export function QnATab({ commentList, texts }: Props) {
                         <Badge className="bg-blue-600 text-xs">강사</Badge>
                       )}
                     </div>
-                    <div className="text-xs text-gray-500">{comment.date}</div>
+                    <div className="text-xs text-gray-400">{comment.date}</div>
                   </div>
                 </div>
                 <div className="flex items-center gap-2">
@@ -85,11 +85,11 @@ export function QnATab({ commentList, texts }: Props) {
                 </div>
               </div>
               
-              <p className="mb-3 text-gray-700 leading-relaxed">{comment.question}</p>
-              
+              <p className="mb-3 text-gray-300 leading-relaxed">{comment.question}</p>
+
               {/* 좋아요 버튼 */}
-              <div className="flex items-center gap-2 text-sm text-gray-500">
-                <button className="flex items-center gap-1 rounded-md px-2 py-1 hover:bg-gray-100 transition-colors">
+              <div className="flex items-center gap-2 text-sm text-gray-400">
+                <button className="flex items-center gap-1 rounded-md px-2 py-1 hover:bg-gray-800 transition-colors">
                   <ThumbsUp className="h-4 w-4" />
                   <span>{comment.likes || 0}</span>
                 </button>
@@ -97,14 +97,14 @@ export function QnATab({ commentList, texts }: Props) {
 
               {/* 답변 */}
               {comment.answer && (
-                <div className="mt-4 rounded-lg bg-blue-50 p-4 border-l-4 border-blue-500">
+                <div className="mt-4 rounded-lg bg-blue-950/30 p-4 border-l-4 border-blue-500">
                   <div className="mb-2 flex items-center gap-2">
                     <div className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-600 text-white font-bold text-sm">
                       {comment.answer.userName.charAt(0)}
                     </div>
                     <div>
                       <div className="flex items-center gap-2">
-                        <span className="font-semibold text-gray-900 text-sm">
+                        <span className="font-semibold text-white text-sm">
                           {comment.answer.userName}
                         </span>
                         {comment.answer.userType === "instructor" && (
@@ -114,10 +114,10 @@ export function QnATab({ commentList, texts }: Props) {
                           <Badge className="bg-purple-600 text-xs">관리자</Badge>
                         )}
                       </div>
-                      <div className="text-xs text-gray-500">{comment.answer.date}</div>
+                      <div className="text-xs text-gray-400">{comment.answer.date}</div>
                     </div>
                   </div>
-                  <p className="text-sm text-gray-700 leading-relaxed pl-10">
+                  <p className="text-sm text-gray-300 leading-relaxed pl-10">
                     {comment.answer.content}
                   </p>
                 </div>

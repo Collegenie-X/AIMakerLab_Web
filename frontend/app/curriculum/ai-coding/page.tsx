@@ -157,8 +157,8 @@ export default function AICodingCurriculumPage() {
           description={data.curriculum.description || "IoT 제작과 바이브 코딩 두 트랙으로 구성됩니다"}
           projects={data.curriculum.projects}
           containerClass={layout.containerClass}
-          projectTabActiveClass="bg-gradient-to-r from-emerald-600 to-teal-600 text-white shadow-lg"
-          projectTabInactiveClass="bg-gray-800 text-gray-300 hover:bg-gray-700"
+          projectTabActiveClass="bg-gradient-to-r from-emerald-600 to-teal-600 text-white shadow-lg border-transparent"
+          projectTabInactiveClass="bg-gray-900 text-gray-300 hover:bg-gray-800 border-gray-700"
           durationTabActiveClass="bg-emerald-600 text-white shadow-md"
           durationTabInactiveClass="bg-gray-800 text-gray-400 hover:bg-gray-700"
           primaryColor="emerald"

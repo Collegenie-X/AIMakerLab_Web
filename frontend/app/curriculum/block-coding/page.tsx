@@ -153,8 +153,8 @@ export default function AIEducationCurriculumPage() {
           description="학년에 맞는 AI 교육 프로그램을 선택하세요"
           projects={data.curriculum.projects}
           containerClass={layout.containerClass}
-          projectTabActiveClass="bg-gradient-to-r from-purple-600 to-indigo-600 text-white shadow-lg"
-          projectTabInactiveClass="bg-gray-800 text-gray-300 hover:bg-gray-700"
+          projectTabActiveClass="bg-gradient-to-r from-purple-600 to-indigo-600 text-white shadow-lg border-transparent"
+          projectTabInactiveClass="bg-gray-900 text-gray-300 hover:bg-gray-800 border-gray-700"
           durationTabActiveClass="bg-purple-600 text-white shadow-md"
           durationTabInactiveClass="bg-gray-800 text-gray-400 hover:bg-gray-700"
           primaryColor="purple"

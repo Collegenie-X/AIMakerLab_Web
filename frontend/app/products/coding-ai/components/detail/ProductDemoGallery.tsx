@@ -26,7 +26,7 @@ export function ProductDemoGallery({ demos }: ProductDemoGalleryProps) {
   if (!demos || demos.length === 0) return null
 
   return (
-    <section className="border-t bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 py-10">
+    <section className="border-t border-gray-700 bg-gray-900 py-10">
       <div className="container mx-auto max-w-6xl px-4">
         <div className="mb-8 text-center">
           <div className="mb-4 flex justify-center">
@@ -34,15 +34,15 @@ export function ProductDemoGallery({ demos }: ProductDemoGalleryProps) {
               <Play className="h-8 w-8 text-white" />
             </div>
           </div>
-          <h2 className="mb-2 text-3xl font-bold text-gray-900">이렇게 동작합니다</h2>
-          <p className="text-gray-600">제품의 다양한 기능을 영상과 사진으로 확인하세요</p>
+          <h2 className="mb-2 text-3xl font-bold text-white">이렇게 동작합니다</h2>
+          <p className="text-gray-400">제품의 다양한 기능을 영상과 사진으로 확인하세요</p>
         </div>
 
         <div className="grid gap-6 md:grid-cols-2">
           {demos.map((demo, index) => (
             <div
               key={index}
-              className="group cursor-pointer overflow-hidden rounded-2xl border-2 border-gray-200 bg-white shadow-lg transition-all hover:scale-[1.02] hover:shadow-2xl"
+              className="group cursor-pointer overflow-hidden rounded-2xl border-2 border-gray-700 bg-gray-800 shadow-lg transition-all hover:scale-[1.02] hover:shadow-2xl"
               onClick={() => {
                 if (demo.type === 'video') {
                   setSelectedDemo(demo)
@@ -50,13 +50,13 @@ export function ProductDemoGallery({ demos }: ProductDemoGalleryProps) {
               }}
             >
               {/* 썸네일 */}
-              <div className="relative aspect-video overflow-hidden bg-gray-100">
+              <div className="relative aspect-video overflow-hidden bg-gray-700">
                 <img
                   src={demo.type === 'video' ? demo.thumbnail : demo.url}
                   alt={demo.title}
                   className="h-full w-full object-cover transition-transform group-hover:scale-110"
                 />
-                
+
                 {/* 비디오 재생 아이콘 */}
                 {demo.type === 'video' && (
                   <div className="absolute inset-0 flex items-center justify-center bg-black/30 transition-all group-hover:bg-black/40">
@@ -69,8 +69,8 @@ export function ProductDemoGallery({ demos }: ProductDemoGalleryProps) {
                 {/* 타입 배지 */}
                 <div className="absolute right-3 top-3">
                   <div className={`flex items-center gap-1.5 rounded-full px-3 py-1.5 backdrop-blur-sm ${
-                    demo.type === 'video' 
-                      ? 'bg-blue-600/90' 
+                    demo.type === 'video'
+                      ? 'bg-blue-600/90'
                       : 'bg-purple-600/90'
                   }`}>
                     {demo.type === 'video' ? (
@@ -87,8 +87,8 @@ export function ProductDemoGallery({ demos }: ProductDemoGalleryProps) {
 
               {/* 설명 */}
               <div className="p-5">
-                <h3 className="mb-2 text-lg font-bold text-gray-900">{demo.title}</h3>
-                <p className="text-sm text-gray-600 leading-relaxed">{demo.description}</p>
+                <h3 className="mb-2 text-lg font-bold text-white">{demo.title}</h3>
+                <p className="text-sm text-gray-400 leading-relaxed">{demo.description}</p>
               </div>
             </div>
           ))}
@@ -126,4 +126,3 @@ export function ProductDemoGallery({ demos }: ProductDemoGalleryProps) {
     </section>
   )
 }
-

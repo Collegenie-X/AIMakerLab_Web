@@ -30,11 +30,11 @@ export function ClassroomPhotosGallery({ photos }: ClassroomPhotosGalleryProps) 
 
   return (
     <>
-      <section className="border-t bg-white py-10">
+      <section className="border-t border-gray-700 bg-gray-950 py-10">
         <div className="container mx-auto max-w-6xl px-4">
           <div className="mb-8 text-center">
-            <h2 className="mb-2 text-3xl font-bold text-gray-900">실제 수업 활용 사진</h2>
-            <p className="text-gray-600">전국 학교에서 이 제품으로 수업하는 모습을 확인하세요</p>
+            <h2 className="mb-2 text-3xl font-bold text-white">실제 수업 활용 사진</h2>
+            <p className="text-gray-400">전국 학교에서 이 제품으로 수업하는 모습을 확인하세요</p>
           </div>
 
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
@@ -42,14 +42,14 @@ export function ClassroomPhotosGallery({ photos }: ClassroomPhotosGalleryProps) 
               <button
                 key={photo.id}
                 onClick={() => setSelectedPhoto(photo)}
-                className="group relative aspect-square overflow-hidden rounded-xl border-2 border-gray-200 transition-all hover:border-teal-500 hover:shadow-lg"
+                className="group relative aspect-square overflow-hidden rounded-xl border-2 border-gray-700 transition-all hover:border-teal-500 hover:shadow-lg"
               >
                 <img
                   src={photo.image}
                   alt={photo.title}
                   className="h-full w-full object-cover transition-transform group-hover:scale-110"
                 />
-                
+
                 {/* 오버레이 정보 */}
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-3">
                   <p className="text-sm font-semibold text-white line-clamp-2">{photo.title}</p>
@@ -95,4 +95,3 @@ export function ClassroomPhotosGallery({ photos }: ClassroomPhotosGalleryProps) 
     </>
   )
 }
-

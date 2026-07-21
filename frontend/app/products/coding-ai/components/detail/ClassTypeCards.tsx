@@ -41,9 +41,9 @@ export function ClassTypeCards() {
       {classTypes.map((type) => {
         const Icon = type.icon
         const bgColor = {
-          teal: 'bg-teal-100',
-          blue: 'bg-blue-100',
-          purple: 'bg-purple-100'
+          teal: 'bg-teal-900/50',
+          blue: 'bg-blue-900/50',
+          purple: 'bg-purple-900/50'
         }[type.color]
         const iconColor = {
           teal: 'text-teal-600',
@@ -51,25 +51,25 @@ export function ClassTypeCards() {
           purple: 'text-purple-600'
         }[type.color]
         const borderColor = {
-          teal: 'border-teal-200',
-          blue: 'border-blue-200',
-          purple: 'border-purple-200'
+          teal: 'border-teal-800',
+          blue: 'border-blue-800',
+          purple: 'border-purple-800'
         }[type.color]
 
         return (
           <Link key={type.id} href={type.link}>
-            <Card className={`border-2 ${borderColor} transition-all hover:shadow-lg cursor-pointer h-full`}>
+            <Card className={`border-2 ${borderColor} bg-gray-900 transition-all hover:shadow-lg cursor-pointer h-full`}>
               <CardContent className="p-5">
                 <div className={`mb-3 flex h-12 w-12 items-center justify-center rounded-full ${bgColor}`}>
                   <Icon className={`h-6 w-6 ${iconColor}`} />
                 </div>
-                <h3 className="mb-2 text-lg font-bold text-gray-900">{type.title}</h3>
-                <p className="mb-3 text-sm text-gray-600 leading-relaxed">
+                <h3 className="mb-2 text-lg font-bold text-white">{type.title}</h3>
+                <p className="mb-3 text-sm text-gray-400 leading-relaxed">
                   {type.description}
                 </p>
                 <ul className="space-y-1">
                   {type.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-start gap-2 text-xs text-gray-700">
+                    <li key={idx} className="flex items-start gap-2 text-xs text-gray-300">
                       <span className={iconColor}>•</span>
                       <span>{feature}</span>
                     </li>
@@ -83,4 +83,3 @@ export function ClassTypeCards() {
     </div>
   )
 }
-

@@ -98,19 +98,19 @@ export function ProjectCurriculumSection({
             key={project.id}
             onClick={() => handleProjectChange(project.id)}
             className={`
-              px-6 py-3 rounded-xl font-semibold transition-all
+              px-6 py-3 rounded-xl font-semibold transition-all border
               ${
                 selectedProject === project.id
                   ? projectTabActiveClass ||
-                    `bg-gradient-to-r from-${primaryColor}-600 to-${primaryColor}-700 text-white shadow-lg scale-105`
+                    `bg-gradient-to-r from-${primaryColor}-600 to-${primaryColor}-700 text-white shadow-lg scale-105 border-transparent`
                   : projectTabInactiveClass ||
-                    "bg-gray-800 text-gray-300 hover:bg-gray-700"
+                    "bg-gray-900 text-gray-300 hover:bg-gray-800 border-gray-700"
               }
             `}
           >
             {project.title}
             {project.difficulty && (
-              <Badge className="ml-2 bg-white/20 text-xs">{project.difficulty}</Badge>
+              <Badge className="ml-2 bg-gray-700 text-gray-300 text-xs">{project.difficulty}</Badge>
             )}
           </button>
         ))}

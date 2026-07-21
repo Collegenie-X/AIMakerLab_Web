@@ -163,8 +163,8 @@ export default function ViveCodingCurriculumPage() {
           description="1단계: 수동 제작 장인 (중학생) | 2단계: 자동 생성 공장 (고등학생)"
           projects={data.curriculum.projects}
           containerClass={layout.containerClass}
-          projectTabActiveClass="bg-gradient-to-r from-orange-600 to-red-600 text-white shadow-lg"
-          projectTabInactiveClass="bg-gray-800 text-gray-300 hover:bg-gray-700"
+          projectTabActiveClass="bg-gradient-to-r from-orange-600 to-red-600 text-white shadow-lg border-transparent"
+          projectTabInactiveClass="bg-gray-900 text-gray-300 hover:bg-gray-800 border-gray-700"
           durationTabActiveClass="bg-orange-600 text-white shadow-md"
           durationTabInactiveClass="bg-gray-800 text-gray-400 hover:bg-gray-700"
           primaryColor="orange"

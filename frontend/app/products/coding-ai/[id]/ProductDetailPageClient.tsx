@@ -34,49 +34,49 @@ function EducationalValueSection({
   educationalValue: string
 }) {
   return (
-    <section className="border-t bg-gradient-to-br from-blue-50 to-teal-50 py-10">
+    <section className="border-t border-gray-800 bg-gray-900 py-10">
       <div className="container mx-auto max-w-6xl px-4">
         <div className="mb-8 text-center">
-          <h2 className="mb-2 text-3xl font-bold text-gray-900">{PRODUCT_DETAIL_TEXTS.educationalValueSection.heading}</h2>
-          <p className="text-gray-600">{PRODUCT_DETAIL_TEXTS.educationalValueSection.subheading}</p>
+          <h2 className="mb-2 text-3xl font-bold text-white">{PRODUCT_DETAIL_TEXTS.educationalValueSection.heading}</h2>
+          <p className="text-gray-400">{PRODUCT_DETAIL_TEXTS.educationalValueSection.subheading}</p>
         </div>
 
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mb-8">
-          <div className="rounded-xl border-2 border-blue-200 bg-white p-6">
-            <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-blue-100">
-              <BookOpen className="h-6 w-6 text-blue-600" />
+          <div className="rounded-xl border-2 border-blue-800 bg-blue-950/30 p-6">
+            <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-blue-900/50">
+              <BookOpen className="h-6 w-6 text-blue-400" />
             </div>
-            <h3 className="mb-2 text-lg font-bold text-gray-900">{PRODUCT_DETAIL_TEXTS.educationalValueSection.cards.curriculumTitle}</h3>
-            <p className="text-sm text-gray-600">{classTime}{PRODUCT_DETAIL_TEXTS.educationalValueSection.cards.curriculumDescSuffix}</p>
+            <h3 className="mb-2 text-lg font-bold text-white">{PRODUCT_DETAIL_TEXTS.educationalValueSection.cards.curriculumTitle}</h3>
+            <p className="text-sm text-gray-400">{classTime}{PRODUCT_DETAIL_TEXTS.educationalValueSection.cards.curriculumDescSuffix}</p>
           </div>
-          <div className="rounded-xl border-2 border-teal-200 bg-white p-6">
-            <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-teal-100">
-              <GraduationCap className="h-6 w-6 text-teal-600" />
+          <div className="rounded-xl border-2 border-teal-800 bg-teal-950/30 p-6">
+            <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-teal-900/50">
+              <GraduationCap className="h-6 w-6 text-teal-400" />
             </div>
-            <h3 className="mb-2 text-lg font-bold text-gray-900">{PRODUCT_DETAIL_TEXTS.educationalValueSection.cards.teacherSupportTitle}</h3>
-            <p className="text-sm text-gray-600">{PRODUCT_DETAIL_TEXTS.educationalValueSection.cards.teacherSupportDesc}</p>
+            <h3 className="mb-2 text-lg font-bold text-white">{PRODUCT_DETAIL_TEXTS.educationalValueSection.cards.teacherSupportTitle}</h3>
+            <p className="text-sm text-gray-400">{PRODUCT_DETAIL_TEXTS.educationalValueSection.cards.teacherSupportDesc}</p>
           </div>
-          <div className="rounded-xl border-2 border-green-200 bg-white p-6">
-            <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-green-100">
-              <Users className="h-6 w-6 text-green-600" />
+          <div className="rounded-xl border-2 border-green-800 bg-green-950/30 p-6">
+            <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-green-900/50">
+              <Users className="h-6 w-6 text-green-400" />
             </div>
-            <h3 className="mb-2 text-lg font-bold text-gray-900">{PRODUCT_DETAIL_TEXTS.educationalValueSection.cards.verifiedTitle}</h3>
-            <p className="text-sm text-gray-600">전국 {soldCount}{PRODUCT_DETAIL_TEXTS.educationalValueSection.cards.verifiedDescSuffix}</p>
+            <h3 className="mb-2 text-lg font-bold text-white">{PRODUCT_DETAIL_TEXTS.educationalValueSection.cards.verifiedTitle}</h3>
+            <p className="text-sm text-gray-400">전국 {soldCount}{PRODUCT_DETAIL_TEXTS.educationalValueSection.cards.verifiedDescSuffix}</p>
           </div>
         </div>
 
         {/* 교육적 가치 상세 */}
-        <div className="rounded-2xl border-2 border-blue-200 bg-white p-8 shadow-lg">
+        <div className="rounded-2xl border-2 border-blue-800 bg-gray-800 p-8 shadow-lg">
           <div className="mb-4 flex items-center gap-3">
-            <div className="flex h-14 w-14 items-center justify-center rounded-full bg-blue-100">
-              <GraduationCap className="h-7 w-7 text-blue-600" />
+            <div className="flex h-14 w-14 items-center justify-center rounded-full bg-blue-900/50">
+              <GraduationCap className="h-7 w-7 text-blue-400" />
             </div>
             <div>
-              <h3 className="text-xl font-bold text-gray-900">{PRODUCT_DETAIL_TEXTS.educationalValueSection.detailTitle}</h3>
-              <p className="text-sm text-gray-600">{PRODUCT_DETAIL_TEXTS.educationalValueSection.detailSubtitle}</p>
+              <h3 className="text-xl font-bold text-white">{PRODUCT_DETAIL_TEXTS.educationalValueSection.detailTitle}</h3>
+              <p className="text-sm text-gray-400">{PRODUCT_DETAIL_TEXTS.educationalValueSection.detailSubtitle}</p>
             </div>
           </div>
-          <p className="text-gray-700 leading-relaxed text-lg">{educationalValue}</p>
+          <p className="text-gray-300 leading-relaxed text-lg">{educationalValue}</p>
         </div>
       </div>
     </section>
@@ -100,12 +100,12 @@ export function ProductDetailPageClient({ productId }: { productId: string }) {
   // 로딩 상태
   if (isLoading) {
     return (
-      <div className="flex min-h-screen flex-col">
+      <div className="flex min-h-screen flex-col bg-gray-950">
         <Header />
         <div className="flex flex-1 items-center justify-center">
           <div className="text-center">
             <div className="mb-4 h-12 w-12 animate-spin rounded-full border-4 border-teal-600 border-t-transparent mx-auto"></div>
-            <p className="text-gray-600">제품 정보를 불러오는 중...</p>
+            <p className="text-gray-400">제품 정보를 불러오는 중...</p>
           </div>
         </div>
         <Footer />
@@ -116,14 +116,14 @@ export function ProductDetailPageClient({ productId }: { productId: string }) {
   // 에러 상태
   if (error || !product) {
     return (
-      <div className="flex min-h-screen flex-col">
+      <div className="flex min-h-screen flex-col bg-gray-950">
         <Header />
         <div className="flex flex-1 items-center justify-center">
           <div className="text-center">
-            <p className="text-red-600 mb-2">
+            <p className="text-red-400 mb-2">
               {error ? error.message : '제품을 찾을 수 없습니다.'}
             </p>
-            <a href="/products/coding-ai" className="text-teal-600 hover:underline">
+            <a href="/products/coding-ai" className="text-teal-400 hover:underline">
               제품 목록으로 돌아가기
             </a>
           </div>
@@ -134,7 +134,7 @@ export function ProductDetailPageClient({ productId }: { productId: string }) {
   }
 
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-screen flex-col bg-gray-950">
       <Header />
 
       {/* Breadcrumb */}
