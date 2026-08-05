@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Github, Cloud, Server, GitBranch, ArrowRight, Rocket } from "lucide-react";
 
 const stack = [
@@ -10,31 +11,31 @@ const stack = [
 
 const projects = [
   {
-    emoji: "🗣️",
+    image: "/images/projects/lingopang.png",
     title: "Lingopang",
     description: "AI 기반 외국어 회화 학습 서비스",
-    href: undefined,
+    href: "https://www.lingopang.com/",
     gradient: "from-sky-500 to-blue-600",
   },
   {
-    emoji: "🧭",
+    image: "/images/projects/ai-careerpath.png",
     title: "AI CareerPath",
     description: "AI가 분석하는 맞춤형 진로 설계 플랫폼",
-    href: undefined,
+    href: "https://www.aicareerpath.co.kr/",
     gradient: "from-violet-500 to-purple-600",
   },
   {
-    emoji: "🌊",
+    image: "/images/projects/stock-simulation.png",
     title: "파도를 타라",
     description: "실전처럼 배우는 주식 투자 모의 훈련 서비스",
-    href: "https://stock-simulation-delta.vercel.app/compete",
+    href: "https://stock-simulation-delta.vercel.app/",
     gradient: "from-emerald-500 to-green-600",
   },
   {
-    emoji: "🔬",
+    image: "/images/projects/ai-rnd-simulator.png",
     title: "AI R&D Simulator",
     description: "연구·개발 아이디어를 검증하는 AI 시뮬레이션 도구",
-    href: undefined,
+    href: "https://ai-research-simulator-development.vercel.app/",
     gradient: "from-amber-500 to-orange-600",
   },
 ];
@@ -81,8 +82,12 @@ export function OutsourcingSection() {
           {projects.map((project) => {
             const CardBody = (
               <div className="ai-card-hover group h-full overflow-hidden rounded-2xl border border-white/10 bg-white/5">
-                <div className={`flex aspect-video items-center justify-center bg-gradient-to-br ${project.gradient} text-5xl transition-transform group-hover:scale-105`}>
-                  <span>{project.emoji}</span>
+                <div className={`relative aspect-video overflow-hidden bg-gradient-to-br ${project.gradient} transition-transform group-hover:scale-105`}>
+                  {project.image ? (
+                    <Image src={project.image} alt={project.title} fill className="object-cover object-top" sizes="(max-width: 768px) 100vw, 25vw" />
+                  ) : (
+                    <div className="flex h-full items-center justify-center text-5xl">🧭</div>
+                  )}
                 </div>
                 <div className="p-4">
                   <h3 className="mb-1 font-semibold text-white">{project.title}</h3>
