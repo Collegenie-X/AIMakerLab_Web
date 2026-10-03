@@ -157,6 +157,43 @@ export const headerNavSections: HeaderNavSection[] = [
     ],
   },
   {
+    title: "왜 프로젝트인가",
+    width: 250,
+    icon: "Lightbulb",
+    items: [
+      {
+        label: "왜 프로젝트인가",
+        href: "/why-project",
+        icon: "Lightbulb",
+        description: "AI 시대 프로젝트 교육이 필요한 이유"
+      },
+      {
+        label: "IB 학교",
+        href: "/why-project/ib",
+        icon: "Globe",
+        description: "탐구·논술형 국제 바칼로레아"
+      },
+      {
+        label: "미네르바 스쿨",
+        href: "/why-project/minerva",
+        icon: "GraduationCap",
+        description: "캠퍼스 없는 혁신 대학"
+      },
+      {
+        label: "바이브 코딩",
+        href: "/why-project/vibe-coding",
+        icon: "Wand",
+        description: "말로 만드는 실제 서비스"
+      },
+      {
+        label: "AI 오케스트라",
+        href: "/why-project/ai-orchestra",
+        icon: "Music",
+        description: "기획 → 배포 → 홍보까지 AI 지휘"
+      },
+    ],
+  },
+  {
     title: "About",
     width: 190,
     icon: "Building",

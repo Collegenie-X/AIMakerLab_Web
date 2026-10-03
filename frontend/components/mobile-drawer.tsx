@@ -17,6 +17,16 @@ interface MenuItem {
 
 const menuItems: MenuItem[] = [
   {
+    title: "왜 프로젝트인가",
+    items: [
+      { label: "왜 프로젝트인가", href: "/why-project" },
+      { label: "IB 학교", href: "/why-project/ib" },
+      { label: "미네르바 스쿨", href: "/why-project/minerva" },
+      { label: "바이브 코딩", href: "/why-project/vibe-coding" },
+      { label: "AI 오케스트라", href: "/why-project/ai-orchestra" },
+    ],
+  },
+  {
     title: "교육 커리큘럼",
     items: [
       { label: "앱 인벤터 코딩", href: "/curriculum/app-inventor" },

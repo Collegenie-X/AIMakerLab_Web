@@ -17,7 +17,7 @@ import { getCurrentUser } from "@/lib/auth/email-verification"
 import { headerBrand, headerNavSections, headerUIConfig } from "@/components/header/config"
 import type { HeaderNavItem, HeaderNavSection } from "@/components/header/config"
 import { useEffect, useState } from "react"
-import { ArrowUp, Code, Cpu, CircuitBoard, Smartphone, Lightbulb, School, CalendarDays, Calendar, Bell, Box, Video, Calculator, Image, MessageSquare, Info, MapPin, BookOpen, HelpCircle, Package, Images, Building, Briefcase, Scale, GraduationCap, FileSearch, Rocket, LogIn, Sparkles } from "lucide-react"
+import { ArrowUp, Code, Cpu, CircuitBoard, Smartphone, Lightbulb, School, CalendarDays, Calendar, Bell, Box, Video, Calculator, Image, MessageSquare, Info, MapPin, BookOpen, HelpCircle, Package, Images, Building, Briefcase, Scale, GraduationCap, FileSearch, Rocket, LogIn, Sparkles, Globe, WandSparkles, Music } from "lucide-react"
 import { Button } from "@/components/ui/buttons/button"
 
 export function Header() {
@@ -79,6 +79,9 @@ export function Header() {
       case "GraduationCap": return <GraduationCap {...iconProps} />
       case "FileSearch": return <FileSearch {...iconProps} />
       case "Rocket": return <Rocket {...iconProps} />
+      case "Globe": return <Globe {...iconProps} />
+      case "Wand": return <WandSparkles {...iconProps} />
+      case "Music": return <Music {...iconProps} />
       default: return null
     }
   }
@@ -97,8 +100,9 @@ export function Header() {
     }
   }
 
-  const mainNavSections = headerNavSections.filter(s => s.title !== "About")
-  const aboutSection = headerNavSections.find(s => s.title === "About")
+  const rightNavTitles = ["왜 프로젝트인가", "About"]
+  const mainNavSections = headerNavSections.filter(s => !rightNavTitles.includes(s.title))
+  const rightNavSections = headerNavSections.filter(s => rightNavTitles.includes(s.title))
 
   return (
     <header className="sticky top-0 z-[10] w-full bg-gray-950/95 backdrop-blur supports-[backdrop-filter]:bg-gray-950/80">
@@ -169,18 +173,26 @@ export function Header() {
 
         {/* Right Side: About + Auth */}
         <div className="hidden lg:flex items-center gap-2">
-          {aboutSection && (
-            <NavigationMenu viewport={false}>
+          {rightNavSections.map((section) => (
+            <NavigationMenu key={section.title} viewport={false}>
               <NavigationMenuList>
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className="bg-transparent text-sm font-medium text-white/90 border border-white/20 rounded-full hover:bg-white/5 hover:border-white/30 data-[state=open]:bg-white/5 data-[state=open]:border-violet-400/50 px-4 py-2 h-9">
-                    <Info className="h-4 w-4 mr-1.5 flex-shrink-0 opacity-70" />
-                    <span>About</span>
+                  <NavigationMenuTrigger
+                    className={
+                      section.title === "About"
+                        ? "bg-transparent text-sm font-medium text-white/90 border border-white/20 rounded-full hover:bg-white/5 hover:border-white/30 data-[state=open]:bg-white/5 data-[state=open]:border-violet-400/50 px-4 py-2 h-9"
+                        : "bg-violet-500/10 text-sm font-medium text-violet-100 border border-violet-400/40 rounded-full hover:bg-violet-500/20 hover:text-violet-50 hover:border-violet-300/60 data-[state=open]:bg-violet-500/20 data-[state=open]:text-violet-50 data-[state=open]:border-violet-300/60 px-4 py-2 h-9"
+                    }
+                  >
+                    {section.title === "About"
+                      ? <Info className="h-4 w-4 mr-1.5 flex-shrink-0 opacity-70" />
+                      : <Lightbulb className="h-4 w-4 mr-1.5 flex-shrink-0 opacity-80" />}
+                    <span>{section.title}</span>
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <div className="p-2 bg-black border border-white/10 rounded-lg shadow-xl shadow-black/20" style={{ width: "190px" }}>
+                    <div className="p-2 bg-black border border-white/10 rounded-lg shadow-xl shadow-black/20" style={{ width: `${section.width ?? 190}px` }}>
                       <ul className="space-y-1">
-                        {aboutSection.items.map((item: HeaderNavItem) => (
+                        {section.items.map((item: HeaderNavItem) => (
                           <li key={item.href}>
                             <NavigationMenuLink asChild>
                               <Link
@@ -210,7 +222,7 @@ export function Header() {
                 </NavigationMenuItem>
               </NavigationMenuList>
             </NavigationMenu>
-          )}
+          ))}
 
           {isLoggedIn ? (
             <UserMenuDropdown />
