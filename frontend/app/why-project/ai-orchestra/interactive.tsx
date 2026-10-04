@@ -4,6 +4,7 @@ import { useState } from "react"
 import { ArrowLeft, ArrowRight, Check, Clock, Copy, FileOutput, MessageSquare, User } from "lucide-react"
 import { Highlight as H } from "../components/Highlight"
 import { ToolChip } from "./tool-ui"
+import { StageScene } from "./scenes"
 import type { OrchestraContent } from "./content"
 
 type Stage = OrchestraContent["process"]["stages"][number]
@@ -75,14 +76,15 @@ export function ProcessExplorer({ stages }: { stages: Stage[] }) {
       </div>
 
       <div role="tabpanel" className="rounded-3xl border bg-gray-950/70 p-5 md:p-8" style={{ borderColor: `${s.color}55` }}>
-        <div className="mb-6 flex flex-wrap items-start justify-between gap-4">
+        <div className="mb-6 grid items-center gap-5 md:grid-cols-[1fr_300px]">
           <div>
             <div className="text-xs font-bold tracking-widest" style={{ color: s.color }}>STEP {s.step} · {s.en.toUpperCase()}</div>
             <h3 className="mt-1 text-2xl font-extrabold text-white break-keep">{s.name} — {s.goal}</h3>
+            <span className="mt-3 inline-flex items-center gap-1.5 rounded-full bg-white/5 px-3 py-1.5 text-xs text-gray-300">
+              <Clock className="h-3.5 w-3.5" /> 예상 {s.time}
+            </span>
           </div>
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-white/5 px-3 py-1.5 text-xs text-gray-300">
-            <Clock className="h-3.5 w-3.5" /> 예상 {s.time}
-          </span>
+          <StageScene key={s.step} index={active} color={s.color} />
         </div>
 
         <div className="mb-6 flex flex-wrap items-center gap-2">
@@ -97,7 +99,7 @@ export function ProcessExplorer({ stages }: { stages: Stage[] }) {
               {s.how.map((h, i) => (
                 <li key={h} className="flex gap-3 rounded-xl border border-white/5 bg-white/[0.02] p-3">
                   <span className="grid h-6 w-6 shrink-0 place-items-center rounded-full text-xs font-bold text-gray-950" style={{ background: s.color }}>{i + 1}</span>
-                  <span className="text-sm leading-relaxed text-gray-200 break-keep">{h}</span>
+                  <span className="text-sm leading-relaxed text-gray-200 break-keep"><H text={h} /></span>
                 </li>
               ))}
             </ol>
@@ -108,7 +110,7 @@ export function ProcessExplorer({ stages }: { stages: Stage[] }) {
               <FileOutput className="mt-0.5 h-4 w-4 shrink-0 text-sky-300" />
               <div>
                 <div className="text-[11px] font-bold tracking-widest text-sky-300">산출물 — 이게 있어야 끝</div>
-                <div className="text-sm text-gray-200 break-keep">{s.output}</div>
+                <div className="text-sm text-gray-200 break-keep"><H text={s.output} /></div>
               </div>
             </div>
           </div>
@@ -132,7 +134,7 @@ export function ProcessExplorer({ stages }: { stages: Stage[] }) {
                         onChange={(e) => setChecked((c) => ({ ...c, [key]: e.target.checked }))}
                         className="mt-0.5 h-4 w-4 shrink-0 accent-emerald-500"
                       />
-                      {g}
+                      <span><H text={g} /></span>
                     </label>
                   </li>
                 )
@@ -146,7 +148,7 @@ export function ProcessExplorer({ stages }: { stages: Stage[] }) {
             <User className="mt-0.5 h-4 w-4 shrink-0 text-violet-300" />
             <div>
               <div className="text-[11px] font-bold tracking-widest text-violet-300">지휘자(학생)의 몫</div>
-              <div className="text-sm text-gray-200 break-keep">{s.human}</div>
+              <div className="text-sm text-gray-200 break-keep"><H text={s.human} /></div>
             </div>
           </div>
         </div>
@@ -207,7 +209,7 @@ export function CampaignWalkthrough({ steps }: { steps: CampaignStep[] }) {
             <FileOutput className="mt-0.5 h-4 w-4 shrink-0 text-emerald-300" />
             <div>
               <div className="text-[11px] font-bold tracking-widest text-emerald-300">받는 결과</div>
-              <div className="text-sm text-gray-200 break-keep">{s.result}</div>
+              <div className="text-sm text-gray-200 break-keep"><H text={s.result} /></div>
             </div>
           </div>
         </div>
@@ -268,7 +270,7 @@ export function AutomationLevels({ levels }: { levels: Level[] }) {
         ].map((r) => (
           <div key={r.k} className="rounded-2xl border border-white/5 bg-white/[0.02] p-4">
             <div className="mb-1 text-[11px] font-bold tracking-widest" style={{ color: l.color }}>{r.k}</div>
-            <div className="text-sm text-gray-200 break-keep">{r.v}</div>
+            <div className="text-sm text-gray-200 break-keep"><H text={r.v} /></div>
           </div>
         ))}
       </div>

@@ -6,7 +6,7 @@ import { Highlight as H } from "../components/Highlight"
 import { CompareLists, CtaBlock, Figure, NumberedCards, PageHero, SectionHeader, Takeaway, WhyProjectTabs } from "../components/blocks"
 import { minervaContent } from "./content"
 import { CaseExplorer, CityExplorer } from "./interactive"
-import { CityRouteSvg, LensHexSvg, SeminarSvg } from "./visuals"
+import { CityRouteSvg, FlippedFlowSvg, IcebergSvg, LensHexSvg, ProblemFunnelSvg, SeminarSvg, ValueCrossSvg, YearStairSvg } from "./visuals"
 
 export const metadata: Metadata = {
   title: "미네르바 스쿨 | 왜 프로젝트인가",
@@ -36,6 +36,7 @@ export default function MinervaPage() {
         <section id={seminar.id} className="scroll-mt-32 border-y border-white/5 bg-white/[0.015] py-24">
           <div className="mx-auto max-w-6xl px-4">
             <SectionHeader {...seminar} />
+            <Figure caption="같은 90분 — 듣는 시간이 아니라 꺼내 쓰는 시간"><FlippedFlowSvg /></Figure>
             <div className="mb-14 grid gap-4 md:grid-cols-3">
               {seminar.flow.map((f, i) => (
                 <div key={f.phase} className="relative rounded-2xl border bg-gray-950/70 p-6" style={{ borderColor: `${f.color}55` }}>
@@ -73,11 +74,11 @@ export default function MinervaPage() {
                     <h3 className="text-xl font-bold" style={{ color: l.color }}>{l.title}</h3>
                     <span className="text-xs text-gray-500">{l.en}</span>
                   </div>
-                  <p className="mb-4 mt-2 font-semibold leading-relaxed text-white break-keep">“{l.question}”</p>
+                  <p className="mb-4 mt-2 font-semibold leading-relaxed text-white break-keep">“<H text={l.question} />”</p>
                   <dl className="mt-auto space-y-2 text-xs leading-relaxed">
                     <div className="flex gap-2"><dt className="w-14 shrink-0 text-gray-500">인문학 뿌리</dt><dd className="text-gray-300 break-keep">{l.roots}</dd></div>
                     <div className="flex gap-2"><dt className="w-14 shrink-0 text-gray-500">실전 도구</dt><dd className="text-gray-300 break-keep">{l.tools}</dd></div>
-                    <div className="flex gap-2"><dt className="w-14 shrink-0 text-gray-500">막는 함정</dt><dd className="text-rose-300/80 break-keep">{l.trap}</dd></div>
+                    <div className="flex gap-2"><dt className="w-14 shrink-0 text-gray-500">막는 함정</dt><dd className="text-rose-300/80 break-keep"><H text={l.trap} /></dd></div>
                   </dl>
                 </div>
               ))}
@@ -90,6 +91,7 @@ export default function MinervaPage() {
           <div className="mx-auto max-w-6xl px-4">
             <SectionHeader {...cases} />
             <CaseExplorer cases={cases.items} lenses={lenses.items} />
+            <Figure caption="네 케이스 모두 수면 위(기술)는 완벽했습니다 — 문제는 수면 아래에 있었습니다"><IcebergSvg items={lenses.items} /></Figure>
             <Takeaway text={cases.note} />
           </div>
         </section>
@@ -98,6 +100,7 @@ export default function MinervaPage() {
         <section id={years.id} className="scroll-mt-32 py-24">
           <div className="mx-auto max-w-6xl px-4">
             <SectionHeader {...years} />
+            <Figure caption="학년이 오를수록 문제는 더 낯설고, 더 실제에 가까워집니다"><YearStairSvg items={years.items} /></Figure>
             <div className="relative grid gap-4 md:grid-cols-2 lg:grid-cols-4">
               {years.items.map((y) => (
                 <div key={y.tag} className="flex flex-col rounded-2xl border bg-gray-950/60 p-6" style={{ borderColor: `${y.color}55` }}>
@@ -110,14 +113,14 @@ export default function MinervaPage() {
                   <ul className="mb-4 space-y-1.5">
                     {y.learn.map((l) => (
                       <li key={l} className="flex gap-2 text-sm text-gray-300 break-keep">
-                        <Check className="mt-0.5 h-3.5 w-3.5 shrink-0" style={{ color: y.color }} />{l}
+                        <Check className="mt-0.5 h-3.5 w-3.5 shrink-0" style={{ color: y.color }} /><span><H text={l} /></span>
                       </li>
                     ))}
                   </ul>
                   <div className="mb-1 text-[11px] font-bold tracking-widest text-gray-500">프로젝트</div>
                   <p className="mb-4 text-sm leading-relaxed text-gray-400 break-keep"><H text={y.project} /></p>
                   <div className="mt-auto rounded-xl bg-white/[0.04] px-3 py-2 text-xs text-gray-300 break-keep">
-                    <span className="text-gray-500">산출물 · </span>{y.output}
+                    <span className="text-gray-500">산출물 · </span><H text={y.output} />
                   </div>
                 </div>
               ))}
@@ -139,6 +142,7 @@ export default function MinervaPage() {
         <section id={hiring.id} className="scroll-mt-32 py-24">
           <div className="mx-auto max-w-6xl px-4">
             <SectionHeader {...hiring} />
+            <Figure caption="AI가 풀이를 맡을수록, ‘문제를 정의하는 사람’이 귀해집니다"><ProblemFunnelSvg /></Figure>
             <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-5">
               {hiring.items.map((h, i) => (
                 <div key={h.title} className="rounded-2xl border bg-gray-950/60 p-6 transition hover:-translate-y-1" style={{ borderColor: `${h.color}55` }}>
@@ -171,12 +175,13 @@ export default function MinervaPage() {
                 </div>
               ))}
             </div>
+            <Figure caption="AI가 등장한 뒤, 두 가치의 방향이 엇갈렸습니다"><ValueCrossSvg /></Figure>
             <div className="mb-14 grid gap-4 md:grid-cols-2">
               <div className="rounded-3xl border border-white/10 bg-white/[0.02] p-8">
                 <h3 className="mb-5 flex items-center gap-2 text-lg font-bold text-gray-400"><Bot className="h-5 w-5" />{ai.compare.ai.title}</h3>
                 <ul className="space-y-3">
                   {ai.compare.ai.items.map((it) => (
-                    <li key={it} className="flex items-center gap-3 text-gray-400"><span className="h-1.5 w-1.5 shrink-0 rounded-full bg-gray-500" />{it}</li>
+                    <li key={it} className="flex items-center gap-3 text-gray-400"><span className="h-1.5 w-1.5 shrink-0 rounded-full bg-gray-500" /><span><H text={it} /></span></li>
                   ))}
                 </ul>
               </div>
@@ -203,7 +208,7 @@ export default function MinervaPage() {
                   <div className="flex-1 rounded-2xl border border-violet-500/30 bg-violet-500/[0.05] p-5 text-center">
                     <div className="mb-1 text-xs font-bold text-violet-400">STEP {i + 1}</div>
                     <div className="mb-1 font-bold text-white break-keep">{s.title}</div>
-                    <p className="text-xs text-gray-400 break-keep">{s.desc}</p>
+                    <p className="text-xs text-gray-400 break-keep"><H text={s.desc} /></p>
                   </div>
                   {i < admission.steps.length - 1 && <ArrowRight className="hidden h-5 w-5 shrink-0 text-violet-400 md:block" />}
                 </div>
@@ -230,7 +235,7 @@ export default function MinervaPage() {
               {outcome.items.map((o) => (
                 <div key={o.label} className="rounded-2xl border border-white/10 bg-white/[0.02] p-6 text-center">
                   <div className="text-4xl font-extrabold text-white">{o.value}</div>
-                  <div className="mt-2 text-sm text-gray-400 break-keep">{o.label}</div>
+                  <div className="mt-2 text-sm text-gray-400 break-keep"><H text={o.label} /></div>
                 </div>
               ))}
             </div>
@@ -244,7 +249,7 @@ export default function MinervaPage() {
               {outcome.korea.items.map((k) => (
                 <div key={k.name} className="rounded-2xl border border-sky-500/25 bg-sky-500/[0.05] p-6">
                   <div className="mb-2 font-bold text-sky-200">{k.name}</div>
-                  <p className="text-sm leading-relaxed text-gray-300 break-keep">{k.desc}</p>
+                  <p className="text-sm leading-relaxed text-gray-300 break-keep"><H text={k.desc} /></p>
                 </div>
               ))}
             </div>

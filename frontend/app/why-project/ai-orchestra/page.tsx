@@ -8,6 +8,7 @@ import { orchestraContent } from "./content"
 import { tools } from "./tools"
 import { ToolChip, ToolIcon } from "./tool-ui"
 import { AutomationFlowSvg, CycleSvg, OrchestraSvg, ProcessMapSvg, RunToAgentSvg, ShortsStoryboardSvg } from "./visuals"
+import { CampaignPipelineSvg, FunnelSvg, GlossaryIcon, HookAbTestSvg, SoloVsOrchestraSvg } from "./scenes"
 import { AutomationLevels, CampaignWalkthrough, CopyButton, ProcessExplorer } from "./interactive"
 
 export const metadata: Metadata = {
@@ -29,6 +30,9 @@ export default function AiOrchestraPage() {
         <section id={concept.id} className="scroll-mt-32 py-24">
           <div className="mx-auto max-w-6xl px-4">
             <SectionHeader {...concept} />
+            <Figure caption="같은 AI라도 ‘통째로 맡기기’와 ‘나눠서 지휘하기’는 결과가 다릅니다.">
+              <SoloVsOrchestraSvg />
+            </Figure>
             <NumberedCards items={concept.roles} />
             <div className="mb-14 rounded-3xl border border-white/10 bg-white/[0.02] p-6 md:p-8">
               <div className="mb-5 text-center text-xs font-bold tracking-widest text-gray-400">오케스트라로 이해하기 — 이 페이지의 용어</div>
@@ -36,7 +40,7 @@ export default function AiOrchestraPage() {
                 {concept.analogy.map((a) => (
                   <div key={a.term} className="rounded-2xl border border-white/5 bg-gray-950/60 p-4">
                     <dt className="mb-1 text-lg font-extrabold" style={{ color: a.color }}>{a.term}</dt>
-                    <dd className="text-sm leading-relaxed text-gray-300 break-keep">{a.meaning}</dd>
+                    <dd className="text-sm leading-relaxed text-gray-300 break-keep"><H text={a.meaning} /></dd>
                   </div>
                 ))}
               </dl>
@@ -97,17 +101,30 @@ export default function AiOrchestraPage() {
               </table>
             </div>
 
+            <h3 className="mb-5 text-center text-xl font-bold text-white">도구에서 도구로 — 제작 릴레이</h3>
+            <Figure>
+              <CampaignPipelineSvg />
+            </Figure>
+
             <h3 className="mb-5 text-center text-xl font-bold text-white">9단계 따라 하기 — 단계를 눌러 보세요</h3>
             <div className="mb-14">
               <CampaignWalkthrough steps={campaign.steps} />
             </div>
 
+            <h3 className="mb-5 text-center text-xl font-bold text-white">훅은 감이 아니라 숫자로 고릅니다</h3>
+            <Figure>
+              <HookAbTestSvg />
+            </Figure>
+
             <h3 className="mb-5 text-center text-xl font-bold text-white">올린 뒤에는 이 4가지 숫자를 봅니다</h3>
+            <Figure caption="왼쪽에서 오른쪽으로 갈수록 사람이 줄어듭니다. 어디서 가장 많이 빠지는지가 다음에 고칠 곳입니다.">
+              <FunnelSvg />
+            </Figure>
             <div className="mb-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
               {campaign.metrics.map((m) => (
                 <div key={m.name} className="rounded-2xl border bg-gray-950/70 p-5" style={{ borderColor: `${m.color}55` }}>
                   <div className="mb-1 font-bold text-white">{m.name}</div>
-                  <p className="mb-3 text-xs leading-relaxed text-gray-400 break-keep">{m.desc}</p>
+                  <p className="mb-3 text-xs leading-relaxed text-gray-400 break-keep"><H text={m.desc} /></p>
                   <div className="text-xs text-gray-500">예시 목표 <span className="text-base font-extrabold" style={{ color: m.color }}>{m.target}</span></div>
                 </div>
               ))}
@@ -122,8 +139,9 @@ export default function AiOrchestraPage() {
             <SectionHeader {...agent} />
 
             <div className="mb-14 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-              {agent.glossary.map((g) => (
+              {agent.glossary.map((g, i) => (
                 <div key={g.term} className="rounded-2xl border bg-gray-950/70 p-5" style={{ borderColor: `${g.color}55` }}>
+                  <GlossaryIcon index={i} color={g.color} />
                   <div className="mb-2 flex items-baseline gap-2">
                     <span className="text-lg font-extrabold" style={{ color: g.color }}>{g.term}</span>
                     <span className="text-xs text-gray-500">{g.en}</span>
@@ -142,7 +160,7 @@ export default function AiOrchestraPage() {
                 <li key={e.no} className="rounded-2xl border border-white/10 bg-white/[0.02] p-5">
                   <div className="mb-1 text-xs font-bold" style={{ color: e.color }}>STEP {e.no} · {e.sub}</div>
                   <div className="mb-2 font-bold text-white">{e.title}</div>
-                  <p className="text-sm leading-relaxed text-gray-400 break-keep">{e.desc}</p>
+                  <p className="text-sm leading-relaxed text-gray-400 break-keep"><H text={e.desc} /></p>
                 </li>
               ))}
             </ol>
@@ -196,7 +214,7 @@ export default function AiOrchestraPage() {
                 <div className="mb-4 flex items-center gap-2 font-bold text-amber-300"><Bot className="h-5 w-5" /> 에이전트에게 맡길 일</div>
                 <ul className="space-y-2.5">
                   {agent.automate.map((a) => (
-                    <li key={a} className="flex items-start gap-2 text-sm text-gray-200 break-keep"><Check className="mt-0.5 h-4 w-4 shrink-0 text-amber-400" />{a}</li>
+                    <li key={a} className="flex items-start gap-2 text-sm text-gray-200 break-keep"><Check className="mt-0.5 h-4 w-4 shrink-0 text-amber-400" /><span><H text={a} /></span></li>
                   ))}
                 </ul>
               </div>
@@ -204,7 +222,7 @@ export default function AiOrchestraPage() {
                 <div className="mb-4 flex items-center gap-2 font-bold text-violet-300"><Hand className="h-5 w-5" /> 끝까지 사람이 할 일</div>
                 <ul className="space-y-2.5">
                   {agent.keepHuman.map((a) => (
-                    <li key={a} className="flex items-start gap-2 text-sm text-gray-200 break-keep"><Check className="mt-0.5 h-4 w-4 shrink-0 text-violet-400" />{a}</li>
+                    <li key={a} className="flex items-start gap-2 text-sm text-gray-200 break-keep"><Check className="mt-0.5 h-4 w-4 shrink-0 text-violet-400" /><span><H text={a} /></span></li>
                   ))}
                 </ul>
               </div>
@@ -245,7 +263,7 @@ export default function AiOrchestraPage() {
                             <ol className="mb-4 space-y-1.5">
                               {t.howTo.map((h, i) => (
                                 <li key={h} className="flex gap-2 text-sm text-gray-200 break-keep">
-                                  <span className="w-4 shrink-0 font-bold text-gray-500">{i + 1}.</span>{h}
+                                  <span className="w-4 shrink-0 font-bold text-gray-500">{i + 1}.</span><span><H text={h} /></span>
                                 </li>
                               ))}
                             </ol>

@@ -8,6 +8,7 @@ import { vibeContent } from "./content"
 import { SixStepSvg, SpeedBarsSvg, VibeLoopSvg } from "./visuals"
 import { DjangoAdminSvg, HundredAsksSvg, PreviewBranchSvg, ServerlessArchSvg, TwoPhaseSvg, WebToAppSvg } from "./workflow-visuals"
 import { DjangoSteps, FavoriteDemo } from "./interactive"
+import { IcebergSvg, LearningPathSvg, OneModelSvg, ProjectArt, PromptToScreenSvg, RolesCycleSvg } from "./illustrations"
 
 export const metadata: Metadata = {
   title: "바이브 코딩 | 왜 프로젝트인가",
@@ -28,6 +29,7 @@ export default function VibeCodingPage() {
         <section id={what.id} className="scroll-mt-32 py-24">
           <div className="mx-auto max-w-6xl px-4">
             <SectionHeader {...what} />
+            <Figure caption="전통 방식은 ==마지막에야== 결과물이 나오고, 바이브 코딩은 ==첫날부터== 작동하는 것이 남는다"><LearningPathSvg /></Figure>
             <CompareLists before={what.before} after={what.after} />
           </div>
         </section>
@@ -64,6 +66,7 @@ export default function VibeCodingPage() {
         <section id={roles.id} className="scroll-mt-32 border-y border-white/5 bg-white/[0.015] py-24">
           <div className="mx-auto max-w-6xl px-4">
             <SectionHeader {...roles} />
+            <Figure caption="네 역할은 한 번으로 끝나지 않고 ==프로젝트가 완성될 때까지 순환==한다"><RolesCycleSvg roles={roles.items} /></Figure>
             <NumberedCards items={roles.items} cols={4} />
           </div>
         </section>
@@ -72,7 +75,7 @@ export default function VibeCodingPage() {
         <section id={workflow.id} className="scroll-mt-32 py-24">
           <div className="mx-auto max-w-6xl px-4">
             <SectionHeader {...workflow} />
-            <Figure caption="현업 바이브 코딩 파이프라인 — 화면으로 먼저 검증하고, 확정된 JSON 구조로 백엔드를 만든다">
+            <Figure caption="현업 바이브 코딩 파이프라인 — ==화면으로 먼저 검증==하고, 확정된 JSON 구조로 백엔드를 만든다">
               <TwoPhaseSvg phases={workflow.phases} />
             </Figure>
             <NumberedCards items={workflow.principles} cols={4} />
@@ -83,21 +86,22 @@ export default function VibeCodingPage() {
         <section id={frontFirst.id} className="scroll-mt-32 border-y border-white/5 bg-white/[0.015] py-24">
           <div className="mx-auto max-w-6xl px-4">
             <SectionHeader {...frontFirst} />
+            <Figure caption="==말 한 줄==이 약 30초 만에 화면이 된다 — 마음에 안 들면 다시 말하면 된다"><PromptToScreenSvg /></Figure>
             <div className="mb-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
               {frontFirst.studios.map((t) => (
                 <div key={t.name} className="rounded-2xl border bg-gray-950/70 p-5" style={{ borderColor: `${t.color}44` }}>
                   <div className="mb-2 font-bold" style={{ color: t.color }}>{t.name}</div>
-                  <p className="text-sm leading-relaxed text-gray-400 break-keep">{t.desc}</p>
+                  <p className="text-sm leading-relaxed text-gray-400 break-keep"><H text={t.desc} /></p>
                 </div>
               ))}
             </div>
-            <Figure caption="기능마다 브랜치 → 프리뷰 URL 공유 → 피드백 반영 → main 병합"><PreviewBranchSvg /></Figure>
+            <Figure caption="기능마다 브랜치 → ==프리뷰 URL 공유== → 피드백 반영 → main 병합"><PreviewBranchSvg /></Figure>
             <ol className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
               {frontFirst.loop.map((l, i) => (
                 <li key={l.title} className="relative rounded-2xl border border-white/10 bg-gray-950/60 p-5">
                   <div className="mb-1 text-xs font-bold text-violet-400">LOOP {i + 1}</div>
                   <div className="mb-2 font-bold text-white">{l.title}</div>
-                  <p className="text-sm text-gray-400 break-keep">{l.desc}</p>
+                  <p className="text-sm text-gray-400 break-keep"><H text={l.desc} /></p>
                 </li>
               ))}
             </ol>
@@ -108,12 +112,12 @@ export default function VibeCodingPage() {
         <section id={serverless.id} className="scroll-mt-32 py-24">
           <div className="mx-auto max-w-6xl px-4">
             <SectionHeader {...serverless} />
-            <Figure caption="모든 데이터 호출을 repo.ts로 모으면, 나중에 Django로 바꿀 때 스위치 하나만 바꾼다"><ServerlessArchSvg /></Figure>
+            <Figure caption="모든 데이터 호출을 repo.ts로 모으면, 나중에 Django로 바꿀 때 ==스위치 하나만== 바꾼다"><ServerlessArchSvg /></Figure>
             <div className="mb-10 grid gap-3 md:grid-cols-3">
               {serverless.layers.map((l) => (
                 <div key={l.name} className="rounded-2xl border bg-gray-950/70 p-5" style={{ borderColor: `${l.color}55` }}>
                   <div className="font-mono text-sm font-bold" style={{ color: l.color }}>{l.name}</div>
-                  <div className="mt-1 font-semibold text-white">{l.role}</div>
+                  <div className="mt-1 text-gray-200"><H text={l.role} /></div>
                   <div className="mt-1 text-sm text-gray-500">{l.examples}</div>
                 </div>
               ))}
@@ -138,8 +142,9 @@ export default function VibeCodingPage() {
         <section id={backend.id} className="scroll-mt-32 border-y border-white/5 bg-white/[0.015] py-24">
           <div className="mx-auto max-w-6xl px-4">
             <SectionHeader {...backend} />
-            <Figure caption="프론트에서 검증된 JSON → Django 모델 → 관리자 페이지 자동 생성"><DjangoAdminSvg /></Figure>
+            <Figure caption="프론트에서 검증된 JSON → Django 모델 → ==관리자 페이지 자동 생성=="><DjangoAdminSvg /></Figure>
             <DjangoSteps steps={backend.steps} />
+            <Figure caption="==모델 하나==를 정의하면 관리자 화면 · API · DB가 함께 생긴다"><OneModelSvg /></Figure>
             <div className="grid gap-3 md:grid-cols-3">
               {backend.why.map((w) => (
                 <div key={w.title} className="rounded-2xl border border-emerald-500/25 bg-emerald-500/[0.04] p-5">
@@ -155,7 +160,8 @@ export default function VibeCodingPage() {
         <section id={service.id} className="scroll-mt-32 py-24">
           <div className="mx-auto max-w-6xl px-4">
             <SectionHeader {...service} />
-            <Figure caption="처음 10번의 질문은 데모를 만들고, 나머지 90번이 서비스를 만든다"><HundredAsksSvg milestones={service.milestones} /></Figure>
+            <Figure caption="돌아가는 화면은 ==빙산의 일각== — 서비스는 수면 아래 90%를 묻고 검증하는 일"><IcebergSvg /></Figure>
+            <Figure caption="처음 10번의 질문은 데모를 만들고, ==나머지 90번이 서비스==를 만든다"><HundredAsksSvg milestones={service.milestones} /></Figure>
             <div className="mb-12 grid gap-4 md:grid-cols-2">
               {[
                 { d: service.compare.demo, on: false },
@@ -200,7 +206,7 @@ export default function VibeCodingPage() {
         <section id={native.id} className="scroll-mt-32 border-y border-white/5 bg-white/[0.015] py-24">
           <div className="mx-auto max-w-6xl px-4">
             <SectionHeader {...native} />
-            <Figure caption="Vercel 웹과 React Native 앱은 같은 코어를 공유한다"><WebToAppSvg /></Figure>
+            <Figure caption="Vercel 웹과 React Native 앱은 ==같은 코어를 공유==한다"><WebToAppSvg /></Figure>
             <div className="grid gap-4 lg:grid-cols-2">
               <div className="rounded-3xl border border-violet-500/30 bg-violet-500/[0.05] p-6">
                 <h3 className="mb-4 font-bold text-violet-300">그대로 가져가는 것</h3>
@@ -208,7 +214,7 @@ export default function VibeCodingPage() {
                   {native.reuse.map((r) => (
                     <li key={r.what} className="flex gap-3 text-sm">
                       <Check className="mt-0.5 h-4 w-4 shrink-0 text-violet-400" />
-                      <span className="break-keep"><span className="font-semibold text-white">{r.what}</span> <span className="text-gray-400">— {r.how}</span></span>
+                      <span className="break-keep"><span className="font-semibold text-white">{r.what}</span> <span className="text-gray-400">— <H text={r.how} /></span></span>
                     </li>
                   ))}
                 </ul>
@@ -254,11 +260,11 @@ export default function VibeCodingPage() {
             <div className="mb-14 grid gap-4 md:grid-cols-3">
               {projects.items.map((p) => (
                 <div key={p.title} className="rounded-3xl border bg-gray-950/70 p-7" style={{ borderColor: `${p.color}55` }}>
-                  <div className="mb-4 flex items-center justify-between">
-                    <span className="text-4xl">{p.emoji}</span>
-                    <span className="rounded-full px-3 py-1 text-xs font-bold" style={{ color: p.color, background: `${p.color}1f` }}>{p.level}</span>
+                  <div className="mb-5"><ProjectArt kind={p.art} color={p.color} /></div>
+                  <div className="mb-3 flex items-center justify-between gap-3">
+                    <h3 className="text-lg font-bold text-white">{p.title}</h3>
+                    <span className="shrink-0 rounded-full px-3 py-1 text-xs font-bold" style={{ color: p.color, background: `${p.color}1f` }}>{p.level}</span>
                   </div>
-                  <h3 className="mb-3 text-lg font-bold text-white">{p.title}</h3>
                   <p className="text-sm leading-relaxed text-gray-400 break-keep"><H text={p.desc} /></p>
                 </div>
               ))}

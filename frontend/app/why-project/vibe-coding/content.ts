@@ -14,7 +14,7 @@ export const vibeContent = {
   what: {
     id: "what",
     label: "01 · 바이브 코딩이란",
-    title: "AI는 실행자, 학생은 기획자이자 지휘자",
+    title: "AI는 실행자, 학생은 ==기획자이자 지휘자==",
     description:
       "2025년 AI 연구자 안드레이 카파시(Andrej Karpathy)가 처음 이름 붙인 ‘바이브 코딩’은 ChatGPT·Claude·Cursor 같은 생성형 AI에게 자연어로 의도를 전하고, 사람은 ==설계·검증·통합==에 집중하는 방식입니다. AI Maker Lab에서는 완성품을 먼저 보고 거꾸로 만들어 가는 ==역공부==와 결합합니다.",
     before: {
@@ -29,7 +29,7 @@ export const vibeContent = {
   shift: {
     id: "shift",
     label: "02 · 패러다임 전환",
-    title: "코딩을 잘하는 사람이 이기는 시대는 끝났습니다",
+    title: "==코딩을 잘하는 사람==이 이기는 시대는 끝났습니다",
     description: "이제는 ==기획하고, 설계하고, 지휘하는 사람==이 이깁니다. 교육의 무게중심도 ‘얼마나 아는가’에서 ‘무엇을 만들어 냈는가’로 옮겨 가고 있습니다.",
     rows: [
       { bg: "문법 암기 후 직접 코딩", ag: "AI에게 말해서 만드는 바이브 코딩" },
@@ -42,7 +42,7 @@ export const vibeContent = {
   speed: {
     id: "speed",
     label: "03 · 속도",
-    title: "하루 걸리던 MVP가, 한 수업 안에 완성됩니다",
+    title: "하루 걸리던 MVP가, ==한 수업 안에== 완성됩니다",
     description: "UI는 AI 스튜디오, 서버와 관리자 페이지는 Django, 배포는 Vercel. 반복 작업을 AI에게 맡긴 만큼 ==문제를 정의하고 사용자 반응을 보는 데== 시간을 씁니다.",
     tasks: [
       { name: "UI 화면", before: 120, after: 10, tool: "V0" },
@@ -54,19 +54,19 @@ export const vibeContent = {
   roles: {
     id: "roles",
     label: "04 · 역할",
-    title: "한 프로젝트 안에서 네 가지 역할을 모두 경험합니다",
+    title: "한 프로젝트 안에서 ==네 가지 역할==을 모두 경험합니다",
     description: "‘먼저 테스트, 그다음 구현’. AI를 3~4년차 주니어 개발자라고 생각하고, ==명령이 아니라 대화로== 협업합니다.",
     items: [
-      { title: "기획자", tag: "종이 · Figma", desc: "문제를 정의하고 기능 목록과 화면을 스케치합니다.", color: "#a78bfa" },
-      { title: "실행자", tag: "V0 · Cursor · ChatGPT", desc: "AI에게 설명해 화면과 서버를 만들고 연결합니다.", color: "#38bdf8" },
+      { title: "기획자", tag: "종이 · Figma", desc: "==문제를 정의==하고 기능 목록과 화면을 스케치합니다.", color: "#a78bfa" },
+      { title: "실행자", tag: "V0 · Cursor · ChatGPT", desc: "==AI에게 설명해== 화면과 서버를 만들고 연결합니다.", color: "#38bdf8" },
       { title: "디버거", tag: "브라우저 · 로그", desc: "직접 써 보며 문제를 찾고 ==AI와 함께 원인을 추적==합니다.", color: "#fbbf24" },
-      { title: "성찰자", tag: "회고", desc: "문제를 정말 풀었는지, 무엇을 개선할지 돌아봅니다.", color: "#34d399" },
+      { title: "성찰자", tag: "회고", desc: "==문제를 정말 풀었는지==, 무엇을 개선할지 돌아봅니다.", color: "#34d399" },
     ],
   },
   workflow: {
     id: "workflow",
     label: "05 · 실무 워크플로우",
-    title: "프론트를 먼저 완성하고, 백엔드는 확정된 뒤에 붙입니다",
+    title: "==프론트를 먼저== 완성하고, 백엔드는 ==확정된 뒤에== 붙입니다",
     description:
       "요즘 스타트업·IT 회사의 바이브 코딩은 ==AI 스튜디오로 화면을 뽑고 → Vercel에 올려 → JSON·localStorage로 서버 없이 테스트==하며 하루에도 몇 번씩 고칩니다. 화면과 흐름이 확정되면 그때 ==Django로 백엔드와 관리자(Admin) 페이지를 한 번에== 만듭니다.",
     phases: [
@@ -105,32 +105,32 @@ export const vibeContent = {
   frontFirst: {
     id: "front-first",
     label: "06 · 프론트 퍼스트",
-    title: "AI 스튜디오로 뽑고, Vercel 프리뷰로 매일 고칩니다",
+    title: "AI 스튜디오로 뽑고, ==Vercel 프리뷰로 매일== 고칩니다",
     description:
       "Google AI Studio·V0·Bolt·Lovable 같은 ==AI 스튜디오==는 말 한 줄로 화면 전체를 만들어 줍니다. 결과를 Next.js 프로젝트로 가져와 GitHub에 올리면, Vercel이 ==브랜치마다 접속 가능한 프리뷰 URL==을 자동으로 만들어 줍니다.",
     studios: [
-      { name: "Google AI Studio", desc: "Gemini로 앱 화면 생성 · 바로 실행 미리보기", color: "#38bdf8" },
-      { name: "V0 (Vercel)", desc: "shadcn/ui 기반 React 컴포넌트 · Vercel 원클릭 배포", color: "#e5e7eb" },
-      { name: "Bolt · Lovable", desc: "브라우저 안에서 풀스택 앱 초안 생성", color: "#f472b6" },
-      { name: "Cursor · Claude Code", desc: "가져온 코드를 프로젝트 구조에 맞게 정리·확장", color: "#a78bfa" },
+      { name: "Google AI Studio", desc: "Gemini로 앱 화면 생성 · ==바로 실행 미리보기==", color: "#38bdf8" },
+      { name: "V0 (Vercel)", desc: "shadcn/ui 기반 React 컴포넌트 · ==Vercel 원클릭 배포==", color: "#e5e7eb" },
+      { name: "Bolt · Lovable", desc: "==브라우저 안에서== 풀스택 앱 초안 생성", color: "#f472b6" },
+      { name: "Cursor · Claude Code", desc: "가져온 코드를 ==프로젝트 구조에 맞게== 정리·확장", color: "#a78bfa" },
     ],
     loop: [
       { title: "프롬프트", desc: "“수업 목록을 카드형으로, 학년 필터 추가해 줘”" },
-      { title: "git push", desc: "feature 브랜치에 커밋 → 자동 빌드" },
-      { title: "프리뷰 URL", desc: "feat-filter.vercel.app — 링크 하나로 공유" },
-      { title: "피드백", desc: "팀·사용자가 직접 써 보고 댓글 · 캡처" },
+      { title: "git push", desc: "feature 브랜치에 커밋 → ==자동 빌드==" },
+      { title: "프리뷰 URL", desc: "feat-filter.vercel.app — ==링크 하나로 공유==" },
+      { title: "피드백", desc: "팀·사용자가 ==직접 써 보고== 댓글 · 캡처" },
     ],
   },
   serverless: {
     id: "serverless",
     label: "07 · 서버 없이 테스트",
-    title: "JSON 파일과 localStorage로, 백엔드 없이 ‘진짜처럼’ 돌립니다",
+    title: "JSON 파일과 localStorage로, ==백엔드 없이 ‘진짜처럼’== 돌립니다",
     description:
       "데이터는 ==/data/*.json==에서 읽고, 사용자가 바꾸는 상태(즐겨찾기·장바구니·작성 글)는 ==브라우저 localStorage==에 저장합니다. 모든 데이터 호출을 ==repo.ts 한 파일==로 모아 두면, 나중에 Django API로 바꿀 때 화면 코드는 한 줄도 고치지 않습니다.",
     layers: [
-      { name: "/data/*.json", role: "읽기 전용 시드 데이터", examples: "수업 목록 · 강사 · FAQ", color: "#fbbf24" },
-      { name: "localStorage", role: "사용자별 쓰기 데이터", examples: "즐겨찾기 · 장바구니 · 임시 로그인", color: "#38bdf8" },
-      { name: "lib/repo.ts", role: "데이터 출입구 (어댑터)", examples: "getCourses() · toggleFavorite()", color: "#a78bfa" },
+      { name: "/data/*.json", role: "==읽기== 전용 시드 데이터", examples: "수업 목록 · 강사 · FAQ", color: "#fbbf24" },
+      { name: "localStorage", role: "사용자별 ==쓰기== 데이터", examples: "즐겨찾기 · 장바구니 · 임시 로그인", color: "#38bdf8" },
+      { name: "lib/repo.ts", role: "==데이터 출입구== (어댑터)", examples: "getCourses() · toggleFavorite()", color: "#a78bfa" },
     ],
     code: {
       json: `// data/courses.json
@@ -170,7 +170,7 @@ export function toggleFavorite(id: number) {
   backend: {
     id: "django",
     label: "08 · Django 백엔드 & Admin",
-    title: "화면이 확정되면, Django로 백엔드와 관리자 페이지를 한 번에",
+    title: "화면이 확정되면, Django로 ==백엔드와 관리자 페이지를 한 번에==",
     description:
       "프론트에서 다듬어진 JSON 구조를 AI에게 주고 ==Django 모델로 바꿔 달라==고 하면 시작입니다. 모델을 admin.py에 등록하는 순간 ==검색·필터·추가·수정·삭제가 되는 관리자 페이지==가 생기고, DRF로 같은 데이터를 API로 내보내면 프론트는 ==스위치 하나로== 실제 서버에 연결됩니다.",
     steps: [
@@ -225,7 +225,7 @@ python manage.py createsuperuser`,
       },
     ],
     why: [
-      { title: "Admin이 기본 내장", desc: "운영자용 CRUD 화면을 만들 필요가 없습니다. 비개발자 팀원도 바로 데이터를 관리합니다." },
+      { title: "Admin이 기본 내장", desc: "운영자용 CRUD 화면을 만들 필요가 없습니다. ==비개발자 팀원도 바로== 데이터를 관리합니다." },
       { title: "AI가 가장 잘 아는 프레임워크", desc: "20년 가까이 쌓인 문서와 예제 덕분에 AI가 만든 Django 코드는 ==관례대로, 안정적으로== 나옵니다." },
       { title: "로그인·권한·보안 포함", desc: "회원 인증, 관리자 권한, CSRF·SQL 인젝션 방어가 ==처음부터 들어 있습니다==." },
     ],
@@ -233,7 +233,7 @@ python manage.py createsuperuser`,
   service: {
     id: "service",
     label: "09 · 서비스 수준",
-    title: "빠른 건 ‘테스트’까지입니다. 서비스는 100번 묻고 책임지는 일입니다",
+    title: "빠른 건 ‘테스트’까지입니다. 서비스는 ==100번 묻고 책임지는 일==입니다",
     description:
       "바이브 코딩의 장점은 ==하루 만에 돌아가는 화면을 보는 속도==입니다. 하지만 ‘돌아간다’와 ‘사람들이 믿고 쓴다’ 사이에는 큰 간격이 있습니다. 실제 서비스가 되려면 같은 기능을 놓고 ==AI에게 100번 가까이 묻고, 검증하고, 결과에 책임지는 자세==가 필요합니다.",
     compare: {
@@ -265,14 +265,14 @@ python manage.py createsuperuser`,
   native: {
     id: "app",
     label: "10 · 웹에서 앱으로",
-    title: "Vercel + Next.js로 만드는 이유 — React Native로 앱까지 이어집니다",
+    title: "Vercel + Next.js로 만드는 이유 — ==React Native로 앱까지== 이어집니다",
     description:
       "Vercel에 올리는 Next.js 웹은 ==React==로 만들어집니다. 앱을 만드는 ==React Native(Expo)==도 같은 React 문법을 쓰기 때문에, 웹에서 검증한 ==데이터 로직·Django API·화면 구조를 그대로 가져가== 앱스토어용 앱으로 확장할 수 있습니다. 웹 서비스가 곧 앱의 시제품이 됩니다.",
     reuse: [
-      { what: "Django API · Admin", how: "그대로 사용 — 웹과 앱이 같은 서버를 씁니다" },
-      { what: "lib/repo.ts 데이터 로직", how: "그대로 사용 — fetch·상태 관리 코드 공유" },
-      { what: "JSON 스키마 · TypeScript 타입", how: "그대로 사용 — 같은 데이터 모양" },
-      { what: "컴포넌트 구조 · 화면 흐름", how: "구조는 유지, 태그만 교체" },
+      { what: "Django API · Admin", how: "웹과 앱이 ==같은 서버==를 씁니다" },
+      { what: "lib/repo.ts 데이터 로직", how: "fetch·상태 관리 코드를 ==그대로 공유==" },
+      { what: "JSON 스키마 · TypeScript 타입", how: "==같은 데이터 모양==을 씁니다" },
+      { what: "컴포넌트 구조 · 화면 흐름", how: "구조는 유지, ==태그만 교체==" },
     ],
     swap: [
       { web: "<div> · <span>", app: "<View> · <Text>" },
@@ -285,7 +285,7 @@ python manage.py createsuperuser`,
   process: {
     id: "process",
     label: "11 · 학생 프로젝트 과정",
-    title: "문제 정의부터 배포·발표까지, 6단계 14주",
+    title: "문제 정의부터 배포·발표까지, ==6단계 14주==",
     description: "단계마다 결과물이 남고, ==단계마다 세특 문장==이 만들어집니다.",
     steps: [
       { title: "문제 정의", week: "1~2주", output: "문제 정의서" },
@@ -299,11 +299,11 @@ python manage.py createsuperuser`,
   projects: {
     id: "projects",
     label: "12 · 대표 프로젝트",
-    title: "손으로 먼저 만들고, AI 에이전트로 자동화합니다",
+    title: "손으로 먼저 만들고, ==AI 에이전트로 자동화==합니다",
     items: [
-      { emoji: "📖", title: "AI 동화책", level: "기초", desc: "ChatGPT로 스토리, DALL·E로 삽화를 만들고 웹 동화책으로 완성한 뒤 ==자동 생성 에이전트==로 발전시킵니다.", color: "#c084fc" },
-      { emoji: "🗣️", title: "화상 영어 AI 튜터", level: "중간", desc: "듀오링고·스픽을 벤치마킹해 상황별 대화 시나리오를 설계하고 ==자동 학습 플랫폼==으로 만듭니다.", color: "#38bdf8" },
-      { emoji: "🎮", title: "감정 방탈출 게임", level: "심화", desc: "텍스트 게임에서 시작해 ==표정 인식 AI==가 들어간 웹 게임으로 확장합니다.", color: "#f472b6" },
+      { art: "book", title: "AI 동화책", level: "기초", desc: "ChatGPT로 스토리, DALL·E로 삽화를 만들고 웹 동화책으로 완성한 뒤 ==자동 생성 에이전트==로 발전시킵니다.", color: "#c084fc" },
+      { art: "tutor", title: "화상 영어 AI 튜터", level: "중간", desc: "듀오링고·스픽을 벤치마킹해 상황별 대화 시나리오를 설계하고 ==자동 학습 플랫폼==으로 만듭니다.", color: "#38bdf8" },
+      { art: "game", title: "감정 방탈출 게임", level: "심화", desc: "텍스트 게임에서 시작해 ==표정 인식 AI==가 들어간 웹 게임으로 확장합니다.", color: "#f472b6" },
     ],
     tracks: [
       { grade: "중1~2", hours: "3시간", output: "AI 동화책" },
@@ -315,7 +315,7 @@ python manage.py createsuperuser`,
   tools: {
     id: "tools",
     label: "13 · 도구",
-    title: "현업 개발자가 쓰는 도구를 그대로 씁니다",
+    title: "==현업 개발자가 쓰는 도구==를 그대로 씁니다",
     groups: [
       { name: "기획 · 디자인", items: ["ChatGPT", "Claude", "Figma"], color: "#c084fc" },
       { name: "AI 스튜디오 (화면 생성)", items: ["Google AI Studio", "V0", "Bolt", "Lovable"], color: "#38bdf8" },
@@ -328,11 +328,11 @@ python manage.py createsuperuser`,
   outcome: {
     id: "outcome",
     label: "14 · 결과",
-    title: "남는 것은 수료증이 아니라, 접속할 수 있는 서비스입니다",
+    title: "남는 것은 수료증이 아니라, ==접속할 수 있는 서비스==입니다",
     items: [
-      { title: "배포된 서비스 URL", desc: "친구·가족·선생님이 실제로 접속해 써 보는 서비스", color: "#a78bfa" },
-      { title: "시연 영상 · 발표", desc: "문제 → 해결 → 반응을 3분 안에 설명하는 힘", color: "#38bdf8" },
-      { title: "세특 · 포트폴리오", desc: "단계별 산출물이 그대로 탐구 기록과 전공 포트폴리오가 됩니다", color: "#34d399" },
+      { title: "배포된 서비스 URL", desc: "친구·가족·선생님이 ==실제로 접속해 써 보는== 서비스", color: "#a78bfa" },
+      { title: "시연 영상 · 발표", desc: "문제 → 해결 → 반응을 ==3분 안에 설명하는 힘==", color: "#38bdf8" },
+      { title: "세특 · 포트폴리오", desc: "단계별 산출물이 그대로 ==탐구 기록과 전공 포트폴리오==가 됩니다", color: "#34d399" },
     ],
     quote: "우리는 개발자를 키우지 않습니다. ==아이디어를 실행하는 실행자==를 키웁니다.",
   },

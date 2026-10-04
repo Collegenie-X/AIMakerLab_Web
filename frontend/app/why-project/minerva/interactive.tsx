@@ -37,7 +37,7 @@ export function CaseExplorer({ cases, lenses }: { cases: Case[]; lenses: Lens[] 
 
       <div role="tabpanel" className="rounded-3xl border border-white/10 bg-white/[0.02] p-6 md:p-8">
         <div className="mb-6 grid gap-4 md:grid-cols-[1fr_auto] md:items-start">
-          <p className="text-sm leading-relaxed text-gray-400 break-keep">{c.summary}</p>
+          <p className="text-sm leading-relaxed text-gray-400 break-keep"><H text={c.summary} /></p>
           <div className="rounded-xl border border-fuchsia-500/30 bg-fuchsia-500/[0.07] px-4 py-3 text-sm font-semibold text-fuchsia-200 break-keep md:max-w-xs">
             Q. {c.question}
           </div>
@@ -107,7 +107,7 @@ export function CityExplorer({ cities }: { cities: City[] }) {
         <dl className="mb-6 grid gap-4 sm:grid-cols-2">
           <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-4">
             <dt className="mb-1 text-xs font-bold tracking-widest text-gray-500">도시의 산업</dt>
-            <dd className="text-sm text-gray-200 break-keep">{c.industry}</dd>
+            <dd className="text-sm text-gray-200 break-keep"><H text={c.industry} /></dd>
           </div>
           <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-4">
             <dt className="mb-1 text-xs font-bold tracking-widest text-gray-500">협업 기관 유형</dt>

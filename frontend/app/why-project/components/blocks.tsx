@@ -14,7 +14,7 @@ export function SectionHeader({ label, title, description }: { label: string; ti
   return (
     <div className="mx-auto mb-12 max-w-3xl text-center">
       <p className="mb-4 text-sm font-semibold tracking-widest text-violet-400">{label}</p>
-      <h2 className="mb-5 text-3xl font-bold leading-tight text-white md:text-4xl break-keep">{title}</h2>
+      <h2 className="mb-5 text-3xl font-bold leading-tight text-white md:text-4xl break-keep [&_mark]:font-bold"><H text={title} /></h2>
       {description && (
         <p className="text-base leading-relaxed text-gray-400 md:text-lg break-keep"><H text={description} /></p>
       )}
@@ -26,7 +26,7 @@ export function Figure({ children, caption }: { children: React.ReactNode; capti
   return (
     <figure className="mb-14 rounded-3xl border border-white/10 bg-white/[0.02] p-4 md:p-8">
       {children}
-      {caption && <figcaption className="mt-4 text-center text-sm text-gray-500">{caption}</figcaption>}
+      {caption && <figcaption className="mt-4 text-center text-sm text-gray-500 break-keep"><H text={caption} /></figcaption>}
     </figure>
   )
 }
