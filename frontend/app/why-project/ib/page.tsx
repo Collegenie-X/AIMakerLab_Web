@@ -1,18 +1,30 @@
 import type { Metadata } from "next"
-import { AlertTriangle, ArrowRight } from "lucide-react"
+import { AlertTriangle, ArrowRight, ChevronDown, MapPin } from "lucide-react"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { Highlight as H } from "../components/Highlight"
 import { CompareLists, CtaBlock, Figure, NumberedCards, PageHero, SectionHeader, Takeaway, WhyProjectTabs } from "../components/blocks"
 import { ibContent } from "./content"
-import { IbContinuumSvg, IbHexagonSvg, IbScoreSvg } from "./visuals"
+import {
+  IbContinuumSvg, IbHexagonSvg, IbInquiryCycleSvg, IbMindsetShiftSvg, IbPyoseonPathwaySvg,
+  IbScoreCompareSvg, IbScoreSvg, IbWritingVolumeSvg, IbYearsCoachingSvg,
+} from "./visuals"
 
 export const metadata: Metadata = {
   title: "IB 학교 | 왜 프로젝트인가",
   description: "에세이·탐구 보고서·구술로 평가하는 국제 바칼로레아(IB) — DP 구조, TOK·EE·CAS 코어, 한국 공교육 IB 도입과 입시 영향",
 }
 
-const { hero, what, dp, core, assess, korea, admission, link, source, cta } = ibContent
+const { hero, what, dp, core, assess, korea, pyoseon, admission, link, source, cta } = ibContent
+
+const pyoseonVisuals: Record<string, () => React.ReactElement> = {
+  cycle: IbInquiryCycleSvg,
+  writing: IbWritingVolumeSvg,
+  mindset: IbMindsetShiftSvg,
+  years: IbYearsCoachingSvg,
+  compare: IbScoreCompareSvg,
+  pathway: IbPyoseonPathwaySvg,
+}
 
 export default function IbPage() {
   return (
@@ -131,8 +143,72 @@ export default function IbPage() {
           </div>
         </section>
 
-        {/* 06 Admission */}
-        <section id={admission.id} className="scroll-mt-32 border-y border-white/5 bg-white/[0.015] py-24">
+        {/* 06 Pyoseon — 표선고로 보는 IB (펼침 패널) */}
+        <section id={pyoseon.id} className="scroll-mt-32 border-y border-white/5 bg-white/[0.015] py-24">
+          <div className="mx-auto max-w-6xl px-4">
+            <SectionHeader {...pyoseon} />
+            <div className="mb-10 grid grid-cols-2 gap-3 md:grid-cols-4">
+              {pyoseon.profile.map((p) => (
+                <div key={p.label} className="rounded-2xl border border-sky-500/25 bg-sky-500/[0.05] p-5 text-center">
+                  <div className="text-xl font-bold text-white md:text-2xl">{p.value}</div>
+                  <div className="mt-1 text-xs text-gray-400 break-keep">{p.label}</div>
+                </div>
+              ))}
+            </div>
+            <div className="space-y-3">
+              {pyoseon.panels.map((p, i) => {
+                const Visual = pyoseonVisuals[p.key]
+                return (
+                  <details
+                    key={p.key}
+                    open={i === 0}
+                    className="group rounded-3xl border bg-gray-950/60 transition open:bg-white/[0.02]"
+                    style={{ borderColor: `${p.color}40` }}
+                  >
+                    <summary className="flex cursor-pointer list-none items-center gap-4 p-5 md:p-6 [&::-webkit-details-marker]:hidden">
+                      <span className="text-lg font-extrabold md:text-xl" style={{ color: p.color }}>{p.no}</span>
+                      <span className="flex-1">
+                        <span className="block font-bold text-white md:text-lg break-keep [&_mark]:font-bold"><H text={p.title} /></span>
+                        <span className="mt-1 block text-sm text-gray-400 break-keep">{p.summary}</span>
+                      </span>
+                      <span className="hidden shrink-0 text-xs text-gray-500 md:inline group-open:hidden">펼치기</span>
+                      <span className="hidden shrink-0 text-xs text-gray-500 md:group-open:inline">접기</span>
+                      <ChevronDown className="h-5 w-5 shrink-0 text-gray-400 transition-transform group-open:rotate-180" />
+                    </summary>
+                    <div className="border-t border-white/5 px-5 pb-6 pt-6 md:px-8">
+                      {Visual && (
+                        <div className="mb-6 overflow-x-auto rounded-2xl border border-white/10 bg-white/[0.02] p-3 md:p-6">
+                          <div className="mx-auto min-w-[600px] max-w-3xl md:min-w-0">
+                            <Visual />
+                          </div>
+                        </div>
+                      )}
+                      <div className="grid gap-4 lg:grid-cols-5">
+                        <ul className="space-y-3 lg:col-span-3">
+                          {p.points.map((pt) => (
+                            <li key={pt} className="flex gap-3 text-sm leading-relaxed text-gray-300 break-keep">
+                              <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full" style={{ background: p.color }} />
+                              <span><H text={pt} /></span>
+                            </li>
+                          ))}
+                        </ul>
+                        <div className="rounded-2xl border border-sky-500/30 bg-sky-500/[0.06] p-5 lg:col-span-2">
+                          <div className="mb-2 flex items-center gap-1.5 text-sm font-bold text-sky-200">
+                            <MapPin className="h-4 w-4" /> 표선고에서는
+                          </div>
+                          <p className="text-sm leading-relaxed text-gray-300 break-keep"><H text={p.example} /></p>
+                        </div>
+                      </div>
+                    </div>
+                  </details>
+                )
+              })}
+            </div>
+          </div>
+        </section>
+
+        {/* 07 Admission */}
+        <section id={admission.id} className="scroll-mt-32 py-24">
           <div className="mx-auto max-w-6xl px-4">
             <SectionHeader label={admission.label} title={admission.title} />
             <NumberedCards items={admission.items} />
@@ -143,8 +219,8 @@ export default function IbPage() {
           </div>
         </section>
 
-        {/* 07 Link */}
-        <section id={link.id} className="scroll-mt-32 py-24">
+        {/* 08 Link */}
+        <section id={link.id} className="scroll-mt-32 border-t border-white/5 bg-white/[0.015] py-24">
           <div className="mx-auto max-w-6xl px-4">
             <SectionHeader {...link} />
             <div className="mb-14 grid gap-3 md:grid-cols-4">
