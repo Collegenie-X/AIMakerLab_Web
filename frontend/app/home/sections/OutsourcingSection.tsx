@@ -1,13 +1,37 @@
 import { WebAppMockSvg } from "../../why-project/vibe-coding/mockups";
 import Link from "next/link";
 import Image from "next/image";
-import { Github, Cloud, Server, GitBranch, ArrowRight, Rocket } from "lucide-react";
+import { Github, Cloud, Server, GitBranch, ArrowRight, ArrowUpRight, Rocket } from "lucide-react";
 
 const stack = [
-  { icon: Cloud, label: "Vercel", desc: "프론트엔드 배포 · Edge 최적화" },
-  { icon: Server, label: "Django", desc: "백엔드 API · 관리자 시스템" },
-  { icon: Github, label: "GitHub", desc: "협업 · 코드 리뷰 · 이슈 관리" },
-  { icon: GitBranch, label: "CI/CD", desc: "자동 빌드 · 테스트 · 무중단 배포" },
+  {
+    icon: Cloud,
+    label: "Vercel",
+    desc: "프론트엔드 배포 · Edge 최적화",
+    accent: "from-sky-400 to-blue-500",
+    shadow: "shadow-sky-500/25",
+  },
+  {
+    icon: Server,
+    label: "Django",
+    desc: "백엔드 API · 관리자 시스템",
+    accent: "from-emerald-400 to-teal-500",
+    shadow: "shadow-emerald-500/25",
+  },
+  {
+    icon: Github,
+    label: "GitHub",
+    desc: "협업 · 코드 리뷰 · 이슈 관리",
+    accent: "from-violet-400 to-purple-500",
+    shadow: "shadow-violet-500/25",
+  },
+  {
+    icon: GitBranch,
+    label: "CI/CD",
+    desc: "자동 빌드 · 테스트 · 무중단 배포",
+    accent: "from-amber-400 to-orange-500",
+    shadow: "shadow-amber-500/25",
+  },
 ];
 
 const projects = [
@@ -69,35 +93,57 @@ export function OutsourcingSection() {
         </div>
 
         <div className="mb-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {stack.map(({ icon: Icon, label, desc }) => (
-            <div key={label} className="ai-glass ai-card-hover rounded-2xl p-5">
-              <div className="mb-3 flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-500 to-cyan-400 shadow-lg shadow-indigo-500/30">
-                <Icon className="h-5 w-5 text-white" />
+          {stack.map(({ icon: Icon, label, desc, accent, shadow }) => (
+            <div
+              key={label}
+              className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] p-5 transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.06]"
+            >
+              <div className={`absolute inset-x-0 top-0 h-px bg-gradient-to-r ${accent} opacity-50 transition-opacity group-hover:opacity-100`} />
+              <div className="flex items-center gap-3">
+                <div className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br ${accent} shadow-lg ${shadow}`}>
+                  <Icon className="h-5 w-5 text-white" />
+                </div>
+                <div className="font-semibold">{label}</div>
               </div>
-              <div className="mb-1 font-semibold">{label}</div>
-              <div className="text-sm text-white/60">{desc}</div>
+              <div className="mt-3 break-keep text-sm leading-relaxed text-white/55">{desc}</div>
             </div>
           ))}
         </div>
 
         {/* Project showcase */}
-        <div className="mb-4 text-center text-sm font-medium uppercase tracking-wide text-white/50">
-          주요 개발 프로젝트
+        <div className="mb-6 flex items-center gap-4">
+          <div className="h-px flex-1 bg-gradient-to-r from-transparent to-white/15" />
+          <span className="whitespace-nowrap text-sm font-medium uppercase tracking-[0.2em] text-white/45">
+            주요 개발 프로젝트
+          </span>
+          <div className="h-px flex-1 bg-gradient-to-l from-transparent to-white/15" />
         </div>
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {projects.map((project) => {
             const CardBody = (
-              <div className="ai-card-hover group h-full overflow-hidden rounded-2xl border border-white/10 bg-white/5">
-                <div className={`relative aspect-video overflow-hidden bg-gradient-to-br ${project.gradient} transition-transform group-hover:scale-105`}>
+              <div className="group relative h-full overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] transition-all duration-300 hover:-translate-y-1 hover:border-white/25 hover:shadow-2xl hover:shadow-black/50">
+                <div className={`relative aspect-[16/10] overflow-hidden bg-gradient-to-br ${project.gradient}`}>
                   {project.image ? (
-                    <Image src={project.image} alt={project.title} fill className="object-cover object-top" sizes="(max-width: 768px) 100vw, 25vw" />
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      fill
+                      className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.06]"
+                      sizes="(max-width: 768px) 100vw, 25vw"
+                    />
                   ) : (
                     <div className="flex h-full items-center justify-center text-5xl">🧭</div>
                   )}
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-gray-950/85 via-gray-950/10 to-transparent" />
                 </div>
-                <div className="p-4">
-                  <h3 className="mb-1 font-semibold text-white">{project.title}</h3>
-                  <p className="text-sm text-white/60">{project.description}</p>
+                <div className="flex items-start justify-between gap-3 p-4">
+                  <div className="min-w-0">
+                    <h3 className="mb-1 font-semibold text-white">{project.title}</h3>
+                    <p className="break-keep text-sm leading-relaxed text-white/55">{project.description}</p>
+                  </div>
+                  {project.href && (
+                    <ArrowUpRight className="mt-0.5 h-4 w-4 shrink-0 text-white/25 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-white/80" />
+                  )}
                 </div>
               </div>
             );

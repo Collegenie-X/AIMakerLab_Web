@@ -3,9 +3,10 @@ import { Check, X } from "lucide-react";
 import { useScrollReveal } from "../hooks/useScrollReveal";
 import { useTick } from "../hooks/useTick";
 import { ThreeClassroomsSvg } from "../components/HomeArt";
+import { ComparisonIcon, type ComparisonIconName } from "../components/ComparisonIcons";
 
 type Row = {
-  icon: string;
+  icon: ComparisonIconName;
   axis: string;
   /** 코딩 학원 (소프트웨어만) */
   coding: string;
@@ -18,7 +19,7 @@ type Row = {
 
 const rows: Row[] = [
   {
-    icon: "🎯",
+    icon: "goal",
     axis: "수업의 목표",
     coding: "문법을 배우고 예제를 따라 친다",
     maker: "정해진 키트를 설명서대로 조립한다",
@@ -26,7 +27,7 @@ const rows: Row[] = [
     score: 96,
   },
   {
-    icon: "🤖",
+    icon: "ai",
     axis: "AI의 위치",
     coding: "부록 · 특강으로 잠깐 다룬다",
     maker: "거의 다루지 않는다",
@@ -34,7 +35,7 @@ const rows: Row[] = [
     score: 100,
   },
   {
-    icon: "🔧",
+    icon: "hardware",
     axis: "하드웨어",
     coding: "화면 안에서 끝난다",
     maker: "조립 체험으로 끝난다",
@@ -42,7 +43,7 @@ const rows: Row[] = [
     score: 95,
   },
   {
-    icon: "🔗",
+    icon: "link",
     axis: "소프트웨어 ↔ 하드웨어",
     coding: "연결할 하드웨어가 없다",
     maker: "예제 코드를 그대로 업로드",
@@ -50,7 +51,7 @@ const rows: Row[] = [
     score: 94,
   },
   {
-    icon: "🪜",
+    icon: "ladder",
     axis: "학년 연계",
     coding: "학년마다 새 언어를 다시 시작",
     maker: "학년마다 새 키트를 다시 구매",
@@ -58,7 +59,7 @@ const rows: Row[] = [
     score: 92,
   },
   {
-    icon: "📝",
+    icon: "record",
     axis: "생기부 · 세특",
     coding: "수료증 한 장",
     maker: "대회 참가 기록 정도",
@@ -66,7 +67,7 @@ const rows: Row[] = [
     score: 96,
   },
   {
-    icon: "🚀",
+    icon: "result",
     axis: "남는 결과물",
     coding: "내 컴퓨터 안의 파일",
     maker: "학기 끝나면 분해되는 키트",
@@ -80,7 +81,7 @@ function ScoreBar({ score, visible, delay }: { score: number; visible: boolean; 
   const shimmer = (tick % 60) / 60;
 
   return (
-    <svg viewBox="0 0 120 10" className="h-2.5 w-full" preserveAspectRatio="none">
+    <svg viewBox="0 0 120 10" className="h-2.5 w-full min-w-0 flex-1" preserveAspectRatio="none">
       <defs>
         <linearGradient id={`cmp-grad-${score}-${delay}`} x1="0" y1="0" x2="1" y2="0">
           <stop offset="0%" stopColor="#8B5CF6" />
@@ -138,17 +139,18 @@ export function ComparisonSection() {
 
         <div className="mx-auto max-w-5xl overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] backdrop-blur-sm">
           {/* Table header */}
-          <div className="hidden grid-cols-[0.8fr_1fr_1fr_1.3fr] items-center gap-4 border-b border-white/10 px-8 py-4 md:grid">
+          <div className="hidden grid-cols-[0.9fr_1fr_1fr_1.35fr] items-center gap-4 border-b border-white/10 px-8 py-5 md:grid">
             <div className="text-xs font-semibold uppercase tracking-wider text-white/35">비교 항목</div>
             <div className="flex items-center gap-2 text-sm font-semibold text-white/40">
-              <span className="text-base">💻</span> 코딩 학원
+              <ComparisonIcon name="monitor" className="h-[18px] w-[18px] text-white/30" /> 코딩 학원
             </div>
             <div className="flex items-center gap-2 text-sm font-semibold text-white/40">
-              <span className="text-base">🧰</span> 메이커 · 로봇 교실
+              <ComparisonIcon name="toolbox" className="h-[18px] w-[18px] text-white/30" /> 메이커 · 로봇 교실
             </div>
-            <div className="flex items-center gap-2 text-sm font-bold text-emerald-300">
-              <span className="text-base">⚡</span> AI Maker Lab
-              <span className="rounded-full bg-emerald-500/15 px-2 py-0.5 text-[10px] text-emerald-300">
+            <div className="-my-5 -mr-8 flex items-center gap-2 border-l border-emerald-400/20 bg-emerald-500/[0.06] py-5 pl-4 pr-8 text-sm font-bold text-emerald-300">
+              <ComparisonIcon name="spark" className="h-[18px] w-[18px]" />
+              AI Maker Lab
+              <span className="rounded-full bg-emerald-500/15 px-2 py-0.5 text-[10px] font-semibold text-emerald-300">
                 AI + Maker
               </span>
             </div>
@@ -163,31 +165,41 @@ export function ComparisonSection() {
               }`}
               style={{ transitionDelay: `${i * 80}ms`, transitionDuration: "600ms" }}
             >
-              <div className="grid gap-3 md:grid-cols-[0.8fr_1fr_1fr_1.3fr] md:items-start md:gap-4">
-                <div className="flex items-center gap-2.5">
-                  <span className="text-2xl">{row.icon}</span>
+              <div className="grid gap-3 md:grid-cols-[0.9fr_1fr_1fr_1.35fr] md:items-start md:gap-4">
+                <div className="flex items-center gap-3">
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] text-violet-300 transition-colors group-hover:border-violet-400/30 group-hover:text-violet-200">
+                    <ComparisonIcon name={row.icon} />
+                  </span>
                   <span className="text-sm font-semibold text-white">{row.axis}</span>
                 </div>
 
                 {[
-                  { text: row.coding, tag: "💻 코딩 학원" },
-                  { text: row.maker, tag: "🧰 메이커 교실" },
+                  { text: row.coding, tag: "코딩 학원", icon: "monitor" as const },
+                  { text: row.maker, tag: "메이커 교실", icon: "toolbox" as const },
                 ].map((col) => (
                   <div key={col.tag} className="flex items-start gap-2 text-sm leading-relaxed text-white/35">
                     <X className="mt-0.5 h-3.5 w-3.5 shrink-0 text-white/25" />
                     <span>
-                      <span className="mr-1.5 text-[10px] text-white/25 md:hidden">{col.tag}</span>
+                      <span className="mr-1.5 inline-flex items-center gap-1 align-middle text-[10px] text-white/25 md:hidden">
+                        <ComparisonIcon name={col.icon} className="h-3 w-3" />
+                        {col.tag}
+                      </span>
                       <span className="line-through decoration-white/15">{col.text}</span>
                     </span>
                   </div>
                 ))}
 
-                <div className="rounded-xl border border-emerald-400/20 bg-emerald-500/[0.07] p-3 md:border-0 md:bg-transparent md:p-0">
-                  <div className="mb-2 flex items-start gap-2 text-sm font-medium leading-relaxed text-white/90">
+                <div className="rounded-xl border border-emerald-400/20 bg-emerald-500/[0.07] p-3 md:-my-5 md:-mr-8 md:rounded-none md:border-0 md:border-l md:border-emerald-400/20 md:bg-emerald-500/[0.06] md:py-5 md:pl-4 md:pr-8">
+                  <div className="mb-2.5 flex items-start gap-2 text-sm font-medium leading-relaxed text-white">
                     <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-emerald-400" />
                     <span>{row.ours}</span>
                   </div>
-                  <ScoreBar score={row.score} visible={visible} delay={i * 80 + 200} />
+                  <div className="flex items-center gap-2.5 pl-[22px]">
+                    <ScoreBar score={row.score} visible={visible} delay={i * 80 + 200} />
+                    <span className="shrink-0 font-mono text-[11px] tabular-nums text-emerald-300/70">
+                      {row.score}
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
