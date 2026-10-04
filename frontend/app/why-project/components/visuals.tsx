@@ -580,33 +580,85 @@ export function SkillShiftSvg() {
     { t: "시스템 설계", from: 45, to: 88 },
     { t: "결과 검증 · 책임", from: 40, to: 90 },
   ]
-  const bar = (rows: typeof down, y0: number, color: string, label: string, arrow: string) => (
+  const X0 = 212
+  const SPAN = 428
+  const px = (v: number) => X0 + (v / 100) * SPAN
+  const AXIS = 344
+  const group = (rows: typeof down, y0: number, color: string, label: string, arrow: string) => (
     <g>
-      <text x="20" y={y0 - 14} fontSize="13" fontWeight="800" fill={color}>{label}</text>
+      <text x="20" y={y0 - 22} fontSize="13" fontWeight="800" fill={color}>{arrow} {label}</text>
       {rows.map((r, i) => {
-        const y = y0 + i * 34
+        const y = y0 + i * 36
+        const f = px(r.from)
+        const t = px(r.to)
+        const dir = t > f ? 1 : -1
         return (
           <g key={r.t}>
-            <text x="20" y={y + 15} fontSize="12" fill="#d1d5db">{r.t}</text>
-            <rect x="170" y={y + 4} width="440" height="14" rx="7" fill="#ffffff" fillOpacity="0.04" />
-            <rect x="170" y={y + 4} width={r.from * 4.4} height="14" rx="7" fill="#6b7280" fillOpacity="0.35" />
-            <rect x="170" y={y + 7} width={r.to * 4.4} height="8" rx="4" fill={color} />
-            <text x={176 + Math.max(r.from, r.to) * 4.4} y={y + 16} fontSize="13" fontWeight="800" fill={color}>{arrow}</text>
+            <text x="20" y={y + 4.5} fontSize="12.5" fill="#d1d5db">{r.t}</text>
+            <line x1={X0} y1={y} x2={X0 + SPAN} y2={y} stroke="#ffffff" strokeOpacity="0.05" strokeWidth="13" strokeLinecap="round" />
+            <line x1={f} y1={y} x2={t - dir * 10} y2={y} stroke={color} strokeOpacity="0.35" strokeWidth="6" strokeLinecap="round" />
+            <circle cx={f} cy={y} r="6" fill="#0b0b12" stroke="#9ca3af" strokeWidth="2" />
+            <circle cx={t} cy={y} r="10" fill={color} fillOpacity="0.2">
+              <animate attributeName="r" values="10;13;10" dur="3s" begin={`${i * 0.25}s`} repeatCount="indefinite" />
+            </circle>
+            <circle cx={t} cy={y} r="5.5" fill={color} />
+            <path d={`M${t + dir * 15} ${y} l${-dir * 9} -5.5 v11 z`} fill={color} />
           </g>
         )
       })}
     </g>
   )
   return (
-    <svg viewBox="0 0 660 330" className="h-auto w-full" style={font} role="img" aria-label="채용에서 중요도가 줄어드는 역량과 늘어나는 역량">
-      {bar(down, 40, "#f87171", "중요도 ↓ 줄어드는 것", "▼")}
-      {bar(up, 175, "#34d399", "중요도 ↑ 커지는 것", "▲")}
-      <g transform="translate(470 310)">
-        <rect width="14" height="8" rx="4" fill="#6b7280" fillOpacity="0.5" />
-        <text x="20" y="8" fontSize="10" fill="#9ca3af">과거</text>
-        <rect x="60" width="7" height="8" rx="2" fill="#f87171" /><rect x="67" width="7" height="8" rx="2" fill="#34d399" />
-        <text x="80" y="8" fontSize="10" fill="#9ca3af">AI 시대</text>
+    <svg viewBox="0 0 700 400" className="h-auto w-full" style={font} role="img" aria-label="채용에서 중요도가 줄어드는 역량과 늘어나는 역량을 과거와 AI 시대로 비교한 그림">
+      {group(down, 58, "#f87171", "중요도가 줄어드는 것", "▼")}
+      {group(up, 200, "#34d399", "중요도가 커지는 것", "▲")}
+
+      <line x1={X0} y1={AXIS} x2={X0 + SPAN} y2={AXIS} stroke="#ffffff" strokeOpacity="0.08" />
+      <text x={X0} y={AXIS + 16} fontSize="10" fill="#6b7280">낮음</text>
+      <text x={X0 + SPAN / 2} y={AXIS + 16} textAnchor="middle" fontSize="10" fill="#6b7280">채용에서 보는 비중</text>
+      <text x={X0 + SPAN} y={AXIS + 16} textAnchor="end" fontSize="10" fill="#6b7280">높음</text>
+
+      <g transform="translate(212 382)">
+        <circle cx="6" cy="-4" r="6" fill="#0b0b12" stroke="#9ca3af" strokeWidth="2" />
+        <text x="20" y="0" fontSize="10.5" fill="#9ca3af">과거</text>
+        <circle cx="76" cy="-4" r="5.5" fill="#f87171" />
+        <circle cx="90" cy="-4" r="5.5" fill="#34d399" />
+        <text x="104" y="0" fontSize="10.5" fill="#9ca3af">AI 시대</text>
       </g>
+    </svg>
+  )
+}
+
+/** 각국 교육과정이 하나의 공통 요구로 모이는 구조 */
+export function GlobalCurriculumHubSvg({ items }: { items: { code: string; short: string; keyword: string }[] }) {
+  const cx = 360
+  const cy = 215
+  const colors = ["#38bdf8", "#a78bfa", "#f472b6", "#fbbf24", "#34d399", "#22d3ee"]
+  return (
+    <svg viewBox="0 0 720 430" className="h-auto w-full" style={font} role="img" aria-label="IB, 프랑스, 영국, 미국, 핀란드, 싱가포르 교육과정이 스스로 정한 주제를 탐구하고 발표하는 공통 요구로 모이는 그림">
+      <defs><filter id="gch-glow"><feGaussianBlur stdDeviation="12" /></filter></defs>
+      <ellipse cx={cx} cy={cy} rx="262" ry="155" fill="none" stroke="#ffffff" strokeOpacity="0.06" strokeDasharray="4 6" />
+      {items.map((it, i) => {
+        const a = ((-90 + i * 60) * Math.PI) / 180
+        const x = cx + Math.cos(a) * 262
+        const y = cy + Math.sin(a) * 155
+        const c = colors[i % colors.length]
+        return (
+          <g key={it.code}>
+            <line x1={cx} y1={cy} x2={x} y2={y} stroke={c} strokeOpacity="0.45" strokeWidth="1.8" strokeDasharray="5 5"><DashFlow reverse /></line>
+            <rect x={x - 76} y={y - 27} width="152" height="54" rx="14" fill="#0b0b12" stroke={c} strokeWidth="1.5" />
+            <rect x={x - 64} y={y - 17} width="28" height="18" rx="5" fill={c} fillOpacity="0.16" stroke={c} strokeOpacity="0.5" />
+            <text x={x - 50} y={y - 4} textAnchor="middle" fontSize="10" fontWeight="800" fill={c}>{it.code}</text>
+            <text x={x - 28} y={y - 3} fontSize="13" fontWeight="800" fill="#ffffff">{it.short}</text>
+            <text x={x - 64} y={y + 17} fontSize="11" fill="#9ca3af">{it.keyword}</text>
+          </g>
+        )
+      })}
+      <circle cx={cx} cy={cy} r="80" fill="#38bdf8" opacity="0.3" filter="url(#gch-glow)" />
+      <circle cx={cx} cy={cy} r="76" fill="#0b1b2e" stroke="#7dd3fc" strokeWidth="2" />
+      <text x={cx} y={cy - 26} textAnchor="middle" fontSize="11" fill="#7dd3fc">6개 교육과정의 공통 요구</text>
+      <text x={cx} y={cy - 2} textAnchor="middle" fontSize="15" fontWeight="800" fill="#ffffff">스스로 정한 주제를</text>
+      <text x={cx} y={cy + 20} textAnchor="middle" fontSize="15" fontWeight="800" fill="#ffffff">탐구 · 서술 · 발표</text>
     </svg>
   )
 }

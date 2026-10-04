@@ -1,7 +1,7 @@
 import Link from "next/link"
 import type { Metadata } from "next"
 import {
-  ArrowRight, Bot, Check, Hammer, MessageCircleQuestion, Network, Quote, Sparkles,
+  ArrowRight, Bot, Check, ChevronDown, Hammer, MessageCircleQuestion, Network, Quote, Sparkles,
   type LucideIcon,
 } from "lucide-react"
 import { Header } from "@/components/header"
@@ -10,7 +10,7 @@ import content from "./content.json"
 import { Highlight as H } from "./components/Highlight"
 import { CompareLists, Figure, SectionHeader, WhyProjectTabs } from "./components/blocks"
 import {
-  ActivitiesFlowSvg, AgentTeamSvg, CareerLadderSvg, JobCreationSvg, CompeteVsCommandSvg, ConnectionGrowthSvg, ExperienceStairsSvg, ExamShiftSvg, FiveLensHubSvg, HeroOrbitSvg,
+  ActivitiesFlowSvg, AgentTeamSvg, CareerLadderSvg, JobCreationSvg, CompeteVsCommandSvg, ConnectionGrowthSvg, ExperienceStairsSvg, ExamShiftSvg, FiveLensHubSvg, GlobalCurriculumHubSvg, HeroOrbitSvg,
   IterationDepthSvg, KnowledgeToArgumentSvg, OecdCompassSvg, ProcessLoopSvg,
   ProjectIllustration, QuestionConnectCreateSvg, SetukRecordSvg, SkillShiftSvg,
 } from "./components/visuals"
@@ -26,7 +26,6 @@ const icons: Record<string, LucideIcon> = { MessageCircleQuestion, Network, Bot,
 
 type ProjectKind = "paper" | "research" | "campaign" | "service" | "product"
 
-const navSections = [aiEra, persistence, global, korea, activities, career, essay, process, outcomes]
 
 export default function WhyProjectPage() {
   return (
@@ -60,21 +59,7 @@ export default function WhyProjectPage() {
           </div>
         </section>
 
-        <WhyProjectTabs current="/why-project" sticky={false} />
-
-        {/* In-page nav */}
-        <nav className="sticky top-16 z-[5] border-b border-white/5 bg-gray-950/85 backdrop-blur">
-          <div className="mx-auto flex max-w-6xl gap-2 overflow-x-auto px-4 py-3 [scrollbar-width:none]">
-            {navSections.map((s) => {
-              const [num, name] = s.label.split(" · ")
-              return (
-                <a key={s.id} href={`#${s.id}`} className="shrink-0 rounded-full border border-white/10 px-4 py-1.5 text-sm text-gray-300 transition hover:border-violet-400/50 hover:text-white">
-                  <span className="mr-1.5 text-violet-400">{num}</span>{name}
-                </a>
-              )
-            })}
-          </div>
-        </nav>
+        <WhyProjectTabs current="/why-project" />
 
         {/* 01 AI era */}
         <section id={aiEra.id} className="scroll-mt-32 py-24">
@@ -139,23 +124,41 @@ export default function WhyProjectPage() {
             <SectionHeader label={global.label} title={global.title} />
             <Figure caption={global.shiftTitle}><ExamShiftSvg /></Figure>
 
-            <div className="mb-14 grid items-center gap-8 rounded-3xl border border-sky-500/20 bg-gradient-to-br from-sky-500/[0.07] to-violet-500/[0.05] p-8 md:p-12 lg:grid-cols-2">
-              <div>
-                <h3 className="mb-4 text-2xl font-bold text-white">{global.oecd.title}</h3>
-                <p className="mb-6 leading-relaxed text-gray-300 break-keep"><H text={global.oecd.desc} /></p>
-                <div className="grid gap-3">
-                  {global.oecd.competencies.map((c, i) => (
-                    <div key={c.title} className="flex gap-4 rounded-2xl border border-white/10 bg-gray-950/60 p-4">
-                      <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-sky-500/20 font-bold text-sky-300">{i + 1}</div>
-                      <div>
-                        <div className="font-bold text-white">{c.title} <span className="ml-1 text-xs font-normal text-gray-500">{c.en}</span></div>
-                        <div className="mt-1 text-sm text-gray-400"><H text={c.desc} /></div>
+            {/* OECD — 열고 닫기 */}
+            <details className="group mb-14 overflow-hidden rounded-3xl border border-sky-500/20 bg-gradient-to-br from-sky-500/[0.07] to-violet-500/[0.05] transition open:border-sky-400/40">
+              <summary className="flex cursor-pointer list-none items-center gap-4 p-6 md:p-8 [&::-webkit-details-marker]:hidden">
+                <span className="inline-flex shrink-0 items-center rounded-full border border-sky-400/25 bg-sky-500/10 px-2.5 py-1 text-[10.5px] font-bold tracking-widest text-sky-300">OECD</span>
+                <span className="min-w-0 flex-1">
+                  <span className="block text-xl font-bold text-white md:text-2xl">{global.oecd.title}</span>
+                  <span className="mt-1 block text-sm text-gray-400 break-keep">{global.oecd.summary}</span>
+                </span>
+                <span className="hidden shrink-0 text-xs text-gray-500 md:inline group-open:hidden">펼치기</span>
+                <span className="hidden shrink-0 text-xs text-gray-500 md:group-open:inline">접기</span>
+                <ChevronDown className="h-5 w-5 shrink-0 text-gray-400 transition-transform group-open:rotate-180" />
+              </summary>
+              <div className="grid items-center gap-8 border-t border-white/5 px-6 pb-8 pt-8 md:px-12 md:pb-12 lg:grid-cols-2">
+                <div>
+                  <p className="mb-6 leading-relaxed text-gray-300 break-keep"><H text={global.oecd.desc} /></p>
+                  <div className="grid gap-3">
+                    {global.oecd.competencies.map((c, i) => (
+                      <div key={c.title} className="flex gap-4 rounded-2xl border border-white/10 bg-gray-950/60 p-4">
+                        <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-sky-500/20 font-bold text-sky-300">{i + 1}</div>
+                        <div>
+                          <div className="font-bold text-white">{c.title} <span className="ml-1 text-xs font-normal text-gray-500">{c.en}</span></div>
+                          <div className="mt-1 text-sm text-gray-400"><H text={c.desc} /></div>
+                        </div>
                       </div>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
+                <OecdCompassSvg />
               </div>
-              <OecdCompassSvg />
+            </details>
+
+            <div className="overflow-x-auto">
+              <Figure caption={global.hubTitle}>
+                <div className="min-w-[640px]"><GlobalCurriculumHubSvg items={global.countries} /></div>
+              </Figure>
             </div>
 
             <div className="mb-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -251,7 +254,11 @@ export default function WhyProjectPage() {
         <section id={career.id} className="scroll-mt-32 border-t border-white/5 bg-white/[0.015] py-24">
           <div className="mx-auto max-w-6xl px-4">
             <SectionHeader {...career} />
-            <Figure caption={career.skillTitle}><SkillShiftSvg /></Figure>
+            <div className="overflow-x-auto">
+              <Figure caption={career.skillTitle}>
+                <div className="min-w-[620px]"><SkillShiftSvg /></div>
+              </Figure>
+            </div>
             <CompareLists before={career.before} after={career.after} />
             <div className="mb-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {career.skills.map((s) => (
