@@ -1,6 +1,7 @@
 "use client";
 import { useScrollReveal } from "../hooks/useScrollReveal";
 import { useCountUp } from "../hooks/useCountUp";
+import { StatArt } from "../components/HomeArt";
 
 const stats = [
   {
@@ -9,7 +10,7 @@ const stats = [
     label: "초 · 중 · 고 · 대학",
     desc: "블록코딩·센서 체험에서 피지컬 AI까지, 끊기지 않는 하나의 커리큘럼",
     color: "#8B5CF6",
-    emoji: "🪜",
+    art: "ladder" as const,
   },
   {
     value: "14",
@@ -17,7 +18,7 @@ const stats = [
     label: "1프로젝트 완주",
     desc: "문제 정의부터 배포·시연까지, 6단계를 모두 거쳐 작동하는 결과물을 남깁니다",
     color: "#06B6D4",
-    emoji: "🗓️",
+    art: "calendar" as const,
   },
   {
     value: "2",
@@ -25,7 +26,7 @@ const stats = [
     label: "AI + Maker 동시 진행",
     desc: "바이브 코딩과 피지컬 컴퓨팅을 한 프로젝트에서 함께 다룹니다",
     color: "#10B981",
-    emoji: "⚡",
+    art: "tracks" as const,
   },
   {
     value: "100",
@@ -33,7 +34,7 @@ const stats = [
     label: "AI 활용 수업",
     desc: "기획·코딩·디버깅·하드웨어 제어까지 모든 단계에서 AI를 도구로 씁니다",
     color: "#F59E0B",
-    emoji: "🤖",
+    art: "robot" as const,
   },
 ];
 
@@ -66,8 +67,8 @@ function StatCard({ stat, index, visible }: { stat: (typeof stats)[number]; inde
         </g>
       </svg>
 
-      <div className="ai-bob mb-3 text-3xl" style={{ animationDelay: `${index * 0.35}s` }}>
-        {stat.emoji}
+      <div className="ai-bob mb-3" style={{ animationDelay: `${index * 0.35}s` }}>
+        <StatArt kind={stat.art} color={stat.color} />
       </div>
       <div className="mb-1 flex items-baseline gap-1">
         <span className="text-4xl font-extrabold text-white">{count}</span>

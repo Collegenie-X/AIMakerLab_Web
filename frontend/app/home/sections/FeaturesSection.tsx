@@ -1,39 +1,11 @@
 "use client";
 import { Card, CardContent } from "@/components/ui/data-display/card";
 import type { HomeTextConfig } from "../types";
-import { BookOpen, Code, Cpu, Lightbulb, Users, Award, Sparkles, Rocket } from "lucide-react";
 import { useScrollReveal } from "../hooks/useScrollReveal";
+import { FeatureArt } from "../components/HomeArt";
 
-const iconMap = {
-  BookOpen,
-  Code,
-  Cpu,
-  Lightbulb,
-  Users,
-  Award,
-  Sparkles,
-  Rocket,
-} as const;
 
-const emojiMap: Record<string, string> = {
-  Sparkles: "✨",
-  Code: "💻",
-  Cpu: "🔌",
-  Lightbulb: "💡",
-  Users: "👥",
-  Award: "🏆",
-  BookOpen: "📖",
-  Rocket: "🚀",
-};
 
-const iconGradients = [
-  "from-indigo-500 to-cyan-400",
-  "from-violet-500 to-fuchsia-400",
-  "from-cyan-500 to-blue-400",
-  "from-emerald-500 to-teal-400",
-  "from-indigo-500 to-purple-400",
-  "from-fuchsia-500 to-rose-400",
-];
 
 type FeaturesSectionProps = {
   text: HomeTextConfig["features"];
@@ -64,9 +36,6 @@ export function FeaturesSection({ text }: FeaturesSectionProps) {
 
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {text.items.map((item, index) => {
-            const Icon = iconMap[item.icon as keyof typeof iconMap];
-            const emoji = emojiMap[item.icon] || "✨";
-            const gradient = iconGradients[index % iconGradients.length];
             return (
               <div
                 key={index}
@@ -75,8 +44,8 @@ export function FeaturesSection({ text }: FeaturesSectionProps) {
               >
                 <Card className="ai-card-hover group relative h-full overflow-hidden rounded-2xl border-white/10 bg-white/5 backdrop-blur-sm">
                   <CardContent className="relative pt-6">
-                    <div className={`mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br ${gradient} shadow-lg shadow-indigo-500/20 transition-transform group-hover:scale-110 group-hover:rotate-3`}>
-                      <span className="text-2xl">{emoji}</span>
+                    <div className="mb-5 overflow-hidden rounded-2xl transition-transform duration-300 group-hover:scale-[1.02]">
+                      <FeatureArt icon={item.icon} />
                     </div>
                     <h3 className="mb-2 text-xl font-semibold text-white transition-colors group-hover:text-violet-400">{item.title}</h3>
                     <p className="text-white/50">{item.desc}</p>

@@ -2,6 +2,7 @@
 import { Check, X } from "lucide-react";
 import { useScrollReveal } from "../hooks/useScrollReveal";
 import { useTick } from "../hooks/useTick";
+import { ThreeClassroomsSvg } from "../components/HomeArt";
 
 type Row = {
   icon: string;
@@ -129,6 +130,10 @@ export function ComparisonSection() {
             <br className="hidden md:block" />
             저희는 <span className="text-white/85">두 축을 하나의 프로젝트로 묶습니다</span>.
           </p>
+        </div>
+
+        <div className={`mx-auto mb-10 max-w-5xl transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+          <ThreeClassroomsSvg />
         </div>
 
         <div className="mx-auto max-w-5xl overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] backdrop-blur-sm">

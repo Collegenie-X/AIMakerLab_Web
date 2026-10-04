@@ -5,8 +5,9 @@ import { Footer } from "@/components/footer"
 import { Highlight as H } from "../components/Highlight"
 import { CompareLists, CtaBlock, Figure, NumberedCards, PageHero, SectionHeader, Takeaway, WhyProjectTabs } from "../components/blocks"
 import { minervaContent } from "./content"
-import { CaseExplorer, CityExplorer } from "./interactive"
-import { CityRouteSvg, FlippedFlowSvg, IcebergSvg, LensHexSvg, ProblemFunnelSvg, SeminarSvg, ValueCrossSvg, YearStairSvg } from "./visuals"
+import { CaseExplorer, CityExplorer, LensExplorer } from "./interactive"
+import { CampusVsWorldSvg, CityPanoramaSvg, LensIcon, ProjectCycleSvg } from "./scenes"
+import { FlippedFlowSvg, IcebergSvg, LensHexSvg, ProblemFunnelSvg, SeminarSvg, ValueCrossSvg, YearStairSvg } from "./visuals"
 
 export const metadata: Metadata = {
   title: "미네르바 스쿨 | 왜 프로젝트인가",
@@ -14,26 +15,41 @@ export const metadata: Metadata = {
     "읽고 와서 토론하는 세미나, 6개 렌즈로 해부하는 실제 기업 문제, 세계 도시 기업과 연계한 학년별 프로젝트 — 테크 기업과 AI 시대가 미네르바 졸업생을 주목하는 이유",
 }
 
-const { hero, diff, seminar, lenses, cases, years, cities, hiring, ai, admission, outcome, link, source, cta } = minervaContent
+const { hero, diff, seminar, lenses, lensDetails, project, cases, years, cities, hiring, ai, admission, outcome, link, source, cta } = minervaContent
 
 export default function MinervaPage() {
   return (
     <div className="flex min-h-screen flex-col bg-gray-950 text-gray-100">
       <Header />
       <main className="flex-1">
-        <PageHero {...hero} />
+        <PageHero {...hero}>
+          <div className="-mx-4 overflow-x-auto px-4 [scrollbar-width:none]">
+            <CityPanoramaSvg cities={cities.list} />
+          </div>
+          <p className="mt-2 text-xs text-gray-500 md:hidden">← 옆으로 밀어 7개 도시 보기 →</p>
+        </PageHero>
         <WhyProjectTabs current="/why-project/minerva" />
 
         {/* 01 Diff */}
         <section id={diff.id} className="scroll-mt-32 py-24">
           <div className="mx-auto max-w-6xl px-4">
             <SectionHeader {...diff} />
+            <Figure caption="한 건물에서 보내는 4년 vs 네 대륙 7개 도시에서 살아 보는 4년"><CampusVsWorldSvg cities={cities.list} /></Figure>
             <CompareLists before={diff.before} after={diff.after} />
           </div>
         </section>
 
-        {/* 02 Seminar — 읽고 와서 토론 */}
-        <section id={seminar.id} className="scroll-mt-32 border-y border-white/5 bg-white/[0.015] py-24">
+        {/* 02 Cities — 캠퍼스 대신 7개 도시 */}
+        <section id={cities.id} className="scroll-mt-32 border-y border-white/5 bg-white/[0.015] py-24">
+          <div className="mx-auto max-w-6xl px-4">
+            <SectionHeader {...cities} />
+            <CityExplorer cities={cities.list} />
+            <p className="mt-6 text-center text-xs text-gray-500 break-keep">{cities.note}</p>
+          </div>
+        </section>
+
+        {/* 03 Seminar — 읽고 와서 토론 */}
+        <section id={seminar.id} className="scroll-mt-32 py-24">
           <div className="mx-auto max-w-6xl px-4">
             <SectionHeader {...seminar} />
             <Figure caption="같은 90분 — 듣는 시간이 아니라 꺼내 쓰는 시간"><FlippedFlowSvg /></Figure>
@@ -61,32 +77,55 @@ export default function MinervaPage() {
           </div>
         </section>
 
-        {/* 03 Six lenses */}
-        <section id={lenses.id} className="scroll-mt-32 py-24">
+        {/* 04 Six lenses */}
+        <section id={lenses.id} className="scroll-mt-32 border-y border-white/5 bg-white/[0.015] py-24">
           <div className="mx-auto max-w-6xl px-4">
             <SectionHeader {...lenses} />
             <Figure caption="Cornerstone 4과목 + 윤리 + 맥락 = 프로젝트를 통과시키는 여섯 관문"><LensHexSvg items={lenses.items} /></Figure>
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {lenses.items.map((l) => (
-                <div key={l.key} className="flex flex-col rounded-2xl border bg-gray-950/60 p-6" style={{ borderColor: `${l.color}55` }}>
-                  <div className="mb-1 flex items-baseline gap-2">
-                    <span className="text-sm font-bold" style={{ color: l.color }}>{l.no}</span>
-                    <h3 className="text-xl font-bold" style={{ color: l.color }}>{l.title}</h3>
-                    <span className="text-xs text-gray-500">{l.en}</span>
-                  </div>
-                  <p className="mb-4 mt-2 font-semibold leading-relaxed text-white break-keep">“<H text={l.question} />”</p>
-                  <dl className="mt-auto space-y-2 text-xs leading-relaxed">
-                    <div className="flex gap-2"><dt className="w-14 shrink-0 text-gray-500">인문학 뿌리</dt><dd className="text-gray-300 break-keep">{l.roots}</dd></div>
-                    <div className="flex gap-2"><dt className="w-14 shrink-0 text-gray-500">실전 도구</dt><dd className="text-gray-300 break-keep">{l.tools}</dd></div>
-                    <div className="flex gap-2"><dt className="w-14 shrink-0 text-gray-500">막는 함정</dt><dd className="text-rose-300/80 break-keep"><H text={l.trap} /></dd></div>
-                  </dl>
-                </div>
-              ))}
-            </div>
+            <LensExplorer lenses={lenses.items} details={lensDetails} />
           </div>
         </section>
 
-        {/* 04 Real company cases */}
+        {/* 05 Project-based learning */}
+        <section id={project.id} className="scroll-mt-32 py-24">
+          <div className="mx-auto max-w-6xl px-4">
+            <SectionHeader {...project} />
+            <div className="mb-8 flex flex-col gap-3 rounded-2xl border border-sky-500/30 bg-sky-500/[0.05] p-5 md:flex-row md:items-center">
+              <span className="shrink-0 rounded-full bg-sky-500/20 px-3 py-1 text-xs font-bold text-sky-300">{project.example.city} · {project.example.partner}</span>
+              <p className="font-semibold text-white break-keep">파트너의 요청 — {project.example.brief}</p>
+            </div>
+            <Figure caption="한 바퀴를 돌 때마다 서로 다른 렌즈가 켜집니다 (점 색 = 사용하는 렌즈)">
+              <ProjectCycleSvg steps={project.steps} lensColors={Object.fromEntries(lenses.items.map((l) => [l.key, l.color]))} />
+            </Figure>
+            <ol className="mb-14 space-y-3">
+              {project.steps.map((st, i) => (
+                <li key={st.title} className="grid gap-4 rounded-2xl border border-white/10 bg-gray-950/60 p-5 md:grid-cols-[200px_1fr_1.4fr] md:items-start">
+                  <div>
+                    <div className="mb-1 text-xs font-bold text-violet-400">STEP {String(i + 1).padStart(2, "0")} · {st.en}</div>
+                    <div className="mb-2 text-lg font-bold text-white">{st.title}</div>
+                    <div className="flex flex-wrap gap-1.5">
+                      {st.lenses.map((k) => {
+                        const l = lenses.items.find((x) => x.key === k)!
+                        return (
+                          <span key={k} className="inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[11px] font-semibold" style={{ background: `${l.color}1f`, color: l.color }}>
+                            <LensIcon kind={k} color={l.color} size={14} />{l.title}
+                          </span>
+                        )
+                      })}
+                    </div>
+                  </div>
+                  <p className="text-sm leading-relaxed text-gray-300 break-keep"><H text={st.what} /></p>
+                  <div className="rounded-xl border-l-2 border-sky-400/60 bg-sky-500/[0.05] px-4 py-3 text-sm leading-relaxed text-gray-200 break-keep">
+                    <span className="mr-1 text-xs font-bold text-sky-300">도쿄 예시</span><H text={st.example} />
+                  </div>
+                </li>
+              ))}
+            </ol>
+            <Takeaway text={project.quote} />
+          </div>
+        </section>
+
+        {/* 06 Real company cases */}
         <section id={cases.id} className="scroll-mt-32 border-y border-white/5 bg-white/[0.015] py-24">
           <div className="mx-auto max-w-6xl px-4">
             <SectionHeader {...cases} />
@@ -96,7 +135,7 @@ export default function MinervaPage() {
           </div>
         </section>
 
-        {/* 05 Years */}
+        {/* 07 Years */}
         <section id={years.id} className="scroll-mt-32 py-24">
           <div className="mx-auto max-w-6xl px-4">
             <SectionHeader {...years} />
@@ -128,18 +167,8 @@ export default function MinervaPage() {
           </div>
         </section>
 
-        {/* 06 Cities × companies */}
-        <section id={cities.id} className="scroll-mt-32 border-y border-white/5 bg-white/[0.015] py-24">
-          <div className="mx-auto max-w-6xl px-4">
-            <SectionHeader {...cities} />
-            <Figure caption="Class of 2029부터 적용되는 도시 로테이션"><CityRouteSvg /></Figure>
-            <CityExplorer cities={cities.list} />
-            <p className="mt-6 text-center text-xs text-gray-500 break-keep">{cities.note}</p>
-          </div>
-        </section>
-
-        {/* 07 Why tech companies hire */}
-        <section id={hiring.id} className="scroll-mt-32 py-24">
+        {/* 08 Why tech companies hire */}
+        <section id={hiring.id} className="scroll-mt-32 border-y border-white/5 bg-white/[0.015] py-24">
           <div className="mx-auto max-w-6xl px-4">
             <SectionHeader {...hiring} />
             <Figure caption="AI가 풀이를 맡을수록, ‘문제를 정의하는 사람’이 귀해집니다"><ProblemFunnelSvg /></Figure>
@@ -155,8 +184,8 @@ export default function MinervaPage() {
           </div>
         </section>
 
-        {/* 08 AI era */}
-        <section id={ai.id} className="scroll-mt-32 border-y border-white/5 bg-white/[0.015] py-24">
+        {/* 09 AI era */}
+        <section id={ai.id} className="scroll-mt-32 py-24">
           <div className="mx-auto max-w-6xl px-4">
             <SectionHeader {...ai} />
             <div className="mb-12 flex flex-col items-stretch gap-2 md:flex-row md:items-center">
@@ -198,8 +227,8 @@ export default function MinervaPage() {
           </div>
         </section>
 
-        {/* 09 Admission */}
-        <section id={admission.id} className="scroll-mt-32 py-24">
+        {/* 10 Admission */}
+        <section id={admission.id} className="scroll-mt-32 border-y border-white/5 bg-white/[0.015] py-24">
           <div className="mx-auto max-w-6xl px-4">
             <SectionHeader {...admission} />
             <div className="mb-14 flex flex-col gap-3 md:flex-row md:items-center">
@@ -227,8 +256,8 @@ export default function MinervaPage() {
           </div>
         </section>
 
-        {/* 10 Outcome */}
-        <section id={outcome.id} className="scroll-mt-32 border-y border-white/5 bg-white/[0.015] py-24">
+        {/* 11 Outcome */}
+        <section id={outcome.id} className="scroll-mt-32 py-24">
           <div className="mx-auto max-w-6xl px-4">
             <SectionHeader label={outcome.label} title={outcome.title} />
             <div className="mb-8 grid gap-4 md:grid-cols-3">
@@ -256,8 +285,8 @@ export default function MinervaPage() {
           </div>
         </section>
 
-        {/* 11 Link */}
-        <section id={link.id} className="scroll-mt-32 py-24">
+        {/* 12 Link */}
+        <section id={link.id} className="scroll-mt-32 border-y border-white/5 bg-white/[0.015] py-24">
           <div className="mx-auto max-w-6xl px-4">
             <SectionHeader {...link} />
             <div className="mb-14 grid gap-3 md:grid-cols-4">

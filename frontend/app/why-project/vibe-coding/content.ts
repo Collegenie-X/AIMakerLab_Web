@@ -1,3 +1,7 @@
+import type { GlyphKind } from "./glyphs"
+
+const g = (k: GlyphKind) => k
+
 export const vibeContent = {
   hero: {
     eyebrow: "VIBE CODING",
@@ -109,16 +113,10 @@ export const vibeContent = {
     description:
       "Google AI Studio·V0·Bolt·Lovable 같은 ==AI 스튜디오==는 말 한 줄로 화면 전체를 만들어 줍니다. 결과를 Next.js 프로젝트로 가져와 GitHub에 올리면, Vercel이 ==브랜치마다 접속 가능한 프리뷰 URL==을 자동으로 만들어 줍니다.",
     studios: [
-      { name: "Google AI Studio", desc: "Gemini로 앱 화면 생성 · ==바로 실행 미리보기==", color: "#38bdf8" },
-      { name: "V0 (Vercel)", desc: "shadcn/ui 기반 React 컴포넌트 · ==Vercel 원클릭 배포==", color: "#e5e7eb" },
-      { name: "Bolt · Lovable", desc: "==브라우저 안에서== 풀스택 앱 초안 생성", color: "#f472b6" },
-      { name: "Cursor · Claude Code", desc: "가져온 코드를 ==프로젝트 구조에 맞게== 정리·확장", color: "#a78bfa" },
-    ],
-    loop: [
-      { title: "프롬프트", desc: "“수업 목록을 카드형으로, 학년 필터 추가해 줘”" },
-      { title: "git push", desc: "feature 브랜치에 커밋 → ==자동 빌드==" },
-      { title: "프리뷰 URL", desc: "feat-filter.vercel.app — ==링크 하나로 공유==" },
-      { title: "피드백", desc: "팀·사용자가 ==직접 써 보고== 댓글 · 캡처" },
+      { name: "Google AI Studio", icon: g("sparkle"), desc: "Gemini로 앱 화면 생성 · ==바로 실행 미리보기==", color: "#38bdf8" },
+      { name: "V0 (Vercel)", icon: g("window"), desc: "shadcn/ui 기반 React 컴포넌트 · ==Vercel 원클릭 배포==", color: "#e5e7eb" },
+      { name: "Bolt · Lovable", icon: g("bolt"), desc: "==브라우저 안에서== 풀스택 앱 초안 생성", color: "#f472b6" },
+      { name: "Cursor · Claude Code", icon: g("cursor"), desc: "가져온 코드를 ==프로젝트 구조에 맞게== 정리·확장", color: "#a78bfa" },
     ],
   },
   serverless: {
@@ -128,17 +126,16 @@ export const vibeContent = {
     description:
       "데이터는 ==/data/*.json==에서 읽고, 사용자가 바꾸는 상태(즐겨찾기·장바구니·작성 글)는 ==브라우저 localStorage==에 저장합니다. 모든 데이터 호출을 ==repo.ts 한 파일==로 모아 두면, 나중에 Django API로 바꿀 때 화면 코드는 한 줄도 고치지 않습니다.",
     layers: [
-      { name: "/data/*.json", role: "==읽기== 전용 시드 데이터", examples: "수업 목록 · 강사 · FAQ", color: "#fbbf24" },
-      { name: "localStorage", role: "사용자별 ==쓰기== 데이터", examples: "즐겨찾기 · 장바구니 · 임시 로그인", color: "#38bdf8" },
-      { name: "lib/repo.ts", role: "==데이터 출입구== (어댑터)", examples: "getCourses() · toggleFavorite()", color: "#a78bfa" },
+      { name: "/data/*.json", icon: g("file"), role: "==읽기== 전용 시드 데이터", examples: "수업 목록 · 강사 · FAQ", color: "#fbbf24" },
+      { name: "localStorage", icon: g("drawer"), role: "사용자별 ==쓰기== 데이터", examples: "즐겨찾기 · 장바구니 · 임시 로그인", color: "#38bdf8" },
+      { name: "lib/repo.ts", icon: g("door"), role: "==데이터 출입구== (어댑터)", examples: "getCourses() · toggleFavorite()", color: "#a78bfa" },
     ],
     code: {
-      json: `// data/courses.json
-[
+      json: `[
   { "id": 1, "title": "AI 동화책", "grade": "중1~2", "hours": 3 },
   { "id": 2, "title": "AI 영어 튜터", "grade": "중3~고1", "hours": 6 }
 ]`,
-      repo: `// lib/repo.ts — 화면은 이 함수만 부른다
+      repo: `// 화면은 이 함수만 부른다
 const SOURCE = process.env.NEXT_PUBLIC_DATA_SOURCE ?? "json"
 const API = process.env.NEXT_PUBLIC_API_URL
 
@@ -225,9 +222,9 @@ python manage.py createsuperuser`,
       },
     ],
     why: [
-      { title: "Admin이 기본 내장", desc: "운영자용 CRUD 화면을 만들 필요가 없습니다. ==비개발자 팀원도 바로== 데이터를 관리합니다." },
-      { title: "AI가 가장 잘 아는 프레임워크", desc: "20년 가까이 쌓인 문서와 예제 덕분에 AI가 만든 Django 코드는 ==관례대로, 안정적으로== 나옵니다." },
-      { title: "로그인·권한·보안 포함", desc: "회원 인증, 관리자 권한, CSRF·SQL 인젝션 방어가 ==처음부터 들어 있습니다==." },
+      { title: "Admin이 기본 내장", icon: g("gift"), desc: "운영자용 CRUD 화면을 만들 필요가 없습니다. ==비개발자 팀원도 바로== 데이터를 관리합니다." },
+      { title: "AI가 가장 잘 아는 프레임워크", icon: g("book"), desc: "20년 가까이 쌓인 문서와 예제 덕분에 AI가 만든 Django 코드는 ==관례대로, 안정적으로== 나옵니다." },
+      { title: "로그인·권한·보안 포함", icon: g("shield"), desc: "회원 인증, 관리자 권한, CSRF·SQL 인젝션 방어가 ==처음부터 들어 있습니다==." },
     ],
   },
   service: {
@@ -236,18 +233,6 @@ python manage.py createsuperuser`,
     title: "빠른 건 ‘테스트’까지입니다. 서비스는 ==100번 묻고 책임지는 일==입니다",
     description:
       "바이브 코딩의 장점은 ==하루 만에 돌아가는 화면을 보는 속도==입니다. 하지만 ‘돌아간다’와 ‘사람들이 믿고 쓴다’ 사이에는 큰 간격이 있습니다. 실제 서비스가 되려면 같은 기능을 놓고 ==AI에게 100번 가까이 묻고, 검증하고, 결과에 책임지는 자세==가 필요합니다.",
-    compare: {
-      demo: {
-        title: "데모 · 프로토타입",
-        asks: "질문 5~10회",
-        items: ["정상 경로만 동작", "데이터는 내 브라우저에만", "에러가 나면 새로고침", "만든 사람만 써 봄", "“일단 돌아가요”"],
-      },
-      service: {
-        title: "서비스",
-        asks: "질문 100회+",
-        items: ["==빈 데이터·느린 네트워크·잘못된 입력==까지 처리", "권한·비밀키·개인정보 보호", "에러를 기록하고 ==원인을 설명==할 수 있음", "낯선 사용자 5명 이상이 직접 써 봄", "“==문제가 생기면 제가 고칩니다==”"],
-      },
-    },
     milestones: [
       { asks: 10, title: "데모", desc: "정상 경로 동작" },
       { asks: 30, title: "프리뷰 공유", desc: "팀 피드백 반영" },
@@ -255,10 +240,10 @@ python manage.py createsuperuser`,
       { asks: 100, title: "서비스", desc: "운영·책임 체계" },
     ],
     questions: [
-      { area: "예외 처리", color: "#fbbf24", items: ["데이터가 0개일 때 화면은 어떻게 보여?", "네트워크가 끊기면 사용자는 뭘 보게 돼?", "제목에 이모지·500자를 넣으면 깨지지 않아?"] },
-      { area: "보안 · 권한", color: "#f472b6", items: ["로그인 안 한 사람이 이 API를 부르면?", "API 키가 프론트 코드에 노출되지 않았어?", "다른 사람 글을 수정할 수 있는 구멍은 없어?"] },
-      { area: "성능 · 사용성", color: "#38bdf8", items: ["목록이 1,000개면 느려지지 않아?", "모바일 화면에서 버튼이 너무 작지 않아?", "스크린리더로도 쓸 수 있어?"] },
-      { area: "운영 · 책임", color: "#34d399", items: ["에러가 나면 어디에 기록돼?", "데이터는 어떻게 백업돼?", "이 코드가 왜 이렇게 동작하는지 내가 설명할 수 있어?"] },
+      { area: "예외 처리", icon: g("buoy"), color: "#fbbf24", items: ["데이터가 0개일 때 화면은 어떻게 보여?", "네트워크가 끊기면 사용자는 뭘 보게 돼?", "제목에 이모지·500자를 넣으면 깨지지 않아?"] },
+      { area: "보안 · 권한", icon: g("lock"), color: "#f472b6", items: ["로그인 안 한 사람이 이 API를 부르면?", "API 키가 프론트 코드에 노출되지 않았어?", "다른 사람 글을 수정할 수 있는 구멍은 없어?"] },
+      { area: "성능 · 사용성", icon: g("gauge"), color: "#38bdf8", items: ["목록이 1,000개면 느려지지 않아?", "모바일 화면에서 버튼이 너무 작지 않아?", "스크린리더로도 쓸 수 있어?"] },
+      { area: "운영 · 책임", icon: g("logbook"), color: "#34d399", items: ["에러가 나면 어디에 기록돼?", "데이터는 어떻게 백업돼?", "이 코드가 왜 이렇게 동작하는지 내가 설명할 수 있어?"] },
     ],
     quote: "AI가 코드를 써도, ==서비스에 대한 책임은 만든 사람에게== 있습니다. 그래서 우리는 처음부터 ‘수업 과제’가 아니라 ==‘서비스’를 만든다는 기준==으로 만듭니다.",
   },
@@ -317,12 +302,12 @@ python manage.py createsuperuser`,
     label: "13 · 도구",
     title: "==현업 개발자가 쓰는 도구==를 그대로 씁니다",
     groups: [
-      { name: "기획 · 디자인", items: ["ChatGPT", "Claude", "Figma"], color: "#c084fc" },
-      { name: "AI 스튜디오 (화면 생성)", items: ["Google AI Studio", "V0", "Bolt", "Lovable"], color: "#38bdf8" },
-      { name: "AI 코딩", items: ["Cursor", "Claude Code", "GitHub Copilot"], color: "#a78bfa" },
-      { name: "프론트 · 가짜 데이터", items: ["Next.js", "Tailwind", "JSON", "localStorage"], color: "#fbbf24" },
-      { name: "백엔드 · 관리자", items: ["Django", "Django Admin", "DRF", "PostgreSQL"], color: "#34d399" },
-      { name: "배포 · 앱", items: ["GitHub", "Vercel", "Railway", "React Native · Expo"], color: "#f472b6" },
+      { name: "기획 · 디자인", icon: g("bulb"), items: ["ChatGPT", "Claude", "Figma"], color: "#c084fc" },
+      { name: "AI 스튜디오 (화면 생성)", icon: g("sparkle"), items: ["Google AI Studio", "V0", "Bolt", "Lovable"], color: "#38bdf8" },
+      { name: "AI 코딩", icon: g("cursor"), items: ["Cursor", "Claude Code", "GitHub Copilot"], color: "#a78bfa" },
+      { name: "프론트 · 가짜 데이터", icon: g("file"), items: ["Next.js", "Tailwind", "JSON", "localStorage"], color: "#fbbf24" },
+      { name: "백엔드 · 관리자", icon: g("server"), items: ["Django", "Django Admin", "DRF", "PostgreSQL"], color: "#34d399" },
+      { name: "배포 · 앱", icon: g("rocket"), items: ["GitHub", "Vercel", "Railway", "React Native · Expo"], color: "#f472b6" },
     ],
   },
   outcome: {

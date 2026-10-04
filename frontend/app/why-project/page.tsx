@@ -10,10 +10,11 @@ import content from "./content.json"
 import { Highlight as H } from "./components/Highlight"
 import { CompareLists, Figure, SectionHeader, WhyProjectTabs } from "./components/blocks"
 import {
-  ActivitiesFlowSvg, AgentTeamSvg, CareerLadderSvg, JobCreationSvg, CompeteVsCommandSvg, ConnectionGrowthSvg, ExperienceStairsSvg, ExamShiftSvg, FiveLensHubSvg, GlobalCurriculumHubSvg, HeroOrbitSvg,
-  IterationDepthSvg, KnowledgeToArgumentSvg, OecdCompassSvg, ProcessLoopSvg,
+  ActivitiesFlowSvg, CareerLadderSvg, JobCreationSvg, CompeteVsCommandSvg, ConnectionGrowthSvg, ExperienceStairsSvg, ExamShiftSvg, GlobalCurriculumHubSvg,
+  IterationDepthSvg, KnowledgeToArgumentSvg, OecdCompassSvg,
   ProjectIllustration, QuestionConnectCreateSvg, SetukRecordSvg, SkillShiftSvg,
 } from "./components/visuals"
+import { AgentTeamSceneSvg, FiveOutputsMockSvg, ProcessJourneySvg, WhyHeroSceneSvg } from "./components/scenes"
 
 export const metadata: Metadata = {
   title: "왜 프로젝트인가",
@@ -47,7 +48,7 @@ export default function WhyProjectPage() {
               <span className="bg-gradient-to-r from-violet-400 via-fuchsia-400 to-sky-400 bg-clip-text text-transparent">{hero.title[1]}</span>
             </h1>
             <p className="mx-auto mb-10 max-w-2xl text-base leading-relaxed text-gray-400 md:text-lg break-keep"><H text={hero.description} /></p>
-            <div className="mb-10"><HeroOrbitSvg /></div>
+            <div className="mb-10"><WhyHeroSceneSvg /></div>
             <div className="mx-auto grid max-w-4xl grid-cols-2 gap-3 md:grid-cols-4">
               {hero.stats.map((s) => (
                 <div key={s.label} className="rounded-2xl border border-white/10 bg-white/[0.03] p-5 backdrop-blur">
@@ -65,7 +66,7 @@ export default function WhyProjectPage() {
         <section id={aiEra.id} className="scroll-mt-32 py-24">
           <div className="mx-auto max-w-6xl px-4">
             <SectionHeader {...aiEra} />
-            <Figure><QuestionConnectCreateSvg /></Figure>
+            <Figure caption="==질문하고, 연결하고, 만든다== — AI 시대 공부의 세 단계"><QuestionConnectCreateSvg /></Figure>
             <CompareLists before={aiEra.before} after={aiEra.after} />
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {aiEra.pillars.map((p) => {
@@ -221,7 +222,7 @@ export default function WhyProjectPage() {
         <section id={activities.id} className="scroll-mt-32 py-24">
           <div className="mx-auto max-w-6xl px-4">
             <SectionHeader {...activities} />
-            <Figure><ActivitiesFlowSvg /></Figure>
+            <Figure caption="흩어진 경험이 ==하나의 탐구 스토리==로 엮여 고입 · 대입으로 이어진다"><ActivitiesFlowSvg /></Figure>
             <div className="mb-10 grid gap-4 md:grid-cols-3">
               {activities.items.map((a) => (
                 <div key={a.title} className="rounded-2xl border bg-white/[0.02] p-6" style={{ borderColor: `${a.color}55` }}>
@@ -268,7 +269,7 @@ export default function WhyProjectPage() {
                 </div>
               ))}
             </div>
-            <Figure caption={career.agentTitle}><AgentTeamSvg /></Figure>
+            <Figure caption={career.agentTitle}><AgentTeamSceneSvg /></Figure>
 
             <div className="mx-auto mb-8 max-w-3xl text-center">
               <h3 className="mb-4 text-2xl font-bold text-white md:text-3xl break-keep">{career.senior.title}</h3>
@@ -327,7 +328,7 @@ export default function WhyProjectPage() {
         <section id={essay.id} className="scroll-mt-32 py-24">
           <div className="mx-auto max-w-6xl px-4">
             <SectionHeader {...essay} />
-            <Figure><KnowledgeToArgumentSvg /></Figure>
+            <Figure caption="흩어진 지식이 ==연결되어 논증==이 된다"><KnowledgeToArgumentSvg /></Figure>
             <div className="mb-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {essay.reasons.map((r, i) => (
                 <div key={r.title} className="rounded-2xl border border-white/10 bg-gray-950/60 p-6">
@@ -362,7 +363,7 @@ export default function WhyProjectPage() {
         <section id={process.id} className="scroll-mt-32 border-y border-white/5 bg-white/[0.015] py-24">
           <div className="mx-auto max-w-6xl px-4">
             <SectionHeader {...process} />
-            <Figure><ProcessLoopSvg steps={process.steps} /></Figure>
+            <Figure caption="문제 하나를 들고 출발해 ==서비스 출시와 발표==까지 — 정거장마다 결과물이 남는다"><ProcessJourneySvg steps={process.steps} /></Figure>
             <CompareLists before={process.bad} after={process.good} accent="emerald" />
             <ol className="grid gap-3 sm:grid-cols-2 lg:grid-cols-7">
               {process.steps.map((s, i) => (
@@ -391,8 +392,8 @@ export default function WhyProjectPage() {
                 </div>
               ))}
             </div>
-            <Figure caption="예시 — 하나의 탐구 질문이 다섯 가지 결과물로 완성됩니다">
-              <FiveLensHubSvg items={outcomes.projects} />
+            <Figure caption="예시 — 하나의 탐구 질문이 ==다섯 가지 실제 결과물==로 완성됩니다">
+              <FiveOutputsMockSvg items={outcomes.projects} />
             </Figure>
             <CompareLists before={outcomes.compareBefore} after={outcomes.compareAfter} />
             <div className="relative overflow-hidden rounded-3xl border border-violet-500/30 bg-gradient-to-br from-violet-500/10 to-transparent p-8 md:p-12">

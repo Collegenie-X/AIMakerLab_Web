@@ -7,8 +7,10 @@ import { CompareLists, CtaBlock, Figure, NumberedCards, PageHero, SectionHeader,
 import { orchestraContent } from "./content"
 import { tools } from "./tools"
 import { ToolChip, ToolIcon } from "./tool-ui"
-import { AutomationFlowSvg, CycleSvg, OrchestraSvg, ProcessMapSvg, RunToAgentSvg, ShortsStoryboardSvg } from "./visuals"
+import { CycleSvg, ProcessMapSvg, RunToAgentSvg, ShortsStoryboardSvg } from "./visuals"
 import { CampaignPipelineSvg, FunnelSvg, GlossaryIcon, HookAbTestSvg, SoloVsOrchestraSvg } from "./scenes"
+import { AgentTerminalSvg, ConductorSceneSvg, EditorTimelineSvg, WorkflowCanvasSvg } from "./mockups"
+import { CodeWindow } from "../vibe-coding/code-window"
 import { AutomationLevels, CampaignWalkthrough, CopyButton, ProcessExplorer } from "./interactive"
 
 export const metadata: Metadata = {
@@ -23,14 +25,14 @@ export default function AiOrchestraPage() {
     <div className="flex min-h-screen flex-col bg-gray-950 text-gray-100">
       <Header />
       <main className="flex-1">
-        <PageHero {...hero}><OrchestraSvg stages={process.stages} /></PageHero>
+        <PageHero {...hero}><ConductorSceneSvg stages={process.stages} /></PageHero>
         <WhyProjectTabs current="/why-project/ai-orchestra" />
 
         {/* 01 Concept */}
         <section id={concept.id} className="scroll-mt-32 py-24">
           <div className="mx-auto max-w-6xl px-4">
             <SectionHeader {...concept} />
-            <Figure caption="같은 AI라도 ‘통째로 맡기기’와 ‘나눠서 지휘하기’는 결과가 다릅니다.">
+            <Figure caption="같은 AI라도 ‘통째로 맡기기’와 ==‘나눠서 지휘하기’==는 결과가 다릅니다.">
               <SoloVsOrchestraSvg />
             </Figure>
             <NumberedCards items={concept.roles} />
@@ -53,7 +55,7 @@ export default function AiOrchestraPage() {
         <section id={process.id} className="scroll-mt-32 border-y border-white/5 bg-white/[0.015] py-24">
           <div className="mx-auto max-w-6xl px-4">
             <SectionHeader {...process} />
-            <Figure caption="◇ 표시마다 사람이 ‘통과 기준’을 확인합니다. 마지막 개선 단계가 끝나면 다음 버전으로 다시 처음부터.">
+            <Figure caption="◇ 표시마다 ==사람이 ‘통과 기준’을 확인==합니다. 마지막 개선 단계가 끝나면 다음 버전으로 다시 처음부터.">
               <ProcessMapSvg stages={process.stages} />
             </Figure>
             <p className="mb-5 flex items-center justify-center gap-2 text-center text-sm text-gray-400 break-keep">
@@ -75,7 +77,7 @@ export default function AiOrchestraPage() {
                 </div>
               ))}
             </dl>
-            <Figure caption="Claude가 쓴 4컷 스토리보드를 Freepik · Higgsfield · Kling으로 장면화하고, CapCut에서 20초로 묶습니다.">
+            <Figure caption="Claude가 쓴 4컷 스토리보드를 Freepik · Higgsfield · Kling으로 장면화하고, CapCut에서 ==20초로 묶습니다==.">
               <ShortsStoryboardSvg cuts={campaign.storyboard} />
             </Figure>
             <div className="mb-14 overflow-x-auto rounded-3xl border border-white/10">
@@ -102,8 +104,11 @@ export default function AiOrchestraPage() {
             </div>
 
             <h3 className="mb-5 text-center text-xl font-bold text-white">도구에서 도구로 — 제작 릴레이</h3>
-            <Figure>
+            <Figure caption="앞 도구의 결과물이 그대로 다음 도구의 입력이 됩니다 — 이것이 ==오케스트레이션==">
               <CampaignPipelineSvg />
+            </Figure>
+            <Figure caption="편집기에서 본 완성 직전 화면 — ==도구마다 만든 결과물==이 트랙별로 놓여 20초 한 편이 된다">
+              <EditorTimelineSvg cuts={campaign.storyboard} />
             </Figure>
 
             <h3 className="mb-5 text-center text-xl font-bold text-white">9단계 따라 하기 — 단계를 눌러 보세요</h3>
@@ -112,12 +117,12 @@ export default function AiOrchestraPage() {
             </div>
 
             <h3 className="mb-5 text-center text-xl font-bold text-white">훅은 감이 아니라 숫자로 고릅니다</h3>
-            <Figure>
+            <Figure caption="같은 영상에 ==훅만 바꿔 3편==을 올리고, 48시간 뒤 3초 유지율로 고른다">
               <HookAbTestSvg />
             </Figure>
 
             <h3 className="mb-5 text-center text-xl font-bold text-white">올린 뒤에는 이 4가지 숫자를 봅니다</h3>
-            <Figure caption="왼쪽에서 오른쪽으로 갈수록 사람이 줄어듭니다. 어디서 가장 많이 빠지는지가 다음에 고칠 곳입니다.">
+            <Figure caption="왼쪽에서 오른쪽으로 갈수록 사람이 줄어듭니다. ==어디서 가장 많이 빠지는지==가 다음에 고칠 곳입니다.">
               <FunnelSvg />
             </Figure>
             <div className="mb-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
@@ -152,7 +157,7 @@ export default function AiOrchestraPage() {
               ))}
             </div>
 
-            <Figure>
+            <Figure caption="자동화가 진행될수록 ==사람이 직접 하는 일은 줄고==, 판단 게이트는 끝까지 남는다">
               <RunToAgentSvg steps={agent.evolution} />
             </Figure>
             <ol className="mb-14 grid gap-3 md:grid-cols-4">
@@ -183,20 +188,18 @@ export default function AiOrchestraPage() {
                   ))}
                 </ol>
               </div>
-              <div className="overflow-hidden rounded-3xl border border-white/10 bg-black/50">
-                <div className="flex items-center justify-between gap-2 border-b border-white/10 px-5 py-3">
-                  <div className="flex min-w-0 items-center gap-2 text-xs text-gray-400">
-                    <ToolIcon glyph="terminal" color={tools.claudeCode.color} size={14} />
-                    <span className="truncate">{agent.skill.file}</span>
-                  </div>
-                  <CopyButton text={agent.skill.code} />
-                </div>
-                <pre className="max-h-[460px] overflow-auto p-5 text-[12.5px] leading-relaxed text-gray-200"><code>{agent.skill.code}</code></pre>
-                <div className="border-t border-white/10 px-5 py-3 text-xs text-gray-400 break-keep">
-                  기록을 이 형식으로 옮기면 <span className="font-semibold text-white">Claude Code 스킬</span>이 됩니다. 이후 터미널에서 “이번 주 숏츠 만들어”라고만 하면 위 단계를 에이전트가 수행합니다.
-                </div>
+              <div>
+                <CodeWindow file={agent.skill.file} code={agent.skill.code} lang="md" accent={tools.claudeCode.color} maxHeight={460} action={<CopyButton text={agent.skill.code} />} />
+                <p className="mt-3 px-1 text-xs leading-relaxed text-gray-400 break-keep">
+                  <H text="기록을 이 형식으로 옮기면 ==Claude Code 스킬==이 됩니다. 이후 터미널에서 “이번 주 숏츠 만들어”라고만 하면 위 단계를 에이전트가 수행합니다." />
+                </p>
               </div>
             </div>
+
+            <h3 className="mb-5 text-center text-xl font-bold text-white">스킬을 실행하면 — 한 줄 입력, 승인에서 멈춤</h3>
+            <Figure caption="에이전트는 단계를 스스로 끝내고, ==사람이 골라야 하는 곳에서 멈춰 기다린다==">
+              <AgentTerminalSvg />
+            </Figure>
 
             <h3 className="mb-5 text-center text-xl font-bold text-white">자동화 레벨 — 한 단계씩 올립니다</h3>
             <div className="mb-3">
@@ -205,8 +208,8 @@ export default function AiOrchestraPage() {
             <p className="mb-14 text-center text-sm text-gray-500 break-keep"><H text={agent.levelsNote} /></p>
 
             <h3 className="mb-5 text-center text-xl font-bold text-white">L3 자동화 파이프라인 예시</h3>
-            <Figure>
-              <AutomationFlowSvg flow={agent.flow} />
+            <Figure caption="에이전트는 ‘초안’까지 — 외부에 올리는 ==마지막 버튼은 사람==이 누른다">
+              <WorkflowCanvasSvg flow={agent.flow} />
             </Figure>
 
             <div className="grid gap-4 md:grid-cols-2">
@@ -293,7 +296,7 @@ export default function AiOrchestraPage() {
         <section id={cycle.id} className="scroll-mt-32 border-y border-white/5 bg-white/[0.015] py-24">
           <div className="mx-auto max-w-6xl px-4">
             <SectionHeader {...cycle} />
-            <Figure><CycleSvg steps={cycle.steps} /></Figure>
+            <Figure caption="한 바퀴를 끝까지 돌아 본 경험이 ==다음 바퀴의 레시피==가 된다"><CycleSvg steps={cycle.steps} /></Figure>
             <ol className="grid gap-3 sm:grid-cols-2 lg:grid-cols-6">
               {cycle.steps.map((s, i) => (
                 <li key={s.title} className="rounded-2xl border border-white/10 bg-white/[0.02] p-4">

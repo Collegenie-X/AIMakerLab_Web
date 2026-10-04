@@ -1,6 +1,9 @@
 "use client";
 import { useScrollReveal } from "../hooks/useScrollReveal";
 import { ArrowRight } from "lucide-react";
+import { ShiftSceneSvg } from "../../why-project/vibe-coding/scenes";
+import { ConductorSceneSvg } from "../../why-project/ai-orchestra/mockups";
+import type { ToolId } from "../../why-project/ai-orchestra/tools";
 
 const paradigmShift = [
   { bg: "📖 문법 암기 → 직접 코딩", ag: "🗣️ AI에게 말해서 만드는 바이브 코딩" },
@@ -84,6 +87,15 @@ const steps: Step[] = [
   },
 ];
 
+/** 히어로 장면용 — 5단계를 맡는 AI 연주자 */
+const conductorStages: { name: string; color: string; tools: ToolId[] }[] = [
+  { name: "정하기", color: "#c084fc", tools: ["claude"] },
+  { name: "그리기", color: "#a78bfa", tools: ["figma"] },
+  { name: "만들기", color: "#38bdf8", tools: ["cursor"] },
+  { name: "고치기", color: "#2dd4bf", tools: ["claude"] },
+  { name: "알리기", color: "#fbbf24", tools: ["kling"] },
+];
+
 /** 단계와 단계 사이를 잇는 커넥터. 전류가 흐르고 화살촉이 다음 단계로 달려간다. */
 function FlowArrow({ delay }: { delay: number }) {
   return (
@@ -157,6 +169,9 @@ export function PhilosophySection() {
         </div>
 
         <div className="mx-auto mb-20 max-w-4xl">
+          <div className="mb-10 rounded-3xl border border-white/10 bg-white/[0.02] p-4 md:p-6">
+            <ShiftSceneSvg />
+          </div>
           <div className="mb-4 grid grid-cols-[1fr_auto_1fr] gap-4">
             <div className="text-center font-mono text-sm tracking-wide text-white/40">
               ⬅️ BG (AI 이전)
@@ -200,6 +215,10 @@ export function PhilosophySection() {
               아이디어부터 홍보 영상까지 —{" "}
               <span className="font-semibold text-cyan-400">방학 2개월 순수 개발</span>이면 상업용 제품이 나옵니다.
             </p>
+          </div>
+
+          <div className="mx-auto mb-10 max-w-4xl">
+            <ConductorSceneSvg stages={conductorStages} />
           </div>
 
           <div className="mx-auto grid max-w-6xl gap-4 md:grid-cols-3 lg:grid-cols-5">

@@ -1,3 +1,4 @@
+import { WebAppMockSvg } from "../../why-project/vibe-coding/mockups";
 import Link from "next/link";
 import Image from "next/image";
 import { Github, Cloud, Server, GitBranch, ArrowRight, Rocket } from "lucide-react";
@@ -62,6 +63,11 @@ export function OutsourcingSection() {
         </div>
 
         {/* Tech stack */}
+        <div className="mx-auto mb-12 max-w-5xl rounded-3xl border border-white/10 bg-white/[0.02] p-3 md:p-6">
+          <WebAppMockSvg />
+          <p className="mt-3 text-center text-sm text-white/45">하나의 Django 백엔드로 <span className="text-white/80">웹 서비스와 모바일 앱</span>을 함께 운영합니다</p>
+        </div>
+
         <div className="mb-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {stack.map(({ icon: Icon, label, desc }) => (
             <div key={label} className="ai-glass ai-card-hover rounded-2xl p-5">

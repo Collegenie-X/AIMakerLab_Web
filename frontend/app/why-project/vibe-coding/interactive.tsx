@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react"
 import { Heart, MessageSquare, RotateCcw } from "lucide-react"
 import { Highlight as H } from "../components/Highlight"
+import { CodeWindow } from "./code-window"
 import type { VibeContent } from "./content"
 
 type DemoItem = VibeContent["serverless"]["demo"][number]
@@ -120,13 +121,7 @@ export function DjangoSteps({ steps }: { steps: DjangoStep[] }) {
             <H text="한 번에 끝나지 않습니다. 결과를 읽고 “왜 이 필드 타입이야?”, “빈 값이면?”처럼 ==다시 묻는 것==이 실력입니다." />
           </p>
         </div>
-        <div className="overflow-hidden rounded-3xl border border-white/10 bg-black/50">
-          <div className="flex items-center gap-2 border-b border-white/10 px-5 py-3 text-xs text-gray-400">
-            <span className="h-2 w-2 rounded-full" style={{ background: s.color }} />
-            {s.file}
-          </div>
-          <pre className="overflow-x-auto p-5 text-[13px] leading-relaxed text-gray-200"><code>{s.code}</code></pre>
-        </div>
+        <CodeWindow file={s.file} code={s.code} accent={s.color} />
       </div>
     </div>
   )

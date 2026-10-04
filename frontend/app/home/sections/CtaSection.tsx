@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/buttons/button";
 import { ArrowRight } from "lucide-react";
 import { useScrollReveal } from "../hooks/useScrollReveal";
+import { LaunchSceneSvg } from "../components/HomeArt";
 
 const orbs = [
   { size: 300, top: "-10%", left: "-5%",  delay: "0s",   dur: "8s"  },
@@ -39,6 +40,8 @@ export function CtaSection() {
             <span className="ai-blink h-1.5 w-1.5 rounded-full bg-cyan-300" />
             📞 무료 상담 진행 중
           </div>
+
+          <div className="mb-6"><LaunchSceneSvg /></div>
 
           <h2 className="mb-4 text-4xl font-bold md:text-5xl">
             지금 바로 <span className="ai-gradient-text">AI 바이브 코딩</span>을 시작하세요 🚀

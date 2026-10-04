@@ -256,7 +256,8 @@ export function YearStairSvg({ items }: { items: { tag: string; city: string; co
         return (
           <g key={s.t}>
             <rect x={s.x} y={s.top} width="150" height={236 - s.top} rx="8" fill={c} fillOpacity="0.12" stroke={c} strokeOpacity="0.7" strokeWidth="1.5" />
-            <text x={s.x + 75} y={s.top - 30} textAnchor="middle" fontSize="12" fontWeight="700" fill={c}>{items[i].tag} · {items[i].city}</text>
+            <text x={s.x + 75} y={s.top - 48} textAnchor="middle" fontSize="12" fontWeight="800" fill={c}>{items[i].tag}</text>
+            <text x={s.x + 75} y={s.top - 31} textAnchor="middle" fontSize="11" fill="#9ca3af">{items[i].city}</text>
             <text x={s.x + 75} y={s.top - 11} textAnchor="middle" fontSize="15" fontWeight="800" fill="#ffffff">{s.t}</text>
             <text x={s.x + 75} y={s.top + 24} textAnchor="middle" fontSize="12" fill="#d1d5db">{s.s}</text>
           </g>
