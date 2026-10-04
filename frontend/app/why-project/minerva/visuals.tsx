@@ -47,27 +47,36 @@ export function SeminarSvg() {
   )
 }
 
-/** 4대 사고 습관 */
-export function CompetencySvg({ items }: { items: { title: string; color: string }[] }) {
-  const pos = [[180, 70], [540, 70], [180, 200], [540, 200]]
+/** 6개 렌즈 — 하나의 문제를 둘러싼 여섯 관문 */
+export function LensHexSvg({ items }: { items: { title: string; en: string; color: string }[] }) {
+  const cx = 360
+  const cy = 170
+  const pts = items.map((_, i) => {
+    const a = ((-90 + i * 60) * Math.PI) / 180
+    return { x: cx + Math.cos(a) * 230, y: cy + Math.sin(a) * 118 }
+  })
   return (
-    <svg viewBox="0 0 720 270" className="h-auto w-full" style={font} role="img" aria-label="비판적 사고, 창의적 사고, 효과적 커뮤니케이션, 복잡 시스템 네 가지 사고 습관">
-      <defs><filter id="cp-glow"><feGaussianBlur stdDeviation="10" /></filter></defs>
-      {pos.map(([x, y], i) => (
-        <line key={i} x1="360" y1="135" x2={x} y2={y} stroke={items[i].color} strokeOpacity="0.35" strokeWidth="2" strokeDasharray="5 6">
-          <animate attributeName="stroke-dashoffset" from="44" to="0" dur="2s" repeatCount="indefinite" />
+    <svg viewBox="0 0 720 345" className="h-auto w-full" style={font} role="img" aria-label="실증, 이론, 소통, 시스템, 윤리, 맥락 여섯 렌즈가 하나의 문제를 둘러싼 구조">
+      <defs><filter id="lens-glow"><feGaussianBlur stdDeviation="12" /></filter></defs>
+      <polygon points={pts.map((p) => `${p.x},${p.y}`).join(" ")} fill="none" stroke="#ffffff" strokeOpacity="0.08" strokeWidth="1.5" />
+      {pts.map((p, i) => (
+        <line key={i} x1={cx} y1={cy} x2={p.x} y2={p.y} stroke={items[i].color} strokeOpacity="0.4" strokeWidth="2" strokeDasharray="5 6">
+          <animate attributeName="stroke-dashoffset" from="0" to="44" dur="2s" repeatCount="indefinite" />
         </line>
       ))}
-      <circle cx="360" cy="135" r="52" fill="#8b5cf6" opacity="0.35" filter="url(#cp-glow)" />
-      <circle cx="360" cy="135" r="46" fill="#130d24" stroke="#c4b5fd" strokeWidth="2" />
-      <text x="360" y="131" textAnchor="middle" fontSize="13" fontWeight="800" fill="#f5f3ff">모든 수업</text>
-      <text x="360" y="149" textAnchor="middle" fontSize="11" fill="#c4b5fd">반복 적용 · 평가</text>
+      <circle cx={cx} cy={cy} r="54" fill="#d946ef" opacity="0.3" filter="url(#lens-glow)" />
+      <circle cx={cx} cy={cy} r="48" fill="#160b1f" stroke="#f0abfc" strokeWidth="2" />
+      <text x={cx} y={cy - 4} textAnchor="middle" fontSize="14" fontWeight="800" fill="#fdf4ff">실제 문제</text>
+      <text x={cx} y={cy + 15} textAnchor="middle" fontSize="11" fill="#f0abfc">기업 · 도시 · 사회</text>
       {items.map((it, i) => {
-        const [x, y] = pos[i]
+        const p = pts[i]
         return (
           <g key={it.title}>
-            <rect x={x - 100} y={y - 26} width="200" height="52" rx="14" fill="#0b0b12" stroke={it.color} strokeWidth="1.8" />
-            <text x={x} y={y + 5} textAnchor="middle" fontSize="15" fontWeight="700" fill={it.color}>{it.title}</text>
+            <circle cx={p.x} cy={p.y} r="30" fill="#0b0b12" stroke={it.color} strokeWidth="2">
+              <animate attributeName="stroke-opacity" values="1;0.4;1" dur="3s" begin={`${i * 0.5}s`} repeatCount="indefinite" />
+            </circle>
+            <text x={p.x} y={p.y + 5} textAnchor="middle" fontSize="15" fontWeight="800" fill={it.color}>{it.title}</text>
+            <text x={p.x} y={p.y + (i === 0 ? -40 : 48)} textAnchor="middle" fontSize="11" fill="#9ca3af">{it.en}</text>
           </g>
         )
       })}
