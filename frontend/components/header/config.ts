@@ -56,7 +56,7 @@ export const headerNavSections: HeaderNavSection[] = [
         description: "AI 비서 및 에이전트 서비스"
       },
       { 
-        label: "바이브 AI 코딩", 
+        label: "바이브 코딩 AI",
         href: "/curriculum/vive-coding", 
         icon: "MessageSquare", 
         description: "AI 협업 콘텐츠 & 웹 개발"

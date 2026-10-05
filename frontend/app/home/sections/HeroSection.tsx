@@ -8,6 +8,7 @@ const tags = [
   { emoji: "⚡", label: "ESP32" },
   { emoji: "📱", label: "앱 인벤터" },
   { emoji: "🎮", label: "마이크로비트" },
+  { emoji: "🍓", label: "라즈베리파이" },
   { emoji: "🤖", label: "AI 바이브 코딩" },
 ];
 
@@ -120,7 +121,7 @@ export function HeroSection() {
             className="hero-slide-up mx-auto mb-8 max-w-2xl break-keep text-lg leading-relaxed text-white/60 md:text-xl"
             style={{ animationDelay: "0.2s" }}
           >
-            ESP32·앱 인벤터·마이크로비트로 <span className="text-white/90 font-medium">직접 만들고</span>,
+            ESP32·마이크로비트·라즈베리파이·앱 인벤터로 <span className="text-white/90 font-medium">직접 만들고</span>,
             <br />
             AI 바이브 코딩으로 <span className="text-white/90 font-medium">더 빠르게 완성</span>합니다.
             <br />
