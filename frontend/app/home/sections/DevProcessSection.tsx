@@ -182,39 +182,11 @@ export function DevProcessSection() {
 
         {/* Animated pipeline diagram */}
         <div
-          className={`mb-8 transition-all duration-700 delay-200 ${
+          className={`mb-10 transition-all duration-700 delay-200 ${
             visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
           }`}
         >
           <ProcessPipelineSVG nodes={steps} activeIndex={active} onSelect={setActive} />
-        </div>
-
-        {/* Step rail (모바일 보조 네비게이션) */}
-        <div className="mb-10 flex flex-wrap justify-center gap-2 md:hidden">
-          {steps.map((s, i) => {
-            const on = i === active;
-            return (
-              <button
-                key={s.num}
-                onClick={() => setActive(i)}
-                className={`group flex items-center gap-2.5 rounded-2xl border px-4 py-3 text-sm font-semibold transition-all ${
-                  on
-                    ? "scale-105 text-white"
-                    : "border-white/10 text-white/45 hover:border-white/25 hover:text-white/80"
-                } ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
-                style={{
-                  transitionDelay: `${i * 70}ms`,
-                  ...(on ? { background: `${s.color}18`, borderColor: `${s.color}55`, color: s.color } : {}),
-                }}
-              >
-                <span className="text-xl">{s.emoji}</span>
-                <span className="text-left leading-tight">
-                  <span className="block font-mono text-[10px] opacity-70">STEP {s.num}</span>
-                  {s.title}
-                </span>
-              </button>
-            );
-          })}
         </div>
 
         {/* Detail panel */}

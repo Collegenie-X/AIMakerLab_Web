@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import { Menu, ChevronDown, ChevronRight, User, LogOut } from "lucide-react"
+import { Menu, ChevronDown, ChevronRight, User, LogOut, Lightbulb } from "lucide-react"
 import { Button } from "@/components/ui/buttons/button"
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/overlays/sheet"
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/layout/collapsible"
@@ -95,6 +95,18 @@ export function MobileDrawer() {
     ],
   }
 
+  // 하단 고정 영역의 '왜 프로젝트인가' 바로가기 (로그인 버튼과 같은 높이·모양)
+  const whyProjectLink = (
+    <Link
+      href="/why-project"
+      onClick={() => setOpen(false)}
+      className="flex h-9 flex-1 items-center justify-center gap-1.5 rounded-full border border-purple-500/40 bg-purple-950/40 px-4 text-sm font-medium text-purple-200 hover:bg-purple-900/50 transition-colors whitespace-nowrap"
+    >
+      <Lightbulb className="h-4 w-4 text-purple-300" />
+      왜 프로젝트인가?
+    </Link>
+  )
+
   return (
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild>
@@ -174,25 +186,32 @@ export function MobileDrawer() {
         <div className="flex-shrink-0 border-t border-gray-800 bg-gray-950">
           <div className="p-4">
             {userEmail ? (
-              <div className="p-4 bg-gray-900 rounded-lg">
-                <div className="flex items-center gap-2 mb-2">
-                  <User className="h-4 w-4 text-blue-400" />
-                  <span className="text-sm font-medium text-gray-200 truncate">
-                    {userEmail}
-                  </span>
+              <div className="space-y-3">
+                {whyProjectLink}
+                <div className="p-4 bg-gray-900 rounded-lg">
+                  <div className="flex items-center gap-2 mb-2">
+                    <User className="h-4 w-4 text-blue-400" />
+                    <span className="text-sm font-medium text-gray-200 truncate">
+                      {userEmail}
+                    </span>
+                  </div>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="w-full"
+                    onClick={handleLogout}
+                  >
+                    <LogOut className="mr-2 h-4 w-4" />
+                    로그아웃
+                  </Button>
                 </div>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="w-full"
-                  onClick={handleLogout}
-                >
-                  <LogOut className="mr-2 h-4 w-4" />
-                  로그아웃
-                </Button>
               </div>
             ) : (
-              <LoginDialog />
+              // 비로그인: 왜 프로젝트인가 · 로그인 좌우 배치
+              <div className="flex items-center gap-2">
+                {whyProjectLink}
+                <LoginDialog />
+              </div>
             )}
           </div>
         </div>
