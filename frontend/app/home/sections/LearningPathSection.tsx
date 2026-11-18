@@ -33,12 +33,12 @@ const tracks: Track[] = [
     name: "초등 과정",
     target: "초 3~6학년",
     color: "#22C55E",
-    tags: ["블록코딩", "피지컬컴퓨팅", "AI체험"],
-    tools: ["스크래치 · 엔트리", "마이크로비트 · 아두이노 키트", "AI 이미지·음성 블록"],
-    goal: "블록으로 논리를 익히고, 센서로 '내 손에서 움직이는 것'을 만드는 첫 경험",
-    makes: ["센서로 반응하는 작품", "AI 블록을 붙인 미니 게임", "작품 소개 발표"],
+    tags: ["피지컬AI 체험", "센서", "AI체험"],
+    tools: ["마이크로비트 · 아두이노 키트", "티처블머신 AI 학습", "AI에게 말로 설명하기"],
+    goal: "센서와 AI로 '내 손에서 움직이는 것'을 만드는 첫 경험",
+    makes: ["센서로 반응하는 작품", "AI가 알아보는 미니 장치", "작품 소개 발표"],
     stats: [
-      { label: "블록 코딩", value: 70 },
+      { label: "바이브 코딩", value: 25 },
       { label: "피지컬 컴퓨팅", value: 60 },
       { label: "AI 활용", value: 30 },
     ],
@@ -52,12 +52,12 @@ const tracks: Track[] = [
     name: "중등 과정",
     target: "중 1~3학년",
     color: "#06B6D4",
-    tags: ["피지컬컴퓨팅", "앱인벤터", "AI 모델"],
-    tools: ["아두이노 · 라즈베리파이", "앱인벤터 · mBlock", "티처블머신 · AI API 블록"],
-    goal: "하드웨어와 앱을 연결하고, AI 모델을 직접 학습시켜 작품에 붙인다",
-    makes: ["앱으로 제어하는 IoT 장치", "직접 학습시킨 AI 인식 모델", "자유학기제·동아리 산출물"],
+    tags: ["피지컬AI", "바이브코딩", "AI 모델"],
+    tools: ["아두이노 · ESP32-CAM", "ChatGPT · AI 웹 빌더", "티처블머신 · 비전 AI"],
+    goal: "하드웨어와 웹을 연결하고, AI 모델을 직접 학습시켜 작품에 붙인다",
+    makes: ["웹으로 제어하는 IoT 장치", "직접 학습시킨 AI 인식 모델", "자유학기제·동아리 산출물"],
     stats: [
-      { label: "블록 코딩", value: 55 },
+      { label: "바이브 코딩", value: 60 },
       { label: "피지컬 컴퓨팅", value: 85 },
       { label: "AI 활용", value: 60 },
     ],
@@ -166,13 +166,13 @@ export function LearningPathSection() {
             🎓 LEARNING PATH · 초 → 중 → 고 → 대학
           </div>
           <h2 className="mb-4 text-3xl font-bold text-white md:text-4xl">
-            첫 블록부터 <span className="ai-gradient-text">피지컬 AI</span>까지 🪜
+            첫 센서부터 <span className="ai-gradient-text">피지컬 AI</span>까지 🪜
           </h2>
           <p className="mx-auto max-w-2xl text-lg text-white/50">
             <span className="text-violet-300">🤖 AI</span>와 <span className="text-cyan-300">🔧 Maker</span>,
             두 축을 학년마다 함께 키웁니다.
             <br className="hidden md:block" />
-            블록코딩·센서 체험에서 시작해 AI가 제어하는 실물 제작으로 이어집니다.
+            센서·AI 체험에서 시작해 바이브 코딩과 AI가 제어하는 실물 제작으로 이어집니다.
           </p>
         </div>
 

@@ -136,7 +136,7 @@ export function MaterialsDownloadSection({ data }: MaterialsDownloadSectionProps
                 <ul className="text-sm text-blue-300 space-y-1">
                   <li>• 모든 자료는 교육 목적으로 자유롭게 사용 가능합니다</li>
                   <li>• PDF 파일은 Adobe Reader 또는 최신 브라우저에서 열람 가능합니다</li>
-                  <li>• ZIP 파일은 압축 해제 후 MIT App Inventor에서 불러올 수 있습니다</li>
+                  <li>• ZIP 파일은 압축 해제 후 Arduino IDE에서 열 수 있습니다</li>
                   <li>• 자료에 대한 문의사항은 고객센터로 연락주세요</li>
                 </ul>
               </div>

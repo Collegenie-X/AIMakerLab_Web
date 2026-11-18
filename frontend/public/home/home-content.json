@@ -56,7 +56,7 @@
       {
         "icon": "Cpu",
         "title": "모든 수업에 AI 오케스트레이션",
-        "desc": "아두이노·앱 인벤터·라즈베리파이까지, AI와 함께 만드는 방식으로 전환"
+        "desc": "아두이노·ESP32·라즈베리파이 피지컬 AI까지, AI와 함께 만드는 방식으로 전환"
       },
       {
         "icon": "Lightbulb",
@@ -78,37 +78,37 @@
   "curriculum": {
     "sectionBadge": "AI 바이브 코딩 교육",
     "heading": "모든 수업에 바이브 코딩을 적용합니다",
-    "subheading": "앱 인벤터·아두이노·라즈베리파이까지, AI와 대화하며 만드는 방식으로",
+    "subheading": "웹 서비스부터 아두이노·라즈베리파이 피지컬 AI까지, AI와 대화하며 만드는 방식으로",
     "items": [
       {
         "href": "/curriculum/vive-coding",
-        "img": "/home/images/app-inventor-coding-blocks.jpg",
+        "img": "/home/images/mobile-app-interface.png",
         "levelBadge": "바이브 코딩",
-        "title": "앱 인벤터 × 바이브 코딩",
-        "desc": "블록 코딩 + AI 프롬프트로 나만의 앱을 기획부터 완성까지",
+        "title": "바이브 코딩 웹 서비스",
+        "desc": "AI와 대화하며 나만의 웹 서비스를 기획부터 배포까지",
         "duration": "12주 과정",
         "size": "6-8명"
       },
       {
-        "href": "/curriculum/vive-coding",
+        "href": "/curriculum/arduino",
         "img": "/home/images/arduino-electronics-circuit.jpg",
-        "levelBadge": "바이브 코딩",
+        "levelBadge": "피지컬 AI",
         "title": "아두이노 × 바이브 코딩",
         "desc": "AI에게 말해서 만드는 하드웨어 제어 코드와 회로 설계",
         "duration": "16주 과정",
         "size": "6명"
       },
       {
-        "href": "/curriculum/vive-coding",
+        "href": "/curriculum/raspberry-pi",
         "img": "/home/images/raspberry-pi-computer-iot.jpg",
-        "levelBadge": "바이브 코딩",
+        "levelBadge": "피지컬 AI",
         "title": "라즈베리파이 × 바이브 코딩",
         "desc": "IoT·임베디드 시스템을 AI 오케스트레이션으로 설계하고 구현",
         "duration": "16주 과정",
         "size": "6명"
       },
       {
-        "href": "/curriculum/vive-coding",
+        "href": "/curriculum/ai-coding",
         "img": "/home/images/ai-neural-network.png",
         "levelBadge": "심화",
         "title": "프론트엔드 + Django 바이브 코딩",

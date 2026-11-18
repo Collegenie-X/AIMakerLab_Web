@@ -77,11 +77,13 @@ export function ScheduleDetailDialog({ item, trigger, texts, open: controlledOpe
               <div className="flex flex-wrap items-center gap-3 text-sm text-gray-400">
                 <div className="flex items-center gap-2">
                   <Badge variant="secondary">{item.level}</Badge>
-                  <div className="flex items-center gap-1">
-                    <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                    <span className="font-semibold">{item.rating}</span>
-                    <span>({item.reviews}{texts.labels.reviews})</span>
-                  </div>
+                  {item.reviews > 0 && (
+                    <div className="flex items-center gap-1">
+                      <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                      <span className="font-semibold">{item.rating}</span>
+                      <span>({item.reviews}{texts.labels.reviews})</span>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>

@@ -34,7 +34,7 @@ export function HeroSection({
 }: HeroSectionProps) {
   return (
     <section className={`relative overflow-hidden bg-gradient-to-br ${gradientClass} py-12 ${textColorClass}`}>
-      <div className="absolute inset-0 bg-[url('/home/abstract-tech-pattern.png')] opacity-10" />
+      <div className="absolute inset-0 bg-[url('/home/images/abstract-tech-pattern.png')] opacity-10" />
       <div className="container relative mx-auto px-4">
         <div className={`${containerClass} mx-auto text-center`}>
           <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-white/20 backdrop-blur-sm px-4 py-2 text-sm font-semibold">

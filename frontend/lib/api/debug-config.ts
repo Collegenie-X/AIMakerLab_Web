@@ -23,15 +23,6 @@ export interface PageDebugConfig {
     outreach: boolean;
   };
   
-  // Products 페이지
-  products: {
-    products: boolean;
-    videos: boolean;
-    quoteItems: boolean;
-    quoteInquiries: boolean;
-    reviews: boolean;
-  };
-  
   // Gallery 페이지
   gallery: {
     works: boolean;
@@ -66,15 +57,6 @@ export const DEBUG_CONFIG: PageDebugConfig = {
     inquiries: process.env.NEXT_PUBLIC_DEBUG_INQUIRY_INQUIRIES !== 'false',
     schedules: process.env.NEXT_PUBLIC_DEBUG_INQUIRY_SCHEDULES !== 'false',
     outreach: process.env.NEXT_PUBLIC_DEBUG_INQUIRY_OUTREACH !== 'false',
-  },
-  
-  // Products 페이지
-  products: {
-    products: process.env.NEXT_PUBLIC_DEBUG_PRODUCTS_PRODUCTS !== 'false',
-    videos: process.env.NEXT_PUBLIC_DEBUG_PRODUCTS_VIDEOS !== 'false',
-    quoteItems: process.env.NEXT_PUBLIC_DEBUG_PRODUCTS_QUOTE_ITEMS !== 'false',
-    quoteInquiries: process.env.NEXT_PUBLIC_DEBUG_PRODUCTS_QUOTE_INQUIRIES !== 'false',
-    reviews: process.env.NEXT_PUBLIC_DEBUG_PRODUCTS_REVIEWS !== 'false',
   },
   
   // Gallery 페이지

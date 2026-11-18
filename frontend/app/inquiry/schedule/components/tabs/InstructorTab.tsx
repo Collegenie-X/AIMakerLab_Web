@@ -58,11 +58,13 @@ export function InstructorTab({ instructor, instructorInfo, rating, reviews, tex
         <p className="text-sm leading-relaxed text-gray-300">{instructorInfo.introduction}</p>
       </div>
 
-      <div className="mt-4 flex items-center gap-3 rounded-lg bg-gray-800 p-3">
-        <Star className="h-5 w-5 fill-yellow-400 text-yellow-400" />
-        <span className="text-lg font-bold text-white">{rating}</span>
-        <span className="text-gray-400">강사 평점 ({reviews}개 리뷰)</span>
-      </div>
+      {reviews > 0 && (
+        <div className="mt-4 flex items-center gap-3 rounded-lg bg-gray-800 p-3">
+          <Star className="h-5 w-5 fill-yellow-400 text-yellow-400" />
+          <span className="text-lg font-bold text-white">{rating}</span>
+          <span className="text-gray-400">강사 평점 ({reviews}개 리뷰)</span>
+        </div>
+      )}
     </div>
   )
 }

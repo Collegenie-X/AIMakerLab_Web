@@ -21,7 +21,6 @@ const nextConfig = {
     // 페이지별 데이터 소스 설정
     NEXT_PUBLIC_USE_API_ACCOUNTS: process.env.NEXT_PUBLIC_USE_API_ACCOUNTS || 'false',
     NEXT_PUBLIC_USE_API_INQUIRY: process.env.NEXT_PUBLIC_USE_API_INQUIRY || 'false',
-    NEXT_PUBLIC_USE_API_PRODUCTS: process.env.NEXT_PUBLIC_USE_API_PRODUCTS || 'false',
     NEXT_PUBLIC_USE_API_GALLERY: process.env.NEXT_PUBLIC_USE_API_GALLERY || 'false',
     NEXT_PUBLIC_USE_API_CURRICULUM: process.env.NEXT_PUBLIC_USE_API_CURRICULUM || 'false',
     NEXT_PUBLIC_USE_API_HOME: process.env.NEXT_PUBLIC_USE_API_HOME || 'false',

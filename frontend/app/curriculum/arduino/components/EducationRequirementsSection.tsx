@@ -57,7 +57,7 @@ export function EducationRequirementsSection({ data }: EducationRequirementsSect
         <div className={layout.containerClass}>
           <h2 className="mb-4 text-3xl font-bold text-center">{data.title}</h2>
           <p className="text-center text-gray-400 mb-12 max-w-2xl mx-auto">
-            효과적인 앱 인벤터 교육을 위한 필수 조건들을 확인하세요
+            ESP32-CAM 프로젝트 수업을 위한 필수 조건들을 확인하세요
           </p>
 
           <div className="grid gap-6 md:grid-cols-2">

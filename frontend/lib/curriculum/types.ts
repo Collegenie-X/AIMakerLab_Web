@@ -49,8 +49,6 @@ export type RecommendationLevel = "선택" | "권장" | "도전" | null;
 export enum CurriculumCategory {
   AI_CODING = "ai-coding",
   VIBE_CODING = "vibe-coding",
-  BLOCK_CODING = "block-coding",
-  APP_INVENTOR = "app-inventor",
   ARDUINO = "arduino",
   RASPBERRY_PI = "raspberry-pi",
 }

@@ -175,16 +175,6 @@ export const fetchSchedules = (type?: 'weekday' | 'weekend', options?: DataFetch
   }
 };
 
-// 제품 데이터
-export const fetchProducts = (options?: DataFetcherOptions) =>
-  DataFetcher.fetchList('products', 'products', '/products/products.json', '/api/products/products/', options);
-
-export const fetchQuoteItems = (options?: DataFetcherOptions) =>
-  DataFetcher.fetchList('products', 'quoteItems', '/products/quote-items.json', '/api/products/quote-items/', options);
-
-export const fetchVideos = (options?: DataFetcherOptions) =>
-  DataFetcher.fetchList('products', 'videos', '/products/videos.json', '/api/products/videos/', options);
-
 // 갤러리 데이터
 export const fetchGalleryWorks = (options?: DataFetcherOptions) =>
   DataFetcher.fetchList('gallery', 'works', '/gallery/works.json', '/api/gallery/?category=works', options);

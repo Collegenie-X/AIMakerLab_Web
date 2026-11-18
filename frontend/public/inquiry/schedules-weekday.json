@@ -1,188 +1,183 @@
 [
   {
     "id": 1,
-    "title": "앱 인벤터 블록코딩 (3시간)",
-    "instructor": "AI Maker Lab 전문 강사진",
+    "title": "바이브 코딩 입문: 말로 만드는 나의 첫 웹앱 (3시간)",
+    "instructor": "AI Maker Lab 대표 강사",
     "level": "초급",
     "duration": "3시간",
     "durationHours": 3,
-    "rating": 4.8,
-    "reviews": 24,
-    "videoId": "X4cGXFJnAeY",
-    "description": "블록 코딩으로 나만의 앱을 만들어보는 3시간 집중 과정입니다. 프로그래밍 경험이 없어도 쉽게 따라할 수 있으며, 수업 후 바로 스마트폰에서 실행 가능한 앱을 완성합니다.",
+    "rating": 0,
+    "reviews": 0,
+    "description": "코드를 몰라도 AI와 대화하며 실제로 작동하는 웹앱을 만드는 3시간 입문 과정입니다. 완성된 사례를 먼저 보고, ChatGPT와 함께 기획하고, 수업이 끝나면 친구에게 링크로 공유할 수 있는 결과물을 가져갑니다.",
     "learningObjectives": [
-      "블록 코딩의 기본 개념 이해",
-      "앱 인벤터 인터페이스 활용법 습득",
-      "간단한 모바일 앱 제작 능력",
-      "창의적 아이디어를 앱으로 구현하는 경험"
+      "바이브 코딩(AI와 대화하며 만드는 방식)의 개념 이해",
+      "원하는 기능을 AI에게 정확히 설명하는 프롬프트 작성",
+      "AI가 만든 결과물을 확인하고 고쳐 달라고 요청하는 반복 개선",
+      "완성한 웹앱을 링크로 공유하기"
     ],
     "expectedOutcomes": [
-      "실제 작동하는 안드로이드 앱 1개 완성",
-      "프로그래밍에 대한 자신감 향상",
-      "논리적 사고력 발달"
+      "나만의 웹앱 1개 완성 및 공유 링크 획득",
+      "코딩에 대한 두려움 해소와 자신감 향상",
+      "문제를 말로 정리하는 기획력"
     ],
     "curriculum": [
       {
         "week": "1차시",
-        "title": "앱 인벤터 시작하기",
+        "title": "좋은 사례 보고 아이디어 정하기",
         "topics": [
-          "앱 인벤터 소개 및 환경 설정",
-          "블록 코딩의 기본 개념",
-          "첫 번째 앱 만들기 실습"
+          "바이브 코딩이란? 완성 사례 둘러보기",
+          "내 주변의 불편함에서 아이디어 찾기",
+          "만들 웹앱 한 문장으로 정리하기"
         ],
         "duration": "1시간",
-        "image": "/home/app-inventor-coding-blocks.jpg",
-        "imageAlt": "앱 인벤터 블록 코딩 화면"
+        "image": "/home/images/slide-vibe-coding.svg",
+        "imageAlt": "바이브 코딩 소개"
       },
       {
         "week": "2차시",
-        "title": "인터랙티브 앱 만들기",
+        "title": "AI와 대화하며 만들기",
         "topics": [
-          "버튼과 이벤트 처리",
-          "화면 디자인 및 레이아웃",
-          "소리와 이미지 추가하기"
+          "ChatGPT로 화면과 기능 설계하기",
+          "AI 웹 빌더로 첫 화면 생성",
+          "버튼·입력창 등 기능 추가 요청하기"
         ],
         "duration": "1시간",
-        "image": "/home/mobile-app-interface.png",
-        "imageAlt": "모바일 앱 인터페이스"
+        "image": "/home/images/slide-vibe-frontend.svg",
+        "imageAlt": "AI로 웹 화면 만들기"
       },
       {
         "week": "3차시",
-        "title": "나만의 앱 완성하기",
+        "title": "고치고 공유하기",
         "topics": [
-          "조건문과 변수 활용",
-          "앱 테스트 및 디버깅",
-          "스마트폰으로 앱 설치하기"
+          "오류를 AI에게 설명하고 고치기",
+          "디자인 다듬기",
+          "링크로 배포하고 발표하기"
         ],
         "duration": "1시간",
-        "image": "/home/app-inventor-coding-blocks.jpg",
-        "imageAlt": "완성된 앱 테스트"
+        "image": "/home/images/mobile-app-interface.png",
+        "imageAlt": "완성된 웹앱 화면"
       }
     ],
     "requirements": [
-      "스마트폰 또는 태블릿 (안드로이드 권장)",
-      "와이파이 연결 가능한 환경",
-      "기본적인 컴퓨터 사용 능력",
-      "프로그래밍 경험 불필요"
+      "학생 1인 1노트북 (크롬 브라우저)",
+      "인터넷 연결 환경",
+      "프로그래밍 경험 불필요",
+      "만 14세 미만은 보호자 동의 하에 AI 도구 사용"
     ],
     "faqs": [
       {
-        "question": "프로그래밍을 전혀 모르는데 가능한가요?",
-        "answer": "네, 가능합니다. 블록 코딩 방식이라 드래그 앤 드롭만으로 쉽게 배울 수 있습니다."
+        "question": "코딩을 전혀 몰라도 되나요?",
+        "answer": "네. 이 과정은 코드를 직접 외우지 않고, AI에게 말로 설명해서 만드는 방식이라 처음이어도 충분히 완성할 수 있습니다."
       },
       {
-        "question": "아이폰만 있는데 괜찮나요?",
-        "answer": "컴퓨터 에뮬레이터로도 실습 가능하지만, 안드로이드 기기가 있으면 더 좋습니다."
+        "question": "AI 도구 계정이 필요한가요?",
+        "answer": "수업에서 사용하는 무료 도구 위주로 진행하며, 계정 준비 방법은 수업 전에 안내해 드립니다."
       }
     ],
     "pricingInfo": {
-      "materialsPerKit": 55000,
-      "studentsPerKit": 4,
+      "materialsPerKit": 10000,
+      "studentsPerKit": 1,
       "instructorFeePerHour": 50000,
       "minHours": 2,
       "defaultHours": 3,
       "minStudents": 10,
       "maxStudents": 30,
       "defaultStudents": 12,
-      "studentStep": 2,
-      "rentalPerKit": 20000
+      "studentStep": 2
     },
     "educationKit": {
-      "name": "앱 인벤터 코딩 키트",
-      "description": "블록 코딩으로 모바일 앱을 만들 수 있는 교육용 키트입니다. 태블릿과 실습 가이드가 포함되어 있습니다.",
-      "image": "/home/app-inventor-coding-blocks.jpg",
-      "videoId": "X4cGXFJnAeY",
-      "productUrl": "http://localhost:3000/products/coding-ai",
-      "purchasePrice": 55000,
-      "rentalPrice": 20000
+      "name": "바이브 코딩 실습 키트 (1인)",
+      "description": "수업용 워크북, 프롬프트 카드, AI 코딩 도구 실습 가이드로 구성됩니다. 학생 1인당 노트북 1대(기관 준비)가 필요하며, 하드웨어는 사용하지 않습니다.",
+      "image": "/home/images/slide-vibe-coding.svg",
+      "purchasePrice": 10000,
+      "purchaseUnit": "1인"
     },
     "gallery": [
       {
         "type": "image",
-        "src": "/home/app-inventor-coding-blocks.jpg",
-        "alt": "앱 인벤터 코딩 블록"
+        "src": "/home/images/slide-vibe-coding.svg",
+        "alt": "바이브 코딩"
       },
       {
         "type": "image",
-        "src": "/home/mobile-app-interface.png",
-        "alt": "모바일 앱 인터페이스"
+        "src": "/home/images/slide-vibe-frontend.svg",
+        "alt": "AI로 만든 웹 화면"
       }
     ]
   },
   {
     "id": 2,
-    "title": "아두이노 스마트 홈 만들기 (3시간)",
-    "instructor": "AI Maker Lab 전문 강사진",
+    "title": "피지컬 AI 입문: 사물을 알아보는 AI 카메라 만들기 (3시간)",
+    "instructor": "AI Maker Lab 대표 강사",
     "level": "초급",
     "duration": "3시간",
     "durationHours": 3,
-    "rating": 4.9,
-    "reviews": 31,
-    "videoId": "CXzdz-x5mwI",
-    "description": "아두이노와 센서를 활용해 스마트 홈 장치를 만들어보는 실습 중심 과정입니다. LED, 센서, 모터 등을 직접 연결하고 제어하며 하드웨어와 소프트웨어의 융합을 경험합니다.",
+    "rating": 0,
+    "reviews": 0,
+    "description": "ESP32-CAM과 티처블 머신으로 사물을 인식하고, 인식 결과에 따라 LED와 부저가 반응하는 AI 장치를 만듭니다. AI가 화면 밖의 실제 세상과 연결되는 '피지컬 AI'를 3시간 안에 직접 경험하는 과정입니다.",
     "learningObjectives": [
-      "아두이노 기본 프로그래밍",
-      "센서와 액추에이터 제어 방법",
-      "전자회로의 기초 이해",
-      "스마트 홈 시스템 원리 학습"
+      "피지컬 AI(센서·카메라 + AI + 동작)의 구조 이해",
+      "티처블 머신으로 이미지 분류 모델 학습",
+      "ESP32-CAM 영상과 AI 인식 결과 연결",
+      "인식 결과로 LED·부저 제어하기"
     ],
     "expectedOutcomes": [
-      "자동 조명 시스템 제작",
-      "하드웨어 제어 능력 향상",
-      "창의적 메이커 활동 경험"
+      "사물을 알아보고 반응하는 AI 카메라 1대 완성",
+      "AI 학습 데이터의 중요성 체험",
+      "하드웨어와 AI를 연결하는 기초 역량"
     ],
     "curriculum": [
       {
         "week": "1차시",
-        "title": "아두이노 기초",
+        "title": "AI 눈 만들기",
         "topics": [
-          "아두이노 보드 소개",
-          "LED 제어 프로그래밍",
-          "디지털 입출력 이해"
+          "피지컬 AI 사례 살펴보기",
+          "티처블 머신으로 사물 사진 학습시키기",
+          "인식 정확도 높이는 데이터 모으기"
         ],
         "duration": "1시간",
-        "image": "/home/arduino-electronics-circuit.jpg",
-        "imageAlt": "아두이노 전자회로"
+        "image": "/home/images/ai-neural-network.png",
+        "imageAlt": "AI 이미지 학습"
       },
       {
         "week": "2차시",
-        "title": "센서 활용하기",
+        "title": "ESP32-CAM 연결하기",
         "topics": [
-          "조도 센서로 밝기 감지",
-          "온습도 센서 활용",
-          "센서 데이터 처리 방법"
+          "ESP32-CAM과 브레드보드 회로 구성",
+          "카메라 영상 확인하기",
+          "AI 모델과 카메라 연결"
         ],
         "duration": "1시간",
-        "image": "/home/smart-home-iot-device.jpg",
-        "imageAlt": "스마트 홈 센서"
+        "image": "/home/images/arduino-electronics-circuit.jpg",
+        "imageAlt": "ESP32 회로 구성"
       },
       {
         "week": "3차시",
-        "title": "스마트 조명 만들기",
+        "title": "AI가 반응하는 장치 완성",
         "topics": [
-          "자동 조명 시스템 설계",
-          "센서와 LED 연동",
-          "프로젝트 완성 및 시연"
+          "인식 결과에 따라 LED·부저 제어",
+          "나만의 동작 규칙 정하기",
+          "작품 시연 및 발표"
         ],
         "duration": "1시간",
-        "image": "/home/arduino-electronics-circuit.jpg",
-        "imageAlt": "완성된 스마트 조명"
+        "image": "/home/images/smart-home-iot-device.jpg",
+        "imageAlt": "완성된 AI 장치"
       }
     ],
     "requirements": [
-      "노트북 지참",
-      "교구재는 현장 제공 (키트당 55,000원)",
-      "기본적인 컴퓨터 사용 능력",
-      "전자회로 지식 불필요"
+      "4인 1조 노트북 1대 이상 (USB 포트)",
+      "인터넷 연결 환경",
+      "교육 키트 구매 또는 대여",
+      "프로그래밍 경험 불필요"
     ],
     "faqs": [
       {
-        "question": "전자회로를 전혀 모르는데 괜찮나요?",
-        "answer": "네, 기초부터 차근차근 설명하며 실습 위주로 진행합니다."
+        "question": "키트는 꼭 사야 하나요?",
+        "answer": "구매와 대여 중 선택할 수 있습니다. 대여 시 수업 후 회수하며, 구매 시 학생들이 수업 후에도 계속 활용할 수 있습니다."
       },
       {
-        "question": "완성한 작품을 가져갈 수 있나요?",
-        "answer": "네, 제작한 모든 작품은 가져가실 수 있습니다."
+        "question": "초등학생도 가능한가요?",
+        "answer": "초등 고학년부터 권장합니다. 회로는 미리 구성된 부분이 있어 처음이어도 따라올 수 있습니다."
       }
     ],
     "pricingInfo": {
@@ -198,278 +193,277 @@
       "rentalPerKit": 20000
     },
     "educationKit": {
-      "name": "아두이노 스마트홈 키트",
-      "description": "아두이노 보드, 각종 센서(온습도, 조도, 초음파), LED, 모터 등이 포함된 전자회로 실습 키트입니다.",
-      "image": "/home/arduino-electronics-circuit.jpg",
-      "videoId": "CXzdz-x5mwI",
-      "productUrl": "http://localhost:3000/products/coding-ai",
+      "name": "피지컬 AI 스타터 키트 (ESP32-CAM)",
+      "description": "ESP32-CAM 보드, 브레드보드, LED·부저·점퍼선, USB 케이블, 실습 가이드가 포함된 4인 1조 키트입니다.",
+      "image": "/home/images/arduino-electronics-circuit.jpg",
       "purchasePrice": 55000,
+      "purchaseUnit": "4인 1조",
       "rentalPrice": 20000
     },
     "gallery": [
       {
         "type": "image",
-        "src": "/home/arduino-electronics-circuit.jpg",
-        "alt": "아두이노 전자회로"
+        "src": "/home/images/arduino-electronics-circuit.jpg",
+        "alt": "ESP32 회로"
       },
       {
         "type": "image",
-        "src": "/home/smart-home-iot-device.jpg",
-        "alt": "스마트 홈 IoT 기기"
+        "src": "/home/images/ai-neural-network.png",
+        "alt": "AI 이미지 분류"
       }
     ]
   },
   {
     "id": 3,
-    "title": "AI 이미지 분류 모델 만들기 (6시간)",
-    "instructor": "AI Maker Lab 전문 강사진",
+    "title": "바이브 코딩 실전: 우리 반 문제를 해결하는 웹 서비스 (6시간)",
+    "instructor": "AI Maker Lab 대표 강사",
     "level": "중급",
     "duration": "6시간",
     "durationHours": 6,
-    "rating": 4.7,
-    "reviews": 18,
-    "videoId": "7EK_U3-b5AM",
-    "description": "파이썬과 머신러닝을 활용해 이미지를 분류하는 AI 모델을 만들어봅니다. 데이터 수집부터 모델 학습, 테스트까지 AI 개발의 전 과정을 체험합니다.",
+    "rating": 0,
+    "reviews": 0,
+    "description": "학교나 동아리의 실제 불편함을 찾아 기획하고, AI 코딩 도구로 웹 서비스를 만들어 배포까지 하는 6시간 과정입니다. 사용자 인터뷰, 기능 설계, 제작, 피드백 반영까지 실제 서비스 개발 흐름을 그대로 경험합니다.",
     "learningObjectives": [
-      "머신러닝의 기본 개념 이해",
-      "파이썬 프로그래밍 기초",
-      "이미지 데이터 전처리 방법",
-      "AI 모델 학습 및 평가"
+      "문제 정의와 사용자 관점 기획",
+      "기능 명세를 AI에게 전달하는 프롬프트 설계",
+      "AI 코딩 도구(Cursor, v0 등)로 웹 서비스 제작",
+      "배포 후 피드백을 받아 개선하기"
     ],
     "expectedOutcomes": [
-      "실제 작동하는 이미지 분류 AI 완성",
-      "AI 개발 프로세스 이해",
-      "데이터 과학 기초 능력 향상"
+      "실제로 쓸 수 있는 웹 서비스 1개 배포",
+      "기획서와 발표 자료 완성",
+      "AI와 협업하는 개발 프로세스 체득"
     ],
     "curriculum": [
       {
         "week": "1차시",
-        "title": "AI와 머신러닝 소개",
+        "title": "문제 찾기",
         "topics": [
-          "인공지능의 개념과 활용 사례",
-          "머신러닝 프로세스 이해",
-          "파이썬 개발 환경 설정"
+          "우리 주변 불편함 브레인스토밍",
+          "사용자 인터뷰로 진짜 문제 찾기",
+          "서비스 아이디어 한 문장 정의"
         ],
         "duration": "1시간",
-        "image": "/home/ai-neural-network.png",
-        "imageAlt": "AI 신경망 구조"
+        "image": "/home/images/slide-vibe-coding.svg",
+        "imageAlt": "문제 정의"
       },
       {
         "week": "2차시",
-        "title": "파이썬 기초",
+        "title": "기획하기",
         "topics": [
-          "변수와 자료형",
-          "반복문과 조건문",
-          "함수와 라이브러리 활용"
+          "벤치마킹: 비슷한 서비스 분석",
+          "핵심 기능 3가지 정하기",
+          "화면 흐름 스케치"
         ],
         "duration": "1시간",
-        "image": "/home/ai-neural-network.png",
-        "imageAlt": "파이썬 코딩"
+        "image": "/home/images/abstract-tech-pattern.png",
+        "imageAlt": "서비스 기획"
       },
       {
         "week": "3차시",
-        "title": "데이터 수집 및 전처리",
+        "title": "화면 만들기",
         "topics": [
-          "이미지 데이터 수집 방법",
-          "데이터 정제 및 라벨링",
-          "데이터셋 준비하기"
+          "AI 웹 빌더로 화면 생성",
+          "디자인 요구사항 프롬프트로 다듬기",
+          "반응형 화면 확인"
         ],
         "duration": "1시간",
-        "image": "/home/ai-neural-network.png",
-        "imageAlt": "데이터 전처리"
+        "image": "/home/images/slide-vibe-frontend.svg",
+        "imageAlt": "화면 제작"
       },
       {
         "week": "4차시",
-        "title": "AI 모델 만들기",
+        "title": "기능 만들기",
         "topics": [
-          "신경망 모델 구조 설계",
-          "학습 데이터 준비",
-          "모델 학습 시작하기"
+          "AI 코딩 도구로 기능 구현",
+          "데이터 저장 기능 추가",
+          "AI와 함께 오류 해결하기"
         ],
-        "duration": "1.5시간",
-        "image": "/home/ai-neural-network.png",
-        "imageAlt": "AI 모델 학습"
+        "duration": "1시간",
+        "image": "/home/images/slide-vibe-django.svg",
+        "imageAlt": "기능 구현"
       },
       {
         "week": "5차시",
-        "title": "모델 평가 및 개선",
+        "title": "배포하기",
         "topics": [
-          "모델 성능 평가 지표",
-          "테스트 데이터로 검증",
-          "모델 최적화 방법"
+          "무료 호스팅으로 배포",
+          "친구들에게 테스트 요청",
+          "피드백 정리"
         ],
         "duration": "1시간",
-        "image": "/home/ai-neural-network.png",
-        "imageAlt": "모델 평가"
+        "image": "/home/images/mobile-app-interface.png",
+        "imageAlt": "서비스 배포"
       },
       {
         "week": "6차시",
-        "title": "실전 적용 및 발표",
+        "title": "개선하고 발표하기",
         "topics": [
-          "실제 이미지로 분류 테스트",
-          "결과 시각화 및 분석",
-          "프로젝트 발표 및 공유"
+          "피드백 반영해 개선",
+          "발표 자료 정리",
+          "서비스 시연 및 발표"
         ],
-        "duration": "1.5시간",
-        "image": "/home/ai-neural-network.png",
-        "imageAlt": "AI 프로젝트 발표"
+        "duration": "1시간",
+        "image": "/home/images/student-robot-project.jpg",
+        "imageAlt": "발표"
       }
     ],
     "requirements": [
-      "노트북 지참 (최소 8GB RAM 권장)",
-      "기본적인 프로그래밍 경험 권장",
-      "Python 3.8 이상 설치",
-      "수학 기초 지식 (중학교 수준)"
+      "학생 1인 1노트북",
+      "인터넷 연결 환경",
+      "입문 과정 수강 또는 컴퓨터 활용에 익숙한 학생",
+      "중학생 이상 권장"
     ],
     "faqs": [
       {
-        "question": "파이썬을 전혀 모르는데 가능한가요?",
-        "answer": "기본적인 프로그래밍 개념을 알고 있다면 수강 가능합니다. 파이썬 기초부터 다룹니다."
+        "question": "입문 과정을 꼭 먼저 들어야 하나요?",
+        "answer": "필수는 아니지만, 처음이라면 3시간 입문 과정 후 이어서 듣는 것을 권장합니다."
       },
       {
-        "question": "노트북 사양이 중요한가요?",
-        "answer": "최소 8GB RAM을 권장하며, 클라우드 환경도 활용 가능합니다."
+        "question": "만든 서비스는 수업 후에도 쓸 수 있나요?",
+        "answer": "네. 무료 호스팅에 배포하므로 수업 후에도 링크로 계속 사용할 수 있습니다."
       }
     ],
     "pricingInfo": {
-      "materialsPerKit": 55000,
-      "studentsPerKit": 4,
+      "materialsPerKit": 10000,
+      "studentsPerKit": 1,
       "instructorFeePerHour": 50000,
       "minHours": 2,
       "defaultHours": 6,
       "minStudents": 10,
       "maxStudents": 30,
       "defaultStudents": 12,
-      "studentStep": 2,
-      "rentalPerKit": 20000
+      "studentStep": 2
     },
     "educationKit": {
-      "name": "AI 학습 키트 (노트북 필요)",
-      "description": "AI 이미지 분류 실습을 위한 데이터셋과 학습 가이드가 포함된 소프트웨어 키트입니다. 개인 노트북을 사용하며 필요한 소프트웨어 설치를 지원합니다.",
-      "image": "/home/ai-neural-network.png",
-      "videoId": "7EK_U3-b5AM",
-      "productUrl": "http://localhost:3000/products/coding-ai",
-      "purchasePrice": 55000,
-      "rentalPrice": 20000
+      "name": "바이브 코딩 실습 키트 (1인)",
+      "description": "수업용 워크북, 프롬프트 카드, AI 코딩 도구 실습 가이드로 구성됩니다. 학생 1인당 노트북 1대(기관 준비)가 필요하며, 하드웨어는 사용하지 않습니다.",
+      "image": "/home/images/slide-vibe-coding.svg",
+      "purchasePrice": 10000,
+      "purchaseUnit": "1인"
     },
     "gallery": [
       {
         "type": "image",
-        "src": "/home/ai-neural-network.png",
-        "alt": "AI 신경망"
+        "src": "/home/images/slide-vibe-frontend.svg",
+        "alt": "웹 화면 제작"
+      },
+      {
+        "type": "image",
+        "src": "/home/images/slide-vibe-django.svg",
+        "alt": "기능 구현"
       }
     ]
   },
   {
     "id": 4,
-    "title": "라즈베리파이 IoT 프로젝트 (6시간)",
-    "instructor": "AI Maker Lab 전문 강사진",
+    "title": "피지컬 AI: 라즈베리파이 AI 자율주행 자동차 (6시간)",
+    "instructor": "AI Maker Lab 대표 강사",
     "level": "중급",
     "duration": "6시간",
     "durationHours": 6,
-    "rating": 4.6,
-    "reviews": 15,
-    "videoId": "BpJCAafw2qE",
-    "description": "라즈베리파이로 웹을 통해 제어 가능한 IoT 시스템을 만들어봅니다. 센서 데이터 수집부터 웹 인터페이스 구축까지, 실제 IoT 제품 개발 프로세스를 경험합니다.",
+    "rating": 0,
+    "reviews": 0,
+    "description": "라즈베리파이 자동차에 카메라를 달고, 차선을 인식해 스스로 달리는 AI 자율주행 자동차를 만드는 6시간 과정입니다. 모터 제어부터 영상 인식, 주행 테스트와 개선까지 팀 단위로 진행합니다.",
     "learningObjectives": [
-      "라즈베리파이 설정 및 리눅스 기초",
-      "센서 데이터 수집 및 처리",
-      "네트워크 프로그래밍 기초",
-      "웹 인터페이스 구축 방법"
+      "라즈베리파이와 모터 드라이버로 바퀴 제어",
+      "카메라 영상 처리(OpenCV) 기초",
+      "차선 인식 알고리즘으로 방향 결정",
+      "주행 테스트 결과로 성능 개선"
     ],
     "expectedOutcomes": [
-      "웹으로 제어 가능한 IoT 디바이스 완성",
-      "클라우드 연동 경험",
-      "실전 IoT 프로젝트 포트폴리오"
+      "차선을 따라 달리는 자율주행 자동차 완성",
+      "센서·AI·모터를 연결하는 시스템적 사고",
+      "팀 협업과 디버깅 경험"
     ],
     "curriculum": [
       {
         "week": "1차시",
-        "title": "라즈베리파이 시작하기",
+        "title": "자율주행 이해하기",
         "topics": [
-          "라즈베리파이 소개 및 설정",
-          "리눅스 기본 명령어",
-          "파이썬 환경 구축"
+          "자율주행 자동차의 구조",
+          "라즈베리파이 시작하기",
+          "팀 역할 나누기"
         ],
         "duration": "1시간",
-        "image": "/home/raspberry-pi-computer-iot.jpg",
-        "imageAlt": "라즈베리파이 설정"
+        "image": "/home/images/raspberry-pi-computer-iot.jpg",
+        "imageAlt": "라즈베리파이"
       },
       {
         "week": "2차시",
-        "title": "GPIO 프로그래밍",
+        "title": "자동차 움직이기",
         "topics": [
-          "GPIO 핀 제어 방법",
-          "LED 및 센서 연결",
-          "하드웨어 제어 실습"
+          "모터 드라이버 연결",
+          "전진·후진·회전 제어",
+          "원격으로 조종해 보기"
         ],
         "duration": "1시간",
-        "image": "/home/raspberry-pi-computer-iot.jpg",
-        "imageAlt": "GPIO 프로그래밍"
+        "image": "/home/images/student-robot-project.jpg",
+        "imageAlt": "자동차 조립"
       },
       {
         "week": "3차시",
-        "title": "센서 데이터 수집",
+        "title": "카메라로 보기",
         "topics": [
-          "온습도 센서 활용",
-          "데이터 저장 및 처리",
-          "실시간 모니터링 구현"
+          "카메라 연결과 영상 확인",
+          "OpenCV로 색과 선 찾기",
+          "차선 영역 표시하기"
         ],
         "duration": "1시간",
-        "image": "/home/smart-home-iot-device.jpg",
-        "imageAlt": "센서 데이터 수집"
+        "image": "/home/images/slide-raspberry-pi.svg",
+        "imageAlt": "영상 처리"
       },
       {
         "week": "4차시",
-        "title": "웹 서버 구축",
+        "title": "차선 인식하기",
         "topics": [
-          "Flask 웹 프레임워크",
-          "웹 페이지 디자인",
-          "API 엔드포인트 생성"
+          "차선 위치 계산",
+          "방향 결정 규칙 만들기",
+          "AI 코딩 도구로 코드 개선"
         ],
-        "duration": "1.5시간",
-        "image": "/home/raspberry-pi-computer-iot.jpg",
-        "imageAlt": "웹 서버 구축"
+        "duration": "1시간",
+        "image": "/home/images/ai-neural-network.png",
+        "imageAlt": "차선 인식"
       },
       {
         "week": "5차시",
-        "title": "원격 제어 시스템",
+        "title": "스스로 달리기",
         "topics": [
-          "웹에서 하드웨어 제어",
-          "실시간 데이터 시각화",
-          "모바일 접속 테스트"
+          "트랙 주행 테스트",
+          "속도와 회전값 튜닝",
+          "문제 원인 찾고 고치기"
         ],
         "duration": "1시간",
-        "image": "/home/smart-home-iot-device.jpg",
-        "imageAlt": "원격 제어 시스템"
+        "image": "/home/images/raspberry-pi-computer-iot.jpg",
+        "imageAlt": "주행 테스트"
       },
       {
         "week": "6차시",
-        "title": "프로젝트 완성 및 발표",
+        "title": "대회와 발표",
         "topics": [
-          "시스템 통합 및 테스트",
-          "클라우드 연동 (선택)",
-          "프로젝트 시연 및 공유"
+          "팀별 주행 대회",
+          "개선 과정 공유",
+          "발표 및 회고"
         ],
-        "duration": "1.5시간",
-        "image": "/home/raspberry-pi-computer-iot.jpg",
-        "imageAlt": "IoT 프로젝트 완성"
+        "duration": "1시간",
+        "image": "/home/images/student-robot-project.jpg",
+        "imageAlt": "주행 대회"
       }
     ],
     "requirements": [
-      "노트북 지참",
-      "교구재는 현장 제공 (키트당 55,000원)",
-      "기본적인 프로그래밍 경험 필수",
-      "리눅스 명령어 기초 권장"
+      "4인 1조 노트북 1대 이상",
+      "주행 트랙 설치 공간 (교실 바닥 가능)",
+      "교육 키트 구매 또는 대여",
+      "중학생 이상 권장"
     ],
     "faqs": [
       {
-        "question": "라즈베리파이를 처음 다뤄보는데 괜찮나요?",
-        "answer": "기본적인 프로그래밍 경험이 있다면 가능합니다. 기초부터 설명합니다."
+        "question": "트랙은 따로 준비해야 하나요?",
+        "answer": "주행 트랙은 강사가 준비해 갑니다. 교실 바닥에 설치할 공간만 있으면 됩니다."
       },
       {
-        "question": "완성 후 집에서도 사용할 수 있나요?",
-        "answer": "네, 제작한 시스템은 가져가실 수 있으며 지속적으로 활용 가능합니다."
+        "question": "파이썬을 몰라도 되나요?",
+        "answer": "기본 코드를 제공하고, 필요한 부분은 AI 코딩 도구와 함께 수정하므로 처음이어도 참여할 수 있습니다."
       }
     ],
     "pricingInfo": {
@@ -485,430 +479,277 @@
       "rentalPerKit": 20000
     },
     "educationKit": {
-      "name": "라즈베리파이 IoT 키트",
-      "description": "라즈베리파이 보드, 센서 모듈(온습도, 거리), 카메라 모듈, LCD, 릴레이 등이 포함된 IoT 실습 키트입니다.",
-      "image": "/home/raspberry-pi-computer-iot.jpg",
-      "videoId": "BpJCAafw2qE",
-      "productUrl": "http://localhost:3000/products/coding-ai",
+      "name": "라즈베리파이 AI 자율주행 키트",
+      "description": "라즈베리파이, 카메라 모듈, 모터 드라이버, 차체·바퀴, 배터리, 실습 가이드가 포함된 4인 1조 키트입니다.",
+      "image": "/home/images/raspberry-pi-computer-iot.jpg",
       "purchasePrice": 55000,
+      "purchaseUnit": "4인 1조",
       "rentalPrice": 20000
     },
     "gallery": [
       {
         "type": "image",
-        "src": "/home/raspberry-pi-computer-iot.jpg",
-        "alt": "라즈베리파이 IoT"
+        "src": "/home/images/raspberry-pi-computer-iot.jpg",
+        "alt": "라즈베리파이"
       },
       {
         "type": "image",
-        "src": "/home/smart-home-iot-device.jpg",
-        "alt": "스마트 홈 IoT 디바이스"
+        "src": "/home/images/student-robot-project.jpg",
+        "alt": "자율주행 자동차"
       }
     ]
   },
   {
     "id": 5,
-    "title": "챗봇 AI 개발 종합 과정 (12시간)",
-    "instructor": "AI Maker Lab 전문 강사진",
+    "title": "바이브 코딩 프로젝트: 기획부터 배포·홍보까지 AI 오케스트라 (12시간)",
+    "instructor": "AI Maker Lab 대표 강사",
     "level": "중급",
     "duration": "12시간",
     "durationHours": 12,
-    "rating": 4.9,
-    "reviews": 22,
-    "videoId": "7EK_U3-b5AM",
-    "description": "자연어 처리 기술을 활용해 대화형 AI 챗봇을 만드는 심화 과정입니다. 파이썬, 머신러닝, 딥러닝을 종합적으로 학습하며 실제 서비스 가능한 챗봇을 개발합니다.",
+    "rating": 0,
+    "reviews": 0,
+    "description": "여러 AI 도구를 지휘해 하나의 서비스를 처음부터 끝까지 완성하는 12시간 프로젝트 과정입니다. 기획, 디자인, 개발, 배포, 홍보 콘텐츠 제작까지 각 단계에 맞는 AI를 골라 쓰며, 결과물은 포트폴리오로 활용할 수 있습니다.",
     "learningObjectives": [
-      "자연어 처리(NLP) 기초 이해",
-      "머신러닝과 딥러닝 기술 습득",
-      "챗봇 시스템 설계 및 구현",
-      "실전 AI 프로젝트 경험"
+      "단계별로 알맞은 AI 도구를 골라 쓰는 'AI 오케스트라' 방식 이해",
+      "서비스 기획서와 기능 명세 작성",
+      "AI 코딩 도구로 프론트엔드·데이터 기능 구현",
+      "배포 후 홍보 콘텐츠(포스터, 소개 영상) 제작"
     ],
     "expectedOutcomes": [
-      "실제 대화 가능한 챗봇 시스템 완성",
-      "AI 개발자로서의 기초 역량",
-      "취업 포트폴리오로 활용 가능한 프로젝트"
+      "배포된 웹 서비스와 홍보 콘텐츠 세트",
+      "포트폴리오로 쓸 수 있는 프로젝트 기록",
+      "기획부터 운영까지 경험한 실전 역량"
     ],
     "curriculum": [
       {
-        "week": "1차시",
-        "title": "AI와 자연어 처리 개요",
+        "week": "1~2차시",
+        "title": "문제 정의와 기획",
         "topics": [
-          "AI 기술의 발전과 활용",
-          "자연어 처리(NLP)의 기본 개념",
-          "챗봇 시스템의 구조 이해"
+          "사용자 인터뷰와 페르소나",
+          "벤치마킹과 차별점 찾기",
+          "기획서·기능 명세 작성"
         ],
-        "duration": "1시간",
-        "image": "/home/ai-neural-network.png",
-        "imageAlt": "AI 기술 개요"
+        "duration": "2시간",
+        "image": "/home/images/slide-vibe-coding.svg",
+        "imageAlt": "기획"
       },
       {
-        "week": "2차시",
-        "title": "파이썬 프로그래밍 기초",
+        "week": "3~4차시",
+        "title": "디자인과 화면",
         "topics": [
-          "파이썬 기본 문법",
-          "데이터 구조 및 함수",
-          "라이브러리 활용법"
+          "AI로 디자인 시안 만들기",
+          "AI 웹 빌더로 화면 구현",
+          "사용 흐름 점검"
         ],
-        "duration": "1시간",
-        "image": "/home/ai-neural-network.png",
-        "imageAlt": "파이썬 프로그래밍"
+        "duration": "2시간",
+        "image": "/home/images/slide-vibe-frontend.svg",
+        "imageAlt": "디자인"
       },
       {
-        "week": "3차시",
-        "title": "텍스트 데이터 전처리",
+        "week": "5~6차시",
+        "title": "기능 개발",
         "topics": [
-          "텍스트 정제 및 토큰화",
-          "형태소 분석 기초",
-          "단어 임베딩 개념"
+          "AI 코딩 도구로 핵심 기능 구현",
+          "데이터 저장과 로그인",
+          "AI와 함께 디버깅"
         ],
-        "duration": "1시간",
-        "image": "/home/ai-neural-network.png",
-        "imageAlt": "텍스트 전처리"
+        "duration": "2시간",
+        "image": "/home/images/slide-vibe-django.svg",
+        "imageAlt": "기능 개발"
       },
       {
-        "week": "4차시",
-        "title": "머신러닝 기초",
+        "week": "7~8차시",
+        "title": "AI 기능 붙이기",
         "topics": [
-          "지도학습과 비지도학습",
-          "텍스트 분류 모델",
-          "모델 학습 및 평가"
+          "서비스에 AI 기능(요약·추천 등) 추가",
+          "프롬프트 설계와 테스트",
+          "사용성 개선"
         ],
-        "duration": "1시간",
-        "image": "/home/ai-neural-network.png",
-        "imageAlt": "머신러닝 모델"
+        "duration": "2시간",
+        "image": "/home/images/ai-neural-network.png",
+        "imageAlt": "AI 기능"
       },
       {
-        "week": "5차시",
-        "title": "딥러닝 입문",
+        "week": "9~10차시",
+        "title": "배포와 테스트",
         "topics": [
-          "신경망의 기본 구조",
-          "순환 신경망(RNN) 이해",
-          "LSTM과 시퀀스 모델"
+          "배포하기",
+          "실사용자 테스트",
+          "피드백 반영"
         ],
-        "duration": "1.5시간",
-        "image": "/home/ai-neural-network.png",
-        "imageAlt": "딥러닝 신경망"
+        "duration": "2시간",
+        "image": "/home/images/mobile-app-interface.png",
+        "imageAlt": "배포"
       },
       {
-        "week": "6차시",
-        "title": "의도 분류 모델 개발",
+        "week": "11~12차시",
+        "title": "홍보와 발표",
         "topics": [
-          "사용자 의도 분석 방법",
-          "분류 모델 학습",
-          "정확도 향상 기법"
+          "AI로 포스터·소개 영상 만들기",
+          "발표 자료 정리",
+          "데모데이 발표"
         ],
-        "duration": "1시간",
-        "image": "/home/ai-neural-network.png",
-        "imageAlt": "의도 분류 모델"
-      },
-      {
-        "week": "7차시",
-        "title": "개체명 인식(NER)",
-        "topics": [
-          "개체명 인식의 개념",
-          "NER 모델 구현",
-          "실전 데이터 적용"
-        ],
-        "duration": "1시간",
-        "image": "/home/ai-neural-network.png",
-        "imageAlt": "개체명 인식"
-      },
-      {
-        "week": "8차시",
-        "title": "대화 관리 시스템",
-        "topics": [
-          "대화 흐름 설계",
-          "상태 관리 방법",
-          "컨텍스트 유지 기법"
-        ],
-        "duration": "1시간",
-        "image": "/home/ai-neural-network.png",
-        "imageAlt": "대화 관리 시스템"
-      },
-      {
-        "week": "9차시",
-        "title": "챗봇 통합 개발",
-        "topics": [
-          "모듈 통합 및 연결",
-          "API 서버 구축",
-          "데이터베이스 연동"
-        ],
-        "duration": "1.5시간",
-        "image": "/home/ai-neural-network.png",
-        "imageAlt": "챗봇 통합 개발"
-      },
-      {
-        "week": "10차시",
-        "title": "웹 인터페이스 구축",
-        "topics": [
-          "웹 채팅 UI 개발",
-          "프론트엔드-백엔드 연동",
-          "실시간 통신 구현"
-        ],
-        "duration": "1시간",
-        "image": "/home/ai-neural-network.png",
-        "imageAlt": "웹 인터페이스"
-      },
-      {
-        "week": "11차시",
-        "title": "챗봇 테스트 및 개선",
-        "topics": [
-          "다양한 시나리오 테스트",
-          "오류 분석 및 수정",
-          "성능 최적화"
-        ],
-        "duration": "1시간",
-        "image": "/home/ai-neural-network.png",
-        "imageAlt": "챗봇 테스트"
-      },
-      {
-        "week": "12차시",
-        "title": "최종 프로젝트 발표",
-        "topics": [
-          "챗봇 시스템 시연",
-          "개발 과정 발표",
-          "피드백 및 개선 방향 논의"
-        ],
-        "duration": "1시간",
-        "image": "/home/ai-neural-network.png",
-        "imageAlt": "프로젝트 발표"
+        "duration": "2시간",
+        "image": "/home/images/abstract-tech-pattern.png",
+        "imageAlt": "홍보와 발표"
       }
     ],
     "requirements": [
-      "노트북 지참 (최소 8GB RAM, 16GB 권장)",
-      "기본적인 프로그래밍 경험 필수",
-      "Python 3.8 이상 설치",
-      "수학 기초 지식 (고등학교 수준)"
+      "학생 1인 1노트북",
+      "인터넷 연결 환경",
+      "2일 이상 일정 권장 (6시간 × 2회 등)",
+      "중학생 이상 권장"
     ],
     "faqs": [
       {
-        "question": "프로그래밍 경험이 얼마나 필요한가요?",
-        "answer": "기본적인 파이썬 문법을 알고 있다면 충분합니다. 필요한 내용은 수업 중 설명합니다."
+        "question": "12시간을 하루에 진행하나요?",
+        "answer": "보통 6시간씩 2일, 또는 3시간씩 4회로 나누어 진행합니다. 기관 일정에 맞춰 조정할 수 있습니다."
       },
       {
-        "question": "완성한 챗봇을 실제 서비스할 수 있나요?",
-        "answer": "네, 클라우드 배포 방법까지 안내하며 실제 서비스 가능합니다."
-      },
-      {
-        "question": "12시간을 어떻게 나눠서 진행하나요?",
-        "answer": "기관 사정에 맞춰 2시간×6일, 3시간×4일, 4시간×3일 등 유연하게 조정 가능합니다."
+        "question": "결과물은 어떻게 남나요?",
+        "answer": "배포된 서비스 링크, 기획서, 홍보 콘텐츠가 남아 포트폴리오로 활용할 수 있습니다."
       }
     ],
     "pricingInfo": {
-      "materialsPerKit": 55000,
-      "studentsPerKit": 4,
+      "materialsPerKit": 10000,
+      "studentsPerKit": 1,
       "instructorFeePerHour": 50000,
       "minHours": 2,
       "defaultHours": 12,
       "minStudents": 10,
       "maxStudents": 30,
       "defaultStudents": 12,
-      "studentStep": 2,
-      "rentalPerKit": 20000
+      "studentStep": 2
     },
     "educationKit": {
-      "name": "챗봇 AI 개발 키트 (노트북 필요)",
-      "description": "자연어 처리와 딥러닝 실습을 위한 데이터셋, 학습 코드, 가이드가 포함된 소프트웨어 키트입니다. 개인 노트북을 사용하며 Python 환경 설정을 지원합니다.",
-      "image": "/home/ai-neural-network.png",
-      "videoId": "7EK_U3-b5AM",
-      "productUrl": "http://localhost:3000/products/coding-ai",
-      "purchasePrice": 55000,
-      "rentalPrice": 20000
+      "name": "바이브 코딩 실습 키트 (1인)",
+      "description": "수업용 워크북, 프롬프트 카드, AI 코딩 도구 실습 가이드로 구성됩니다. 학생 1인당 노트북 1대(기관 준비)가 필요하며, 하드웨어는 사용하지 않습니다.",
+      "image": "/home/images/slide-vibe-coding.svg",
+      "purchasePrice": 10000,
+      "purchaseUnit": "1인"
     },
     "gallery": [
       {
         "type": "image",
-        "src": "/home/ai-neural-network.png",
-        "alt": "AI 신경망"
+        "src": "/home/images/slide-vibe-coding.svg",
+        "alt": "AI 오케스트라"
+      },
+      {
+        "type": "image",
+        "src": "/home/images/slide-vibe-django.svg",
+        "alt": "서비스 개발"
       }
     ]
   },
   {
     "id": 6,
-    "title": "로봇 프로그래밍 종합 (12시간)",
-    "instructor": "AI Maker Lab 전문 강사진",
+    "title": "피지컬 AI × 바이브 코딩: AI 스마트 디바이스와 웹 대시보드 (12시간)",
+    "instructor": "AI Maker Lab 대표 강사",
     "level": "중급",
     "duration": "12시간",
     "durationHours": 12,
-    "rating": 4.8,
-    "reviews": 19,
-    "videoId": "CXzdz-x5mwI",
-    "description": "아두이노와 센서를 활용해 자율주행 로봇을 만드는 종합 과정입니다. 하드웨어 제어부터 AI 알고리즘 적용까지, 로봇 공학의 핵심 기술을 실습합니다.",
+    "rating": 0,
+    "reviews": 0,
+    "description": "피지컬 AI와 바이브 코딩을 합친 융합 프로젝트 과정입니다. ESP32 센서·카메라로 데이터를 모으는 AI 스마트 디바이스를 만들고, 바이브 코딩으로 그 데이터를 보여주고 원격 제어하는 웹 대시보드까지 완성합니다.",
     "learningObjectives": [
-      "로봇 하드웨어 설계 및 조립",
-      "센서 기반 자율주행 알고리즘",
-      "장애물 회피 및 경로 계획",
-      "AI 기술을 활용한 로봇 제어"
+      "센서·카메라 데이터를 수집하는 IoT 장치 제작",
+      "AI 인식 결과를 장치 동작과 연결",
+      "바이브 코딩으로 실시간 웹 대시보드 제작",
+      "하드웨어와 웹을 연결한 하나의 서비스 완성"
     ],
     "expectedOutcomes": [
-      "자율주행 로봇 완성",
-      "로봇 공학 기초 역량",
-      "메이커 페어 출품 가능한 작품"
+      "AI 스마트 디바이스 + 웹 대시보드 완성",
+      "하드웨어·소프트웨어 융합 프로젝트 경험",
+      "발표 가능한 포트폴리오 결과물"
     ],
     "curriculum": [
       {
-        "week": "1차시",
-        "title": "로봇 공학 개요",
+        "week": "1~2차시",
+        "title": "벤치마킹과 설계",
         "topics": [
-          "로봇의 정의와 역사",
-          "로봇의 구성 요소",
-          "로봇 프로젝트 기획"
+          "실제 스마트 기기 제품 분석",
+          "우리 팀 디바이스 기능 정하기",
+          "시스템 구조 설계"
         ],
-        "duration": "1시간",
-        "image": "/home/arduino-electronics-circuit.jpg",
-        "imageAlt": "로봇 공학 개요"
+        "duration": "2시간",
+        "image": "/home/images/smart-home-iot-device.jpg",
+        "imageAlt": "스마트 기기 분석"
       },
       {
-        "week": "2차시",
-        "title": "아두이노 프로그래밍",
+        "week": "3~4차시",
+        "title": "센서 디바이스 만들기",
         "topics": [
-          "아두이노 기본 구조",
-          "C 언어 프로그래밍",
-          "디지털/아날로그 제어"
+          "ESP32와 온습도·조도 센서 연결",
+          "센서 데이터 읽기",
+          "Wi-Fi로 데이터 보내기"
         ],
-        "duration": "1시간",
-        "image": "/home/arduino-electronics-circuit.jpg",
-        "imageAlt": "아두이노 프로그래밍"
+        "duration": "2시간",
+        "image": "/home/images/arduino-electronics-circuit.jpg",
+        "imageAlt": "센서 회로"
       },
       {
-        "week": "3차시",
-        "title": "모터 제어 기초",
+        "week": "5~6차시",
+        "title": "AI 붙이기",
         "topics": [
-          "DC 모터 구동 원리",
-          "모터 드라이버 활용",
-          "속도 및 방향 제어"
+          "카메라 AI 인식 모델 학습",
+          "인식 결과로 장치 동작 제어",
+          "AI 코딩 도구로 코드 개선"
         ],
-        "duration": "1시간",
-        "image": "/home/arduino-electronics-circuit.jpg",
-        "imageAlt": "모터 제어"
+        "duration": "2시간",
+        "image": "/home/images/ai-neural-network.png",
+        "imageAlt": "AI 인식"
       },
       {
-        "week": "4차시",
-        "title": "센서 통합",
+        "week": "7~8차시",
+        "title": "웹 대시보드 만들기",
         "topics": [
-          "초음파 센서로 거리 측정",
-          "적외선 센서 활용",
-          "센서 데이터 융합"
+          "바이브 코딩으로 대시보드 화면 생성",
+          "실시간 센서 데이터 표시",
+          "웹에서 장치 원격 제어"
         ],
-        "duration": "1시간",
-        "image": "/home/smart-home-iot-device.jpg",
-        "imageAlt": "센서 통합"
+        "duration": "2시간",
+        "image": "/home/images/slide-vibe-frontend.svg",
+        "imageAlt": "웹 대시보드"
       },
       {
-        "week": "5차시",
-        "title": "로봇 섀시 조립",
+        "week": "9~10차시",
+        "title": "통합 테스트",
         "topics": [
-          "기계 구조 설계",
-          "모터와 바퀴 부착",
-          "센서 마운팅"
+          "디바이스와 대시보드 연결 테스트",
+          "오류 원인 찾고 고치기",
+          "사용성 개선"
         ],
-        "duration": "1.5시간",
-        "image": "/home/arduino-electronics-circuit.jpg",
-        "imageAlt": "로봇 조립"
+        "duration": "2시간",
+        "image": "/home/images/slide-arduino.svg",
+        "imageAlt": "통합 테스트"
       },
       {
-        "week": "6차시",
-        "title": "기본 주행 제어",
+        "week": "11~12차시",
+        "title": "시연과 발표",
         "topics": [
-          "전진, 후진, 회전 제어",
-          "속도 조절 및 정밀 제어",
-          "주행 테스트"
+          "시연 시나리오 만들기",
+          "발표 자료 정리",
+          "데모데이 발표"
         ],
-        "duration": "1시간",
-        "image": "/home/arduino-electronics-circuit.jpg",
-        "imageAlt": "주행 제어"
-      },
-      {
-        "week": "7차시",
-        "title": "장애물 감지 시스템",
-        "topics": [
-          "센서 기반 장애물 감지",
-          "장애물 회피 알고리즘",
-          "안전 거리 유지 로직"
-        ],
-        "duration": "1시간",
-        "image": "/home/smart-home-iot-device.jpg",
-        "imageAlt": "장애물 감지"
-      },
-      {
-        "week": "8차시",
-        "title": "라인 트레이싱",
-        "topics": [
-          "라인 센서 활용",
-          "PID 제어 기초",
-          "경로 추적 알고리즘"
-        ],
-        "duration": "1시간",
-        "image": "/home/arduino-electronics-circuit.jpg",
-        "imageAlt": "라인 트레이싱"
-      },
-      {
-        "week": "9차시",
-        "title": "자율주행 알고리즘",
-        "topics": [
-          "미로 탐색 알고리즘",
-          "최단 경로 찾기",
-          "맵핑 및 로컬라이제이션"
-        ],
-        "duration": "1.5시간",
-        "image": "/home/smart-home-iot-device.jpg",
-        "imageAlt": "자율주행 알고리즘"
-      },
-      {
-        "week": "10차시",
-        "title": "AI 기능 추가",
-        "topics": [
-          "카메라 모듈 연동",
-          "간단한 객체 인식",
-          "AI 기반 의사결정"
-        ],
-        "duration": "1시간",
-        "image": "/home/ai-neural-network.png",
-        "imageAlt": "AI 기능"
-      },
-      {
-        "week": "11차시",
-        "title": "종합 테스트 및 디버깅",
-        "topics": [
-          "다양한 환경에서 테스트",
-          "성능 측정 및 분석",
-          "최적화 및 튜닝"
-        ],
-        "duration": "1시간",
-        "image": "/home/arduino-electronics-circuit.jpg",
-        "imageAlt": "로봇 테스트"
-      },
-      {
-        "week": "12차시",
-        "title": "로봇 경진대회 및 발표",
-        "topics": [
-          "미션 수행 대회",
-          "프로젝트 발표 및 시연",
-          "작품 평가 및 시상"
-        ],
-        "duration": "1시간",
-        "image": "/home/arduino-electronics-circuit.jpg",
-        "imageAlt": "로봇 경진대회"
+        "duration": "2시간",
+        "image": "/home/images/student-robot-project.jpg",
+        "imageAlt": "시연"
       }
     ],
     "requirements": [
-      "노트북 지참",
-      "교구재는 현장 제공 (키트당 55,000원)",
-      "기본적인 프로그래밍 경험 권장",
-      "중학교 이상 수학 지식"
+      "4인 1조 노트북 1대 이상 + 대시보드 작업용 노트북",
+      "Wi-Fi 연결 환경",
+      "교육 키트 구매 또는 대여",
+      "중학생 이상 권장"
     ],
     "faqs": [
       {
-        "question": "로봇을 만들어본 적이 없는데 괜찮나요?",
-        "answer": "네, 기초부터 단계별로 진행하므로 초보자도 가능합니다."
+        "question": "피지컬 AI나 바이브 코딩 경험이 있어야 하나요?",
+        "answer": "없어도 참여할 수 있지만, 3시간 입문 과정 중 하나를 먼저 들으면 더 깊이 있는 결과물을 만들 수 있습니다."
       },
       {
-        "question": "완성한 로봇을 가져갈 수 있나요?",
-        "answer": "네, 제작한 로봇은 가져가실 수 있으며 추가 개발도 가능합니다."
-      },
-      {
-        "question": "12시간을 며칠에 걸쳐 진행하나요?",
-        "answer": "기관 일정에 맞춰 2~6일 동안 유연하게 조정 가능합니다."
+        "question": "12시간을 어떻게 나눠서 진행하나요?",
+        "answer": "6시간씩 2일 또는 3시간씩 4회가 일반적이며, 기관 일정에 맞춰 조정합니다."
       }
     ],
     "pricingInfo": {
@@ -924,24 +765,23 @@
       "rentalPerKit": 20000
     },
     "educationKit": {
-      "name": "로봇 프로그래밍 키트",
-      "description": "아두이노 기반 로봇 섀시, DC 모터, 서보 모터, 센서 모듈(초음파, 적외선, 라인 트레이싱), 카메라 등이 포함된 자율주행 로봇 키트입니다.",
-      "image": "/home/arduino-electronics-circuit.jpg",
-      "videoId": "CXzdz-x5mwI",
-      "productUrl": "http://localhost:3000/products/coding-ai",
+      "name": "피지컬 AI IoT 프로젝트 키트",
+      "description": "ESP32·ESP32-CAM 보드, 온습도·조도 센서, LED·서보모터, 브레드보드와 케이블, 실습 가이드가 포함된 4인 1조 키트입니다. 웹 대시보드 실습 자료가 함께 제공됩니다.",
+      "image": "/home/images/smart-home-iot-device.jpg",
       "purchasePrice": 55000,
+      "purchaseUnit": "4인 1조",
       "rentalPrice": 20000
     },
     "gallery": [
       {
         "type": "image",
-        "src": "/home/arduino-electronics-circuit.jpg",
-        "alt": "아두이노 로봇"
+        "src": "/home/images/smart-home-iot-device.jpg",
+        "alt": "AI 스마트 디바이스"
       },
       {
         "type": "image",
-        "src": "/home/smart-home-iot-device.jpg",
-        "alt": "자율주행 로봇"
+        "src": "/home/images/slide-vibe-frontend.svg",
+        "alt": "웹 대시보드"
       }
     ]
   }

@@ -5,7 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/buttons/button"
 import { Calendar, Clock, Star, Users, Send, DollarSign } from "lucide-react"
 import { useRouter } from "next/navigation"
-import type { ScheduleItem, ScheduleTexts } from "../config"
+import { getKitUnitLabel, type ScheduleItem, type ScheduleTexts } from "../config"
 import { useState } from "react"
 
 type Props = {
@@ -78,6 +78,13 @@ export function ScheduleCard({ item, texts, onViewDetail }: Props) {
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
           />
+        ) : (item.gallery?.[0]?.src || item.educationKit?.image) ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={item.gallery?.[0]?.src || item.educationKit?.image}
+            alt={item.gallery?.[0]?.alt || item.title}
+            className="h-full w-full object-cover"
+          />
         ) : (
           <div className="flex h-full w-full items-center justify-center text-white">{item.title}</div>
         )}
@@ -93,11 +100,13 @@ export function ScheduleCard({ item, texts, onViewDetail }: Props) {
           <Badge variant="secondary" className="text-xs">
             {item.level}
           </Badge>
-          <div className="flex items-center gap-1 text-sm">
-            <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-            <span className="font-semibold">{item.rating}</span>
-            <span className="text-gray-500">({item.reviews})</span>
-          </div>
+          {item.reviews > 0 && (
+            <div className="flex items-center gap-1 text-sm">
+              <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+              <span className="font-semibold">{item.rating}</span>
+              <span className="text-gray-500">({item.reviews})</span>
+            </div>
+          )}
         </div>
         <CardTitle className="line-clamp-2 text-lg text-white group-hover:text-blue-400">{item.title}</CardTitle>
         {/* 강사 표시는 제거 */}
@@ -174,7 +183,7 @@ export function ScheduleCard({ item, texts, onViewDetail }: Props) {
               </div>
               <div className="space-y-0.5">
                 <p className="text-xs text-gray-500">
-                  * {item.pricingInfo.studentsPerKit}인 1조 기준, {item.pricingInfo.minHours}시간부터 가능
+                  * {getKitUnitLabel(item.pricingInfo.studentsPerKit)} 기준, {item.pricingInfo.minHours}시간부터 가능
                 </p>
                 {item.pricingInfo.rentalPerKit && (
                   <p className="text-xs font-semibold text-green-400">

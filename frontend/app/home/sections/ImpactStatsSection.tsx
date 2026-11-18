@@ -8,7 +8,7 @@ const stats = [
     value: "4",
     unit: "단계",
     label: "초 · 중 · 고 · 대학",
-    desc: "블록코딩·센서 체험에서 피지컬 AI까지, 끊기지 않는 하나의 커리큘럼",
+    desc: "센서·AI 체험에서 피지컬 AI·바이브 코딩까지, 끊기지 않는 하나의 커리큘럼",
     color: "#8B5CF6",
     art: "ladder" as const,
   },

@@ -1,0 +1,166 @@
+{
+  "meta": {
+    "siteName": "AI Maker Lab"
+  },
+  "hero": {
+    "slides": [
+      {
+        "img": "/home/images/slide-vibe-coding.svg",
+        "title": "바이브 코딩 프로젝트 교육",
+        "description": "AI와 대화하며 완성하는 나만의 실전 서비스 개발",
+        "ctaLabel": "커리큘럼 보기",
+        "ctaHref": "/curriculum/vive-coding"
+      },
+      {
+        "img": "/home/images/slide-vibe-frontend.svg",
+        "title": "프론트엔드 바이브 코딩",
+        "description": "React·Next.js로 만드는 인터랙티브 웹 서비스",
+        "ctaLabel": "커리큘럼 보기",
+        "ctaHref": "/curriculum/vive-coding"
+      },
+      {
+        "img": "/home/images/slide-vibe-django.svg",
+        "title": "Django 백엔드 바이브 코딩",
+        "description": "AI와 함께 설계하는 서버, 데이터베이스, 배포까지",
+        "ctaLabel": "커리큘럼 보기",
+        "ctaHref": "/curriculum/vive-coding"
+      }
+    ],
+    "carousel": {
+      "autoplay": true,
+      "intervalMs": 4000,
+      "indicators": true,
+      "pauseOnHover": true
+    }
+  },
+  "introVideo": {
+    "heading": "AI Maker Lab 소개",
+    "subheading": "영상으로 만나보는 우리의 교육 철학",
+    "youtubeTitle": "AI Make Lab Introduction",
+    "youtubeEmbedUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ"
+  },
+  "features": {
+    "heading": "왜 바이브 코딩인가요?",
+    "subheading": "AI 시대, 코딩을 잘하는 사람이 아니라 전공 지식 + AI를 쓸 줄 아는 사람이 이깁니다",
+    "items": [
+      {
+        "icon": "Sparkles",
+        "title": "말하면서 만드는 바이브 코딩",
+        "desc": "문법 암기 대신, AI에게 설명하고 다듬으며 완성하는 개발 방식"
+      },
+      {
+        "icon": "Code",
+        "title": "실전 프로젝트 기반 학습",
+        "desc": "기획 → 프롬프트 설계 → 개발 → 배포까지, 진짜 서비스를 만듭니다"
+      },
+      {
+        "icon": "Cpu",
+        "title": "모든 수업에 AI 오케스트레이션",
+        "desc": "아두이노·앱 인벤터·라즈베리파이까지, AI와 함께 만드는 방식으로 전환"
+      },
+      {
+        "icon": "Lightbulb",
+        "title": "기획력 + 문제 정의력",
+        "desc": "코딩은 AI가 합니다. 사람은 '뭘 만들지'를 정하는 힘을 키웁니다"
+      },
+      {
+        "icon": "Users",
+        "title": "소규모 그룹 코칭",
+        "desc": "개인별 맞춤 피드백이 가능한 소규모 클래스 운영"
+      },
+      {
+        "icon": "Rocket",
+        "title": "미래 교육 표준을 지향",
+        "desc": "OECD 2030·WEF 미래역량과 맞닿은 프로젝트·서술형 교육"
+      }
+    ]
+  },
+  "curriculum": {
+    "sectionBadge": "AI 바이브 코딩 교육",
+    "heading": "모든 수업에 바이브 코딩을 적용합니다",
+    "subheading": "앱 인벤터·아두이노·라즈베리파이까지, AI와 대화하며 만드는 방식으로",
+    "items": [
+      {
+        "href": "/curriculum/vive-coding",
+        "img": "/home/images/app-inventor-coding-blocks.jpg",
+        "levelBadge": "바이브 코딩",
+        "title": "앱 인벤터 × 바이브 코딩",
+        "desc": "블록 코딩 + AI 프롬프트로 나만의 앱을 기획부터 완성까지",
+        "duration": "12주 과정",
+        "size": "6-8명"
+      },
+      {
+        "href": "/curriculum/vive-coding",
+        "img": "/home/images/arduino-electronics-circuit.jpg",
+        "levelBadge": "바이브 코딩",
+        "title": "아두이노 × 바이브 코딩",
+        "desc": "AI에게 말해서 만드는 하드웨어 제어 코드와 회로 설계",
+        "duration": "16주 과정",
+        "size": "6명"
+      },
+      {
+        "href": "/curriculum/vive-coding",
+        "img": "/home/images/raspberry-pi-computer-iot.jpg",
+        "levelBadge": "바이브 코딩",
+        "title": "라즈베리파이 × 바이브 코딩",
+        "desc": "IoT·임베디드 시스템을 AI 오케스트레이션으로 설계하고 구현",
+        "duration": "16주 과정",
+        "size": "6명"
+      },
+      {
+        "href": "/curriculum/vive-coding",
+        "img": "/home/images/ai-neural-network.png",
+        "levelBadge": "심화",
+        "title": "프론트엔드 + Django 바이브 코딩",
+        "desc": "React·Next.js 프론트엔드와 Django 백엔드로 실전 서비스 런칭",
+        "duration": "20주 과정",
+        "size": "4-6명"
+      }
+    ],
+    "viewAllLabel": "전체 커리큘럼 보기"
+  },
+  "outreach": {
+    "heading": "AI Maker Lab의 찾아가는 코딩 수업!",
+    "subheading": "코딩교육이 필요한 공간에, 여기저기 달려갑니다.",
+    "grades": ["초등학교", "중학교", "고등학교", "대학교"],
+    "metrics": [
+      {
+        "icon": "GraduationCap",
+        "value": "2,959개교",
+        "caption": "AIMaker Lab 수업한 학교 수"
+      },
+      {
+        "icon": "Clock",
+        "value": "23,761시간",
+        "caption": "선생님이 진행한 수업시간"
+      },
+      {
+        "icon": "Users",
+        "value": "33,667명",
+        "caption": "수업을 참여한 학생 수"
+      },
+      {
+        "icon": "Package",
+        "value": "95,090개",
+        "caption": "교육키트 누적 판매수"
+      },
+      {
+        "icon": "Building2",
+        "value": "32개",
+        "caption": "협력사/대학 및 기관"
+      },
+      {
+        "icon": "PlayCircle",
+        "value": "25,787개",
+        "caption": "교육 및 수업 영상 누적 시청시간"
+      }
+    ],
+    "right": {
+      "img": "/modern-coding-education-classroom-with-computers.jpg",
+      "cardTitle": "온라인 스마트 시대 열기",
+      "cardLines": ["대상 · 전 연령대 맞춤형 코딩 교육"],
+      "hashtags": ["원격교육", "AIMakerLab", "메타버스교육", "4차산업혁명"]
+    }
+  }
+}
+

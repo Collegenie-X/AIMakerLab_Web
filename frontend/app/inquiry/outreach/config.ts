@@ -136,8 +136,7 @@ export const outreachFormOptions: OutreachFormOptions = {
     '기타',
   ],
   courses: [
-    '블록코딩 (엔트리/스크래치)',
-    '앱 인벤터',
+    '바이브 코딩',
     '아두이노 기초',
     'Raspberry Pi',
     'AI/머신러닝 체험',

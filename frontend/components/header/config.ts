@@ -30,13 +30,6 @@ export const headerNavSections: HeaderNavSection[] = [
     width: 210,
     icon: "BookOpen",
     items: [
-
-      { 
-        label: "블록코딩 AI", 
-        href: "/curriculum/block-coding", 
-        icon: "Briefcase", 
-        description: "블록코딩 AI 게임 (DWAI)"
-      },
       { 
         label: "아두이노 AI", 
         href: "/curriculum/arduino", 
@@ -48,12 +41,6 @@ export const headerNavSections: HeaderNavSection[] = [
         href: "/curriculum/raspberry-pi", 
         icon: "GraduationCap", 
         description: "자율 주행 차량 프로젝트"
-      },
-      { 
-        label: "앱 인벤터 AI", 
-        href: "/curriculum/app-inventor", 
-        icon: "FileSearch", 
-        description: "AI 비서 및 에이전트 서비스"
       },
       { 
         label: "바이브 코딩 AI",
@@ -103,31 +90,6 @@ export const headerNavSections: HeaderNavSection[] = [
         href: "/inquiry/method",
         icon: "Bell",
         description: "최신 교육 및 공지사항"
-      },
-    ],
-  },
-  {
-    title: "교육 제품",
-    width: 220,
-    icon: "Package",
-    items: [
-      { 
-        label: "코딩/AI 제품", 
-        href: "/products/coding-ai", 
-        icon: "Box",
-        description: "교육용 하드웨어 및 소프트웨어"
-      },      
-      { 
-        label: "교구 제작 영상", 
-        href: "/products/videos", 
-        icon: "Video",
-        description: "제품 사용법 및 활용 가이드"
-      },
-      { 
-        label: "견적 문의", 
-        href: "/products/inquiry", 
-        icon: "Calculator",
-        description: "맞춤형 교육 솔루션 상담"
       },
     ],
   },

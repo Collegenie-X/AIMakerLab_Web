@@ -108,12 +108,6 @@ export default function MyInquiriesPage() {
               <h3 className="text-lg font-semibold mb-2 text-gray-900">문의 내역이 없습니다</h3>
               <p className="text-gray-600 mb-4">새로운 견적 문의를 해보세요!</p>
               <div className="flex flex-wrap gap-3 justify-center">
-                <Link href="/products/inquiry">
-                  <Button className="gap-2">
-                    <Package className="h-4 w-4" />
-                    제품 견적 문의
-                  </Button>
-                </Link>
                 <Link href="/inquiry/online">
                   <Button variant="outline" className="gap-2">
                     <MapPin className="h-4 w-4" />
@@ -233,12 +227,6 @@ export default function MyInquiriesPage() {
           {/* 추가 문의 버튼 */}
           {inquiries.length > 0 && (
             <div className="mt-8 flex gap-3 justify-center">
-              <Link href="/products/inquiry">
-                <Button variant="outline" className="gap-2">
-                  <Package className="h-4 w-4" />
-                  제품 견적 문의
-                </Button>
-              </Link>
               <Link href="/inquiry/online">
                 <Button variant="outline" className="gap-2">
                   <MapPin className="h-4 w-4" />

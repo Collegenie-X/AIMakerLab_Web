@@ -42,9 +42,9 @@ export function ProjectCurriculumSection({ data }: ProjectCurriculumSectionProps
             <p className="text-gray-400 max-w-2xl mx-auto">{data.description}</p>
           </div>
 
-          {/* 프로젝트 선택 탭 - 반응형 Grid (1열/2열/3열) */}
+          {/* 프로젝트 선택 탭 - 반응형 Grid (1열/2열) */}
           <div className="mb-8">
-            <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 ${layout.containerClass}`}>
+            <div className={`grid grid-cols-1 sm:grid-cols-2 gap-3 ${layout.containerClass}`}>
               {data.projects.map((project) => (
                 <button
                   key={project.id}
@@ -95,7 +95,7 @@ export function ProjectCurriculumSection({ data }: ProjectCurriculumSectionProps
                   </div>
                   <div className="aspect-video rounded-lg overflow-hidden bg-gray-900 shadow-md ring-2 ring-orange-800">
                     <img
-                      src="/home/images/smart-home-iot-device.jpg"
+                      src="/home/images/student-robot-project.jpg"
                       alt="완성 프로젝트"
                       className="w-full h-full object-cover"
                     />
@@ -192,7 +192,7 @@ export function ProjectCurriculumSection({ data }: ProjectCurriculumSectionProps
                             <div className="flex items-center justify-center">
                               <div className="w-full aspect-video rounded-lg overflow-hidden bg-gray-900 shadow-lg ring-2 ring-orange-800">
                                 <img
-                                  src={index % 3 === 0 ? "/home/images/arduino-electronics-circuit.jpg" : index % 3 === 1 ? "/home/images/ai-neural-network.png" : "/home/images/smart-home-iot-device.jpg"}
+                                  src={index % 3 === 0 ? "/home/images/arduino-electronics-circuit.jpg" : index % 3 === 1 ? "/home/images/ai-neural-network.png" : "/home/images/student-robot-project.jpg"}
                                   alt={`${module.title} 이미지`}
                                   className="w-full h-full object-cover"
                                 />

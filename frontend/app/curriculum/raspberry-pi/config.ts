@@ -7,7 +7,7 @@ export const RASPBERRY_PI_CONFIG = {
   // 메타 정보
   meta: {
     title: "Raspberry Pi 코딩 | AI메이커랩",
-    description: "Raspberry Pi로 스마트 팜과 자율 주행차를 만들어보세요",
+    description: "Raspberry Pi로 AI 자율 주행차를 만들고, 로봇팔(Arm) 과정으로 이어가세요",
   },
 
   // 버튼 텍스트
@@ -103,10 +103,6 @@ export const RASPBERRY_PI_CONFIG = {
 
   // 대학 정보
   universities: {
-    jeonbuk: {
-      name: "전북대학교",
-      logo: "/universities/jeonbuk.png", // 로고 이미지 경로
-    },
     gachon: {
       name: "가천대학교",
       logo: "/universities/gachon.png",

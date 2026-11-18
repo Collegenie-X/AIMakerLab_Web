@@ -1,7 +1,6 @@
 "use client"
 
-import { Award, Clock, BookOpen } from "lucide-react"
-import { Button } from "@/components/ui/buttons/button"
+import { Award, Clock } from "lucide-react"
 import type { EducationKit, ScheduleTexts } from "../../config"
 
 type Props = {
@@ -74,7 +73,7 @@ export function EducationKitTab({ educationKit, texts }: Props) {
               <div className="text-2xl font-bold text-blue-400 mb-1">
                 {educationKit.purchasePrice.toLocaleString()}원
               </div>
-              <p className="text-sm text-gray-400">4인 1조 기준</p>
+              <p className="text-sm text-gray-400">{educationKit.purchaseUnit ?? "4인 1조"} 기준</p>
             </div>
           )}
 
@@ -118,19 +117,6 @@ export function EducationKitTab({ educationKit, texts }: Props) {
         )}
       </div>
 
-      {/* 제품 상세보기 버튼 */}
-      {educationKit.productUrl && (
-        <div className="text-center">
-          <Button
-            size="lg"
-            onClick={() => window.open(educationKit.productUrl, '_blank')}
-            className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700"
-          >
-            <BookOpen className="mr-2 h-5 w-5" />
-            {texts.labels.viewProduct}
-          </Button>
-        </div>
-      )}
     </div>
   )
 }

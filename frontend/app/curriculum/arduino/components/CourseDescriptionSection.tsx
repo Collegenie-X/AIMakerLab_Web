@@ -37,21 +37,21 @@ export function CourseDescriptionSection({ data }: CourseDescriptionSectionProps
       <div className="grid grid-cols-3 gap-4 mt-8">
         <div className="aspect-video rounded-lg overflow-hidden bg-gray-900 shadow-sm">
           <img 
-            src="/home/arduino-electronics-circuit.jpg" 
+            src="/home/images/arduino-electronics-circuit.jpg" 
             alt="아두이노 하드웨어 실습" 
             className="w-full h-full object-cover"
           />
         </div>
         <div className="aspect-video rounded-lg overflow-hidden bg-gray-900 shadow-sm">
           <img 
-            src="/home/ai-neural-network.png" 
+            src="/home/images/ai-neural-network.png" 
             alt="AI 연계 시스템" 
             className="w-full h-full object-cover"
           />
         </div>
         <div className="aspect-video rounded-lg overflow-hidden bg-gray-900 shadow-sm">
           <img 
-            src="/home/smart-home-iot-device.jpg" 
+            src="/home/images/student-robot-project.jpg" 
             alt="IoT 프로젝트 완성" 
             className="w-full h-full object-cover"
           />

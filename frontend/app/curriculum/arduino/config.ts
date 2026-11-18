@@ -7,7 +7,7 @@ export const ARDUINO_CONFIG = {
   // 메타 정보
   meta: {
     title: "아두이노 AI 코딩 | AI메이커랩",
-    description: "ESP32 + 카메라로 AI 연계 IoT 프로젝트를 만들어보세요. 아두이노 AI 코딩 과정",
+    description: "ESP32-CAM으로 AI 자율주행 카와 AI 로봇팔을 만드는 아두이노 AI 코딩 과정",
   },
 
   // 버튼 텍스트

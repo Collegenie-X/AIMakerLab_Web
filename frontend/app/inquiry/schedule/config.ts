@@ -117,7 +117,7 @@ export type EducationKit = {
   description: string  // 교구재 설명
   image?: string  // 교구재 이미지
   videoId?: string  // 유튜브 동영상 ID
-  productUrl?: string  // 교육 제품 페이지 URL
+  purchaseUnit?: string  // 구매 가격 기준 단위 (예: "4인 1조", "1인")
   purchasePrice?: number  // 구매 가격
   rentalPrice?: number  // 대여 가격
 }
@@ -225,6 +225,13 @@ export type ScheduleTexts = {
     kitDescription: string
     viewProduct: string
   }
+}
+
+/**
+ * 키트 단위 라벨 (studentsPerKit → "4인 1조" / "1인")
+ */
+export function getKitUnitLabel(studentsPerKit: number): string {
+  return studentsPerKit <= 1 ? "1인" : `${studentsPerKit}인 1조`
 }
 
 // ========================================
@@ -451,7 +458,7 @@ export function getScheduleTexts(type: ScheduleType): ScheduleTexts {
     refundTitle: "🎯 간편한 문의 방법",
     refundDesc: "마음에 드는 커리큘럼을 찾으셨나요? 각 수업 카드의 '문의하기' 버튼을 클릭하면 해당 수업 정보가 자동으로 입력된 문의 폼이 열립니다. 3시간/6시간/12시간 중에서 기관 상황에 맞는 시간을 선택하시면 됩니다!",
     capacityTitle: "💰 유연한 가격 구성",
-    capacityDesc: "가격은 '재료비 + 강사료'로 구성됩니다. 재료비는 4인 1조 기준 55,000원, 강사료는 시간당 50,000원입니다. 기본 3시간 이상(2시간도 가능)이며, 인원수에 따라 비용이 달라집니다. 예를 들어 12명이 3시간 수업을 받으면 재료비 165,000원 + 강사료 150,000원 = 총 315,000원입니다. 재료비와 강사료를 분리하여 유연하게 조정할 수 있습니다.",
+    capacityDesc: "수강료는 '교육 키트(재료비) + 강사료'로 구성됩니다. 피지컬 AI 수업은 4인 1조 키트 기준, 바이브 코딩 수업은 1인 워크북·AI 실습 기준으로 재료비가 계산되며, 강사료는 시간당 50,000원입니다. 키트는 구매 또는 대여 중 선택할 수 있고, 각 커리큘럼 카드에서 인원수를 조정하면 예상 비용이 바로 계산됩니다.",
     contactTitle: "📍 출강 가능 지역",
     contactDesc: "서울, 경기는 기본 출강 지역이며 전국 어디든 방문 가능합니다. 학교, 기업, 도서관, 복지관 등 어디든 찾아갑니다. 최소 인원 10명부터 최대 30명까지 진행 가능하며, 인원과 장소에 따라 맞춤 견적을 제공해드립니다.",
   }
@@ -460,8 +467,8 @@ export function getScheduleTexts(type: ScheduleType): ScheduleTexts {
   if (type === "weekday") {
     return {
       heroTitle: "출강 교육 커리큘럼",
-      heroSubtitle: "우리 기관에 딱 맞는 AI 메이커 교육을 찾고 계신가요?",
-      heroDescription: "3시간, 6시간, 12시간 중 선택하세요. 재료비와 강사료가 분리되어 유연하게 운영할 수 있습니다. 인원수에 따라 견적이 달라지며, 각 커리큘럼에는 실습 이미지가 포함되어 있습니다!",
+      heroSubtitle: "피지컬 AI와 바이브 코딩, 두 가지에 집중한 출강 수업입니다.",
+      heroDescription: "3시간, 6시간, 12시간 중 선택하세요. 수강료는 교육 키트(재료비)와 강사료로 나뉘어 있어 인원수에 맞춰 바로 견적을 확인할 수 있습니다.",
       monthPrefix: "",
       monthSuffix: " 추천 커리큘럼",
       listEmpty: "해당 시간대 커리큘럼을 준비 중입니다.",

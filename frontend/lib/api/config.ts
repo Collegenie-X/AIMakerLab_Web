@@ -18,7 +18,6 @@ export const DATA_SOURCE_MODE = process.env.NEXT_PUBLIC_DATA_SOURCE || 'json';
 export const DATA_SOURCE_CONFIG = {
   accounts: process.env.NEXT_PUBLIC_USE_API_ACCOUNTS === 'true',
   inquiry: process.env.NEXT_PUBLIC_USE_API_INQUIRY === 'true',
-  products: process.env.NEXT_PUBLIC_USE_API_PRODUCTS === 'true',
   gallery: process.env.NEXT_PUBLIC_USE_API_GALLERY === 'true',
   curriculum: process.env.NEXT_PUBLIC_USE_API_CURRICULUM === 'true',
   home: process.env.NEXT_PUBLIC_USE_API_HOME === 'true',
@@ -42,16 +41,6 @@ export const API_ENDPOINTS = {
     inquiries: '/api/inquiry/inquiries/',
     schedules: '/api/inquiry/schedules/',
     outreach: '/api/inquiry/outreach/',
-  },
-  
-  // 제품
-  products: {
-    products: '/api/products/products/',
-    quoteItems: '/api/products/quote-items/',
-    quoteInquiries: '/api/products/quote-inquiries/',
-    videos: '/api/products/videos/',
-    classroomPhotos: '/api/products/classroom-photos/',
-    reviews: '/api/products/reviews/',
   },
   
   // 갤러리
@@ -93,16 +82,6 @@ export const JSON_PATHS = {
     onlineContent: '/inquiry/online-content.json',
   },
   
-  // 제품
-  products: {
-    products: '/products/products.json',
-    quoteItems: '/products/quote-items.json',
-    videos: '/products/videos.json',
-    classroomPhotos: '/products/classroom-photos.json',
-    reviews: '/products/product-reviews.json',
-    relatedClasses: '/products/related-classes.json',
-  },
-  
   // 갤러리
   gallery: {
     works: '/gallery/works.json',
@@ -113,12 +92,10 @@ export const JSON_PATHS = {
   
   // 커리큘럼
   curriculum: {
-    blockCoding: '/curriculum/block-coding.json',
     viveCoding: '/curriculum/vive-coding.json',
     raspberryPi: '/curriculum/raspberry-pi.json',
     aiCoding: '/curriculum/ai-coding.json',
     arduino: '/curriculum/arduino.json',
-    appInventor: '/curriculum/app-inventor.json',
   },
   
   // 홈

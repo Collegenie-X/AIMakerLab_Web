@@ -1,4 +1,4 @@
-import { Home, Cpu, DoorOpen, Car, Wind, Sprout, Zap } from "lucide-react";
+import { Bot, Car, Cpu, Zap } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/data-display/card";
 import { Badge } from "@/components/ui/data-display/badge";
 import type { ProjectsData } from "../hooks/useArduinoCurriculumData";
@@ -6,8 +6,8 @@ import type { ProjectsData } from "../hooks/useArduinoCurriculumData";
 import { ARDUINO_CONFIG } from "../config";
 
 /**
- * 6대 프로젝트 섹션 컴포넌트
- * ESP32 + 카메라 + AI 기반 프로젝트 소개
+ * Car · Arm 프로젝트 섹션 컴포넌트
+ * ESP32-CAM + AI 기반 프로젝트 소개
  */
 interface ProjectsSectionProps {
   data: ProjectsData;
@@ -15,12 +15,9 @@ interface ProjectsSectionProps {
 
 // 아이콘 매핑
 const iconMap = {
-  Home,
-  Cpu,
-  DoorOpen,
+  Bot,
   Car,
-  Wind,
-  Sprout,
+  Cpu,
   Zap,
 };
 
@@ -38,12 +35,15 @@ const iconColorMap = {
 const difficultyColorMap = {
   "입문": "bg-green-900/30 text-green-400 border-green-800",
   "중급": "bg-blue-900/30 text-blue-400 border-blue-800",
+  "심화": "bg-purple-900/30 text-purple-400 border-purple-800",
   "고급": "bg-purple-900/30 text-purple-400 border-purple-800",
 };
 
 export function ProjectsSection({ data }: ProjectsSectionProps) {
   // Early return: 데이터가 없으면 렌더링하지 않음
-  if (!data || !data.items || data.items.length === 0) {
+  // 카테고리(입문/심화)에 나뉜 프로젝트를 한 목록으로 펼침
+  const projects = data?.categories?.flatMap((category) => category.projects) ?? [];
+  if (projects.length === 0) {
     return null;
   }
 
@@ -63,8 +63,8 @@ export function ProjectsSection({ data }: ProjectsSectionProps) {
           </div>
 
           {/* 프로젝트 그리드 */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {data.items.map((project) => {
+          <div className="grid md:grid-cols-2 gap-6">
+            {projects.map((project) => {
               const Icon = iconMap[project.icon as keyof typeof iconMap] || Zap;
               const iconColorClass = iconColorMap[project.iconColor as keyof typeof iconColorMap] || iconColorMap.blue;
               const difficultyClass = difficultyColorMap[project.difficulty as keyof typeof difficultyColorMap] || difficultyColorMap["중급"];

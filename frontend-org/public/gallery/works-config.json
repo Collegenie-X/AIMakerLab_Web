@@ -1,0 +1,65 @@
+{
+  "hero": {
+    "emoji": "🎨",
+    "title": "학생 작품",
+    "subtitle": "학생들이 직접 만든 창의적이고 멋진 프로젝트를 만나보세요"
+  },
+  "categoryAll": "전체",
+  "itemCountSuffix": "개의 작품",
+  "emptyState": {
+    "emoji": "🔍",
+    "title": "작품이 없습니다",
+    "message": "선택한 카테고리에 해당하는 작품이 아직 없습니다."
+  },
+  "actions": {
+    "like": "좋아요",
+    "share": "공유하기",
+    "create": "새 작품 등록하기",
+    "cancel": "취소",
+    "submit": "작품 등록하기"
+  },
+  "form": {
+    "title": "새 작품 등록하기",
+    "emoji": "🎨",
+    "fields": {
+      "image": {
+        "label": "작품 사진 (여러 장 가능)",
+        "emoji": "📸",
+        "uploadPlaceholder": "클릭하여 업로드",
+        "uploadHint": "PNG, JPG (최대 10MB, 여러 장 선택 가능)"
+      },
+      "title": {
+        "label": "작품 제목",
+        "emoji": "📝",
+        "placeholder": "예: 자율주행 로봇"
+      },
+      "category": {
+        "label": "작품 카테고리",
+        "emoji": "🗂️",
+        "placeholder": "카테고리 선택",
+        "options": ["IoT", "앱 개발", "로보틱스", "AI", "앱 인벤터", "아두이노", "라즈베리파이", "AI 교육"]
+      },
+      "description": {
+        "label": "간단한 설명",
+        "emoji": "💡",
+        "placeholder": "작품을 한 줄로 소개하세요"
+      },
+      "details": {
+        "label": "상세 설명",
+        "emoji": "📖",
+        "placeholder": "작품의 기능, 제작 과정, 사용한 기술 등을 자세히 설명해주세요."
+      },
+      "author": {
+        "label": "제작자",
+        "emoji": "👤",
+        "placeholder": "예: 김OO 학생"
+      },
+      "tags": {
+        "label": "태그",
+        "emoji": "🔖",
+        "placeholder": "태그를 쉼표로 구분하여 입력하세요 (예: 아두이노, 센서, 중학생)"
+      }
+    }
+  }
+}
+

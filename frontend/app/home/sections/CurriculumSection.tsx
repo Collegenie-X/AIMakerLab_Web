@@ -62,7 +62,7 @@ export function CurriculumSection({ text }: CurriculumSectionProps) {
 
         <div className="mt-12 text-center">
           <Button size="lg" className="bg-gradient-to-r from-violet-600 via-indigo-500 to-cyan-400 text-white shadow-lg shadow-violet-500/25" asChild>
-            <Link href="/curriculum/app-inventor">
+            <Link href="/curriculum/vive-coding">
               📋 {text.viewAllLabel}
               <ArrowRight className="ml-2 h-5 w-5" />
             </Link>

@@ -25,7 +25,7 @@ export function HeroScheduleSection({ texts, gradientClass }: HeroScheduleSectio
       gradientClass ?? 'from-cyan-500 via-blue-600 to-indigo-700'
     } py-16 text-white`}>
       {/* 배경 패턴 */}
-      <div className="absolute inset-0 bg-[url('/home/abstract-tech-pattern.png')] opacity-10" />
+      <div className="absolute inset-0 bg-[url('/home/images/abstract-tech-pattern.png')] opacity-10" />
       
       <div className="container relative mx-auto px-4">
         <div className="mx-auto max-w-6xl text-center">

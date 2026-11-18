@@ -207,6 +207,25 @@ export interface ClassGalleryData {
   tabs: ClassGalleryTab[];
 }
 
+// 다음 과정 예고 (Car → Arm)
+export interface NextCourseStep {
+  id: string;
+  step: string;
+  icon: string;
+  title: string;
+  status: string;
+  active: boolean;
+  items: string[];
+}
+
+export interface NextCourseData {
+  badge: string;
+  title: string;
+  description: string;
+  steps: NextCourseStep[];
+  note?: string;
+}
+
 // CTA 섹션
 export interface CtaData {
   title: string;
@@ -223,6 +242,7 @@ export interface RaspberryPiCurriculumData {
   learningGoals: LearningGoalsData;
   projects: ProjectsData;
   curriculum: CurriculumData;
+  nextCourse?: NextCourseData;
   gradeRecommendation: GradeRecommendationData;
   educationRequirements: EducationRequirementsData;
   materials: MaterialsData;

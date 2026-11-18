@@ -6,7 +6,6 @@
 
 import { 
   fetchOutreachInquiries, 
-  fetchProducts, 
   fetchGalleryWorks,
   logDebugConfig,
   getDebugStats,
@@ -85,7 +84,6 @@ export async function Example3_ConditionalDebug({
 export async function Example4_MultiplePages() {
   // 각 페이지는 독립적인 debug 설정을 가짐
   const inquiries = await fetchOutreachInquiries(); // inquiry.outreach 설정 사용
-  const products = await fetchProducts(); // products.products 설정 사용
   const works = await fetchGalleryWorks(); // gallery.works 설정 사용
   
   return (
@@ -93,13 +91,6 @@ export async function Example4_MultiplePages() {
       <section>
         <h2>출강 문의</h2>
         {inquiries.map((item: any) => (
-          <div key={item.id}>{item.title}</div>
-        ))}
-      </section>
-      
-      <section>
-        <h2>제품</h2>
-        {products.map((item: any) => (
           <div key={item.id}>{item.title}</div>
         ))}
       </section>

@@ -1,0 +1,36 @@
+[
+  {
+    "id": "1",
+    "title": "스마트 홈 시스템",
+    "description": "AI를 활용한 스마트 홈 제어 시스템을 만들었습니다.",
+    "imageUrl": "/placeholder.jpg",
+    "category": "작품",
+    "createdAt": "2024-11-10",
+    "status": "공개",
+    "views": 125,
+    "likes": 23
+  },
+  {
+    "id": "2",
+    "title": "AI 바이브 코딩 수업 후기",
+    "description": "아이가 정말 즐겁게 참여했습니다. 강력 추천!",
+    "imageUrl": "/placeholder.jpg",
+    "category": "후기",
+    "createdAt": "2024-11-08",
+    "status": "공개",
+    "views": 89,
+    "likes": 15
+  },
+  {
+    "id": "3",
+    "title": "로봇 청소기 프로젝트",
+    "description": "아두이노로 만든 자율주행 로봇 청소기입니다.",
+    "imageUrl": "/placeholder.jpg",
+    "category": "작품",
+    "createdAt": "2024-11-05",
+    "status": "검토중",
+    "views": 45,
+    "likes": 8
+  }
+]
+

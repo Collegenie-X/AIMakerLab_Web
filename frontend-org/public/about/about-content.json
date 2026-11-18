@@ -1,0 +1,373 @@
+{
+  "hero": {
+    "title": "AI Maker Lab",
+    "subtitle": "AI 시대를 주도하는 창의적 기업가 양성소",
+    "descriptions": [
+      "2019년 설립한 AI Maker Lab은 AI 리터러시를 기반으로 한 구조적 이해와 실행 능력을 키우며,",
+      "학생들이 직접 프로젝트를 완성하고 배포·운영까지 경험하는 실전형 교육을 제공합니다."
+    ]
+  },
+  "philosophy": {
+    "heading": "우리의 교육 철학",
+    "items": [
+      {
+        "id": "creative",
+        "topLabelEn": "PLANNER",
+        "topLabelKo": "기획자",
+        "title": "진짜 문제 발견과 정의",
+        "description": "무엇을 만들 것인가, 왜 만들어야 하는가, 어떤 문제를 해결하는가. 벤치마킹과 페르소나 분석으로 표면적인 문제가 아닌 본질적인 '진짜 문제'를 발견하고 정의합니다. AI는 우리가 정의한 문제를 해결하는 도구일 뿐입니다.",
+        "color": "blue"
+      },
+      {
+        "id": "persona",
+        "topLabelEn": "PERSONA",
+        "topLabelKo": "공감자",
+        "title": "페르소나 찾기와 기획",
+        "description": "누구를 위한 것인가, 사용자의 진짜 니즈는 무엇인가. 공감과 직관으로 타겟을 정의하고 그들의 맥락을 이해합니다. AI는 데이터를 분석하지만, 사람의 마음을 읽지는 못합니다.",
+        "color": "pink"
+      },
+      {
+        "id": "experience",
+        "topLabelEn": "EXECUTOR",
+        "topLabelKo": "실행자",
+        "title": "AI 활용 실행과 구현",
+        "description": "바이브 코딩(Vibe Coding)으로 V0 + Cursor를 활용해 서비스를 직접 개발하고 배포합니다. 계획을 현실로 만드는 추진력, 실패해도 다시 시도하는 끈기는 AI가 대신할 수 없습니다. AI는 도구를 제공하지만 실행은 학생의 몫입니다.",
+        "color": "green"
+      },
+      {
+        "id": "confidence",
+        "topLabelEn": "DEBUGGER",
+        "topLabelKo": "디버거",
+        "title": "성찰과 문제 해결",
+        "description": "무엇이 잘못되었는가, 왜 실패했는가, 다음엔 어떻게 개선할 것인가. 자신의 과정을 돌아보고 배우는 메타인지 능력을 키웁니다. AI는 답을 주지만, 성찰은 스스로 해야 합니다.",
+        "color": "purple"
+      }
+    ],
+    "subheading": "AI 시대, 결과보다 과정이 중요한 이유",
+    "aiVsHuman": {
+      "heading": "AI가 하는 것 vs 사람이 해야 하는 것",
+      "ai": {
+        "label": "AI가 하는 것",
+        "items": [
+          "코드 작성",
+          "디자인 구현",
+          "콘텐츠 생성",
+          "데이터 분석",
+          "반복 작업 자동화"
+        ]
+      },
+      "human": {
+        "label": "사람이 해야 하는 것",
+        "items": [
+          "진짜 문제 정의",
+          "기획과 전략",
+          "공감과 직관",
+          "실행 의지",
+          "자기 성찰"
+        ]
+      }
+    }
+  },
+  "methodology": {
+    "heading": "AI Maker Lab 교육 방법론",
+    "steps": [
+      {
+        "order": 1,
+        "title": "그림자 프로젝트",
+        "subtitle": "블록코딩·AI·마이크로비트·피지컬 컴퓨팅으로 구조적 이해",
+        "color": "blue"
+      },
+      {
+        "order": 2,
+        "title": "진짜 문제 찾기",
+        "subtitle": "벤치마킹 -> 페르소나로 다각도 분석, 열린 질문으로 문제 정의",
+        "color": "purple"
+      },
+      {
+        "order": 3,
+        "title": "프로젝트 실행",
+        "subtitle": "기획자 -> 디버거 -> 서비스단계로 역공부, 프로젝트식 교육",
+        "color": "green"
+      },
+      {
+        "order": 4,
+        "title": "바이브 코딩",
+        "subtitle": "열린 질문으로 V0 + Cursor 활용하여, AI와 파트너 형식 협업 개발",
+        "color": "pink"
+      }
+    ]
+  },
+  "comparison": {
+    "heading": "일반 학원 vs AI Maker Lab",
+    "columns": {
+      "base": "구분",
+      "typical": "일반 코딩 학원",
+      "lab": "AI Maker Lab"
+    },
+    "rows": [
+      {
+        "label": "수업 방식",
+        "typical": "이론 중심, 강의식",
+        "aimakeLab": "AI 활용 실습, 프로젝트 제작"
+      },
+      {
+        "label": "학습 목표",
+        "typical": "자격증 취득, 시험 대비",
+        "aimakeLab": "AI 리터러시,기업가 정신"
+      },
+      {
+        "label": "교육 내용",
+        "typical": "코딩 문법 암기",
+        "aimakeLab": "구조적 이해 → AI 활용 코딩 → 배포·운영"
+      },
+      {
+        "label": "강사진",
+        "typical": "일반 강사",
+        "aimakeLab": "현업 개발자 출신 전문가"
+      },
+      {
+        "label": "수업 인원",
+        "typical": "15-20명 대규모",
+        "aimakeLab": "4-8명 소규모 맞춤형"
+      },
+      {
+        "label": "결과물",
+        "typical": "수업 종료 후 없음",
+        "aimakeLab": "실제 배포 가능한 프로젝트 완성"
+      }
+    ]
+  },
+  "projects": {
+    "heading": "학생 작품 갤러리",
+    "subtitle": "AI를 활용하여 직접 제작하고 배포한 학생들의 프로젝트",
+    "items": [
+      {
+        "id": "robot",
+        "categoryBadge": "🤖 로봇 공학",
+        "title": "자율주행 로봇",
+        "description": "AI 코딩으로 제작한 장애물 회피 로봇 - Arduino + 초음파 센서",
+        "student": "중학교 2학년 김○○",
+        "theme": "blue",
+        "icon": "bot",
+        "url": "/gallery/works"
+      },
+      {
+        "id": "app",
+        "categoryBadge": "📱 앱 개발",
+        "title": "날씨 알림 앱",
+        "description": "AI 활용하여 개발하고 실제 배포한 실시간 날씨 정보 앱",
+        "student": "초등학교 6학년 이○○",
+        "theme": "purple",
+        "icon": "smartphone",
+        "url": "/gallery/works"
+      },
+      {
+        "id": "iot",
+        "categoryBadge": "🏠 IoT",
+        "title": "스마트 홈 시스템",
+        "description": "Raspberry Pi로 구현한 온도·습도 자동 조절 시스템",
+        "student": "고등학교 1학년 박○○",
+        "theme": "green",
+        "icon": "home",
+        "url": "/gallery/works"
+      },
+      {
+        "id": "electronics",
+        "categoryBadge": "🎵 전자공학",
+        "title": "LED 음악 조명",
+        "description": "소리 센서와 LED를 활용한 음악 반응형 조명 시스템",
+        "student": "중학교 3학년 최○○",
+        "theme": "yellow",
+        "icon": "music",
+        "url": "/gallery/works"
+      },
+      {
+        "id": "ai",
+        "categoryBadge": "🧠 인공지능",
+        "title": "이미지 분류 AI",
+        "description": "Python과 TensorFlow로 만든 동물 이미지 분류 모델",
+        "student": "고등학교 2학년 정○○",
+        "theme": "pink",
+        "icon": "brain",
+        "url": "/gallery/works"
+      },
+      {
+        "id": "game",
+        "categoryBadge": "🎮 게임 개발",
+        "title": "퍼즐 게임 앱",
+        "description": "AI 코딩으로 제작하고 배포한 교육용 수학 퍼즐 게임",
+        "student": "초등학교 5학년 강○○",
+        "theme": "orange",
+        "icon": "gamepad",
+        "url": "/gallery/works"
+      }
+    ]
+  },
+  "brand": {
+    "heading": "AI Maker Lab 교육 연구소",
+    "paragraphs": [
+      "AI Maker Lab은 단순한 코딩 학원이 아니라, 학생들이 기술의 구조적 원리를 블록코딩, AI, 마이크로비트, 피지컬 컴퓨팅 등 다양한 경험을 통해 자연스럽게 이해하고, 벤치마킹과 페르소나 분석으로 문제를 다각도로 바라보며 본질적인 문제를 정의할 수 있도록 합니다. 또한 프로젝트 기획, 디버깅, 서비스 제작 등 실제 역할을 경험하며 실전 역량을 키우고, AI와 파트너처럼 협업해 실제 서비스를 개발하고 배포·운영하는 과정까지 경험할 수 있습니다. 이러한 실천적이고 창의적인 교육을 통해 학생들은 AI 시대를 주도할 미래의 창의적 기업가로 성장하게 됩니다."
+    ]
+  },
+  "facility": {
+    "heading": "창의적인 교육 시설",
+    "subheading": "AI 시대 메이커를 위한 최적의 학습 공간",
+    "description": "AI Maker Lab은 학생들이 AI를 활용하여 창의적으로 제작하고 실험할 수 있는 최신 교육 시설과 장비를 갖추고 있습니다. 우리의 교육 공간은 학생들이 자유롭게 실행하고 디버깅하며 프로젝트를 완성할 수 있도록 설계되었습니다.",
+    "features": [
+      {
+        "title": "레이저 커팅",
+        "description": "아이디어를 실제 작품으로 구현"
+      },
+      {
+        "title": "다양한 코딩 키트",
+        "description": "Arduino, Raspberry Pi, 로봇 키트 등 완비"
+      },
+      {
+        "title": "소규모 맞춤형 수업",
+        "description": "4-8명 소규모로 개별 맞춤 지도"
+      }
+    ],
+    "stats": [
+      {
+        "value": "1대",
+        "label": "레이저 커팅기",
+        "theme": "blue"
+      },
+      {
+        "value": "10+",
+        "label": "교육용 키트 종류",
+        "theme": "green"
+      },
+      {
+        "value": "8명",
+        "label": "최대 수업 인원",
+        "theme": "purple"
+      },
+      {
+        "value": "3,000+",
+        "label": "누적 교육 학생수",
+        "theme": "pink"
+      }
+    ]
+  },
+  "history": {
+    "heading": "만랩 HISTORY",
+    "items": [
+      {
+        "year": 2025,
+        "bullets": [
+          "한국 로봇 SW교육 사업 교육제품 납품 협약",
+          "인공지능교 지원센터(AI Hub) 협약",
+          "대구 AI 교육 거점센터 지정",
+          "초·중·고 AI 리터러시 교육 과정 개설",
+          "전국 교육청 AI 교육 자료 제공 협약"
+        ]
+      },
+      {
+        "year": 2024,
+        "bullets": [
+          "대구교육청 SW교육 강사 양성 과정 운영",
+          "AI Maker Festa 개최 성공",
+          "학생 로봇 경진대회 대상 수상 배출",
+          "교육청 우수 교육기관 선정"
+        ]
+      },
+      {
+        "year": 2023,
+        "bullets": [
+          "누적 수강생 1,000명 돌파",
+          "교육 센터 확장 이전",
+          "온라인 교육 플랫폼 오픈"
+        ]
+      },
+      {
+        "year": 2022,
+        "bullets": [
+          "AI Maker Lab 코딩교육연구소 설립",
+          "초등 코딩 교육 프로그램 개설"
+        ]
+      }
+    ]
+  },
+  "era": {
+    "heading": "시대는 이렇게 바뀌었고, 우리는 이렇게 가르칩니다",
+    "subheading": "AI Maker Lab 2019~현재 — 기술의 변곡점마다 커리큘럼을 다시 설계해 왔습니다",
+    "items": [
+      {
+        "id": "block",
+        "year": "2019",
+        "icon": "block",
+        "color": "blue",
+        "eraTitle": "코딩 교육 의무화 — 문법을 외우던 시대",
+        "eraBody": "소프트웨어 교육이 학교에 들어왔지만, 대부분 문법 암기와 자격증에 머물렀습니다. 코드를 쓸 줄 알아도 무엇을 만들지는 배우지 못했습니다.",
+        "responseTitle": "블록코딩 + 피지컬 컴퓨팅으로 구조를 몸에 익히다",
+        "responseBody": "AI Maker Lab을 열고 마이크로비트·아두이노로 '입력 → 처리 → 출력'의 구조를 손으로 만들며 이해하는 과정을 설계했습니다. 문법이 아니라 구조가 먼저입니다.",
+        "tags": [
+          "블록코딩",
+          "마이크로비트",
+          "아두이노"
+        ]
+      },
+      {
+        "id": "data",
+        "year": "2021",
+        "icon": "data",
+        "color": "green",
+        "eraTitle": "데이터와 알고리즘 — AI가 특정 과제에서 사람을 넘다",
+        "eraBody": "이미지 인식, 번역, 추천에서 AI가 사람의 정확도를 넘어섰습니다. AI는 더 이상 연구실의 주제가 아니라 도구가 되었습니다.",
+        "responseTitle": "데이터로 학습시키는 경험을 커리큘럼에 넣다",
+        "responseBody": "학생이 직접 데이터를 모으고 라벨을 붙여 모델을 학습시키고, 왜 틀리는지까지 확인하는 과정을 넣었습니다. AI를 쓰는 법이 아니라 AI가 왜 그렇게 답하는지를 배웁니다.",
+        "tags": [
+          "머신러닝 체험",
+          "데이터 수집",
+          "모델 학습"
+        ]
+      },
+      {
+        "id": "vibe",
+        "year": "2023",
+        "icon": "vibe",
+        "color": "purple",
+        "eraTitle": "생성형 AI — 만드는 일이 AI에게 넘어가다",
+        "eraBody": "코드도, 디자인도, 글도 AI가 만듭니다. 결과물을 만드는 능력의 희소성이 빠르게 사라졌습니다. 이제 무엇을 왜 만들지 정하는 사람이 앞섭니다.",
+        "responseTitle": "바이브 코딩 — 열린 프롬프트로 서비스를 만들고 배포하다",
+        "responseBody": "V0와 Cursor를 파트너처럼 쓰며 기획부터 배포·운영까지 학생이 직접 끌고 갑니다. 코드를 타이핑하는 대신 문제를 정의하고, AI의 결과를 판단하고, 실제로 동작하는 서비스를 세상에 내놓습니다.",
+        "tags": [
+          "바이브 코딩",
+          "V0 + Cursor",
+          "실제 배포"
+        ]
+      },
+      {
+        "id": "reasoning",
+        "year": "2025",
+        "icon": "reasoning",
+        "color": "pink",
+        "eraTitle": "추론하는 AI — 스스로 단계를 나누어 생각하다",
+        "eraBody": "AI가 한 번에 답하지 않고 문제를 쪼개어 단계적으로 풀고, 스스로 계획하고 검증합니다. 지시를 잘하는 사람과 못하는 사람의 격차가 결과를 가릅니다.",
+        "responseTitle": "추론 교육 — 문제를 분해하고 AI의 답을 검증하다",
+        "responseBody": "큰 문제를 풀 수 있는 단위로 쪼개는 훈련, 각 단계를 프롬프트로 설계하는 훈련, 그리고 AI가 내놓은 답이 맞는지 근거를 따져 검증하는 훈련을 합니다. AI가 생각을 대신하는 게 아니라, 생각의 구조를 학생이 설계합니다.",
+        "tags": [
+          "문제 분해",
+          "프롬프트 설계",
+          "결과 검증"
+        ]
+      },
+      {
+        "id": "physical",
+        "year": "2026",
+        "icon": "physical",
+        "color": "orange",
+        "eraTitle": "피지컬 AI — 화면 밖 현실로 나오다",
+        "eraBody": "AI가 카메라로 세상을 보고, 판단하고, 로봇의 몸으로 움직입니다. 소프트웨어와 하드웨어의 경계가 사라지고, 현실에서 동작하는 AI가 다음 무대가 되었습니다.",
+        "responseTitle": "컴퓨터 비전 + 로봇 — 보고, 판단하고, 움직이게 만들다",
+        "responseBody": "카메라로 사물과 사람을 인식시키고, 그 인식 결과로 모터와 센서를 제어하는 프로젝트를 만듭니다. 2019년부터 쌓아온 피지컬 컴퓨팅과 지금의 AI가 여기서 하나로 만납니다.",
+        "tags": [
+          "컴퓨터 비전",
+          "객체 인식",
+          "로봇 제어"
+        ]
+      }
+    ]
+  }
+}

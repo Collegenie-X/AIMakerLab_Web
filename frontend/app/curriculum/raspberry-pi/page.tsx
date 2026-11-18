@@ -17,11 +17,12 @@ import {
   MaterialsDownloadSection,
   CtaSection,
 } from "../components";
-import { Server, Sprout, Car, Wifi } from "lucide-react";
+import { NextCourseSection } from "./components/NextCourseSection";
+import { Server, Car, Camera, Bot } from "lucide-react";
 
 /**
  * Raspberry Pi 코딩 과정 메인 페이지
- * 스마트 팜과 자율 주행차 프로젝트 소개
+ * 자율 주행차(Car) 수업 소개 + 로봇팔(Arm) 후속 과정 예고
  */
 export default function RaspberryPiCurriculumPage() {
   const { data, loading, error } = useRaspberryPiCurriculumData();
@@ -66,9 +67,9 @@ export default function RaspberryPiCurriculumPage() {
   // 아이콘 문자열을 실제 아이콘 컴포넌트로 매핑
   const iconMap: Record<string, any> = {
     Server,
-    Sprout,
     Car,
-    Wifi,
+    Camera,
+    Bot,
   };
 
   // JSON 데이터의 features를 실제 아이콘 컴포넌트와 매핑
@@ -143,7 +144,7 @@ export default function RaspberryPiCurriculumPage() {
 
 
 
-      {/* 커리큘럼 - 프로젝트별 */}
+      {/* 커리큘럼 - 자율 주행차 */}
       {data.curriculum.projects.map((project) => (
         <CurriculumSection
           key={project.id}
@@ -155,6 +156,11 @@ export default function RaspberryPiCurriculumPage() {
           primaryColor="green"
         />
       ))}
+
+      {/* 다음 과정 예고: Car → Arm */}
+      {data.nextCourse && (
+        <NextCourseSection data={data.nextCourse} containerClass={layout.containerClass} />
+      )}
 
       {/* 교육 조건 */}
       <EducationRequirementsSection

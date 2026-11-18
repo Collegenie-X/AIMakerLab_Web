@@ -1,0 +1,69 @@
+{
+  "hero": {
+    "emoji": "💬",
+    "title": "수업 후기",
+    "subtitle": "학부모님과 학생들의 생생한 수업 후기를 확인하세요"
+  },
+  "categoryAll": "전체",
+  "itemCountSuffix": "개의 후기",
+  "emptyState": {
+    "emoji": "🔍",
+    "title": "후기가 없습니다",
+    "message": "선택한 카테고리에 해당하는 후기가 아직 없습니다."
+  },
+  "actions": {
+    "like": "도움됨",
+    "share": "공유하기",
+    "create": "새 후기 작성하기",
+    "cancel": "취소",
+    "submit": "후기 등록하기"
+  },
+  "form": {
+    "title": "새 후기 작성하기",
+    "emoji": "✍️",
+    "fields": {
+      "image": {
+        "label": "수업 사진 (여러 장 가능)",
+        "emoji": "📸",
+        "uploadPlaceholder": "클릭하여 업로드",
+        "uploadHint": "PNG, JPG (최대 10MB, 여러 장 선택 가능)"
+      },
+      "title": {
+        "label": "후기 제목",
+        "emoji": "📝",
+        "placeholder": "예: 아이가 코딩에 푹 빠졌어요!"
+      },
+      "category": {
+        "label": "수업 종류",
+        "emoji": "🗂️",
+        "placeholder": "수업 선택",
+        "options": ["주중 강의", "주말 강의", "출장 강의"]
+      },
+      "rating": {
+        "label": "만족도",
+        "emoji": "⭐"
+      },
+      "description": {
+        "label": "간단한 후기",
+        "emoji": "💡",
+        "placeholder": "한 줄로 요약한 후기를 입력하세요"
+      },
+      "details": {
+        "label": "상세 후기",
+        "emoji": "📖",
+        "placeholder": "수업에 대한 자세한 후기를 작성해주세요. 어떤 점이 좋았는지, 아이가 어떻게 변화했는지 등을 자유롭게 작성해주세요."
+      },
+      "author": {
+        "label": "작성자",
+        "emoji": "👤",
+        "placeholder": "예: 김OO 학부모"
+      },
+      "tags": {
+        "label": "태그",
+        "emoji": "🔖",
+        "placeholder": "태그를 쉼표로 구분하여 입력하세요 (예: 초등학생, 만족, 추천)"
+      }
+    }
+  }
+}
+

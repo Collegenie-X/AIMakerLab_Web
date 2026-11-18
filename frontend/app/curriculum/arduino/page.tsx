@@ -106,7 +106,7 @@ export default function ArduinoPage() {
         {/* 학습 단계 구조도 */}
         <LearningPathSection data={data.learningPath} />
 
-        {/* 6대 프로젝트 섹션 */}
+        {/* Car · Arm 프로젝트 섹션 */}
         <ProjectsSection data={data.projects} />
 
       

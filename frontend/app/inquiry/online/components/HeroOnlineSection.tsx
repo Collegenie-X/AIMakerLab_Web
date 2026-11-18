@@ -11,7 +11,7 @@ export function HeroOnlineSection() {
   return (
     <section className={`relative overflow-hidden bg-gradient-to-br ${heroGradient} py-12 text-white`}>
       {/* 배경 패턴 */}
-      <div className="absolute inset-0 bg-[url('/home/abstract-tech-pattern.png')] opacity-10" />
+      <div className="absolute inset-0 bg-[url('/home/images/abstract-tech-pattern.png')] opacity-10" />
       
       <div className="container relative mx-auto px-4">
         <div className="mx-auto max-w-4xl text-center">

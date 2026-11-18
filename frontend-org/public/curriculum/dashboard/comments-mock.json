@@ -1,0 +1,30 @@
+[
+  {
+    "id": "1",
+    "content": "정말 유익한 강의였습니다. 아이가 너무 좋아했어요!",
+    "postTitle": "AI 바이브 코딩 수업 후기",
+    "postType": "후기",
+    "postUrl": "/gallery/reviews",
+    "createdAt": "2024-11-10",
+    "status": "활성"
+  },
+  {
+    "id": "2",
+    "content": "작품이 정말 멋지네요! 어떤 센서를 사용하셨나요?",
+    "postTitle": "스마트 홈 시스템 프로젝트",
+    "postType": "작품",
+    "postUrl": "/gallery/works",
+    "createdAt": "2024-11-08",
+    "status": "활성"
+  },
+  {
+    "id": "3",
+    "content": "다음 수업 일정은 언제인가요?",
+    "postTitle": "AI 아두이노 코딩 강의",
+    "postType": "강의",
+    "postUrl": "/curriculum/arduino",
+    "createdAt": "2024-11-05",
+    "status": "활성"
+  }
+]
+

@@ -1,0 +1,775 @@
+{
+  "hero": {
+    "badge": "AI 융합 과정",
+    "title": "AI 심화 제작 코딩",
+    "subtitle": "기획부터 실행까지",
+    "description": "IoT 제작과 AI 서비스 개발을 통한 실전 프로젝트",
+    "features": [
+      {
+        "key": "planning",
+        "label": "기획부터 실행",
+        "description": "문제 정의부터 프로젝트 완성까지"
+      },
+      {
+        "key": "iot",
+        "label": "IoT 제작",
+        "description": "하드웨어와 AI를 결합한 제품 개발"
+      },
+      {
+        "key": "ai-service",
+        "label": "AI 서비스",
+        "description": "최신 AI 도구로 웹 서비스 구축"
+      },
+      {
+        "key": "portfolio",
+        "label": "포트폴리오",
+        "description": "실전 프로젝트로 포트폴리오 완성"
+      }
+    ]
+  },
+  "courseInfo": [
+    {
+      "id": "duration",
+      "icon": "Calendar",
+      "iconColor": "blue",
+      "label": "수업 기간",
+      "value": "3개월 (12주)",
+      "order": 1
+    },
+    {
+      "id": "capacity",
+      "icon": "Users",
+      "iconColor": "green",
+      "label": "수강 인원",
+      "value": "4-6명 소규모 수업",
+      "order": 2
+    },
+    {
+      "id": "method",
+      "icon": "BookOpen",
+      "iconColor": "orange",
+      "label": "수업 방식",
+      "value": "프로젝트 기반 실습",
+      "order": 3
+    },
+    {
+      "id": "total-hours",
+      "icon": "Clock",
+      "iconColor": "purple",
+      "label": "총 학습 시간",
+      "value": "48시간",
+      "order": 4
+    }
+  ],
+  "courseDescription": {
+    "title": "AI 심화 제작 수업이란?",
+    "paragraphs": [
+      "<p><strong>AI 심화 제작 수업은 IoT 제품과 AI 서비스를 실제로 만들어보는 수업입니다.</strong> IoT 하드웨어를 직접 제작하고, AI 기술을 활용한 웹 서비스를 개발하면서 실전 프로젝트 경험을 쌓습니다. 3개월 동안 기획부터 실행까지 전체 과정을 경험합니다.</p>",
+      "<p><strong>기획부터 실행까지 전 과정을 배웁니다.</strong> 하드웨어와 AI를 합쳐서 실제로 작동하는 제품을 만들고, 이 과정에서 제품 개발 능력을 키웁니다. 단순히 코딩만 배우는 것이 아니라 문제를 정의하고 해결하는 전체 프로세스를 익힙니다.</p>",
+      "<p><strong>최신 AI 도구를 활용하여 빠르게 개발합니다.</strong> ChatGPT, Cursor, V0 같은 최신 AI 도구를 사용해서 빠르게 프로토타입을 만들고, 계속 고치고 개선하면서 완성도 높은 결과물을 만드는 방법을 배웁니다.</p>"
+    ],
+    "images": []
+  },
+  "learningPath": {
+    "iot": {
+      "title": "IoT 프로젝트 만들기",
+      "description": "하드웨어 + AI 합치기",
+      "steps": [
+        {
+          "id": "step-1",
+          "number": 1,
+          "title": "문제 찾기",
+          "description": "실생활 문제 찾기"
+        },
+        {
+          "id": "step-2",
+          "number": 2,
+          "title": "계획하기",
+          "description": "해결 방법 정하기"
+        },
+        {
+          "id": "step-3",
+          "number": 3,
+          "title": "하드웨어",
+          "description": "라즈베리파이 + 카메라"
+        },
+        {
+          "id": "step-4",
+          "number": 4,
+          "title": "AI 연결",
+          "description": "YOLO로 물체 찾기"
+        },
+        {
+          "id": "step-5",
+          "number": 5,
+          "title": "완성하기",
+          "description": "테스트하고 고치기"
+        }
+      ]
+    },
+    "vibe": {
+      "title": "웹 서비스 만들기",
+      "description": "AI로 빠르게 서비스 만들기",
+      "steps": [
+        {
+          "id": "step-1",
+          "number": 1,
+          "title": "아이디어",
+          "description": "뭘 만들지 정하기"
+        },
+        {
+          "id": "step-2",
+          "number": 2,
+          "title": "AI로 코딩",
+          "description": "ChatGPT로 코드 만들기"
+        },
+        {
+          "id": "step-3",
+          "number": 3,
+          "title": "화면 만들기",
+          "description": "화면 구성하기"
+        },
+        {
+          "id": "step-4",
+          "number": 4,
+          "title": "AI 연결",
+          "description": "OpenAI API 붙이기"
+        },
+        {
+          "id": "step-5",
+          "number": 5,
+          "title": "배포하기",
+          "description": "서비스 올리기"
+        }
+      ]
+    }
+  },
+  "gradeRecommendation": {
+    "title": "학년별 추천 과정",
+    "description": "학년과 수준에 맞는 과정을 선택하세요",
+    "programName": "AI 심화 제작 코딩",
+    "headers": [
+      "과정",
+      "초3-4",
+      "초5-6",
+      "중1-2",
+      "중3",
+      "고등"
+    ],
+    "courses": [
+      {
+        "id": "iot-12h",
+        "courseName": "IoT 12시간",
+        "description": "빠른 프로토타입",
+        "difficulty": "초급",
+        "duration": "12시간",
+        "recommendedGrades": {
+          "elementary-mid": null,
+          "elementary-high": null,
+          "middle-low": "선택",
+          "middle-high": "권장",
+          "high": "권장"
+        }
+      },
+      {
+        "id": "iot-24h",
+        "courseName": "IoT 24시간",
+        "description": "심화 구현",
+        "difficulty": "중급",
+        "duration": "24시간",
+        "recommendedGrades": {
+          "elementary-mid": null,
+          "elementary-high": null,
+          "middle-low": "도전",
+          "middle-high": "권장",
+          "high": "권장"
+        }
+      },
+      {
+        "id": "iot-48h",
+        "courseName": "IoT 48시간",
+        "description": "전문가 수준",
+        "difficulty": "고급",
+        "duration": "48시간",
+        "recommendedGrades": {
+          "elementary-mid": null,
+          "elementary-high": null,
+          "middle-low": null,
+          "middle-high": "도전",
+          "high": "권장"
+        }
+      },
+      {
+        "id": "vibe-12h",
+        "courseName": "바이브 12시간",
+        "description": "간단한 웹 서비스",
+        "difficulty": "초급",
+        "duration": "12시간",
+        "recommendedGrades": {
+          "elementary-mid": null,
+          "elementary-high": "선택",
+          "middle-low": "권장",
+          "middle-high": "권장",
+          "high": "권장"
+        }
+      },
+      {
+        "id": "vibe-24h",
+        "courseName": "바이브 24시간",
+        "description": "완성도 있는 서비스",
+        "difficulty": "중급",
+        "duration": "24시간",
+        "recommendedGrades": {
+          "elementary-mid": null,
+          "elementary-high": null,
+          "middle-low": "선택",
+          "middle-high": "권장",
+          "high": "권장"
+        }
+      }
+    ],
+    "legend": {
+      "recommended": "해당 학년에 가장 적합한 난이도",
+      "optional": "관심 있으면 도전 가능",
+      "challenge": "프로그래밍 경험이 있다면 가능"
+    }
+  },
+  "learningGoals": {
+    "title": "학습 목표",
+    "description": "이 과정을 통해 얻을 수 있는 역량",
+    "goals": [
+      {
+        "id": "planning",
+        "category": "기획 능력",
+        "title": "문제 발견 및 정의",
+        "description": "실생활의 문제를 발견하고 AI로 해결할 수 있는 방법을 기획합니다",
+        "skills": [
+          "문제 분석 및 정의",
+          "요구사항 도출",
+          "기획서 작성",
+          "프로젝트 설계"
+        ]
+      },
+      {
+        "id": "execution",
+        "category": "실행 능력",
+        "title": "AI 도구 활용 개발",
+        "description": "ChatGPT, Claude 등 AI 도구를 활용하여 빠르게 프로토타입을 제작합니다",
+        "skills": [
+          "AI 도구 활용",
+          "프롬프트 엔지니어링",
+          "빠른 프로토타이핑",
+          "반복 개선"
+        ]
+      },
+      {
+        "id": "iot",
+        "category": "IoT 제작",
+        "title": "하드웨어 + AI 융합",
+        "description": "라즈베리파이, ESP32 등을 활용하여 AI와 결합한 IoT 제품을 만듭니다",
+        "skills": [
+          "센서 제어",
+          "카메라 활용",
+          "AI 비전 연동",
+          "실시간 데이터 처리"
+        ]
+      },
+      {
+        "id": "web-service",
+        "category": "웹 서비스",
+        "title": "AI 웹 서비스 개발",
+        "description": "바이브 코딩으로 AI 기능이 포함된 웹 서비스를 개발합니다",
+        "skills": [
+          "프론트엔드 개발",
+          "API 연동",
+          "AI 모델 통합",
+          "서비스 배포"
+        ]
+      }
+    ],
+    "achievements": [
+      "실전 프로젝트로 포트폴리오 완성",
+      "문제 정의부터 완성까지 전 과정 경험",
+      "AI 도구 활용 능력 습득",
+      "하드웨어와 소프트웨어 융합 경험"
+    ]
+  },
+  "curriculum": {
+    "title": "트랙별 커리큘럼",
+    "description": "IoT 제작과 바이브 코딩 두 트랙으로 구성됩니다",
+    "projects": [
+      {
+        "id": "iot-project",
+        "title": "IoT 컴퓨터 비전 프로젝트",
+        "description": "라즈베리파이 + AI 비전으로 실생활 문제 해결",
+        "difficulty": "중급",
+        "university": "한양대 연계 프로젝트",
+        "tabs": [
+          {
+            "id": "12hours",
+            "label": "12시간 과정",
+            "duration": "12시간 (4주)",
+            "description": "핵심 기능만 빠르게 구현",
+            "modules": [
+              {
+                "id": "module-1",
+                "title": "문제 발견 및 기획",
+                "duration": "2시간",
+                "detailDescription": "실생활 문제를 발견하고 AI로 해결할 방법을 기획합니다",
+                "topics": [
+                  "문제 발견",
+                  "요구사항 분석",
+                  "기획서 작성"
+                ]
+              },
+              {
+                "id": "module-2",
+                "title": "AI 비전 기초",
+                "duration": "4시간",
+                "detailDescription": "OpenCV와 YOLO로 물체 인식 실습",
+                "topics": [
+                  "OpenCV 기초",
+                  "YOLO 물체 인식"
+                ]
+              },
+              {
+                "id": "module-3",
+                "title": "라즈베리파이 연동",
+                "duration": "4시간",
+                "detailDescription": "라즈베리파이에서 AI 실행",
+                "topics": [
+                  "라즈베리파이 설정",
+                  "카메라 연동"
+                ]
+              },
+              {
+                "id": "module-4",
+                "title": "프로젝트 완성",
+                "duration": "2시간",
+                "detailDescription": "테스트 및 발표",
+                "topics": [
+                  "통합 테스트",
+                  "발표"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "24hours",
+            "label": "24시간 과정",
+            "duration": "24시간 (8주)",
+            "description": "심화 기능까지 완성도 있게 구현",
+            "modules": [
+              {
+                "id": "module-1",
+                "title": "문제 발견 및 기획",
+                "duration": "4시간",
+                "detailDescription": "디자인 씽킹으로 문제 정의",
+                "topics": [
+                  "문제 발견",
+                  "요구사항 분석",
+                  "기획서 작성",
+                  "프로토타입 설계"
+                ]
+              },
+              {
+                "id": "module-2",
+                "title": "AI 비전 기초",
+                "duration": "6시간",
+                "detailDescription": "OpenCV와 YOLO 심화",
+                "topics": [
+                  "OpenCV 고급",
+                  "YOLO 커스터마이징",
+                  "정확도 개선"
+                ]
+              },
+              {
+                "id": "module-3",
+                "title": "라즈베리파이 연동",
+                "duration": "6시간",
+                "detailDescription": "하드웨어 제어 및 최적화",
+                "topics": [
+                  "GPIO 제어",
+                  "실시간 처리",
+                  "최적화"
+                ]
+              },
+              {
+                "id": "module-4",
+                "title": "프로젝트 제작",
+                "duration": "6시간",
+                "detailDescription": "실전 프로젝트 구현",
+                "topics": [
+                  "하드웨어 조립",
+                  "소프트웨어 통합",
+                  "테스트"
+                ]
+              },
+              {
+                "id": "module-5",
+                "title": "발표 및 포트폴리오",
+                "duration": "2시간",
+                "detailDescription": "포트폴리오 작성 및 발표",
+                "topics": [
+                  "발표 자료",
+                  "포트폴리오 작성"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "48hours",
+            "label": "48시간 과정",
+            "duration": "48시간 (12주)",
+            "description": "전문가 수준의 프로젝트 완성",
+            "modules": [
+              {
+                "id": "module-1",
+                "title": "문제 발견 및 기획",
+                "duration": "6시간",
+                "detailDescription": "전문적인 문제 분석 및 기획",
+                "topics": [
+                  "문제 발견",
+                  "시장 조사",
+                  "기획서",
+                  "프로토타입"
+                ]
+              },
+              {
+                "id": "module-2",
+                "title": "AI 비전 기초",
+                "duration": "10시간",
+                "detailDescription": "OpenCV, YOLO, 커스텀 모델",
+                "topics": [
+                  "OpenCV",
+                  "YOLO",
+                  "커스텀 모델",
+                  "데이터 수집"
+                ]
+              },
+              {
+                "id": "module-3",
+                "title": "라즈베리파이 연동",
+                "duration": "10시간",
+                "detailDescription": "전문적인 하드웨어 제어",
+                "topics": [
+                  "GPIO",
+                  "센서 융합",
+                  "실시간 처리",
+                  "최적화"
+                ]
+              },
+              {
+                "id": "module-4",
+                "title": "프로젝트 제작",
+                "duration": "18시간",
+                "detailDescription": "완성도 높은 프로젝트 구현",
+                "topics": [
+                  "조립",
+                  "통합",
+                  "테스트",
+                  "디버깅",
+                  "개선"
+                ]
+              },
+              {
+                "id": "module-5",
+                "title": "발표 및 포트폴리오",
+                "duration": "4시간",
+                "detailDescription": "전문적인 포트폴리오 제작",
+                "topics": [
+                  "발표",
+                  "포트폴리오",
+                  "GitHub",
+                  "블로그"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "vibe-project",
+        "title": "바이브 코딩 서비스 개발",
+        "description": "AI 도구로 웹 서비스 빠르게 만들기",
+        "difficulty": "초급",
+        "tabs": [
+          {
+            "id": "12hours",
+            "label": "12시간 과정",
+            "duration": "12시간 (4주)",
+            "description": "간단한 AI 웹 서비스 만들기",
+            "modules": [
+              {
+                "id": "module-1",
+                "title": "아이디어 기획",
+                "duration": "2시간",
+                "detailDescription": "만들고 싶은 서비스 정의",
+                "topics": [
+                  "아이디어 발굴",
+                  "기획서 작성"
+                ]
+              },
+              {
+                "id": "module-2",
+                "title": "AI 활용 개발",
+                "duration": "4시간",
+                "detailDescription": "ChatGPT로 빠른 개발",
+                "topics": [
+                  "ChatGPT 활용",
+                  "코드 생성"
+                ]
+              },
+              {
+                "id": "module-3",
+                "title": "AI API 연동",
+                "duration": "4시간",
+                "detailDescription": "OpenAI API 통합",
+                "topics": [
+                  "API 키 발급",
+                  "API 연동"
+                ]
+              },
+              {
+                "id": "module-4",
+                "title": "배포",
+                "duration": "2시간",
+                "detailDescription": "서비스 런칭",
+                "topics": [
+                  "배포",
+                  "테스트"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "24hours",
+            "label": "24시간 과정",
+            "duration": "24시간 (8주)",
+            "description": "완성도 있는 AI 서비스 개발",
+            "modules": [
+              {
+                "id": "module-1",
+                "title": "아이디어 기획",
+                "duration": "4시간",
+                "detailDescription": "전문적인 기획",
+                "topics": [
+                  "시장 조사",
+                  "기획서",
+                  "와이어프레임"
+                ]
+              },
+              {
+                "id": "module-2",
+                "title": "프론트엔드 개발",
+                "duration": "8시간",
+                "detailDescription": "React로 화면 구성",
+                "topics": [
+                  "React 기초",
+                  "컴포넌트",
+                  "디자인"
+                ]
+              },
+              {
+                "id": "module-3",
+                "title": "AI API 연동",
+                "duration": "8시간",
+                "detailDescription": "여러 AI API 통합",
+                "topics": [
+                  "OpenAI",
+                  "Claude",
+                  "API 최적화"
+                ]
+              },
+              {
+                "id": "module-4",
+                "title": "배포 및 운영",
+                "duration": "4시간",
+                "detailDescription": "배포 및 모니터링",
+                "topics": [
+                  "배포",
+                  "도메인",
+                  "모니터링"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "educationRequirements": {
+    "title": "교육 조건",
+    "items": [
+      {
+        "id": "req-1",
+        "icon": "Laptop",
+        "iconColor": "blue",
+        "title": "개인 노트북",
+        "description": "실습용 개인 노트북 필수",
+        "details": [
+          "Windows, Mac 모두 가능",
+          "메모리 8GB 이상 권장"
+        ]
+      },
+      {
+        "id": "req-2",
+        "icon": "Code",
+        "iconColor": "green",
+        "title": "기초 프로그래밍",
+        "description": "Python 기초 지식 필요",
+        "details": [
+          "변수, 조건문, 반복문 이해",
+          "함수 사용 경험"
+        ]
+      },
+      {
+        "id": "req-3",
+        "icon": "Users",
+        "iconColor": "orange",
+        "title": "소규모 수업",
+        "description": "4-6명 소규모 프로젝트 수업",
+        "details": [
+          "개인별 1:1 피드백",
+          "팀 프로젝트 협업"
+        ]
+      },
+      {
+        "id": "req-4",
+        "icon": "Clock",
+        "iconColor": "purple",
+        "title": "수업 시간",
+        "description": "주 1회 3-4시간 집중 수업",
+        "details": [
+          "평일 저녁 또는 주말",
+          "총 12-48시간 과정"
+        ]
+      }
+    ]
+  },
+  "materials": {
+    "title": "수업 자료 다운로드",
+    "description": "과정별 수업 자료를 다운로드하세요",
+    "categories": [
+      {
+        "id": "iot-materials",
+        "title": "IoT 프로젝트 자료",
+        "description": "IoT 제작에 필요한 학습 자료",
+        "items": [
+          {
+            "id": "material-1",
+            "title": "라즈베리파이 설정 가이드",
+            "description": "라즈베리파이 초기 설정 및 환경 구축",
+            "icon": "FileText",
+            "format": "PDF",
+            "pages": "15페이지",
+            "size": "2.5MB",
+            "downloadUrl": "/materials/raspberrypi-setup.pdf"
+          },
+          {
+            "id": "material-2",
+            "title": "YOLO 실습 코드",
+            "description": "물체 인식 실습 예제 코드",
+            "icon": "Code",
+            "format": "ZIP",
+            "pages": "5파일",
+            "size": "1.2MB",
+            "downloadUrl": "/materials/yolo-examples.zip"
+          }
+        ]
+      },
+      {
+        "id": "vibe-materials",
+        "title": "바이브 코딩 자료",
+        "description": "웹 서비스 개발 학습 자료",
+        "items": [
+          {
+            "id": "material-3",
+            "title": "React 기초 가이드",
+            "description": "React 입문자를 위한 가이드",
+            "icon": "FileText",
+            "format": "PDF",
+            "pages": "25페이지",
+            "size": "3.8MB",
+            "downloadUrl": "/materials/react-guide.pdf"
+          },
+          {
+            "id": "material-4",
+            "title": "AI API 연동 예제",
+            "description": "OpenAI API 사용 예제",
+            "icon": "Code",
+            "format": "ZIP",
+            "pages": "8파일",
+            "size": "2.1MB",
+            "downloadUrl": "/materials/ai-api-examples.zip"
+          }
+        ]
+      }
+    ]
+  },
+  "classGallery": {
+    "title": "수업 현장 및 학생 작품",
+    "description": "AI 메이커랩에서의 생생한 수업 현장을 만나보세요",
+    "tabs": [
+      {
+        "id": "class-photos",
+        "label": "수업 현장",
+        "items": [
+          {
+            "src": "/gallery/class-1.jpg",
+            "alt": "IoT 프로젝트 수업 현장",
+            "description": "라즈베리파이와 AI 비전을 활용한 IoT 프로젝트 실습 모습"
+          },
+          {
+            "src": "/gallery/class-2.jpg",
+            "alt": "바이브 코딩 수업",
+            "description": "AI 도구를 활용하여 웹 서비스를 개발하는 학생들"
+          },
+          {
+            "src": "/gallery/class-3.jpg",
+            "alt": "프로젝트 기획 세션",
+            "description": "팀별로 아이디어를 기획하고 토론하는 모습"
+          }
+        ]
+      },
+      {
+        "id": "student-works",
+        "label": "학생 작품",
+        "items": [
+          {
+            "src": "/gallery/project-1.jpg",
+            "alt": "스마트 미러 프로젝트",
+            "description": "얼굴 인식과 날씨 정보를 제공하는 IoT 스마트 미러"
+          },
+          {
+            "src": "/gallery/project-2.jpg",
+            "alt": "AI 챗봇 서비스",
+            "description": "학습 도우미 역할을 하는 맞춤형 AI 챗봇 웹 서비스"
+          },
+          {
+            "src": "/gallery/project-3.jpg",
+            "alt": "스마트 쓰레기통",
+            "description": "물체 인식으로 자동 분류하는 스마트 재활용 시스템"
+          }
+        ]
+      }
+    ]
+  },
+  "cta": {
+    "title": "지금 바로 시작하세요!",
+    "description": "AI 메이커랩과 함께 미래를 준비하세요",
+    "buttonText": "수업 신청하기",
+    "buttonLink": "/inquiry"
+  },
+  "meta": {
+    "category": "ai-coding",
+    "title": "AI 심화 제작 코딩",
+    "description": "IoT 제작과 AI 서비스 개발 - 기획부터 실행까지",
+    "badge": "AI 융합 과정",
+    "gradientClass": "from-emerald-500 via-teal-600 to-cyan-700",
+    "ctaGradient": "from-emerald-500 to-teal-600",
+    "metaTitle": "AI 심화 제작 코딩 | AI메이커랩",
+    "metaDescription": "IoT 제작과 AI 서비스 개발 - 기획부터 실행까지 실전 프로젝트로 포트폴리오 완성",
+    "order": 1
+  }
+}

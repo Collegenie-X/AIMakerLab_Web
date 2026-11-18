@@ -2,7 +2,7 @@
 
 import { Calendar, Clock, Star, Users, DollarSign, Send } from "lucide-react"
 import { Button } from "@/components/ui/buttons/button"
-import type { ScheduleItem, ScheduleTexts } from "../../config"
+import { getKitUnitLabel, type ScheduleItem, type ScheduleTexts } from "../../config"
 
 type Props = {
   item: ScheduleItem
@@ -23,11 +23,13 @@ export function PricingSidebar({ item, texts, isClosed, onOutreachInquiry }: Pro
             <div className="text-sm text-gray-400">{texts.labels.instructor}</div>
             <div className="font-semibold text-white">{item.instructor}</div>
           </div>
-          <div className="flex items-center gap-2">
-            <Star className="h-5 w-5 fill-yellow-400 text-yellow-400" />
-            <span className="text-lg font-bold">{item.rating}</span>
-            <span className="text-sm text-gray-400">({item.reviews})</span>
-          </div>
+          {item.reviews > 0 && (
+            <div className="flex items-center gap-2">
+              <Star className="h-5 w-5 fill-yellow-400 text-yellow-400" />
+              <span className="text-lg font-bold">{item.rating}</span>
+              <span className="text-sm text-gray-400">({item.reviews})</span>
+            </div>
+          )}
         </div>
 
         <div className="mb-4 grid gap-3">
@@ -91,7 +93,7 @@ export function PricingSidebar({ item, texts, isClosed, onOutreachInquiry }: Pro
               </div>
               <div className="space-y-2 text-sm">
                 <div className="flex justify-between text-gray-300">
-                  <span>재료비 (4인 1세트)</span>
+                  <span>재료비 ({getKitUnitLabel(item.pricingInfo.studentsPerKit)} 1세트)</span>
                   <span className="font-semibold">{item.pricingInfo.materialsPerKit.toLocaleString()}원</span>
                 </div>
                 <div className="flex justify-between text-gray-300">

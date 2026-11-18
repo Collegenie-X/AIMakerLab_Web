@@ -23,7 +23,7 @@ export default function MethodPage() {
   const [submitted, setSubmitted] = useState(false)
 
   const interestOptions = [
-    { id: "app-inventor", label: "앱 인벤터 코딩", emoji: "📱" },
+    { id: "vibe-coding", label: "바이브 코딩", emoji: "✨" },
     { id: "arduino", label: "아두이노", emoji: "🔌" },
     { id: "raspberry-pi", label: "라즈베리파이", emoji: "🖥️" },
     { id: "ai", label: "AI 교육", emoji: "🤖" },
@@ -54,7 +54,7 @@ export default function MethodPage() {
       <main className="flex-1 bg-gray-950">
         {/* Hero Section */}
         <section className="relative overflow-hidden bg-gradient-to-br from-purple-600 via-violet-600 to-indigo-700 py-12 text-white">
-          <div className="absolute inset-0 bg-[url('/home/abstract-tech-pattern.png')] opacity-10" />
+          <div className="absolute inset-0 bg-[url('/home/images/abstract-tech-pattern.png')] opacity-10" />
           <div className="container relative mx-auto px-4">
             <div className="mx-auto max-w-4xl text-center">
               <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-white/20 backdrop-blur-sm px-4 py-2 text-sm font-semibold">

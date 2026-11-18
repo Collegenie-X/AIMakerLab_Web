@@ -1,9 +1,8 @@
 import Link from "next/link";
-import { Search, GraduationCap, FileText, BookOpen, Code, HelpCircle } from "lucide-react";
+import { Search, FileText, BookOpen, Code, HelpCircle } from "lucide-react";
 
 const links = [
   { href: "/curriculum", icon: Search, label: "전체 학년별 커리큘럼" },
-  { href: "/products", icon: GraduationCap, label: "교육키트 바로가기" },
   { href: "/resources/teaching-plans", icon: FileText, label: "수업 지도계획서 다운로드" },
   { href: "/resources/lesson-plans", icon: BookOpen, label: "수업 교안(PDF)다운로드" },
   { href: "/resources/source-code", icon: Code, label: "소스코드 다운로드" },

@@ -1,0 +1,64 @@
+{
+  "hero": {
+    "title": "문의 및 오시는 길",
+    "description": "AI Maker Lab (만랩 회사)를 방문하시거나 문의사항이 있으시면 언제든지 연락주세요."
+  },
+  "contact": [
+    {
+      "icon": "Phone",
+      "title": "전화 문의",
+      "value": "010-2708-0051",
+      "subtitle": "평일 10:00 - 18:00",
+      "color": "blue"
+    },
+    {
+      "icon": "Mail",
+      "title": "이메일 문의",
+      "value": "info@aimakelab.kr",
+      "subtitle": "24시간 접수 가능",
+      "color": "green"
+    },
+    {
+      "icon": "Clock",
+      "title": "운영 시간",
+      "value": "평일 10:00 - 19:00",
+      "subtitle": "주말 및 공휴일 휴무",
+      "color": "purple"
+    }
+  ],
+  "map": {
+    "heading": "찾아오시는 길",
+    "embedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d788.2968653345289!2d127.18445833449148!3d37.551817808613826!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca72f8b0e0001%3A0x1!2z7ZWY7Jqw7Iqk65SU7Iqk66eI7Yq466CM66asIOuMgOyYgQ!5e0!3m2!1sko!2skr!4v1234567890123!5m2!1sko!2skr",
+    "roadViewUrl": "https://map.naver.com/p/search/경기도%20하남시%20풍산동%20미사강변서로%2016%20하우스디스마트벨리"
+  },
+  "address": {
+    "mainAddress": "경기도 하남시 풍산동 미사강변서로 16",
+    "subAddress": "(하우스디스마트벨리 10층 F1046호)"
+  },
+  "transportation": {
+    "subway": {
+      "title": "지하철",
+      "routes": [
+        "강일역 1번 출구 도보 10분",
+        "5호선 강일역 하차"
+      ]
+    },
+    "bus": {
+      "title": "버스",
+      "routes": [
+        "간선: 146, 360, 740",
+        "지선: 3414, 4319"
+      ],
+      "stop": "정류장: 하남 풍산사거리(중앙차로)"
+    }
+  },
+  "visitGuide": {
+    "heading": "방문 안내",
+    "items": [
+      "방문 상담을 원하시는 경우 사전 예약을 부탁드립니다.",
+      "건물 10층으로 올라오시면 됩니다.",
+      "주말 및 공휴일은 휴무이며, 평일 오전 10시부터 오후 6시까지 운영합니다."
+    ]
+  }
+}
+
